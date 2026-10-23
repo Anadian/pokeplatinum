@@ -5825,7 +5825,7 @@ static BOOL ScrCmd_267(ScriptContext *ctx)
 {
     u16 slotMachineID = ScriptContext_GetVar(ctx);
 
-    sub_0203E414(ctx->fieldSystem->task, slotMachineID);
+    SlotsMinigame_RunApplication(ctx->fieldSystem->task, slotMachineID);
     return TRUE;
 }
 

@@ -40,12 +40,12 @@
 #include "vram_transfer.h"
 
 typedef struct {
-    UnkStruct_0203E348 *unk_00;
+    SlotsMinigameDTO *unk_00;
     UnkStruct_ov101_021D13C8 *unk_04;
 } UnkStruct_ov101_021D0F3C;
 
 static void ov101_021D0F3C(UnkStruct_ov101_021D0F3C *param0, UnkStruct_ov101_021D13C8 *param1);
-static UnkStruct_ov101_021D13C8 *ov101_021D0F6C(UnkStruct_0203E348 *param0);
+static UnkStruct_ov101_021D13C8 *ov101_021D0F6C(SlotsMinigameDTO *param0);
 static void ov101_021D0F94(UnkStruct_ov101_021D13C8 *param0);
 static void ov101_021D0F9C(UnkStruct_ov101_021D13C8 *param0);
 static void ov101_021D107C(UnkStruct_ov101_021D13C8 *param0);
@@ -72,11 +72,12 @@ static void ov101_021D19D4(UnkStruct_ov101_021D13C8 *param0);
 static const WindowTemplate Unk_ov101_021D8588[1];
 static void ov101_021D1458(UnkStruct_ov101_021D13C8 *param0);
 
-int ov101_021D0D80(ApplicationManager *appMan, int *param1)
+// Formerly ov101_021D0D80.
+int SlotsMinigame_Init(ApplicationManager *appMan, int *param1)
 {
     UnkStruct_ov101_021D0F3C *v0;
     UnkStruct_ov101_021D13C8 *v1;
-    UnkStruct_0203E348 *v2;
+    SlotsMinigameDTO *v2;
 
     SetVBlankCallback(NULL, NULL);
     DisableHBlank();
@@ -109,7 +110,8 @@ int ov101_021D0D80(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-int ov101_021D0E40(ApplicationManager *appMan, int *param1)
+// Formerly ov101_021D0E40.
+int SlotsMinigame_Main(ApplicationManager *appMan, int *param1)
 {
     UnkStruct_ov101_021D0F3C *v0 = ApplicationManager_Data(appMan);
     UnkStruct_ov101_021D13C8 *v1 = v0->unk_04;
@@ -144,7 +146,8 @@ int ov101_021D0E40(ApplicationManager *appMan, int *param1)
     return 0;
 }
 
-int ov101_021D0EE4(ApplicationManager *appMan, int *param1)
+// Formerly ov101_021D0EE4.
+int SlotsMinigame_Exit(ApplicationManager *appMan, int *param1)
 {
     UnkStruct_ov101_021D0F3C *v0 = ApplicationManager_Data(appMan);
     UnkStruct_ov101_021D13C8 *v1 = v0->unk_04;
@@ -177,20 +180,20 @@ static void ov101_021D0F3C(UnkStruct_ov101_021D0F3C *param0, UnkStruct_ov101_021
         v0 = 50000;
     }
 
-    (*param0->unk_00->unk_00) = v0;
-    param0->unk_00->unk_0C = param1->unk_20;
+    (*param0->unk_00->coinsPointer) = v0;
+    param0->unk_00->bonusRounds = param1->unk_20;
 
     if (param0->unk_00->records != NULL) {
         GameRecords_AddToRecordValue(param0->unk_00->records, RECORD_UNK_014, param1->unk_0C);
     }
 }
 
-static UnkStruct_ov101_021D13C8 *ov101_021D0F6C(UnkStruct_0203E348 *param0)
+static UnkStruct_ov101_021D13C8 *ov101_021D0F6C(SlotsMinigameDTO *param0)
 {
     UnkStruct_ov101_021D13C8 *v0 = ov101_021D1998(sizeof(UnkStruct_ov101_021D13C8));
 
-    v0->unk_60 = *(param0->unk_00);
-    v0->unk_88 = param0->unk_04;
+    v0->unk_60 = *(param0->unk_00->coinsPointer);
+    v0->unk_88 = param0->slotMachineVariant;
     v0->msgBoxFrame = param0->msgBoxFrame;
 
     return v0;
