@@ -224,6 +224,8 @@
 #include "res/text/bank/mystery_gift_phrase.h"
 #include "res/text/bank/tough_words.h"
 
+#include "debug.h"
+
 typedef struct {
     SysTask *unk_00;
     SysTask *unk_04;
@@ -5823,9 +5825,11 @@ static BOOL ScrCmd_ShowPoketch(ScriptContext *ctx)
 
 static BOOL ScrCmd_267(ScriptContext *ctx)
 {
+	EmulatorLog("%s: received %u", __func__, ctx);
     u16 slotMachineID = ScriptContext_GetVar(ctx);
 
     SlotsMinigame_RunApplication(ctx->fieldSystem->task, slotMachineID);
+	EmulatorLog("%s: returned 1", __func__);
     return TRUE;
 }
 

@@ -67,7 +67,7 @@
 #include "overlay058/ov58_021D0D80.h"
 #include "overlay059/ov59_021D0D80.h"
 #include "overlay064/ov64_0222DCE0.h"
-#include "overlay101/SlotsMinigame_Init.h"
+#include "overlay101/ov101_021D0D80.h"
 #include "savedata/save_table.h"
 #include "wifi_battle_tower/application.h"
 
@@ -132,6 +132,8 @@
 #include "constdata/const_020F410C.h"
 #include "constdata/const_020F6890.h"
 #include "res/text/bank/easy_chat.h"
+
+#include "debug.h"
 
 FS_EXTERN_OVERLAY(battle);
 FS_EXTERN_OVERLAY(pc_boxes);
@@ -1535,6 +1537,7 @@ static BOOL SlotsMinigame_TaskCallback(FieldTask *taskMan)
 // Formerly known as SlotsMinigame_RunApplication.
 void SlotsMinigame_RunApplication(FieldTask *task, int slotMachineID)
 {
+	EmulatorLog("%s: received %u, %u", __func__, task, slotMachineID);
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
     Options *options = SaveData_GetOptions(fieldSystem->saveData);
     SlotsMinigameEnv *v2 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(SlotsMinigameEnv));
@@ -1549,6 +1552,7 @@ void SlotsMinigame_RunApplication(FieldTask *task, int slotMachineID)
 
     GameRecords_IncrementTrainerScore(SaveData_GetGameRecords(fieldSystem->saveData), TRAINER_SCORE_EVENT_UNK_05);
     FieldTask_InitCall(task, SlotsMinigame_TaskCallback, v2);
+	EmulatorLog("%s: returned", __func__);
 }
 
 enum SlotMachineID {
@@ -1569,6 +1573,7 @@ enum SlotMachineID {
 
 static u8 SlotsMinigame_GetShuffledMachineVariant(SaveData *saveData, u8 slotMachineID)
 {
+	EmulatorLog("%s: received %u,%u", __func__, saveData, slotMachineID);
     // Chances? Modes?
     static const u8 v0[SLOT_MACHINE_COUNT] = {
         [SLOT_MACHINE_0] = 0,
@@ -1604,6 +1609,7 @@ static u8 SlotsMinigame_GetShuffledMachineVariant(SaveData *saveData, u8 slotMac
     }
 
     LCRNG_SetSeed(oldSeed);
+	EmulatorLog("%s: returned %u", __func__, v3[slotMachineID]);
     return v3[slotMachineID];
 }
 

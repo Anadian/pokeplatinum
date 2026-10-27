@@ -238,5 +238,10 @@
 		"original": "ov101_021D11D0",
 		"current": "SlotsMinigame_InitWindow",
 		"symbolType": "subroutine"
+	},
+	"SlotsMinigame_UpdateRecords":{
+		original: "ov101_021D0F3C",
+		current: "SlotsMinigame_UpdateRecords",
+		symbolType: "subroutine"
 	}
 }
