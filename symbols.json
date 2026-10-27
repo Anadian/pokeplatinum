@@ -1,0 +1,242 @@
+{
+  "SlotsMinigameEnv": {
+    "original": "UnkStruct_0203E35C",
+    "current": "SlotsMinigameEnv",
+    "symbolType": "struct"
+  },
+  "SlotsMinigameDTO": {
+    "original": "UnkStruct_0203E348",
+    "current": "SlotsMinigameDTO",
+    "symbolType": "struct"
+  },
+  "SlotsMinigameEnv.coins": {
+    "original": "unk_00",
+    "current": "coins",
+    "symbolType": "member"
+  },
+  "SlotsMinigameEnv.slotsMinigameDTO": {
+    "original": "unk_0C",
+    "current": "slotsMinigameDTO",
+    "symbolType": "member"
+  },
+  "SlotsMinigameDTO.coinsPointer": {
+    "original": "unk_00",
+    "current": "coinsPointer",
+    "symbolType": "member"
+  },
+  "SlotsMinigameDTO.slotMachineVariant": {
+    "original": "unk_04",
+    "current": "slotMachineVariant",
+    "symbolType": "member"
+  },
+  "SlotsMinigameDTO.bonusRounds": {
+    "original": "unk_0C",
+    "current": "bonusRounds",
+    "symbolType": "member"
+  },
+  "FieldTask_StartSlotsMinigame": {
+    "original": "sub_0203E348",
+    "current": "FieldTask_StartSlotsMinigame",
+    "symbolType": "subroutine"
+  },
+  "FieldTask_StartSlotsMinigame.slotsMinigameDTO": {
+    "original": "param1",
+    "current": "slotsMinigameDTO",
+    "symbolType": "param"
+  },
+  "SlotsMinigame_Init": {
+    "original": "ov101_021D0D80",
+    "current": "SlotsMinigame_Init",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_Main": {
+    "original": "ov101_021D0E40",
+    "current": "SlotsMinigame_Main",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_Exit": {
+    "original": "ov101_021D0EE4",
+    "current": "SlotsMinigame_Exit",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_GetShuffledMachineVariant": {
+    "original": "sub_0203E484",
+    "current": "SlotsMinigame_GetShuffledMachineVariant",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_TaskCallback": {
+    "original": "sub_0203E35C",
+    "current": "SlotsMinigame_TaskCallback",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_RunApplication": {
+    "original": "sub_0203E414",
+    "current": "SlotsMinigame_RunApplication",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_ApplicationData": {
+    "original": "UnkStruct_ov101_021D0F3C",
+    "current": "SlotsMinigame_ApplicationData",
+    "symbolType": "struct"
+  },
+  "SlotsMinigame_ApplicationData.slotMachineDTO": {
+    "original": "unk_00",
+    "current": "slotMachineDTO",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_ApplicationData.overlayState": {
+    "original": "unk_04",
+    "current": "overlayState",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_CreateOverlayState": {
+    "original": "ov101_021D0F6C",
+    "current": "SlotsMinigame_CreateOverlayState",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_FreeOverlayState": {
+    "original": "ov101_021D0F94",
+    "current": "SlotsMinigame_FreeOverlayState",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_SetVBlankCallback": {
+    "original": "ov101_021D0F9C",
+    "current": "SlotsMinigame_SetVBlankCallback",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_SetBanks": {
+    "original": "ov101_021D1098",
+    "current": "SlotsMinigame_SetBanks",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_ConfigBackground": {
+    "original": "ov101_021D10B8",
+    "current": "SlotsMinigame_ConfigBackground",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_VBlankCallback": {
+    "original": "ov101_021D197C",
+    "current": "SlotsMinigame_VBlankCallback",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_FreeBackground": {
+    "original": "ov101_021D11A4",
+    "current": "SlotsMinigame_FreeBackground",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_LoadGraphics": {
+    "original": "ov101_021D121C",
+    "current": "SlotsMinigame_LoadGraphics",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_LoadWindow": {
+    "original": "ov101_021D13C8",
+    "current": "SlotsMinigame_LoadWindow",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_FreeWindow": {
+    "original": "ov101_021D1458",
+    "current": "SlotsMinigame_FreeWindow",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_DrawMessageBox": {
+    "original": "ov101_021D148C",
+    "current": "SlotsMinigame_DrawMessageBox",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_FreeMessageBox": {
+    "original": "ov101_021D14E4",
+    "current": "SlotsMinigame_FreeMessageBox",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_InitCharacter": {
+    "original": "ov101_021D150C",
+    "current": "SlotsMinigame_InitCharacter",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_FreeCharacter": {
+    "original": "ov101_021D1544",
+    "current": "SlotsMinigame_FreeCharacter",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_InitRenderer": {
+    "original": "ov101_021D1550",
+    "current": "SlotsMinigame_InitRenderer",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_FreeRenderer": {
+    "original": "ov101_021D15A4",
+    "current": "SlotsMinigame_FreeRenderer",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_CopyGraphicsData": {
+    "original": "ov101_021D15BC",
+    "current": "SlotsMinigame_CopyGraphicsData",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_Noop": {
+    "original": "ov101_021D1868",
+    "current": "SlotsMinigame_Noop",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_InitAnimationManager": {
+    "original": "ov101_021D186C",
+    "current": "SlotsMinigame_InitAnimationManager",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_FreeAnimationManager": {
+    "original": "ov101_021D1884",
+    "current": "SlotsMinigame_FreeAnimationManager",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_StartSoundTask": {
+    "original": "ov101_021D18C0",
+    "current": "SlotsMinigame_StartSoundTask",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_StopSoundTask": {
+    "original": "ov101_021D18E4",
+    "current": "SlotsMinigame_StopSoundTask",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_ProcessSound_TaskCallback": {
+    "original": "ov101_021D18F4",
+    "current": "SlotsMinigame_ProcessSound_TaskCallback",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_Render": {
+    "original": "ov101_021D197C",
+    "current": "SlotsMinigame_Render",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_AllocateMemory": {
+    "original": "ov101_021D1998",
+    "current": "SlotsMinigame_AllocateMemory",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_LoadArchive": {
+    "original": "ov101_021D19BC",
+    "current": "SlotsMinigame_LoadArchive",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_FreeArchive": {
+    "original": "ov101_021D19D4",
+    "current": "SlotsMinigame_FreeArchive",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_CopyArchive": {
+    "original": "ov101_021D19E4",
+    "current": "SlotsMinigame_CopyArchive",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_FreeGraphics": {
+      "original": "ov101_021D107C",
+      "current": "SlotsMinigame_FreeGraphics",
+      "symbolType": "subroutine"
+  },
+	"SlotsMinigame_InitWindow": {
+		"original": "ov101_021D11D0",
+		"current": "SlotsMinigame_InitWindow",
+		"symbolType": "subroutine"
+	}
+}

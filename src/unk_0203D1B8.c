@@ -67,7 +67,7 @@
 #include "overlay058/ov58_021D0D80.h"
 #include "overlay059/ov59_021D0D80.h"
 #include "overlay064/ov64_0222DCE0.h"
-#include "overlay101/ov101_021D0D80.h"
+#include "overlay101/SlotsMinigame_Init.h"
 #include "savedata/save_table.h"
 #include "wifi_battle_tower/application.h"
 
@@ -1532,7 +1532,7 @@ static BOOL SlotsMinigame_TaskCallback(FieldTask *taskMan)
     return 0;
 }
 
-// Formerly known as sub_0203E414.
+// Formerly known as SlotsMinigame_RunApplication.
 void SlotsMinigame_RunApplication(FieldTask *task, int slotMachineID)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);

@@ -20,7 +20,7 @@
 #include "overlay101/const_ov101_021D9784.h"
 #include "overlay101/const_ov101_021D9934.h"
 #include "overlay101/const_ov101_021D9AE4.h"
-#include "overlay101/ov101_021D0D80.h"
+#include "overlay101/SlotsMinigame_Init.h"
 #include "overlay101/ov101_021D59AC.h"
 #include "overlay101/struct_ov101_021D13C8.h"
 #include "overlay101/struct_ov101_021D2D88.h"
@@ -1390,21 +1390,21 @@ static int ov101_021D2AF8(UnkStruct_ov101_021D13C8 *param0)
 
 static int ov101_021D2B28(UnkStruct_ov101_021D13C8 *param0)
 {
-    ov101_021D148C(param0, 0);
+    SlotsMinigame_DrawMessageBox(param0, 0);
     param0->unk_00 = 62;
     return 0;
 }
 
 static int ov101_021D2B3C(UnkStruct_ov101_021D13C8 *param0)
 {
-    ov101_021D148C(param0, 2);
+    SlotsMinigame_DrawMessageBox(param0, 2);
     param0->unk_00 = 62;
     return 0;
 }
 
 static int ov101_021D2B50(UnkStruct_ov101_021D13C8 *param0)
 {
-    ov101_021D148C(param0, 1);
+    SlotsMinigame_DrawMessageBox(param0, 1);
     param0->unk_00 = 62;
     return 0;
 }
@@ -1412,7 +1412,7 @@ static int ov101_021D2B50(UnkStruct_ov101_021D13C8 *param0)
 static int ov101_021D2B64(UnkStruct_ov101_021D13C8 *param0)
 {
     if (ov101_021D55F8(PAD_BUTTON_A | PAD_BUTTON_B)) {
-        ov101_021D14E4(param0);
+        SlotsMinigame_FreeMessageBox(param0);
         param0->unk_00 = param0->unk_04;
     }
 
@@ -3724,7 +3724,7 @@ static void ov101_021D4D38(UnkStruct_ov101_021D13C8 *param0)
     UnkStruct_ov101_021D4F58 *v2 = &param0->unk_184;
 
     v2->unk_00 = param0;
-    v0 = ov101_021D19E4(param0, 3, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 3, 0);
 
     NNS_G2dGetUnpackedPaletteData(v0, &v1);
 
@@ -3737,33 +3737,33 @@ static void ov101_021D4D38(UnkStruct_ov101_021D13C8 *param0)
 
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 5, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 5, 0);
     NNS_G2dGetUnpackedPaletteData(v0, &v1);
     ov101_021D4EA8(v1, 0, v2->unk_24);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 6, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 6, 0);
     NNS_G2dGetUnpackedPaletteData(v0, &v1);
     ov101_021D4EA8(v1, 0, v2->unk_44);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 7, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 7, 0);
     NNS_G2dGetUnpackedPaletteData(v0, &v1);
     ov101_021D4EA8(v1, 0, v2->unk_64);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 74, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 74, 0);
     NNS_G2dGetUnpackedPaletteData(v0, &v1);
     ov101_021D4EA8(v1, 0, v2->unk_144[UnkEnum_ov101_021D4F58_00]);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 75, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 75, 0);
     NNS_G2dGetUnpackedPaletteData(v0, &v1);
     ov101_021D4EA8(v1, 0, v2->unk_144[UnkEnum_ov101_021D4F58_01]);
     ov101_021D4EA8(v1, 0, v2->unk_144[UnkEnum_ov101_021D4F58_02]);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 76, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 76, 0);
     NNS_G2dGetUnpackedPaletteData(v0, &v1);
     ov101_021D4EA8(v1, 0, v2->unk_144[UnkEnum_ov101_021D4F58_03]);
     ov101_021D4EA8(v1, 0, v2->unk_144[UnkEnum_ov101_021D4F58_04]);
