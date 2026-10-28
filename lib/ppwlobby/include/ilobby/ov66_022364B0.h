@@ -28,18 +28,18 @@ T *ov66_022364B0(const std::vector<T, AllocatorT> &param0)
 }
 
 template <class T>
-s32 ov66_0224154C(T param0, T slotsMinigameDTO, std::size_t param2)
+s32 ov66_0224154C(T param0, T param1, std::size_t param2)
 {
     typedef typename T::value_type (*ValueTypeFunc)(typename T::value_type);
 
     std::transform(param0.begin(), param0.end(), param0.begin(), (ValueTypeFunc)std::tolower);
-    std::transform(slotsMinigameDTO.begin(), slotsMinigameDTO.end(), slotsMinigameDTO.begin(), (ValueTypeFunc)std::tolower);
-    return param0.compare(0, param2, slotsMinigameDTO);
+    std::transform(param1.begin(), param1.end(), param1.begin(), (ValueTypeFunc)std::tolower);
+    return param0.compare(0, param2, param1);
 }
 
-inline s32 inline_ov66_0224154C(const char *param0, const char *slotsMinigameDTO, std::size_t param2)
+inline s32 inline_ov66_0224154C(const char *param0, const char *param1, std::size_t param2)
 {
-    return ov66_0224154C(PPWString(param0), PPWString(slotsMinigameDTO), param2);
+    return ov66_0224154C(PPWString(param0), PPWString(param1), param2);
 }
 
 inline s64 inline_ov66_0223EE30()
@@ -71,27 +71,27 @@ T ov66_02237ADC(const char *param0, ...)
 }
 
 template <class T>
-T ov66_02236A38(std::size_t param0, const char *slotsMinigameDTO, ...)
+T ov66_02236A38(std::size_t param0, const char *param1, ...)
 {
     va_list v0;
     std::vector<char, typename T::allocator_type> v1(param0);
 
-    va_start(v0, slotsMinigameDTO);
-    OS_VSNPrintf(ov66_022364B0(v1), param0, slotsMinigameDTO, v0);
+    va_start(v0, param1);
+    OS_VSNPrintf(ov66_022364B0(v1), param0, param1, v0);
     va_end(v0);
 
     return T(ov66_022364B0(v1));
 }
 
 template <class T>
-std::vector<T, PPW_Allocator<T> > ov66_02242F08(const T &param0, const T &slotsMinigameDTO, std::size_t param2 = 0)
+std::vector<T, PPW_Allocator<T> > ov66_02242F08(const T &param0, const T &param1, std::size_t param2 = 0)
 {
     std::vector<T, PPW_Allocator<T> > v0;
     std::size_t v1;
     std::size_t v2 = 1;
     T v3(param0);
 
-    while (v2 != param2 && (v1 = v3.find_first_of(slotsMinigameDTO)) != v3.npos) {
+    while (v2 != param2 && (v1 = v3.find_first_of(param1)) != v3.npos) {
         if (v1 > 0) {
             v0.push_back(v3.substr(0, v1));
             v2++;
@@ -105,19 +105,19 @@ std::vector<T, PPW_Allocator<T> > ov66_02242F08(const T &param0, const T &slotsM
 }
 
 template <class T>
-std::vector<T, PPW_Allocator<T> > ov66_0223A3B0(const T &param0, const T &slotsMinigameDTO, std::size_t param2 = 0)
+std::vector<T, PPW_Allocator<T> > ov66_0223A3B0(const T &param0, const T &param1, std::size_t param2 = 0)
 {
     std::vector<T, PPW_Allocator<T> > v0;
     std::size_t v1;
     std::size_t v2 = 1;
     T v3(param0);
 
-    while (v2 != param2 && (v1 = v3.find(slotsMinigameDTO)) != v3.npos) {
+    while (v2 != param2 && (v1 = v3.find(param1)) != v3.npos) {
         if (v1 > 0) {
             v0.push_back(v3.substr(0, v1));
             v2++;
         }
-        v3 = v3.substr(v1 + slotsMinigameDTO.length());
+        v3 = v3.substr(v1 + param1.length());
     }
     if (v3.length() > 0) {
         v0.push_back(v3);
@@ -126,20 +126,20 @@ std::vector<T, PPW_Allocator<T> > ov66_0223A3B0(const T &param0, const T &slotsM
 }
 
 template <class T, class Allocator>
-BOOL ov66_02237EF8(const char *param0, std::vector<T, Allocator> &slotsMinigameDTO)
+BOOL ov66_02237EF8(const char *param0, std::vector<T, Allocator> &param1)
 {
     PPW_STATIC_ASSERT(sizeof(T) == 1);
 
     u32 v0 = strlen(param0);
-    slotsMinigameDTO.resize(v0);
+    param1.resize(v0);
     if (v0 == 0) {
         return TRUE;
     }
-    int v1 = DWC_Base64Decode(param0, strlen(param0), (char *)ov66_022364B0(slotsMinigameDTO), slotsMinigameDTO.size());
+    int v1 = DWC_Base64Decode(param0, strlen(param0), (char *)ov66_022364B0(param1), param1.size());
     if (v1 == -1) {
         return FALSE;
     }
-    slotsMinigameDTO.resize((std::size_t)v1);
+    param1.resize((std::size_t)v1);
     return TRUE;
 }
 

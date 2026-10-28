@@ -13,8 +13,8 @@ class UnkClass_ov66_0225B6D4 : public UnkClass_ov66_0225B6E4 {
     static UnkClass_ov66_0225B6D4 *Unk_ov66_0225B6D4;
     static UnkClass_ov66_0225B6D4 *Unk_ov66_0225B6D8;
 
-    u32 coins;
-    enum UnkEnum_ov66_02258338 slotMachineVariant;
+    u32 unk_00;
+    enum UnkEnum_ov66_02258338 unk_04;
     PPWString unk_08;
     PPWString unk_14;
     s32 unk_20;
@@ -23,10 +23,10 @@ class UnkClass_ov66_0225B6D4 : public UnkClass_ov66_0225B6E4 {
     void *unk_34;
     BOOL unk_38;
 
-    UnkClass_ov66_0225B6D4(enum UnkEnum_ov66_02258338 param0, const char *slotsMinigameDTO, const char *param2, s32 param3, const u8 *param4, u32 param5, u32 param6, UnkCallback_ov66_0225B6D4 param7, void *param8, BOOL param9)
-        : coins(param6)
-        , slotMachineVariant(param0)
-        , unk_08(slotsMinigameDTO)
+    UnkClass_ov66_0225B6D4(enum UnkEnum_ov66_02258338 param0, const char *param1, const char *param2, s32 param3, const u8 *param4, u32 param5, u32 param6, UnkCallback_ov66_0225B6D4 param7, void *param8, BOOL param9)
+        : unk_00(param6)
+        , unk_04(param0)
+        , unk_08(param1)
         , unk_14(param2)
         , unk_20(param3)
         , unk_24()
@@ -43,7 +43,7 @@ class UnkClass_ov66_0225B6D4 : public UnkClass_ov66_0225B6E4 {
 
     BOOL UnkClass_ov66_0225B6D4_InlineFunc0()
     {
-        DWCi_EncSessionInitialize(slotMachineVariant, unk_08.c_str());
+        DWCi_EncSessionInitialize(unk_04, unk_08.c_str());
 
         int v0;
         if (unk_38) {
@@ -90,7 +90,7 @@ class UnkClass_ov66_0225B6D4 : public UnkClass_ov66_0225B6E4 {
         case 1:
             DWC_ClearError();
 
-            if (--coins > 0) {
+            if (--unk_00 > 0) {
                 DWCi_EncSessionShutdown();
                 if (UnkClass_ov66_0225B6D4_InlineFunc0()) {
                     return FALSE;
@@ -108,22 +108,22 @@ class UnkClass_ov66_0225B6D4 : public UnkClass_ov66_0225B6E4 {
         }
     }
 
-    void UnkClass_ov66_0225B6D4_InlineFunc2(BOOL param0, const u8 *slotsMinigameDTO, u32 param2, void *param3)
+    void UnkClass_ov66_0225B6D4_InlineFunc2(BOOL param0, const u8 *param1, u32 param2, void *param3)
     {
         DWCi_EncSessionShutdown();
 
         std::swap(Unk_ov66_0225B6D8, Unk_ov66_0225B6D4);
-        unk_30(param0, slotsMinigameDTO, param2, param3);
+        unk_30(param0, param1, param2, param3);
     }
 
 public:
-    static BOOL UnkClass_ov66_0225B6D4_InlineFunc3(enum UnkEnum_ov66_02258338 param0, const char *slotsMinigameDTO, const char *param2, s32 param3, const u8 *param4, u32 param5, u32 param6, UnkCallback_ov66_0225B6D4 param7, void *param8, BOOL param9 = FALSE)
+    static BOOL UnkClass_ov66_0225B6D4_InlineFunc3(enum UnkEnum_ov66_02258338 param0, const char *param1, const char *param2, s32 param3, const u8 *param4, u32 param5, u32 param6, UnkCallback_ov66_0225B6D4 param7, void *param8, BOOL param9 = FALSE)
     {
         if (Unk_ov66_0225B6D4) {
             return FALSE;
         }
 
-        Unk_ov66_0225B6D4 = new UnkClass_ov66_0225B6D4(param0, slotsMinigameDTO, param2, param3, param4, param5, param6, param7, param8, param9);
+        Unk_ov66_0225B6D4 = new UnkClass_ov66_0225B6D4(param0, param1, param2, param3, param4, param5, param6, param7, param8, param9);
 
         BOOL v0 = Unk_ov66_0225B6D4->UnkClass_ov66_0225B6D4_InlineFunc0();
         if (!v0 && Unk_ov66_0225B6D4) {

@@ -1,4 +1,4 @@
-#include "overlay101/SlotsMinigame_Init.h"
+#include "overlay101/ov101_021D0D80.h"
 
 #include <nitro.h>
 #include <string.h>

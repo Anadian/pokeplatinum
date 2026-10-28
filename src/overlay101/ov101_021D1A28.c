@@ -20,7 +20,7 @@
 #include "overlay101/const_ov101_021D9784.h"
 #include "overlay101/const_ov101_021D9934.h"
 #include "overlay101/const_ov101_021D9AE4.h"
-#include "overlay101/SlotsMinigame_Init.h"
+#include "overlay101/ov101_021D0D80.h"
 #include "overlay101/ov101_021D59AC.h"
 #include "overlay101/struct_ov101_021D13C8.h"
 #include "overlay101/struct_ov101_021D2D88.h"

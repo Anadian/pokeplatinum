@@ -22,10 +22,10 @@
 static const char Unk_ov66_02258CAC[] = "#GSP";
 
 class UnkClass_ov66_02243B64 : public UnkClass_ov66_0225B6E4 {
-    CHAT coins;
-    DWCi_LOBBY_STATE slotMachineVariant;
+    CHAT unk_00;
+    DWCi_LOBBY_STATE unk_04;
     const s32 unk_08;
-    PPWString slotsMinigameDTO;
+    PPWString unk_0C;
     const PPWString unk_18;
     const PPWString unk_24;
     const PPWString unk_30;
@@ -43,8 +43,8 @@ class UnkClass_ov66_02243B64 : public UnkClass_ov66_0225B6E4 {
     typedef std::set<s32, std::less<s32>, PPW_Allocator<s32> > UnkClass_ov66_02243B64_UnkSet;
 
     struct UnkClass_ov66_02243B64_SubStruct0 : public UnkClass_ov66_0225B6E4 {
-        BOOL coins;
-        UnkClass_ov66_02243B64_UnkSet slotMachineVariant;
+        BOOL unk_00;
+        UnkClass_ov66_02243B64_UnkSet unk_04;
         s32 unk_10;
         const DWCi_LobbyChannelCallbacks unk_14;
 
@@ -53,10 +53,10 @@ class UnkClass_ov66_02243B64 : public UnkClass_ov66_0225B6E4 {
         {
         }
 
-        UnkClass_ov66_02243B64_SubStruct0(const DWCi_LobbyChannelCallbacks &param0, s32 slotsMinigameDTO)
-            : coins(FALSE)
-            , slotMachineVariant()
-            , unk_10(slotsMinigameDTO)
+        UnkClass_ov66_02243B64_SubStruct0(const DWCi_LobbyChannelCallbacks &param0, s32 param1)
+            : unk_00(FALSE)
+            , unk_04()
+            , unk_10(param1)
             , unk_14(param0)
         {
         }
@@ -68,29 +68,29 @@ class UnkClass_ov66_02243B64 : public UnkClass_ov66_0225B6E4 {
     UnkClass_ov66_02243B64_Sub1 unk_9C;
 
 public:
-    UnkClass_ov66_02243B64(const PPWString &param0, const PPWString &slotsMinigameDTO, DWC_LOBBY_CHANNEL_PREFIX param2, s32 param3, const PPWString &param4, const PPWString &param5, const PPWString &param6, const DWCi_LobbyGlobalCallbacks *param7);
+    UnkClass_ov66_02243B64(const PPWString &param0, const PPWString &param1, DWC_LOBBY_CHANNEL_PREFIX param2, s32 param3, const PPWString &param4, const PPWString &param5, const PPWString &param6, const DWCi_LobbyGlobalCallbacks *param7);
 
     ~UnkClass_ov66_02243B64();
 
     CHAT UnkClass_ov66_02243B64_InlineFunc0() const
     {
-        return coins;
+        return unk_00;
     }
 
     void UnkClass_ov66_02243B64_InlineFunc1(CHAT param0)
     {
-        coins = param0;
+        unk_00 = param0;
     }
 
     DWCi_LOBBY_STATE UnkClass_ov66_02243B64_InlineFunc2() const
     {
-        return slotMachineVariant;
+        return unk_04;
     }
 
     void UnkClass_ov66_02243B64_InlineFunc3(DWCi_LOBBY_STATE param0)
     {
-        if (!(slotMachineVariant == DWCi_LOBBY_STATE_ERROR && param0 != DWCi_LOBBY_STATE_CLOSING)) {
-            slotMachineVariant = param0;
+        if (!(unk_04 == DWCi_LOBBY_STATE_ERROR && param0 != DWCi_LOBBY_STATE_CLOSING)) {
+            unk_04 = param0;
         }
     }
 
@@ -101,12 +101,12 @@ public:
 
     PPWString ov66_02243B64() const
     {
-        return slotsMinigameDTO;
+        return unk_0C;
     }
 
     void UnkClass_ov66_02243B64_InlineFunc5(const PPWString &param0)
     {
-        slotsMinigameDTO = param0;
+        unk_0C = param0;
     }
 
     PPWString ov66_02243934() const
@@ -133,7 +133,7 @@ public:
 
     PPWString ov66_022467D4(const PPWString &param0) const;
 
-    std::vector<char *, PPW_Allocator<char *> > ov66_0224680C(int param0, const char **slotsMinigameDTO) const;
+    std::vector<char *, PPW_Allocator<char *> > ov66_0224680C(int param0, const char **param1) const;
 
     u32 UnkClass_ov66_02243B64_InlineFunc9() const
     {
@@ -158,7 +158,7 @@ public:
     void UnkClass_ov66_02243B64_InlineFunc13(DWCi_LOBBY_ERROR param0)
     {
         unk_58 = param0;
-        slotMachineVariant = DWCi_LOBBY_STATE_ERROR;
+        unk_04 = DWCi_LOBBY_STATE_ERROR;
     }
 
     BOOL UnkClass_ov66_02243B64_InlineFunc14()
@@ -199,33 +199,33 @@ public:
 
     static PPWString ov66_022468DC(s32 param0);
     static s32 ov66_02246928(const PPWString &param0);
-    BOOL ov66_022469C8(const PPWString param0, const DWCi_LobbyChannelCallbacks &slotsMinigameDTO, s32 param2);
+    BOOL ov66_022469C8(const PPWString param0, const DWCi_LobbyChannelCallbacks &param1, s32 param2);
     const DWCi_LobbyChannelCallbacks *ov66_02246B38(const PPWString &param0) const;
-    s32 ov66_02246C2C(const PPWString &param0, const PPWString &slotsMinigameDTO);
-    std::vector<s32, PPW_Allocator<s32> > ov66_02246DF0(int param0, const char **slotsMinigameDTO, const PPWString &param2);
+    s32 ov66_02246C2C(const PPWString &param0, const PPWString &param1);
+    std::vector<s32, PPW_Allocator<s32> > ov66_02246DF0(int param0, const char **param1, const PPWString &param2);
 
 private:
     struct UnkClass_ov66_02243B64_UnaryFunc : public std::unary_function<UnkClass_ov66_02243B64_UnkMap1::value_type, bool> {
-        const s32 coins;
+        const s32 unk_00;
         UnkClass_ov66_02243B64_UnaryFunc(s32 param0)
-            : coins(param0)
+            : unk_00(param0)
         {
         }
 
         bool operator()(const UnkClass_ov66_02243B64_UnkMap1::value_type &param0) const
         {
-            return param0.second.slotMachineVariant.find(coins) != param0.second.slotMachineVariant.end();
+            return param0.second.unk_04.find(unk_00) != param0.second.unk_04.end();
         }
     };
 
     BOOL ov66_02246F78(s32 param0);
 
 public:
-    BOOL ov66_0224717C(const PPWString &param0, const PPWString &slotsMinigameDTO);
+    BOOL ov66_0224717C(const PPWString &param0, const PPWString &param1);
     BOOL ov66_02247258(const PPWString &param0);
     s32 ov66_022474F4(const PPWString &param0) const;
     PPWString ov66_02247578(s32 param0) const;
-    s32 ov66_022475DC(const PPWString &param0, const PPWString &slotsMinigameDTO);
+    s32 ov66_022475DC(const PPWString &param0, const PPWString &param1);
     BOOL ov66_02247690(const PPWString &param0) const;
     BOOL ov66_022476C8(const PPWString &param0);
     s32 ov66_02247704(const PPWString &param0);

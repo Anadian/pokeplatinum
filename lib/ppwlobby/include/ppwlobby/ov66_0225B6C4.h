@@ -15,8 +15,8 @@
 
 class UnkClass_ov66_0225B6C4 : public UnkClass_ov66_0225B6E4 {
 private:
-    PPW_LOBBY_STATE coins;
-    PPW_LOBBY_ERROR slotMachineVariant;
+    PPW_LOBBY_STATE unk_00;
+    PPW_LOBBY_ERROR unk_04;
     const PPW_LobbyCallbacks unk_08;
     const s32 unk_4C;
     const DWC_LOBBY_CHANNEL_PREFIX unk_50;
@@ -33,11 +33,11 @@ private:
     UnkClass_ov66_0223CA1C unk_144;
 
 public:
-    UnkClass_ov66_0225B6C4(const PPW_LobbyCallbacks &param0, s32 slotsMinigameDTO, DWC_LOBBY_CHANNEL_PREFIX param2, BOOL param3)
-        : coins(PPW_LOBBY_STATE_NOTINITIALIZED)
-        , slotMachineVariant(PPW_LOBBY_ERROR_NONE)
+    UnkClass_ov66_0225B6C4(const PPW_LobbyCallbacks &param0, s32 param1, DWC_LOBBY_CHANNEL_PREFIX param2, BOOL param3)
+        : unk_00(PPW_LOBBY_STATE_NOTINITIALIZED)
+        , unk_04(PPW_LOBBY_ERROR_NONE)
         , unk_08(param0)
-        , unk_4C(slotsMinigameDTO)
+        , unk_4C(param1)
         , unk_50(param2)
         , unk_54(param3)
         , unk_58()
@@ -59,12 +59,12 @@ public:
 
     PPW_LOBBY_STATE UnkClass_ov66_0225B6C4_InlineFunc0() const
     {
-        return coins;
+        return unk_00;
     }
 
     void UnkClass_ov66_0225B6C4_InlineFunc1(PPW_LOBBY_STATE param0)
     {
-        coins = param0;
+        unk_00 = param0;
     }
 
     const PPW_LobbyCallbacks &UnkClass_ov66_0225B6C4_InlineFunc2() const
@@ -84,14 +84,14 @@ public:
 
     PPW_LOBBY_ERROR UnkClass_ov66_0225B6C4_InlineFunc5() const
     {
-        return slotMachineVariant;
+        return unk_04;
     }
 
     void UnkClass_ov66_0225B6C4_InlineFunc6(PPW_LOBBY_ERROR param0)
     {
         if (param0 != PPW_LOBBY_ERROR_NONE) {
-            slotMachineVariant = param0;
-            coins = PPW_LOBBY_STATE_ERROR;
+            unk_04 = param0;
+            unk_00 = PPW_LOBBY_STATE_ERROR;
         }
     }
 
@@ -148,15 +148,15 @@ public:
         unk_58 = param0;
     }
 
-    BOOL UnkClass_ov66_0225B6C4_InlineFunc13(const PPW_LobbyRecruitInfo &param0, PPWString &slotsMinigameDTO)
+    BOOL UnkClass_ov66_0225B6C4_InlineFunc13(const PPW_LobbyRecruitInfo &param0, PPWString &param1)
     {
         if (unk_68) {
             return FALSE;
         } else {
             unk_68 = TRUE;
             unk_74 = param0;
-            slotsMinigameDTO = ov66_02236A38<PPWString>(PPW_LOBBY_MAX_MATCHMAKING_STRING_LENGTH, "M%d_%u", unk_4C, (unsigned long)current_time() % 1000);
-            strncpy(unk_74.matchMakingString, slotsMinigameDTO.c_str(), PPW_LOBBY_MAX_MATCHMAKING_STRING_LENGTH - 1);
+            param1 = ov66_02236A38<PPWString>(PPW_LOBBY_MAX_MATCHMAKING_STRING_LENGTH, "M%d_%u", unk_4C, (unsigned long)current_time() % 1000);
+            strncpy(unk_74.matchMakingString, param1.c_str(), PPW_LOBBY_MAX_MATCHMAKING_STRING_LENGTH - 1);
             return TRUE;
         }
     }
