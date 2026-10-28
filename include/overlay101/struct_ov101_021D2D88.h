@@ -15,7 +15,7 @@ typedef struct {
     int unk_14;
     int unk_18;
     SysTask *unk_1C;
-    UnkStruct_ov101_021D13C8 *unk_20;
+    Overlay101State *unk_20;
 } UnkStruct_ov101_021D2D88;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D2D88_H

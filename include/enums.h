@@ -158,11 +158,11 @@ typedef enum {
 } UnkEnum_ov101_021D9AE4;
 
 typedef enum {
-    UnkEnum_ov101_021D1894_00,
-    UnkEnum_ov101_021D1894_01,
-    UnkEnum_ov101_021D1894_02,
-    UnkEnum_ov101_021D1894_03,
-} UnkEnum_ov101_021D1894;
+    BGM_FIELD,
+    BGM_ATARI,
+    BGM_00ATARI,
+    UNKNOWN,
+} SlotsMinigame_SoundSequenceID;
 
 typedef enum {
     UnkEnum_ov66_02231E54_00 = 0,

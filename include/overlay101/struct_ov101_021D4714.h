@@ -10,7 +10,7 @@ typedef struct {
     u32 unk_00;
     u32 unk_04;
     int unk_08;
-    UnkStruct_ov101_021D13C8 *unk_0C;
+    Overlay101State *unk_0C;
     SysTask *unk_10;
     OverworldAnimManager *unk_14;
     OverworldAnimManager *unk_18;

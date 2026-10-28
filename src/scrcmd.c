@@ -639,7 +639,7 @@ static BOOL ScrCmd_ChangeDeoxysForm(ScriptContext *ctx);
 static BOOL ScrCmd_CheckPartyCombeeGenderCount(ScriptContext *ctx);
 static BOOL ScrCmd_HidePoketch(ScriptContext *ctx);
 static BOOL ScrCmd_ShowPoketch(ScriptContext *ctx);
-static BOOL ScrCmd_267(ScriptContext *ctx);
+static BOOL TriggerSlotsMinigame(ScriptContext *ctx);
 static BOOL ScrCmd_GetHour(ScriptContext *ctx);
 static BOOL ScrCmd_ShakeObject(ScriptContext *ctx);
 static BOOL ScrCmd_FlickerObject(ScriptContext *ctx);
@@ -5821,11 +5821,11 @@ static BOOL ScrCmd_ShowPoketch(ScriptContext *ctx)
     return FALSE;
 }
 
-static BOOL ScrCmd_267(ScriptContext *ctx)
+static BOOL TriggerSlotsMinigame(ScriptContext *ctx)
 {
     u16 slotMachineID = ScriptContext_GetVar(ctx);
 
-    sub_0203E414(ctx->fieldSystem->task, slotMachineID);
+    SlotsMinigame_RunApplication(ctx->fieldSystem->task, slotMachineID);
     return TRUE;
 }
 

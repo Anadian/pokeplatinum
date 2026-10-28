@@ -204,13 +204,13 @@ typedef struct {
 } UnkStruct_0203DE98;
 
 typedef struct {
-    int unk_00;
+    int coins;
     s64 startTime;
-    UnkStruct_0203E348 unk_0C;
-} UnkStruct_0203E35C;
+    SlotsMinigameDTO slotsMinigameDTO;
+} SlotsMinigameEnv;
 
 static void sub_0203DF68(FieldTask *taskMan);
-static u8 sub_0203E484(SaveData *saveData, u8 slotMachineID);
+static u8 SlotsMinigame_GetShuffledMachineVariant(SaveData *saveData, u8 slotMachineID);
 
 static BOOL ApplicationInit_Battle(ApplicationManager *appMan, int *state)
 {
@@ -1481,31 +1481,31 @@ void FieldSystem_HatchEgg(FieldSystem *fieldSystem)
     EggHatch_HatchEgg(fieldSystem->task, &args);
 }
 
-BOOL sub_0203E348(FieldSystem *fieldSystem, UnkStruct_0203E348 *param1)
+BOOL FieldTask_StartSlotsMinigame(FieldSystem *fieldSystem, SlotsMinigameDTO *slotsMinigameDTO)
 {
     FS_EXTERN_OVERLAY(overlay101);
 
     static const ApplicationManagerTemplate appTemplate = {
-        ov101_021D0D80,
-        ov101_021D0E40,
-        ov101_021D0EE4,
+        SlotsMinigame_Init,
+        SlotsMinigame_Main,
+        SlotsMinigame_Exit,
         FS_OVERLAY_ID(overlay101)
     };
 
-    FieldSystem_StartChildProcess(fieldSystem, &appTemplate, param1);
+    FieldSystem_StartChildProcess(fieldSystem, &appTemplate, slotsMinigameDTO);
     return 1;
 }
 
-static BOOL sub_0203E35C(FieldTask *taskMan)
+static BOOL SlotsMinigame_TaskCallback(FieldTask *taskMan)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     VarsFlags *v1 = SaveData_GetVarsFlags(fieldSystem->saveData);
-    UnkStruct_0203E35C *v2 = FieldTask_GetEnv(taskMan);
+    SlotsMinigameEnv *v2 = FieldTask_GetEnv(taskMan);
     int *v3 = FieldTask_GetState(taskMan);
 
     switch (*v3) {
     case 0:
-        sub_0203E348(fieldSystem, &v2->unk_0C);
+        FieldTask_StartSlotsMinigame(fieldSystem, &v2->slotsMinigameDTO);
         (*v3)++;
         break;
     case 1:
@@ -1513,13 +1513,13 @@ static BOOL sub_0203E35C(FieldTask *taskMan)
             u16 *coins = SaveData_GetCoins(fieldSystem->saveData);
             s64 timeStamp = GetTimestamp();
 
-            sub_0206DD38(fieldSystem, Coins_GetValue(coins), v2->unk_00, TimeElapsed(v2->startTime, timeStamp) / 60);
-            Coins_SetValue(SaveData_GetCoins(fieldSystem->saveData), v2->unk_00);
+            sub_0206DD38(fieldSystem, Coins_GetValue(coins), v2->coins, TimeElapsed(v2->startTime, timeStamp) / 60);
+            Coins_SetValue(SaveData_GetCoins(fieldSystem->saveData), v2->coins);
 
             int bonusRoundsWins = SystemVars_GetConsecutiveBonusRoundWins(v1);
 
-            if (v2->unk_0C.unk_0C > bonusRoundsWins) {
-                SystemVars_SetConsecutiveBonusRoundWins(v1, v2->unk_0C.unk_0C);
+            if (v2->slotsMinigameDTO.bonusRounds > bonusRoundsWins) {
+                SystemVars_SetConsecutiveBonusRoundWins(v1, v2->slotsMinigameDTO.bonusRounds);
             }
 
             Heap_Free(v2);
@@ -1531,22 +1531,22 @@ static BOOL sub_0203E35C(FieldTask *taskMan)
     return 0;
 }
 
-void sub_0203E414(FieldTask *task, int slotMachineID)
+void SlotsMinigame_RunApplication(FieldTask *task, int slotMachineID)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
     Options *options = SaveData_GetOptions(fieldSystem->saveData);
-    UnkStruct_0203E35C *v2 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(UnkStruct_0203E35C));
+    SlotsMinigameEnv *v2 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(SlotsMinigameEnv));
 
-    v2->unk_0C.unk_00 = &v2->unk_00;
-    v2->unk_00 = Coins_GetValue(SaveData_GetCoins(fieldSystem->saveData));
+    v2->slotsMinigameDTO.coinsPointer = &v2->coins;
+    v2->coins = Coins_GetValue(SaveData_GetCoins(fieldSystem->saveData));
     v2->startTime = GetTimestamp();
-    v2->unk_0C.records = SaveData_GetGameRecords(fieldSystem->saveData);
-    v2->unk_0C.unk_0C = 0;
-    v2->unk_0C.msgBoxFrame = Options_Frame(options);
-    v2->unk_0C.unk_04 = sub_0203E484(fieldSystem->saveData, slotMachineID);
+    v2->slotsMinigameDTO.records = SaveData_GetGameRecords(fieldSystem->saveData);
+    v2->slotsMinigameDTO.bonusRounds = 0;
+    v2->slotsMinigameDTO.msgBoxFrame = Options_Frame(options);
+    v2->slotsMinigameDTO.slotMachineVariant = SlotsMinigame_GetShuffledMachineVariant(fieldSystem->saveData, slotMachineID);
 
     GameRecords_IncrementTrainerScore(SaveData_GetGameRecords(fieldSystem->saveData), TRAINER_SCORE_EVENT_UNK_05);
-    FieldTask_InitCall(task, sub_0203E35C, v2);
+    FieldTask_InitCall(task, SlotsMinigame_TaskCallback, v2);
 }
 
 enum SlotMachineID {
@@ -1565,7 +1565,7 @@ enum SlotMachineID {
     SLOT_MACHINE_COUNT
 };
 
-static u8 sub_0203E484(SaveData *saveData, u8 slotMachineID)
+static u8 SlotsMinigame_GetShuffledMachineVariant(SaveData *saveData, u8 slotMachineID)
 {
     // Chances? Modes?
     static const u8 v0[SLOT_MACHINE_COUNT] = {

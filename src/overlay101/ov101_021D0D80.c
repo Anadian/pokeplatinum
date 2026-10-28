@@ -40,43 +40,43 @@
 #include "vram_transfer.h"
 
 typedef struct {
-    UnkStruct_0203E348 *unk_00;
-    UnkStruct_ov101_021D13C8 *unk_04;
-} UnkStruct_ov101_021D0F3C;
+    SlotsMinigameDTO *slotMachineDTO;
+    Overlay101State *overlayState;
+} SlotsMinigame_ApplicationData;
 
-static void ov101_021D0F3C(UnkStruct_ov101_021D0F3C *param0, UnkStruct_ov101_021D13C8 *param1);
-static UnkStruct_ov101_021D13C8 *ov101_021D0F6C(UnkStruct_0203E348 *param0);
-static void ov101_021D0F94(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D0F9C(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D107C(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D1098(void);
-static void ov101_021D10B8(BgConfig *param0);
-static void ov101_021D11A4(BgConfig *param0);
-static void ov101_021D11D0(void);
-static void ov101_021D121C(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D150C(void);
-static void ov101_021D1544(void);
-static void ov101_021D1550(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D15A4(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D15BC(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D1868(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D186C(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D1884(UnkStruct_ov101_021D13C8 *param0);
-static int ov101_021D18B4(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D18C0(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D18E4(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D18F4(SysTask *param0, void *param1);
-static void ov101_021D197C(void *param0);
-static void ov101_021D19BC(UnkStruct_ov101_021D13C8 *param0);
-static void ov101_021D19D4(UnkStruct_ov101_021D13C8 *param0);
+static void SlotsMinigame_UpdateRecords(SlotsMinigame_ApplicationData *param0, Overlay101State *param1);
+static Overlay101State *SlotsMinigame_CreateOverlayState(SlotsMinigameDTO *param0);
+static void SlotsMinigame_FreeOverlayState(Overlay101State *param0);
+static void SlotsMinigame_SetVBlankCallback(Overlay101State *param0);
+static void SlotsMinigame_FreeGraphics(Overlay101State *param0);
+static void SlotsMinigame_SetBanks(void);
+static void SlotsMinigame_ConfigBackground(BgConfig *param0);
+static void SlotsMinigame_FreeBackground(BgConfig *param0);
+static void SlotsMinigame_InitWindow(void);
+static void SlotsMinigame_LoadGraphics(Overlay101State *param0);
+static void SlotsMinigame_InitCharacter(void);
+static void SlotsMinigame_FreeCharacter(void);
+static void SlotsMinigame_InitRenderer(Overlay101State *param0);
+static void SlotsMinigame_FreeRenderer(Overlay101State *param0);
+static void SlotsMinigame_CopyGraphicsData(Overlay101State *param0);
+static void SlotsMinigame_Noop(Overlay101State *param0);
+static void SlotsMinigame_InitAnimationManager(Overlay101State *param0);
+static void SlotsMinigame_FreeAnimationManager(Overlay101State *param0);
+static int SlotsMinigame_SoundSequence_GetIsChangeActive(Overlay101State *param0);
+static void SlotsMinigame_StartSoundTask(Overlay101State *param0);
+static void SlotsMinigame_StopSoundTask(Overlay101State *param0);
+static void SlotsMinigame_ProcessSound_TaskCallback(SysTask *param0, void *param1);
+static void SlotsMinigame_VBlankCallback(void *param0);
+static void SlotsMinigame_LoadArchive(Overlay101State *param0);
+static void SlotsMinigame_FreeArchive(Overlay101State *param0);
 static const WindowTemplate Unk_ov101_021D8588[1];
-static void ov101_021D1458(UnkStruct_ov101_021D13C8 *param0);
+static void SlotsMinigame_FreeWindow(Overlay101State *param0);
 
-int ov101_021D0D80(ApplicationManager *appMan, int *param1)
+int SlotsMinigame_Init(ApplicationManager *appMan, int *param1)
 {
-    UnkStruct_ov101_021D0F3C *v0;
-    UnkStruct_ov101_021D13C8 *v1;
-    UnkStruct_0203E348 *v2;
+    SlotsMinigame_ApplicationData *v0;
+    Overlay101State *v1;
+    SlotsMinigameDTO *v2;
 
     SetVBlankCallback(NULL, NULL);
     DisableHBlank();
@@ -84,35 +84,35 @@ int ov101_021D0D80(ApplicationManager *appMan, int *param1)
     GXLayers_DisableEngineBLayers();
     Heap_Create(HEAP_ID_APPLICATION, HEAP_ID_79, 0x80000);
 
-    v0 = ApplicationManager_NewData(appMan, sizeof(UnkStruct_ov101_021D0F3C), HEAP_ID_79);
-    memset(v0, 0, sizeof(UnkStruct_ov101_021D0F3C));
+    v0 = ApplicationManager_NewData(appMan, sizeof(SlotsMinigame_ApplicationData), HEAP_ID_79);
+    memset(v0, 0, sizeof(SlotsMinigame_ApplicationData));
     v2 = ApplicationManager_Args(appMan);
-    v0->unk_00 = v2;
-    v1 = ov101_021D0F6C(v0->unk_00);
-    v0->unk_04 = v1;
+    v0->slotMachineDTO = v2;
+    v1 = SlotsMinigame_CreateOverlayState(v0->slotMachineDTO);
+    v0->overlayState = v1;
 
-    ov101_021D19BC(v1);
-    ov101_021D186C(v1);
-    ov101_021D0F9C(v1);
-    ov101_021D121C(v1);
-    ov101_021D13C8(v1);
-    ov101_021D150C();
-    ov101_021D1550(v1);
+    SlotsMinigame_LoadArchive(v1);
+    SlotsMinigame_InitAnimationManager(v1);
+    SlotsMinigame_SetVBlankCallback(v1);
+    SlotsMinigame_LoadGraphics(v1);
+    SlotsMinigame_LoadWindow(v1);
+    SlotsMinigame_InitCharacter();
+    SlotsMinigame_InitRenderer(v1);
     ov101_021D1A28(v1);
     ov101_021D59AC(v1);
     ov101_021D5AF0(v1);
     ov101_021D5C28(v1);
     Sound_SetSceneAndPlayBGM(SOUND_SCENE_SUB_66, SEQ_NONE, 0);
-    ov101_021D18C0(v1);
+    SlotsMinigame_StartSoundTask(v1);
     StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, COLOR_BLACK, 8, 1, HEAP_ID_79);
 
     return 1;
 }
 
-int ov101_021D0E40(ApplicationManager *appMan, int *param1)
+int SlotsMinigame_Main(ApplicationManager *appMan, int *param1)
 {
-    UnkStruct_ov101_021D0F3C *v0 = ApplicationManager_Data(appMan);
-    UnkStruct_ov101_021D13C8 *v1 = v0->unk_04;
+    SlotsMinigame_ApplicationData *v0 = ApplicationManager_Data(appMan);
+    Overlay101State *v1 = v0->overlayState;
 
     switch (*param1) {
     case 0:
@@ -124,7 +124,7 @@ int ov101_021D0E40(ApplicationManager *appMan, int *param1)
         if (ov101_021D1AAC(v1) == 1) {
             (*param1)++;
             StartScreenFade(FADE_SUB_THEN_MAIN, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 8, 1, HEAP_ID_79);
-            ov101_021D1894(v1, UnkEnum_ov101_021D1894_00);
+            SlotsMinigame_SoundSequence_StartChange(v1, BGM_FIELD);
         }
         break;
     case 2:
@@ -133,7 +133,7 @@ int ov101_021D0E40(ApplicationManager *appMan, int *param1)
         }
         (*param1)++;
     case 3:
-        if (ov101_021D18B4(v1) == 0) {
+        if (SlotsMinigame_SoundSequence_GetIsChangeActive(v1) == 0) {
             return 1;
         }
     }
@@ -144,24 +144,24 @@ int ov101_021D0E40(ApplicationManager *appMan, int *param1)
     return 0;
 }
 
-int ov101_021D0EE4(ApplicationManager *appMan, int *param1)
+int SlotsMinigame_Exit(ApplicationManager *appMan, int *param1)
 {
-    UnkStruct_ov101_021D0F3C *v0 = ApplicationManager_Data(appMan);
-    UnkStruct_ov101_021D13C8 *v1 = v0->unk_04;
+    SlotsMinigame_ApplicationData *v0 = ApplicationManager_Data(appMan);
+    Overlay101State *v1 = v0->overlayState;
 
     SetVBlankCallback(NULL, NULL);
 
-    ov101_021D0F3C(v0, v1);
+    SlotsMinigame_UpdateRecords(v0, v1);
 
-    ov101_021D1884(v1);
-    ov101_021D107C(v1);
-    ov101_021D1458(v1);
+    SlotsMinigame_FreeAnimationManager(v1);
+    SlotsMinigame_FreeGraphics(v1);
+    SlotsMinigame_FreeWindow(v1);
 
     ov101_021D1A4C(v1);
-    ov101_021D18E4(v1);
+    SlotsMinigame_StopSoundTask(v1);
 
-    ov101_021D19D4(v1);
-    ov101_021D0F94(v1);
+    SlotsMinigame_FreeArchive(v1);
+    SlotsMinigame_FreeOverlayState(v1);
 
     ApplicationManager_FreeData(appMan);
     Heap_Destroy(HEAP_ID_79);
@@ -169,7 +169,7 @@ int ov101_021D0EE4(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-static void ov101_021D0F3C(UnkStruct_ov101_021D0F3C *param0, UnkStruct_ov101_021D13C8 *param1)
+static void SlotsMinigame_UpdateRecords(SlotsMinigame_ApplicationData *param0, Overlay101State *param1)
 {
     u32 v0 = param1->unk_60;
 
@@ -177,37 +177,37 @@ static void ov101_021D0F3C(UnkStruct_ov101_021D0F3C *param0, UnkStruct_ov101_021
         v0 = 50000;
     }
 
-    (*param0->unk_00->unk_00) = v0;
-    param0->unk_00->unk_0C = param1->unk_20;
+    (*param0->slotMachineDTO->coinsPointer) = v0;
+    param0->slotMachineDTO->bonusRounds = param1->unk_20;
 
-    if (param0->unk_00->records != NULL) {
-        GameRecords_AddToRecordValue(param0->unk_00->records, RECORD_UNK_014, param1->unk_0C);
+    if (param0->slotMachineDTO->records != NULL) {
+        GameRecords_AddToRecordValue(param0->slotMachineDTO->records, RECORD_UNK_014, param1->unk_0C);
     }
 }
 
-static UnkStruct_ov101_021D13C8 *ov101_021D0F6C(UnkStruct_0203E348 *param0)
+static Overlay101State *SlotsMinigame_CreateOverlayState(SlotsMinigameDTO *param0)
 {
-    UnkStruct_ov101_021D13C8 *v0 = ov101_021D1998(sizeof(UnkStruct_ov101_021D13C8));
+    Overlay101State *v0 = SlotsMinigame_AllocateMemory(sizeof(Overlay101State));
 
-    v0->unk_60 = *(param0->unk_00);
-    v0->unk_88 = param0->unk_04;
+    v0->unk_60 = *(param0->coinsPointer);
+    v0->unk_88 = param0->slotMachineVariant;
     v0->msgBoxFrame = param0->msgBoxFrame;
 
     return v0;
 }
 
-static void ov101_021D0F94(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_FreeOverlayState(Overlay101State *param0)
 {
     Heap_Free(param0);
 }
 
-static void ov101_021D0F9C(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_SetVBlankCallback(Overlay101State *param0)
 {
     param0->unk_43C = BgConfig_New(HEAP_ID_79);
 
-    ov101_021D1098();
-    ov101_021D10B8(param0->unk_43C);
-    ov101_021D11D0();
+    SlotsMinigame_SetBanks();
+    SlotsMinigame_ConfigBackground(param0->unk_43C);
+    SlotsMinigame_InitWindow();
 
     GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG0, 1);
     GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG1, 1);
@@ -230,17 +230,17 @@ static void ov101_021D0F9C(UnkStruct_ov101_021D13C8 *param0)
     G2S_SetBG3Priority(3);
     G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG2, GX_BLEND_PLANEMASK_OBJ, 8, 9);
 
-    SetVBlankCallback(ov101_021D197C, param0);
+    SetVBlankCallback(SlotsMinigame_VBlankCallback, param0);
 }
 
-static void ov101_021D107C(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_FreeGraphics(Overlay101State *param0)
 {
-    ov101_021D11A4(param0->unk_43C);
-    ov101_021D15A4(param0);
-    ov101_021D1544();
+    SlotsMinigame_FreeBackground(param0->unk_43C);
+    SlotsMinigame_FreeRenderer(param0);
+    SlotsMinigame_FreeCharacter();
 }
 
-static void ov101_021D1098(void)
+static void SlotsMinigame_SetBanks(void)
 {
     GXBanks v0 = {
         GX_VRAM_BG_128_A,
@@ -258,7 +258,7 @@ static void ov101_021D1098(void)
     GXLayers_SetBanks(&v0);
 }
 
-static void ov101_021D10B8(BgConfig *param0)
+static void SlotsMinigame_ConfigBackground(BgConfig *param0)
 {
     GX_SetDispSelect(GX_DISP_SELECT_MAIN_SUB);
 
@@ -355,7 +355,7 @@ static void ov101_021D10B8(BgConfig *param0)
     }
 }
 
-static void ov101_021D11A4(BgConfig *param0)
+static void SlotsMinigame_FreeBackground(BgConfig *param0)
 {
     Bg_FreeTilemapBuffer(param0, BG_LAYER_MAIN_0);
     Bg_FreeTilemapBuffer(param0, BG_LAYER_MAIN_1);
@@ -364,7 +364,7 @@ static void ov101_021D11A4(BgConfig *param0)
     Heap_Free(param0);
 }
 
-static void ov101_021D11D0(void)
+static void SlotsMinigame_InitWindow(void)
 {
     GX_SetVisibleWnd(GX_WNDMASK_W0);
     G2_SetWnd0InsidePlane(GX_WND_PLANEMASK_BG0 | GX_WND_PLANEMASK_BG1 | GX_WND_PLANEMASK_BG2 | GX_WND_PLANEMASK_BG3 | GX_WND_PLANEMASK_OBJ, 1);
@@ -372,54 +372,54 @@ static void ov101_021D11D0(void)
     G2_SetWnd0Position(0, 0, 255, 255);
 }
 
-static void ov101_021D121C(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_LoadGraphics(Overlay101State *param0)
 {
-    void *v0 = ov101_021D19E4(param0, 3, 0);
+    void *v0 = SlotsMinigame_CopyArchive(param0, 3, 0);
 
     NNS_G2dGetUnpackedPaletteData(v0, &param0->unk_448);
     Bg_LoadPalette(BG_LAYER_MAIN_1, param0->unk_448->pRawData, PALETTE_SIZE_BYTES * 13, 32 * 0);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 0, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 0, 0);
     NNS_G2dGetUnpackedCharacterData(v0, &param0->unk_444);
     Bg_LoadTiles(param0->unk_43C, 1, param0->unk_444->pRawData, param0->unk_444->szByte, 32 * 0);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 1, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 1, 0);
     NNS_G2dGetUnpackedScreenData(v0, &param0->unk_440);
     Bg_LoadTilemapBuffer(param0->unk_43C, 1, (void *)param0->unk_440->rawData, param0->unk_440->szByte);
     Bg_CopyTilemapBufferToVRAM(param0->unk_43C, 1);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 8, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 8, 0);
     NNS_G2dGetUnpackedCharacterData(v0, &param0->unk_444);
     Bg_LoadTiles(param0->unk_43C, 2, param0->unk_444->pRawData, param0->unk_444->szByte, 32 * 0);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 9, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 9, 0);
     NNS_G2dGetUnpackedScreenData(v0, &param0->unk_440);
     Bg_LoadTilemapBuffer(param0->unk_43C, 2, (void *)param0->unk_440->rawData, param0->unk_440->szByte);
     Bg_CopyTilemapBufferToVRAM(param0->unk_43C, 2);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 3, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 3, 0);
     NNS_G2dGetUnpackedPaletteData(v0, &param0->unk_448);
     Bg_LoadPalette(BG_LAYER_SUB_3, param0->unk_448->pRawData, PALETTE_SIZE_BYTES * 13, 32 * 0);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 2, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 2, 0);
     NNS_G2dGetUnpackedCharacterData(v0, &param0->unk_444);
     Bg_LoadTiles(param0->unk_43C, 7, param0->unk_444->pRawData, param0->unk_444->szByte, 0);
     Heap_Free(v0);
 
-    v0 = ov101_021D19E4(param0, 4, 0);
+    v0 = SlotsMinigame_CopyArchive(param0, 4, 0);
     NNS_G2dGetUnpackedScreenData(v0, &param0->unk_440);
     Bg_LoadTilemapBuffer(param0->unk_43C, 7, (void *)param0->unk_440->rawData, param0->unk_440->szByte);
     Bg_CopyTilemapBufferToVRAM(param0->unk_43C, 7);
     Heap_Free(v0);
 }
 
-void ov101_021D13C8(UnkStruct_ov101_021D13C8 *param0)
+void SlotsMinigame_LoadWindow(Overlay101State *param0)
 {
     int v0;
     UnkStruct_ov101_021D148C *v1 = &param0->unk_408;
@@ -438,7 +438,7 @@ void ov101_021D13C8(UnkStruct_ov101_021D13C8 *param0)
     v1->unk_18 = String_Init(256, HEAP_ID_79);
 }
 
-void ov101_021D1458(UnkStruct_ov101_021D13C8 *param0)
+void SlotsMinigame_FreeWindow(Overlay101State *param0)
 {
     int v0;
     UnkStruct_ov101_021D148C *v1 = &param0->unk_408;
@@ -453,7 +453,7 @@ void ov101_021D1458(UnkStruct_ov101_021D13C8 *param0)
     String_Free(v1->unk_18);
 }
 
-void ov101_021D148C(UnkStruct_ov101_021D13C8 *param0, u32 param1)
+void SlotsMinigame_DrawMessageBox(Overlay101State *param0, u32 param1)
 {
     UnkStruct_ov101_021D148C *v0 = &param0->unk_408;
 
@@ -464,7 +464,7 @@ void ov101_021D148C(UnkStruct_ov101_021D13C8 *param0, u32 param1)
     Window_ScheduleCopyToVRAM(&v0->unk_08[0]);
 }
 
-void ov101_021D14E4(UnkStruct_ov101_021D13C8 *param0)
+void SlotsMinigame_FreeMessageBox(Overlay101State *param0)
 {
     UnkStruct_ov101_021D148C *v0 = &param0->unk_408;
 
@@ -473,7 +473,7 @@ void ov101_021D14E4(UnkStruct_ov101_021D13C8 *param0)
     Window_ScheduleCopyToVRAM(&v0->unk_08[0]);
 }
 
-static void ov101_021D150C(void)
+static void SlotsMinigame_InitCharacter(void)
 {
     CharTransferTemplate v0 = {
         32, 0x4000, 0x4000, 79
@@ -485,29 +485,29 @@ static void ov101_021D150C(void)
     PlttTransfer_Clear();
 }
 
-static void ov101_021D1544(void)
+static void SlotsMinigame_FreeCharacter(void)
 {
     CharTransfer_Free();
     PlttTransfer_Free();
 }
 
-static void ov101_021D1550(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_InitRenderer(Overlay101State *param0)
 {
     NNS_G2dInitOamManagerModule();
 
     RenderOam_Init(0, 128, 0, 32, 0, 128, 0, 32, 79);
     param0->unk_450 = ov101_021D7E48(HEAP_ID_79, 64, 32, 64, 16, 64, 32, 11, 8, 11, 11);
-    ov101_021D15BC(param0);
+    SlotsMinigame_CopyGraphicsData(param0);
 }
 
-static void ov101_021D15A4(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_FreeRenderer(Overlay101State *param0)
 {
-    ov101_021D1868(param0);
+    SlotsMinigame_Noop(param0);
     ov101_021D7FB4(param0->unk_450);
     RenderOam_Free();
 }
 
-static void ov101_021D15BC(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_CopyGraphicsData(Overlay101State *param0)
 {
     ov101_021D80E4(param0->unk_450, NNS_G2D_VRAM_TYPE_2DMAIN, param0->unk_438, 11, 0);
     ov101_021D80E4(param0->unk_450, NNS_G2D_VRAM_TYPE_2DMAIN, param0->unk_438, 21, 1);
@@ -558,107 +558,107 @@ static void ov101_021D15BC(UnkStruct_ov101_021D13C8 *param0)
     ov101_021D8254(param0->unk_450, 7);
 }
 
-static void ov101_021D1868(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_Noop(Overlay101State *param0)
 {
     return;
 }
 
-static void ov101_021D186C(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_InitAnimationManager(Overlay101State *param0)
 {
     param0->unk_44C = OverworldAnimManagerList_New(HEAP_ID_79, 128);
 }
 
-static void ov101_021D1884(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_FreeAnimationManager(Overlay101State *param0)
 {
     OverworldAnimManagerList_FinishAndFree(param0->unk_44C);
 }
 
-void ov101_021D1894(UnkStruct_ov101_021D13C8 *param0, UnkEnum_ov101_021D1894 param1)
+void SlotsMinigame_SoundSequence_StartChange(Overlay101State *overlayState, SlotsMinigame_SoundSequenceID sequenceID)
 {
-    UnkStruct_ov101_021D1894 *v0 = &param0->unk_424;
+    SlotsMinigame_SoundSequenceController *v0 = &overlayState->soundSequenceController;
 
-    if ((v0->unk_08 == param1) || (v0->unk_0C == param1)) {
+    if ((v0->formerSequenceID == sequenceID) || (v0->currentSequenceID == sequenceID)) {
         return;
     }
 
-    v0->unk_0C = param1;
-    v0->unk_00 = 1;
-    v0->unk_04 = 1;
+    v0->currentSequenceID = sequenceID;
+    v0->command = 1;
+    v0->isSoundSequenceChangeActive = 1;
 }
 
-static int ov101_021D18B4(UnkStruct_ov101_021D13C8 *param0)
+static int SlotsMinigame_SoundSequence_GetIsChangeActive(Overlay101State *overlayState)
 {
-    UnkStruct_ov101_021D1894 *v0 = &param0->unk_424;
-    return v0->unk_04;
+    SlotsMinigame_SoundSequenceController *v0 = &overlayState->soundSequenceController;
+    return v0->isSoundSequenceChangeActive;
 }
 
-static void ov101_021D18C0(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_StartSoundTask(Overlay101State *param0)
 {
-    UnkStruct_ov101_021D1894 *v0 = &param0->unk_424;
+    SlotsMinigame_SoundSequenceController *v0 = &param0->soundSequenceController;
 
-    v0->unk_08 = UnkEnum_ov101_021D1894_00;
-    v0->unk_0C = UnkEnum_ov101_021D1894_03;
-    v0->unk_10 = SysTask_Start(ov101_021D18F4, param0, 144);
+    v0->formerSequenceID = BGM_FIELD;
+    v0->currentSequenceID = UNKNOWN;
+    v0->task = SysTask_Start(SlotsMinigame_ProcessSound_TaskCallback, param0, 144);
 }
 
-static void ov101_021D18E4(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_StopSoundTask(Overlay101State *param0)
 {
-    SysTask_Done(param0->unk_424.unk_10);
+    SysTask_Done(param0->soundSequenceController.task);
 }
 
-static void ov101_021D18F4(SysTask *param0, void *param1)
+static void SlotsMinigame_ProcessSound_TaskCallback(SysTask *param0, void *param1)
 {
-    UnkStruct_ov101_021D13C8 *v0 = param1;
-    UnkStruct_ov101_021D1894 *v1 = &v0->unk_424;
+    Overlay101State *v0 = param1;
+    SlotsMinigame_SoundSequenceController *v1 = &v0->soundSequenceController;
 
-    switch (v1->unk_00) {
+    switch (v1->command) {
     case 0:
         break;
     case 1:
-        switch (v1->unk_08) {
-        case UnkEnum_ov101_021D1894_00:
+        switch (v1->formerSequenceID) {
+        case BGM_FIELD:
             Sound_SetBGMPlayerPaused(PLAYER_FIELD, TRUE);
             break;
-        case UnkEnum_ov101_021D1894_01:
+        case BGM_ATARI:
             Sound_StopBGM(SEQ_SLOT_ATARI_sseq, 0);
             break;
-        case UnkEnum_ov101_021D1894_02:
+        case BGM_00ATARI:
             Sound_StopBGM(SEQ_SLOT_OOATARI_sseq, 0);
             break;
         }
 
-        v1->unk_00++;
+        v1->command++;
         break;
     case 2:
-        switch (v1->unk_0C) {
-        case UnkEnum_ov101_021D1894_00:
+        switch (v1->currentSequenceID) {
+        case BGM_FIELD:
             Sound_SetBGMPlayerPaused(PLAYER_FIELD, FALSE);
             break;
-        case UnkEnum_ov101_021D1894_01:
+        case BGM_ATARI:
             Sound_PlayBasicBGM(SEQ_SLOT_ATARI_sseq);
             break;
-        case UnkEnum_ov101_021D1894_02:
+        case BGM_00ATARI:
             Sound_PlayBasicBGM(SEQ_SLOT_OOATARI_sseq);
             break;
         }
 
-        v1->unk_08 = v1->unk_0C;
-        v1->unk_0C = UnkEnum_ov101_021D1894_03;
-        v1->unk_04 = 0;
-        v1->unk_00 = 0;
+        v1->formerSequenceID = v1->currentSequenceID;
+        v1->currentSequenceID = UNKNOWN;
+        v1->isSoundSequenceChangeActive = 0;
+        v1->command = 0;
     }
 }
 
-static void ov101_021D197C(void *param0)
+static void SlotsMinigame_VBlankCallback(void *param0)
 {
-    UnkStruct_ov101_021D13C8 *v0 = param0;
+    Overlay101State *v0 = param0;
 
     VramTransfer_Process();
     RenderOam_Transfer();
     Bg_RunScheduledUpdates(v0->unk_43C);
 }
 
-void *ov101_021D1998(u32 param0)
+void *SlotsMinigame_AllocateMemory(u32 param0)
 {
     void *v0 = Heap_Alloc(HEAP_ID_79, param0);
 
@@ -668,17 +668,17 @@ void *ov101_021D1998(u32 param0)
     return v0;
 }
 
-static void ov101_021D19BC(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_LoadArchive(Overlay101State *param0)
 {
     param0->unk_438 = NARC_ctor(NARC_INDEX_DATA__SLOT, HEAP_ID_79);
 }
 
-static void ov101_021D19D4(UnkStruct_ov101_021D13C8 *param0)
+static void SlotsMinigame_FreeArchive(Overlay101State *param0)
 {
     NARC_dtor(param0->unk_438);
 }
 
-void *ov101_021D19E4(UnkStruct_ov101_021D13C8 *param0, u32 param1, int param2)
+void *SlotsMinigame_CopyArchive(Overlay101State *param0, u32 param1, int param2)
 {
     void *v0;
     u32 v1 = NARC_GetMemberSize(param0->unk_438, param1);
