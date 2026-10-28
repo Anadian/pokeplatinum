@@ -5,10 +5,10 @@
 
 #include "overlay_manager.h"
 
-int ov109_021D3D50(ApplicationManager *appMan, int *param1);
-int ov109_021D3EB0(ApplicationManager *appMan, int *param1);
-int ov109_021D3F9C(ApplicationManager *appMan, int *param1);
-void ov109_021D5140(UnkStruct_ov109_021D5140 *param0, int param1, u8 param2);
-void ov109_021D5258(UnkStruct_ov109_021D5140 *param0, int param1, u8 param2);
+int ov109_021D3D50(ApplicationManager *appMan, int *slotsMinigameDTO);
+int ov109_021D3EB0(ApplicationManager *appMan, int *slotsMinigameDTO);
+int ov109_021D3F9C(ApplicationManager *appMan, int *slotsMinigameDTO);
+void ov109_021D5140(UnkStruct_ov109_021D5140 *param0, int slotsMinigameDTO, u8 param2);
+void ov109_021D5258(UnkStruct_ov109_021D5140 *param0, int slotsMinigameDTO, u8 param2);
 
 #endif // POKEPLATINUM_OV109_021D3D50_H

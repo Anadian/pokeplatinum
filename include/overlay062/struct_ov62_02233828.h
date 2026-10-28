@@ -5,8 +5,8 @@
 #include "overlay061/struct_ov61_0222BED8.h"
 
 typedef struct {
-    UnkStruct_ov61_0222BED8 *unk_00;
-    UnkStruct_ov61_0222BED8 unk_04;
+    UnkStruct_ov61_0222BED8 *coins;
+    UnkStruct_ov61_0222BED8 slotMachineVariant;
     u8 unk_1D54;
     u8 padding_1D55[3];
     UnkStruct_ov61_0222BE20 *unk_1D58[30];

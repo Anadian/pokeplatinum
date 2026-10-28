@@ -6,7 +6,7 @@ typedef struct {
     u32 unk_00_8 : 4;
     u32 unk_00_12 : 4;
     u32 unk_00_16 : 16;
-    const u16 *unk_04;
+    const u16 *slotMachineVariant;
     const u16 *unk_08;
 } UnkStruct_ov97_02232E38;
 

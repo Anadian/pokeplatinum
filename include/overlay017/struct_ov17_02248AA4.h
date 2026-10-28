@@ -4,10 +4,10 @@
 #include "overlay017/struct_ov17_02247A48.h"
 
 typedef struct {
-    UnkStruct_ov17_02247A48 *unk_00;
-    fx32 unk_04;
+    UnkStruct_ov17_02247A48 *coins;
+    fx32 slotMachineVariant;
     fx32 unk_08;
-    u8 unk_0C;
+    u8 slotsMinigameDTO;
     u8 unk_0D;
     u8 contestantID;
 } UnkStruct_ov17_02248AA4;

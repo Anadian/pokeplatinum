@@ -17,8 +17,8 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    UnkStruct_02095C48_sub1 *unk_00;
-    PokemonSpriteManager *unk_04;
+    UnkStruct_02095C48_sub1 *coins;
+    PokemonSpriteManager *slotMachineVariant;
     PokemonSprite *unk_08[CONTEST_NUM_PARTICIPANTS];
     SpriteSystem *unk_18;
     SpriteManager *unk_1C;

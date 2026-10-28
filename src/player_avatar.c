@@ -22,13 +22,13 @@
 #include "overworld_anim_manager.h"
 
 static PlayerAvatar *PlayerAvatar_Alloc(void);
-static void PlayerAvatar_Init(PlayerAvatar *playerAvatar, int param1, int param2, PlayerData *param3);
-static void PlayerAvatar_AddMapObject(PlayerAvatar *playerAvatar, const MapObjectManager *param1, int param2, int param3, int param4, int param5);
+static void PlayerAvatar_Init(PlayerAvatar *playerAvatar, int slotsMinigameDTO, int param2, PlayerData *param3);
+static void PlayerAvatar_AddMapObject(PlayerAvatar *playerAvatar, const MapObjectManager *slotsMinigameDTO, int param2, int param3, int param4, int param5);
 static MapObject *MapObjectMan_GetPlayerMapObjectCheckNull(const MapObjectManager *mapObjMan);
-static void PlayerAvatar_TurnOnMovementFlagBits(PlayerAvatar *playerAvatar, u32 param1);
-static void PlayerAvatar_ClearMovementFlag(PlayerAvatar *playerAvatar, u32 param1);
-static u32 PlayerAvatar_GetMovementFlag(PlayerAvatar *playerAvatar, u32 param1);
-static void PlayerAvatar_SetPlayerData(PlayerAvatar *playerAvatar, PlayerData *param1);
+static void PlayerAvatar_TurnOnMovementFlagBits(PlayerAvatar *playerAvatar, u32 slotsMinigameDTO);
+static void PlayerAvatar_ClearMovementFlag(PlayerAvatar *playerAvatar, u32 slotsMinigameDTO);
+static u32 PlayerAvatar_GetMovementFlag(PlayerAvatar *playerAvatar, u32 slotsMinigameDTO);
+static void PlayerAvatar_SetPlayerData(PlayerAvatar *playerAvatar, PlayerData *slotsMinigameDTO);
 static u32 PlayerData_GetAvatarState(PlayerData *player);
 static void PlayerData_SetAvatarState(PlayerData *player, u32 state);
 static void PlayerAvatar_PlayerData_SetAvatarState(PlayerAvatar *playerAvatar, u32 state);

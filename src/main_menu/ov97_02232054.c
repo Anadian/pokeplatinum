@@ -123,21 +123,21 @@ void ov97_02232074(BgConfig *param0)
     }
 }
 
-int ov97_02232148(SaveData *saveData, MysteryGiftEventData *param1)
+int ov97_02232148(SaveData *saveData, MysteryGiftEventData *slotsMinigameDTO)
 {
     u32 v0;
     MysteryGift *v1 = SaveData_GetMysteryGift(saveData);
 
-    v0 = param1->header.validGames;
+    v0 = slotsMinigameDTO->header.validGames;
 
-    if ((v0 == 0xFFFFFFFF) && (param1->header.id == 0xFFFF)) {
+    if ((v0 == 0xFFFFFFFF) && (slotsMinigameDTO->header.id == 0xFFFF)) {
         MysteryGift_Init(v1);
         SaveData_SaveBlock(saveData, 0);
 
         OS_ResetSystem(0);
     }
 
-    if ((param1->header.id >= 100) && (param1->header.id <= 152)) {
+    if ((slotsMinigameDTO->header.id >= 100) && (slotsMinigameDTO->header.id <= 152)) {
         v0 |= (1 << 12) + (1 << 7) + (1 << 8);
     }
 
@@ -149,11 +149,11 @@ int ov97_02232148(SaveData *saveData, MysteryGiftEventData *param1)
         return 1;
     }
 
-    if ((param1->header.unique == 1) && (MysteryGift_GetWcIDReceived(v1, param1->header.id) == 1)) {
+    if ((slotsMinigameDTO->header.unique == 1) && (MysteryGift_GetWcIDReceived(v1, slotsMinigameDTO->header.id) == 1)) {
         return 2;
     }
 
-    if ((param1->header.hasWonderCard == 1) && (MysteryGift_CheckFreeWcSlotExists(v1) == 0)) {
+    if ((slotsMinigameDTO->header.hasWonderCard == 1) && (MysteryGift_CheckFreeWcSlotExists(v1) == 0)) {
         return 4;
     }
 
@@ -161,7 +161,7 @@ int ov97_02232148(SaveData *saveData, MysteryGiftEventData *param1)
         return 3;
     }
 
-    if (param1->header.fromSharing == 1) {
+    if (slotsMinigameDTO->header.fromSharing == 1) {
         return 5;
     }
 

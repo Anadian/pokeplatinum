@@ -19,7 +19,7 @@
 
 typedef struct {
     FieldSystem *fieldSystem;
-    StringTemplate *unk_04;
+    StringTemplate *slotMachineVariant;
     EasyChatSentence unk_08;
     EasyChatArgs *unk_10;
     MiscSaveBlock *unk_14;
@@ -31,16 +31,16 @@ typedef struct {
 static void sub_0209B3AC(UnkStruct_0209B3AC *param0);
 static BOOL sub_0209B3C4(FieldTask *param0);
 
-void sub_0209B344(FieldTask *param0, u16 *param1)
+void sub_0209B344(FieldTask *param0, u16 *slotsMinigameDTO)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(param0);
     UnkStruct_0209B3AC *v1 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(UnkStruct_0209B3AC));
 
     v1->fieldSystem = fieldSystem;
-    v1->unk_04 = StringTemplate_Default(HEAP_ID_FIELD3);
+    v1->slotMachineVariant = StringTemplate_Default(HEAP_ID_FIELD3);
     v1->unk_10 = EasyChatArgs_New(EASY_CHAT_TYPE_SENTENCE, EasyChat_Text_ChooseWordOrPhrase, v1->fieldSystem->saveData, HEAP_ID_FIELD3);
     v1->unk_14 = SaveData_MiscSaveBlock(fieldSystem->saveData);
-    v1->unk_20 = param1;
+    v1->unk_20 = slotsMinigameDTO;
 
     EasyChatSentence_InitWithType(&v1->unk_08, EASY_CHAT_SENTENCE_TYPE_UNION_ROOM);
     MiscSaveBlock_IntroMsg(v1->unk_14, &v1->unk_08);
@@ -55,7 +55,7 @@ void sub_0209B344(FieldTask *param0, u16 *param1)
 static void sub_0209B3AC(UnkStruct_0209B3AC *param0)
 {
     EasyChatArgs_Free(param0->unk_10);
-    StringTemplate_Free(param0->unk_04);
+    StringTemplate_Free(param0->slotMachineVariant);
     Heap_Free(param0);
 }
 

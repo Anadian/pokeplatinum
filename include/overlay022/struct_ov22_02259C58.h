@@ -4,10 +4,10 @@
 #include "sprite.h"
 
 typedef struct UnkStruct_ov22_02259C58_tag {
-    Sprite *unk_00;
-    int unk_04;
+    Sprite *coins;
+    int slotMachineVariant;
     void *unk_08;
-    void (*unk_0C)(struct UnkStruct_ov22_02259C58_tag *param0, void *param1);
+    void (*slotsMinigameDTO)(struct UnkStruct_ov22_02259C58_tag *param0, void *slotsMinigameDTO);
 } UnkStruct_ov22_02259C58;
 
 #endif // POKEPLATINUM_STRUCT_OV22_02259C58_H

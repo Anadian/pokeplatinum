@@ -66,7 +66,7 @@ static void Evolution_FreeBgs(BgConfig *bgConfig);
 static void Evolution_CreateSprites(EvolutionData *evolutionData);
 static void Evolution_VBlankCallback(void *data);
 static u8 Evolution_PrintString(EvolutionData *evolutionData, int entryID);
-static BOOL Evolution_TextPrinterCallback(TextPrinterTemplate *template, u16 param1);
+static BOOL Evolution_TextPrinterCallback(TextPrinterTemplate *template, u16 slotsMinigameDTO);
 static void Evolution_NewSummaryScreenApplicationManager(EvolutionData *evolutionData);
 
 static const WindowTemplate sYesNowWindowTemplate = {
@@ -350,7 +350,7 @@ static void Evolution_Main(EvolutionData *evolutionData)
             UnkStruct_0207C894 v1;
 
             v1.heapID = evolutionData->heapID;
-            v1.unk_04 = 0;
+            v1.slotMachineVariant = 0;
             evolutionData->unk_30 = sub_0207C894(&v1);
 
             sub_0207C8C4(evolutionData->unk_30, 0);
@@ -983,11 +983,11 @@ static u8 Evolution_PrintString(EvolutionData *evolutionData, int entryID)
     return Text_AddPrinterWithParams(evolutionData->window, FONT_MESSAGE, evolutionData->string, 0, 0, Options_TextFrameDelay(evolutionData->options), Evolution_TextPrinterCallback);
 }
 
-static BOOL Evolution_TextPrinterCallback(TextPrinterTemplate *template, u16 param1)
+static BOOL Evolution_TextPrinterCallback(TextPrinterTemplate *template, u16 slotsMinigameDTO)
 {
     BOOL result = FALSE;
 
-    switch (param1) {
+    switch (slotsMinigameDTO) {
     case 1:
         result = Sound_IsAnyEffectPlaying();
         break;

@@ -6,10 +6,10 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    BOOL unk_00;
-    int unk_04;
+    BOOL coins;
+    int slotMachineVariant;
     UnkStruct_0208B878 *unk_08;
-    SysTask *unk_0C;
+    SysTask *slotsMinigameDTO;
 } UnkStruct_0208C06C_sub2;
 
 #endif // POKEPLATINUM_STRUCT_0208C06C_SUB2_H

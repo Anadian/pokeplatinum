@@ -2,7 +2,7 @@
 #define POKEPLATINUM_STRUCT_02030CEC_H
 
 typedef struct {
-    char unk_00[51];
+    char coins[51];
     u8 padding_33[1];
     int unk_34;
     u16 unk_38;

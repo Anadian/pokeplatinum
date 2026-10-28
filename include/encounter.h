@@ -17,7 +17,7 @@ void Encounter_NewVsFirstBattle(FieldTask *task, int trainerID, enum HeapID heap
 void Encounter_NewCatchingTutorial(FieldTask *task);
 void Encounter_NewVsTrainer(FieldTask *taskMan, int enemyTrainer1ID, int enemyTrainer2ID, int partnerTrainerID, enum HeapID heapID, int *resultMaskPtr);
 void Encounter_NewVsLink(FieldTask *task, const u8 *partyOrder, int battleType);
-void Encounter_NewVsWiFi(FieldTask *task, int param1, int normalizedLevel, int wifiBattleType);
+void Encounter_NewVsWiFi(FieldTask *task, int slotsMinigameDTO, int normalizedLevel, int wifiBattleType);
 void Encounter_NewVsLinkWithRecording(FieldSystem *fieldSystem, const u8 *partyOrder, int battleType);
 void Encounter_NewVsLinkWithRecordingAndParty(FieldSystem *fieldSystem, const Party *party, int battleType);
 void Encounter_NewVsGiratinaOrigin(FieldTask *task, u16 species, u8 level, int *resultMaskPtr, BOOL isLegendary);

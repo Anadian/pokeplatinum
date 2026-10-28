@@ -116,10 +116,10 @@ enum CannotMigrateMsg {
 };
 
 typedef struct {
-    Window *unk_00;
-    int unk_04;
+    Window *coins;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     int unk_10;
     int unk_14;
     int unk_18;
@@ -150,23 +150,23 @@ typedef struct {
 } SelectedMonData;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     void *unk_08;
 } UnkStruct_ov97_02233B8C;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     Sprite *iconSprite;
-    u8 unk_0C[512];
+    u8 slotsMinigameDTO[512];
 } UnkStruct_ov97_0223F434;
 
 typedef struct {
     int gbaVersion;
     int canMigrateStatus;
     int messageEntryID;
-    int unk_0C;
+    int slotsMinigameDTO;
     SaveData *saveData;
     TrainerInfo *trainerInfo;
     Options *options;
@@ -209,8 +209,8 @@ static void ov97_022349E0(GBAMigrator *migrator);
 static void ov97_02234ECC(GBAMigrator *migrator);
 static void ov97_02235310(GBAMigrator *migrator);
 static void CopySelectedMonToPalParkTransfer(GBAMigrator *migrator);
-void String_CopyNumChars(String *param0, const u16 *param1, u32 param2);
-void String_CopyChars(String *param0, const u16 *param1);
+void String_CopyNumChars(String *param0, const u16 *slotsMinigameDTO, u32 param2);
+void String_CopyChars(String *param0, const u16 *slotsMinigameDTO);
 void BoxMonGBAToBoxMon(GBABoxPokemon *gbaBoxMon, BoxPokemon *boxMon);
 
 UnkStruct_ov97_0223F434 *Unk_ov97_0223F434;
@@ -311,25 +311,25 @@ static int ov97_02233B8C(GBAMigrator *migrator)
     MigratedPokemon *transferData;
     UnkStruct_ov97_02233B8C *v4 = &migrator->unk_E8F0;
 
-    switch (v4->unk_00) {
+    switch (v4->coins) {
     case 0:
         CopySelectedMonToPalParkTransfer(migrator);
         transferData = SaveData_GetPalParkTransfer(migrator->saveData);
         PalParkTransfer_SaveTransferHistory(transferData, GetGBAPlayerTrainerId());
-        v4->unk_00++;
+        v4->coins++;
         break;
     case 1:
-        v4->unk_04 = 1 + OS_GetTick() % 120;
-        v4->unk_00++;
+        v4->slotMachineVariant = 1 + OS_GetTick() % 120;
+        v4->coins++;
         break;
     case 2:
-        if (--v4->unk_04 == 0) {
-            v4->unk_00++;
+        if (--v4->slotMachineVariant == 0) {
+            v4->coins++;
         }
         break;
     case 3:
         SaveData_SaveStateInit(migrator->saveData, 2);
-        v4->unk_00++;
+        v4->coins++;
         break;
     case 4:
         saveResult = SaveData_SaveStateMain(migrator->saveData);
@@ -339,12 +339,12 @@ static int ov97_02233B8C(GBAMigrator *migrator)
         }
 
         if (saveResult == SAVE_RESULT_PROCEED_FINAL) {
-            v4->unk_00++;
+            v4->coins++;
         }
         break;
     case 5:
         CTRDG_ReadAgbFlash(0, 0, v1, sizeof(v1));
-        v4->unk_00++;
+        v4->coins++;
         break;
     case 6:
         v0 = ov97_02236280();
@@ -354,7 +354,7 @@ static int ov97_02233B8C(GBAMigrator *migrator)
             return 12;
         }
 
-        v4->unk_00++;
+        v4->coins++;
         break;
     case 7:
         if (ov97_02236308() == 9) {
@@ -362,7 +362,7 @@ static int ov97_02233B8C(GBAMigrator *migrator)
         }
 
         if (ov97_02236308() == 11) {
-            v4->unk_00++;
+            v4->coins++;
         } else {
             v0 = ov97_022362C8();
 
@@ -383,7 +383,7 @@ static int ov97_02233B8C(GBAMigrator *migrator)
 
         ov97_022362C8();
         SleepLock(SLEEP_TYPE_SAVE_DATA);
-        v4->unk_00++;
+        v4->coins++;
         break;
     case 9:
         v0 = ov97_022362C8();
@@ -445,12 +445,12 @@ static void CopySelectedMonToPalParkTransfer(GBAMigrator *migrator)
     }
 }
 
-static int ov97_02233DAC(UnkStruct_ov97_02233DAC *param0, String *param1, int param2)
+static int ov97_02233DAC(UnkStruct_ov97_02233DAC *param0, String *slotsMinigameDTO, int param2)
 {
     int v0, v1;
 
     if (param2 & 0x1) {
-        v0 = Font_CalcStringWidth(FONT_MESSAGE, (const String *)param1, 0);
+        v0 = Font_CalcStringWidth(FONT_MESSAGE, (const String *)slotsMinigameDTO, 0);
         v1 = param0->unk_10 * 8;
         return (v1 - v0) / 2;
     } else {
@@ -458,7 +458,7 @@ static int ov97_02233DAC(UnkStruct_ov97_02233DAC *param0, String *param1, int pa
     }
 }
 
-static void ov97_02233DD0(GBAMigrator *migrator, UnkStruct_ov97_02233DAC *param1, int param2)
+static void ov97_02233DD0(GBAMigrator *migrator, UnkStruct_ov97_02233DAC *slotsMinigameDTO, int param2)
 {
     String *v0;
     StringTemplate *v1;
@@ -466,25 +466,25 @@ static void ov97_02233DD0(GBAMigrator *migrator, UnkStruct_ov97_02233DAC *param1
     int v3, v4, v5;
     String *v6;
 
-    if (param1->unk_44 == 0) {
+    if (slotsMinigameDTO->unk_44 == 0) {
         v5 = TEXT_SPEED_NO_TRANSFER;
     } else {
-        v5 = param1->unk_44;
+        v5 = slotsMinigameDTO->unk_44;
     }
 
-    if (param1->unk_00->bgConfig == NULL) {
-        Window_Add(migrator->bgConfig, param1->unk_00, param1->bgLayer, param1->unk_08, param1->unk_0C, param1->unk_10, param1->unk_14, 15, param1->unk_20);
+    if (slotsMinigameDTO->coins->bgConfig == NULL) {
+        Window_Add(migrator->bgConfig, slotsMinigameDTO->coins, slotsMinigameDTO->bgLayer, slotsMinigameDTO->unk_08, slotsMinigameDTO->slotsMinigameDTO, slotsMinigameDTO->unk_10, slotsMinigameDTO->unk_14, 15, slotsMinigameDTO->unk_20);
     }
 
     if (!(param2 & 0x2)) {
-        Window_FillTilemap(param1->unk_00, param1->unk_30);
+        Window_FillTilemap(slotsMinigameDTO->coins, slotsMinigameDTO->unk_30);
     }
 
-    if (param1->messageEntryID != -1) {
+    if (slotsMinigameDTO->messageEntryID != -1) {
         msgLoader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_MIGRATE_FROM_GBA, HEAP_ID_MIGRATE_FROM_GBA);
 
-        if (param1->unk_40) {
-            v1 = param1->unk_40;
+        if (slotsMinigameDTO->unk_40) {
+            v1 = slotsMinigameDTO->unk_40;
         } else {
             v1 = StringTemplate_Default(HEAP_ID_MIGRATE_FROM_GBA);
         }
@@ -492,46 +492,46 @@ static void ov97_02233DD0(GBAMigrator *migrator, UnkStruct_ov97_02233DAC *param1
         String_Clear(migrator->unk_12668);
 
         v0 = migrator->unk_12668;
-        v6 = MessageLoader_GetNewString(msgLoader, param1->messageEntryID);
+        v6 = MessageLoader_GetNewString(msgLoader, slotsMinigameDTO->messageEntryID);
 
         StringTemplate_Format(v1, migrator->unk_12668, v6);
         String_Free(v6);
 
-        v3 = ov97_02233DAC(param1, v0, param2);
-        param1->unk_48 = Text_AddPrinterWithParamsAndColor(param1->unk_00, param1->unk_28, v0, v3, param1->unk_1C, v5, param1->unk_2C, NULL);
+        v3 = ov97_02233DAC(slotsMinigameDTO, v0, param2);
+        slotsMinigameDTO->unk_48 = Text_AddPrinterWithParamsAndColor(slotsMinigameDTO->coins, slotsMinigameDTO->unk_28, v0, v3, slotsMinigameDTO->unk_1C, v5, slotsMinigameDTO->unk_2C, NULL);
 
-        if (param1->unk_40 == NULL) {
+        if (slotsMinigameDTO->unk_40 == NULL) {
             StringTemplate_Free(v1);
         }
 
         MessageLoader_Free(msgLoader);
-        param1->messageEntryID = -1;
+        slotsMinigameDTO->messageEntryID = -1;
     }
 
-    if (param1->unk_38) {
+    if (slotsMinigameDTO->unk_38) {
         v0 = migrator->unk_1266C;
-        String_CopyNumChars(v0, param1->unk_38, 64);
-        v3 = ov97_02233DAC(param1, v0, param2);
-        param1->unk_48 = Text_AddPrinterWithParamsAndColor(param1->unk_00, param1->unk_28, v0, v3, param1->unk_1C, v5, param1->unk_2C, NULL);
-        param1->unk_38 = NULL;
+        String_CopyNumChars(v0, slotsMinigameDTO->unk_38, 64);
+        v3 = ov97_02233DAC(slotsMinigameDTO, v0, param2);
+        slotsMinigameDTO->unk_48 = Text_AddPrinterWithParamsAndColor(slotsMinigameDTO->coins, slotsMinigameDTO->unk_28, v0, v3, slotsMinigameDTO->unk_1C, v5, slotsMinigameDTO->unk_2C, NULL);
+        slotsMinigameDTO->unk_38 = NULL;
     }
 
-    if (param1->unk_3C) {
-        v3 = ov97_02233DAC(param1, param1->unk_3C, param2);
+    if (slotsMinigameDTO->unk_3C) {
+        v3 = ov97_02233DAC(slotsMinigameDTO, slotsMinigameDTO->unk_3C, param2);
 
-        param1->unk_48 = Text_AddPrinterWithParamsAndColor(param1->unk_00, param1->unk_28, param1->unk_3C, v3, param1->unk_1C, v5, param1->unk_2C, NULL);
-        param1->unk_3C = NULL;
+        slotsMinigameDTO->unk_48 = Text_AddPrinterWithParamsAndColor(slotsMinigameDTO->coins, slotsMinigameDTO->unk_28, slotsMinigameDTO->unk_3C, v3, slotsMinigameDTO->unk_1C, v5, slotsMinigameDTO->unk_2C, NULL);
+        slotsMinigameDTO->unk_3C = NULL;
     }
 
     if (!(param2 & 0x4)) {
-        Window_CopyToVRAM(param1->unk_00);
+        Window_CopyToVRAM(slotsMinigameDTO->coins);
     }
 
     if (param2 & 0x8) {
         if (param2 & 0x10) {
-            Window_DrawMessageBoxWithScrollCursor(param1->unk_00, 0, 0x3F0 - (18 + 12), 13);
+            Window_DrawMessageBoxWithScrollCursor(slotsMinigameDTO->coins, 0, 0x3F0 - (18 + 12), 13);
         } else {
-            Window_DrawStandardFrame(param1->unk_00, 0, 0x3F0, 14);
+            Window_DrawStandardFrame(slotsMinigameDTO->coins, 0, 0x3F0, 14);
         }
     }
 }
@@ -613,12 +613,12 @@ static int GetGBABoxMonPersonalityInBox(GBAMigrator *migrator, int boxId, int bo
     return GBABoxPokemon_GetData(&(migrator->pokemonStorage->boxes[boxId][boxPosition]), GBA_MON_DATA_PERSONALITY, NULL);
 }
 
-static void ov97_02234190(TouchScreenRect *rect, int param1, int param2, int param3, int param4)
+static void ov97_02234190(TouchScreenRect *rect, int slotsMinigameDTO, int param2, int param3, int param4)
 {
     rect->rect.top = param2 - param4 / 2;
-    rect->rect.left = param1 - param3 / 2;
+    rect->rect.left = slotsMinigameDTO - param3 / 2;
     rect->rect.bottom = param2 + param4 / 2;
-    rect->rect.right = param1 + param3 / 2;
+    rect->rect.right = slotsMinigameDTO + param3 / 2;
 }
 
 static void *ov97_022341B4(u32 narcID, u32 memberIndex, NNSG2dCharacterData **param2, enum HeapID heapID)
@@ -637,10 +637,10 @@ static void *ov97_022341B4(u32 narcID, u32 memberIndex, NNSG2dCharacterData **pa
     return v0;
 }
 
-static void ov97_022341EC(u32 memberIndex, NNSG2dCharacterData **param1, void *param2, NARC *param3)
+static void ov97_022341EC(u32 memberIndex, NNSG2dCharacterData **slotsMinigameDTO, void *param2, NARC *param3)
 {
     NARC_ReadWholeMember(param3, memberIndex, param2);
-    NNS_G2dGetUnpackedBGCharacterData(param2, param1);
+    NNS_G2dGetUnpackedBGCharacterData(param2, slotsMinigameDTO);
 }
 
 #define NUM_UNOWN_FORMS 28
@@ -719,11 +719,11 @@ static void ov97_022342E4(int speciesGBA, int isEgg, int form, int param3, Sprit
         spriteIndex = PokeIconSpriteIndex(speciesGBA, isEgg, form);
 
         ov97_022341EC(spriteIndex, &v1, param5, param6);
-        MI_CpuCopyFast(v1->pRawData, v2->unk_0C, (4 * 4) * 0x20);
+        MI_CpuCopyFast(v1->pRawData, v2->slotsMinigameDTO, (4 * 4) * 0x20);
 
-        v2->unk_00 = (0x64 + param3 * (4 * 4)) * 0x20;
+        v2->coins = (0x64 + param3 * (4 * 4)) * 0x20;
         v2->iconSprite = monIconSprite;
-        v2->unk_04 = PokeIconPaletteIndex(speciesGBA, form, isEgg) + 8;
+        v2->slotMachineVariant = PokeIconPaletteIndex(speciesGBA, form, isEgg) + 8;
     } else {
         v2->iconSprite = NULL;
     }
@@ -736,9 +736,9 @@ static void ov97_02234364(void)
 
     for (i = 0; i < GBA_MAX_MONS_PER_BOX; i++, v1++) {
         if (v1->iconSprite) {
-            DC_FlushRange(v1->unk_0C, (4 * 4) * 0x20);
-            GX_LoadOBJ(v1->unk_0C, v1->unk_00, (4 * 4) * 0x20);
-            Sprite_SetExplicitPalette(v1->iconSprite, v1->unk_04);
+            DC_FlushRange(v1->slotsMinigameDTO, (4 * 4) * 0x20);
+            GX_LoadOBJ(v1->slotsMinigameDTO, v1->coins, (4 * 4) * 0x20);
+            Sprite_SetExplicitPalette(v1->iconSprite, v1->slotMachineVariant);
         }
     }
 }
@@ -831,14 +831,14 @@ static void InitBoxPokemonSprites(GBAMigrator *migrator)
     }
 }
 
-static Sprite *ov97_02234638(GBAMigrator *migrator, int param1, int param2, int param3, int param4)
+static Sprite *ov97_02234638(GBAMigrator *migrator, int slotsMinigameDTO, int param2, int param3, int param4)
 {
     AffineSpriteListTemplate v0;
     Sprite *v1;
 
     ov97_022340FC(&v0, migrator, &migrator->unk_1E8, NNS_G2D_VRAM_TYPE_2DMAIN);
 
-    v0.position.x = FX32_ONE * param1;
+    v0.position.x = FX32_ONE * slotsMinigameDTO;
     v0.position.y = FX32_ONE * param2;
     v0.priority = 10;
 
@@ -1167,9 +1167,9 @@ static void ov97_02234A2C(GBAMigrator *migrator, int boxNum)
 
     memset(&v0, 0, sizeof(UnkStruct_ov97_02233DAC));
 
-    v0.unk_00 = &migrator->unk_4DC;
+    v0.coins = &migrator->unk_4DC;
     v0.unk_08 = 6;
-    v0.unk_0C = 21;
+    v0.slotsMinigameDTO = 21;
     v0.unk_10 = 13;
     v0.unk_14 = 2;
     v0.messageEntryID = -1;
@@ -1222,9 +1222,9 @@ static void PrintGBABoxMonInfo(GBAMigrator *migrator, GBABoxPokemon *gbaBoxMon)
 
     memset(&v4, 0, sizeof(UnkStruct_ov97_02233DAC));
 
-    v4.unk_00 = &migrator->unk_4EC;
+    v4.coins = &migrator->unk_4EC;
     v4.unk_08 = 0;
-    v4.unk_0C = 0;
+    v4.slotsMinigameDTO = 0;
     v4.unk_10 = 32;
     v4.unk_14 = 4;
     v4.bgLayer = BG_LAYER_MAIN_1;
@@ -1247,7 +1247,7 @@ static void PrintGBABoxMonInfo(GBAMigrator *migrator, GBABoxPokemon *gbaBoxMon)
     ov97_02234AB4(migrator, gbaBoxMon);
 
     if (gbaBoxMon == NULL) {
-        Window_CopyToVRAM(v4.unk_00);
+        Window_CopyToVRAM(v4.coins);
         return;
     }
 
@@ -1470,9 +1470,9 @@ static void ov97_02234ECC(GBAMigrator *migrator)
 
     memset(&migrator->unk_490, 0, sizeof(UnkStruct_ov97_02233DAC));
 
-    migrator->unk_490.unk_00 = &migrator->unk_4FC;
+    migrator->unk_490.coins = &migrator->unk_4FC;
     migrator->unk_490.unk_08 = 2;
-    migrator->unk_490.unk_0C = 1;
+    migrator->unk_490.slotsMinigameDTO = 1;
     migrator->unk_490.unk_10 = 27;
     migrator->unk_490.unk_14 = 4;
     migrator->unk_490.bgLayer = BG_LAYER_MAIN_0;
@@ -1782,18 +1782,18 @@ static BOOL ov97_02235528(GBAMigrator *migrator, int cannotMigrateID)
     return FALSE;
 }
 
-static BOOL ov97_02235590(GBAMigrator *migrator, int param1)
+static BOOL ov97_02235590(GBAMigrator *migrator, int slotsMinigameDTO)
 {
     if (migrator->messageEntryID != -1) {
         ov97_02234ECC(migrator);
         RenderControlFlags_SetSpeedUpOnTouch(TRUE);
         migrator->unk_490.messageEntryID = migrator->messageEntryID;
-        migrator->unk_490.unk_44 = param1;
+        migrator->unk_490.unk_44 = slotsMinigameDTO;
         ov97_02233DD0(migrator, &migrator->unk_490, 0x8 | 0x10);
         migrator->messageEntryID = -1;
         Sound_PlayEffect(SE_CONFIRM_sseq_3);
     } else {
-        if (param1) {
+        if (slotsMinigameDTO) {
             if (Text_IsPrinterActive(migrator->unk_490.unk_48) == 0) {
                 RenderControlFlags_SetSpeedUpOnTouch(FALSE);
                 return TRUE;
@@ -1856,14 +1856,14 @@ static int GBAMigrator_Main(ApplicationManager *appMan, int *state)
     if ((CTRDG_IsPulledOut() == TRUE) || gIgnoreCartridgeForWake) {
         UnkStruct_ov97_02233B8C *v4 = &migrator->unk_E8F0;
 
-        if ((v4->unk_00 == 3) || (v4->unk_00 == 4)) {
+        if ((v4->coins == 3) || (v4->coins == 4)) {
             SaveData_SaveStateCancel(migrator->saveData);
         }
 
         sub_0209A8E0(HEAP_ID_MIGRATE_FROM_GBA);
     }
 
-    migrator->unk_0C++;
+    migrator->slotsMinigameDTO++;
 
     switch (*state) {
     case GBA_MIGRATOR_STATE_0:
@@ -2119,7 +2119,7 @@ static int GBAMigrator_Main(ApplicationManager *appMan, int *state)
             migrator->unk_490.messageEntryID = sSavingOnGBAGameAndPlatinumMessageIDs[migrator->gbaVersion];
             ov97_02233DD0(migrator, &migrator->unk_490, 0);
             YesNoTouchMenu_Reset(migrator->yesNoTouchMenu);
-            migrator->unk_E8F0.unk_00 = 0;
+            migrator->unk_E8F0.coins = 0;
             migrator->unk_E8F0.unk_08 = Window_AddWaitDial(&migrator->unk_4FC, 0x3F0 - (18 + 12));
             *state = GBA_MIGRATOR_STATE_21;
             ResetLock(RESET_LOCK_SOFT_RESET);

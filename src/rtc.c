@@ -17,7 +17,7 @@ typedef struct {
     RTCTime tempTime;
 } RTCState;
 
-static void GetTimeCallback(RTCResult param0, void *param1);
+static void GetTimeCallback(RTCResult param0, void *slotsMinigameDTO);
 static void StartRTCRead(RTCState *param0);
 
 static RTCState sRTCState;

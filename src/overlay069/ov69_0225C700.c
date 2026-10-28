@@ -55,38 +55,38 @@
 #include "yes_no_touch_menu.h"
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s16 unk_02;
-    MtxFx33 unk_04;
+    MtxFx33 slotMachineVariant;
     u16 unk_28;
     u16 unk_2A;
     u16 unk_2C;
 } UnkStruct_ov69_0225CA7C_sub1_sub1;
 
 typedef struct {
-    u32 unk_00;
-    UnkStruct_ov69_0225CA7C_sub1_sub1 unk_04[1024];
+    u32 coins;
+    UnkStruct_ov69_0225CA7C_sub1_sub1 slotMachineVariant[1024];
 } UnkStruct_ov69_0225CA7C_sub1;
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     u8 unk_01;
 } UnkStruct_ov69_0225F0E8;
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s16 unk_02;
-    s16 unk_04;
+    s16 slotMachineVariant;
     s16 unk_06;
     s16 unk_08;
     s16 unk_0A;
-    s16 unk_0C;
+    s16 slotsMinigameDTO;
     u16 unk_0E;
 } UnkStruct_ov69_0225ECF0;
 
 typedef struct {
-    u16 unk_00[2];
-    u16 unk_04;
+    u16 coins[2];
+    u16 slotMachineVariant;
     u16 unk_06;
     u16 unk_08;
     u16 unk_0A;
@@ -101,8 +101,8 @@ typedef struct {
 } UnkStruct_ov69_0225DA74;
 
 typedef struct {
-    BgConfig *unk_00;
-    SpriteList *unk_04;
+    BgConfig *coins;
+    SpriteList *slotMachineVariant;
     G2dRenderer unk_08;
     SpriteResourceCollection *unk_194[4];
     G3DPipelineBuffers *unk_1A4;
@@ -110,15 +110,15 @@ typedef struct {
 } UnkStruct_ov69_0225D35C;
 
 typedef struct {
-    VecFx32 unk_00;
-    VecFx32 unk_0C;
+    VecFx32 coins;
+    VecFx32 slotsMinigameDTO;
     VecFx32 unk_18;
     Easy3DObject unk_24;
     Easy3DModel unk_9C;
 } UnkStruct_ov69_0225D71C;
 
 typedef struct {
-    UnkStruct_ov69_0225CA7C_sub1 unk_00;
+    UnkStruct_ov69_0225CA7C_sub1 coins;
     VecFx32 unk_B804;
     Easy3DObject unk_B810[3];
     Easy3DModel unk_B978[3];
@@ -126,22 +126,22 @@ typedef struct {
 
 typedef struct {
     Camera *camera;
-    CameraAngle unk_04;
-    fx32 unk_0C;
+    CameraAngle slotMachineVariant;
+    fx32 slotsMinigameDTO;
     u16 unk_10;
     u16 unk_12;
 } UnkStruct_ov69_0225DAEC;
 
 typedef struct {
-    u32 unk_00;
-    u32 unk_04;
+    u32 coins;
+    u32 slotMachineVariant;
     u32 unk_08;
 } UnkStruct_ov69_0225E0C0;
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
-    u8 unk_04[4];
+    u8 slotMachineVariant[4];
     void *unk_08[2];
     NNSG2dScreenData *unk_10[2];
     u16 unk_18;
@@ -155,23 +155,23 @@ typedef struct {
 } UnkStruct_ov69_0225E7DC;
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     s8 unk_01;
     u8 unk_02[2];
 } UnkStruct_ov69_0225E084_sub1;
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s16 unk_02;
-    s16 unk_04;
+    s16 slotMachineVariant;
     s16 unk_06;
     u16 unk_08;
     u16 unk_0A;
-    const UnkStruct_ov69_0225ECF0 *unk_0C;
+    const UnkStruct_ov69_0225ECF0 *slotsMinigameDTO;
 } UnkStruct_ov69_0225ED90;
 
 typedef struct {
-    UnkStruct_ov69_0225ED90 unk_00[3];
+    UnkStruct_ov69_0225ED90 coins[3];
     s16 unk_30;
     s16 unk_32;
     u8 unk_34[4];
@@ -181,18 +181,18 @@ typedef struct {
 } UnkStruct_ov69_0225EB60;
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s16 unk_02;
-    s16 unk_04;
+    s16 slotMachineVariant;
     s16 unk_06;
     s16 unk_08;
     s16 unk_0A;
-    SysTask *unk_0C;
+    SysTask *slotsMinigameDTO;
 } UnkStruct_ov69_0225E478;
 
 typedef struct {
-    u32 unk_00;
-    UnkStruct_ov69_0225E0C0 unk_04[4];
+    u32 coins;
+    UnkStruct_ov69_0225E0C0 slotMachineVariant[4];
     u16 unk_34;
     u16 unk_36;
     u32 unk_38;
@@ -213,10 +213,10 @@ typedef struct {
 } UnkStruct_ov69_0225E084;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     int unk_10;
     int unk_14;
     int unk_18;
@@ -224,25 +224,25 @@ typedef struct {
 } UnkStruct_ov69_0225DC48;
 
 typedef struct {
-    u32 unk_00;
-    u32 unk_04;
+    u32 coins;
+    u32 slotMachineVariant;
     u32 unk_08;
-    String *unk_0C;
+    String *slotsMinigameDTO;
     Window unk_10;
     YesNoTouchMenu *unk_20;
 } UnkStruct_ov69_0225DDC8;
 
 typedef struct {
-    MessageLoader *unk_00;
-    StringTemplate *unk_04;
+    MessageLoader *coins;
+    StringTemplate *slotMachineVariant;
     String *unk_08;
-    String *unk_0C;
+    String *slotsMinigameDTO;
 } UnkStruct_ov69_0225EF54;
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
-    UnkStruct_ov69_0225DA74 unk_04;
+    UnkStruct_ov69_0225DA74 slotMachineVariant;
     WiFiHistory *wiFiHistory;
     Options *options;
     int unk_14;
@@ -258,24 +258,24 @@ typedef struct {
     UnkStruct_ov69_0225DDC8 unk_BF64;
 } UnkStruct_ov69_0225CE64;
 
-static void ov69_0225CA7C(UnkStruct_ov69_0225CA7C *param0, u32 param1, s16 param2, s16 param3, u16 param4, u16 param5, const UnkStruct_ov66_02231560 *param6);
-static void ov69_0225CAF4(MtxFx33 *param0, const VecFx32 *param1);
-static void ov69_0225CB6C(MtxFx33 *param0, const VecFx32 *param1);
-static void ov69_0225CBE4(int param0, int param1, int *param2, int *param3, int *param4, int *param5);
-static u32 ov69_0225CC54(UnkStruct_ov69_0225CE64 *param0, int param1, int param2);
+static void ov69_0225CA7C(UnkStruct_ov69_0225CA7C *param0, u32 slotsMinigameDTO, s16 param2, s16 param3, u16 param4, u16 param5, const UnkStruct_ov66_02231560 *param6);
+static void ov69_0225CAF4(MtxFx33 *param0, const VecFx32 *slotsMinigameDTO);
+static void ov69_0225CB6C(MtxFx33 *param0, const VecFx32 *slotsMinigameDTO);
+static void ov69_0225CBE4(int param0, int slotsMinigameDTO, int *param2, int *param3, int *param4, int *param5);
+static u32 ov69_0225CC54(UnkStruct_ov69_0225CE64 *param0, int slotsMinigameDTO, int param2);
 static void ov69_0225CE0C(VecFx32 *param0);
 static BOOL ov69_0225CE64(UnkStruct_ov69_0225CE64 *param0);
 static void ov69_0225CF30(UnkStruct_ov69_0225CE64 *param0);
 static void ov69_0225CF50(UnkStruct_ov69_0225CE64 *param0);
 static void ov69_0225CF90(void *param0);
 static u32 ov69_0225CF9C(UnkStruct_ov69_0225CE64 *param0);
-static void ov69_0225D030(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_02230F50 *param1);
-static BOOL ov69_0225D088(const UnkStruct_ov69_0225CE64 *param0, UnkStruct_ov69_0225E0C0 *param1);
+static void ov69_0225D030(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_02230F50 *slotsMinigameDTO);
+static BOOL ov69_0225D088(const UnkStruct_ov69_0225CE64 *param0, UnkStruct_ov69_0225E0C0 *slotsMinigameDTO);
 static u32 ov69_0225D0D8(const UnkStruct_ov69_0225CE64 *param0);
-static u32 ov69_0225D194(const VecFx32 *param0, const VecFx32 *param1);
-static u32 ov69_0225D1E0(const UnkStruct_ov69_0225CE64 *param0, u32 param1, UnkStruct_ov66_02231428 param2);
-static BOOL ov69_0225D268(UnkStruct_ov69_0225CE64 *param0, u8 param1, u8 param2);
-static void ov69_0225D2A8(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_02230F50 *param1);
+static u32 ov69_0225D194(const VecFx32 *param0, const VecFx32 *slotsMinigameDTO);
+static u32 ov69_0225D1E0(const UnkStruct_ov69_0225CE64 *param0, u32 slotsMinigameDTO, UnkStruct_ov66_02231428 param2);
+static BOOL ov69_0225D268(UnkStruct_ov69_0225CE64 *param0, u8 slotsMinigameDTO, u8 param2);
+static void ov69_0225D2A8(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_02230F50 *slotsMinigameDTO);
 static void ov69_0225D318(UnkStruct_ov69_0225D35C *param0, Options *options, u32 heapID);
 static void ov69_0225D35C(UnkStruct_ov69_0225D35C *param0);
 static void ov69_0225D384(UnkStruct_ov69_0225D35C *param0);
@@ -287,104 +287,104 @@ static void ov69_0225D5D8(UnkStruct_ov69_0225D35C *param0);
 static void ov69_0225D604(UnkStruct_ov69_0225D35C *param0, u32 heapID);
 static void ov69_0225D63C(UnkStruct_ov69_0225D35C *param0);
 static void ov69_0225D64C(void);
-static void ov69_0225D6D8(UnkStruct_ov69_0225D71C *param0, UnkStruct_ov69_0225D35C *param1, u32 heapID);
+static void ov69_0225D6D8(UnkStruct_ov69_0225D71C *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, u32 heapID);
 static void ov69_0225D71C(UnkStruct_ov69_0225D71C *param0);
 static void ov69_0225D728(UnkStruct_ov69_0225D71C *param0);
-static void ov69_0225D760(const UnkStruct_ov69_0225D71C *param0, VecFx32 *param1);
-static void ov69_0225D770(const UnkStruct_ov69_0225D71C *param0, MtxFx33 *param1);
-static void ov69_0225D780(const UnkStruct_ov69_0225D71C *param0, VecFx32 *param1);
-static void ov69_0225D790(UnkStruct_ov69_0225D71C *param0, const VecFx32 *param1);
-static void ov69_0225D7A0(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov66_02231560 *param1, UnkStruct_ov69_0225D35C *param2, UnkStruct_ov69_0225DA74 param3, u32 heapID);
+static void ov69_0225D760(const UnkStruct_ov69_0225D71C *param0, VecFx32 *slotsMinigameDTO);
+static void ov69_0225D770(const UnkStruct_ov69_0225D71C *param0, MtxFx33 *slotsMinigameDTO);
+static void ov69_0225D780(const UnkStruct_ov69_0225D71C *param0, VecFx32 *slotsMinigameDTO);
+static void ov69_0225D790(UnkStruct_ov69_0225D71C *param0, const VecFx32 *slotsMinigameDTO);
+static void ov69_0225D7A0(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov66_02231560 *slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2, UnkStruct_ov69_0225DA74 param3, u32 heapID);
 static void ov69_0225D838(UnkStruct_ov69_0225CA7C *param0);
-static void ov69_0225D854(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov69_0225D71C *param1);
-static u32 ov69_0225D91C(const UnkStruct_ov66_02231560 *param0, u16 param1, u16 param2);
-static u32 ov69_0225D984(const UnkStruct_ov69_0225CA7C *param0, u16 param1, u16 param2, VecFx32 *param3);
-static u32 ov69_0225D9C4(const UnkStruct_ov69_0225CA7C *param0, u16 param1, u16 param2);
-static void ov69_0225D9F0(const UnkStruct_ov69_0225CA7C *param0, VecFx32 *param1, int param2);
-static u32 ov69_0225DA1C(const UnkStruct_ov69_0225CA7C *param0, int param1);
-static u32 ov69_0225DA38(const UnkStruct_ov69_0225CA7C *param0, int param1);
-static u32 ov69_0225DA54(const UnkStruct_ov69_0225CA7C *param0, int param1);
+static void ov69_0225D854(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov69_0225D71C *slotsMinigameDTO);
+static u32 ov69_0225D91C(const UnkStruct_ov66_02231560 *param0, u16 slotsMinigameDTO, u16 param2);
+static u32 ov69_0225D984(const UnkStruct_ov69_0225CA7C *param0, u16 slotsMinigameDTO, u16 param2, VecFx32 *param3);
+static u32 ov69_0225D9C4(const UnkStruct_ov69_0225CA7C *param0, u16 slotsMinigameDTO, u16 param2);
+static void ov69_0225D9F0(const UnkStruct_ov69_0225CA7C *param0, VecFx32 *slotsMinigameDTO, int param2);
+static u32 ov69_0225DA1C(const UnkStruct_ov69_0225CA7C *param0, int slotsMinigameDTO);
+static u32 ov69_0225DA38(const UnkStruct_ov69_0225CA7C *param0, int slotsMinigameDTO);
+static u32 ov69_0225DA54(const UnkStruct_ov69_0225CA7C *param0, int slotsMinigameDTO);
 static u32 ov69_0225DA70(const UnkStruct_ov69_0225CA7C *param0);
-static void ov69_0225DA74(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225DA74 param1, enum HeapID param2);
+static void ov69_0225DA74(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225DA74 slotsMinigameDTO, enum HeapID param2);
 static void ov69_0225DAEC(UnkStruct_ov69_0225DAEC *param0);
 static void ov69_0225DAF8(const UnkStruct_ov69_0225DAEC *param0);
 static void ov69_0225DB00(UnkStruct_ov69_0225DAEC *param0);
-static BOOL ov69_0225DB2C(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225CA7C *param1);
+static BOOL ov69_0225DB2C(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225CA7C *slotsMinigameDTO);
 static u32 ov69_0225DBB0(const UnkStruct_ov69_0225DAEC *param0);
-static void ov69_0225DBB4(UnkStruct_ov69_0225DC48 *param0, UnkStruct_ov69_0225D35C *param1, UnkStruct_ov69_0225EF54 *param2, u32 heapID);
+static void ov69_0225DBB4(UnkStruct_ov69_0225DC48 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, UnkStruct_ov69_0225EF54 *param2, u32 heapID);
 static void ov69_0225DC48(UnkStruct_ov69_0225DC48 *param0);
 static void ov69_0225DC54(UnkStruct_ov69_0225DC48 *param0);
-static int ov69_0225DD10(const UnkStruct_ov69_0225DC48 *param0, u32 param1);
+static int ov69_0225DD10(const UnkStruct_ov69_0225DC48 *param0, u32 slotsMinigameDTO);
 static void ov69_0225DD2C(UnkStruct_ov69_0225DC48 *param0);
 static void ov69_0225DD44(UnkStruct_ov69_0225DC48 *param0);
-static void ov69_0225DD60(UnkStruct_ov69_0225DDC8 *param0, UnkStruct_ov69_0225D35C *param1, UnkStruct_ov69_0225EF54 *param2, SaveData *saveData, u32 heapID);
+static void ov69_0225DD60(UnkStruct_ov69_0225DDC8 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, UnkStruct_ov69_0225EF54 *param2, SaveData *saveData, u32 heapID);
 static void ov69_0225DDC8(UnkStruct_ov69_0225DDC8 *param0);
 static void ov69_0225DDFC(UnkStruct_ov69_0225DDC8 *param0);
 static u32 ov69_0225DE40(UnkStruct_ov69_0225DDC8 *param0);
 static void ov69_0225DEA0(UnkStruct_ov69_0225DDC8 *param0);
-static void ov69_0225DEC0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1, UnkStruct_ov69_0225EF54 *param2, enum HeapID heapID);
-static void ov69_0225DFBC(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1);
-static void ov69_0225E00C(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF54 *param1, UnkStruct_ov69_0225D35C *param2);
+static void ov69_0225DEC0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, UnkStruct_ov69_0225EF54 *param2, enum HeapID heapID);
+static void ov69_0225DFBC(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO);
+static void ov69_0225E00C(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF54 *slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2);
 static void ov69_0225E084(UnkStruct_ov69_0225E084 *param0);
 static void ov69_0225E0A0(UnkStruct_ov69_0225E084 *param0);
-static BOOL ov69_0225E0C0(UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *param1);
-static BOOL ov69_0225E0F8(const UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *param1);
+static BOOL ov69_0225E0C0(UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *slotsMinigameDTO);
+static BOOL ov69_0225E0F8(const UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *slotsMinigameDTO);
 static void ov69_0225E13C(UnkStruct_ov69_0225E084 *param0);
 static void ov69_0225E148(UnkStruct_ov69_0225E084 *param0);
-static void ov69_0225E154(UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *param1);
+static void ov69_0225E154(UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *slotsMinigameDTO);
 static void ov69_0225E1A0(UnkStruct_ov69_0225E084 *param0);
-static BOOL ov69_0225E1C0(const UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225E0C0 *param1, u32 param2);
-static void ov69_0225E1EC(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1);
-static void ov69_0225E208(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF54 *param1, UnkStruct_ov69_0225D35C *param2);
-static BOOL ov69_0225E2D0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1);
+static BOOL ov69_0225E1C0(const UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225E0C0 *slotsMinigameDTO, u32 param2);
+static void ov69_0225E1EC(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO);
+static void ov69_0225E208(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF54 *slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2);
+static BOOL ov69_0225E2D0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO);
 static void ov69_0225E2DC(UnkStruct_ov69_0225E084 *param0);
-static BOOL ov69_0225E2E4(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1);
-static BOOL ov69_0225E2F0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1, int param2);
-static void ov69_0225E368(UnkStruct_ov69_0225E084 *param0, u32 param1);
-static BOOL ov69_0225E374(UnkStruct_ov69_0225E084 *param0, u32 param1, UnkStruct_ov69_0225D35C *param2);
-static void ov69_0225E430(UnkStruct_ov69_0225E084 *param0, u32 param1, UnkStruct_ov69_0225D35C *param2);
+static BOOL ov69_0225E2E4(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO);
+static BOOL ov69_0225E2F0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, int param2);
+static void ov69_0225E368(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO);
+static BOOL ov69_0225E374(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2);
+static void ov69_0225E430(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2);
 static void ov69_0225E478(UnkStruct_ov69_0225E478 *param0);
 static void ov69_0225E4E8(UnkStruct_ov69_0225E478 *param0);
-static void ov69_0225E504(UnkStruct_ov69_0225E478 *param0, s16 param1, s16 param2);
-static void ov69_0225E51C(UnkStruct_ov69_0225E478 *param0, s16 param1, s16 param2);
-static void ov69_0225E534(SysTask *param0, void *param1);
-static void ov69_0225E590(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1, u32 param2);
+static void ov69_0225E504(UnkStruct_ov69_0225E478 *param0, s16 slotsMinigameDTO, s16 param2);
+static void ov69_0225E51C(UnkStruct_ov69_0225E478 *param0, s16 slotsMinigameDTO, s16 param2);
+static void ov69_0225E534(SysTask *param0, void *slotsMinigameDTO);
+static void ov69_0225E590(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, u32 param2);
 static void ov69_0225E61C(UnkStruct_ov69_0225E084 *param0);
-static void ov69_0225E644(UnkStruct_ov69_0225E084 *param0, u32 param1, const UnkStruct_ov69_0225E0C0 *param2, UnkStruct_ov69_0225EF54 *param3);
-static u8 *ov69_0225E6E8(UnkStruct_ov69_0225E084 *param0, u32 param1, u32 param2);
-static u8 *ov69_0225E70C(UnkStruct_ov69_0225E084 *param0, u32 param1);
-static void ov69_0225E71C(UnkStruct_ov69_0225E084 *param0, u32 param1, u32 param2, const u8 *param3);
-static void ov69_0225E748(UnkStruct_ov69_0225E7DC *param0, UnkStruct_ov69_0225D35C *param1, const UnkStruct_ov69_0225F118 *param2, u16 param3, enum HeapID heapID);
+static void ov69_0225E644(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, const UnkStruct_ov69_0225E0C0 *param2, UnkStruct_ov69_0225EF54 *param3);
+static u8 *ov69_0225E6E8(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, u32 param2);
+static u8 *ov69_0225E70C(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO);
+static void ov69_0225E71C(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, u32 param2, const u8 *param3);
+static void ov69_0225E748(UnkStruct_ov69_0225E7DC *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, const UnkStruct_ov69_0225F118 *param2, u16 param3, enum HeapID heapID);
 static void ov69_0225E7DC(UnkStruct_ov69_0225E7DC *param0);
-static void ov69_0225E810(UnkStruct_ov69_0225E7DC *param0, UnkStruct_ov69_0225D35C *param1);
-static void ov69_0225E8EC(UnkStruct_ov69_0225E7DC *param0, u32 param1, BOOL param2);
+static void ov69_0225E810(UnkStruct_ov69_0225E7DC *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO);
+static void ov69_0225E8EC(UnkStruct_ov69_0225E7DC *param0, u32 slotsMinigameDTO, BOOL param2);
 static void ov69_0225E904(UnkStruct_ov69_0225E7DC *param0);
-static void ov69_0225E910(UnkStruct_ov69_0225E7DC *param0, u32 param1, UnkStruct_ov69_0225D35C *param2);
-static void ov69_0225E960(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D35C *param1, UnkStruct_ov69_0225E478 *param2, u32 param3);
-static void ov69_0225EAE8(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D35C *param1);
+static void ov69_0225E910(UnkStruct_ov69_0225E7DC *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2);
+static void ov69_0225E960(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, UnkStruct_ov69_0225E478 *param2, u32 param3);
+static void ov69_0225EAE8(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO);
 static void ov69_0225EB60(UnkStruct_ov69_0225EB60 *param0);
-static void ov69_0225EB8C(UnkStruct_ov69_0225EB60 *param0, u8 param1, u8 param2, u8 param3);
+static void ov69_0225EB8C(UnkStruct_ov69_0225EB60 *param0, u8 slotsMinigameDTO, u8 param2, u8 param3);
 static void ov69_0225EBEC(UnkStruct_ov69_0225EB60 *param0);
-static void ov69_0225EC08(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225E478 *param1);
-static BOOL ov69_0225EC70(UnkStruct_ov69_0225EB60 *param0, u32 param1, UnkStruct_ov69_0225E478 *param2);
-static BOOL ov69_0225ECAC(UnkStruct_ov69_0225EB60 *param0, u32 param1, UnkStruct_ov69_0225E478 *param2);
-static void ov69_0225ECF0(UnkStruct_ov69_0225ED90 *param0, const UnkStruct_ov69_0225ECF0 *param1);
-static void ov69_0225ED0C(UnkStruct_ov69_0225ED90 *param0, BOOL param1);
-static void ov69_0225ED10(UnkStruct_ov69_0225ED90 *param0, BOOL param1);
-static BOOL ov69_0225ED14(UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *param1);
-static void ov69_0225ED5C(UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *param1);
-static void ov69_0225ED78(const UnkStruct_ov69_0225ED90 *param0, VecFx32 *param1);
+static void ov69_0225EC08(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225E478 *slotsMinigameDTO);
+static BOOL ov69_0225EC70(UnkStruct_ov69_0225EB60 *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225E478 *param2);
+static BOOL ov69_0225ECAC(UnkStruct_ov69_0225EB60 *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225E478 *param2);
+static void ov69_0225ECF0(UnkStruct_ov69_0225ED90 *param0, const UnkStruct_ov69_0225ECF0 *slotsMinigameDTO);
+static void ov69_0225ED0C(UnkStruct_ov69_0225ED90 *param0, BOOL slotsMinigameDTO);
+static void ov69_0225ED10(UnkStruct_ov69_0225ED90 *param0, BOOL slotsMinigameDTO);
+static BOOL ov69_0225ED14(UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *slotsMinigameDTO);
+static void ov69_0225ED5C(UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *slotsMinigameDTO);
+static void ov69_0225ED78(const UnkStruct_ov69_0225ED90 *param0, VecFx32 *slotsMinigameDTO);
 static void ov69_0225ED90(UnkStruct_ov69_0225ED90 *param0);
-static void ov69_0225EE68(const UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *param1);
-static void ov69_0225EEC4(UnkStruct_ov69_0225EB60 *param0, u32 param1);
+static void ov69_0225EE68(const UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *slotsMinigameDTO);
+static void ov69_0225EEC4(UnkStruct_ov69_0225EB60 *param0, u32 slotsMinigameDTO);
 static u16 ov69_0225EEEC(u32 param0);
 static u16 ov69_0225EF04(u32 param0);
 static void ov69_0225EF1C(UnkStruct_ov69_0225EF54 *param0, u32 heapID);
 static void ov69_0225EF54(UnkStruct_ov69_0225EF54 *param0);
-static String *ov69_0225EF74(UnkStruct_ov69_0225EF54 *param0, u32 param1);
-static String *ov69_0225EF90(UnkStruct_ov69_0225EF54 *param0, u32 param1);
-static String *ov69_0225EFB8(UnkStruct_ov69_0225EF54 *param0, u32 param1, u32 param2);
-static void ov69_0225EF84(UnkStruct_ov69_0225EF54 *param0, u32 param1, String *param2);
+static String *ov69_0225EF74(UnkStruct_ov69_0225EF54 *param0, u32 slotsMinigameDTO);
+static String *ov69_0225EF90(UnkStruct_ov69_0225EF54 *param0, u32 slotsMinigameDTO);
+static String *ov69_0225EFB8(UnkStruct_ov69_0225EF54 *param0, u32 slotsMinigameDTO, u32 param2);
+static void ov69_0225EF84(UnkStruct_ov69_0225EF54 *param0, u32 slotsMinigameDTO, String *param2);
 static u32 ov69_0225EFEC(const UnkStruct_ov66_02231560 *param0);
 
 static const u32 Unk_ov69_0225F028[3] = {
@@ -666,7 +666,7 @@ static const UnkStruct_ov69_0225F118 Unk_ov69_0225F118[5] = {
     },
 };
 
-int ov69_0225C700(ApplicationManager *appMan, int *param1)
+int ov69_0225C700(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov69_0225CE64 *v0;
     UnkStruct_ov66_02230F50 *v1 = ApplicationManager_Args(appMan);
@@ -685,8 +685,8 @@ int ov69_0225C700(ApplicationManager *appMan, int *param1)
     ov69_0225D318(&v0->unk_20, v0->options, HEAP_ID_105);
     ov69_0225D6D8(&v0->unk_1DC, &v0->unk_20, HEAP_ID_105);
     ov69_0225EF1C(&v0->unk_1CC, HEAP_ID_105);
-    ov69_0225D7A0(&v0->unk_288, v1->unk_00, &v0->unk_20, v0->unk_04, HEAP_ID_105);
-    ov69_0225DA74(&v0->unk_BC30, v0->unk_04, HEAP_ID_105);
+    ov69_0225D7A0(&v0->unk_288, v1->coins, &v0->unk_20, v0->slotMachineVariant, HEAP_ID_105);
+    ov69_0225DA74(&v0->unk_BC30, v0->slotMachineVariant, HEAP_ID_105);
     ov69_0225DBB4(&v0->unk_BC44, &v0->unk_20, &v0->unk_1CC, HEAP_ID_105);
     ov69_0225DD60(&v0->unk_BF64, &v0->unk_20, &v0->unk_1CC, v1->saveData, HEAP_ID_105);
     ov69_0225DEC0(&v0->unk_BC70, &v0->unk_20, &v0->unk_1CC, HEAP_ID_105);
@@ -698,7 +698,7 @@ int ov69_0225C700(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-int ov69_0225C820(ApplicationManager *appMan, int *param1)
+int ov69_0225C820(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov69_0225CE64 *v0;
     UnkStruct_ov66_02230F50 *v1;
@@ -707,25 +707,25 @@ int ov69_0225C820(ApplicationManager *appMan, int *param1)
     v0 = ApplicationManager_Data(appMan);
     v1 = ApplicationManager_Args(appMan);
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, COLOR_BLACK, 6, 1, HEAP_ID_105);
-        ov66_0222E31C(v1->unk_0C, 1);
-        (*param1)++;
+        ov66_0222E31C(v1->slotsMinigameDTO, 1);
+        (*slotsMinigameDTO)++;
         break;
     case 1:
         v2 = IsScreenFadeDone();
 
         if (v2 == 1) {
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
         break;
     case 2:
         v2 = ov69_0225CE64(v0);
         ov69_0225CF30(v0);
 
-        if (ov66_0222E12C(v1->unk_0C) == 1) {
-            ov66_0222E2A4(v1->unk_0C);
+        if (ov66_0222E12C(v1->slotsMinigameDTO) == 1) {
+            ov66_0222E2A4(v1->slotsMinigameDTO);
             v2 = 1;
         }
 
@@ -734,12 +734,12 @@ int ov69_0225C820(ApplicationManager *appMan, int *param1)
         }
 
         if (v2 == 1) {
-            (*param1) = 5;
+            (*slotsMinigameDTO) = 5;
         }
         break;
     case 5:
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, HEAP_ID_105);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 6:
         v2 = IsScreenFadeDone();
@@ -755,7 +755,7 @@ int ov69_0225C820(ApplicationManager *appMan, int *param1)
     return 0;
 }
 
-int ov69_0225C8FC(ApplicationManager *appMan, int *param1)
+int ov69_0225C8FC(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov69_0225CE64 *v0 = ApplicationManager_Data(appMan);
     UnkStruct_ov66_02230F50 *v1 = ApplicationManager_Args(appMan);
@@ -778,11 +778,11 @@ int ov69_0225C8FC(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-static void ov69_0225C980(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov66_02231560 *param1, u32 heapID)
+static void ov69_0225C980(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov66_02231560 *slotsMinigameDTO, u32 heapID)
 {
     NARC *v0 = NARC_ctor(NARC_INDEX_APPLICATION__WIFI_EARTH__WIFI_EARTH_PLACE, heapID);
 
-    param0->unk_00.unk_00 = 0;
+    param0->coins.coins = 0;
 
     {
         void *v1;
@@ -798,8 +798,8 @@ static void ov69_0225C980(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov66_
 
         for (v4 = 1; v4 < v5; v4++) {
             if (v2->type != 2) {
-                ov69_0225CA7C(param0, param0->unk_00.unk_00, v2->x, v2->y, v4, 0, param1);
-                param0->unk_00.unk_00++;
+                ov69_0225CA7C(param0, param0->coins.coins, v2->x, v2->y, v4, 0, slotsMinigameDTO);
+                param0->coins.coins++;
             }
 
             v2++;
@@ -825,8 +825,8 @@ static void ov69_0225C980(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov66_
             v7++;
 
             for (v10 = 1; v10 < v13; v10++) {
-                ov69_0225CA7C(param0, param0->unk_00.unk_00, v7->unk_00, v7->unk_02, sub_02099748(v12), v10, param1);
-                param0->unk_00.unk_00++;
+                ov69_0225CA7C(param0, param0->coins.coins, v7->coins, v7->unk_02, sub_02099748(v12), v10, slotsMinigameDTO);
+                param0->coins.coins++;
                 v7++;
             }
 
@@ -838,13 +838,13 @@ static void ov69_0225C980(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov66_
     NARC_dtor(v0);
 }
 
-static void ov69_0225CA7C(UnkStruct_ov69_0225CA7C *param0, u32 param1, s16 param2, s16 param3, u16 param4, u16 param5, const UnkStruct_ov66_02231560 *param6)
+static void ov69_0225CA7C(UnkStruct_ov69_0225CA7C *param0, u32 slotsMinigameDTO, s16 param2, s16 param3, u16 param4, u16 param5, const UnkStruct_ov66_02231560 *param6)
 {
     MtxFx33 v0 = { FX32_ONE, 0, 0, 0, FX32_ONE, 0, 0, 0, FX32_ONE };
     VecFx32 v1;
 
-    param0->unk_00.unk_04[param1].unk_00 = param2;
-    param0->unk_00.unk_04[param1].unk_02 = param3;
+    param0->coins.slotMachineVariant[slotsMinigameDTO].coins = param2;
+    param0->coins.slotMachineVariant[slotsMinigameDTO].unk_02 = param3;
 
     v1.x = param2;
     v1.y = param3;
@@ -852,39 +852,39 @@ static void ov69_0225CA7C(UnkStruct_ov69_0225CA7C *param0, u32 param1, s16 param
 
     ov69_0225CB6C(&v0, &v1);
 
-    param0->unk_00.unk_04[param1].unk_04 = v0;
+    param0->coins.slotMachineVariant[slotsMinigameDTO].slotMachineVariant = v0;
 
     if (param6 != NULL) {
-        param0->unk_00.unk_04[param1].unk_28 = ov69_0225D91C(param6, param4, param5);
+        param0->coins.slotMachineVariant[slotsMinigameDTO].unk_28 = ov69_0225D91C(param6, param4, param5);
     }
 
-    param0->unk_00.unk_04[param1].unk_2A = param4;
-    param0->unk_00.unk_04[param1].unk_2C = param5;
+    param0->coins.slotMachineVariant[slotsMinigameDTO].unk_2A = param4;
+    param0->coins.slotMachineVariant[slotsMinigameDTO].unk_2C = param5;
 }
 
-static void ov69_0225CAF4(MtxFx33 *param0, const VecFx32 *param1)
+static void ov69_0225CAF4(MtxFx33 *param0, const VecFx32 *slotsMinigameDTO)
 {
     MtxFx33 v0;
 
-    MTX_RotY33(param0, FX_SinIdx((u16)param1->y), FX_CosIdx((u16)param1->y));
-    MTX_RotX33(&v0, FX_SinIdx((u16)param1->x), FX_CosIdx((u16)param1->x));
+    MTX_RotY33(param0, FX_SinIdx((u16)slotsMinigameDTO->y), FX_CosIdx((u16)slotsMinigameDTO->y));
+    MTX_RotX33(&v0, FX_SinIdx((u16)slotsMinigameDTO->x), FX_CosIdx((u16)slotsMinigameDTO->x));
     MTX_Concat33(param0, &v0, param0);
-    MTX_RotZ33(&v0, FX_SinIdx((u16)param1->z), FX_CosIdx((u16)param1->z));
+    MTX_RotZ33(&v0, FX_SinIdx((u16)slotsMinigameDTO->z), FX_CosIdx((u16)slotsMinigameDTO->z));
     MTX_Concat33(param0, &v0, param0);
 }
 
-static void ov69_0225CB6C(MtxFx33 *param0, const VecFx32 *param1)
+static void ov69_0225CB6C(MtxFx33 *param0, const VecFx32 *slotsMinigameDTO)
 {
     MtxFx33 v0;
 
-    MTX_RotY33(param0, FX_SinIdx((u16)param1->x), FX_CosIdx((u16)param1->x));
-    MTX_RotX33(&v0, FX_SinIdx((u16)-param1->y), FX_CosIdx((u16)-param1->y));
+    MTX_RotY33(param0, FX_SinIdx((u16)slotsMinigameDTO->x), FX_CosIdx((u16)slotsMinigameDTO->x));
+    MTX_RotX33(&v0, FX_SinIdx((u16)-slotsMinigameDTO->y), FX_CosIdx((u16)-slotsMinigameDTO->y));
     MTX_Concat33(param0, &v0, param0);
-    MTX_RotZ33(&v0, FX_CosIdx((u16)param1->z), FX_SinIdx((u16)param1->z));
+    MTX_RotZ33(&v0, FX_CosIdx((u16)slotsMinigameDTO->z), FX_SinIdx((u16)slotsMinigameDTO->z));
     MTX_Concat33(param0, &v0, param0);
 }
 
-static void ov69_0225CBE4(int param0, int param1, int *param2, int *param3, int *param4, int *param5)
+static void ov69_0225CBE4(int param0, int slotsMinigameDTO, int *param2, int *param3, int *param4, int *param5)
 {
     int v0 = 0;
     int v1 = 0;
@@ -910,7 +910,7 @@ static void ov69_0225CBE4(int param0, int param1, int *param2, int *param3, int 
     *param3 = v2;
 
     if (gSystem.touchY != 0xffff) {
-        v3 = gSystem.touchY - param1;
+        v3 = gSystem.touchY - slotsMinigameDTO;
 
         if (v3 < 0) {
             v3 ^= -1;
@@ -928,7 +928,7 @@ static void ov69_0225CBE4(int param0, int param1, int *param2, int *param3, int 
     *param5 = v3;
 }
 
-static u32 ov69_0225CC54(UnkStruct_ov69_0225CE64 *param0, int param1, int param2)
+static u32 ov69_0225CC54(UnkStruct_ov69_0225CE64 *param0, int slotsMinigameDTO, int param2)
 {
     u16 v0;
     u16 v1;
@@ -950,8 +950,8 @@ static u32 ov69_0225CC54(UnkStruct_ov69_0225CE64 *param0, int param1, int param2
     v2 = v5.x;
     v3 = v5.y;
 
-    if ((param1 & PAD_BUTTON_A) || (v6 & PAD_BUTTON_A)) {
-        if (param0->unk_04.unk_00_0 == 1) {
+    if ((slotsMinigameDTO & PAD_BUTTON_A) || (v6 & PAD_BUTTON_A)) {
+        if (param0->slotMachineVariant.unk_00_0 == 1) {
             v4 = 1;
         }
 
@@ -977,7 +977,7 @@ static u32 ov69_0225CC54(UnkStruct_ov69_0225CE64 *param0, int param1, int param2
     }
 
     if ((param2 & PAD_KEY_LEFT) || (v6 & PAD_KEY_LEFT)) {
-        if (param0->unk_04.unk_00_0 == 1) {
+        if (param0->slotMachineVariant.unk_00_0 == 1) {
             v5.y += v0;
         } else {
             if (v3 < (s16)0xd820) {
@@ -987,7 +987,7 @@ static u32 ov69_0225CC54(UnkStruct_ov69_0225CE64 *param0, int param1, int param2
     }
 
     if ((param2 & PAD_KEY_RIGHT) || (v6 & PAD_KEY_RIGHT)) {
-        if (param0->unk_04.unk_00_0 == 1) {
+        if (param0->slotMachineVariant.unk_00_0 == 1) {
             v5.y -= v0;
         } else {
             if (v3 > (s16)0xcc80) {
@@ -997,7 +997,7 @@ static u32 ov69_0225CC54(UnkStruct_ov69_0225CE64 *param0, int param1, int param2
     }
 
     if ((param2 & PAD_KEY_UP) || (v6 & PAD_KEY_UP)) {
-        if (param0->unk_04.unk_00_0 == 1) {
+        if (param0->slotMachineVariant.unk_00_0 == 1) {
             if ((v2 + v1) < (0x4000 - 0x200)) {
                 v5.x += v1;
             } else {
@@ -1011,7 +1011,7 @@ static u32 ov69_0225CC54(UnkStruct_ov69_0225CE64 *param0, int param1, int param2
     }
 
     if ((param2 & PAD_KEY_DOWN) || (v6 & PAD_KEY_DOWN)) {
-        if (param0->unk_04.unk_00_0 == 1) {
+        if (param0->slotMachineVariant.unk_00_0 == 1) {
             if ((v2 - v1) > (-0x4000 + 0x200)) {
                 v5.x -= v1;
             } else {
@@ -1047,7 +1047,7 @@ static BOOL ov69_0225CE64(UnkStruct_ov69_0225CE64 *param0)
 {
     u32 v0;
 
-    switch (param0->unk_00) {
+    switch (param0->coins) {
     case 0:
         v0 = ov69_0225CF9C(param0);
 
@@ -1056,10 +1056,10 @@ static BOOL ov69_0225CE64(UnkStruct_ov69_0225CE64 *param0)
             break;
         case 1:
             ov69_0225DB00(&param0->unk_BC30);
-            param0->unk_00 = 1;
+            param0->coins = 1;
             break;
         case 2:
-            param0->unk_00 = 2;
+            param0->coins = 2;
             break;
         }
         break;
@@ -1067,14 +1067,14 @@ static BOOL ov69_0225CE64(UnkStruct_ov69_0225CE64 *param0)
         v0 = ov69_0225DB2C(&param0->unk_BC30, &param0->unk_288);
 
         if (v0 == 1) {
-            param0->unk_00 = 0;
+            param0->coins = 0;
         }
         break;
     case 2:
         ov69_0225DDFC(&param0->unk_BF64);
         ov69_0225E084(&param0->unk_BC70);
         ov69_0225DD2C(&param0->unk_BC44);
-        param0->unk_00++;
+        param0->coins++;
         break;
     case 3: {
         u32 v1;
@@ -1088,7 +1088,7 @@ static BOOL ov69_0225CE64(UnkStruct_ov69_0225CE64 *param0)
             ov69_0225E0A0(&param0->unk_BC70);
             ov69_0225DEA0(&param0->unk_BF64);
             ov69_0225DD44(&param0->unk_BC44);
-            param0->unk_00 = 0;
+            param0->coins = 0;
             break;
         default:
         case YES_NO_TOUCH_MENU_YES:
@@ -1137,7 +1137,7 @@ static u32 ov69_0225CF9C(UnkStruct_ov69_0225CE64 *param0)
 
     ov69_0225DC54(&param0->unk_BC44);
 
-    if (param0->unk_BC44.unk_00 & PAD_BUTTON_B) {
+    if (param0->unk_BC44.coins & PAD_BUTTON_B) {
         Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
         return 2;
     } else {
@@ -1156,7 +1156,7 @@ static u32 ov69_0225CF9C(UnkStruct_ov69_0225CE64 *param0)
                         if (v1 == 0) {
                             (void)0;
                         } else {
-                            ov69_0225D268(param0, v2.unk_04, v2.unk_08);
+                            ov69_0225D268(param0, v2.slotMachineVariant, v2.unk_08);
                             Sound_PlayEffect(SEQ_SE_PL_TIMER04_sseq);
                         }
                     }
@@ -1170,7 +1170,7 @@ static u32 ov69_0225CF9C(UnkStruct_ov69_0225CE64 *param0)
     return v0;
 }
 
-static void ov69_0225D030(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_02230F50 *param1)
+static void ov69_0225D030(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_02230F50 *slotsMinigameDTO)
 {
     int v0;
     int v1;
@@ -1178,11 +1178,11 @@ static void ov69_0225D030(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_
     BOOL v3 = ov69_0225D268(param0, param0->unk_14, param0->unk_18);
 
     if (v3 == 0) {
-        v0 = ov69_0225EFEC(param1->unk_00);
+        v0 = ov69_0225EFEC(slotsMinigameDTO->coins);
 
         if (v0 != 50) {
-            v1 = ov66_022315D8(param1->unk_00, v0);
-            v2 = ov66_022315FC(param1->unk_00, v0);
+            v1 = ov66_022315D8(slotsMinigameDTO->coins, v0);
+            v2 = ov66_022315FC(slotsMinigameDTO->coins, v0);
             v3 = ov69_0225D268(param0, v1, v2);
 
             GF_ASSERT(v3 == 1);
@@ -1192,7 +1192,7 @@ static void ov69_0225D030(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_
     }
 }
 
-static BOOL ov69_0225D088(const UnkStruct_ov69_0225CE64 *param0, UnkStruct_ov69_0225E0C0 *param1)
+static BOOL ov69_0225D088(const UnkStruct_ov69_0225CE64 *param0, UnkStruct_ov69_0225E0C0 *slotsMinigameDTO)
 {
     u32 v0 = ov69_0225D0D8(param0);
 
@@ -1200,9 +1200,9 @@ static BOOL ov69_0225D088(const UnkStruct_ov69_0225CE64 *param0, UnkStruct_ov69_
         return 0;
     }
 
-    param1->unk_00 = ov69_0225D1E0(param0, v0, param0->unk_1C);
-    param1->unk_04 = ov69_0225DA38(&param0->unk_288, v0);
-    param1->unk_08 = ov69_0225DA54(&param0->unk_288, v0);
+    slotsMinigameDTO->coins = ov69_0225D1E0(param0, v0, param0->unk_1C);
+    slotsMinigameDTO->slotMachineVariant = ov69_0225DA38(&param0->unk_288, v0);
+    slotsMinigameDTO->unk_08 = ov69_0225DA54(&param0->unk_288, v0);
 
     return 1;
 }
@@ -1255,13 +1255,13 @@ static u32 ov69_0225D0D8(const UnkStruct_ov69_0225CE64 *param0)
     return v11;
 }
 
-static u32 ov69_0225D194(const VecFx32 *param0, const VecFx32 *param1)
+static u32 ov69_0225D194(const VecFx32 *param0, const VecFx32 *slotsMinigameDTO)
 {
     s32 v0, v1;
     u32 v2;
 
-    v0 = MATH_ABS(param0->x - param1->x);
-    v1 = MATH_ABS(param0->y - param1->y);
+    v0 = MATH_ABS(param0->x - slotsMinigameDTO->x);
+    v1 = MATH_ABS(param0->y - slotsMinigameDTO->y);
 
     if (v0 > CalcAngleRotationIdx(180)) {
         v0 = 0xffff - v0;
@@ -1276,7 +1276,7 @@ static u32 ov69_0225D194(const VecFx32 *param0, const VecFx32 *param1)
     return v2;
 }
 
-static u32 ov69_0225D1E0(const UnkStruct_ov69_0225CE64 *param0, u32 param1, UnkStruct_ov66_02231428 param2)
+static u32 ov69_0225D1E0(const UnkStruct_ov69_0225CE64 *param0, u32 slotsMinigameDTO, UnkStruct_ov66_02231428 param2)
 {
     s32 v0;
     u16 v1;
@@ -1290,7 +1290,7 @@ static u32 ov69_0225D1E0(const UnkStruct_ov69_0225CE64 *param0, u32 param1, UnkS
     GF_ASSERT(v4 < ov69_0225DA70(&param0->unk_288));
 
     ov69_0225D9F0(&param0->unk_288, &v2, v4);
-    ov69_0225D9F0(&param0->unk_288, &v3, param1);
+    ov69_0225D9F0(&param0->unk_288, &v3, slotsMinigameDTO);
 
     v1 = v2.y - v3.y;
     v0 += (v1 * 24) / 0xffff;
@@ -1306,11 +1306,11 @@ static u32 ov69_0225D1E0(const UnkStruct_ov69_0225CE64 *param0, u32 param1, UnkS
     return v0;
 }
 
-static BOOL ov69_0225D268(UnkStruct_ov69_0225CE64 *param0, u8 param1, u8 param2)
+static BOOL ov69_0225D268(UnkStruct_ov69_0225CE64 *param0, u8 slotsMinigameDTO, u8 param2)
 {
     VecFx32 v0;
     VecFx32 v1;
-    u32 v2 = ov69_0225D984(&param0->unk_288, param1, param2, &v0);
+    u32 v2 = ov69_0225D984(&param0->unk_288, slotsMinigameDTO, param2, &v0);
 
     if (v2 != 3) {
         ov69_0225D780(&param0->unk_1DC, &v1);
@@ -1322,29 +1322,29 @@ static BOOL ov69_0225D268(UnkStruct_ov69_0225CE64 *param0, u8 param1, u8 param2)
     return 0;
 }
 
-static void ov69_0225D2A8(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_02230F50 *param1)
+static void ov69_0225D2A8(UnkStruct_ov69_0225CE64 *param0, const UnkStruct_ov66_02230F50 *slotsMinigameDTO)
 {
     int v0;
 
-    param0->unk_04.unk_00_1 = 0;
-    param0->unk_04.unk_00_0 = 0;
+    param0->slotMachineVariant.unk_00_1 = 0;
+    param0->slotMachineVariant.unk_00_0 = 0;
 
     if (gGameLanguage == LANGUAGE_JAPANESE) {
-        param0->unk_04.unk_00_1 = 1;
+        param0->slotMachineVariant.unk_00_1 = 1;
     } else {
-        param0->unk_04.unk_00_1 = 0;
+        param0->slotMachineVariant.unk_00_1 = 0;
     }
 
-    if (param0->unk_04.unk_00_1 == 1) {
+    if (param0->slotMachineVariant.unk_00_1 == 1) {
         for (v0 = 0; v0 < 50; v0++) {
-            if (param1->unk_00->unk_00[v0].unk_03_4 == 1) {
-                if (param1->unk_00->unk_00[v0].unk_00 != 103) {
-                    param0->unk_04.unk_00_0 = 1;
+            if (slotsMinigameDTO->coins->coins[v0].unk_03_4 == 1) {
+                if (slotsMinigameDTO->coins->coins[v0].coins != 103) {
+                    param0->slotMachineVariant.unk_00_0 = 1;
                 }
             }
         }
     } else {
-        param0->unk_04.unk_00_0 = 1;
+        param0->slotMachineVariant.unk_00_0 = 1;
     }
 }
 
@@ -1372,12 +1372,12 @@ static void ov69_0225D35C(UnkStruct_ov69_0225D35C *param0)
 
 static void ov69_0225D384(UnkStruct_ov69_0225D35C *param0)
 {
-    SpriteList_Update(param0->unk_04);
+    SpriteList_Update(param0->slotMachineVariant);
 }
 
 static void ov69_0225D390(UnkStruct_ov69_0225D35C *param0)
 {
-    Bg_RunScheduledUpdates(param0->unk_00);
+    Bg_RunScheduledUpdates(param0->coins);
     RenderOam_Transfer();
     VramTransfer_Process();
 }
@@ -1386,7 +1386,7 @@ static void ov69_0225D3A4(UnkStruct_ov69_0225D35C *param0, Options *options, u32
 {
     SetAllGraphicsModes(&Unk_ov69_0225F040);
 
-    param0->unk_00 = BgConfig_New(heapID);
+    param0->coins = BgConfig_New(heapID);
     gSystem.whichScreenIs3D = DS_SCREEN_SUB;
 
     GXLayers_SwapDisplay();
@@ -1394,27 +1394,27 @@ static void ov69_0225D3A4(UnkStruct_ov69_0225D35C *param0, Options *options, u32
     int i;
 
     for (i = 0; i < 5; i++) {
-        Bg_InitFromTemplate(param0->unk_00, Unk_ov69_0225F060[i], &Unk_ov69_0225F154[i], 0);
+        Bg_InitFromTemplate(param0->coins, Unk_ov69_0225F060[i], &Unk_ov69_0225F154[i], 0);
         Bg_ClearTilesRange(Unk_ov69_0225F060[i], 32, 0, heapID);
-        Bg_ClearTilemap(param0->unk_00, Unk_ov69_0225F060[i]);
+        Bg_ClearTilemap(param0->coins, Unk_ov69_0225F060[i]);
     }
 
     Graphics_LoadPaletteFromOpenNARC(param0->unk_1A8, 5, 4, 0, 0, heapID);
 
-    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_1A8, 11, param0->unk_00, 4, 0, 0, 0, heapID);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_1A8, 12, param0->unk_00, 4, 0, 0, 0, heapID);
-    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_1A8, 4, param0->unk_00, 6, 0, 0, 0, heapID);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_1A8, 18, param0->unk_00, 7, 0, 0, 0, heapID);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_1A8, 11, param0->coins, 4, 0, 0, 0, heapID);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_1A8, 12, param0->coins, 4, 0, 0, 0, heapID);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_1A8, 4, param0->coins, 6, 0, 0, 0, heapID);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_1A8, 18, param0->coins, 7, 0, 0, 0, heapID);
 
     Font_LoadScreenIndicatorsPalette(PAL_LOAD_MAIN_BG, PLTT_OFFSET(1), heapID);
     Font_LoadScreenIndicatorsPalette(PAL_LOAD_SUB_BG, PLTT_OFFSET(11), heapID);
-    LoadStandardWindowGraphics(param0->unk_00, BG_LAYER_MAIN_1, 1 + (18 + 12), 0, 0, heapID);
-    LoadStandardWindowGraphics(param0->unk_00, BG_LAYER_MAIN_1, 1 + (18 + 12), 0, 0, heapID);
+    LoadStandardWindowGraphics(param0->coins, BG_LAYER_MAIN_1, 1 + (18 + 12), 0, 0, heapID);
+    LoadStandardWindowGraphics(param0->coins, BG_LAYER_MAIN_1, 1 + (18 + 12), 0, 0, heapID);
 
     u8 v1 = Options_Frame(options);
 
-    LoadMessageBoxGraphics(param0->unk_00, BG_LAYER_SUB_0, 10, 10, v1, heapID);
-    LoadMessageBoxGraphics(param0->unk_00, BG_LAYER_MAIN_1, 1, 2, v1, heapID);
+    LoadMessageBoxGraphics(param0->coins, BG_LAYER_SUB_0, 10, 10, v1, heapID);
+    LoadMessageBoxGraphics(param0->coins, BG_LAYER_MAIN_1, 1, 2, v1, heapID);
 
     Bg_MaskPalette(BG_LAYER_MAIN_0, 0x72ca);
 }
@@ -1425,11 +1425,11 @@ static void ov69_0225D504(UnkStruct_ov69_0225D35C *param0)
         int v0;
 
         for (v0 = 0; v0 < 5; v0++) {
-            Bg_FreeTilemapBuffer(param0->unk_00, Unk_ov69_0225F060[v0]);
+            Bg_FreeTilemapBuffer(param0->coins, Unk_ov69_0225F060[v0]);
         }
     }
 
-    Heap_Free(param0->unk_00);
+    Heap_Free(param0->coins);
     gSystem.whichScreenIs3D = DS_SCREEN_MAIN;
     GXLayers_SwapDisplay();
 }
@@ -1448,7 +1448,7 @@ static void ov69_0225D53C(UnkStruct_ov69_0225D35C *param0, u32 heapID)
     ReserveVramForWirelessIconChars(NNS_G2D_VRAM_TYPE_2DMAIN, GX_OBJVRAMMODE_CHAR_1D_32K);
     ReserveSlotsForWirelessIconPalette(NNS_G2D_VRAM_TYPE_2DMAIN);
 
-    param0->unk_04 = SpriteList_InitRendering(32, &param0->unk_08, heapID);
+    param0->slotMachineVariant = SpriteList_InitRendering(32, &param0->unk_08, heapID);
 
     SetSubScreenViewRect(&param0->unk_08, 0, FX32_CONST(256));
 
@@ -1465,7 +1465,7 @@ static void ov69_0225D5D8(UnkStruct_ov69_0225D35C *param0)
 {
     int v0;
 
-    SpriteList_Delete(param0->unk_04);
+    SpriteList_Delete(param0->slotMachineVariant);
 
     for (v0 = 0; v0 < 4; v0++) {
         SpriteResourceCollection_Delete(param0->unk_194[v0]);
@@ -1502,12 +1502,12 @@ static void ov69_0225D64C(void)
     G3_ViewPort(0, 0, 255, 191);
 }
 
-static void ov69_0225D6D8(UnkStruct_ov69_0225D71C *param0, UnkStruct_ov69_0225D35C *param1, u32 heapID)
+static void ov69_0225D6D8(UnkStruct_ov69_0225D71C *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, u32 heapID)
 {
-    VEC_Set(&param0->unk_00, 0, 0, 0);
-    VEC_Set(&param0->unk_0C, FX32_ONE, FX32_ONE, FX32_ONE);
+    VEC_Set(&param0->coins, 0, 0, 0);
+    VEC_Set(&param0->slotsMinigameDTO, FX32_ONE, FX32_ONE, FX32_ONE);
     VEC_Set(&param0->unk_18, 0x1A40, 0x7C00, 0);
-    Easy3DModel_LoadFrom(&param0->unk_9C, param1->unk_1A8, 3, heapID);
+    Easy3DModel_LoadFrom(&param0->unk_9C, slotsMinigameDTO->unk_1A8, 3, heapID);
     Easy3DObject_Init(&param0->unk_24, &param0->unk_9C);
 }
 
@@ -1522,37 +1522,37 @@ static void ov69_0225D728(UnkStruct_ov69_0225D71C *param0)
 
     ov69_0225D770(param0, &v0);
 
-    Easy3DObject_SetPosition(&param0->unk_24, param0->unk_00.x, param0->unk_00.y, param0->unk_00.z);
-    Easy3DObject_SetScale(&param0->unk_24, param0->unk_0C.x, param0->unk_0C.y, param0->unk_0C.z);
+    Easy3DObject_SetPosition(&param0->unk_24, param0->coins.x, param0->coins.y, param0->coins.z);
+    Easy3DObject_SetScale(&param0->unk_24, param0->slotsMinigameDTO.x, param0->slotsMinigameDTO.y, param0->slotsMinigameDTO.z);
 
     Easy3DObject_DrawRotated(&param0->unk_24, &v0);
 }
 
-static void ov69_0225D760(const UnkStruct_ov69_0225D71C *param0, VecFx32 *param1)
+static void ov69_0225D760(const UnkStruct_ov69_0225D71C *param0, VecFx32 *slotsMinigameDTO)
 {
-    *param1 = param0->unk_00;
+    *slotsMinigameDTO = param0->coins;
 }
 
-static void ov69_0225D770(const UnkStruct_ov69_0225D71C *param0, MtxFx33 *param1)
+static void ov69_0225D770(const UnkStruct_ov69_0225D71C *param0, MtxFx33 *slotsMinigameDTO)
 {
-    ov69_0225CAF4(param1, &param0->unk_18);
+    ov69_0225CAF4(slotsMinigameDTO, &param0->unk_18);
 }
 
-static void ov69_0225D780(const UnkStruct_ov69_0225D71C *param0, VecFx32 *param1)
+static void ov69_0225D780(const UnkStruct_ov69_0225D71C *param0, VecFx32 *slotsMinigameDTO)
 {
-    *param1 = param0->unk_18;
+    *slotsMinigameDTO = param0->unk_18;
 }
 
-static void ov69_0225D790(UnkStruct_ov69_0225D71C *param0, const VecFx32 *param1)
+static void ov69_0225D790(UnkStruct_ov69_0225D71C *param0, const VecFx32 *slotsMinigameDTO)
 {
-    param0->unk_18 = *param1;
+    param0->unk_18 = *slotsMinigameDTO;
 }
 
-static void ov69_0225D7A0(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov66_02231560 *param1, UnkStruct_ov69_0225D35C *param2, UnkStruct_ov69_0225DA74 param3, u32 heapID)
+static void ov69_0225D7A0(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov66_02231560 *slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2, UnkStruct_ov69_0225DA74 param3, u32 heapID)
 {
     int v0;
 
-    ov69_0225C980(param0, param1, heapID);
+    ov69_0225C980(param0, slotsMinigameDTO, heapID);
 
     for (v0 = 0; v0 < 3; v0++) {
         Easy3DModel_LoadFrom(&param0->unk_B978[v0], param2->unk_1A8, Unk_ov69_0225F028[v0], heapID);
@@ -1575,15 +1575,15 @@ static void ov69_0225D838(UnkStruct_ov69_0225CA7C *param0)
     }
 }
 
-static void ov69_0225D854(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov69_0225D71C *param1)
+static void ov69_0225D854(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov69_0225D71C *slotsMinigameDTO)
 {
     MtxFx33 v0;
     int v1;
     MtxFx33 v2;
     VecFx32 v3;
 
-    ov69_0225D760(param1, &v3);
-    ov69_0225D770(param1, &v2);
+    ov69_0225D760(slotsMinigameDTO, &v3);
+    ov69_0225D770(slotsMinigameDTO, &v2);
 
     for (v1 = 0; v1 < 3; v1++) {
         Easy3DObject_SetPosition(&param0->unk_B810[v1], v3.x, v3.y, v3.z);
@@ -1601,17 +1601,17 @@ static void ov69_0225D854(UnkStruct_ov69_0225CA7C *param0, const UnkStruct_ov69_
     }
 
     {
-        for (v1 = 0; v1 < param0->unk_00.unk_00; v1++) {
-            MTX_Concat33(&param0->unk_00.unk_04[v1].unk_04, &v2, &v0);
+        for (v1 = 0; v1 < param0->coins.coins; v1++) {
+            MTX_Concat33(&param0->coins.slotMachineVariant[v1].slotMachineVariant, &v2, &v0);
 
-            if (param0->unk_00.unk_04[v1].unk_28 != 3) {
-                Easy3DObject_DrawRotated(&param0->unk_B810[param0->unk_00.unk_04[v1].unk_28], &v0);
+            if (param0->coins.slotMachineVariant[v1].unk_28 != 3) {
+                Easy3DObject_DrawRotated(&param0->unk_B810[param0->coins.slotMachineVariant[v1].unk_28], &v0);
             }
         }
     }
 }
 
-static u32 ov69_0225D91C(const UnkStruct_ov66_02231560 *param0, u16 param1, u16 param2)
+static u32 ov69_0225D91C(const UnkStruct_ov66_02231560 *param0, u16 slotsMinigameDTO, u16 param2)
 {
     int v0;
     BOOL v1;
@@ -1626,7 +1626,7 @@ static u32 ov69_0225D91C(const UnkStruct_ov66_02231560 *param0, u16 param1, u16 
             v3 = ov66_022315D8(param0, v0);
             v4 = ov66_022315FC(param0, v0);
 
-            if ((v3 == param1) && (v4 == param2)) {
+            if ((v3 == slotsMinigameDTO) && (v4 == param2)) {
                 if (v1 == 1) {
                     return 1;
                 }
@@ -1639,12 +1639,12 @@ static u32 ov69_0225D91C(const UnkStruct_ov66_02231560 *param0, u16 param1, u16 
     return 3;
 }
 
-static u32 ov69_0225D984(const UnkStruct_ov69_0225CA7C *param0, u16 param1, u16 param2, VecFx32 *param3)
+static u32 ov69_0225D984(const UnkStruct_ov69_0225CA7C *param0, u16 slotsMinigameDTO, u16 param2, VecFx32 *param3)
 {
     u32 v0 = 3;
     int v1;
     int v2 = ov69_0225DA70(param0);
-    v1 = ov69_0225D9C4(param0, param1, param2);
+    v1 = ov69_0225D9C4(param0, slotsMinigameDTO, param2);
 
     if (v1 < v2) {
         v0 = ov69_0225DA1C(param0, v1);
@@ -1655,52 +1655,52 @@ static u32 ov69_0225D984(const UnkStruct_ov69_0225CA7C *param0, u16 param1, u16 
     return v0;
 }
 
-static u32 ov69_0225D9C4(const UnkStruct_ov69_0225CA7C *param0, u16 param1, u16 param2)
+static u32 ov69_0225D9C4(const UnkStruct_ov69_0225CA7C *param0, u16 slotsMinigameDTO, u16 param2)
 {
     int v0;
 
-    for (v0 = 0; v0 < param0->unk_00.unk_00; v0++) {
-        if ((param0->unk_00.unk_04[v0].unk_2A == param1) && (param0->unk_00.unk_04[v0].unk_2C == param2)) {
+    for (v0 = 0; v0 < param0->coins.coins; v0++) {
+        if ((param0->coins.slotMachineVariant[v0].unk_2A == slotsMinigameDTO) && (param0->coins.slotMachineVariant[v0].unk_2C == param2)) {
             return v0;
         }
     }
 
-    return param0->unk_00.unk_00;
+    return param0->coins.coins;
 }
 
-static void ov69_0225D9F0(const UnkStruct_ov69_0225CA7C *param0, VecFx32 *param1, int param2)
+static void ov69_0225D9F0(const UnkStruct_ov69_0225CA7C *param0, VecFx32 *slotsMinigameDTO, int param2)
 {
-    GF_ASSERT(param2 < param0->unk_00.unk_00);
+    GF_ASSERT(param2 < param0->coins.coins);
 
-    param1->x = param0->unk_00.unk_04[param2].unk_00;
-    param1->y = param0->unk_00.unk_04[param2].unk_02;
-    param1->z = 0;
+    slotsMinigameDTO->x = param0->coins.slotMachineVariant[param2].coins;
+    slotsMinigameDTO->y = param0->coins.slotMachineVariant[param2].unk_02;
+    slotsMinigameDTO->z = 0;
 }
 
-static u32 ov69_0225DA1C(const UnkStruct_ov69_0225CA7C *param0, int param1)
+static u32 ov69_0225DA1C(const UnkStruct_ov69_0225CA7C *param0, int slotsMinigameDTO)
 {
-    GF_ASSERT(param1 < param0->unk_00.unk_00);
-    return param0->unk_00.unk_04[param1].unk_28;
+    GF_ASSERT(slotsMinigameDTO < param0->coins.coins);
+    return param0->coins.slotMachineVariant[slotsMinigameDTO].unk_28;
 }
 
-static u32 ov69_0225DA38(const UnkStruct_ov69_0225CA7C *param0, int param1)
+static u32 ov69_0225DA38(const UnkStruct_ov69_0225CA7C *param0, int slotsMinigameDTO)
 {
-    GF_ASSERT(param1 < param0->unk_00.unk_00);
-    return param0->unk_00.unk_04[param1].unk_2A;
+    GF_ASSERT(slotsMinigameDTO < param0->coins.coins);
+    return param0->coins.slotMachineVariant[slotsMinigameDTO].unk_2A;
 }
 
-static u32 ov69_0225DA54(const UnkStruct_ov69_0225CA7C *param0, int param1)
+static u32 ov69_0225DA54(const UnkStruct_ov69_0225CA7C *param0, int slotsMinigameDTO)
 {
-    GF_ASSERT(param1 < param0->unk_00.unk_00);
-    return param0->unk_00.unk_04[param1].unk_2C;
+    GF_ASSERT(slotsMinigameDTO < param0->coins.coins);
+    return param0->coins.slotMachineVariant[slotsMinigameDTO].unk_2C;
 }
 
 static u32 ov69_0225DA70(const UnkStruct_ov69_0225CA7C *param0)
 {
-    return param0->unk_00.unk_00;
+    return param0->coins.coins;
 }
 
-static void ov69_0225DA74(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225DA74 param1, enum HeapID heapID)
+static void ov69_0225DA74(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225DA74 slotsMinigameDTO, enum HeapID heapID)
 {
     param0->camera = Camera_Alloc(heapID);
 
@@ -1709,15 +1709,15 @@ static void ov69_0225DA74(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225DA
     Camera_ComputeProjectionMatrix(0, param0->camera);
     Camera_SetAsActive(param0->camera);
 
-    if (param1.unk_00_0 == 0) {
+    if (slotsMinigameDTO.unk_00_0 == 0) {
         param0->unk_10 = 1;
-        param0->unk_0C = 0x50000;
+        param0->slotsMinigameDTO = 0x50000;
     } else {
         param0->unk_10 = 0;
-        param0->unk_0C = 0x128000;
+        param0->slotsMinigameDTO = 0x128000;
     }
 
-    Camera_SetDistance(param0->unk_0C, param0->camera);
+    Camera_SetDistance(param0->slotsMinigameDTO, param0->camera);
 }
 
 static void ov69_0225DAEC(UnkStruct_ov69_0225DAEC *param0)
@@ -1743,7 +1743,7 @@ static void ov69_0225DB00(UnkStruct_ov69_0225DAEC *param0)
     param0->unk_12 = 1;
 }
 
-static BOOL ov69_0225DB2C(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225CA7C *param1)
+static BOOL ov69_0225DB2C(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225CA7C *slotsMinigameDTO)
 {
     if (param0->unk_12 == 0) {
         return 1;
@@ -1751,28 +1751,28 @@ static BOOL ov69_0225DB2C(UnkStruct_ov69_0225DAEC *param0, UnkStruct_ov69_0225CA
 
     switch (param0->unk_10) {
     case 1:
-        if (param0->unk_0C > (0x50000 + 0x8000)) {
-            param0->unk_0C -= 0x8000;
-            param1->unk_B804.x -= 0x80;
-            param1->unk_B804.y = param1->unk_B804.x;
+        if (param0->slotsMinigameDTO > (0x50000 + 0x8000)) {
+            param0->slotsMinigameDTO -= 0x8000;
+            slotsMinigameDTO->unk_B804.x -= 0x80;
+            slotsMinigameDTO->unk_B804.y = slotsMinigameDTO->unk_B804.x;
         } else {
-            param0->unk_0C = 0x50000;
+            param0->slotsMinigameDTO = 0x50000;
             param0->unk_12 = 0;
         }
         break;
     case 0:
-        if (param0->unk_0C < (0x128000 - 0x8000)) {
-            param0->unk_0C += 0x8000;
-            param1->unk_B804.x += 0x80;
-            param1->unk_B804.y = param1->unk_B804.x;
+        if (param0->slotsMinigameDTO < (0x128000 - 0x8000)) {
+            param0->slotsMinigameDTO += 0x8000;
+            slotsMinigameDTO->unk_B804.x += 0x80;
+            slotsMinigameDTO->unk_B804.y = slotsMinigameDTO->unk_B804.x;
         } else {
-            param0->unk_0C = 0x128000;
+            param0->slotsMinigameDTO = 0x128000;
             param0->unk_12 = 0;
         }
         break;
     }
 
-    Camera_SetDistance(param0->unk_0C, param0->camera);
+    Camera_SetDistance(param0->slotsMinigameDTO, param0->camera);
 
     return 0;
 }
@@ -1782,11 +1782,11 @@ static u32 ov69_0225DBB0(const UnkStruct_ov69_0225DAEC *param0)
     return param0->unk_10;
 }
 
-static void ov69_0225DBB4(UnkStruct_ov69_0225DC48 *param0, UnkStruct_ov69_0225D35C *param1, UnkStruct_ov69_0225EF54 *param2, u32 heapID)
+static void ov69_0225DBB4(UnkStruct_ov69_0225DC48 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, UnkStruct_ov69_0225EF54 *param2, u32 heapID)
 {
     memset(param0, 0, sizeof(UnkStruct_ov69_0225DC48));
 
-    Window_Add(param1->unk_00, &param0->unk_1C, 1, 25, 21, 6, 2, 1, (1 + (18 + 12)) + 9);
+    Window_Add(slotsMinigameDTO->coins, &param0->unk_1C, 1, 25, 21, 6, 2, 1, (1 + (18 + 12)) + 9);
     Window_FillTilemap(&param0->unk_1C, 15);
 
     {
@@ -1815,61 +1815,61 @@ static void ov69_0225DC54(UnkStruct_ov69_0225DC48 *param0)
 {
     int v0, v1, v2, v3;
 
-    param0->unk_00 = 0;
+    param0->coins = 0;
 
     if (gSystem.touchPressed) {
         if ((gSystem.touchX >= (25 * 8)) && (gSystem.touchX <= ((25 + 6) * 8)) && (gSystem.touchY >= (21 * 8)) && (gSystem.touchY <= ((21 + 2) * 8))) {
-            param0->unk_00 = PAD_BUTTON_B;
+            param0->coins = PAD_BUTTON_B;
             return;
         } else {
-            param0->unk_04 = 0;
+            param0->slotMachineVariant = 0;
             param0->unk_10 = 0;
             param0->unk_14 = 0;
             param0->unk_18 = 0;
-            param0->unk_00 = 0;
+            param0->coins = 0;
             param0->unk_08 = gSystem.touchX;
-            param0->unk_0C = gSystem.touchY;
+            param0->slotsMinigameDTO = gSystem.touchY;
             param0->unk_18 = 4;
         }
     }
 
     if (gSystem.touchHeld) {
-        switch (param0->unk_04) {
+        switch (param0->slotMachineVariant) {
         case 0:
 
             if (!param0->unk_18) {
-                param0->unk_04++;
+                param0->slotMachineVariant++;
             } else {
                 param0->unk_18--;
             }
         case 1:
-            ov69_0225CBE4(param0->unk_08, param0->unk_0C, &v0, &v1, &v2, &v3);
-            param0->unk_00 = v0 | v2;
+            ov69_0225CBE4(param0->unk_08, param0->slotsMinigameDTO, &v0, &v1, &v2, &v3);
+            param0->coins = v0 | v2;
             param0->unk_10 = v1;
             param0->unk_14 = v3;
             param0->unk_08 = gSystem.touchX;
-            param0->unk_0C = gSystem.touchY;
+            param0->slotsMinigameDTO = gSystem.touchY;
             break;
         }
     } else {
         if (param0->unk_18) {
-            param0->unk_00 = PAD_BUTTON_A;
+            param0->coins = PAD_BUTTON_A;
         }
 
-        param0->unk_04 = 0;
+        param0->slotMachineVariant = 0;
         param0->unk_10 = 0;
         param0->unk_14 = 0;
         param0->unk_18 = 0;
     }
 }
 
-static int ov69_0225DD10(const UnkStruct_ov69_0225DC48 *param0, u32 param1)
+static int ov69_0225DD10(const UnkStruct_ov69_0225DC48 *param0, u32 slotsMinigameDTO)
 {
     int v0;
 
-    switch (param1) {
+    switch (slotsMinigameDTO) {
     case 0:
-        v0 = param0->unk_00;
+        v0 = param0->coins;
         break;
     case 1:
         v0 = param0->unk_10;
@@ -1896,28 +1896,28 @@ static void ov69_0225DD44(UnkStruct_ov69_0225DC48 *param0)
     Window_DrawStandardFrame(&param0->unk_1C, 0, 1 + (18 + 12), 0);
 }
 
-static void ov69_0225DD60(UnkStruct_ov69_0225DDC8 *param0, UnkStruct_ov69_0225D35C *param1, UnkStruct_ov69_0225EF54 *param2, SaveData *saveData, u32 heapID)
+static void ov69_0225DD60(UnkStruct_ov69_0225DDC8 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, UnkStruct_ov69_0225EF54 *param2, SaveData *saveData, u32 heapID)
 {
     memset(param0, 0, sizeof(UnkStruct_ov69_0225DC48));
 
     param0->unk_08 = Options_TextFrameDelay(SaveData_GetOptions(saveData));
-    param0->unk_0C = String_Init(128, heapID);
+    param0->slotsMinigameDTO = String_Init(128, heapID);
 
-    Window_Add(param1->unk_00, &param0->unk_10, 1, 2, 1, 27, 4, 1, ((1 + (18 + 12)) + 9) + (6 * 2));
+    Window_Add(slotsMinigameDTO->coins, &param0->unk_10, 1, 2, 1, 27, 4, 1, ((1 + (18 + 12)) + 9) + (6 * 2));
     Window_FillTilemap(&param0->unk_10, 15);
 
-    ov69_0225EF84(param2, 5, param0->unk_0C);
+    ov69_0225EF84(param2, 5, param0->slotsMinigameDTO);
 
     param0->unk_20 = YesNoTouchMenu_New(heapID);
 }
 
 static void ov69_0225DDC8(UnkStruct_ov69_0225DDC8 *param0)
 {
-    if (Text_IsPrinterActive(param0->unk_04) != 0) {
-        Text_RemovePrinter(param0->unk_04);
+    if (Text_IsPrinterActive(param0->slotMachineVariant) != 0) {
+        Text_RemovePrinter(param0->slotMachineVariant);
     }
 
-    String_Free(param0->unk_0C);
+    String_Free(param0->slotsMinigameDTO);
     YesNoTouchMenu_Free(param0->unk_20);
     Window_Remove(&param0->unk_10);
 }
@@ -1928,25 +1928,25 @@ static void ov69_0225DDFC(UnkStruct_ov69_0225DDC8 *param0)
     Window_DrawMessageBoxWithScrollCursor(&param0->unk_10, 1, 1, 2);
     Window_ScheduleCopyToVRAM(&param0->unk_10);
 
-    param0->unk_04 = Text_AddPrinterWithParams(&param0->unk_10, FONT_MESSAGE, param0->unk_0C, 0, 0, param0->unk_08, NULL);
-    param0->unk_00 = 0;
+    param0->slotMachineVariant = Text_AddPrinterWithParams(&param0->unk_10, FONT_MESSAGE, param0->slotsMinigameDTO, 0, 0, param0->unk_08, NULL);
+    param0->coins = 0;
 }
 
 static u32 ov69_0225DE40(UnkStruct_ov69_0225DDC8 *param0)
 {
     u32 v0;
 
-    switch (param0->unk_00) {
+    switch (param0->coins) {
     case 0:
         v0 = 0;
 
-        if (Text_IsPrinterActive(param0->unk_04) == 0) {
+        if (Text_IsPrinterActive(param0->slotMachineVariant) == 0) {
             YesNoTouchMenuParams v1;
 
             v1 = Unk_ov69_0225F074;
             v1.bgConfig = Window_GetBgConfig(&param0->unk_10);
             YesNoTouchMenu_InitWithParams(param0->unk_20, &v1);
-            param0->unk_00++;
+            param0->coins++;
         }
         break;
     case 1:
@@ -1964,9 +1964,9 @@ static void ov69_0225DEA0(UnkStruct_ov69_0225DDC8 *param0)
     Window_ClearAndScheduleCopyToVRAM(&param0->unk_10);
 }
 
-static void ov69_0225DEC0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1, UnkStruct_ov69_0225EF54 *param2, enum HeapID heapID)
+static void ov69_0225DEC0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, UnkStruct_ov69_0225EF54 *param2, enum HeapID heapID)
 {
-    param0->unk_00 = 0;
+    param0->coins = 0;
 
     ov69_0225E13C(param0);
 
@@ -1974,14 +1974,14 @@ static void ov69_0225DEC0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D3
         int v0;
 
         for (v0 = 0; v0 < 5; v0++) {
-            ov69_0225E748(&param0->unk_A0[v0], param1, &Unk_ov69_0225F118[v0], Unk_ov69_0225F014[v0], heapID);
+            ov69_0225E748(&param0->unk_A0[v0], slotsMinigameDTO, &Unk_ov69_0225F118[v0], Unk_ov69_0225F014[v0], heapID);
         }
     }
 
     {
         String *v1;
 
-        Window_Add(param1->unk_00, &param0->unk_1A8, 4, 2, 19, 27, 4, 11, 10 + (18 + 12));
+        Window_Add(slotsMinigameDTO->coins, &param0->unk_1A8, 4, 2, 19, 27, 4, 11, 10 + (18 + 12));
         Window_FillTilemap(&param0->unk_1A8, 15);
 
         v1 = ov69_0225EF74(param2, 0);
@@ -1990,20 +1990,20 @@ static void ov69_0225DEC0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D3
         Window_DrawMessageBoxWithScrollCursor(&param0->unk_1A8, 0, 10, 10);
     }
 
-    ov69_0225E590(param0, param1, heapID);
+    ov69_0225E590(param0, slotsMinigameDTO, heapID);
 
     {
-        param0->unk_94 = Graphics_GetScrnDataFromOpenNARC(param1->unk_1A8, 19, 0, &param0->unk_98, heapID);
+        param0->unk_94 = Graphics_GetScrnDataFromOpenNARC(slotsMinigameDTO->unk_1A8, 19, 0, &param0->unk_98, heapID);
     }
 
-    ov69_0225E960(&param0->unk_1B8, param1, &param0->unk_2E4, heapID);
+    ov69_0225E960(&param0->unk_1B8, slotsMinigameDTO, &param0->unk_2E4, heapID);
     ov69_0225E478(&param0->unk_2E4);
 }
 
-static void ov69_0225DFBC(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1)
+static void ov69_0225DFBC(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO)
 {
     ov69_0225E4E8(&param0->unk_2E4);
-    ov69_0225EAE8(&param0->unk_1B8, param1);
+    ov69_0225EAE8(&param0->unk_1B8, slotsMinigameDTO);
 
     Heap_Free(param0->unk_94);
     ov69_0225E61C(param0);
@@ -2019,36 +2019,36 @@ static void ov69_0225DFBC(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D3
     }
 }
 
-static void ov69_0225E00C(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF54 *param1, UnkStruct_ov69_0225D35C *param2)
+static void ov69_0225E00C(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF54 *slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2)
 {
     BOOL v0;
 
-    switch (param0->unk_00) {
+    switch (param0->coins) {
     case 0:
         ov69_0225E1EC(param0, param2);
         ov69_0225EC08(&param0->unk_1B8, &param0->unk_2E4);
         break;
     case 1:
-        ov69_0225E208(param0, param1, param2);
-        param0->unk_00 = 2;
+        ov69_0225E208(param0, slotsMinigameDTO, param2);
+        param0->coins = 2;
         break;
     case 2:
         v0 = ov69_0225E2D0(param0, param2);
 
         if (v0 == 1) {
-            param0->unk_00 = 0;
+            param0->coins = 0;
         }
         break;
     case 3:
         ov69_0225E2DC(param0);
         ov69_0225E2E4(param0, param2);
-        param0->unk_00 = 4;
+        param0->coins = 4;
         break;
     case 4:
         v0 = ov69_0225E2E4(param0, param2);
 
         if (v0 == 1) {
-            param0->unk_00 = 0;
+            param0->coins = 0;
         }
         break;
     }
@@ -2066,14 +2066,14 @@ static void ov69_0225E0A0(UnkStruct_ov69_0225E084 *param0)
     Window_DrawMessageBoxWithScrollCursor(&param0->unk_1A8, 1, 10, 10);
 }
 
-static BOOL ov69_0225E0C0(UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *param1)
+static BOOL ov69_0225E0C0(UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *slotsMinigameDTO)
 {
-    switch (param0->unk_00) {
+    switch (param0->coins) {
     case 0:
-        param0->unk_00 = 1;
+        param0->coins = 1;
         break;
     case 2:
-        param0->unk_00 = 3;
+        param0->coins = 3;
         return 0;
     case 3:
     case 4:
@@ -2081,12 +2081,12 @@ static BOOL ov69_0225E0C0(UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_
         return 0;
     }
 
-    ov69_0225E154(param0, param1);
+    ov69_0225E154(param0, slotsMinigameDTO);
 
     return 1;
 }
 
-static BOOL ov69_0225E0F8(const UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *param1)
+static BOOL ov69_0225E0F8(const UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov69_0225E0C0 v1;
@@ -2099,7 +2099,7 @@ static BOOL ov69_0225E0F8(const UnkStruct_ov69_0225E084 *param0, const UnkStruct
             return 0;
         }
 
-        if ((v1.unk_04 == param1->unk_04) && (v1.unk_08 == param1->unk_08)) {
+        if ((v1.slotMachineVariant == slotsMinigameDTO->slotMachineVariant) && (v1.unk_08 == slotsMinigameDTO->unk_08)) {
             return 1;
         }
     }
@@ -2121,13 +2121,13 @@ static void ov69_0225E148(UnkStruct_ov69_0225E084 *param0)
     param0->unk_38 = 0;
 }
 
-static void ov69_0225E154(UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *param1)
+static void ov69_0225E154(UnkStruct_ov69_0225E084 *param0, const UnkStruct_ov69_0225E0C0 *slotsMinigameDTO)
 {
     if (((param0->unk_36 + 1) % 4) == param0->unk_34) {
         ov69_0225E1A0(param0);
     }
 
-    param0->unk_04[param0->unk_36] = *param1;
+    param0->slotMachineVariant[param0->unk_36] = *slotsMinigameDTO;
     param0->unk_36 = (param0->unk_36 + 1) % 4;
     param0->unk_38++;
 }
@@ -2142,7 +2142,7 @@ static void ov69_0225E1A0(UnkStruct_ov69_0225E084 *param0)
     param0->unk_38--;
 }
 
-static BOOL ov69_0225E1C0(const UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225E0C0 *param1, u32 param2)
+static BOOL ov69_0225E1C0(const UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225E0C0 *slotsMinigameDTO, u32 param2)
 {
     s32 v0;
 
@@ -2156,21 +2156,21 @@ static BOOL ov69_0225E1C0(const UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_
         v0 += 4;
     }
 
-    *param1 = param0->unk_04[v0];
+    *slotsMinigameDTO = param0->slotMachineVariant[v0];
 
     return 1;
 }
 
-static void ov69_0225E1EC(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1)
+static void ov69_0225E1EC(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO)
 {
     int v0;
 
     for (v0 = 0; v0 < 5; v0++) {
-        ov69_0225E810(&param0->unk_A0[v0], param1);
+        ov69_0225E810(&param0->unk_A0[v0], slotsMinigameDTO);
     }
 }
 
-static void ov69_0225E208(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF54 *param1, UnkStruct_ov69_0225D35C *param2)
+static void ov69_0225E208(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF54 *slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2)
 {
     memset(param0->unk_40, 0, sizeof(UnkStruct_ov69_0225E084_sub1) * (3 * 6));
 
@@ -2198,16 +2198,16 @@ static void ov69_0225E208(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF
             v3 = ov69_0225E1C0(param0, &v5, v0);
 
             if (v3 == 1) {
-                v2 = ov69_0225EEEC(v5.unk_00);
+                v2 = ov69_0225EEEC(v5.coins);
 
                 ov69_0225E8EC(&param0->unk_A0[v2], v1, 1);
-                ov69_0225E644(param0, v1, &v5, param1);
+                ov69_0225E644(param0, v1, &v5, slotsMinigameDTO);
 
                 param0->unk_88[v1] = v2;
-                ov69_0225EB8C(&param0->unk_1B8, v1, v5.unk_00, v4);
+                ov69_0225EB8C(&param0->unk_1B8, v1, v5.coins, v4);
                 param0->unk_3E += 6;
 
-                v4 = v5.unk_00;
+                v4 = v5.coins;
             } else {
                 param0->unk_88[v1] = 5;
                 v4 = -1;
@@ -2216,9 +2216,9 @@ static void ov69_0225E208(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225EF
     }
 }
 
-static BOOL ov69_0225E2D0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1)
+static BOOL ov69_0225E2D0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO)
 {
-    return ov69_0225E2F0(param0, param1, 2);
+    return ov69_0225E2F0(param0, slotsMinigameDTO, 2);
 }
 
 static void ov69_0225E2DC(UnkStruct_ov69_0225E084 *param0)
@@ -2227,12 +2227,12 @@ static void ov69_0225E2DC(UnkStruct_ov69_0225E084 *param0)
     param0->unk_3C = v0 * 1;
 }
 
-static BOOL ov69_0225E2E4(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1)
+static BOOL ov69_0225E2E4(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO)
 {
-    return ov69_0225E2F0(param0, param1, 1);
+    return ov69_0225E2F0(param0, slotsMinigameDTO, 1);
 }
 
-static BOOL ov69_0225E2F0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1, int param2)
+static BOOL ov69_0225E2F0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, int param2)
 {
     u32 v0;
     int v1;
@@ -2249,7 +2249,7 @@ static BOOL ov69_0225E2F0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D3
     }
 
     for (v1 = 0; v1 < param0->unk_3E; v1++) {
-        v2 = ov69_0225E374(param0, v1, param1);
+        v2 = ov69_0225E374(param0, v1, slotsMinigameDTO);
 
         if (v2 == 0) {
             v3 = 0;
@@ -2264,32 +2264,32 @@ static BOOL ov69_0225E2F0(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D3
     return v3;
 }
 
-static void ov69_0225E368(UnkStruct_ov69_0225E084 *param0, u32 param1)
+static void ov69_0225E368(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO)
 {
-    param0->unk_40[param1].unk_00 = 1;
+    param0->unk_40[slotsMinigameDTO].coins = 1;
 }
 
-static BOOL ov69_0225E374(UnkStruct_ov69_0225E084 *param0, u32 param1, UnkStruct_ov69_0225D35C *param2)
+static BOOL ov69_0225E374(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2)
 {
     u32 v0;
     u32 v1;
     u32 v2;
     u32 v3;
 
-    if (param0->unk_40[param1].unk_00 == 0) {
+    if (param0->unk_40[slotsMinigameDTO].coins == 0) {
         return 0;
     }
 
-    if (param0->unk_40[param1].unk_01 >= 2) {
+    if (param0->unk_40[slotsMinigameDTO].unk_01 >= 2) {
         return 1;
     }
 
-    v0 = ((3 * 6) - param1) - 1;
+    v0 = ((3 * 6) - slotsMinigameDTO) - 1;
     v2 = v0 / 6;
     v1 = v0 % 6;
     v3 = param0->unk_88[v2];
 
-    switch (param0->unk_40[param1].unk_01) {
+    switch (param0->unk_40[slotsMinigameDTO].unk_01) {
     case 0: {
         u8 *v4;
 
@@ -2319,14 +2319,14 @@ static BOOL ov69_0225E374(UnkStruct_ov69_0225E084 *param0, u32 param1, UnkStruct
         break;
     }
 
-    param0->unk_40[param1].unk_01++;
+    param0->unk_40[slotsMinigameDTO].unk_01++;
     return 0;
 }
 
-static void ov69_0225E430(UnkStruct_ov69_0225E084 *param0, u32 param1, UnkStruct_ov69_0225D35C *param2)
+static void ov69_0225E430(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2)
 {
-    Bg_CopyToTilemapRect(param2->unk_00, 6, 0, 0 + param1, 32, 1, param0->unk_98->rawData, 0, 0 + param1, param0->unk_98->screenWidth / 8, param0->unk_98->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param2->unk_00, 6);
+    Bg_CopyToTilemapRect(param2->coins, 6, 0, 0 + slotsMinigameDTO, 32, 1, param0->unk_98->rawData, 0, 0 + slotsMinigameDTO, param0->unk_98->screenWidth / 8, param0->unk_98->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(param2->coins, 6);
 }
 
 static void ov69_0225E478(UnkStruct_ov69_0225E478 *param0)
@@ -2339,34 +2339,34 @@ static void ov69_0225E478(UnkStruct_ov69_0225E478 *param0)
     ov69_0225E504(param0, 0, 0);
     ov69_0225E51C(param0, 0, 0);
 
-    param0->unk_0C = SysTask_ExecuteAfterVBlank(ov69_0225E534, param0, 0);
+    param0->slotsMinigameDTO = SysTask_ExecuteAfterVBlank(ov69_0225E534, param0, 0);
 }
 
 static void ov69_0225E4E8(UnkStruct_ov69_0225E478 *param0)
 {
-    SysTask_Done(param0->unk_0C);
+    SysTask_Done(param0->slotsMinigameDTO);
     GXS_SetVisibleWnd(GX_WNDMASK_NONE);
 }
 
-static void ov69_0225E504(UnkStruct_ov69_0225E478 *param0, s16 param1, s16 param2)
+static void ov69_0225E504(UnkStruct_ov69_0225E478 *param0, s16 slotsMinigameDTO, s16 param2)
 {
-    if (param1 < 0) {
-        param1 = 0;
+    if (slotsMinigameDTO < 0) {
+        slotsMinigameDTO = 0;
     }
 
     if (param2 < 0) {
         param2 = 0;
     }
 
-    param0->unk_00 = 1;
-    param0->unk_04 = param1;
+    param0->coins = 1;
+    param0->slotMachineVariant = slotsMinigameDTO;
     param0->unk_06 = param2;
 }
 
-static void ov69_0225E51C(UnkStruct_ov69_0225E478 *param0, s16 param1, s16 param2)
+static void ov69_0225E51C(UnkStruct_ov69_0225E478 *param0, s16 slotsMinigameDTO, s16 param2)
 {
-    if (param1 < 0) {
-        param1 = 0;
+    if (slotsMinigameDTO < 0) {
+        slotsMinigameDTO = 0;
     }
 
     if (param2 < 0) {
@@ -2374,17 +2374,17 @@ static void ov69_0225E51C(UnkStruct_ov69_0225E478 *param0, s16 param1, s16 param
     }
 
     param0->unk_02 = 1;
-    param0->unk_08 = param1;
+    param0->unk_08 = slotsMinigameDTO;
     param0->unk_0A = param2;
 }
 
-static void ov69_0225E534(SysTask *param0, void *param1)
+static void ov69_0225E534(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov69_0225E478 *v0 = param1;
+    UnkStruct_ov69_0225E478 *v0 = slotsMinigameDTO;
 
-    if (v0->unk_00) {
-        G2S_SetWnd0Position(0, v0->unk_04, 255, v0->unk_06);
-        v0->unk_00 = 0;
+    if (v0->coins) {
+        G2S_SetWnd0Position(0, v0->slotMachineVariant, 255, v0->unk_06);
+        v0->coins = 0;
     }
 
     if (v0->unk_02) {
@@ -2393,13 +2393,13 @@ static void ov69_0225E534(SysTask *param0, void *param1)
     }
 }
 
-static void ov69_0225E590(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *param1, u32 param2)
+static void ov69_0225E590(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, u32 param2)
 {
     int v0;
     int v1 = ((10 + (18 + 12)) + (27 * 4));
 
     for (v0 = 0; v0 < 3; v0++) {
-        Window_Add(param1->unk_00, &param0->unk_168[v0], 5, 0, 0 + (6 * v0), 27, 6, 14, v1);
+        Window_Add(slotsMinigameDTO->coins, &param0->unk_168[v0], 5, 0, 0 + (6 * v0), 27, 6, 14, v1);
 
         v1 += (27 * 6);
 
@@ -2407,7 +2407,7 @@ static void ov69_0225E590(UnkStruct_ov69_0225E084 *param0, UnkStruct_ov69_0225D3
         Window_CopyToVRAM(&param0->unk_168[v0]);
     }
 
-    Window_Add(param1->unk_00, &param0->unk_198, 5, 0, 0, 27, 6, 14, (10 + (18 + 12)) + (27 * 4));
+    Window_Add(slotsMinigameDTO->coins, &param0->unk_198, 5, 0, 0, 27, 6, 14, (10 + (18 + 12)) + (27 * 4));
     Window_FillTilemap(&param0->unk_198, 0);
 }
 
@@ -2422,17 +2422,17 @@ static void ov69_0225E61C(UnkStruct_ov69_0225E084 *param0)
     Window_Remove(&param0->unk_198);
 }
 
-static void ov69_0225E644(UnkStruct_ov69_0225E084 *param0, u32 param1, const UnkStruct_ov69_0225E0C0 *param2, UnkStruct_ov69_0225EF54 *param3)
+static void ov69_0225E644(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, const UnkStruct_ov69_0225E0C0 *param2, UnkStruct_ov69_0225EF54 *param3)
 {
     String *v0;
     Window *v1;
     u32 v2;
 
-    GF_ASSERT(param1 < 3);
+    GF_ASSERT(slotsMinigameDTO < 3);
 
-    v1 = &param0->unk_168[param1];
+    v1 = &param0->unk_168[slotsMinigameDTO];
     Window_FillTilemap(v1, 0);
-    v2 = ov69_0225EEEC(param2->unk_00);
+    v2 = ov69_0225EEEC(param2->coins);
 
     {
         v0 = ov69_0225EF74(param3, 2);
@@ -2440,60 +2440,60 @@ static void ov69_0225E644(UnkStruct_ov69_0225E084 *param0, u32 param1, const Unk
     }
 
     {
-        v0 = ov69_0225EF90(param3, param2->unk_04);
+        v0 = ov69_0225EF90(param3, param2->slotMachineVariant);
         Text_AddPrinterWithParamsAndColor(v1, FONT_MESSAGE, v0, 0, 16, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
     }
 
     {
-        v0 = ov69_0225EFB8(param3, param2->unk_04, param2->unk_08);
+        v0 = ov69_0225EFB8(param3, param2->slotMachineVariant, param2->unk_08);
         Text_AddPrinterWithParamsAndColor(v1, FONT_MESSAGE, v0, 0, 32, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
     }
 }
 
-static u8 *ov69_0225E6E8(UnkStruct_ov69_0225E084 *param0, u32 param1, u32 param2)
+static u8 *ov69_0225E6E8(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, u32 param2)
 {
     u8 *v0;
 
-    GF_ASSERT(param1 < 3);
-    v0 = param0->unk_168[param1].pixels;
+    GF_ASSERT(slotsMinigameDTO < 3);
+    v0 = param0->unk_168[slotsMinigameDTO].pixels;
 
     return &v0[((27 * param2) * 32)];
 }
 
-static u8 *ov69_0225E70C(UnkStruct_ov69_0225E084 *param0, u32 param1)
+static u8 *ov69_0225E70C(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO)
 {
     u8 *v0 = param0->unk_198.pixels;
-    return &v0[((27 * param1) * 32)];
+    return &v0[((27 * slotsMinigameDTO) * 32)];
 }
 
-static void ov69_0225E71C(UnkStruct_ov69_0225E084 *param0, u32 param1, u32 param2, const u8 *param3)
+static void ov69_0225E71C(UnkStruct_ov69_0225E084 *param0, u32 slotsMinigameDTO, u32 param2, const u8 *param3)
 {
-    u16 v0 = Window_GetBaseTile(&param0->unk_168[param1]);
+    u16 v0 = Window_GetBaseTile(&param0->unk_168[slotsMinigameDTO]);
     v0 += (27 * param2);
 
     VramTransfer_Request(NNS_GFD_DST_2D_BG1_CHAR_SUB, v0 * 32, (void *)param3, 27 * 32);
 }
 
-static void ov69_0225E748(UnkStruct_ov69_0225E7DC *param0, UnkStruct_ov69_0225D35C *param1, const UnkStruct_ov69_0225F118 *param2, u16 param3, enum HeapID heapID)
+static void ov69_0225E748(UnkStruct_ov69_0225E7DC *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, const UnkStruct_ov69_0225F118 *param2, u16 param3, enum HeapID heapID)
 {
     int v0;
 
     memset(param0, 0, sizeof(UnkStruct_ov69_0225E7DC));
     param0->unk_02 = param3;
 
-    if (param2->unk_04 > 0) {
-        param0->unk_18 = param2->unk_04;
+    if (param2->slotMachineVariant > 0) {
+        param0->unk_18 = param2->slotMachineVariant;
 
         for (v0 = 0; v0 < param0->unk_18; v0++) {
             param0->unk_08[v0] = Graphics_GetScrnDataFromOpenNARC(
-                param1->unk_1A8, param2->unk_00[v0], 0, &param0->unk_10[v0], heapID);
+                slotsMinigameDTO->unk_1A8, param2->coins[v0], 0, &param0->unk_10[v0], heapID);
         }
     }
 
     if (param2->unk_08 > 0) {
         param0->unk_24 = param2->unk_08;
         param0->unk_26 = param2->unk_0A;
-        param0->unk_1C = Graphics_GetPlttDataFromOpenNARC(param1->unk_1A8, param2->unk_06, &param0->unk_20, heapID);
+        param0->unk_1C = Graphics_GetPlttDataFromOpenNARC(slotsMinigameDTO->unk_1A8, param2->unk_06, &param0->unk_20, heapID);
     }
 }
 
@@ -2512,23 +2512,23 @@ static void ov69_0225E7DC(UnkStruct_ov69_0225E7DC *param0)
     }
 }
 
-static void ov69_0225E810(UnkStruct_ov69_0225E7DC *param0, UnkStruct_ov69_0225D35C *param1)
+static void ov69_0225E810(UnkStruct_ov69_0225E7DC *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO)
 {
     int v0;
     u32 v1, v2;
 
-    v2 = (param0->unk_00 * param0->unk_18) / param0->unk_02;
-    v1 = (param0->unk_00 * param0->unk_24) / param0->unk_02;
+    v2 = (param0->coins * param0->unk_18) / param0->unk_02;
+    v1 = (param0->coins * param0->unk_24) / param0->unk_02;
 
-    param0->unk_00 = (param0->unk_00 + 1) % param0->unk_02;
+    param0->coins = (param0->coins + 1) % param0->unk_02;
 
     if ((param0->unk_18 > 0) && (v2 != param0->unk_1A)) {
         param0->unk_1A = v2;
 
         for (v0 = 0; v0 < 3; v0++) {
-            if (param0->unk_04[v0] == 1) {
-                Bg_CopyToTilemapRect(param1->unk_00, 6, 0, 0 + (6 * v0), 32, 6, param0->unk_10[param0->unk_1A]->rawData, 0, 0 + (6 * v0), param0->unk_10[param0->unk_1A]->screenWidth / 8, param0->unk_10[param0->unk_1A]->screenHeight / 8);
-                Bg_ScheduleTilemapTransfer(param1->unk_00, 6);
+            if (param0->slotMachineVariant[v0] == 1) {
+                Bg_CopyToTilemapRect(slotsMinigameDTO->coins, 6, 0, 0 + (6 * v0), 32, 6, param0->unk_10[param0->unk_1A]->rawData, 0, 0 + (6 * v0), param0->unk_10[param0->unk_1A]->screenWidth / 8, param0->unk_10[param0->unk_1A]->screenHeight / 8);
+                Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, 6);
             }
         }
     }
@@ -2545,26 +2545,26 @@ static void ov69_0225E810(UnkStruct_ov69_0225E7DC *param0, UnkStruct_ov69_0225D3
     }
 }
 
-static void ov69_0225E8EC(UnkStruct_ov69_0225E7DC *param0, u32 param1, BOOL param2)
+static void ov69_0225E8EC(UnkStruct_ov69_0225E7DC *param0, u32 slotsMinigameDTO, BOOL param2)
 {
-    GF_ASSERT(param1 < 3);
-    param0->unk_04[param1] = param2;
+    GF_ASSERT(slotsMinigameDTO < 3);
+    param0->slotMachineVariant[slotsMinigameDTO] = param2;
 }
 
 static void ov69_0225E904(UnkStruct_ov69_0225E7DC *param0)
 {
-    memset(param0->unk_04, 0, sizeof(u8) * 4);
+    memset(param0->slotMachineVariant, 0, sizeof(u8) * 4);
 }
 
-static void ov69_0225E910(UnkStruct_ov69_0225E7DC *param0, u32 param1, UnkStruct_ov69_0225D35C *param2)
+static void ov69_0225E910(UnkStruct_ov69_0225E7DC *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225D35C *param2)
 {
     if (param0->unk_18 > 0) {
-        Bg_CopyToTilemapRect(param2->unk_00, 6, 0, 0 + param1, 32, 1, param0->unk_10[param0->unk_1A]->rawData, 0, 0 + param1, param0->unk_10[param0->unk_1A]->screenWidth / 8, param0->unk_10[param0->unk_1A]->screenHeight / 8);
-        Bg_ScheduleTilemapTransfer(param2->unk_00, 6);
+        Bg_CopyToTilemapRect(param2->coins, 6, 0, 0 + slotsMinigameDTO, 32, 1, param0->unk_10[param0->unk_1A]->rawData, 0, 0 + slotsMinigameDTO, param0->unk_10[param0->unk_1A]->screenWidth / 8, param0->unk_10[param0->unk_1A]->screenHeight / 8);
+        Bg_ScheduleTilemapTransfer(param2->coins, 6);
     }
 }
 
-static void ov69_0225E960(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D35C *param1, UnkStruct_ov69_0225E478 *param2, u32 param3)
+static void ov69_0225E960(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO, UnkStruct_ov69_0225E478 *param2, u32 param3)
 {
     int v0;
     SpriteResourcesHeader v1;
@@ -2576,27 +2576,27 @@ static void ov69_0225E960(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D3
     param0->unk_30 = 2;
     param0->unk_32 = 128;
 
-    v3.list = param1->unk_04;
+    v3.list = slotsMinigameDTO->slotMachineVariant;
     v3.resourceData = &v1;
     v3.priority = 64;
     v3.vramType = NNS_G2D_VRAM_TYPE_2DSUB;
     v3.heapID = param3;
 
-    param0->unk_6C[0][1] = SpriteResourceCollection_AddPaletteFrom(param1->unk_194[1], param1->unk_1A8, 20, 0, 0, NNS_G2D_VRAM_TYPE_2DSUB, 12, param3);
+    param0->unk_6C[0][1] = SpriteResourceCollection_AddPaletteFrom(slotsMinigameDTO->unk_194[1], slotsMinigameDTO->unk_1A8, 20, 0, 0, NNS_G2D_VRAM_TYPE_2DSUB, 12, param3);
     v2 = SpriteTransfer_RequestPlttFreeSpace(param0->unk_6C[0][1]);
     GF_ASSERT(v2);
     SpriteResource_ReleaseData(param0->unk_6C[0][1]);
 
     for (v0 = 0; v0 < 12; v0++) {
-        param0->unk_6C[v0][0] = SpriteResourceCollection_AddTilesFrom(param1->unk_194[0], param1->unk_1A8, 21 + ((v0) * 3), 0, v0, NNS_G2D_VRAM_TYPE_2DSUB, param3);
-        param0->unk_6C[v0][2] = SpriteResourceCollection_AddFrom(param1->unk_194[2], param1->unk_1A8, 22 + ((v0) * 3), 0, v0, 2, param3);
-        param0->unk_6C[v0][3] = SpriteResourceCollection_AddFrom(param1->unk_194[3], param1->unk_1A8, 23 + ((v0) * 3), 0, v0, 3, param3);
+        param0->unk_6C[v0][0] = SpriteResourceCollection_AddTilesFrom(slotsMinigameDTO->unk_194[0], slotsMinigameDTO->unk_1A8, 21 + ((v0) * 3), 0, v0, NNS_G2D_VRAM_TYPE_2DSUB, param3);
+        param0->unk_6C[v0][2] = SpriteResourceCollection_AddFrom(slotsMinigameDTO->unk_194[2], slotsMinigameDTO->unk_1A8, 22 + ((v0) * 3), 0, v0, 2, param3);
+        param0->unk_6C[v0][3] = SpriteResourceCollection_AddFrom(slotsMinigameDTO->unk_194[3], slotsMinigameDTO->unk_1A8, 23 + ((v0) * 3), 0, v0, 3, param3);
 
         v2 = SpriteTransfer_RequestCharAtEnd(param0->unk_6C[v0][0]);
         GF_ASSERT(v2);
 
         SpriteResource_ReleaseData(param0->unk_6C[v0][0]);
-        SpriteResourcesHeader_Init(&v1, v0, 0, v0, v0, 0xffffffff, 0xffffffff, 0, 1, param1->unk_194[0], param1->unk_194[1], param1->unk_194[2], param1->unk_194[3], NULL, NULL);
+        SpriteResourcesHeader_Init(&v1, v0, 0, v0, v0, 0xffffffff, 0xffffffff, 0, 1, slotsMinigameDTO->unk_194[0], slotsMinigameDTO->unk_194[1], slotsMinigameDTO->unk_194[2], slotsMinigameDTO->unk_194[3], NULL, NULL);
 
         param0->unk_3C[v0] = SpriteList_Add(&v3);
 
@@ -2608,7 +2608,7 @@ static void ov69_0225E960(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D3
     ov69_0225E51C(param2, 0, 0);
 }
 
-static void ov69_0225EAE8(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D35C *param1)
+static void ov69_0225EAE8(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D35C *slotsMinigameDTO)
 {
     int v0, v1;
 
@@ -2620,12 +2620,12 @@ static void ov69_0225EAE8(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225D3
 
         if (v0 == 0) {
             SpriteTransfer_ResetPlttTransfer(param0->unk_6C[v0][1]);
-            SpriteResourceCollection_Remove(param1->unk_194[1], param0->unk_6C[v0][1]);
+            SpriteResourceCollection_Remove(slotsMinigameDTO->unk_194[1], param0->unk_6C[v0][1]);
         }
 
         for (v1 = 0; v1 < 4; v1++) {
             if (v1 != 1) {
-                SpriteResourceCollection_Remove(param1->unk_194[v1], param0->unk_6C[v0][v1]);
+                SpriteResourceCollection_Remove(slotsMinigameDTO->unk_194[v1], param0->unk_6C[v0][v1]);
             }
         }
     }
@@ -2640,22 +2640,22 @@ static void ov69_0225EB60(UnkStruct_ov69_0225EB60 *param0)
     param0->unk_32 = 128;
 }
 
-static void ov69_0225EB8C(UnkStruct_ov69_0225EB60 *param0, u8 param1, u8 param2, u8 param3)
+static void ov69_0225EB8C(UnkStruct_ov69_0225EB60 *param0, u8 slotsMinigameDTO, u8 param2, u8 param3)
 {
     int v0;
 
-    param0->unk_34[param1] = 1;
-    param0->unk_38[param1] = ov69_0225EF04(param2);
+    param0->unk_34[slotsMinigameDTO] = 1;
+    param0->unk_38[slotsMinigameDTO] = ov69_0225EF04(param2);
 
-    ov69_0225ECF0(&param0->unk_00[param1], &Unk_ov69_0225F1E0[param0->unk_38[param1]][param1]);
+    ov69_0225ECF0(&param0->coins[slotsMinigameDTO], &Unk_ov69_0225F1E0[param0->unk_38[slotsMinigameDTO]][slotsMinigameDTO]);
 
     if (param3 < 24) {
         v0 = ov69_0225EF04(param3);
 
-        if (v0 == param0->unk_38[param1]) {
-            if (param1 < 2) {
-                ov69_0225ED10(&param0->unk_00[param1 + 1], 1);
-                ov69_0225ED0C(&param0->unk_00[param1], 1);
+        if (v0 == param0->unk_38[slotsMinigameDTO]) {
+            if (slotsMinigameDTO < 2) {
+                ov69_0225ED10(&param0->coins[slotsMinigameDTO + 1], 1);
+                ov69_0225ED0C(&param0->coins[slotsMinigameDTO], 1);
             }
         }
     }
@@ -2670,7 +2670,7 @@ static void ov69_0225EBEC(UnkStruct_ov69_0225EB60 *param0)
     }
 }
 
-static void ov69_0225EC08(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225E478 *param1)
+static void ov69_0225EC08(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225E478 *slotsMinigameDTO)
 {
     BOOL v0;
 
@@ -2678,7 +2678,7 @@ static void ov69_0225EC08(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225E4
         param0->unk_32--;
 
         if (param0->unk_32 == 0) {
-            v0 = ov69_0225EC70(param0, param0->unk_30, param1);
+            v0 = ov69_0225EC70(param0, param0->unk_30, slotsMinigameDTO);
 
             if (v0 == 1) {
                 Sound_PlayEffect(SEQ_SE_PL_TOKEI3_sseq);
@@ -2688,12 +2688,12 @@ static void ov69_0225EC08(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225E4
         return;
     }
 
-    v0 = ov69_0225ECAC(param0, param0->unk_30, param1);
+    v0 = ov69_0225ECAC(param0, param0->unk_30, slotsMinigameDTO);
 
     if (v0 == 1) {
         if ((param0->unk_30 - 1) >= 0) {
             param0->unk_30--;
-            ov69_0225EC70(param0, param0->unk_30, param1);
+            ov69_0225EC70(param0, param0->unk_30, slotsMinigameDTO);
         } else {
             Sound_StopEffect(1473, 0);
             param0->unk_30 = 2;
@@ -2702,91 +2702,91 @@ static void ov69_0225EC08(UnkStruct_ov69_0225EB60 *param0, UnkStruct_ov69_0225E4
     }
 }
 
-static BOOL ov69_0225EC70(UnkStruct_ov69_0225EB60 *param0, u32 param1, UnkStruct_ov69_0225E478 *param2)
+static BOOL ov69_0225EC70(UnkStruct_ov69_0225EB60 *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225E478 *param2)
 {
-    if (param0->unk_34[param1] == 0) {
+    if (param0->unk_34[slotsMinigameDTO] == 0) {
         return 0;
     }
 
-    ov69_0225ED5C(&param0->unk_00[param1], param2);
-    Sprite_SetDrawFlag(param0->unk_3C[param0->unk_38[param1]], TRUE);
-    ov69_0225EEC4(param0, param1);
+    ov69_0225ED5C(&param0->coins[slotsMinigameDTO], param2);
+    Sprite_SetDrawFlag(param0->unk_3C[param0->unk_38[slotsMinigameDTO]], TRUE);
+    ov69_0225EEC4(param0, slotsMinigameDTO);
 
     return 1;
 }
 
-static BOOL ov69_0225ECAC(UnkStruct_ov69_0225EB60 *param0, u32 param1, UnkStruct_ov69_0225E478 *param2)
+static BOOL ov69_0225ECAC(UnkStruct_ov69_0225EB60 *param0, u32 slotsMinigameDTO, UnkStruct_ov69_0225E478 *param2)
 {
     BOOL v0;
 
-    if (param0->unk_34[param1] == 0) {
+    if (param0->unk_34[slotsMinigameDTO] == 0) {
         return 1;
     }
 
-    v0 = ov69_0225ED14(&param0->unk_00[param1], param2);
-    ov69_0225EEC4(param0, param1);
+    v0 = ov69_0225ED14(&param0->coins[slotsMinigameDTO], param2);
+    ov69_0225EEC4(param0, slotsMinigameDTO);
 
     if (v0 == 1) {
-        Sprite_SetDrawFlag(param0->unk_3C[param0->unk_38[param1]], FALSE);
+        Sprite_SetDrawFlag(param0->unk_3C[param0->unk_38[slotsMinigameDTO]], FALSE);
     }
 
     return v0;
 }
 
-static void ov69_0225ECF0(UnkStruct_ov69_0225ED90 *param0, const UnkStruct_ov69_0225ECF0 *param1)
+static void ov69_0225ECF0(UnkStruct_ov69_0225ED90 *param0, const UnkStruct_ov69_0225ECF0 *slotsMinigameDTO)
 {
-    param0->unk_0C = param1;
-    param0->unk_00 = param1->unk_00;
-    param0->unk_02 = param1->unk_02 + 16;
-    param0->unk_04 = 0;
+    param0->slotsMinigameDTO = slotsMinigameDTO;
+    param0->coins = slotsMinigameDTO->coins;
+    param0->unk_02 = slotsMinigameDTO->unk_02 + 16;
+    param0->slotMachineVariant = 0;
     param0->unk_06 = 0;
     param0->unk_08 = 0;
     param0->unk_0A = 0;
 }
 
-static void ov69_0225ED0C(UnkStruct_ov69_0225ED90 *param0, BOOL param1)
+static void ov69_0225ED0C(UnkStruct_ov69_0225ED90 *param0, BOOL slotsMinigameDTO)
 {
-    param0->unk_08 = param1;
+    param0->unk_08 = slotsMinigameDTO;
 }
 
-static void ov69_0225ED10(UnkStruct_ov69_0225ED90 *param0, BOOL param1)
+static void ov69_0225ED10(UnkStruct_ov69_0225ED90 *param0, BOOL slotsMinigameDTO)
 {
-    param0->unk_0A = param1;
+    param0->unk_0A = slotsMinigameDTO;
 }
 
-static BOOL ov69_0225ED14(UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *param1)
+static BOOL ov69_0225ED14(UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *slotsMinigameDTO)
 {
-    if (param0->unk_04 > param0->unk_0C->unk_08) {
+    if (param0->slotMachineVariant > param0->slotsMinigameDTO->unk_08) {
         return 1;
     }
 
     ov69_0225ED90(param0);
-    param0->unk_04++;
+    param0->slotMachineVariant++;
 
-    if ((param0->unk_06 + 1) > param0->unk_0C->unk_0C) {
+    if ((param0->unk_06 + 1) > param0->slotsMinigameDTO->slotsMinigameDTO) {
         param0->unk_06 = 0;
     } else {
         param0->unk_06++;
     }
 
-    ov69_0225EE68(param0, param1);
+    ov69_0225EE68(param0, slotsMinigameDTO);
 
     return 0;
 }
 
-static void ov69_0225ED5C(UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *param1)
+static void ov69_0225ED5C(UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *slotsMinigameDTO)
 {
-    param0->unk_04 = 0;
+    param0->slotMachineVariant = 0;
     param0->unk_06 = 0;
 
     ov69_0225ED90(param0);
-    ov69_0225EE68(param0, param1);
+    ov69_0225EE68(param0, slotsMinigameDTO);
 }
 
-static void ov69_0225ED78(const UnkStruct_ov69_0225ED90 *param0, VecFx32 *param1)
+static void ov69_0225ED78(const UnkStruct_ov69_0225ED90 *param0, VecFx32 *slotsMinigameDTO)
 {
-    param1->x = param0->unk_00 << FX32_SHIFT;
-    param1->y = (param0->unk_02 << FX32_SHIFT) + (FX32_CONST(256));
+    slotsMinigameDTO->x = param0->coins << FX32_SHIFT;
+    slotsMinigameDTO->y = (param0->unk_02 << FX32_SHIFT) + (FX32_CONST(256));
 }
 
 static void ov69_0225ED90(UnkStruct_ov69_0225ED90 *param0)
@@ -2795,56 +2795,56 @@ static void ov69_0225ED90(UnkStruct_ov69_0225ED90 *param0)
     s16 v1, v2;
 
     if (param0->unk_0A == 0) {
-        v2 = param0->unk_0C->unk_06 - 16;
+        v2 = param0->slotsMinigameDTO->unk_06 - 16;
     } else {
-        v2 = param0->unk_0C->unk_06;
+        v2 = param0->slotsMinigameDTO->unk_06;
     }
 
     if (param0->unk_08 == 0) {
-        v1 = param0->unk_0C->unk_02 + 16;
+        v1 = param0->slotsMinigameDTO->unk_02 + 16;
     } else {
-        v1 = param0->unk_0C->unk_02;
+        v1 = param0->slotsMinigameDTO->unk_02;
     }
 
-    param0->unk_00 = param0->unk_0C->unk_00 + (((param0->unk_0C->unk_04 - param0->unk_0C->unk_00) * param0->unk_04) / param0->unk_0C->unk_08);
-    param0->unk_02 = v1 + (((v2 - v1) * param0->unk_04) / param0->unk_0C->unk_08);
+    param0->coins = param0->slotsMinigameDTO->coins + (((param0->slotsMinigameDTO->slotMachineVariant - param0->slotsMinigameDTO->coins) * param0->slotMachineVariant) / param0->slotsMinigameDTO->unk_08);
+    param0->unk_02 = v1 + (((v2 - v1) * param0->slotMachineVariant) / param0->slotsMinigameDTO->unk_08);
 
-    v0 = (param0->unk_06 * 0xffff) / param0->unk_0C->unk_0C;
-    param0->unk_00 += FX_Mul(FX32_CONST(param0->unk_0C->unk_0A), FX_SinIdx(v0)) >> FX32_SHIFT;
+    v0 = (param0->unk_06 * 0xffff) / param0->slotsMinigameDTO->slotsMinigameDTO;
+    param0->coins += FX_Mul(FX32_CONST(param0->slotsMinigameDTO->unk_0A), FX_SinIdx(v0)) >> FX32_SHIFT;
 }
 
-static void ov69_0225EE68(const UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *param1)
+static void ov69_0225EE68(const UnkStruct_ov69_0225ED90 *param0, UnkStruct_ov69_0225E478 *slotsMinigameDTO)
 {
-    ov69_0225E504(param1, 0, 0);
+    ov69_0225E504(slotsMinigameDTO, 0, 0);
 
     if (param0->unk_08 == 0) {
-        if (param0->unk_02 > (param0->unk_0C->unk_02 - 16)) {
-            ov69_0225E504(param1, param0->unk_0C->unk_02, param0->unk_0C->unk_02 + 32);
+        if (param0->unk_02 > (param0->slotsMinigameDTO->unk_02 - 16)) {
+            ov69_0225E504(slotsMinigameDTO, param0->slotsMinigameDTO->unk_02, param0->slotsMinigameDTO->unk_02 + 32);
         }
     }
 
     if (param0->unk_0A == 0) {
-        if ((param0->unk_02 - 16) <= param0->unk_0C->unk_06) {
-            ov69_0225E504(param1, param0->unk_0C->unk_06 - 32, param0->unk_0C->unk_06);
+        if ((param0->unk_02 - 16) <= param0->slotsMinigameDTO->unk_06) {
+            ov69_0225E504(slotsMinigameDTO, param0->slotsMinigameDTO->unk_06 - 32, param0->slotsMinigameDTO->unk_06);
         }
     }
 }
 
-static void ov69_0225EEC4(UnkStruct_ov69_0225EB60 *param0, u32 param1)
+static void ov69_0225EEC4(UnkStruct_ov69_0225EB60 *param0, u32 slotsMinigameDTO)
 {
     VecFx32 v0;
     Sprite *v1;
 
-    ov69_0225ED78(&param0->unk_00[param1], &v0);
+    ov69_0225ED78(&param0->coins[slotsMinigameDTO], &v0);
 
-    v1 = param0->unk_3C[param0->unk_38[param1]];
+    v1 = param0->unk_3C[param0->unk_38[slotsMinigameDTO]];
     Sprite_SetPosition(v1, &v0);
 }
 
 static u16 ov69_0225EEEC(u32 param0)
 {
     GF_ASSERT(param0 < 24);
-    return Unk_ov69_0225F0E8[param0].unk_00;
+    return Unk_ov69_0225F0E8[param0].coins;
 }
 
 static u16 ov69_0225EF04(u32 param0)
@@ -2855,52 +2855,52 @@ static u16 ov69_0225EF04(u32 param0)
 
 static void ov69_0225EF1C(UnkStruct_ov69_0225EF54 *param0, u32 heapID)
 {
-    param0->unk_00 = MessageLoader_Init(MSG_LOADER_PRELOAD_ENTIRE_BANK, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_UNK_0696, heapID);
-    param0->unk_04 = StringTemplate_New(8, 64, heapID);
+    param0->coins = MessageLoader_Init(MSG_LOADER_PRELOAD_ENTIRE_BANK, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_UNK_0696, heapID);
+    param0->slotMachineVariant = StringTemplate_New(8, 64, heapID);
     param0->unk_08 = String_Init(128, heapID);
-    param0->unk_0C = String_Init(128, heapID);
+    param0->slotsMinigameDTO = String_Init(128, heapID);
 }
 
 static void ov69_0225EF54(UnkStruct_ov69_0225EF54 *param0)
 {
     {
-        MessageLoader_Free(param0->unk_00);
+        MessageLoader_Free(param0->coins);
     }
 
     {
-        StringTemplate_Free(param0->unk_04);
+        StringTemplate_Free(param0->slotMachineVariant);
     }
 
     String_Free(param0->unk_08);
-    String_Free(param0->unk_0C);
+    String_Free(param0->slotsMinigameDTO);
 }
 
-static String *ov69_0225EF74(UnkStruct_ov69_0225EF54 *param0, u32 param1)
+static String *ov69_0225EF74(UnkStruct_ov69_0225EF54 *param0, u32 slotsMinigameDTO)
 {
-    MessageLoader_GetString(param0->unk_00, param1, param0->unk_08);
+    MessageLoader_GetString(param0->coins, slotsMinigameDTO, param0->unk_08);
     return param0->unk_08;
 }
 
-static void ov69_0225EF84(UnkStruct_ov69_0225EF54 *param0, u32 param1, String *param2)
+static void ov69_0225EF84(UnkStruct_ov69_0225EF54 *param0, u32 slotsMinigameDTO, String *param2)
 {
-    MessageLoader_GetString(param0->unk_00, param1, param2);
+    MessageLoader_GetString(param0->coins, slotsMinigameDTO, param2);
 }
 
-static String *ov69_0225EF90(UnkStruct_ov69_0225EF54 *param0, u32 param1)
+static String *ov69_0225EF90(UnkStruct_ov69_0225EF54 *param0, u32 slotsMinigameDTO)
 {
-    MessageLoader_GetString(param0->unk_00, 3, param0->unk_0C);
-    StringTemplate_SetCountryName(param0->unk_04, 0, param1);
-    StringTemplate_Format(param0->unk_04, param0->unk_08, param0->unk_0C);
+    MessageLoader_GetString(param0->coins, 3, param0->slotsMinigameDTO);
+    StringTemplate_SetCountryName(param0->slotMachineVariant, 0, slotsMinigameDTO);
+    StringTemplate_Format(param0->slotMachineVariant, param0->unk_08, param0->slotsMinigameDTO);
 
     return param0->unk_08;
 }
 
-static String *ov69_0225EFB8(UnkStruct_ov69_0225EF54 *param0, u32 param1, u32 param2)
+static String *ov69_0225EFB8(UnkStruct_ov69_0225EF54 *param0, u32 slotsMinigameDTO, u32 param2)
 {
-    StringTemplate_ClearArgs(param0->unk_04);
-    MessageLoader_GetString(param0->unk_00, 3, param0->unk_0C);
-    StringTemplate_SetCityName(param0->unk_04, 0, param1, param2);
-    StringTemplate_Format(param0->unk_04, param0->unk_08, param0->unk_0C);
+    StringTemplate_ClearArgs(param0->slotMachineVariant);
+    MessageLoader_GetString(param0->coins, 3, param0->slotsMinigameDTO);
+    StringTemplate_SetCityName(param0->slotMachineVariant, 0, slotsMinigameDTO, param2);
+    StringTemplate_Format(param0->slotMachineVariant, param0->unk_08, param0->slotsMinigameDTO);
 
     return param0->unk_08;
 }

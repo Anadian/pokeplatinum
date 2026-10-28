@@ -8,10 +8,10 @@
 #include "overlay109/struct_ov109_021D5140_decl.h"
 
 typedef struct UnkStruct_0209C194_t {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    u32 unk_0C;
+    u32 slotsMinigameDTO;
     BOOL unk_10;
     UnkStruct_0209C194_1 unk_14;
     UnkStruct_0209BDF8 *unk_34;

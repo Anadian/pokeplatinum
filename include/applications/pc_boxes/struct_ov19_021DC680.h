@@ -13,10 +13,10 @@
 #include "sprite.h"
 
 typedef struct {
-    UnkStruct_ov19_021D61B0 *unk_00;
-    BgConfig *unk_04;
+    UnkStruct_ov19_021D61B0 *coins;
+    BgConfig *slotMachineVariant;
     SpriteList *unk_08;
-    const BoxApplication *unk_0C;
+    const BoxApplication *slotsMinigameDTO;
     UnkStruct_ov19_021D8318 *unk_10;
     void *unk_14;
     NNSG2dScreenData *unk_18;

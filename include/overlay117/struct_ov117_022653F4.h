@@ -4,7 +4,7 @@
 #include "overlay117/struct_ov117_02265428.h"
 
 typedef struct {
-    UnkStruct_ov117_02265428 unk_00[3];
+    UnkStruct_ov117_02265428 coins[3];
     fx32 unk_E4;
     fx32 unk_E8;
     u32 unk_EC;

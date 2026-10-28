@@ -37,30 +37,30 @@
 #include "constdata/const_020F410C.h"
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     u8 unk_08;
     u8 unk_09;
     u8 unk_0A;
     u8 unk_0B;
-    u8 unk_0C;
+    u8 slotsMinigameDTO;
     u8 unk_0D;
     u8 unk_0E[6];
     void **unk_14;
 } UnkStruct_0206B9D8;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     UnkStruct_0206BC70 *unk_08;
-    u16 **unk_0C;
+    u16 **slotsMinigameDTO;
     u16 unk_10;
     u16 unk_12;
     u16 unk_14;
 } UnkStruct_0206BC48;
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
 } UnkStruct_0206BD88;
 
@@ -80,7 +80,7 @@ static int sub_0206B9D8(UnkStruct_0206B9D8 *param0, FieldSystem *fieldSystem, en
     partyMenu->mode = param0->unk_08;
     partyMenu->minSelectionSlots = param0->unk_0A;
     partyMenu->maxSelectionSlots = param0->unk_0B;
-    partyMenu->reqLevel = param0->unk_0C;
+    partyMenu->reqLevel = param0->slotsMinigameDTO;
     partyMenu->selectedMonSlot = param0->unk_0D;
 
     for (v0 = 0; v0 < 6; v0++) {
@@ -106,10 +106,10 @@ static int sub_0206BA84(UnkStruct_0206B9D8 *param0, FieldSystem *fieldSystem)
 
     switch (partyMenu->selectedMonSlot) {
     case 7:
-        param0->unk_00 = 0;
+        param0->coins = 0;
         return 4;
     case 6:
-        param0->unk_00 = 1;
+        param0->coins = 1;
         return 4;
     default:
         break;
@@ -179,18 +179,18 @@ static BOOL sub_0206BB94(FieldTask *param0)
     FieldSystem *v0 = FieldTask_GetFieldSystem(param0);
     UnkStruct_0206B9D8 *v1 = FieldTask_GetEnv(param0);
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0:
-        v1->unk_04 = sub_0206B9D8(v1, v0, HEAP_ID_FIELD2);
+        v1->slotMachineVariant = sub_0206B9D8(v1, v0, HEAP_ID_FIELD2);
         break;
     case 1:
-        v1->unk_04 = sub_0206BA84(v1, v0);
+        v1->slotMachineVariant = sub_0206BA84(v1, v0);
         break;
     case 2:
-        v1->unk_04 = sub_0206BAE0(v1, v0, HEAP_ID_FIELD2);
+        v1->slotMachineVariant = sub_0206BAE0(v1, v0, HEAP_ID_FIELD2);
         break;
     case 3:
-        v1->unk_04 = sub_0206BB6C(v1, v0);
+        v1->slotMachineVariant = sub_0206BB6C(v1, v0);
         break;
     case 4:
         Heap_Free(v1);
@@ -200,7 +200,7 @@ static BOOL sub_0206BB94(FieldTask *param0)
     return 0;
 }
 
-void sub_0206BBFC(FieldTask *param0, void **param1, u8 param2, u8 param3, u8 param4, u8 param5, u8 param6, u8 param7)
+void sub_0206BBFC(FieldTask *param0, void **slotsMinigameDTO, u8 param2, u8 param3, u8 param4, u8 param5, u8 param6, u8 param7)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(param0);
     UnkStruct_0206B9D8 *v1 = Heap_Alloc(HEAP_ID_FIELD2, sizeof(UnkStruct_0206B9D8));
@@ -211,9 +211,9 @@ void sub_0206BBFC(FieldTask *param0, void **param1, u8 param2, u8 param3, u8 par
     v1->unk_09 = param3;
     v1->unk_0A = param4;
     v1->unk_0B = param5;
-    v1->unk_0C = param6;
+    v1->slotsMinigameDTO = param6;
     v1->unk_0D = param7;
-    v1->unk_14 = param1;
+    v1->unk_14 = slotsMinigameDTO;
 
     FieldTask_InitCall(fieldSystem->task, sub_0206BB94, v1);
 }
@@ -225,7 +225,7 @@ static int sub_0206BC48(UnkStruct_0206BC48 *param0, FieldSystem *fieldSystem)
         return 1;
     }
 
-    param0->unk_00 = 1;
+    param0->coins = 1;
     return 2;
 }
 
@@ -235,7 +235,7 @@ static int sub_0206BC70(UnkStruct_0206BC48 *param0, FieldSystem *fieldSystem)
         return 1;
     }
 
-    param0->unk_00 = param0->unk_08->unk_20;
+    param0->coins = param0->unk_08->unk_20;
     Heap_Free(param0->unk_08);
 
     return 2;
@@ -246,16 +246,16 @@ static BOOL sub_0206BC94(FieldTask *taskMan)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     UnkStruct_0206BC48 *v2 = FieldTask_GetEnv(taskMan);
 
-    switch (v2->unk_04) {
+    switch (v2->slotMachineVariant) {
     case 0:
-        v2->unk_04 = sub_0206BC48(v2, fieldSystem);
+        v2->slotMachineVariant = sub_0206BC48(v2, fieldSystem);
         break;
     case 1:
-        v2->unk_04 = sub_0206BC70(v2, fieldSystem);
+        v2->slotMachineVariant = sub_0206BC70(v2, fieldSystem);
         break;
     case 2:
         u16 *v0 = FieldSystem_GetVarPointer(fieldSystem, v2->unk_10);
-        *v0 = v2->unk_00;
+        *v0 = v2->coins;
         Heap_Free(v2);
         return 1;
     }
@@ -263,14 +263,14 @@ static BOOL sub_0206BC94(FieldTask *taskMan)
     return 0;
 }
 
-void sub_0206BCE4(FieldTask *taskMan, u16 param1, u16 param2, u16 param3)
+void sub_0206BCE4(FieldTask *taskMan, u16 slotsMinigameDTO, u16 param2, u16 param3)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     UnkStruct_0206BC48 *v1 = Heap_Alloc(HEAP_ID_FIELD2, sizeof(UnkStruct_0206BC48));
 
     MI_CpuClear8(v1, sizeof(UnkStruct_0206BC48));
 
-    v1->unk_12 = param1;
+    v1->unk_12 = slotsMinigameDTO;
     v1->unk_14 = param3;
     v1->unk_10 = param2;
 
@@ -290,7 +290,7 @@ static BOOL sub_0206BD1C(FieldTask *param0)
 
     u16 *v0 = FieldSystem_GetVarPointer(fieldSystem, v3->unk_02);
 
-    switch (v3->unk_00) {
+    switch (v3->coins) {
     case 0:
         *v0 = BattleTower_ReceivePlayerData(fieldSystem, v1);
         break;
@@ -305,14 +305,14 @@ static BOOL sub_0206BD1C(FieldTask *param0)
     return 1;
 }
 
-void sub_0206BD88(FieldTask *param0, u16 param1, u16 param2)
+void sub_0206BD88(FieldTask *param0, u16 slotsMinigameDTO, u16 param2)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(param0);
     UnkStruct_0206BD88 *v1 = Heap_Alloc(HEAP_ID_FIELD2, sizeof(UnkStruct_0206BD88));
 
     MI_CpuClear8(v1, sizeof(UnkStruct_0206BD88));
 
-    v1->unk_00 = param1;
+    v1->coins = slotsMinigameDTO;
     v1->unk_02 = param2;
 
     FieldTask_InitCall(fieldSystem->task, sub_0206BD1C, v1);

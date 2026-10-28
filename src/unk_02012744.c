@@ -12,68 +12,68 @@
 #include "sprite.h"
 
 typedef struct {
-    Sprite *unk_00;
-    int unk_04;
+    Sprite *coins;
+    int slotMachineVariant;
     int unk_08;
 } UnkStruct_02012CE0_sub1;
 
 typedef struct FontOAM {
-    UnkStruct_02012CE0_sub1 *unk_00;
-    int unk_04;
+    UnkStruct_02012CE0_sub1 *coins;
+    int slotMachineVariant;
     const Sprite *unk_08;
     int x;
     int y;
 } FontOAM;
 
 typedef struct UnkStruct_02012744_t {
-    void *unk_00[12];
+    void *coins[12];
     NNSG2dCellDataBank *unk_30[12];
     FontOAM *unk_60;
     int unk_64;
 } UnkStruct_02012744;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
 } UnkStruct_02012DE4;
 
 typedef struct {
-    UnkStruct_02012DE4 unk_00;
+    UnkStruct_02012DE4 coins;
     UnkStruct_02012DE4 unk_10;
     u8 unk_20;
 } UnkStruct_02012D34;
 
 typedef struct UnkStruct_02013034_t {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    struct UnkStruct_02013034_t *unk_0C;
+    struct UnkStruct_02013034_t *slotsMinigameDTO;
     struct UnkStruct_02013034_t *unk_10;
 } UnkStruct_02013034;
 
 typedef struct UnkStruct_02012B20_t {
-    UnkStruct_02013034 unk_00;
+    UnkStruct_02013034 coins;
     int unk_14;
 } UnkStruct_02012B20;
 
 static void sub_02012CD0(FontOAM *param0);
 static FontOAM *sub_02012CE0(const UnkStruct_02012744 *param0);
-static int sub_02012D08(int param0, int param1);
-static int sub_02012DE4(int param0, int param1, enum HeapID heapID, UnkStruct_02013034 *param3);
-static void sub_02012E6C(const Window *param0, const UnkStruct_02013034 *param1, NNSG2dImageProxy *param2, int param3, int param4, enum HeapID heapID);
-static int sub_02012EE0(const Window *param0, const UnkStruct_02013034 *param1, NNSG2dImageProxy *param2, int param3, int param4, int param5, int param6, enum HeapID heapID);
-static int sub_02013034(const UnkStruct_02013034 *param0, int param1);
-static void sub_02013088(const UnkStruct_020127E8 *param0, const UnkStruct_02013034 *param1, const NNSG2dImageProxy *param2, FontOAM *param3);
-static Sprite *sub_02013100(const UnkStruct_020127E8 *param0, const UnkStruct_02013034 *param1, const NNSG2dImageProxy *param2);
+static int sub_02012D08(int param0, int slotsMinigameDTO);
+static int sub_02012DE4(int param0, int slotsMinigameDTO, enum HeapID heapID, UnkStruct_02013034 *param3);
+static void sub_02012E6C(const Window *param0, const UnkStruct_02013034 *slotsMinigameDTO, NNSG2dImageProxy *param2, int param3, int param4, enum HeapID heapID);
+static int sub_02012EE0(const Window *param0, const UnkStruct_02013034 *slotsMinigameDTO, NNSG2dImageProxy *param2, int param3, int param4, int param5, int param6, enum HeapID heapID);
+static int sub_02013034(const UnkStruct_02013034 *param0, int slotsMinigameDTO);
+static void sub_02013088(const UnkStruct_020127E8 *param0, const UnkStruct_02013034 *slotsMinigameDTO, const NNSG2dImageProxy *param2, FontOAM *param3);
+static Sprite *sub_02013100(const UnkStruct_020127E8 *param0, const UnkStruct_02013034 *slotsMinigameDTO, const NNSG2dImageProxy *param2);
 static void sub_020130DC(FontOAM *param0);
 static UnkStruct_02013034 *sub_02013188(enum HeapID heapID);
 static void sub_020131A4(UnkStruct_02013034 *param0);
 static void sub_020131B8(UnkStruct_02013034 *param0);
-static void sub_020131D0(UnkStruct_02013034 *param0, UnkStruct_02013034 *param1);
-static void sub_02012F98(const Window *param0, char *param1, const UnkStruct_02013034 *param2, int param3, int param4);
-static int sub_02012FF0(const Window *param0, const UnkStruct_02013034 *param1, char *param2, int param3, int param4, int param5, int param6);
+static void sub_020131D0(UnkStruct_02013034 *param0, UnkStruct_02013034 *slotsMinigameDTO);
+static void sub_02012F98(const Window *param0, char *slotsMinigameDTO, const UnkStruct_02013034 *param2, int param3, int param4);
+static int sub_02012FF0(const Window *param0, const UnkStruct_02013034 *slotsMinigameDTO, char *param2, int param3, int param4, int param5, int param6);
 
 static const u8 Unk_020E52E4[12][2] = {
     { 0x8, 0x8 },
@@ -99,9 +99,9 @@ UnkStruct_02012744 *sub_02012744(int param0, enum HeapID heapID)
     GF_ASSERT(v0);
 
     for (v1 = 0; v1 < 12; v1++) {
-        v0->unk_00[v1] = Graphics_GetCellBank(35, v1, 0, &v0->unk_30[v1], heapID);
+        v0->coins[v1] = Graphics_GetCellBank(35, v1, 0, &v0->unk_30[v1], heapID);
 
-        GF_ASSERT(v0->unk_00[v1]);
+        GF_ASSERT(v0->coins[v1]);
     }
 
     v0->unk_60 = Heap_Alloc(heapID, sizeof(FontOAM) * param0);
@@ -120,7 +120,7 @@ void sub_020127BC(UnkStruct_02012744 *param0)
     GF_ASSERT(param0);
 
     for (v0 = 0; v0 < 12; v0++) {
-        Heap_Free(param0->unk_00[v0]);
+        Heap_Free(param0->coins[v0]);
     }
 
     Heap_Free(param0->unk_60);
@@ -136,23 +136,23 @@ FontOAM *sub_020127E8(const UnkStruct_020127E8 *param0)
 
     GF_ASSERT(param0);
 
-    v0 = sub_02012CE0(param0->unk_00);
+    v0 = sub_02012CE0(param0->coins);
     GF_ASSERT(v0);
 
     v0->unk_08 = param0->unk_10;
     v0->x = param0->unk_18;
     v0->y = param0->unk_1C;
 
-    v1.unk_0C = &v1;
+    v1.slotsMinigameDTO = &v1;
     v1.unk_10 = &v1;
 
-    v2 = sub_02012DE4(param0->unk_04->width, param0->unk_04->height, param0->heapID, &v1);
+    v2 = sub_02012DE4(param0->slotMachineVariant->width, param0->slotMachineVariant->height, param0->heapID, &v1);
     v3 = Heap_AllocAtEnd(param0->heapID, sizeof(NNSG2dImageProxy) * v2);
 
-    v0->unk_00 = Heap_Alloc(param0->heapID, sizeof(UnkStruct_02012CE0_sub1) * v2);
-    v0->unk_04 = v2;
+    v0->coins = Heap_Alloc(param0->heapID, sizeof(UnkStruct_02012CE0_sub1) * v2);
+    v0->slotMachineVariant = v2;
 
-    sub_02012E6C(param0->unk_04, &v1, v3, param0->unk_14, param0->unk_28, param0->heapID);
+    sub_02012E6C(param0->slotMachineVariant, &v1, v3, param0->unk_14, param0->unk_28, param0->heapID);
     sub_02013088(param0, &v1, v3, v0);
     Heap_Free(v3);
     sub_020131B8(&v1);
@@ -163,23 +163,23 @@ FontOAM *sub_020127E8(const UnkStruct_020127E8 *param0)
 void sub_02012870(FontOAM *param0)
 {
     GF_ASSERT(param0);
-    GF_ASSERT(param0->unk_00);
+    GF_ASSERT(param0->coins);
 
     sub_020130DC(param0);
-    Heap_Free(param0->unk_00);
+    Heap_Free(param0->coins);
     sub_02012CD0(param0);
 }
 
-int sub_02012898(const Window *param0, int param1, enum HeapID heapID)
+int sub_02012898(const Window *param0, int slotsMinigameDTO, enum HeapID heapID)
 {
     UnkStruct_02013034 v0;
     int v1;
 
-    v0.unk_0C = &v0;
+    v0.slotsMinigameDTO = &v0;
     v0.unk_10 = &v0;
 
     sub_02012DE4(param0->width, param0->height, heapID, &v0);
-    v1 = sub_02013034(&v0, param1);
+    v1 = sub_02013034(&v0, slotsMinigameDTO);
     sub_020131B8(&v0);
 
     return v1;
@@ -205,11 +205,11 @@ void FontOAM_SetXY(FontOAM *fontOAM, int x, int y)
     VecFx32 spritePos;
     spritePos.z = 0;
 
-    for (int v0 = 0; v0 < fontOAM->unk_04; v0++) {
-        spritePos.x = x + (fontOAM->unk_00[v0].unk_04 << FX32_SHIFT);
-        spritePos.y = y + (fontOAM->unk_00[v0].unk_08 << FX32_SHIFT);
+    for (int v0 = 0; v0 < fontOAM->slotMachineVariant; v0++) {
+        spritePos.x = x + (fontOAM->coins[v0].slotMachineVariant << FX32_SHIFT);
+        spritePos.y = y + (fontOAM->coins[v0].unk_08 << FX32_SHIFT);
 
-        Sprite_SetPosition(fontOAM->unk_00[v0].unk_00, &spritePos);
+        Sprite_SetPosition(fontOAM->coins[v0].coins, &spritePos);
     }
 }
 
@@ -232,11 +232,11 @@ void sub_02012938(FontOAM *param0)
 
         v1.z = 0;
 
-        for (v0 = 0; v0 < param0->unk_04; v0++) {
-            v1.x = v3 + (param0->unk_00[v0].unk_04 << FX32_SHIFT);
-            v1.y = v4 + (param0->unk_00[v0].unk_08 << FX32_SHIFT);
+        for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
+            v1.x = v3 + (param0->coins[v0].slotMachineVariant << FX32_SHIFT);
+            v1.y = v4 + (param0->coins[v0].unk_08 << FX32_SHIFT);
 
-            Sprite_SetPosition(param0->unk_00[v0].unk_00, &v1);
+            Sprite_SetPosition(param0->coins[v0].coins, &v1);
         }
     }
 }
@@ -257,74 +257,74 @@ void sub_020129D0(FontOAM *param0, BOOL draw)
 
     GF_ASSERT(param0);
 
-    for (v0 = 0; v0 < param0->unk_04; v0++) {
-        Sprite_SetDrawFlag(param0->unk_00[v0].unk_00, draw);
+    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
+        Sprite_SetDrawFlag(param0->coins[v0].coins, draw);
     }
 }
 
-void sub_02012A00(FontOAM *param0, u8 param1)
+void sub_02012A00(FontOAM *param0, u8 slotsMinigameDTO)
 {
     int v0;
 
     GF_ASSERT(param0);
 
-    for (v0 = 0; v0 < param0->unk_04; v0++) {
-        Sprite_SetExplicitPriority(param0->unk_00[v0].unk_00, param1);
+    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
+        Sprite_SetExplicitPriority(param0->coins[v0].coins, slotsMinigameDTO);
     }
 }
 
-void sub_02012A30(FontOAM *param0, u32 param1)
+void sub_02012A30(FontOAM *param0, u32 slotsMinigameDTO)
 {
     int v0;
 
     GF_ASSERT(param0);
 
-    for (v0 = 0; v0 < param0->unk_04; v0++) {
-        Sprite_SetPriority(param0->unk_00[v0].unk_00, param1);
+    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
+        Sprite_SetPriority(param0->coins[v0].coins, slotsMinigameDTO);
     }
 }
 
-void sub_02012A60(FontOAM *param0, u32 param1)
+void sub_02012A60(FontOAM *param0, u32 slotsMinigameDTO)
 {
     int v0;
 
     GF_ASSERT(param0);
 
-    for (v0 = 0; v0 < param0->unk_04; v0++) {
-        Sprite_SetExplicitPalette(param0->unk_00[v0].unk_00, param1);
+    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
+        Sprite_SetExplicitPalette(param0->coins[v0].coins, slotsMinigameDTO);
     }
 }
 
-void sub_02012A90(FontOAM *param0, u32 param1)
+void sub_02012A90(FontOAM *param0, u32 slotsMinigameDTO)
 {
     int v0;
 
     GF_ASSERT(param0);
 
-    for (v0 = 0; v0 < param0->unk_04; v0++) {
-        Sprite_SetExplicitPaletteOffset(param0->unk_00[v0].unk_00, param1);
+    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
+        Sprite_SetExplicitPaletteOffset(param0->coins[v0].coins, slotsMinigameDTO);
     }
 }
 
-void sub_02012AC0(FontOAM *param0, u32 param1)
+void sub_02012AC0(FontOAM *param0, u32 slotsMinigameDTO)
 {
     int v0;
 
     GF_ASSERT(param0);
 
-    for (v0 = 0; v0 < param0->unk_04; v0++) {
-        Sprite_SetExplicitPaletteOffsetAutoAdjust(param0->unk_00[v0].unk_00, param1);
+    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
+        Sprite_SetExplicitPaletteOffsetAutoAdjust(param0->coins[v0].coins, slotsMinigameDTO);
     }
 }
 
-void sub_02012AF0(FontOAM *param0, GXOamMode param1)
+void sub_02012AF0(FontOAM *param0, GXOamMode slotsMinigameDTO)
 {
     int v0;
 
     GF_ASSERT(param0);
 
-    for (v0 = 0; v0 < param0->unk_04; v0++) {
-        Sprite_SetExplicitOAMMode(param0->unk_00[v0].unk_00, param1);
+    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
+        Sprite_SetExplicitOAMMode(param0->coins[v0].coins, slotsMinigameDTO);
     }
 }
 
@@ -332,31 +332,31 @@ UnkStruct_02012B20 *sub_02012B20(const Window *param0, enum HeapID heapID)
 {
     UnkStruct_02012B20 *v0 = Heap_Alloc(heapID, sizeof(UnkStruct_02012B20));
 
-    v0->unk_00.unk_0C = &v0->unk_00;
-    v0->unk_00.unk_10 = &v0->unk_00;
-    v0->unk_14 = sub_02012DE4(param0->width, param0->height, heapID, &v0->unk_00);
+    v0->coins.slotsMinigameDTO = &v0->coins;
+    v0->coins.unk_10 = &v0->coins;
+    v0->unk_14 = sub_02012DE4(param0->width, param0->height, heapID, &v0->coins);
 
     return v0;
 }
 
 void sub_02012B48(UnkStruct_02012B20 *param0)
 {
-    sub_020131B8(&param0->unk_00);
+    sub_020131B8(&param0->coins);
     Heap_Free(param0);
 }
 
-int sub_02012B58(const UnkStruct_02012B20 *param0, int param1)
+int sub_02012B58(const UnkStruct_02012B20 *param0, int slotsMinigameDTO)
 {
-    return sub_02013034(&param0->unk_00, param1);
+    return sub_02013034(&param0->coins, slotsMinigameDTO);
 }
 
-FontOAM *sub_02012B60(const UnkStruct_020127E8 *param0, const UnkStruct_02012B20 *param1)
+FontOAM *sub_02012B60(const UnkStruct_020127E8 *param0, const UnkStruct_02012B20 *slotsMinigameDTO)
 {
     FontOAM *v0;
     NNSG2dImageProxy *v1;
 
     GF_ASSERT(param0);
-    v0 = sub_02012CE0(param0->unk_00);
+    v0 = sub_02012CE0(param0->coins);
 
     GF_ASSERT(v0);
 
@@ -364,13 +364,13 @@ FontOAM *sub_02012B60(const UnkStruct_020127E8 *param0, const UnkStruct_02012B20
     v0->x = param0->unk_18;
     v0->y = param0->unk_1C;
 
-    v1 = Heap_AllocAtEnd(param0->heapID, sizeof(NNSG2dImageProxy) * param1->unk_14);
+    v1 = Heap_AllocAtEnd(param0->heapID, sizeof(NNSG2dImageProxy) * slotsMinigameDTO->unk_14);
 
-    v0->unk_00 = Heap_Alloc(param0->heapID, sizeof(UnkStruct_02012CE0_sub1) * param1->unk_14);
-    v0->unk_04 = param1->unk_14;
+    v0->coins = Heap_Alloc(param0->heapID, sizeof(UnkStruct_02012CE0_sub1) * slotsMinigameDTO->unk_14);
+    v0->slotMachineVariant = slotsMinigameDTO->unk_14;
 
-    sub_02012E6C(param0->unk_04, &param1->unk_00, v1, param0->unk_14, param0->unk_28, param0->heapID);
-    sub_02013088(param0, &param1->unk_00, v1, v0);
+    sub_02012E6C(param0->slotMachineVariant, &slotsMinigameDTO->coins, v1, param0->unk_14, param0->unk_28, param0->heapID);
+    sub_02013088(param0, &slotsMinigameDTO->coins, v1, v0);
     Heap_Free(v1);
 
     return v0;
@@ -381,19 +381,19 @@ void sub_02012BD8(FontOAM *param0)
     sub_02012870(param0);
 }
 
-void sub_02012BE0(FontOAM *param0, const UnkStruct_02012B20 *param1, const Window *param2, enum HeapID heapID)
+void sub_02012BE0(FontOAM *param0, const UnkStruct_02012B20 *slotsMinigameDTO, const Window *param2, enum HeapID heapID)
 {
     int v0;
     char *v1;
     NNSG2dImageProxy *v2;
-    Sprite *v3 = param0->unk_00[0].unk_00;
+    Sprite *v3 = param0->coins[0].coins;
     int v4 = Sprite_GetVRamType(v3);
-    v0 = sub_02012B58(param1, v4);
+    v0 = sub_02012B58(slotsMinigameDTO, v4);
     v1 = (char *)Heap_AllocAtEnd(heapID, v0);
 
     memset(v1, 0, v0);
 
-    sub_02012F98(param2, v1, &param1->unk_00, v4, heapID);
+    sub_02012F98(param2, v1, &slotsMinigameDTO->coins, v4, heapID);
     DC_FlushRange(v1, v0);
 
     v2 = Sprite_GetImageProxy(v3);
@@ -445,7 +445,7 @@ static FontOAM *sub_02012CE0(const UnkStruct_02012744 *param0)
     int v0;
 
     for (v0 = 0; v0 < param0->unk_64; v0++) {
-        if (param0->unk_60[v0].unk_00 == NULL) {
+        if (param0->unk_60[v0].coins == NULL) {
             return param0->unk_60 + v0;
         }
     }
@@ -453,12 +453,12 @@ static FontOAM *sub_02012CE0(const UnkStruct_02012744 *param0)
     return NULL;
 }
 
-static int sub_02012D08(int param0, int param1)
+static int sub_02012D08(int param0, int slotsMinigameDTO)
 {
     int v0;
 
     for (v0 = 0; v0 < 12; v0++) {
-        if ((Unk_020E52E4[v0][0] <= param0) && (Unk_020E52E4[v0][1] <= param1)) {
+        if ((Unk_020E52E4[v0][0] <= param0) && (Unk_020E52E4[v0][1] <= slotsMinigameDTO)) {
             return v0;
         }
     }
@@ -466,38 +466,38 @@ static int sub_02012D08(int param0, int param1)
     return 12;
 }
 
-static BOOL sub_02012D34(UnkStruct_02012D34 *param0, UnkStruct_02013034 *param1, enum HeapID heapID)
+static BOOL sub_02012D34(UnkStruct_02012D34 *param0, UnkStruct_02013034 *slotsMinigameDTO, enum HeapID heapID)
 {
     UnkStruct_02013034 *v0;
     int v1;
     int v2;
 
     v0 = sub_02013188(heapID);
-    sub_020131D0(v0, param1->unk_10);
+    sub_020131D0(v0, slotsMinigameDTO->unk_10);
 
-    v0->unk_08 = sub_02012D08(param0->unk_00.unk_08, param0->unk_00.unk_0C);
-    v0->unk_00 = param0->unk_00.unk_04;
-    v0->unk_04 = param0->unk_00.unk_00;
+    v0->unk_08 = sub_02012D08(param0->coins.unk_08, param0->coins.slotsMinigameDTO);
+    v0->coins = param0->coins.slotMachineVariant;
+    v0->slotMachineVariant = param0->coins.coins;
 
-    v2 = param0->unk_00.unk_08 - Unk_020E52E4[v0->unk_08][0];
-    v1 = param0->unk_00.unk_0C - Unk_020E52E4[v0->unk_08][1];
+    v2 = param0->coins.unk_08 - Unk_020E52E4[v0->unk_08][0];
+    v1 = param0->coins.slotsMinigameDTO - Unk_020E52E4[v0->unk_08][1];
 
     if (v2 > 0) {
-        param0->unk_10.unk_0C = param0->unk_00.unk_0C;
+        param0->unk_10.slotsMinigameDTO = param0->coins.slotsMinigameDTO;
         param0->unk_10.unk_08 = v2;
-        param0->unk_10.unk_00 = param0->unk_00.unk_00;
-        param0->unk_10.unk_04 = param0->unk_00.unk_04 + Unk_020E52E4[v0->unk_08][0];
+        param0->unk_10.coins = param0->coins.coins;
+        param0->unk_10.slotMachineVariant = param0->coins.slotMachineVariant + Unk_020E52E4[v0->unk_08][0];
 
         GF_ASSERT(param0->unk_20 != 1);
         param0->unk_20 = 1;
     }
 
     if (v1 > 0) {
-        param0->unk_00.unk_00 = param0->unk_00.unk_00 + Unk_020E52E4[v0->unk_08][1];
-        param0->unk_00.unk_0C = v1;
+        param0->coins.coins = param0->coins.coins + Unk_020E52E4[v0->unk_08][1];
+        param0->coins.slotsMinigameDTO = v1;
     } else {
         if (param0->unk_20 == 1) {
-            param0->unk_00 = param0->unk_10;
+            param0->coins = param0->unk_10;
             param0->unk_20 = 0;
         } else {
             return 1;
@@ -507,7 +507,7 @@ static BOOL sub_02012D34(UnkStruct_02012D34 *param0, UnkStruct_02013034 *param1,
     return 0;
 }
 
-static int sub_02012DE4(int param0, int param1, enum HeapID heapID, UnkStruct_02013034 *param3)
+static int sub_02012DE4(int param0, int slotsMinigameDTO, enum HeapID heapID, UnkStruct_02013034 *param3)
 {
     UnkStruct_02012DE4 v0;
     UnkStruct_02012D34 v1;
@@ -515,37 +515,37 @@ static int sub_02012DE4(int param0, int param1, enum HeapID heapID, UnkStruct_02
     int v3;
 
     GF_ASSERT(param0);
-    GF_ASSERT(param1);
+    GF_ASSERT(slotsMinigameDTO);
 
     v3 = 0;
 
-    v1.unk_00.unk_00 = 0;
-    v1.unk_00.unk_04 = 0;
-    v1.unk_00.unk_08 = param0;
-    v1.unk_00.unk_0C = param1;
+    v1.coins.coins = 0;
+    v1.coins.slotMachineVariant = 0;
+    v1.coins.unk_08 = param0;
+    v1.coins.slotsMinigameDTO = slotsMinigameDTO;
     v1.unk_20 = 0;
 
-    v0.unk_04 = 0;
+    v0.slotMachineVariant = 0;
     v0.unk_08 = param0;
 
-    while (v1.unk_00.unk_0C != 0) {
-        v2 = sub_02012D08(v1.unk_00.unk_08, v1.unk_00.unk_0C);
+    while (v1.coins.slotsMinigameDTO != 0) {
+        v2 = sub_02012D08(v1.coins.unk_08, v1.coins.slotsMinigameDTO);
 
-        v0.unk_00 = v1.unk_00.unk_00 + Unk_020E52E4[v2][1];
-        v0.unk_0C = v1.unk_00.unk_0C - Unk_020E52E4[v2][1];
-        v1.unk_00.unk_0C = Unk_020E52E4[v2][1];
+        v0.coins = v1.coins.coins + Unk_020E52E4[v2][1];
+        v0.slotsMinigameDTO = v1.coins.slotsMinigameDTO - Unk_020E52E4[v2][1];
+        v1.coins.slotsMinigameDTO = Unk_020E52E4[v2][1];
 
         do {
             v3++;
         } while (sub_02012D34(&v1, param3, heapID) == 0);
 
-        v1.unk_00 = v0;
+        v1.coins = v0;
     }
 
     return v3;
 }
 
-static void sub_02012E6C(const Window *param0, const UnkStruct_02013034 *param1, NNSG2dImageProxy *param2, int param3, int param4, enum HeapID heapID)
+static void sub_02012E6C(const Window *param0, const UnkStruct_02013034 *slotsMinigameDTO, NNSG2dImageProxy *param2, int param3, int param4, enum HeapID heapID)
 {
     UnkStruct_02013034 *v0;
     int v1;
@@ -560,22 +560,22 @@ static void sub_02012E6C(const Window *param0, const UnkStruct_02013034 *param1,
 
     v2 = CharTransfer_GetBlockSize(v3);
     v1 = 0;
-    v0 = param1->unk_0C;
+    v0 = slotsMinigameDTO->slotsMinigameDTO;
 
-    while (v0 != param1) {
+    while (v0 != slotsMinigameDTO) {
         NNS_G2dInitImageProxy(param2 + v1);
         param3 = sub_02012EE0(param0, v0, param2 + v1, v2, v3, param3, param4, heapID);
-        v0 = v0->unk_0C;
+        v0 = v0->slotsMinigameDTO;
         v1++;
     }
 }
 
-static int sub_02012EE0(const Window *param0, const UnkStruct_02013034 *param1, NNSG2dImageProxy *param2, int param3, int param4, int param5, int param6, enum HeapID heapID)
+static int sub_02012EE0(const Window *param0, const UnkStruct_02013034 *slotsMinigameDTO, NNSG2dImageProxy *param2, int param3, int param4, int param5, int param6, enum HeapID heapID)
 {
     char *v0;
     int v1;
-    int v2 = Unk_020E52E4[param1->unk_08][0];
-    int v3 = Unk_020E52E4[param1->unk_08][1];
+    int v2 = Unk_020E52E4[slotsMinigameDTO->unk_08][0];
+    int v3 = Unk_020E52E4[slotsMinigameDTO->unk_08][1];
     v1 = v2;
     v1 *= v3;
 
@@ -586,7 +586,7 @@ static int sub_02012EE0(const Window *param0, const UnkStruct_02013034 *param1, 
     v1 *= 32;
     v0 = Heap_AllocAtEnd(heapID, v1);
 
-    sub_02012C60(param0, v2, v3, param1->unk_00, param1->unk_04, v0);
+    sub_02012C60(param0, v2, v3, slotsMinigameDTO->coins, slotsMinigameDTO->slotMachineVariant, v0);
     DC_FlushRange(v0, v1);
 
     if (param6 == NNS_G2D_VRAM_TYPE_2DMAIN) {
@@ -611,7 +611,7 @@ static int sub_02012EE0(const Window *param0, const UnkStruct_02013034 *param1, 
     return param5 + v1;
 }
 
-static void sub_02012F98(const Window *param0, char *param1, const UnkStruct_02013034 *param2, int param3, int param4)
+static void sub_02012F98(const Window *param0, char *slotsMinigameDTO, const UnkStruct_02013034 *param2, int param3, int param4)
 {
     UnkStruct_02013034 *v0;
     int v1;
@@ -627,19 +627,19 @@ static void sub_02012F98(const Window *param0, char *param1, const UnkStruct_020
 
     v2 = CharTransfer_GetBlockSize(v4);
     v3 = 0;
-    v0 = param2->unk_0C;
+    v0 = param2->slotsMinigameDTO;
 
     while (v0 != param2) {
-        v3 = sub_02012FF0(param0, v0, param1, v3, v2, v4, param4);
-        v0 = v0->unk_0C;
+        v3 = sub_02012FF0(param0, v0, slotsMinigameDTO, v3, v2, v4, param4);
+        v0 = v0->slotsMinigameDTO;
     }
 }
 
-static int sub_02012FF0(const Window *param0, const UnkStruct_02013034 *param1, char *param2, int param3, int param4, int param5, int param6)
+static int sub_02012FF0(const Window *param0, const UnkStruct_02013034 *slotsMinigameDTO, char *param2, int param3, int param4, int param5, int param6)
 {
     int v0;
-    int v1 = Unk_020E52E4[param1->unk_08][0];
-    int v2 = Unk_020E52E4[param1->unk_08][1];
+    int v1 = Unk_020E52E4[slotsMinigameDTO->unk_08][0];
+    int v2 = Unk_020E52E4[slotsMinigameDTO->unk_08][1];
     v0 = v1;
     v0 *= v2;
 
@@ -648,12 +648,12 @@ static int sub_02012FF0(const Window *param0, const UnkStruct_02013034 *param1, 
     }
 
     v0 *= 32;
-    sub_02012C60(param0, v1, v2, param1->unk_00, param1->unk_04, &param2[param3]);
+    sub_02012C60(param0, v1, v2, slotsMinigameDTO->coins, slotsMinigameDTO->slotMachineVariant, &param2[param3]);
 
     return param3 + v0;
 }
 
-static int sub_02013034(const UnkStruct_02013034 *param0, int param1)
+static int sub_02013034(const UnkStruct_02013034 *param0, int slotsMinigameDTO)
 {
     UnkStruct_02013034 *v0;
     int v1;
@@ -662,7 +662,7 @@ static int sub_02013034(const UnkStruct_02013034 *param0, int param1)
     int v4;
     int v5, v6;
 
-    if (param1 == NNS_G2D_VRAM_TYPE_2DMAIN) {
+    if (slotsMinigameDTO == NNS_G2D_VRAM_TYPE_2DMAIN) {
         v2 = GX_GetOBJVRamModeChar();
     } else {
         v2 = GXS_GetOBJVRamModeChar();
@@ -670,7 +670,7 @@ static int sub_02013034(const UnkStruct_02013034 *param0, int param1)
 
     v1 = CharTransfer_GetBlockSize(v2);
     v3 = 0;
-    v0 = param0->unk_0C;
+    v0 = param0->slotsMinigameDTO;
 
     while (v0 != param0) {
         v5 = Unk_020E52E4[v0->unk_08][0];
@@ -682,26 +682,26 @@ static int sub_02013034(const UnkStruct_02013034 *param0, int param1)
         }
 
         v3 += v4 * 32;
-        v0 = v0->unk_0C;
+        v0 = v0->slotsMinigameDTO;
     }
 
     return v3;
 }
 
-static void sub_02013088(const UnkStruct_020127E8 *param0, const UnkStruct_02013034 *param1, const NNSG2dImageProxy *param2, FontOAM *param3)
+static void sub_02013088(const UnkStruct_020127E8 *param0, const UnkStruct_02013034 *slotsMinigameDTO, const NNSG2dImageProxy *param2, FontOAM *param3)
 {
     UnkStruct_02013034 *v0;
     int v1 = 0;
-    v0 = param1->unk_0C;
+    v0 = slotsMinigameDTO->slotsMinigameDTO;
 
-    while (v0 != param1) {
-        param3->unk_00[v1].unk_00 = sub_02013100(param0, v0, param2 + v1);
-        GF_ASSERT(param3->unk_00[v1].unk_00);
+    while (v0 != slotsMinigameDTO) {
+        param3->coins[v1].coins = sub_02013100(param0, v0, param2 + v1);
+        GF_ASSERT(param3->coins[v1].coins);
 
-        param3->unk_00[v1].unk_04 = v0->unk_00 * 8;
-        param3->unk_00[v1].unk_08 = v0->unk_04 * 8;
+        param3->coins[v1].slotMachineVariant = v0->coins * 8;
+        param3->coins[v1].unk_08 = v0->slotMachineVariant * 8;
 
-        v0 = v0->unk_0C;
+        v0 = v0->slotsMinigameDTO;
         v1++;
     }
 }
@@ -710,20 +710,20 @@ static void sub_020130DC(FontOAM *param0)
 {
     int v0;
 
-    for (v0 = 0; v0 < param0->unk_04; v0++) {
-        Sprite_Delete(param0->unk_00[v0].unk_00);
+    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
+        Sprite_Delete(param0->coins[v0].coins);
     }
 }
 
-static Sprite *sub_02013100(const UnkStruct_020127E8 *param0, const UnkStruct_02013034 *param1, const NNSG2dImageProxy *param2)
+static Sprite *sub_02013100(const UnkStruct_020127E8 *param0, const UnkStruct_02013034 *slotsMinigameDTO, const NNSG2dImageProxy *param2)
 {
     SpriteListTemplate v0;
     SpriteResourcesHeader v1;
 
     v1.imageProxy = param2;
     v1.charData = NULL;
-    v1.paletteProxy = param0->unk_0C;
-    v1.cellBank = param0->unk_00->unk_30[param1->unk_08];
+    v1.paletteProxy = param0->slotsMinigameDTO;
+    v1.cellBank = param0->coins->unk_30[slotsMinigameDTO->unk_08];
     v1.cellAnimBank = NULL;
     v1.multiCellBank = NULL;
     v1.multiCellAnimBank = NULL;
@@ -746,8 +746,8 @@ static Sprite *sub_02013100(const UnkStruct_020127E8 *param0, const UnkStruct_02
         v0.position = *v2;
     }
 
-    v0.position.x += (param0->unk_18 << FX32_SHIFT) + ((param1->unk_00 * 8) << FX32_SHIFT);
-    v0.position.y += (param0->unk_1C << FX32_SHIFT) + ((param1->unk_04 * 8) << FX32_SHIFT);
+    v0.position.x += (param0->unk_18 << FX32_SHIFT) + ((slotsMinigameDTO->coins * 8) << FX32_SHIFT);
+    v0.position.y += (param0->unk_1C << FX32_SHIFT) + ((slotsMinigameDTO->slotMachineVariant * 8) << FX32_SHIFT);
 
     return SpriteList_Add(&v0);
 }
@@ -757,7 +757,7 @@ static UnkStruct_02013034 *sub_02013188(enum HeapID heapID)
     UnkStruct_02013034 *v0 = Heap_AllocAtEnd(heapID, sizeof(UnkStruct_02013034));
     GF_ASSERT(v0);
 
-    v0->unk_0C = NULL;
+    v0->slotsMinigameDTO = NULL;
     v0->unk_10 = NULL;
 
     return v0;
@@ -774,25 +774,25 @@ static void sub_020131B8(UnkStruct_02013034 *param0)
     UnkStruct_02013034 *v0;
     UnkStruct_02013034 *v1;
 
-    v0 = param0->unk_0C;
+    v0 = param0->slotsMinigameDTO;
 
     while (v0 != param0) {
-        v1 = v0->unk_0C;
+        v1 = v0->slotsMinigameDTO;
         sub_020131A4(v0);
         v0 = v1;
     }
 }
 
-static void sub_020131D0(UnkStruct_02013034 *param0, UnkStruct_02013034 *param1)
+static void sub_020131D0(UnkStruct_02013034 *param0, UnkStruct_02013034 *slotsMinigameDTO)
 {
-    param0->unk_0C = param1->unk_0C;
-    param0->unk_10 = param1;
-    param1->unk_0C->unk_10 = param0;
-    param1->unk_0C = param0;
+    param0->slotsMinigameDTO = slotsMinigameDTO->slotsMinigameDTO;
+    param0->unk_10 = slotsMinigameDTO;
+    slotsMinigameDTO->slotsMinigameDTO->unk_10 = param0;
+    slotsMinigameDTO->slotsMinigameDTO = param0;
 }
 
-void sub_020131E0(FontOAM *param0, const Sprite *param1)
+void sub_020131E0(FontOAM *param0, const Sprite *slotsMinigameDTO)
 {
-    param0->unk_08 = param1;
+    param0->unk_08 = slotsMinigameDTO;
     sub_02012938(param0);
 }

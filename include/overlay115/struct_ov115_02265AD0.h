@@ -4,9 +4,9 @@
 #include <nitro/fx/fx.h>
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
-    VecFx16 unk_04;
+    VecFx16 slotMachineVariant;
     VecFx16 unk_0A;
     fx16 unk_10;
     s8 unk_12;

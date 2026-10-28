@@ -13,8 +13,8 @@
 BOOL BattleTower_CreateTrainerParty(BattleTower *battleTower, FrontierOpponent *opponentDataDTO, u16 battleTowerTrainerID, int partySize, u16 *species, u16 *items, BattleTowerPartnerData *param6, enum HeapID heapID);
 void BattleTower_CreateWiFiTrainerParty(SaveData *saveData, FrontierOpponent *dto, const u8 opponentID);
 FieldBattleDTO *FieldBattleDTO_NewBattleTower(BattleTower *battleTower, FieldFrontierDTO *fieldData);
-void ov104_0223A734(BattleTower *battleTower, u16 param1);
-u16 ov104_0223A750(BattleTower *battleTower, const u16 *param1);
+void ov104_0223A734(BattleTower *battleTower, u16 slotsMinigameDTO);
+u16 ov104_0223A750(BattleTower *battleTower, const u16 *slotsMinigameDTO);
 int BattleTower_GetTrainerMessagesBankID(u8 challengeMode);
 
 #endif // POKEPLATINUM_OV104_0223A0C4_H

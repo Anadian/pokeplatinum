@@ -4,8 +4,8 @@
 #include <nitro/fx/fx.h>
 
 typedef struct {
-    VecFx32 unk_00;
-    VecFx32 unk_0C;
+    VecFx32 coins;
+    VecFx32 slotsMinigameDTO;
     fx32 unk_18;
     u8 unk_1C;
     u8 unk_1D;

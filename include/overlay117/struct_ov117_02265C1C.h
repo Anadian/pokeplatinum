@@ -4,10 +4,10 @@
 #include "sprite_system.h"
 
 typedef struct {
-    ManagedSprite *unk_00;
-    ManagedSprite *unk_04;
+    ManagedSprite *coins;
+    ManagedSprite *slotMachineVariant;
     fx32 unk_08;
-    fx32 unk_0C;
+    fx32 slotsMinigameDTO;
     s16 unk_10;
     u8 unk_12;
     u8 unk_13;

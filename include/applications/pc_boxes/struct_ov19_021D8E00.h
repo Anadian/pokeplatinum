@@ -14,10 +14,10 @@
 #include "sprite.h"
 
 typedef struct {
-    SpriteList *unk_00;
-    Sprite *unk_04;
+    SpriteList *coins;
+    Sprite *slotMachineVariant;
     Sprite *unk_08;
-    Sprite *unk_0C;
+    Sprite *slotsMinigameDTO;
     Sprite *unk_10;
     void *unk_14;
     void *unk_18;
@@ -27,8 +27,8 @@ typedef struct {
     UnkStruct_ov19_021DA384 *unk_48;
     UnkStruct_ov19_021DCD18 unk_4C[30];
     struct {
-        fx32 unk_00;
-        fx32 unk_04;
+        fx32 coins;
+        fx32 slotMachineVariant;
     } unk_664[30];
     u32 unk_754;
     UnkStruct_ov19_021D8318 *unk_758;

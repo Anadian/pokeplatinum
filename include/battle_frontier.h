@@ -26,7 +26,7 @@ void BattleFrontier_ExitFrontier(BattleFrontier *frontier);
 void BattleFrontier_ChangeScene(BattleFrontier *frontier, u16 sceneID, u16 entryPointOffset);
 UnkStruct_ov104_0223C688 *sub_0209B9CC(BattleFrontier *frontier);
 UnkStruct_ov104_0223C634 *sub_0209B9D0(BattleFrontier *frontier);
-UnkStruct_ov104_0223C634 *sub_0209B9D4(BattleFrontier *frontier, int param1);
+UnkStruct_ov104_0223C634 *sub_0209B9D4(BattleFrontier *frontier, int slotsMinigameDTO);
 UnkStruct_ov104_0223D3B0 *sub_0209B9E0(BattleFrontier *frontier);
 void sub_0209B9EC(BattleFrontier *frontier);
 FieldFrontierDTO *BattleFrontier_LaunchWFCFacilitySelector(FieldSystem *fieldSystem, void *data);

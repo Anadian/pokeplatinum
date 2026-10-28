@@ -24,11 +24,11 @@
 
 typedef struct UnkStruct_ov5_021DF8FC_t {
     enum HeapID heapID;
-    u16 unk_04;
+    u16 slotMachineVariant;
     u16 unk_06;
     u16 unk_08;
     u16 unk_0A;
-    BillboardList *unk_0C;
+    BillboardList *slotsMinigameDTO;
     ResourceHeap *modelResHeap;
     ResourceHeap *metadataResHeap;
     TextureResourceManager *texResMan;
@@ -37,8 +37,8 @@ typedef struct UnkStruct_ov5_021DF8FC_t {
 } UnkStruct_ov5_021DF8FC;
 
 typedef struct UnkStruct_ov5_021DF8C8_t {
-    u32 unk_00;
-    BillboardResources *unk_04;
+    u32 coins;
+    BillboardResources *slotMachineVariant;
 } UnkStruct_ov5_021DF8C8;
 
 typedef struct FieldEffectTexture {
@@ -371,7 +371,7 @@ static void ov5_021DF754(FieldEffectManager *param0, enum HeapID heapID, u32 par
     param0->unk_20 = v0;
 
     v0->heapID = heapID;
-    v0->unk_04 = param2;
+    v0->slotMachineVariant = param2;
     v0->unk_06 = param3;
     v0->unk_08 = param4;
     v0->unk_0A = param5;
@@ -383,7 +383,7 @@ static void ov5_021DF754(FieldEffectManager *param0, enum HeapID heapID, u32 par
 
     v1.maxElements = param2;
     v1.heapID = GetHeapID(param0);
-    v0->unk_0C = BillboardList_New(&v1);
+    v0->slotsMinigameDTO = BillboardList_New(&v1);
 }
 
 static void ov5_021DF7C4(FieldEffectManager *fieldEffMan)
@@ -391,7 +391,7 @@ static void ov5_021DF7C4(FieldEffectManager *fieldEffMan)
     UnkStruct_ov5_021DF8FC *v0 = fieldEffMan->unk_20;
 
     if (v0 != NULL) {
-        BillboardList_Delete(v0->unk_0C);
+        BillboardList_Delete(v0->slotsMinigameDTO);
         ov5_021DF8FC(v0);
         ResourceHeap_Free(v0->modelResHeap);
         ResourceHeap_Free(v0->metadataResHeap);
@@ -402,17 +402,17 @@ static void ov5_021DF7C4(FieldEffectManager *fieldEffMan)
     }
 }
 
-Billboard *ov5_021DF7F8(FieldEffectManager *param0, const BillboardResources *param1, const VecFx32 *param2)
+Billboard *ov5_021DF7F8(FieldEffectManager *param0, const BillboardResources *slotsMinigameDTO, const VecFx32 *param2)
 {
     BillboardTemplate v0;
     Billboard *v1;
     BillboardList *v2;
     VecFx32 v3 = { FX32_ONE, FX32_ONE, FX32_ONE };
 
-    v2 = param0->unk_20->unk_0C;
+    v2 = param0->unk_20->slotsMinigameDTO;
 
     v0.list = v2;
-    v0.resources = param1;
+    v0.resources = slotsMinigameDTO;
     v0.pos = *param2;
     v0.scale = v3;
 
@@ -427,13 +427,13 @@ Billboard *ov5_021DF7F8(FieldEffectManager *param0, const BillboardResources *pa
     return v1;
 }
 
-Billboard *ov5_021DF84C(FieldEffectManager *param0, u32 param1, const VecFx32 *param2)
+Billboard *ov5_021DF84C(FieldEffectManager *param0, u32 slotsMinigameDTO, const VecFx32 *param2)
 {
-    BillboardResources *v0 = ov5_021DF9B4(param0->unk_20, param1);
+    BillboardResources *v0 = ov5_021DF9B4(param0->unk_20, slotsMinigameDTO);
     return ov5_021DF7F8(param0, v0, param2);
 }
 
-BillboardResources *ov5_021DF864(FieldEffectManager *param0, u32 param1, u32 param2, u32 param3, u32 param4, int param5, const BillboardAnim *param6)
+BillboardResources *ov5_021DF864(FieldEffectManager *param0, u32 slotsMinigameDTO, u32 param2, u32 param3, u32 param4, int param5, const BillboardAnim *param6)
 {
     void *v0, *v1, *v2;
     BillboardGfxSequence v3;
@@ -453,26 +453,26 @@ BillboardResources *ov5_021DF864(FieldEffectManager *param0, u32 param1, u32 par
         v4 = NULL;
     }
 
-    v5 = ov5_021DF930(v6, param1, v0, &v3, v1, v4, param6);
+    v5 = ov5_021DF930(v6, slotsMinigameDTO, v0, &v3, v1, v4, param6);
     GF_ASSERT(v5 != NULL);
 
     return v5;
 }
 
-static void ov5_021DF8C8(FieldEffectManager *param0, UnkStruct_ov5_021DF8FC *param1, u32 param2)
+static void ov5_021DF8C8(FieldEffectManager *param0, UnkStruct_ov5_021DF8FC *slotsMinigameDTO, u32 param2)
 {
     BillboardResources *v0;
     UnkStruct_ov5_021DF8C8 *v1;
 
     v0 = FieldEffectManager_HeapAlloc(param0, sizeof(BillboardResources) * param2, 0);
-    param1->unk_20 = v0;
+    slotsMinigameDTO->unk_20 = v0;
 
     v1 = FieldEffectManager_HeapAlloc(param0, (sizeof(UnkStruct_ov5_021DF8C8)) * param2, 0);
-    param1->unk_1C = v1;
+    slotsMinigameDTO->unk_1C = v1;
 
     do {
-        v1->unk_00 = 17;
-        v1->unk_04 = v0;
+        v1->coins = 17;
+        v1->slotMachineVariant = v0;
         v1++;
         v0++;
         param2--;
@@ -485,14 +485,14 @@ static void ov5_021DF8FC(UnkStruct_ov5_021DF8FC *param0)
     FieldEffectManager_HeapFree(param0->unk_20);
 }
 
-static void ov5_021DF910(UnkStruct_ov5_021DF8FC *param0, u32 param1)
+static void ov5_021DF910(UnkStruct_ov5_021DF8FC *param0, u32 slotsMinigameDTO)
 {
-    u32 v0 = param0->unk_04;
+    u32 v0 = param0->slotMachineVariant;
     UnkStruct_ov5_021DF8C8 *v1 = param0->unk_1C;
 
     do {
-        if (v1->unk_00 == param1) {
-            v1->unk_00 = 17;
+        if (v1->coins == slotsMinigameDTO) {
+            v1->coins = 17;
             return;
         }
 
@@ -503,17 +503,17 @@ static void ov5_021DF910(UnkStruct_ov5_021DF8FC *param0, u32 param1)
     GF_ASSERT(FALSE);
 }
 
-static BillboardResources *ov5_021DF930(UnkStruct_ov5_021DF8FC *param0, u32 param1, void *param2, BillboardGfxSequence *param3, void *param4, TextureResource *param5, const BillboardAnim *param6)
+static BillboardResources *ov5_021DF930(UnkStruct_ov5_021DF8FC *param0, u32 slotsMinigameDTO, void *param2, BillboardGfxSequence *param3, void *param4, TextureResource *param5, const BillboardAnim *param6)
 {
     BillboardResources *v0 = NULL;
 
     {
-        u32 v1 = param0->unk_04;
+        u32 v1 = param0->slotMachineVariant;
         UnkStruct_ov5_021DF8C8 *v2 = param0->unk_1C;
 
         do {
-            if (v2->unk_00 == param1) {
-                return v2->unk_04;
+            if (v2->coins == slotsMinigameDTO) {
+                return v2->slotMachineVariant;
             }
 
             v2++;
@@ -521,12 +521,12 @@ static BillboardResources *ov5_021DF930(UnkStruct_ov5_021DF8FC *param0, u32 para
         } while (v1);
 
         v2 = param0->unk_1C;
-        v1 = param0->unk_04;
+        v1 = param0->slotMachineVariant;
 
         do {
-            if (v2->unk_00 == 17) {
-                v2->unk_00 = param1;
-                v0 = v2->unk_04;
+            if (v2->coins == 17) {
+                v2->coins = slotsMinigameDTO;
+                v0 = v2->slotMachineVariant;
                 break;
             }
 
@@ -552,14 +552,14 @@ static BillboardResources *ov5_021DF930(UnkStruct_ov5_021DF8FC *param0, u32 para
     return v0;
 }
 
-static BillboardResources *ov5_021DF9B4(UnkStruct_ov5_021DF8FC *param0, u32 param1)
+static BillboardResources *ov5_021DF9B4(UnkStruct_ov5_021DF8FC *param0, u32 slotsMinigameDTO)
 {
-    u32 v0 = param0->unk_04;
+    u32 v0 = param0->slotMachineVariant;
     UnkStruct_ov5_021DF8C8 *v1 = param0->unk_1C;
 
     do {
-        if (v1->unk_00 == param1) {
-            return v1->unk_04;
+        if (v1->coins == slotsMinigameDTO) {
+            return v1->slotMachineVariant;
         }
 
         v1++;

@@ -18,12 +18,12 @@
 #include "unk_020298BC.h"
 #include "unk_02032798.h"
 
-static void sub_02095B2C(int param0, int param1, void *param2, void *param3);
-static u8 *sub_02095B04(int param0, void *param1, int param2);
-static void sub_02095B30(int param0, int param1, void *param2, void *param3);
-static void sub_02095B9C(int param0, int param1, void *param2, void *param3);
-static void sub_02095C48(int param0, int param1, void *param2, void *param3);
-static void sub_02095C98(int param0, int param1, void *param2, void *param3);
+static void sub_02095B2C(int param0, int slotsMinigameDTO, void *param2, void *param3);
+static u8 *sub_02095B04(int param0, void *slotsMinigameDTO, int param2);
+static void sub_02095B30(int param0, int slotsMinigameDTO, void *param2, void *param3);
+static void sub_02095B9C(int param0, int slotsMinigameDTO, void *param2, void *param3);
+static void sub_02095C48(int param0, int slotsMinigameDTO, void *param2, void *param3);
+static void sub_02095C98(int param0, int slotsMinigameDTO, void *param2, void *param3);
 static int sub_02095B24(void);
 static int sub_02095B28(void);
 
@@ -52,9 +52,9 @@ void sub_02095AF0(void *param0)
     CommCmd_Init(Unk_020F58FC, v0, param0);
 }
 
-static u8 *sub_02095B04(int param0, void *param1, int param2)
+static u8 *sub_02095B04(int param0, void *slotsMinigameDTO, int param2)
 {
-    Contest *v0 = param1;
+    Contest *v0 = slotsMinigameDTO;
 
     GF_ASSERT(param2 < 1024);
     return v0->unk_969[param0];
@@ -70,12 +70,12 @@ static int sub_02095B28(void)
     return sizeof(UnkStruct_02095B28);
 }
 
-static void sub_02095B2C(int param0, int param1, void *param2, void *param3)
+static void sub_02095B2C(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     return;
 }
 
-static void sub_02095B30(int param0, int param1, void *param2, void *param3)
+static void sub_02095B30(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     Contest *v0 = param3;
     int v1;
@@ -86,12 +86,12 @@ static void sub_02095B30(int param0, int param1, void *param2, void *param3)
     v3 = param2;
     v2 = v3[v1];
 
-    MI_CpuCopy8(param2, v0->unk_00.unk_E8[v2], v1);
+    MI_CpuCopy8(param2, v0->coins.unk_E8[v2], v1);
 
     v0->unk_568++;
 }
 
-BOOL sub_02095B5C(Contest *param0, int param1, const UnkStruct_02029C88 *param2)
+BOOL sub_02095B5C(Contest *param0, int slotsMinigameDTO, const UnkStruct_02029C88 *param2)
 {
     u8 *v0;
     int v1;
@@ -100,7 +100,7 @@ BOOL sub_02095B5C(Contest *param0, int param1, const UnkStruct_02029C88 *param2)
     v1 = sub_02029C64();
     v0 = Heap_Alloc(HEAP_ID_20, v1 + 1);
     MI_CpuCopy8(param2, v0, v1);
-    v0[v1] = param1;
+    v0[v1] = slotsMinigameDTO;
 
     if (CommSys_SendData(32, v0, v1 + 1) == 1) {
         v2 = 1;
@@ -112,7 +112,7 @@ BOOL sub_02095B5C(Contest *param0, int param1, const UnkStruct_02029C88 *param2)
     return v2;
 }
 
-static void sub_02095B9C(int param0, int param1, void *param2, void *param3)
+static void sub_02095B9C(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     Contest *v0 = param3;
     int v1, v2;
@@ -126,13 +126,13 @@ static void sub_02095B9C(int param0, int param1, void *param2, void *param3)
     GF_ASSERT(v2 < 1024);
 
     for (v4 = 0; v4 < 4; v4++) {
-        MI_CpuCopy8(&v3[v1 * v4], v0->unk_00.unk_E8[v4], v1);
+        MI_CpuCopy8(&v3[v1 * v4], v0->coins.unk_E8[v4], v1);
     }
 
     v0->unk_568++;
 }
 
-BOOL sub_02095BEC(Contest *param0, UnkStruct_02029C88 **param1)
+BOOL sub_02095BEC(Contest *param0, UnkStruct_02029C88 **slotsMinigameDTO)
 {
     u8 *v0;
     int v1, v2;
@@ -147,7 +147,7 @@ BOOL sub_02095BEC(Contest *param0, UnkStruct_02029C88 **param1)
     v0 = param0->unk_569;
 
     for (v4 = 0; v4 < 4; v4++) {
-        MI_CpuCopy8(param1[v4], &v0[v1 * v4], v1);
+        MI_CpuCopy8(slotsMinigameDTO[v4], &v0[v1 * v4], v1);
     }
 
     if (CommSys_SendDataHuge(33, v0, v2) == 1) {
@@ -159,16 +159,16 @@ BOOL sub_02095BEC(Contest *param0, UnkStruct_02029C88 **param1)
     return v3;
 }
 
-static void sub_02095C48(int param0, int param1, void *param2, void *param3)
+static void sub_02095C48(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     Contest *v0 = param3;
-    MI_CpuCopy8(param2, &v0->unk_1984.unk_00, param1);
+    MI_CpuCopy8(param2, &v0->unk_1984.coins, slotsMinigameDTO);
 }
 
-BOOL sub_02095C60(UnkStruct_02095C60 *param0, u32 param1)
+BOOL sub_02095C60(UnkStruct_02095C60 *param0, u32 slotsMinigameDTO)
 {
     if (param0->unk_16 == 0) {
-        param0->unk_00.unk_00 = param1;
+        param0->coins.coins = slotsMinigameDTO;
         return 1;
     }
 
@@ -176,7 +176,7 @@ BOOL sub_02095C60(UnkStruct_02095C60 *param0, u32 param1)
         return 0;
     }
 
-    param0->unk_08.unk_00 = param1;
+    param0->unk_08.coins = slotsMinigameDTO;
 
     if (CommSys_SendData(34, &param0->unk_08, sizeof(UnkStruct_02095B28)) == 1) {
         return 1;
@@ -185,21 +185,21 @@ BOOL sub_02095C60(UnkStruct_02095C60 *param0, u32 param1)
     return 0;
 }
 
-static void sub_02095C98(int param0, int param1, void *param2, void *param3)
+static void sub_02095C98(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     Contest *v0 = param3;
     UnkStruct_02095B28 *v1 = param2;
-    v0->unk_1984.unk_10[param0] = v1->unk_04;
+    v0->unk_1984.unk_10[param0] = v1->slotMachineVariant;
 }
 
-BOOL sub_02095CA8(UnkStruct_02095C60 *param0, int param1)
+BOOL sub_02095CA8(UnkStruct_02095C60 *param0, int slotsMinigameDTO)
 {
     if (param0->unk_16 == 0) {
-        param0->unk_10[0] = param1;
+        param0->unk_10[0] = slotsMinigameDTO;
         return 1;
     }
 
-    param0->unk_08.unk_04 = param1;
+    param0->unk_08.slotMachineVariant = slotsMinigameDTO;
 
     if (CommSys_SendData(35, &param0->unk_08, sizeof(UnkStruct_02095B28)) == 1) {
         return 1;

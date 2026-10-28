@@ -7,8 +7,8 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    SysTask *unk_00;
-    UnkStruct_ov17_0224DF54 *unk_04;
+    SysTask *coins;
+    UnkStruct_ov17_0224DF54 *slotMachineVariant;
     UnkStruct_ov17_0224EDE0 unk_08;
     u8 unk_11;
     u8 unk_12;

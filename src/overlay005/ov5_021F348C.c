@@ -16,22 +16,22 @@
 #include "res/graphics/field_effects/field_effects.naix"
 
 typedef struct {
-    u32 unk_00;
-    FieldEffectManager *unk_04;
+    u32 coins;
+    FieldEffectManager *slotMachineVariant;
 } UnkStruct_ov5_021F34D0;
 
 typedef struct {
     FieldSystem *fieldSystem;
-    FieldEffectManager *unk_04;
+    FieldEffectManager *slotMachineVariant;
     UnkStruct_ov5_021F34D0 *unk_08;
-    MapObject *unk_0C;
+    MapObject *slotsMinigameDTO;
 } UnkStruct_ov5_021F35E8;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     UnkStruct_ov5_021F35E8 unk_10;
     Billboard *unk_20;
 } UnkStruct_ov5_021F36F4;
@@ -46,7 +46,7 @@ const BillboardAnim Unk_ov5_022005D8[];
 void *ov5_021F348C(FieldEffectManager *param0)
 {
     UnkStruct_ov5_021F34D0 *v0 = FieldEffectManager_HeapAllocInit(param0, (sizeof(UnkStruct_ov5_021F34D0)), 0, 0);
-    v0->unk_04 = param0;
+    v0->slotMachineVariant = param0;
 
     ov5_021F34D0(v0);
     return v0;
@@ -64,59 +64,59 @@ void ov5_021F34B8(FieldEffectManager *param0)
 {
     UnkStruct_ov5_021F34D0 *v0 = FieldEffectManager_GetRendererContext(param0, 23);
 
-    if (v0->unk_00 != 1) {
-        v0->unk_00 = 1;
+    if (v0->coins != 1) {
+        v0->coins = 1;
         ov5_021F3518(v0);
     }
 }
 
 static void ov5_021F34D0(UnkStruct_ov5_021F34D0 *param0)
 {
-    ov5_021DF9E0(param0->unk_04, 6, dust_puff_down_nsbmd);
-    ov5_021DFA14(param0->unk_04, 6, dust_puff_bin);
-    ov5_021DFA3C(param0->unk_04, 7, dust_puff_nsbtx, 1);
-    ov5_021DF864(param0->unk_04, 8, 6, 6, 7, 0, Unk_ov5_022005D8);
+    ov5_021DF9E0(param0->slotMachineVariant, 6, dust_puff_down_nsbmd);
+    ov5_021DFA14(param0->slotMachineVariant, 6, dust_puff_bin);
+    ov5_021DFA3C(param0->slotMachineVariant, 7, dust_puff_nsbtx, 1);
+    ov5_021DF864(param0->slotMachineVariant, 8, 6, 6, 7, 0, Unk_ov5_022005D8);
 }
 
 static void ov5_021F3518(UnkStruct_ov5_021F34D0 *param0)
 {
-    ov5_021DF9E0(param0->unk_04, 12, dust_puff_left_nsbmd);
-    ov5_021DF9E0(param0->unk_04, 13, dust_puff_right_nsbmd);
-    ov5_021DF9E0(param0->unk_04, 14, dust_puff_up_nsbmd);
+    ov5_021DF9E0(param0->slotMachineVariant, 12, dust_puff_left_nsbmd);
+    ov5_021DF9E0(param0->slotMachineVariant, 13, dust_puff_right_nsbmd);
+    ov5_021DF9E0(param0->slotMachineVariant, 14, dust_puff_up_nsbmd);
 
-    ov5_021DF864(param0->unk_04, 14, 12, 6, 7, 0, Unk_ov5_022005D8);
-    ov5_021DF864(param0->unk_04, 15, 13, 6, 7, 0, Unk_ov5_022005D8);
-    ov5_021DF864(param0->unk_04, 16, 14, 6, 7, 0, Unk_ov5_022005D8);
+    ov5_021DF864(param0->slotMachineVariant, 14, 12, 6, 7, 0, Unk_ov5_022005D8);
+    ov5_021DF864(param0->slotMachineVariant, 15, 13, 6, 7, 0, Unk_ov5_022005D8);
+    ov5_021DF864(param0->slotMachineVariant, 16, 14, 6, 7, 0, Unk_ov5_022005D8);
 }
 
 static void ov5_021F358C(UnkStruct_ov5_021F34D0 *param0)
 {
-    ov5_021DFA08(param0->unk_04, 6);
-    ov5_021DFA30(param0->unk_04, 6);
-    ov5_021DFA7C(param0->unk_04, 7);
-    ov5_021DF9D4(param0->unk_04, 8);
+    ov5_021DFA08(param0->slotMachineVariant, 6);
+    ov5_021DFA30(param0->slotMachineVariant, 6);
+    ov5_021DFA7C(param0->slotMachineVariant, 7);
+    ov5_021DF9D4(param0->slotMachineVariant, 8);
 
-    if (param0->unk_00 == 1) {
-        ov5_021DFA08(param0->unk_04, 12);
-        ov5_021DFA08(param0->unk_04, 13);
-        ov5_021DFA08(param0->unk_04, 14);
-        ov5_021DF9D4(param0->unk_04, 14);
-        ov5_021DF9D4(param0->unk_04, 15);
-        ov5_021DF9D4(param0->unk_04, 16);
+    if (param0->coins == 1) {
+        ov5_021DFA08(param0->slotMachineVariant, 12);
+        ov5_021DFA08(param0->slotMachineVariant, 13);
+        ov5_021DFA08(param0->slotMachineVariant, 14);
+        ov5_021DF9D4(param0->slotMachineVariant, 14);
+        ov5_021DF9D4(param0->slotMachineVariant, 15);
+        ov5_021DF9D4(param0->slotMachineVariant, 16);
     }
 }
 
-static void ov5_021F35E8(FieldEffectManager *param0, MapObject *param1, UnkStruct_ov5_021F35E8 *param2, VecFx32 *param3, int *param4)
+static void ov5_021F35E8(FieldEffectManager *param0, MapObject *slotsMinigameDTO, UnkStruct_ov5_021F35E8 *param2, VecFx32 *param3, int *param4)
 {
-    param2->fieldSystem = MapObject_FieldSystem(param1);
-    param2->unk_04 = param0;
+    param2->fieldSystem = MapObject_FieldSystem(slotsMinigameDTO);
+    param2->slotMachineVariant = param0;
     param2->unk_08 = FieldEffectManager_GetRendererContext(param0, 23);
-    param2->unk_0C = param1;
+    param2->slotsMinigameDTO = slotsMinigameDTO;
 
-    MapObject_GetPosPtr(param1, param3);
-    VecFx32_SetPosFromMapCoords(MapObject_GetX(param1), MapObject_GetZ(param1), param3);
+    MapObject_GetPosPtr(slotsMinigameDTO, param3);
+    VecFx32_SetPosFromMapCoords(MapObject_GetX(slotsMinigameDTO), MapObject_GetZ(slotsMinigameDTO), param3);
 
-    *param4 = MapObject_CalculateTaskPriority(param1, 2);
+    *param4 = MapObject_CalculateTaskPriority(slotsMinigameDTO, 2);
 }
 
 void ov5_021F3638(MapObject *param0)
@@ -133,7 +133,7 @@ void ov5_021F3638(MapObject *param0)
     v2 = FieldEffectManager_InitAnimManager(v1, &Unk_ov5_022005C4, &v3, 0, &v4, v0);
 }
 
-void ov5_021F3678(MapObject *param0, int param1)
+void ov5_021F3678(MapObject *param0, int slotsMinigameDTO)
 {
     int v0;
     FieldEffectManager *v1;
@@ -166,28 +166,28 @@ void ov5_021F3678(MapObject *param0, int param1)
     v1 = MapObject_GetFieldEffectManager(param0);
 
     ov5_021F35E8(v1, param0, &v4, &v3, &v0);
-    GF_ASSERT(v4.unk_08->unk_00 == 1);
+    GF_ASSERT(v4.unk_08->coins == 1);
 
-    v3.x += v5[param1].x;
-    v3.y += v5[param1].y;
-    v3.z += v5[param1].z;
+    v3.x += v5[slotsMinigameDTO].x;
+    v3.y += v5[slotsMinigameDTO].y;
+    v3.z += v5[slotsMinigameDTO].z;
 
-    v2 = FieldEffectManager_InitAnimManager(v1, &Unk_ov5_022005C4, &v3, param1, &v4, v0);
+    v2 = FieldEffectManager_InitAnimManager(v1, &Unk_ov5_022005C4, &v3, slotsMinigameDTO, &v4, v0);
 }
 
-static int ov5_021F36F4(OverworldAnimManager *param0, void *param1)
+static int ov5_021F36F4(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
     int v0;
     VecFx32 v1;
     UnkStruct_ov5_021F36F4 *v2;
     const UnkStruct_ov5_021F35E8 *v3;
 
-    v2 = param1;
+    v2 = slotsMinigameDTO;
     v3 = OverworldAnimManager_GetUserData(param0);
 
     v2->unk_10 = *v3;
-    v2->unk_04 = MapObject_GetLocalID(v2->unk_10.unk_0C);
-    v2->unk_08 = MapObject_GetMapHeaderID(v2->unk_10.unk_0C);
+    v2->slotMachineVariant = MapObject_GetLocalID(v2->unk_10.slotsMinigameDTO);
+    v2->unk_08 = MapObject_GetMapHeaderID(v2->unk_10.slotsMinigameDTO);
 
     OverworldAnimManager_GetPosition(param0, &v1);
 
@@ -195,25 +195,25 @@ static int ov5_021F36F4(OverworldAnimManager *param0, void *param1)
         u32 v4[4] = { 8, 14, 15, 16 };
         int v5 = OverworldAnimManager_GetUserInt(param0);
 
-        v2->unk_20 = ov5_021DF84C(v2->unk_10.unk_04, v4[v5], &v1);
+        v2->unk_20 = ov5_021DF84C(v2->unk_10.slotMachineVariant, v4[v5], &v1);
     }
 
     return 1;
 }
 
-static void ov5_021F3754(OverworldAnimManager *param0, void *param1)
+static void ov5_021F3754(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021F36F4 *v0 = param1;
+    UnkStruct_ov5_021F36F4 *v0 = slotsMinigameDTO;
     Billboard_Delete(v0->unk_20);
 }
 
-static void ov5_021F3760(OverworldAnimManager *param0, void *param1)
+static void ov5_021F3760(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
     int v0;
-    UnkStruct_ov5_021F36F4 *v1 = param1;
-    MapObject *v2 = v1->unk_10.unk_0C;
+    UnkStruct_ov5_021F36F4 *v1 = slotsMinigameDTO;
+    MapObject *v2 = v1->unk_10.slotsMinigameDTO;
 
-    switch (v1->unk_00) {
+    switch (v1->coins) {
     case 0:
         Billboard_AdvanceAnim(v1->unk_20, FX32_ONE);
         v0 = Billboard_GetAnimFrameNum(v1->unk_20) / FX32_ONE;
@@ -226,11 +226,11 @@ static void ov5_021F3760(OverworldAnimManager *param0, void *param1)
     }
 }
 
-static void ov5_021F3790(OverworldAnimManager *param0, void *param1)
+static void ov5_021F3790(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
     VecFx32 v0, v1;
-    UnkStruct_ov5_021F36F4 *v2 = param1;
-    MapObject *v3 = v2->unk_10.unk_0C;
+    UnkStruct_ov5_021F36F4 *v2 = slotsMinigameDTO;
+    MapObject *v3 = v2->unk_10.slotsMinigameDTO;
 
     OverworldAnimManager_GetPosition(param0, &v0);
     Billboard_SetPos(v2->unk_20, &v0);

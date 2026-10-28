@@ -77,7 +77,7 @@ void CommManager_StartWifiMail(SaveData *saveData);
 void CommManager_EndWifiMail(void);
 BOOL CommManager_GetDWCError(void);
 void *CommManager_LoginWifiBattleServer(SaveData *saveData, int size);
-void CommManager_LoginWifiPlaza(SaveData *saveData, const void *param1);
+void CommManager_LoginWifiPlaza(SaveData *saveData, const void *slotsMinigameDTO);
 void CommManager_LogoutWifiPlaza(void);
 BOOL CommManager_GetWifiPlazaLoginSuccess(void);
 BOOL CommManager_IsWifiPlazaError(void);

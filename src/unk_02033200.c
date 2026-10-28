@@ -20,7 +20,7 @@
 #include "wireless_manager.h"
 
 typedef struct {
-    u8 unk_00[84];
+    u8 coins[84];
     WMbssDesc unk_54;
     WMbssDesc unk_188[16];
     u8 unk_1498[8][6];
@@ -59,14 +59,14 @@ static void sub_02033AA8(void);
 static BOOL sub_02034014(u8 *param0);
 static u16 sub_02033F0C(u16 param0);
 static void sub_0203330C(WMBssDesc *param0);
-static void WirelessDriver_InitCallback(void *param0, WVRResult param1);
+static void WirelessDriver_InitCallback(void *param0, WVRResult slotsMinigameDTO);
 static int sub_02033DDC(void);
 
 static CommServerClient *sCommServerClient = NULL;
 static u16 Unk_021C07B8 = 0;
 static volatile int sWirelessDriverStatus;
 
-void CommServerClient_Init(TrainerInfo *trainerInfo, BOOL param1)
+void CommServerClient_Init(TrainerInfo *trainerInfo, BOOL slotsMinigameDTO)
 {
     if (sCommServerClient != NULL) {
         return;
@@ -88,7 +88,7 @@ void CommServerClient_Init(TrainerInfo *trainerInfo, BOOL param1)
     sCommServerClient->personalTrainerInfo = trainerInfo;
 
     EasyChatSentence_Init((EasyChatSentence *)&sCommServerClient->unk_14EC);
-    sub_020334DC(param1);
+    sub_020334DC(slotsMinigameDTO);
 }
 
 BOOL sub_020332D0(void)
@@ -100,10 +100,10 @@ BOOL sub_020332D0(void)
     return 0;
 }
 
-static BOOL sub_020332E4(const u8 *param0, const u8 *param1, int param2)
+static BOOL sub_020332E4(const u8 *param0, const u8 *slotsMinigameDTO, int param2)
 {
     const u8 *v1 = param0;
-    const u8 *v2 = param1;
+    const u8 *v2 = slotsMinigameDTO;
 
     for (int i = 0; i < param2; i++) {
         if (*v1 != *v2) {
@@ -127,11 +127,11 @@ static void sub_0203330C(WMBssDesc *param0)
 
     if (v2 == 14) {
         (void)0;
-    } else if (sub_020326C4(v1->unk_04) && sub_020326C4(v2)) {
+    } else if (sub_020326C4(v1->slotMachineVariant) && sub_020326C4(v2)) {
         (void)0;
-    } else if (v1->unk_54 && v1->unk_04 == 10) {
+    } else if (v1->unk_54 && v1->slotMachineVariant == 10) {
         return;
-    } else if (v1->unk_04 != v2) {
+    } else if (v1->slotMachineVariant != v2) {
         return;
     }
 
@@ -181,9 +181,9 @@ static void sub_02033380(void)
     sCommServerClient->unk_14F8 = 1;
 }
 
-static void WirelessDriver_InitCallback(void *param0, WVRResult param1)
+static void WirelessDriver_InitCallback(void *param0, WVRResult slotsMinigameDTO)
 {
-    if (param1 != WVR_RESULT_SUCCESS) {
+    if (slotsMinigameDTO != WVR_RESULT_SUCCESS) {
         OS_Terminate();
     } else {
         (void)0;
@@ -192,7 +192,7 @@ static void WirelessDriver_InitCallback(void *param0, WVRResult param1)
     sWirelessDriverStatus = WIRELESS_DRIVER_STATUS_CONNECTED;
 }
 
-static void WirelessDriver_ShutdownCallback(void *param0, WVRResult param1)
+static void WirelessDriver_ShutdownCallback(void *param0, WVRResult slotsMinigameDTO)
 {
     sWirelessDriverStatus = WIRELESS_DRIVER_STATUS_DISCONNECTED;
     SleepUnlock(4);
@@ -264,10 +264,10 @@ static void sub_02033578(void)
     sCommServerClient->unk_1517 = 0;
 }
 
-BOOL CommServerClient_InitServer(BOOL param0, BOOL param1, BOOL param2)
+BOOL CommServerClient_InitServer(BOOL param0, BOOL slotsMinigameDTO, BOOL param2)
 {
     sub_02033578();
-    sub_02033550(param1);
+    sub_02033550(slotsMinigameDTO);
     WirelessManager_ResetBeaconSentCount();
 
     if (!sCommServerClient->unk_1517) {
@@ -286,11 +286,11 @@ BOOL CommServerClient_InitServer(BOOL param0, BOOL param1, BOOL param2)
     return 0;
 }
 
-BOOL CommServerClient_InitClient(BOOL param0, BOOL param1)
+BOOL CommServerClient_InitClient(BOOL param0, BOOL slotsMinigameDTO)
 {
     sub_02033578();
 
-    if (param1) {
+    if (slotsMinigameDTO) {
         sub_02033518();
     }
 
@@ -512,14 +512,14 @@ int sub_0203394C(void)
     return v0;
 }
 
-void sub_020339AC(int param0, TrainerInfo *param1)
+void sub_020339AC(int param0, TrainerInfo *slotsMinigameDTO)
 {
     int i, v1 = 0;
 
     for (i = 0; i < 16; ++i) {
         if (sCommServerClient->unk_14C8[i] != 0) {
             if (param0 == v1) {
-                TrainerInfo_Copy(sub_02033FB0(i), param1);
+                TrainerInfo_Copy(sub_02033FB0(i), slotsMinigameDTO);
                 return;
             }
 
@@ -586,8 +586,8 @@ static void sub_02033AA8(void)
         MI_CpuCopy8(v1, v2->unk_10, TrainerInfo_Size());
         MI_CpuCopy8(sCommServerClient->unk_1500, v2->unk_30, BattleRegulation_Size());
 
-        v2->unk_00 = TrainerInfo_ID(v1);
-        v2->unk_04 = CommManager_GetCommType();
+        v2->coins = TrainerInfo_ID(v1);
+        v2->slotMachineVariant = CommManager_GetCommType();
         v2->unk_05 = CommManager_GetContestRegulation();
 
         MI_CpuCopy8(&sCommServerClient->unk_14EC, &v2->unk_08, sizeof(EasyChatSentence));
@@ -596,11 +596,11 @@ static void sub_02033AA8(void)
     } else {
         UnkStruct_02034168 *v3 = (UnkStruct_02034168 *)sCommServerClient->unk_150C;
 
-        v3->unk_00 = TrainerInfo_ID(v1);
-        v3->unk_04 = CommManager_GetCommType();
+        v3->coins = TrainerInfo_ID(v1);
+        v3->slotMachineVariant = CommManager_GetCommType();
         v3->unk_05 = CommManager_GetContestRegulation();
 
-        MI_CpuCopy8(sCommServerClient->unk_00, v3->unk_08, 84);
+        MI_CpuCopy8(sCommServerClient->coins, v3->unk_08, 84);
     }
 
     DC_FlushRange(sCommServerClient->unk_150C, MATH_MAX(sizeof(UnkStruct_02034168), sizeof(UnkStruct_0203330C)));
@@ -867,11 +867,11 @@ TrainerInfo *sub_02033FB0(int param0)
     return v0;
 }
 
-void sub_02033FDC(u8 *param0, int param1)
+void sub_02033FDC(u8 *param0, int slotsMinigameDTO)
 {
     if (sCommServerClient) {
-        GF_ASSERT(param1 < (7 + 1));
-        MI_CpuCopy8(param0, sCommServerClient->unk_1498[param1], WM_SIZE_BSSID);
+        GF_ASSERT(slotsMinigameDTO < (7 + 1));
+        MI_CpuCopy8(param0, sCommServerClient->unk_1498[slotsMinigameDTO], WM_SIZE_BSSID);
     }
 }
 
@@ -931,7 +931,7 @@ int sub_02034120(int param0)
         UnkStruct_0203330C *v2 = sub_02033F6C(i);
 
         if (v2) {
-            if (v2->unk_04 == param0) {
+            if (v2->slotMachineVariant == param0) {
                 v1 += v2->unk_06;
             }
         }
@@ -947,7 +947,7 @@ BOOL sub_02034148(void)
 
 void sub_02034150(void *param0)
 {
-    MI_CpuCopy8(param0, sCommServerClient->unk_00, 84);
+    MI_CpuCopy8(param0, sCommServerClient->coins, 84);
     sub_020340FC();
 }
 

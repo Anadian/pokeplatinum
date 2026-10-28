@@ -23,7 +23,7 @@ enum PartyMenuInput {
 extern const ApplicationManagerTemplate gPokemonPartyAppTemplate;
 
 void PartyMenu_UpdateFormChangeGraphicsMode(PartyMenuApplication *application, BOOL isTeardown);
-u8 sub_0207EF04(PartyMenuApplication *application, u8 param1);
+u8 sub_0207EF04(PartyMenuApplication *application, u8 slotsMinigameDTO);
 u8 PartyMenu_LoadMember(PartyMenuApplication *application, u8 slot);
 const u16 *PartyMenu_GetHealthbarTilemap(PartyMenuApplication *application);
 void PartyMenu_UpdateSlotPalette(PartyMenuApplication *application, u8 slot);

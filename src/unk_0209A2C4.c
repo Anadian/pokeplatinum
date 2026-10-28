@@ -22,9 +22,9 @@ FS_EXTERN_OVERLAY(main_menu);
 
 typedef struct {
     enum HeapID heapID;
-    int unk_04;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     int unk_10;
     String *unk_14;
     BgConfig *unk_18;
@@ -36,15 +36,15 @@ typedef struct {
     u32 unk_3C;
 } UnkStruct_0209A3D0;
 
-int sub_0209A2C4(ApplicationManager *appMan, int *param1);
-int sub_0209A300(ApplicationManager *appMan, int *param1);
-int sub_0209A3A4(ApplicationManager *appMan, int *param1);
+int sub_0209A2C4(ApplicationManager *appMan, int *slotsMinigameDTO);
+int sub_0209A300(ApplicationManager *appMan, int *slotsMinigameDTO);
+int sub_0209A3A4(ApplicationManager *appMan, int *slotsMinigameDTO);
 static void sub_0209A3D0(UnkStruct_0209A3D0 *param0);
 static void sub_0209A490(UnkStruct_0209A3D0 *param0);
 static void sub_0209A4E4(UnkStruct_0209A3D0 *param0);
 static void sub_0209A530(UnkStruct_0209A3D0 *param0);
 static BOOL sub_0209A544(UnkStruct_0209A3D0 *param0);
-static BOOL sub_0209A688(UnkStruct_0209A3D0 *param0, u32 param1, int param2, int param3);
+static BOOL sub_0209A688(UnkStruct_0209A3D0 *param0, u32 slotsMinigameDTO, int param2, int param3);
 
 static const WindowTemplate Unk_020F8A58 = {
     0x0,
@@ -63,7 +63,7 @@ const ApplicationManagerTemplate Unk_020F8AB4 = {
     0xFFFFFFFF
 };
 
-int sub_0209A2C4(ApplicationManager *appMan, int *param1)
+int sub_0209A2C4(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_0209A3D0 *v0;
 
@@ -73,18 +73,18 @@ int sub_0209A2C4(ApplicationManager *appMan, int *param1)
     memset(v0, 0, sizeof(UnkStruct_0209A3D0));
 
     v0->heapID = HEAP_ID_88;
-    v0->unk_04 = 0;
+    v0->slotMachineVariant = 0;
     v0->saveData = ((ApplicationArgs *)ApplicationManager_Args(appMan))->saveData;
 
     return 1;
 }
 
-int sub_0209A300(ApplicationManager *appMan, int *param1)
+int sub_0209A300(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_0209A3D0 *v0 = ApplicationManager_Data(appMan);
     int v1 = 0;
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         SetScreenColorBrightness(DS_SCREEN_MAIN, COLOR_BLACK);
         SetScreenColorBrightness(DS_SCREEN_SUB, COLOR_BLACK);
@@ -98,11 +98,11 @@ int sub_0209A300(ApplicationManager *appMan, int *param1)
         sub_0209A3D0(v0);
         sub_0209A4E4(v0);
         GXLayers_TurnBothDispOn();
-        *param1 = 1;
+        *slotsMinigameDTO = 1;
         break;
     case 1:
         if (sub_0209A544(v0) == TRUE) {
-            *param1 = 2;
+            *slotsMinigameDTO = 2;
         }
         break;
     case 2:
@@ -116,7 +116,7 @@ int sub_0209A300(ApplicationManager *appMan, int *param1)
     return v1;
 }
 
-int sub_0209A3A4(ApplicationManager *appMan, int *param1)
+int sub_0209A3A4(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_0209A3D0 *v0 = ApplicationManager_Data(appMan);
     int heapID = v0->heapID;
@@ -201,7 +201,7 @@ static void sub_0209A4E4(UnkStruct_0209A3D0 *param0)
 {
     param0->unk_1C = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_SAVE_CORRUPTED, param0->heapID);
     Text_ResetAllPrinters();
-    param0->unk_0C = 0;
+    param0->slotsMinigameDTO = 0;
 
     Window_AddFromTemplate(param0->unk_18, &param0->unk_20, &Unk_020F8A58);
     Window_FillRectWithColor(&param0->unk_20, 15, 0, 0, 27 * 8, 4 * 8);
@@ -217,18 +217,18 @@ static BOOL sub_0209A544(UnkStruct_0209A3D0 *param0)
 {
     BOOL v0 = 0;
 
-    switch (param0->unk_04) {
+    switch (param0->slotMachineVariant) {
     case 0: {
         param0->unk_3C = SaveData_LoadCheckStatus(param0->saveData);
 
         if (param0->unk_3C == 0) {
-            param0->unk_04 = 6;
+            param0->slotMachineVariant = 6;
         } else {
-            param0->unk_04 = 1;
+            param0->slotMachineVariant = 1;
         }
     } break;
     case 1:
-        param0->unk_04 = 2;
+        param0->slotMachineVariant = 2;
 
         if (param0->unk_3C & (1 << 1)) {
             param0->unk_3C &= 0xffffffff ^ ((1 << 1) | (1 << 0));
@@ -249,31 +249,31 @@ static BOOL sub_0209A544(UnkStruct_0209A3D0 *param0)
             param0->unk_3C ^= (1 << 4);
             param0->unk_08 = 2;
         } else {
-            param0->unk_04 = 6;
+            param0->slotMachineVariant = 6;
         }
         break;
     case 2:
         Bg_MaskPalette(BG_LAYER_MAIN_0, 0x6c21);
         Bg_MaskPalette(BG_LAYER_SUB_0, 0x6c21);
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, COLOR_BLACK, 6, 1, param0->heapID);
-        param0->unk_04 = 3;
+        param0->slotMachineVariant = 3;
         break;
     case 3:
         if (IsScreenFadeDone() == TRUE) {
-            param0->unk_04 = 4;
+            param0->slotMachineVariant = 4;
         }
         break;
     case 4:
         if (sub_0209A688(param0, param0->unk_08, 0, 4) == 1) {
             StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, param0->heapID);
-            param0->unk_04 = 5;
+            param0->slotMachineVariant = 5;
         }
         break;
     case 5:
         if (IsScreenFadeDone() == TRUE) {
             Bg_MaskPalette(BG_LAYER_MAIN_0, 0);
             Bg_MaskPalette(BG_LAYER_SUB_0, 0);
-            param0->unk_04 = 1;
+            param0->slotMachineVariant = 1;
         }
         break;
     case 6:
@@ -284,35 +284,35 @@ static BOOL sub_0209A544(UnkStruct_0209A3D0 *param0)
     return v0;
 }
 
-static BOOL sub_0209A688(UnkStruct_0209A3D0 *param0, u32 param1, int param2, int param3)
+static BOOL sub_0209A688(UnkStruct_0209A3D0 *param0, u32 slotsMinigameDTO, int param2, int param3)
 {
     BOOL v0 = 0;
 
-    switch (param0->unk_0C) {
+    switch (param0->slotsMinigameDTO) {
     case 0:
         Window_FillRectWithColor(&param0->unk_20, 15, 0, 0, 27 * 8, 4 * 8);
         Window_DrawMessageBoxWithScrollCursor(&param0->unk_20, 0, 512 - (18 + 12), 2);
 
         param0->unk_14 = String_Init(0x400, param0->heapID);
-        MessageLoader_GetString(param0->unk_1C, param1, param0->unk_14);
+        MessageLoader_GetString(param0->unk_1C, slotsMinigameDTO, param0->unk_14);
         param0->unk_10 = Text_AddPrinterWithParams(&param0->unk_20, FONT_MESSAGE, param0->unk_14, 0, 0, param3, NULL);
 
         if (param3 == 0) {
             String_Free(param0->unk_14);
-            param0->unk_0C++;
+            param0->slotsMinigameDTO++;
         }
 
-        param0->unk_0C++;
+        param0->slotsMinigameDTO++;
         break;
     case 1:
         if (!(Text_IsPrinterActive(param0->unk_10))) {
             String_Free(param0->unk_14);
-            param0->unk_0C++;
+            param0->slotsMinigameDTO++;
         }
         break;
     case 2:
         if ((param2 != 0) || (gSystem.pressedKeys & PAD_BUTTON_A)) {
-            param0->unk_0C = 0;
+            param0->slotsMinigameDTO = 0;
             v0 = 1;
         }
     }

@@ -6,7 +6,7 @@
 
 typedef struct UnkStruct_02029C88_t {
     u32 integrity;
-    u32 unk_04;
+    u32 slotMachineVariant;
     PhotoPokemon photoMon;
     u32 unk_40;
     PhotoAccessory accessories[20];

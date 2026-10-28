@@ -10,7 +10,7 @@
 
 typedef struct {
     SaveData *saveData;
-    UnkStruct_0205C22C *unk_04;
+    UnkStruct_0205C22C *slotMachineVariant;
     Options *options;
     GameRecords *records;
     JournalEntry *journalEntry;

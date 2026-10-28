@@ -30,7 +30,7 @@ void MapMatrix_Free(MapMatrix *const mapMatrix);
 void MapMatrix_Copy(MapMatrix *src, MapMatrix *dest);
 u16 MapMatrix_GetMapHeaderIDAtCoords(const MapMatrix *mapMatrix, int x, int y);
 u16 MapMatrix_GetMapHeaderIDAtIndex(const MapMatrix *mapMatrix, const int index);
-int MapMatrix_GetAltitudeAtCoords(const MapMatrix *mapMatrix, const int param1, const int x, const int y, const int width);
+int MapMatrix_GetAltitudeAtCoords(const MapMatrix *mapMatrix, const int slotsMinigameDTO, const int x, const int y, const int width);
 int MapMatrix_GetWidth(const MapMatrix *mapMatrix);
 int MapMatrix_GetHeight(const MapMatrix *mapMatrix);
 u8 MapMatrix_GetMatrixID(const MapMatrix *mapMatrix);

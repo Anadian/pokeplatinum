@@ -41,9 +41,9 @@ public:
 public:
     template <class T>
     struct UnkClass_ov66_0225B6E4_BinaryFunc : std::binary_function<T *, T *, bool> {
-        bool operator()(const T *param0, const T *param1) const
+        bool operator()(const T *param0, const T *slotsMinigameDTO) const
         {
-            return *param0 < *param1;
+            return *param0 < *slotsMinigameDTO;
         }
     };
 };
@@ -86,14 +86,14 @@ public:
         return std::numeric_limits<std::size_t>::max() / sizeof(T);
     }
 
-    pointer allocate(size_type param0, const void *param1 = 0)
+    pointer allocate(size_type param0, const void *slotsMinigameDTO = 0)
     {
         return (pointer)(UnkClass_ov66_0225B6E4::operator new(param0 * sizeof(T)));
     }
 
-    void construct(pointer param0, const T &param1)
+    void construct(pointer param0, const T &slotsMinigameDTO)
     {
-        new ((void *)param0) T(param1);
+        new ((void *)param0) T(slotsMinigameDTO);
     }
 
     void destroy(pointer param0)
@@ -101,7 +101,7 @@ public:
         param0->~T();
     }
 
-    void deallocate(pointer param0, size_type param1)
+    void deallocate(pointer param0, size_type slotsMinigameDTO)
     {
         UnkClass_ov66_0225B6E4::operator delete((void *)param0);
     }

@@ -6,10 +6,10 @@
 #include "touch_screen.h"
 
 typedef struct {
-    const UnkStruct_ov62_02249380 *unk_00;
-    int unk_04;
+    const UnkStruct_ov62_02249380 *coins;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     int unk_10;
     int unk_14;
     int unk_18;

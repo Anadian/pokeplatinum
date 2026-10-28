@@ -25,15 +25,15 @@ static DWCNdFileInfo Unk_ov97_02240414[10];
 
 static void ov97_02238E88(void);
 
-static void *ov97_02238D74(DWCAllocType param0, u32 param1, int param2)
+static void *ov97_02238D74(DWCAllocType param0, u32 slotsMinigameDTO, int param2)
 {
 #pragma unused(param0, param2)
     void *v0;
     u32 *v1;
 
-    param1 = (((param1 + sizeof(void *)) + 32) & ~31) + 32;
+    slotsMinigameDTO = (((slotsMinigameDTO + sizeof(void *)) + 32) & ~31) + 32;
 
-    v0 = Heap_Alloc(HEAP_ID_MYSTERY_GIFT_APP, param1);
+    v0 = Heap_Alloc(HEAP_ID_MYSTERY_GIFT_APP, slotsMinigameDTO);
     v1 = (u32 *)(((u32)v0 + 32) & ~31);
 
     v1--;
@@ -43,16 +43,16 @@ static void *ov97_02238D74(DWCAllocType param0, u32 param1, int param2)
     return v1;
 }
 
-static void ov97_02238D94(DWCAllocType param0, void *param1, u32 param2)
+static void ov97_02238D94(DWCAllocType param0, void *slotsMinigameDTO, u32 param2)
 {
 #pragma unused(param0, param2)
     u32 *v0;
 
-    if (!param1) {
+    if (!slotsMinigameDTO) {
         return;
     }
 
-    v0 = (u32 *)((u32)param1 - 4);
+    v0 = (u32 *)((u32)slotsMinigameDTO - 4);
     Heap_Free((void *)*v0);
 }
 
@@ -104,18 +104,18 @@ static BOOL ov97_02238DF8(MysteryGiftAppData *param0)
     return 0;
 }
 
-static void ov97_02238E20(MysteryGiftAppData *param0, int *param1, int param2)
+static void ov97_02238E20(MysteryGiftAppData *param0, int *slotsMinigameDTO, int param2)
 {
     Unk_ov97_02240400 = 0;
     Unk_ov97_0224040C = DWC_ND_ERROR_NONE;
     param0->unk_16B0 = param2;
-    *param1 = 4114;
+    *slotsMinigameDTO = 4114;
 }
 
-static void ov97_02238E44(MysteryGiftAppData *param0, int param1, int *param2, int param3, int param4)
+static void ov97_02238E44(MysteryGiftAppData *param0, int slotsMinigameDTO, int *param2, int param3, int param4)
 {
     Unk_ov97_02240404 = 0;
-    Unk_ov97_02240408 = param1;
+    Unk_ov97_02240408 = slotsMinigameDTO;
     param0->unk_16B0 = param3;
     *param2 = 4115;
 
@@ -124,7 +124,7 @@ static void ov97_02238E44(MysteryGiftAppData *param0, int param1, int *param2, i
     }
 }
 
-static void ov97_02238E78(DWCNdCallbackReason param0, DWCNdError param1, int param2)
+static void ov97_02238E78(DWCNdCallbackReason param0, DWCNdError slotsMinigameDTO, int param2)
 {
     switch (param0) {
     case DWC_ND_CBREASON_GETFILELISTNUM:
@@ -137,7 +137,7 @@ static void ov97_02238E78(DWCNdCallbackReason param0, DWCNdError param1, int par
         break;
     }
 
-    switch (param1) {
+    switch (slotsMinigameDTO) {
     case DWC_ND_ERROR_NONE:
         break;
     case DWC_ND_ERROR_ALLOC:
@@ -158,7 +158,7 @@ static void ov97_02238E78(DWCNdCallbackReason param0, DWCNdError param1, int par
     }
 
     Unk_ov97_02240400 = 1;
-    Unk_ov97_0224040C = param1;
+    Unk_ov97_0224040C = slotsMinigameDTO;
 }
 
 static void ov97_02238E88(void)
@@ -184,7 +184,7 @@ static void ov97_02238E94(void)
     WirelessDriver_Shutdown();
 }
 
-int ov97_02238EAC(ApplicationManager *appMan, int *param1)
+int ov97_02238EAC(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     int v0;
     DWCNasLoginState v1;
@@ -192,22 +192,22 @@ int ov97_02238EAC(ApplicationManager *appMan, int *param1)
 
     if (v2->dwcCallback) {
         if (v2->dwcCallback() == 1) {
-            *param1 = ov97_02238DA4(v2);
+            *slotsMinigameDTO = ov97_02238DA4(v2);
         }
     }
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 4096:
         WirelessDriver_Init();
         Overlay_LoadWFCOverlay();
         Overlay_LoadHttpOverlay();
-        *param1 = 4097;
+        *slotsMinigameDTO = 4097;
         break;
     case 4097:
         if (WirelessDriver_IsReady()) {
             DWC_SetMemFunc(ov97_02238D74, ov97_02238D94);
             CommManager_StartMysteryGiftWifi(v2->saveData);
-            *param1 = 4098;
+            *slotsMinigameDTO = 4098;
         }
         break;
     case 4098:
@@ -215,7 +215,7 @@ int ov97_02238EAC(ApplicationManager *appMan, int *param1)
         DWC_SetAuthServer(DWC_CONNECTINET_AUTH_RELEASE);
         DWC_ConnectInetAsync();
         NetworkIcon_Init();
-        *param1 = 4099;
+        *slotsMinigameDTO = 4099;
         v2->wifiExitRequested = 0;
         break;
     case 4099:
@@ -227,12 +227,12 @@ int ov97_02238EAC(ApplicationManager *appMan, int *param1)
             if (ov97_02238DF8(v2) == 1) {
                 if (v2->wifiExitRequested == 1) {
                     Unk_ov97_02240408 = 3;
-                    *param1 = 4109;
+                    *slotsMinigameDTO = 4109;
                 } else {
-                    *param1 = 4100;
+                    *slotsMinigameDTO = 4100;
                 }
             } else {
-                *param1 = ov97_02238DA4(v2);
+                *slotsMinigameDTO = ov97_02238DA4(v2);
             }
         }
 
@@ -242,23 +242,23 @@ int ov97_02238EAC(ApplicationManager *appMan, int *param1)
         break;
     case 4100:
         if (DWC_NASLoginAsync() == 0) {
-            *param1 = ov97_02238DA4(v2);
+            *slotsMinigameDTO = ov97_02238DA4(v2);
         } else {
-            *param1 = 4101;
+            *slotsMinigameDTO = 4101;
         }
         break;
     case 4101:
         v1 = DWC_NASLoginProcess();
 
         if (v1 == DWC_NASLOGIN_STATE_SUCCESS) {
-            *param1 = 4102;
+            *slotsMinigameDTO = 4102;
             v2->dwcCallback = DWC_UpdateConnection;
         } else if (v1 == DWC_NASLOGIN_STATE_ERROR) {
-            *param1 = ov97_02238DA4(v2);
+            *slotsMinigameDTO = ov97_02238DA4(v2);
             DWC_CleanupInet();
         } else if (v1 == DWC_NASLOGIN_STATE_CANCELED) {
             Unk_ov97_02240408 = 3;
-            *param1 = 4109;
+            *slotsMinigameDTO = 4109;
         }
 
         if (gSystem.pressedKeys & PAD_BUTTON_B) {
@@ -267,58 +267,58 @@ int ov97_02238EAC(ApplicationManager *appMan, int *param1)
         break;
     case 4102:
         if (DWC_NdInitAsync(ov97_02238E78, "CPUE", "DwuCXmdJfPVLBnKA") == 0) {
-            *param1 = ov97_02238DA4(v2);
+            *slotsMinigameDTO = ov97_02238DA4(v2);
             break;
         }
 
-        ov97_02238E20(v2, param1, 4103);
+        ov97_02238E20(v2, slotsMinigameDTO, 4103);
         break;
     case 4103:
         if (v2->wifiExitRequested == 1) {
-            ov97_02238E44(v2, 3, param1, 4108, 4108);
+            ov97_02238E44(v2, 3, slotsMinigameDTO, 4108, 4108);
             break;
         }
 
         if (DWC_NdSetAttr("", "", "") == 0) {
-            *param1 = ov97_02238DA4(v2);
+            *slotsMinigameDTO = ov97_02238DA4(v2);
             break;
         }
 
-        *param1 = 4104;
+        *slotsMinigameDTO = 4104;
         break;
     case 4104:
         if (DWC_NdGetFileListNumAsync(&v2->unk_16B4) == 0) {
-            *param1 = ov97_02238DA4(v2);
+            *slotsMinigameDTO = ov97_02238DA4(v2);
             break;
         }
 
-        ov97_02238E20(v2, param1, 4105);
+        ov97_02238E20(v2, slotsMinigameDTO, 4105);
         break;
     case 4105:
         if (v2->unk_16B4 != 1) {
-            ov97_02238E44(v2, 2, param1, 4109, 4109);
+            ov97_02238E44(v2, 2, slotsMinigameDTO, 4109, 4109);
         } else {
             if (DWC_NdGetFileListAsync(Unk_ov97_02240414, 0, 10) == 0) {
-                *param1 = ov97_02238DA4(v2);
+                *slotsMinigameDTO = ov97_02238DA4(v2);
                 break;
             }
 
-            ov97_02238E20(v2, param1, 4106);
+            ov97_02238E20(v2, slotsMinigameDTO, 4106);
         }
         break;
     case 4106:
         if (DWC_NdGetFileAsync(&Unk_ov97_02240414[0], v2->wifiDistributionBuffer, 4096) == 0) {
-            *param1 = ov97_02238DA4(v2);
+            *slotsMinigameDTO = ov97_02238DA4(v2);
             break;
         }
 
-        *param1 = 4107;
+        *slotsMinigameDTO = 4107;
         v2->unk_26C4 = 0;
         break;
     case 4107:
         if (Unk_ov97_02240400 == 0) {
             if (gSystem.pressedKeys & PAD_BUTTON_B) {
-                ov97_02238E44(v2, 3, param1, 4108, 4108);
+                ov97_02238E44(v2, 3, slotsMinigameDTO, 4108, 4108);
             } else {
                 if (DWC_NdGetProgress(&v2->unk_26BC, &v2->unk_26C0) == 1) {
                     if (v2->unk_26C4 != (v2->unk_26BC * 100) / v2->unk_26C0) {
@@ -328,15 +328,15 @@ int ov97_02238EAC(ApplicationManager *appMan, int *param1)
             }
         } else {
             if (v2->wifiExitRequested == 0) {
-                ov97_02238E44(v2, 1, param1, 4109, 4109);
+                ov97_02238E44(v2, 1, slotsMinigameDTO, 4109, 4109);
             } else {
-                ov97_02238E44(v2, 3, param1, 4109, 4109);
+                ov97_02238E44(v2, 3, slotsMinigameDTO, 4109, 4109);
             }
         }
         break;
     case 4108:
         if (DWC_NdCancelAsync() == 0) {
-            *param1 = 4109;
+            *slotsMinigameDTO = 4109;
         } else {
             v2->dwcCallback = NULL;
             ov97_02238E94();
@@ -357,15 +357,15 @@ int ov97_02238EAC(ApplicationManager *appMan, int *param1)
             MysteryGiftApp_ShowWiFiCommError(v2);
 
             if ((v2->wifiCommErrorType == DWC_ETYPE_SHUTDOWN_ND) || (v2->wifiCommErrorType == DWC_ETYPE_DISCONNECT)) {
-                ov97_02238E44(v2, 3, param1, 4113, 4112);
+                ov97_02238E44(v2, 3, slotsMinigameDTO, 4113, 4112);
             } else {
-                *param1 = 4113;
+                *slotsMinigameDTO = 4113;
             }
         }
         break;
     case 4113:
         DWC_CleanupInet();
-        *param1 = 4112;
+        *slotsMinigameDTO = 4112;
         break;
     case 4112:
         if (gSystem.pressedKeys & PAD_BUTTON_A) {
@@ -381,9 +381,9 @@ int ov97_02238EAC(ApplicationManager *appMan, int *param1)
             Unk_ov97_02240400 = 0;
 
             if (Unk_ov97_0224040C != DWC_ND_ERROR_NONE) {
-                *param1 = ov97_02238DA4(v2);
+                *slotsMinigameDTO = ov97_02238DA4(v2);
             } else {
-                *param1 = v2->unk_16B0;
+                *slotsMinigameDTO = v2->unk_16B0;
             }
         } else if (gSystem.pressedKeys & PAD_BUTTON_B) {
             v2->wifiExitRequested = 1;
@@ -392,7 +392,7 @@ int ov97_02238EAC(ApplicationManager *appMan, int *param1)
     case 4115:
         if (Unk_ov97_02240404 == 1) {
             Unk_ov97_02240404 = 0;
-            *param1 = v2->unk_16B0;
+            *slotsMinigameDTO = v2->unk_16B0;
         } else if (gSystem.pressedKeys & PAD_BUTTON_B) {
             v2->wifiExitRequested = 1;
         }

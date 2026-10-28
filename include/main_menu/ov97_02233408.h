@@ -49,9 +49,9 @@ UnkStruct_ov97_02233268 *ov97_02233590(void);
 UnkStruct_ov97_022339EC *ov97_0223359C(void);
 UnkStruct_ov97_022335A8 ov97_022335A8(u8 *param0);
 UnkStruct_ov97_022335C8 ov97_022335C8(u8 *param0);
-void ov97_022335EC(u32 param0, u32 *param1, u32 *param2);
+void ov97_022335EC(u32 param0, u32 *slotsMinigameDTO, u32 *param2);
 u32 ov97_02233614(void);
-void ov97_02233674(void *param0, void *param1, u32 param2, int param3, u32 param4);
+void ov97_02233674(void *param0, void *slotsMinigameDTO, u32 param2, int param3, u32 param4);
 void ov97_022337A4(void *param0);
 BOOL ov97_022337D8(void *param0);
 

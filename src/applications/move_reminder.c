@@ -134,7 +134,7 @@ static void MoveReminder_DrawContestMovesText(MoveReminderController *controller
 static void MoveReminder_DrawAppealPointHearts(MoveReminderController *controller, u16 move);
 static void MoveReminder_SetStringTemplate(MoveReminderController *controller, u32 str);
 static void MoveReminder_SetMessageBoxText(MoveReminderController *controller, u32 str);
-static BOOL MoveReminder_TextPrinterCallback(TextPrinterTemplate *printer, u16 param1);
+static BOOL MoveReminder_TextPrinterCallback(TextPrinterTemplate *printer, u16 slotsMinigameDTO);
 static u16 MoveReminder_GetSelectedMove(MoveReminderController *controller);
 static u16 MoveReminder_GetForgottenMove(MoveReminderController *controller);
 static u8 MoveReminder_GetEmptyMoveSlot(MoveReminderController *controller);
@@ -1321,9 +1321,9 @@ static void MoveReminder_SetMessageBoxText(MoveReminderController *controller, u
     controller->textPrinterID = Text_AddPrinterWithParams(&controller->windows[MOVE_REMINDER_WIN_MESSAGE_BOX], FONT_MESSAGE, controller->string, 0, 0, Options_TextFrameDelay(controller->data->options), MoveReminder_TextPrinterCallback);
 }
 
-static BOOL MoveReminder_TextPrinterCallback(TextPrinterTemplate *printer, u16 param1)
+static BOOL MoveReminder_TextPrinterCallback(TextPrinterTemplate *printer, u16 slotsMinigameDTO)
 {
-    switch (param1) {
+    switch (slotsMinigameDTO) {
     case 1:
         return Sound_IsAnyEffectPlaying();
 

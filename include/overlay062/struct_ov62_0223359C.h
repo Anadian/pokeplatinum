@@ -4,10 +4,10 @@
 #include "sprite_system.h"
 
 typedef struct {
-    int unk_00;
-    BOOL unk_04;
+    int coins;
+    BOOL slotMachineVariant;
     u32 unk_08;
-    u32 unk_0C;
+    u32 slotsMinigameDTO;
     s16 unk_10;
     u8 padding_12[2];
     BOOL unk_14;

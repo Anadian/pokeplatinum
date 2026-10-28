@@ -5,11 +5,11 @@
 #include "overlay017/struct_ov17_02253084.h"
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     u8 unk_01;
     u8 unk_02[CONTEST_NUM_PARTICIPANTS];
     u32 unk_08;
-    u32 unk_0C;
+    u32 slotsMinigameDTO;
     u16 unk_10;
     u32 unk_14[CONTEST_NUM_PARTICIPANTS];
     UnkStruct_ov17_02253084 unk_24;

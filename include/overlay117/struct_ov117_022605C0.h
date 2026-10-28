@@ -7,7 +7,7 @@
 #include "overlay_manager.h"
 
 typedef struct {
-    UnkStruct_ov114_0225C76C unk_00;
+    UnkStruct_ov114_0225C76C coins;
     UnkStruct_ov114_0225C9A8 unk_10;
     ApplicationManager *appMan;
     u8 unk_2C[4];

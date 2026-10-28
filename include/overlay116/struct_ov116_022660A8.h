@@ -8,10 +8,10 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    UnkStruct_ov116_02265AA4 unk_00;
+    UnkStruct_ov116_02265AA4 coins;
     u8 padding_04[4];
     SysTask *unk_08;
-    int *unk_0C;
+    int *slotsMinigameDTO;
     int *unk_10;
     int *unk_14;
     int unk_18;

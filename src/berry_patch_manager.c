@@ -98,13 +98,13 @@ void BerryPatchManager_Free(BerryPatchManager *manager)
 
 void BerryPatches_ElapseTime(FieldSystem *fieldSystem, int minutes)
 {
-    if (fieldSystem->unk_04 == NULL) {
+    if (fieldSystem->slotMachineVariant == NULL) {
         BerryGrowthData *growthData = BerryGrowthData_Init(HEAP_ID_FIELD2);
         BerryPatch *berryPatches = MiscSaveBlock_GetBerryPatches(fieldSystem->saveData);
         BerryPatches_ElapseMinutes(berryPatches, growthData, minutes);
         Heap_Free(growthData);
     } else {
-        BerryGrowthData *growthData = fieldSystem->unk_04->berryPatchManager->growthData;
+        BerryGrowthData *growthData = fieldSystem->slotMachineVariant->berryPatchManager->growthData;
         BerryPatch *berryPatches = MiscSaveBlock_GetBerryPatches(fieldSystem->saveData);
         BerryPatches_ElapseMinutes(berryPatches, growthData, minutes);
     }
@@ -133,7 +133,7 @@ static BOOL BerryPatches_IsInView(FieldSystem *fieldSystem, const VecFx32 *posit
 
     MTX_Identity33(&transform);
 
-    return GFXBoxTest_IsModelInView(fieldSystem->unk_04->berryPatchManager->model, position, &transform, &scale) != FALSE;
+    return GFXBoxTest_IsModelInView(fieldSystem->slotMachineVariant->berryPatchManager->model, position, &transform, &scale) != FALSE;
 }
 
 void BerryPatches_UpdateGrowthStates(FieldSystem *fieldSystem)
@@ -177,7 +177,7 @@ void BerryPatches_PlantBerry(FieldSystem *fieldSystem, MapObject *mapObject, u16
 {
     BerryPatch *berryPatches = MiscSaveBlock_GetBerryPatches(fieldSystem->saveData);
     int patchID = MapObject_GetDataAt(mapObject, 0);
-    BerryPatches_PlantInPatch(berryPatches, patchID, fieldSystem->unk_04->berryPatchManager->growthData, BerryPatches_ConvertItemIDToTagNumber(berryItemID));
+    BerryPatches_PlantInPatch(berryPatches, patchID, fieldSystem->slotMachineVariant->berryPatchManager->growthData, BerryPatches_ConvertItemIDToTagNumber(berryItemID));
 }
 
 void BerryPatches_ResetMoisture(FieldSystem *fieldSystem, MapObject *mapObject)

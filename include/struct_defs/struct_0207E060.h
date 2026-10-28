@@ -2,8 +2,8 @@
 #define POKEPLATINUM_STRUCT_0207E060_H
 
 typedef struct UnkStruct_0207E060_t {
-    u16 unk_00[6];
-    u16 unk_0C[6];
+    u16 coins[6];
+    u16 slotsMinigameDTO[6];
     u8 unk_18;
     u8 language;
     u8 unk_1A;

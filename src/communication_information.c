@@ -167,7 +167,7 @@ BOOL CommInfo_IsDataFinishedReading(void)
     return sCommInfo->dataFinishedReading;
 }
 
-void CommInfo_RecvPlayerDataArray(int netId, int param1, void *src, void *unused)
+void CommInfo_RecvPlayerDataArray(int netId, int slotsMinigameDTO, void *src, void *unused)
 {
     CommPlayerInfo *playerInfo = (CommPlayerInfo *)src;
 
@@ -195,7 +195,7 @@ void CommInfo_RecvPlayerDataArray(int netId, int param1, void *src, void *unused
     }
 }
 
-void CommInfo_RecvPlayerData(int netId, int param1, void *src, void *param3)
+void CommInfo_RecvPlayerData(int netId, int slotsMinigameDTO, void *src, void *param3)
 {
     if (!sCommInfo) {
         return;
@@ -481,11 +481,11 @@ void CommInfo_SavePlayerRecord(SaveData *saveData)
     }
 }
 
-void sub_020331B4(SaveData *saveData, int param1)
+void sub_020331B4(SaveData *saveData, int slotsMinigameDTO)
 {
-    if (param1 == 1) {
+    if (slotsMinigameDTO == 1) {
         CommInfo_UpdatePlayerRecord(0, 1);
-    } else if (param1 == -1) {
+    } else if (slotsMinigameDTO == -1) {
         CommInfo_UpdatePlayerRecord(1, 1);
     }
 

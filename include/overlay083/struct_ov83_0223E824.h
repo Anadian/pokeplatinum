@@ -8,8 +8,8 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    int unk_00;
-    BgConfig *unk_04;
+    int coins;
+    BgConfig *slotMachineVariant;
     Window *unk_08[4];
     int unk_18;
     UnkStruct_ov83_0223DEA0 *unk_1C;

@@ -5,10 +5,10 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    SysTask *unk_00;
-    PaletteData *unk_04;
+    SysTask *coins;
+    PaletteData *slotMachineVariant;
     s32 unk_08;
-    const u16 *unk_0C;
+    const u16 *slotsMinigameDTO;
     u8 unk_10;
     u8 unk_11;
     u8 unk_12;

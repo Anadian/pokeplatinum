@@ -44,8 +44,8 @@ typedef void (*UnkFuncPtr_ov98_02249B4C_1)(UnkStruct_ov98_02246E88 *);
 
 static void ov98_02246E08(UnkStruct_ov98_02246E88 *param0);
 static void ov98_02246E54(UnkStruct_ov98_02246E88 *param0);
-static void *ov98_02246EAC(DWCAllocType param0, u32 param1, int param2);
-static void ov98_02246ED4(DWCAllocType param0, void *param1, u32 param2);
+static void *ov98_02246EAC(DWCAllocType param0, u32 slotsMinigameDTO, int param2);
+static void ov98_02246ED4(DWCAllocType param0, void *slotsMinigameDTO, u32 param2);
 static void *ov98_02246FBC(UnkStruct_ov98_02246E88 *param0);
 static void ov98_02246FC0(UnkStruct_ov98_02246E88 *param0);
 static void *ov98_02247168(UnkStruct_ov98_02246E88 *param0);
@@ -81,10 +81,10 @@ static const ApplicationManagerTemplate Unk_ov98_02249B2C = {
 };
 
 static const struct {
-    UnkFuncPtr_ov98_02249B4C unk_00;
-    UnkFuncPtr_ov98_02249B4C_1 unk_04;
+    UnkFuncPtr_ov98_02249B4C coins;
+    UnkFuncPtr_ov98_02249B4C_1 slotMachineVariant;
     const ApplicationManagerTemplate *unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
 } Unk_ov98_02249B4C[] = {
     { ov98_02246FBC, ov98_02246FC0, &Unk_ov98_02249B3C, 0x0 },
     { ov98_02246FC4, ov98_02246FFC, &Unk_020F2DBC, 0x0 },
@@ -94,7 +94,7 @@ static const struct {
     { ov98_02247168, ov98_02247198, &Unk_ov98_02249B2C, 0x1 }
 };
 
-int ov98_02246C20(ApplicationManager *appMan, int *param1)
+int ov98_02246C20(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov98_02246E88 *v0;
 
@@ -113,7 +113,7 @@ int ov98_02246C20(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-int ov98_02246C98(ApplicationManager *appMan, int *param1)
+int ov98_02246C98(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov98_02246E88 *v0 = ApplicationManager_Data(appMan);
     BOOL v1;
@@ -124,40 +124,40 @@ int ov98_02246C98(ApplicationManager *appMan, int *param1)
         NetworkIcon_SetStrength(WM_LINK_LEVEL_3 - DWC_GetLinkLevel());
     }
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         ov98_02246E08(v0);
-        *param1 = 1;
+        *slotsMinigameDTO = 1;
         break;
     case 1:
         if (WirelessDriver_IsReady()) {
             Unk_ov98_02249E20 = v0->unk_10;
             DWC_SetMemFunc(ov98_02246EAC, ov98_02246ED4);
             v0->unk_80 = 1;
-            *param1 = 2;
+            *slotsMinigameDTO = 2;
         }
         break;
     case 2:
-        v0->appMan = ApplicationManager_New(Unk_ov98_02249B4C[v0->unk_8C].unk_08, Unk_ov98_02249B4C[v0->unk_8C].unk_00(v0), HEAP_ID_108);
+        v0->appMan = ApplicationManager_New(Unk_ov98_02249B4C[v0->unk_8C].unk_08, Unk_ov98_02249B4C[v0->unk_8C].coins(v0), HEAP_ID_108);
         v0->unk_84 = v0->unk_8C;
         v0->unk_8C = 6;
-        *param1 = 3;
+        *slotsMinigameDTO = 3;
         break;
     case 3:
         if (ApplicationManager_Exec(v0->appMan) == 1) {
-            Unk_ov98_02249B4C[v0->unk_84].unk_04(v0);
+            Unk_ov98_02249B4C[v0->unk_84].slotMachineVariant(v0);
             ApplicationManager_Free(v0->appMan);
 
             if (v0->unk_8C == 6) {
-                *param1 = 4;
+                *slotsMinigameDTO = 4;
             } else {
-                if (Unk_ov98_02249B4C[v0->unk_8C].unk_0C == 1) {
+                if (Unk_ov98_02249B4C[v0->unk_8C].slotsMinigameDTO == 1) {
                     ov98_02246E54(v0);
-                    *param1 = 2;
+                    *slotsMinigameDTO = 2;
                 } else if (v0->unk_80 == 1) {
-                    *param1 = 2;
+                    *slotsMinigameDTO = 2;
                 } else {
-                    *param1 = 0;
+                    *slotsMinigameDTO = 0;
                 }
             }
         }
@@ -169,7 +169,7 @@ int ov98_02246C98(ApplicationManager *appMan, int *param1)
     return 0;
 }
 
-int ov98_02246DC0(ApplicationManager *appMan, int *param1)
+int ov98_02246DC0(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov98_02246E88 *v0 = ApplicationManager_Data(appMan);
 
@@ -190,8 +190,8 @@ static void ov98_02246E08(UnkStruct_ov98_02246E88 *param0)
     if (param0->unk_80 == 0) {
         Overlay_LoadByID(FS_OVERLAY_ID(gts_application), 2);
 
-        param0->unk_0C = Heap_Alloc(HEAP_ID_108, 0x20000 + 32);
-        param0->unk_10 = NNS_FndCreateExpHeap((void *)(((u32)param0->unk_0C + 31) / 32 * 32), 0x20000);
+        param0->slotsMinigameDTO = Heap_Alloc(HEAP_ID_108, 0x20000 + 32);
+        param0->unk_10 = NNS_FndCreateExpHeap((void *)(((u32)param0->slotsMinigameDTO + 31) / 32 * 32), 0x20000);
 
         Overlay_LoadWFCOverlay();
         Overlay_LoadHttpOverlay();
@@ -205,7 +205,7 @@ static void ov98_02246E54(UnkStruct_ov98_02246E88 *param0)
     if (param0->unk_80 == 1) {
         NNS_FndDestroyExpHeap(param0->unk_10);
 
-        Heap_Free(param0->unk_0C);
+        Heap_Free(param0->slotsMinigameDTO);
         Overlay_UnloadHttpOverlay();
         Overlay_UnloadWFCOverlay();
         WirelessDriver_Shutdown();
@@ -215,9 +215,9 @@ static void ov98_02246E54(UnkStruct_ov98_02246E88 *param0)
     }
 }
 
-void ov98_02246E88(UnkStruct_ov98_02246E88 *param0, int param1, int param2)
+void ov98_02246E88(UnkStruct_ov98_02246E88 *param0, int slotsMinigameDTO, int param2)
 {
-    param0->unk_8C = param1;
+    param0->unk_8C = slotsMinigameDTO;
     param0->unk_90 = param2;
 }
 
@@ -226,9 +226,9 @@ void ov98_02246E94(UnkStruct_ov98_02246E88 *param0)
     param0->unk_8C = 6;
 }
 
-void ov98_02246E9C(UnkStruct_ov98_02246E88 *param0, int param1)
+void ov98_02246E9C(UnkStruct_ov98_02246E88 *param0, int slotsMinigameDTO)
 {
-    param0->unk_7E = param1;
+    param0->unk_7E = slotsMinigameDTO;
 }
 
 int ov98_02246EA4(UnkStruct_ov98_02246E88 *param0)
@@ -236,13 +236,13 @@ int ov98_02246EA4(UnkStruct_ov98_02246E88 *param0)
     return param0->unk_7E;
 }
 
-static void *ov98_02246EAC(DWCAllocType param0, u32 param1, int param2)
+static void *ov98_02246EAC(DWCAllocType param0, u32 slotsMinigameDTO, int param2)
 {
 #pragma unused(param0)
     void *v0;
     OSIntrMode v1;
     v1 = OS_DisableInterrupts();
-    v0 = NNS_FndAllocFromExpHeapEx(Unk_ov98_02249E20, param1, param2);
+    v0 = NNS_FndAllocFromExpHeapEx(Unk_ov98_02249E20, slotsMinigameDTO, param2);
 
     OS_RestoreInterrupts(v1);
 
@@ -253,18 +253,18 @@ static void *ov98_02246EAC(DWCAllocType param0, u32 param1, int param2)
     return v0;
 }
 
-static void ov98_02246ED4(DWCAllocType param0, void *param1, u32 param2)
+static void ov98_02246ED4(DWCAllocType param0, void *slotsMinigameDTO, u32 param2)
 {
 #pragma unused(param0, param2)
     OSIntrMode v0;
 
-    if (!param1) {
+    if (!slotsMinigameDTO) {
         return;
     }
 
     v0 = OS_DisableInterrupts();
 
-    NNS_FndFreeToExpHeap(Unk_ov98_02249E20, param1);
+    NNS_FndFreeToExpHeap(Unk_ov98_02249E20, slotsMinigameDTO);
     OS_RestoreInterrupts(v0);
 }
 
@@ -304,9 +304,9 @@ void ov98_02246F88(UnkStruct_ov98_02246E88 *param0)
     param0->unk_9C.unk_5A = param0->unk_10C;
 }
 
-void ov98_02246F94(UnkStruct_ov98_02246E88 *param0, u32 param1)
+void ov98_02246F94(UnkStruct_ov98_02246E88 *param0, u32 slotsMinigameDTO)
 {
-    param0->unk_7C = param1;
+    param0->unk_7C = slotsMinigameDTO;
 }
 
 u32 ov98_02246F9C(UnkStruct_ov98_02246E88 *param0)
@@ -319,9 +319,9 @@ u32 ov98_02246FA4(UnkStruct_ov98_02246E88 *param0)
     return param0->unk_108;
 }
 
-void ov98_02246FAC(UnkStruct_ov98_02246E88 *param0, int param1)
+void ov98_02246FAC(UnkStruct_ov98_02246E88 *param0, int slotsMinigameDTO)
 {
-    param0->unk_110 = param1;
+    param0->unk_110 = slotsMinigameDTO;
 }
 
 int ov98_02246FB4(UnkStruct_ov98_02246E88 *param0)
@@ -424,7 +424,7 @@ static void *ov98_02247168(UnkStruct_ov98_02246E88 *param0)
     MI_CpuClear8(v0, sizeof(UnkStruct_ov98_02247168));
 
     v0->saveData = param0->saveData;
-    v0->unk_04 = 1;
+    v0->slotMachineVariant = 1;
 
     param0->unk_80 = 0;
     param0->unk_98 = v0;

@@ -9,10 +9,10 @@
 struct UnkStruct_ov17_0224DF54_t;
 
 typedef struct {
-    SysTask *unk_00;
-    ManagedSprite *unk_04;
+    SysTask *coins;
+    ManagedSprite *slotMachineVariant;
     struct UnkStruct_ov17_0224DF54_t *unk_08;
-    UnkStruct_ov17_0224B09C *unk_0C;
+    UnkStruct_ov17_0224B09C *slotsMinigameDTO;
     u8 unk_10;
     u8 unk_11;
     u8 unk_12;

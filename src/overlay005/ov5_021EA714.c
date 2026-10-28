@@ -18,8 +18,8 @@ FS_EXTERN_OVERLAY(poketch);
 
 void FieldSystem_SendPoketchEvent(FieldSystem *fieldSystem, enum PoketchEventID eventID, u32 dummy)
 {
-    if (fieldSystem->unk_04 != NULL && fieldSystem->unk_04->poketchSys != NULL) {
-        PoketchSystem_SendEvent(fieldSystem->unk_04->poketchSys, eventID, dummy);
+    if (fieldSystem->slotMachineVariant != NULL && fieldSystem->slotMachineVariant->poketchSys != NULL) {
+        PoketchSystem_SendEvent(fieldSystem->slotMachineVariant->poketchSys, eventID, dummy);
     }
 }
 
@@ -31,7 +31,7 @@ void ov5_021EA728(FieldSystem *fieldSystem)
     if (Poketch_IsEnabled(poketch)
         && (SystemFlag_CheckPoketchHidden(varsFlags) == 0)) {
         Overlay_LoadByID(FS_OVERLAY_ID(poketch), 2);
-        PoketchSystem_Create(fieldSystem, &fieldSystem->unk_04->poketchSys, fieldSystem->saveData, fieldSystem->bgConfig, RenderOam_GetScreenOam(1));
+        PoketchSystem_Create(fieldSystem, &fieldSystem->slotMachineVariant->poketchSys, fieldSystem->saveData, fieldSystem->bgConfig, RenderOam_GetScreenOam(1));
     } else {
         Overlay_LoadByID(FS_OVERLAY_ID(poketch_unavailable), 2);
         PoketchUnavailableScreen_Init(fieldSystem->bgConfig);
@@ -45,7 +45,7 @@ void ov5_021EA790(FieldSystem *fieldSystem)
 
     if (Poketch_IsEnabled(poketch)
         && (SystemFlag_CheckPoketchHidden(varsFlags) == 0)) {
-        PoketchSystem_StartShutdown(fieldSystem->unk_04->poketchSys);
+        PoketchSystem_StartShutdown(fieldSystem->slotMachineVariant->poketchSys);
     } else {
         PoketchUnavailableScreen_Exit(fieldSystem->bgConfig);
     }
@@ -58,8 +58,8 @@ u8 ov5_021EA7CC(FieldSystem *fieldSystem)
 
     if (Poketch_IsEnabled(poketch)
         && (SystemFlag_CheckPoketchHidden(varsFlags) == 0)) {
-        if (PoketchSystem_IsSystemShutdown(fieldSystem->unk_04->poketchSys)) {
-            fieldSystem->unk_04->poketchSys = NULL;
+        if (PoketchSystem_IsSystemShutdown(fieldSystem->slotMachineVariant->poketchSys)) {
+            fieldSystem->slotMachineVariant->poketchSys = NULL;
             Overlay_UnloadByID(FS_OVERLAY_ID(poketch));
             return 1;
         }

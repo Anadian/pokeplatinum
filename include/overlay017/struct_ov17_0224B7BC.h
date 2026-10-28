@@ -2,25 +2,25 @@
 #define POKEPLATINUM_STRUCT_OV17_0224B7BC_H
 
 typedef struct {
-    s32 unk_00;
-    s32 unk_04;
+    s32 coins;
+    s32 slotMachineVariant;
     s32 unk_08;
-    s32 unk_0C;
+    s32 slotsMinigameDTO;
     u8 unk_10;
     union {
         struct {
-            s16 unk_00;
+            s16 coins;
             s16 unk_02;
         } unk_14_val1;
         struct {
-            s32 unk_00;
-            s32 unk_04;
+            s32 coins;
+            s32 slotMachineVariant;
         } unk_14_val2;
         struct {
-            u32 unk_00;
-            int unk_04;
+            u32 coins;
+            int slotMachineVariant;
             int unk_08;
-            int unk_0C;
+            int slotsMinigameDTO;
             int unk_10;
         } unk_14_val3;
     };

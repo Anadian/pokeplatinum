@@ -4,8 +4,8 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    SysTask *unk_00;
-    BOOL unk_04;
+    SysTask *coins;
+    BOOL slotMachineVariant;
     u16 unk_08[4][16];
     u16 unk_88[21][16];
     s16 unk_328;

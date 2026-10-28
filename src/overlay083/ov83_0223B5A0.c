@@ -46,24 +46,24 @@
 typedef int (*UnkFuncPtr_ov83_0224024C)(PoffinBerrySelectionData *, UnkStruct_ov83_0223B784 *, int *);
 
 typedef struct {
-    UnkFuncPtr_ov83_0224024C unk_00;
-    int unk_04;
+    UnkFuncPtr_ov83_0224024C coins;
+    int slotMachineVariant;
 } UnkStruct_ov83_0224024C;
 
-int ov83_0223B5B0(ApplicationManager *appMan, int *param1);
-int ov83_0223B65C(ApplicationManager *appMan, int *param1);
-int ov83_0223B710(ApplicationManager *appMan, int *param1);
-static int ov83_0223C344(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223B78C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223B920(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223B950(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223B964(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223B9EC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223BB40(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223BF74(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223C24C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
-static int ov83_0223C258(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2);
+int ov83_0223B5B0(ApplicationManager *appMan, int *slotsMinigameDTO);
+int ov83_0223B65C(ApplicationManager *appMan, int *slotsMinigameDTO);
+int ov83_0223B710(ApplicationManager *appMan, int *slotsMinigameDTO);
+static int ov83_0223C344(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223B78C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223B920(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223B950(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223B964(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223B9EC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223BB40(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223BF74(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223C24C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
+static int ov83_0223C258(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2);
 static void ov83_0223C3E8(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223C480(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223C558(UnkStruct_ov83_0223B784 *param0);
@@ -72,9 +72,9 @@ static void ov83_0223C6D4(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223C758(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223C7FC(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223C90C(UnkStruct_ov83_0223B784 *param0);
-static void ov83_0223C82C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1);
-static void ov83_0223C87C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1);
-static BOOL ov83_0223C8B0(PoffinBerrySelectionData *param0, Poffin *param1, int param2);
+static void ov83_0223C82C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO);
+static void ov83_0223C87C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO);
+static BOOL ov83_0223C8B0(PoffinBerrySelectionData *param0, Poffin *slotsMinigameDTO, int param2);
 
 static const UnkStruct_ov83_0224024C Unk_ov83_0224024C[] = {
     { ov83_0223B78C, 0x1 },
@@ -102,7 +102,7 @@ static void ov83_0223B5A0(void *param0)
     VramTransfer_Process();
 }
 
-int ov83_0223B5B0(ApplicationManager *appMan, int *param1)
+int ov83_0223B5B0(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     PoffinBerrySelectionData *v0 = ApplicationManager_Args(appMan);
     UnkStruct_ov83_0223B784 *v1;
@@ -135,31 +135,31 @@ int ov83_0223B5B0(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-int ov83_0223B65C(ApplicationManager *appMan, int *param1)
+int ov83_0223B65C(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     int v0, v1;
     PoffinBerrySelectionData *v2 = ApplicationManager_Args(appMan);
     UnkStruct_ov83_0223B784 *v3 = (UnkStruct_ov83_0223B784 *)ApplicationManager_Data(appMan);
     const UnkStruct_ov83_0224024C *v4;
 
-    v0 = v3->unk_0C;
+    v0 = v3->slotsMinigameDTO;
     v4 = &(Unk_ov83_0224024C[v0]);
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
-        if (v4->unk_00 == NULL) {
+        if (v4->coins == NULL) {
             break;
         }
 
-        v1 = v4->unk_04;
-        v3->unk_0C = (v4->unk_00)(v2, v3, &v3->unk_10);
+        v1 = v4->slotMachineVariant;
+        v3->slotsMinigameDTO = (v4->coins)(v2, v3, &v3->unk_10);
 
         if (v3->unk_19) {
-            v3->unk_0C = v3->unk_1A;
+            v3->slotsMinigameDTO = v3->unk_1A;
             v3->unk_19 = 0;
         }
 
-        if (v0 == v3->unk_0C) {
+        if (v0 == v3->slotsMinigameDTO) {
             break;
         }
 
@@ -174,18 +174,18 @@ int ov83_0223B65C(ApplicationManager *appMan, int *param1)
         }
 
         v3->unk_08 = v1;
-        *param1 = 1;
+        *slotsMinigameDTO = 1;
         break;
     case 1:
         CommTiming_StartSync(v3->unk_08);
-        *param1 = 2;
+        *slotsMinigameDTO = 2;
         break;
     case 2:
         if (!CommTiming_IsSyncState(v3->unk_08)) {
             break;
         }
 
-        *param1 = 0;
+        *slotsMinigameDTO = 0;
         v3->unk_08 = 0;
         break;
     }
@@ -193,14 +193,14 @@ int ov83_0223B65C(ApplicationManager *appMan, int *param1)
     ov83_0223CBA4(v3);
     CommManager_Dummy_02038A1C(v3->heapID, v3->unk_20);
 
-    if (v3->unk_04) {
+    if (v3->slotMachineVariant) {
         return 1;
     } else {
         return 0;
     }
 }
 
-int ov83_0223B710(ApplicationManager *appMan, int *param1)
+int ov83_0223B710(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     int heapID;
     PoffinBerrySelectionData *v1 = ApplicationManager_Args(appMan);
@@ -228,127 +228,127 @@ int ov83_0223B710(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-void ov83_0223B774(UnkStruct_ov83_0223B784 *param0, int param1)
+void ov83_0223B774(UnkStruct_ov83_0223B784 *param0, int slotsMinigameDTO)
 {
-    param0->unk_18 = param1;
+    param0->unk_18 = slotsMinigameDTO;
     param0->unk_14 = 1;
 }
 
-void ov83_0223B77C(UnkStruct_ov83_0223B784 *param0, int param1)
+void ov83_0223B77C(UnkStruct_ov83_0223B784 *param0, int slotsMinigameDTO)
 {
-    param0->unk_1A = param1;
+    param0->unk_1A = slotsMinigameDTO;
     param0->unk_19 = 1;
 }
 
 void ov83_0223B784(UnkStruct_ov83_0223B784 *param0)
 {
-    param0->unk_04 = 1;
+    param0->slotMachineVariant = 1;
 }
 
-static int ov83_0223B78C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223B78C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
     switch (*param2) {
     case 0:
 
-        ov83_0223C82C(param0, param1);
+        ov83_0223C82C(param0, slotsMinigameDTO);
 
-        if (ov83_0223D570(param1->unk_148C) == 0) {
-            ov83_0223FDB0(&param1->unk_34C);
+        if (ov83_0223D570(slotsMinigameDTO->unk_148C) == 0) {
+            ov83_0223FDB0(&slotsMinigameDTO->unk_34C);
         }
 
-        ov83_0223DEA0(&param1->unk_5B0, param1->unk_1488, &param1->unk_15E0, &param1->unk_1494, param1->unk_24, param1->heapID);
-        ov83_0223E340(&param1->unk_608);
-        ov83_0223E6D4(&param1->unk_6A0, param1->unk_1488, &param1->unk_15E0, &param1->unk_1494, param1->unk_24, param1->heapID);
-        ov83_0223E244(&param1->unk_5E4);
-        ov83_0223E244(&param1->unk_5F0);
-        ov83_0223E244(&param1->unk_5FC);
-        ov83_0223E5A4(&param1->unk_680, &param1->unk_1494, param1->unk_1488, param1->unk_148C);
-        ov83_0223ED3C(&param1->unk_6D8);
-        ov83_0223F29C(&param1->unk_AEC);
-        ov83_0223F494(&param1->unk_B6C, param1->unk_1488);
-        ov83_0223F820(&param1->unk_334);
-        ov83_0223C958(param1);
+        ov83_0223DEA0(&slotsMinigameDTO->unk_5B0, slotsMinigameDTO->unk_1488, &slotsMinigameDTO->unk_15E0, &slotsMinigameDTO->unk_1494, slotsMinigameDTO->unk_24, slotsMinigameDTO->heapID);
+        ov83_0223E340(&slotsMinigameDTO->unk_608);
+        ov83_0223E6D4(&slotsMinigameDTO->unk_6A0, slotsMinigameDTO->unk_1488, &slotsMinigameDTO->unk_15E0, &slotsMinigameDTO->unk_1494, slotsMinigameDTO->unk_24, slotsMinigameDTO->heapID);
+        ov83_0223E244(&slotsMinigameDTO->unk_5E4);
+        ov83_0223E244(&slotsMinigameDTO->unk_5F0);
+        ov83_0223E244(&slotsMinigameDTO->unk_5FC);
+        ov83_0223E5A4(&slotsMinigameDTO->unk_680, &slotsMinigameDTO->unk_1494, slotsMinigameDTO->unk_1488, slotsMinigameDTO->unk_148C);
+        ov83_0223ED3C(&slotsMinigameDTO->unk_6D8);
+        ov83_0223F29C(&slotsMinigameDTO->unk_AEC);
+        ov83_0223F494(&slotsMinigameDTO->unk_B6C, slotsMinigameDTO->unk_1488);
+        ov83_0223F820(&slotsMinigameDTO->unk_334);
+        ov83_0223C958(slotsMinigameDTO);
 
         NetworkIcon_Init();
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_OBJ, 1);
 
-        if (param1->unk_1488 > 1) {
-            ov83_0223DF84(&param1->unk_5B0);
+        if (slotsMinigameDTO->unk_1488 > 1) {
+            ov83_0223DF84(&slotsMinigameDTO->unk_5B0);
         }
 
-        ov83_0223E484(&param1->unk_608, 3, 1);
-        ov83_0223E484(&param1->unk_608, 4, 1);
-        ov83_0223E484(&param1->unk_608, 5, 1);
-        ov83_0223E484(&param1->unk_608, 6, 1);
+        ov83_0223E484(&slotsMinigameDTO->unk_608, 3, 1);
+        ov83_0223E484(&slotsMinigameDTO->unk_608, 4, 1);
+        ov83_0223E484(&slotsMinigameDTO->unk_608, 5, 1);
+        ov83_0223E484(&slotsMinigameDTO->unk_608, 6, 1);
         (*param2)++;
         break;
     case 1:
-        StartScreenFade(FADE_BOTH_SCREENS, 1, 1, 0xffff, 6, 1, param1->heapID);
+        StartScreenFade(FADE_BOTH_SCREENS, 1, 1, 0xffff, 6, 1, slotsMinigameDTO->heapID);
         (*param2)++;
         break;
     case 2:
         if (IsScreenFadeDone()) {
-            return param1->unk_0C + 1;
+            return slotsMinigameDTO->slotsMinigameDTO + 1;
         }
         break;
     }
 
-    return param1->unk_0C;
+    return slotsMinigameDTO->slotsMinigameDTO;
 }
 
-static int ov83_0223B920(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223B920(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
     BOOL v0;
 
-    if (ov83_0223D570(param1->unk_148C) == 0) {
-        v0 = ov83_0223D508(22, NULL, 0, param1->unk_148C);
+    if (ov83_0223D570(slotsMinigameDTO->unk_148C) == 0) {
+        v0 = ov83_0223D508(22, NULL, 0, slotsMinigameDTO->unk_148C);
 
         if (v0 == 0) {
-            return param1->unk_0C;
+            return slotsMinigameDTO->slotsMinigameDTO;
         }
     }
 
-    return param1->unk_0C + 1;
+    return slotsMinigameDTO->slotsMinigameDTO + 1;
 }
 
-static int ov83_0223B950(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223B950(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
-    if (param1->unk_14) {
-        param1->unk_0C = param1->unk_18;
-        param1->unk_14 = 0;
+    if (slotsMinigameDTO->unk_14) {
+        slotsMinigameDTO->slotsMinigameDTO = slotsMinigameDTO->unk_18;
+        slotsMinigameDTO->unk_14 = 0;
     }
 
-    return param1->unk_0C;
+    return slotsMinigameDTO->slotsMinigameDTO;
 }
 
-static int ov83_0223B964(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223B964(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
     BOOL v0;
 
     switch (*param2) {
     case 0:
-        ov83_0223DB18(&param1->unk_3C0, param1->unk_1488);
+        ov83_0223DB18(&slotsMinigameDTO->unk_3C0, slotsMinigameDTO->unk_1488);
         (*param2)++;
         break;
     case 1:
-        param1->unk_1494.unk_00.unk_00 = param0->item;
+        slotsMinigameDTO->unk_1494.coins.coins = param0->item;
         {
             int v1;
 
             for (v1 = 0; v1 < 5; v1++) {
-                param1->unk_165C[v1] = 2;
+                slotsMinigameDTO->unk_165C[v1] = 2;
             }
 
-            param1->unk_1666 = 2;
+            slotsMinigameDTO->unk_1666 = 2;
         }
         (*param2)++;
         break;
 
     case 2:
-        v0 = ov83_0223D508(25, &param1->unk_1494.unk_00, ov83_0223D4B8(), param1->unk_148C);
+        v0 = ov83_0223D508(25, &slotsMinigameDTO->unk_1494.coins, ov83_0223D4B8(), slotsMinigameDTO->unk_148C);
 
         if (v0 == 1) {
-            return param1->unk_0C + 1;
+            return slotsMinigameDTO->slotsMinigameDTO + 1;
         }
         break;
     default:
@@ -356,10 +356,10 @@ static int ov83_0223B964(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
         break;
     }
 
-    return param1->unk_0C;
+    return slotsMinigameDTO->slotsMinigameDTO;
 }
 
-static int ov83_0223B9EC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223B9EC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
     u32 v0;
     int v1;
@@ -367,165 +367,165 @@ static int ov83_0223B9EC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
 
     switch (*param2) {
     case 0:
-        ov83_0223F790(&param1->unk_1480, param1->heapID, param1->unk_20);
+        ov83_0223F790(&slotsMinigameDTO->unk_1480, slotsMinigameDTO->heapID, slotsMinigameDTO->unk_20);
         (*param2)++;
         break;
     case 1:
-        ov83_0223DC68(&param1->unk_3C0);
+        ov83_0223DC68(&slotsMinigameDTO->unk_3C0);
         (*param2)++;
         break;
     case 2:
-        v0 = ov83_0223DD30(&param1->unk_3C0);
+        v0 = ov83_0223DD30(&slotsMinigameDTO->unk_3C0);
 
         if (v0 == 1) {
             (*param2)++;
-            ov83_0223DF70(&param1->unk_5B0);
-            param1->unk_1C = 24;
+            ov83_0223DF70(&slotsMinigameDTO->unk_5B0);
+            slotsMinigameDTO->unk_1C = 24;
         } else if (v0 != 0) {
-            v1 = param1->unk_1494.unk_130[v0 - 2];
-            ov83_0223DF30(&param1->unk_5B0, param1->unk_1494.unk_6C.unk_00[v1].unk_00);
+            v1 = slotsMinigameDTO->unk_1494.unk_130[v0 - 2];
+            ov83_0223DF30(&slotsMinigameDTO->unk_5B0, slotsMinigameDTO->unk_1494.unk_6C.coins[v1].coins);
         }
         break;
     case 3:
-        if (param1->unk_1C > 0) {
-            param1->unk_1C--;
+        if (slotsMinigameDTO->unk_1C > 0) {
+            slotsMinigameDTO->unk_1C--;
             break;
         }
 
-        ov83_0223E2FC(&param1->unk_5FC);
+        ov83_0223E2FC(&slotsMinigameDTO->unk_5FC);
         (*param2)++;
         break;
     case 4:
-        if (ov83_0223E32C(&param1->unk_5FC) == 0) {
+        if (ov83_0223E32C(&slotsMinigameDTO->unk_5FC) == 0) {
             break;
         }
 
-        ov83_0223DFAC(&param1->unk_5B0);
-        ov83_0223E2E4(&param1->unk_5E4);
+        ov83_0223DFAC(&slotsMinigameDTO->unk_5B0);
+        ov83_0223E2E4(&slotsMinigameDTO->unk_5E4);
         (*param2)++;
         break;
     case 5:
-        v2 = ov83_0223E32C(&param1->unk_5E4);
+        v2 = ov83_0223E32C(&slotsMinigameDTO->unk_5E4);
         {
-            int v3 = Sprite_GetAnimFrame(param1->unk_5E4.unk_08);
+            int v3 = Sprite_GetAnimFrame(slotsMinigameDTO->unk_5E4.unk_08);
 
-            if (param1->unk_3BC != (v3 + 1) / 3) {
+            if (slotsMinigameDTO->unk_3BC != (v3 + 1) / 3) {
                 if (v3 < 10) {
                     Sound_PlayEffect(SEQ_SE_DP_NM10_sseq);
                 } else {
                     Sound_PlayEffect(SEQ_SE_DP_NM10_2_sseq);
                 }
 
-                param1->unk_3BC = (v3 + 1) / 3;
+                slotsMinigameDTO->unk_3BC = (v3 + 1) / 3;
             }
         }
 
         if (v2) {
-            ov83_0223E69C(&param1->unk_680, 1);
-            ov83_0223E500(&param1->unk_608);
+            ov83_0223E69C(&slotsMinigameDTO->unk_680, 1);
+            ov83_0223E500(&slotsMinigameDTO->unk_608);
 
-            return param1->unk_0C + 1;
+            return slotsMinigameDTO->slotsMinigameDTO + 1;
         }
         break;
     }
 
-    return param1->unk_0C;
+    return slotsMinigameDTO->slotsMinigameDTO;
 }
 
-static int ov83_0223BB40(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223BB40(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
     BOOL v0;
 
-    ov83_0223F83C(&param1->unk_334);
-    ov83_0223F88C(&param1->unk_1494.unk_04.unk_00, &param1->unk_334);
+    ov83_0223F83C(&slotsMinigameDTO->unk_334);
+    ov83_0223F88C(&slotsMinigameDTO->unk_1494.slotMachineVariant.coins, &slotsMinigameDTO->unk_334);
 
-    if (ov83_0223D570(param1->unk_148C) == 0) {
-        v0 = ov83_0223FDD8(&param1->unk_34C, &param1->unk_1494, param1->unk_1488);
+    if (ov83_0223D570(slotsMinigameDTO->unk_148C) == 0) {
+        v0 = ov83_0223FDD8(&slotsMinigameDTO->unk_34C, &slotsMinigameDTO->unk_1494, slotsMinigameDTO->unk_1488);
 
         if (v0 == 1) {
-            v0 = ov83_0223D508(23, NULL, 0, param1->unk_148C);
-            return param1->unk_0C;
+            v0 = ov83_0223D508(23, NULL, 0, slotsMinigameDTO->unk_148C);
+            return slotsMinigameDTO->slotsMinigameDTO;
         } else {
-            ov83_0223FFA0(&param1->unk_34C);
+            ov83_0223FFA0(&slotsMinigameDTO->unk_34C);
 
-            if (param1->unk_15DC == 0) {
-                ov83_0223FE50(&param1->unk_34C, &param1->unk_1494, param1->unk_1488);
-                param1->unk_15DC = 1;
+            if (slotsMinigameDTO->unk_15DC == 0) {
+                ov83_0223FE50(&slotsMinigameDTO->unk_34C, &slotsMinigameDTO->unk_1494, slotsMinigameDTO->unk_1488);
+                slotsMinigameDTO->unk_15DC = 1;
             } else {
-                ov83_0223FEC0(&param1->unk_34C, &param1->unk_1494, param1->unk_1488);
+                ov83_0223FEC0(&slotsMinigameDTO->unk_34C, &slotsMinigameDTO->unk_1494, slotsMinigameDTO->unk_1488);
             }
         }
     }
 
     if (param0->unk_26) {
-        param1->unk_1658++;
+        slotsMinigameDTO->unk_1658++;
 
-        if ((param1->unk_1658 % 2) == 0) {
-            param1->unk_1658 = 0;
+        if ((slotsMinigameDTO->unk_1658 % 2) == 0) {
+            slotsMinigameDTO->unk_1658 = 0;
 
-            if (ov83_0223D570(param1->unk_148C) == 0) {
+            if (ov83_0223D570(slotsMinigameDTO->unk_148C) == 0) {
                 {
                     BOOL v1 = 1;
                     int v2;
 
                     for (v2 = 1; v2 < (7 + 1); v2++) {
                         if (CommSys_IsPlayerConnected(v2)) {
-                            if (param1->unk_165C[v2] == 0) {
+                            if (slotsMinigameDTO->unk_165C[v2] == 0) {
                                 v1 = 0;
                             }
                         }
                     }
 
                     if (v1) {
-                        v0 = ov83_0223D508(26, &param1->unk_1494.unk_04, ov83_0223D4BC(), param1->unk_148C);
-                        param1->unk_15DC = 0;
+                        v0 = ov83_0223D508(26, &slotsMinigameDTO->unk_1494.slotMachineVariant, ov83_0223D4BC(), slotsMinigameDTO->unk_148C);
+                        slotsMinigameDTO->unk_15DC = 0;
 
                         for (v2 = 1; v2 < (7 + 1); v2++) {
                             if (CommSys_IsPlayerConnected(v2)) {
-                                param1->unk_165C[v2]--;
+                                slotsMinigameDTO->unk_165C[v2]--;
                             }
                         }
                     }
                 }
             } else {
-                if (param1->unk_1666) {
-                    v0 = ov83_0223D508(32, &param1->unk_1494.unk_04.unk_00, ov83_0223D4C8(), param1->unk_148C);
-                    param1->unk_1666--;
+                if (slotsMinigameDTO->unk_1666) {
+                    v0 = ov83_0223D508(32, &slotsMinigameDTO->unk_1494.slotMachineVariant.coins, ov83_0223D4C8(), slotsMinigameDTO->unk_148C);
+                    slotsMinigameDTO->unk_1666--;
                 }
             }
         }
     } else {
-        v0 = ov83_0223D508(26, &param1->unk_1494.unk_04, ov83_0223D4BC(), param1->unk_148C);
-        param1->unk_15DC = 0;
+        v0 = ov83_0223D508(26, &slotsMinigameDTO->unk_1494.slotMachineVariant, ov83_0223D4BC(), slotsMinigameDTO->unk_148C);
+        slotsMinigameDTO->unk_15DC = 0;
     }
 
     if (v0 == 0) {
         (void)0;
     }
 
-    ov83_0223C3E8(param1);
-    ov83_0223EDA4(&param1->unk_6D8, &param1->unk_1494);
-    ov83_0223F378(&param1->unk_AEC);
-    ov83_0223F52C(&param1->unk_B6C);
+    ov83_0223C3E8(slotsMinigameDTO);
+    ov83_0223EDA4(&slotsMinigameDTO->unk_6D8, &slotsMinigameDTO->unk_1494);
+    ov83_0223F378(&slotsMinigameDTO->unk_AEC);
+    ov83_0223F52C(&slotsMinigameDTO->unk_B6C);
 
-    return param1->unk_0C;
+    return slotsMinigameDTO->slotsMinigameDTO;
 }
 
-static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
     Poffin *v0;
     BOOL v1;
 
-    ov83_0223EDA4(&param1->unk_6D8, &param1->unk_1494);
+    ov83_0223EDA4(&slotsMinigameDTO->unk_6D8, &slotsMinigameDTO->unk_1494);
 
     switch (*param2) {
     case 0:
-        ov83_0223E994(&param1->unk_6A0);
-        ov83_0223F3D0(&param1->unk_AEC, 0);
-        ov83_0223F3D0(&param1->unk_AEC, 1);
-        ov83_0223F3D0(&param1->unk_AEC, 2);
-        ov83_0223F3D0(&param1->unk_AEC, 3);
-        ov83_0223E2E4(&param1->unk_5F0);
+        ov83_0223E994(&slotsMinigameDTO->unk_6A0);
+        ov83_0223F3D0(&slotsMinigameDTO->unk_AEC, 0);
+        ov83_0223F3D0(&slotsMinigameDTO->unk_AEC, 1);
+        ov83_0223F3D0(&slotsMinigameDTO->unk_AEC, 2);
+        ov83_0223F3D0(&slotsMinigameDTO->unk_AEC, 3);
+        ov83_0223E2E4(&slotsMinigameDTO->unk_5F0);
 
         Sound_StopEffect(1722, 0);
         Sound_StopEffect(1723, 0);
@@ -533,17 +533,17 @@ static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
         Sound_StopEffect(1729, 0);
         Sound_PlayEffect(SEQ_SE_DP_NM13_sseq);
 
-        ov83_0223E484(&param1->unk_608, 0, 0);
-        ov83_0223E484(&param1->unk_608, 1, 0);
-        ov83_0223E484(&param1->unk_608, 2, 0);
+        ov83_0223E484(&slotsMinigameDTO->unk_608, 0, 0);
+        ov83_0223E484(&slotsMinigameDTO->unk_608, 1, 0);
+        ov83_0223E484(&slotsMinigameDTO->unk_608, 2, 0);
         (*param2)++;
         break;
     case 1:
-        if (ov83_0223E32C(&param1->unk_5F0) == 0) {
+        if (ov83_0223E32C(&slotsMinigameDTO->unk_5F0) == 0) {
             break;
         }
 
-        StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, param1->heapID);
+        StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, slotsMinigameDTO->heapID);
         (*param2)++;
         break;
     case 2:
@@ -557,7 +557,7 @@ static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
     case 3: {
         GameRecords *v2 = SaveData_GetGameRecords(param0->ctx->saveData);
 
-        if (param1->unk_1490 == 0) {
+        if (slotsMinigameDTO->unk_1490 == 0) {
             GameRecords_IncrementTrainerScore(v2, TRAINER_SCORE_EVENT_UNK_12);
             GameRecords_IncrementRecordValue(v2, RECORD_UNK_052);
         } else {
@@ -566,15 +566,15 @@ static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
         }
     }
 
-        if (param1->unk_1490 != 0) {
+        if (slotsMinigameDTO->unk_1490 != 0) {
             WiFiList *v3 = SaveData_GetWiFiList(param0->ctx->saveData);
             int v4;
             int v5, v6;
             int v7;
             DWCFriendData *v8;
 
-            for (v4 = 0; v4 < param1->unk_1488; v4++) {
-                v5 = param1->unk_1494.unk_130[v4];
+            for (v4 = 0; v4 < slotsMinigameDTO->unk_1488; v4++) {
+                v5 = slotsMinigameDTO->unk_1494.unk_130[v4];
                 v8 = CommInfo_DWCFriendData(v5);
                 v6 = sub_0203909C(param0->ctx->saveData, v8, &v7);
 
@@ -592,10 +592,10 @@ static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
         (*param2)++;
         break;
     case 4:
-        if (ov83_0223D570(param1->unk_148C) == 0) {
-            v0 = Poffin_New(param1->heapID);
-            ov83_0223FFD4(&param1->unk_34C, v0, &param1->unk_1494, param1->unk_1488, param1->heapID);
-            v1 = ov83_0223D508(28, v0, Poffin_SizeOf(), param1->unk_148C);
+        if (ov83_0223D570(slotsMinigameDTO->unk_148C) == 0) {
+            v0 = Poffin_New(slotsMinigameDTO->heapID);
+            ov83_0223FFD4(&slotsMinigameDTO->unk_34C, v0, &slotsMinigameDTO->unk_1494, slotsMinigameDTO->unk_1488, slotsMinigameDTO->heapID);
+            v1 = ov83_0223D508(28, v0, Poffin_SizeOf(), slotsMinigameDTO->unk_148C);
             Heap_Free(v0);
 
             if (v1 == 1) {
@@ -606,9 +606,9 @@ static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
         }
         break;
     case 5:
-        if (ov83_0223D570(param1->unk_148C) == 0) {
-            ov83_022401AC(&param1->unk_34C, &param1->unk_1494, param1->unk_1488);
-            v1 = ov83_0223D508(27, &param1->unk_1494.unk_20, ov83_0223D4C0(), param1->unk_148C);
+        if (ov83_0223D570(slotsMinigameDTO->unk_148C) == 0) {
+            ov83_022401AC(&slotsMinigameDTO->unk_34C, &slotsMinigameDTO->unk_1494, slotsMinigameDTO->unk_1488);
+            v1 = ov83_0223D508(27, &slotsMinigameDTO->unk_1494.unk_20, ov83_0223D4C0(), slotsMinigameDTO->unk_148C);
 
             if (v1 == 1) {
                 (*param2)++;
@@ -618,16 +618,16 @@ static int ov83_0223BCEC(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
         }
         break;
     case 6:
-        return param1->unk_0C + 1;
+        return slotsMinigameDTO->slotsMinigameDTO + 1;
     default:
         GF_ASSERT(FALSE);
         break;
     }
 
-    return param1->unk_0C;
+    return slotsMinigameDTO->slotsMinigameDTO;
 }
 
-static int ov83_0223BF74(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223BF74(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
     u32 v0;
     BOOL v1;
@@ -635,90 +635,90 @@ static int ov83_0223BF74(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
 
     switch (*param2) {
     case 0:
-        ov83_0223EC4C(&param1->unk_6A0, 0);
+        ov83_0223EC4C(&slotsMinigameDTO->unk_6A0, 0);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG0, 0);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG1, 0);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
 
-        param1->unk_31C = 0;
+        slotsMinigameDTO->unk_31C = 0;
 
-        ov83_0223F730(&param1->unk_1478, 128, 144, param1->unk_1494.unk_58.unk_0C, param1->heapID);
-        StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, param1->heapID);
+        ov83_0223F730(&slotsMinigameDTO->unk_1478, 128, 144, slotsMinigameDTO->unk_1494.unk_58.slotsMinigameDTO, slotsMinigameDTO->heapID);
+        StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, slotsMinigameDTO->heapID);
         (*param2)++;
         break;
     case 1:
         if (IsScreenFadeDone()) {
             (*param2)++;
-            param1->unk_1C = (30 * 1);
+            slotsMinigameDTO->unk_1C = (30 * 1);
         }
         break;
     case 2:
-        param1->unk_1C--;
+        slotsMinigameDTO->unk_1C--;
 
-        if (param1->unk_1C < 0) {
-            ov83_0223EC4C(&param1->unk_6A0, 1);
+        if (slotsMinigameDTO->unk_1C < 0) {
+            ov83_0223EC4C(&slotsMinigameDTO->unk_6A0, 1);
             Sound_PlayEffect(SEQ_SE_DP_NM14_sseq);
             (*param2)++;
-            param1->unk_1C = (30 * 1);
+            slotsMinigameDTO->unk_1C = (30 * 1);
         }
         break;
     case 3:
-        param1->unk_1C--;
+        slotsMinigameDTO->unk_1C--;
 
-        if (param1->unk_1C < 0) {
-            ov83_0223EC4C(&param1->unk_6A0, 2);
-            ov83_0223F784(&param1->unk_1478);
+        if (slotsMinigameDTO->unk_1C < 0) {
+            ov83_0223EC4C(&slotsMinigameDTO->unk_6A0, 2);
+            ov83_0223F784(&slotsMinigameDTO->unk_1478);
             Sound_PlayEffect(SEQ_SE_DP_NM14_sseq);
             (*param2)++;
-            param1->unk_1C = (30 * 20);
+            slotsMinigameDTO->unk_1C = (30 * 20);
         }
         break;
     case 4:
-        param1->unk_1C--;
+        slotsMinigameDTO->unk_1C--;
 
-        if ((param1->unk_1C < 0) || (gSystem.touchPressed) || (gSystem.pressedKeys & (PAD_BUTTON_A | PAD_BUTTON_B))) {
+        if ((slotsMinigameDTO->unk_1C < 0) || (gSystem.touchPressed) || (gSystem.pressedKeys & (PAD_BUTTON_A | PAD_BUTTON_B))) {
             (*param2)++;
             break;
         }
 
-        ov83_0223F784(&param1->unk_1478);
+        ov83_0223F784(&slotsMinigameDTO->unk_1478);
         break;
     case 5:
-        ov83_0223F770(&param1->unk_1478);
-        ov83_0223EC70(&param1->unk_6A0);
-        ov83_0223C8B0(param0, param1->unk_1494.unk_100, param1->unk_1488);
-        ov83_0223EC8C(&param1->unk_6A0, 0);
-        param1->unk_1C = (30 * 5);
+        ov83_0223F770(&slotsMinigameDTO->unk_1478);
+        ov83_0223EC70(&slotsMinigameDTO->unk_6A0);
+        ov83_0223C8B0(param0, slotsMinigameDTO->unk_1494.unk_100, slotsMinigameDTO->unk_1488);
+        ov83_0223EC8C(&slotsMinigameDTO->unk_6A0, 0);
+        slotsMinigameDTO->unk_1C = (30 * 5);
         (*param2)++;
         break;
     case 6:
-        param1->unk_1C--;
+        slotsMinigameDTO->unk_1C--;
 
-        if ((gSystem.touchPressed) || (param1->unk_1C < 0) || (gSystem.pressedKeys & (PAD_BUTTON_A | PAD_BUTTON_B))) {
+        if ((gSystem.touchPressed) || (slotsMinigameDTO->unk_1C < 0) || (gSystem.pressedKeys & (PAD_BUTTON_A | PAD_BUTTON_B))) {
             (*param2)++;
         }
         break;
     case 7:
-        ov83_0223EC8C(&param1->unk_6A0, 1);
-        ov83_0223F7B0(&param1->unk_1480);
+        ov83_0223EC8C(&slotsMinigameDTO->unk_6A0, 1);
+        ov83_0223F7B0(&slotsMinigameDTO->unk_1480);
         (*param2)++;
         break;
     case 8:
-        v0 = ov83_0223F7DC(&param1->unk_1480);
+        v0 = ov83_0223F7DC(&slotsMinigameDTO->unk_1480);
 
         if (v0 == YES_NO_TOUCH_MENU_YES || v0 == YES_NO_TOUCH_MENU_NO) {
             if (v0 == YES_NO_TOUCH_MENU_YES) {
                 if (PoffinCase_CountFilledSlots(param0->ctx->poffinCase) >= MAX_POFFINS) {
-                    ov83_0223EC8C(&param1->unk_6A0, 2);
+                    ov83_0223EC8C(&slotsMinigameDTO->unk_6A0, 2);
                     (*param2) = 10;
-                    param1->unk_1C = (30 * 5);
+                    slotsMinigameDTO->unk_1C = (30 * 5);
                     break;
                 }
 
                 if (Bag_HasItemsInPocket(param0->ctx->bag, POCKET_BERRIES) == FALSE) {
-                    ov83_0223EC8C(&param1->unk_6A0, 5);
+                    ov83_0223EC8C(&slotsMinigameDTO->unk_6A0, 5);
                     (*param2) = 10;
-                    param1->unk_1C = (30 * 5);
+                    slotsMinigameDTO->unk_1C = (30 * 5);
                     break;
                 }
 
@@ -727,37 +727,37 @@ static int ov83_0223BF74(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
                 (*param2) = 11;
             }
 
-            if (param1->unk_1488 > 1) {
-                ov83_0223EC8C(&param1->unk_6A0, 6);
-                ov83_0223E9BC(&param1->unk_6A0);
+            if (slotsMinigameDTO->unk_1488 > 1) {
+                ov83_0223EC8C(&slotsMinigameDTO->unk_6A0, 6);
+                ov83_0223E9BC(&slotsMinigameDTO->unk_6A0);
             }
         }
         break;
     case 9:
-        param1->unk_3B4 = 1;
-        v1 = ov83_0223D508(30, &param1->unk_3B4, ov83_0223D4B0(), param1->unk_148C);
+        slotsMinigameDTO->unk_3B4 = 1;
+        v1 = ov83_0223D508(30, &slotsMinigameDTO->unk_3B4, ov83_0223D4B0(), slotsMinigameDTO->unk_148C);
 
         if (v1 == 1) {
-            return param1->unk_0C + 1;
+            return slotsMinigameDTO->slotsMinigameDTO + 1;
         }
         break;
     case 10:
-        param1->unk_1C--;
+        slotsMinigameDTO->unk_1C--;
 
-        if ((gSystem.touchPressed) || (param1->unk_1C < 0) || (gSystem.pressedKeys & (PAD_BUTTON_A | PAD_BUTTON_B))) {
-            if (param1->unk_1488 > 1) {
-                ov83_0223EC8C(&param1->unk_6A0, 6);
-                ov83_0223E9BC(&param1->unk_6A0);
+        if ((gSystem.touchPressed) || (slotsMinigameDTO->unk_1C < 0) || (gSystem.pressedKeys & (PAD_BUTTON_A | PAD_BUTTON_B))) {
+            if (slotsMinigameDTO->unk_1488 > 1) {
+                ov83_0223EC8C(&slotsMinigameDTO->unk_6A0, 6);
+                ov83_0223E9BC(&slotsMinigameDTO->unk_6A0);
             }
             (*param2) = 11;
         }
         break;
     case 11:
-        param1->unk_3B4 = 0;
-        v1 = ov83_0223D508(30, &param1->unk_3B4, ov83_0223D4B0(), param1->unk_148C);
+        slotsMinigameDTO->unk_3B4 = 0;
+        v1 = ov83_0223D508(30, &slotsMinigameDTO->unk_3B4, ov83_0223D4B0(), slotsMinigameDTO->unk_148C);
 
         if (v1 == 1) {
-            return param1->unk_0C + 1;
+            return slotsMinigameDTO->slotsMinigameDTO + 1;
         }
         break;
     default:
@@ -765,51 +765,51 @@ static int ov83_0223BF74(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
         break;
     }
 
-    return param1->unk_0C;
+    return slotsMinigameDTO->slotsMinigameDTO;
 }
 
-static int ov83_0223C24C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223C24C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
-    return ov83_0223CB5C(param1, param2);
+    return ov83_0223CB5C(slotsMinigameDTO, param2);
 }
 
-static int ov83_0223C258(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223C258(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
     switch (*param2) {
     case 0:
-        if (param1->unk_1494.unk_145 == 1) {
-            ov83_0223EC8C(&param1->unk_6A0, 3);
+        if (slotsMinigameDTO->unk_1494.unk_145 == 1) {
+            ov83_0223EC8C(&slotsMinigameDTO->unk_6A0, 3);
             param0->unk_20 = TRUE;
         } else {
             param0->unk_20 = FALSE;
 
-            if (param1->unk_1488 <= 1) {
+            if (slotsMinigameDTO->unk_1488 <= 1) {
                 (*param2) = 2;
                 break;
             } else {
-                ov83_0223EC8C(&param1->unk_6A0, 4);
+                ov83_0223EC8C(&slotsMinigameDTO->unk_6A0, 4);
             }
 
             void *journalEntryOnlineEvent;
 
-            if (param1->unk_1490 == 1) {
-                journalEntryOnlineEvent = JournalEntry_CreateEventMadePoffins(param1->heapID);
+            if (slotsMinigameDTO->unk_1490 == 1) {
+                journalEntryOnlineEvent = JournalEntry_CreateEventMadePoffins(slotsMinigameDTO->heapID);
                 JournalEntry_SaveData(param0->ctx->journalEntry, journalEntryOnlineEvent, JOURNAL_ONLINE_EVENT);
             }
         }
 
-        param1->unk_1C = (30 * 2);
+        slotsMinigameDTO->unk_1C = (30 * 2);
         (*param2)++;
         break;
     case 1:
-        param1->unk_1C--;
+        slotsMinigameDTO->unk_1C--;
 
-        if (param1->unk_1C < 0) {
+        if (slotsMinigameDTO->unk_1C < 0) {
             (*param2)++;
         }
         break;
     case 2:
-        StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, param1->heapID);
+        StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, slotsMinigameDTO->heapID);
         (*param2)++;
         break;
     case 3:
@@ -818,33 +818,33 @@ static int ov83_0223C258(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B7
         }
         break;
     case 4:
-        ov83_0223CB8C(param1, param2);
-        ov83_0223CAA4(param1);
+        ov83_0223CB8C(slotsMinigameDTO, param2);
+        ov83_0223CAA4(slotsMinigameDTO);
 
-        return param1->unk_0C + 1;
+        return slotsMinigameDTO->slotsMinigameDTO + 1;
     }
 
-    return param1->unk_0C;
+    return slotsMinigameDTO->slotsMinigameDTO;
 }
 
-static int ov83_0223C344(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1, int *param2)
+static int ov83_0223C344(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO, int *param2)
 {
-    ov83_0223DB30(&param1->unk_3C0);
-    ov83_0223DEC4(&param1->unk_5B0);
-    ov83_0223E260(&param1->unk_5E4);
-    ov83_0223E260(&param1->unk_5F0);
-    ov83_0223E260(&param1->unk_5FC);
-    ov83_0223E34C(&param1->unk_608);
-    ov83_0223E5C0(&param1->unk_680);
-    ov83_0223E6F8(&param1->unk_6A0);
-    ov83_0223ED4C(&param1->unk_6D8);
-    ov83_0223F2A8(&param1->unk_AEC);
-    ov83_0223F4AC(&param1->unk_B6C);
-    ov83_0223F7A4(&param1->unk_1480);
-    ov83_0223C87C(param0, param1);
-    ov83_0223B784(param1);
+    ov83_0223DB30(&slotsMinigameDTO->unk_3C0);
+    ov83_0223DEC4(&slotsMinigameDTO->unk_5B0);
+    ov83_0223E260(&slotsMinigameDTO->unk_5E4);
+    ov83_0223E260(&slotsMinigameDTO->unk_5F0);
+    ov83_0223E260(&slotsMinigameDTO->unk_5FC);
+    ov83_0223E34C(&slotsMinigameDTO->unk_608);
+    ov83_0223E5C0(&slotsMinigameDTO->unk_680);
+    ov83_0223E6F8(&slotsMinigameDTO->unk_6A0);
+    ov83_0223ED4C(&slotsMinigameDTO->unk_6D8);
+    ov83_0223F2A8(&slotsMinigameDTO->unk_AEC);
+    ov83_0223F4AC(&slotsMinigameDTO->unk_B6C);
+    ov83_0223F7A4(&slotsMinigameDTO->unk_1480);
+    ov83_0223C87C(param0, slotsMinigameDTO);
+    ov83_0223B784(slotsMinigameDTO);
 
-    return param1->unk_0C;
+    return slotsMinigameDTO->slotsMinigameDTO;
 }
 
 static void ov83_0223C3E8(UnkStruct_ov83_0223B784 *param0)
@@ -852,7 +852,7 @@ static void ov83_0223C3E8(UnkStruct_ov83_0223B784 *param0)
     UnkStruct_ov83_0223FCE8 *v0 = &param0->unk_1494.unk_90[0].unk_08;
     fx32 v1;
 
-    if (v0->unk_0C == 0) {
+    if (v0->slotsMinigameDTO == 0) {
         param0->unk_1654 += v0->unk_0A;
     } else {
         param0->unk_1654 -= v0->unk_0A;
@@ -910,7 +910,7 @@ static void ov83_0223C558(UnkStruct_ov83_0223B784 *param0)
 {
     UnkStruct_ov83_0223FCE8 *v0 = &param0->unk_1494.unk_90[0].unk_08;
 
-    if ((v0->unk_11 == v0->unk_0C) || (v0->unk_0A == 0) || (param0->unk_324 != 0)) {
+    if ((v0->unk_11 == v0->slotsMinigameDTO) || (v0->unk_0A == 0) || (param0->unk_324 != 0)) {
         ov83_0223F3D0(&param0->unk_AEC, 1);
         ov83_0223F3D0(&param0->unk_AEC, 3);
         param0->unk_328 = 0;
@@ -1040,8 +1040,8 @@ static void ov83_0223C758(UnkStruct_ov83_0223B784 *param0)
 static void ov83_0223C7FC(UnkStruct_ov83_0223B784 *param0)
 {
     UnkStruct_ov83_0223FCE8 *v0 = &param0->unk_1494.unk_90[0].unk_08;
-    int v1 = param0->unk_1494.unk_04.unk_00.unk_00;
-    int v2 = param0->unk_1494.unk_04.unk_00.unk_01;
+    int v1 = param0->unk_1494.slotMachineVariant.coins.coins;
+    int v2 = param0->unk_1494.slotMachineVariant.coins.unk_01;
 
     if (v0->unk_0F == 1) {
         ov83_0223F544(&param0->unk_B6C, v1, v2);
@@ -1049,16 +1049,16 @@ static void ov83_0223C7FC(UnkStruct_ov83_0223B784 *param0)
     }
 }
 
-static void ov83_0223C82C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1)
+static void ov83_0223C82C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO)
 {
     int v0;
 
-    param1->unk_1494.unk_100 = Poffin_New(param1->heapID);
-    param1->unk_1494.unk_144 = ov83_0223D570(param1->unk_148C);
+    slotsMinigameDTO->unk_1494.unk_100 = Poffin_New(slotsMinigameDTO->heapID);
+    slotsMinigameDTO->unk_1494.unk_144 = ov83_0223D570(slotsMinigameDTO->unk_148C);
 
     for (v0 = 0; v0 < 4; v0++) {
-        param1->unk_1494.unk_90[v0].unk_00.unk_00 = 128;
-        param1->unk_1494.unk_90[v0].unk_00.unk_01 = 96;
+        slotsMinigameDTO->unk_1494.unk_90[v0].coins.coins = 128;
+        slotsMinigameDTO->unk_1494.unk_90[v0].coins.unk_01 = 96;
     }
 
     if (param0->unk_26) {
@@ -1066,19 +1066,19 @@ static void ov83_0223C82C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B
     }
 }
 
-static void ov83_0223C87C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *param1)
+static void ov83_0223C87C(PoffinBerrySelectionData *param0, UnkStruct_ov83_0223B784 *slotsMinigameDTO)
 {
-    GF_ASSERT(param1->unk_1494.unk_100);
+    GF_ASSERT(slotsMinigameDTO->unk_1494.unk_100);
 
-    Heap_Free(param1->unk_1494.unk_100);
-    param1->unk_1494.unk_100 = NULL;
+    Heap_Free(slotsMinigameDTO->unk_1494.unk_100);
+    slotsMinigameDTO->unk_1494.unk_100 = NULL;
 
     if (param0->unk_26) {
         sub_02035938(0);
     }
 }
 
-static BOOL ov83_0223C8B0(PoffinBerrySelectionData *param0, Poffin *param1, int param2)
+static BOOL ov83_0223C8B0(PoffinBerrySelectionData *param0, Poffin *slotsMinigameDTO, int param2)
 {
     int v0;
     u16 v1;
@@ -1087,7 +1087,7 @@ static BOOL ov83_0223C8B0(PoffinBerrySelectionData *param0, Poffin *param1, int 
     TVBroadcast *broadcast = SaveData_GetTVBroadcast(param0->ctx->saveData);
 
     for (v0 = 0; v0 < param2; v0++) {
-        v1 = PoffinCase_AddPoffin(param0->ctx->poffinCase, param1);
+        v1 = PoffinCase_AddPoffin(param0->ctx->poffinCase, slotsMinigameDTO);
 
         if (v1 == POFFIN_NONE) {
             v3 = 0;
@@ -1096,7 +1096,7 @@ static BOOL ov83_0223C8B0(PoffinBerrySelectionData *param0, Poffin *param1, int 
     }
 
     if (param0->unk_26 == 0) {
-        v2 = Poffin_GetAttribute(param1, 0);
+        v2 = Poffin_GetAttribute(slotsMinigameDTO, 0);
         sub_0206CFCC(broadcast, v2);
     }
 
@@ -1112,7 +1112,7 @@ static void ov83_0223C90C(UnkStruct_ov83_0223B784 *param0)
         1722,
     };
 
-    if (((v0->unk_0C == 0) && (param0->unk_3B8 > v0->unk_08)) || ((v0->unk_0C == 1) && (param0->unk_3B8 < v0->unk_08))) {
+    if (((v0->slotsMinigameDTO == 0) && (param0->unk_3B8 > v0->unk_08)) || ((v0->slotsMinigameDTO == 1) && (param0->unk_3B8 < v0->unk_08))) {
         Sound_PlayEffect(v1[v0->unk_0D]);
     }
 

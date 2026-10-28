@@ -198,7 +198,7 @@ static void WiFiEarth_BuildViewRotationMatrix(MtxFx33 *matrix, VecFx32 *angle);
 static void WiFiEarth_BuildMarkerOrientationMatrix(MtxFx33 *matrix, VecFx32 *position);
 static void WiFiEarth_NormalizeAngle(Vec2s32 *angle);
 static u32 WiFiEarth_GetAngularDistance(const Vec2s32 *a, const Vec2s32 *b);
-void sub_02000EC4(FSOverlayID param0, const ApplicationManagerTemplate *param1);
+void sub_02000EC4(FSOverlayID param0, const ApplicationManagerTemplate *slotsMinigameDTO);
 
 static const BgTemplate sWindowBgTemplate = {
     .x = 0,

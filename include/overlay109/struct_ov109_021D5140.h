@@ -22,10 +22,10 @@
 #include "trainer_info.h"
 
 typedef struct UnkStruct_ov109_021D5140_t {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    UnkStruct_0209C194 *unk_0C;
+    UnkStruct_0209C194 *slotsMinigameDTO;
     UnkStruct_0209BDF8 *unk_10;
     BgConfig *unk_14;
     BOOL unk_18;

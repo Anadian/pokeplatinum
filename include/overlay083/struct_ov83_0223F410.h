@@ -4,10 +4,10 @@
 #include "sprite.h"
 
 typedef struct {
-    Sprite *unk_00;
-    int unk_04;
+    Sprite *coins;
+    int slotMachineVariant;
     int unk_08;
-    BOOL unk_0C;
+    BOOL slotsMinigameDTO;
 } UnkStruct_ov83_0223F410;
 
 #endif // POKEPLATINUM_STRUCT_OV83_0223F410_H

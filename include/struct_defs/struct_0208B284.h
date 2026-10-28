@@ -4,10 +4,10 @@
 #include "constants/heap.h"
 
 typedef struct {
-    int unk_00;
+    int coins;
     enum HeapID heapID;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     fx32 unk_10;
 } UnkStruct_0208B284;
 

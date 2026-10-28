@@ -2,14 +2,14 @@
 #define POKEPLATINUM_STRUCT_OV61_0222BED8_SUB2_SUB3_SUB1_H
 
 typedef struct {
-    u32 unk_00;
+    u32 coins;
     u16 unk_04_0 : 1;
     u16 unk_04_1 : 1;
     u16 unk_04_2 : 1;
     u16 unk_04_3 : 13;
     u16 unk_06;
     u16 unk_08;
-    u32 unk_0C;
+    u32 slotsMinigameDTO;
     u32 unk_10;
     u8 unk_14;
     u8 unk_15;

@@ -2,9 +2,9 @@
 #define POKEPLATINUM_STRUCT_0209C0F0_H
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
-    s16 unk_04;
+    s16 slotMachineVariant;
     u16 unk_06;
 } UnkStruct_0209C0F0;
 

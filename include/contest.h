@@ -18,7 +18,7 @@
 #include "trainer_info.h"
 
 typedef struct Contest {
-    UnkStruct_02095C48_sub1 unk_00;
+    UnkStruct_02095C48_sub1 coins;
     Party *party;
     void *chatotCry[CONTEST_NUM_PARTICIPANTS];
     void *unk_150;

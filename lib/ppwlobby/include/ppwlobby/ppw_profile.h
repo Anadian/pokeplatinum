@@ -13,76 +13,76 @@
 
 template <class T>
 class UnkClass_ov66_02241BD8_SubClass : public UnkClass_ov66_0225B6E4 {
-    T unk_00;
-    mutable BOOL unk_04;
+    T coins;
+    mutable BOOL slotMachineVariant;
 
 public:
     UnkClass_ov66_02241BD8_SubClass()
-        : unk_00()
-        , unk_04(TRUE)
+        : coins()
+        , slotMachineVariant(TRUE)
     {
     }
 
     UnkClass_ov66_02241BD8_SubClass(const T &param0)
-        : unk_00(param0)
-        , unk_04(TRUE)
+        : coins(param0)
+        , slotMachineVariant(TRUE)
     {
     }
 
     UnkClass_ov66_02241BD8_SubClass &operator=(const UnkClass_ov66_02241BD8_SubClass &param0)
     {
-        if (!(unk_00 == param0.unk_00)) {
-            unk_00 = param0.unk_00;
-            unk_04 = TRUE;
+        if (!(coins == param0.coins)) {
+            coins = param0.coins;
+            slotMachineVariant = TRUE;
         }
 
         return *this;
     }
 
-    const UnkClass_ov66_02241BD8_SubClass &UnkClass_ov66_02241BD8_SubClass_InlineFunc0(const UnkClass_ov66_02241BD8_SubClass &param0, BOOL param1)
+    const UnkClass_ov66_02241BD8_SubClass &UnkClass_ov66_02241BD8_SubClass_InlineFunc0(const UnkClass_ov66_02241BD8_SubClass &param0, BOOL slotsMinigameDTO)
     {
-        if (param1) {
-            unk_04 = TRUE;
+        if (slotsMinigameDTO) {
+            slotMachineVariant = TRUE;
         }
 
         return *this = param0;
     }
 
-    const UnkClass_ov66_02241BD8_SubClass &UnkClass_ov66_02241BD8_SubClass_InlineFunc1(const T &param0, BOOL param1)
+    const UnkClass_ov66_02241BD8_SubClass &UnkClass_ov66_02241BD8_SubClass_InlineFunc1(const T &param0, BOOL slotsMinigameDTO)
     {
-        return this->UnkClass_ov66_02241BD8_SubClass_InlineFunc0(UnkClass_ov66_02241BD8_SubClass<T>(param0), param1);
+        return this->UnkClass_ov66_02241BD8_SubClass_InlineFunc0(UnkClass_ov66_02241BD8_SubClass<T>(param0), slotsMinigameDTO);
     }
 
     BOOL UnkClass_ov66_02241BD8_SubClass_InlineFunc2() const
     {
-        return unk_04;
+        return slotMachineVariant;
     }
 
     const T &UnkClass_ov66_02241BD8_SubClass_InlineFunc3() const
     {
-        unk_04 = FALSE;
-        return unk_00;
+        slotMachineVariant = FALSE;
+        return coins;
     }
 
     const T &UnkClass_ov66_02241BD8_SubClass_InlineFunc4() const
     {
-        return unk_00;
+        return coins;
     }
 };
 
 class UnkClass_ov66_02241BD8 : public UnkClass_ov66_0225B6E4 {
 public:
     struct UnkClass_ov66_02241BD8_SubStruct1 {
-        PPW_LOBBY_CHANNEL_KIND unk_00;
-        s64 unk_04;
-        BOOL unk_0C;
+        PPW_LOBBY_CHANNEL_KIND coins;
+        s64 slotMachineVariant;
+        BOOL slotsMinigameDTO;
 
         UnkClass_ov66_02241BD8_SubStruct1()
-            : unk_00(PPW_LOBBY_CHANNEL_KIND_INVALID)
-            , unk_04()
-            , unk_0C(FALSE)
+            : coins(PPW_LOBBY_CHANNEL_KIND_INVALID)
+            , slotMachineVariant()
+            , slotsMinigameDTO(FALSE)
         {
-            unk_04 = inline_ov66_0223EE30();
+            slotMachineVariant = inline_ov66_0223EE30();
         }
 
         bool operator==(const UnkClass_ov66_02241BD8_SubStruct1 &param0) const
@@ -93,33 +93,33 @@ public:
         PPW_LobbySystemProfile UnkClass_ov66_02241BD8_SubStruct1_InlineFunc0() const
         {
             PPW_LobbySystemProfile v0;
-            v0.subChannelKind = unk_00;
-            v0.enterTime = unk_04;
+            v0.subChannelKind = coins;
+            v0.enterTime = slotMachineVariant;
             return v0;
         }
     };
 
     struct UnkClass_ov66_02241BD8_SubStruct2 {
-        std::vector<u8, PPW_Allocator<u8> > unk_00;
+        std::vector<u8, PPW_Allocator<u8> > coins;
 
         UnkClass_ov66_02241BD8_SubStruct2()
-            : unk_00()
+            : coins()
         {
         }
 
-        UnkClass_ov66_02241BD8_SubStruct2(const u8 *param0, u32 param1)
+        UnkClass_ov66_02241BD8_SubStruct2(const u8 *param0, u32 slotsMinigameDTO)
         {
-            unk_00.assign(param0, param0 + param1);
+            coins.assign(param0, param0 + slotsMinigameDTO);
         }
 
         bool operator==(const UnkClass_ov66_02241BD8_SubStruct2 &param0) const
         {
-            return unk_00.size() == param0.unk_00.size() && (unk_00.empty() || memcmp(ov66_022364B0(unk_00), ov66_022364B0(param0.unk_00), unk_00.size()) == 0);
+            return coins.size() == param0.coins.size() && (coins.empty() || memcmp(ov66_022364B0(coins), ov66_022364B0(param0.coins), coins.size()) == 0);
         }
     };
 
 private:
-    UnkClass_ov66_02241BD8_SubClass<UnkClass_ov66_02241BD8_SubStruct1> unk_00;
+    UnkClass_ov66_02241BD8_SubClass<UnkClass_ov66_02241BD8_SubStruct1> coins;
     UnkClass_ov66_02241BD8_SubClass<UnkClass_ov66_02241BD8_SubStruct2> unk_14;
     int unk_24;
     int unk_28;
@@ -134,7 +134,7 @@ public:
     }
 
     UnkClass_ov66_02241BD8(int param0)
-        : unk_00()
+        : coins()
         , unk_14()
         , unk_24(0)
         , unk_28(param0)
@@ -154,33 +154,33 @@ public:
     }
 
     struct UnkClass_ov66_02241BD8_UnaryFunc : public std::unary_function<UnkClass_ov66_02241BD8 *, bool> {
-        const int unk_00;
+        const int coins;
         UnkClass_ov66_02241BD8_UnaryFunc(int param0)
-            : unk_00(param0)
+            : coins(param0)
         {
         }
 
         bool operator()(const UnkClass_ov66_02241BD8 *param0) const
         {
-            return unk_00 == param0->unk_28;
+            return coins == param0->unk_28;
         }
     };
 
-    void UnkClass_ov66_02241BD8_InlineFunc0(const u8 *param0, u32 param1, BOOL param2 = FALSE)
+    void UnkClass_ov66_02241BD8_InlineFunc0(const u8 *param0, u32 slotsMinigameDTO, BOOL param2 = FALSE)
     {
-        UnkClass_ov66_02241BD8_SubStruct2 v0(param0, param1);
+        UnkClass_ov66_02241BD8_SubStruct2 v0(param0, slotsMinigameDTO);
         unk_14.UnkClass_ov66_02241BD8_SubClass_InlineFunc1(v0, param2);
         unk_30 = TRUE;
     }
 
-    BOOL UnkClass_ov66_02241BD8_InlineFunc1(u8 *param0, u32 *param1) const
+    BOOL UnkClass_ov66_02241BD8_InlineFunc1(u8 *param0, u32 *slotsMinigameDTO) const
     {
-        std::vector<u8, PPW_Allocator<u8> > v0 = unk_14.UnkClass_ov66_02241BD8_SubClass_InlineFunc4().unk_00;
-        u32 v1 = *param1;
+        std::vector<u8, PPW_Allocator<u8> > v0 = unk_14.UnkClass_ov66_02241BD8_SubClass_InlineFunc4().coins;
+        u32 v1 = *slotsMinigameDTO;
 
-        *param1 = v0.size();
+        *slotsMinigameDTO = v0.size();
 
-        if (*param1 == 0) {
+        if (*slotsMinigameDTO == 0) {
             return TRUE;
         }
 
@@ -209,23 +209,23 @@ public:
 
     void UnkClass_ov66_02241BD8_InlineFunc5(const UnkClass_ov66_02241BD8_SubStruct1 &param0)
     {
-        unk_00 = param0;
+        coins = param0;
         unk_2C = TRUE;
     }
 
     const UnkClass_ov66_02241BD8_SubStruct1 &UnkClass_ov66_02241BD8_InlineFunc6() const
     {
-        return unk_00.UnkClass_ov66_02241BD8_SubClass_InlineFunc4();
+        return coins.UnkClass_ov66_02241BD8_SubClass_InlineFunc4();
     }
 
     const UnkClass_ov66_02241BD8_SubStruct1 &UnkClass_ov66_02241BD8_InlineFunc7() const
     {
-        return unk_00.UnkClass_ov66_02241BD8_SubClass_InlineFunc3();
+        return coins.UnkClass_ov66_02241BD8_SubClass_InlineFunc3();
     }
 
     BOOL UnkClass_ov66_02241BD8_InlineFunc8() const
     {
-        return unk_00.UnkClass_ov66_02241BD8_SubClass_InlineFunc2();
+        return coins.UnkClass_ov66_02241BD8_SubClass_InlineFunc2();
     }
 
     void UnkClass_ov66_02241BD8_InlineFunc9()
@@ -258,13 +258,13 @@ public:
 
 class UnkClass_ov66_02241C44 : public UnkClass_ov66_0225B6E4 {
     typedef std::set<UnkClass_ov66_02241BD8 *, UnkClass_ov66_0225B6E4::UnkClass_ov66_0225B6E4_BinaryFunc<UnkClass_ov66_02241BD8>, PPW_Allocator<UnkClass_ov66_02241BD8 *> > UnkClass_ov66_02241BD8_Set;
-    UnkClass_ov66_02241BD8_Set unk_00;
-    UnkClass_ov66_02241BD8 unk_0C;
+    UnkClass_ov66_02241BD8_Set coins;
+    UnkClass_ov66_02241BD8 slotsMinigameDTO;
 
 public:
     UnkClass_ov66_02241C44()
-        : unk_00()
-        , unk_0C()
+        : coins()
+        , slotsMinigameDTO()
     {
     }
 
@@ -281,7 +281,7 @@ public:
 
     UnkClass_ov66_02241BD8 &UnkClass_ov66_02241C44_InlineFunc1()
     {
-        return unk_0C;
+        return slotsMinigameDTO;
     }
 
     BOOL ov66_02241C44(int param0);
@@ -290,7 +290,7 @@ public:
     void ov66_02241E54();
     BOOL ov66_02241ED0() const;
     std::vector<s32, PPW_Allocator<s32> > ov66_02241F2C() const;
-    void ov66_02242008(s32 param0, const u8 *param1, u32 param2);
+    void ov66_02242008(s32 param0, const u8 *slotsMinigameDTO, u32 param2);
     BOOL ov66_022423B0() const;
     void ov66_02242460();
 };

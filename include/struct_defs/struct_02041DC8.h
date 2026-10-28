@@ -5,7 +5,7 @@
 
 typedef struct {
     ImageClips *imageClips;
-    u32 unk_04;
+    u32 slotMachineVariant;
     u32 unk_08;
 } UnkStruct_02041DC8;
 

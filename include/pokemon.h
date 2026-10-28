@@ -505,7 +505,7 @@ u8 BoxPokemon_SpriteYOffset(BoxPokemon *boxMon, u8 face, BOOL preferDP);
  * @return Y-offset applied to the sprite-face on display
  */
 u8 LoadPokemonSpriteYOffset(u16 species, u8 gender, u8 face, u8 form, u32 personality);
-void SpriteSystem_SetTrainerFrontSpriteTemplate(PokemonSpriteTemplate *spriteTemplate, u16 param1);
+void SpriteSystem_SetTrainerFrontSpriteTemplate(PokemonSpriteTemplate *spriteTemplate, u16 slotsMinigameDTO);
 ManagedSprite *SpriteSystem_NewManagedSpriteTrainer(SpriteSystem *spriteSys, SpriteManager *spriteMan, PaletteData *paletteData, int x, int y, enum TrainerClass trainerClass, int face, int battlerType, enum HeapID heapID);
 void SpriteSystem_SetTrainerClassGraphicsIndex(enum TrainerClass trainerClass, int face, TrainerClassGraphicIndex *trainerClassGraphicIndex);
 
@@ -675,7 +675,7 @@ s8 Pokemon_GetFlavorAffinityOf(u32 monPersonality, enum Flavor flavor);
 int Pokemon_LoadLevelUpMoveIdsOf(int monSpecies, int monForm, u16 *monLevelUpMoveIDs);
 
 void Pokemon_ApplyPokerus(Party *party);
-u8 Pokemon_HasPokerus(Party *party, u8 param1);
+u8 Pokemon_HasPokerus(Party *party, u8 slotsMinigameDTO);
 void Party_UpdatePokerusStatus(Party *party, s32 daysPassed);
 void Pokemon_ValidatePokerus(Party *party);
 BOOL Pokemon_InfectedWithPokerus(Pokemon *mon);
@@ -769,14 +769,14 @@ void Party_SetShayminLandForm(Party *party);
 /**
  * @brief Sets all Shaymin in the party to Land form at night
  *
- * @todo Verify this, seems correct but not sure what param1 does to the calculation here (time zone offset?)
+ * @todo Verify this, seems correct but not sure what slotsMinigameDTO does to the calculation here (time zone offset?)
  *
  * @param party
- * @param param1
+ * @param slotsMinigameDTO
  * @param rtcTime
  * @return Whether Shaymin should be set to Land form
  */
-BOOL Party_SetShayminForm(Party *party, int param1, const RTCTime *rtcTime);
+BOOL Party_SetShayminForm(Party *party, int slotsMinigameDTO, const RTCTime *rtcTime);
 
 /**
  * @brief Sets Rotom to the given form. Has no effect if the given Pokemon is not a Rotom
@@ -847,7 +847,7 @@ void sub_020780C4(Pokemon *mon, u32 monPersonality);
 BOOL Pokemon_IsOnBattleFrontierBanlist(u16 species);
 u16 Pokemon_GetBattleFrontierBanlistEntry(u8 index);
 BOOL Pokemon_IsBannedFromBattleFrontier(Pokemon *mon);
-BOOL sub_0207884C(BoxPokemon *boxMon, TrainerInfo *param1, enum HeapID heapID);
+BOOL sub_0207884C(BoxPokemon *boxMon, TrainerInfo *slotsMinigameDTO, enum HeapID heapID);
 int SpriteSystem_TrainerClassBackSpriteIndex(enum TrainerClass trainerClass);
 void Pokemon_ClearBallCapsuleData(Pokemon *mon);
 void BoxPokemon_RestorePP(BoxPokemon *boxMon);
@@ -916,7 +916,7 @@ void PokemonSprite_LoadXOffsetShadow(NARC *narc, s8 *xOffsetShadow, u16 species)
  */
 void PokemonSprite_LoadShadowSize(NARC *narc, u8 *shadowSize, u16 species);
 BOOL Pokemon_SetBallSeal(int param0, Pokemon *mon, enum HeapID heapID);
-void sub_02078B40(Pokemon *mon, UnkStruct_02078B40 *param1);
+void sub_02078B40(Pokemon *mon, UnkStruct_02078B40 *slotsMinigameDTO);
 void sub_02078E0C(UnkStruct_02078B40 *param0, Pokemon *mon);
 
 #endif // POKEPLATINUM_POKEMON_H

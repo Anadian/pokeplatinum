@@ -12,7 +12,7 @@
 
 void *ov5_021F17B8(FieldEffectManager *param0);
 void ov5_021F17D4(void *param0);
-void ov5_021F1800(MapObject *param0, int param1);
-OverworldAnimManager *ov5_021F1BA4(FieldEffectManager *param0, const BillboardResources *param1, const Billboard *param2, const VecFx32 *param3, int param4, int param5);
+void ov5_021F1800(MapObject *param0, int slotsMinigameDTO);
+OverworldAnimManager *ov5_021F1BA4(FieldEffectManager *param0, const BillboardResources *slotsMinigameDTO, const Billboard *param2, const VecFx32 *param3, int param4, int param5);
 
 #endif // POKEPLATINUM_OV5_021F17B8_H

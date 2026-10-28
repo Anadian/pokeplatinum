@@ -2,10 +2,10 @@
 #define POKEPLATINUM_STRUCT_0202E810_H
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     u8 padding_01;
     u16 unk_02; // Species?
-    u8 unk_04;
+    u8 slotMachineVariant;
     u8 language;
     u8 unk_06;
     u8 unk_07;

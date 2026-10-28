@@ -79,7 +79,7 @@ u8 Poffin_GetAttribute(Poffin *poffin, enum PoffinAttributeID attributeID)
     }
 }
 
-static void Poffin_MakeFoul(Poffin *poffin, u8 param1)
+static void Poffin_MakeFoul(Poffin *poffin, u8 slotsMinigameDTO)
 {
     int v0;
     u8 v1;
@@ -98,7 +98,7 @@ static void Poffin_MakeFoul(Poffin *poffin, u8 param1)
     } while (v0 < 3);
 
     poffin->type = POFFIN_TYPE_FOUL;
-    poffin->smoothness = param1;
+    poffin->smoothness = slotsMinigameDTO;
 }
 
 int Poffin_MakePoffin(Poffin *poffin, u8 *flavors, u8 smoothness, BOOL isFoul)

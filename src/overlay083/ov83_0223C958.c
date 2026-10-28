@@ -31,7 +31,7 @@ static void ov83_0223CD28(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223CD54(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223CD64(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223CDC0(UnkStruct_ov83_0223B784 *param0);
-static void ov83_0223CDD0(UnkStruct_ov83_0223B784 *param0, NARC *param1);
+static void ov83_0223CDD0(UnkStruct_ov83_0223B784 *param0, NARC *slotsMinigameDTO);
 static void ov83_0223CE7C(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223CE9C(UnkStruct_ov83_0223B784 *param0);
 static void ov83_0223CF20(UnkStruct_ov83_0223B784 *param0);
@@ -94,16 +94,16 @@ void ov83_0223CAA4(UnkStruct_ov83_0223B784 *param0)
     GXLayers_SwapDisplay();
 }
 
-int ov83_0223CB5C(UnkStruct_ov83_0223B784 *param0, int *param1)
+int ov83_0223CB5C(UnkStruct_ov83_0223B784 *param0, int *slotsMinigameDTO)
 {
     ov83_0223DB4C(&param0->unk_3C0, &param0->unk_1494.unk_6C, &param0->unk_2C, param0->unk_1CC, param0->heapID);
-    return param0->unk_0C + 1;
+    return param0->slotsMinigameDTO + 1;
 }
 
-int ov83_0223CB8C(UnkStruct_ov83_0223B784 *param0, int *param1)
+int ov83_0223CB8C(UnkStruct_ov83_0223B784 *param0, int *slotsMinigameDTO)
 {
     ov83_0223DC1C(&param0->unk_3C0, &param0->unk_2C);
-    return param0->unk_0C + 1;
+    return param0->slotsMinigameDTO + 1;
 }
 
 void ov83_0223CBA4(UnkStruct_ov83_0223B784 *param0)
@@ -125,8 +125,8 @@ void ov83_0223CBA4(UnkStruct_ov83_0223B784 *param0)
     G3_RequestSwapBuffers(GX_SORTMODE_AUTO, GX_BUFFERMODE_Z);
 
     if (param0->unk_31C) {
-        if (param0->unk_2C.unk_00) {
-            SpriteList_Update(param0->unk_2C.unk_00);
+        if (param0->unk_2C.coins) {
+            SpriteList_Update(param0->unk_2C.coins);
         }
     }
 }
@@ -318,7 +318,7 @@ static void ov83_0223CDC0(UnkStruct_ov83_0223B784 *param0)
     PlttTransfer_Free();
 }
 
-static void ov83_0223CDD0(UnkStruct_ov83_0223B784 *param0, NARC *param1)
+static void ov83_0223CDD0(UnkStruct_ov83_0223B784 *param0, NARC *slotsMinigameDTO)
 {
     int v0;
     static const u8 v1[6] = {
@@ -332,9 +332,9 @@ static void ov83_0223CDD0(UnkStruct_ov83_0223B784 *param0, NARC *param1)
 
     for (v0 = 0; v0 < 6; v0++) {
         if ((v0 > 0) && (v1[v0] == 8)) {
-            ov83_0223D894(&param0->unk_2C, &param0->unk_1CC[v0], param1, param0->unk_1CC[0].unk_00[1], 14 + (3 * v0), 13 + (3 * v0), 12 + (3 * v0), 2000 + v0, param0->heapID);
+            ov83_0223D894(&param0->unk_2C, &param0->unk_1CC[v0], slotsMinigameDTO, param0->unk_1CC[0].coins[1], 14 + (3 * v0), 13 + (3 * v0), 12 + (3 * v0), 2000 + v0, param0->heapID);
         } else {
-            ov83_0223D7A8(&param0->unk_2C, &param0->unk_1CC[v0], param1, v1[v0], 2, 14 + (3 * v0), 13 + (3 * v0), 12 + (3 * v0), 2000 + v0, param0->heapID);
+            ov83_0223D7A8(&param0->unk_2C, &param0->unk_1CC[v0], slotsMinigameDTO, v1[v0], 2, 14 + (3 * v0), 13 + (3 * v0), 12 + (3 * v0), 2000 + v0, param0->heapID);
         }
     }
 }
@@ -376,27 +376,27 @@ static void ov83_0223CF2C(UnkStruct_ov83_0223B784 *param0)
 {
     int v0;
 
-    param0->unk_15E0.unk_00 = MessageLoader_Init(MSG_LOADER_PRELOAD_ENTIRE_BANK, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_POFFIN_MAKING, param0->heapID);
-    param0->unk_15E0.unk_04 = StringTemplate_New(4, 64, param0->heapID);
+    param0->unk_15E0.coins = MessageLoader_Init(MSG_LOADER_PRELOAD_ENTIRE_BANK, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_POFFIN_MAKING, param0->heapID);
+    param0->unk_15E0.slotMachineVariant = StringTemplate_New(4, 64, param0->heapID);
     param0->unk_15E0.unk_08 = String_Init(64, param0->heapID);
-    param0->unk_15E0.unk_0C = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 0);
-    param0->unk_15E0.unk_10 = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 1);
-    param0->unk_15E0.unk_14 = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 2);
-    param0->unk_15E0.unk_18 = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 20);
-    param0->unk_15E0.unk_1C = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 21);
-    param0->unk_15E0.unk_20 = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 22);
-    param0->unk_15E0.unk_24 = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 23);
-    param0->unk_15E0.unk_28 = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 24);
-    param0->unk_15E0.unk_2C = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 25);
-    param0->unk_15E0.unk_30 = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 8);
-    param0->unk_15E0.unk_34 = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 9);
+    param0->unk_15E0.slotsMinigameDTO = MessageLoader_GetNewString(param0->unk_15E0.coins, 0);
+    param0->unk_15E0.unk_10 = MessageLoader_GetNewString(param0->unk_15E0.coins, 1);
+    param0->unk_15E0.unk_14 = MessageLoader_GetNewString(param0->unk_15E0.coins, 2);
+    param0->unk_15E0.unk_18 = MessageLoader_GetNewString(param0->unk_15E0.coins, 20);
+    param0->unk_15E0.unk_1C = MessageLoader_GetNewString(param0->unk_15E0.coins, 21);
+    param0->unk_15E0.unk_20 = MessageLoader_GetNewString(param0->unk_15E0.coins, 22);
+    param0->unk_15E0.unk_24 = MessageLoader_GetNewString(param0->unk_15E0.coins, 23);
+    param0->unk_15E0.unk_28 = MessageLoader_GetNewString(param0->unk_15E0.coins, 24);
+    param0->unk_15E0.unk_2C = MessageLoader_GetNewString(param0->unk_15E0.coins, 25);
+    param0->unk_15E0.unk_30 = MessageLoader_GetNewString(param0->unk_15E0.coins, 8);
+    param0->unk_15E0.unk_34 = MessageLoader_GetNewString(param0->unk_15E0.coins, 9);
 
     for (v0 = 0; v0 < 5; v0++) {
-        param0->unk_15E0.unk_38[v0] = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 3 + v0);
+        param0->unk_15E0.unk_38[v0] = MessageLoader_GetNewString(param0->unk_15E0.coins, 3 + v0);
     }
 
     for (v0 = 0; v0 < 10; v0++) {
-        param0->unk_15E0.unk_4C[v0] = MessageLoader_GetNewString(param0->unk_15E0.unk_00, 10 + v0);
+        param0->unk_15E0.unk_4C[v0] = MessageLoader_GetNewString(param0->unk_15E0.coins, 10 + v0);
     }
 }
 
@@ -411,7 +411,7 @@ static void ov83_0223D068(UnkStruct_ov83_0223B784 *param0)
     String_Free(param0->unk_15E0.unk_18);
     String_Free(param0->unk_15E0.unk_14);
     String_Free(param0->unk_15E0.unk_10);
-    String_Free(param0->unk_15E0.unk_0C);
+    String_Free(param0->unk_15E0.slotsMinigameDTO);
     String_Free(param0->unk_15E0.unk_24);
     String_Free(param0->unk_15E0.unk_28);
     String_Free(param0->unk_15E0.unk_2C);
@@ -425,6 +425,6 @@ static void ov83_0223D068(UnkStruct_ov83_0223B784 *param0)
     }
 
     String_Free(param0->unk_15E0.unk_08);
-    StringTemplate_Free(param0->unk_15E0.unk_04);
-    MessageLoader_Free(param0->unk_15E0.unk_00);
+    StringTemplate_Free(param0->unk_15E0.slotMachineVariant);
+    MessageLoader_Free(param0->unk_15E0.coins);
 }

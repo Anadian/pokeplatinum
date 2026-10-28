@@ -7,13 +7,13 @@ typedef struct {
     u16 moveID;
     u8 contestMoveEffect;
     u8 unk_03;
-    u8 unk_04;
+    u8 slotMachineVariant;
     s16 unk_06;
     s8 unk_08;
     u8 unk_09;
     u8 unk_0A;
     u8 unk_0B;
-    UnkStruct_ov17_022449B8 unk_0C;
+    UnkStruct_ov17_022449B8 slotsMinigameDTO;
     u8 unk_12;
     u8 unk_13;
     u8 unk_14;

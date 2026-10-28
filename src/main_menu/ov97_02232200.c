@@ -54,9 +54,9 @@ static void ov97_02232254(u32 param0)
     int v1;
 
     for (v1 = 0; v1 < 8; v1++) {
-        if ((v0->unk_00[v1].unk_00.unk_00.val2) && (v0->unk_00[v1].unk_06 == param0)) {
-            v0->unk_00[v1].unk_08 = 0;
-            v0->unk_00[v1].unk_0A = 0;
+        if ((v0->coins[v1].coins.coins.val2) && (v0->coins[v1].unk_06 == param0)) {
+            v0->coins[v1].unk_08 = 0;
+            v0->coins[v1].unk_0A = 0;
         }
     }
 }
@@ -294,26 +294,26 @@ void ov97_022324EC(void *param0)
             if (v1->unk_60 == 2) {
                 UnkStruct_ov97_022339EC *v2 = (UnkStruct_ov97_022339EC *)v0->ssid;
 
-                if ((v2->unk_00.unk_00.unk_00_0 == ov97_02233560()) && (v2->unk_00.unk_00.unk_00_8 <= ov97_02233570()) && (v2->unk_00.unk_04.unk_00_16 == ov97_02233580())) {
+                if ((v2->coins.coins.unk_00_0 == ov97_02233560()) && (v2->coins.coins.unk_00_8 <= ov97_02233570()) && (v2->coins.slotMachineVariant.unk_00_16 == ov97_02233580())) {
                     int v3;
                     UnkStruct_ov97_02232254 *v4 = ov97_02233510();
                     UnkStruct_ov97_022335A8 v5 = ov97_02232210(v0->macAddress);
                     UnkStruct_ov97_022335C8 v6 = ov97_0223221C(v0->macAddress);
 
                     for (v3 = 0; v3 < 8; v3++) {
-                        UnkStruct_ov97_022335A8 *v7 = &v4->unk_00[v3].unk_00;
+                        UnkStruct_ov97_022335A8 *v7 = &v4->coins[v3].coins;
 
-                        if (v7->unk_00.val2 == v5.unk_00.val2) {
-                            v4->unk_00[v3].unk_06 = v0->aid;
-                            v4->unk_00[v3].unk_0A = 1;
+                        if (v7->coins.val2 == v5.coins.val2) {
+                            v4->coins[v3].unk_06 = v0->aid;
+                            v4->coins[v3].unk_0A = 1;
                             break;
                         }
 
-                        if (v7->unk_00.val2 == 0) {
-                            v4->unk_00[v3].unk_00.unk_00.val2 = v5.unk_00.val2;
-                            v4->unk_00[v3].unk_04.unk_00.val2 = v6.unk_00.val2;
-                            v4->unk_00[v3].unk_06 = v0->aid;
-                            v4->unk_00[v3].unk_0A = 1;
+                        if (v7->coins.val2 == 0) {
+                            v4->coins[v3].coins.coins.val2 = v5.coins.val2;
+                            v4->coins[v3].slotMachineVariant.coins.val2 = v6.coins.val2;
+                            v4->coins[v3].unk_06 = v0->aid;
+                            v4->coins[v3].unk_0A = 1;
                             break;
                         }
                     }
@@ -332,27 +332,27 @@ void ov97_022324EC(void *param0)
     }
 }
 
-static BOOL ov97_02232620(WMstartScanCallback *param0, WMBssDesc *param1)
+static BOOL ov97_02232620(WMstartScanCallback *param0, WMBssDesc *slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov97_02232620 *v1 = ov97_02233508();
-    UnkStruct_ov97_022335A8 v2 = ov97_02232210(param1->bssid);
-    UnkStruct_ov97_022335C8 v3 = ov97_0223221C(param1->bssid);
+    UnkStruct_ov97_022335A8 v2 = ov97_02232210(slotsMinigameDTO->bssid);
+    UnkStruct_ov97_022335C8 v3 = ov97_0223221C(slotsMinigameDTO->bssid);
 
     for (v0 = 0; v0 < 8; v0++) {
-        UnkStruct_ov97_022335A8 *v4 = &v1->unk_00[v0].unk_00;
-        UnkStruct_ov97_022335C8 *v5 = &v1->unk_00[v0].unk_34;
+        UnkStruct_ov97_022335A8 *v4 = &v1->coins[v0].coins;
+        UnkStruct_ov97_022335C8 *v5 = &v1->coins[v0].unk_34;
 
-        if ((v4->unk_00.val2 == v2.unk_00.val2) && (v5->unk_00.val2 == v3.unk_00.val2)) {
+        if ((v4->coins.val2 == v2.coins.val2) && (v5->coins.val2 == v3.coins.val2)) {
             return 1;
         }
 
-        if (v4->unk_00.val2 == 0) {
-            v1->unk_00[v0].unk_00.unk_00.val2 = v2.unk_00.val2;
-            v1->unk_00[v0].unk_04 = ((UnkStruct_ov97_02233268 *)param1->gameInfo.userGameInfo)->unk_08.unk_00;
-            v1->unk_00[v0].unk_1C = ((UnkStruct_ov97_02233268 *)param1->gameInfo.userGameInfo)->unk_08.unk_18;
-            v1->unk_00[v0].unk_34.unk_00.val2 = v3.unk_00.val2;
-            v1->unk_00[v0].unk_36 = (u8)param0->linkLevel;
+        if (v4->coins.val2 == 0) {
+            v1->coins[v0].coins.coins.val2 = v2.coins.val2;
+            v1->coins[v0].slotMachineVariant = ((UnkStruct_ov97_02233268 *)slotsMinigameDTO->gameInfo.userGameInfo)->unk_08.coins;
+            v1->coins[v0].unk_1C = ((UnkStruct_ov97_02233268 *)slotsMinigameDTO->gameInfo.userGameInfo)->unk_08.unk_18;
+            v1->coins[v0].unk_34.coins.val2 = v3.coins.val2;
+            v1->coins[v0].unk_36 = (u8)param0->linkLevel;
             return 1;
         }
     }
@@ -383,9 +383,9 @@ static BOOL ov97_022326D4(WMstartScanCallback *param0)
         int v3;
 
         for (v3 = 0; v3 < 8; v3++) {
-            UnkStruct_ov97_022335A8 *v4 = &v1->unk_00[v3].unk_00;
+            UnkStruct_ov97_022335A8 *v4 = &v1->coins[v3].coins;
 
-            if (v4->unk_00.val2) {
+            if (v4->coins.val2) {
                 v2 = 1;
                 break;
             }
@@ -406,7 +406,7 @@ static BOOL ov97_022326D4(WMstartScanCallback *param0)
     if ((param0->gameInfoLength >= 8) && (v0->gameInfo.ggid == ov97_02233554())) {
         UnkStruct_ov97_02233268 *v5 = (UnkStruct_ov97_02233268 *)v0->gameInfo.userGameInfo;
 
-        if ((v5->unk_00.unk_00.unk_00_0 == ov97_02233560()) && (v5->unk_00.unk_00.unk_00_8 <= ov97_02233570()) && (v5->unk_00.unk_04.unk_00_16 == ov97_02233580())) {
+        if ((v5->coins.coins.unk_00_0 == ov97_02233560()) && (v5->coins.coins.unk_00_8 <= ov97_02233570()) && (v5->coins.slotMachineVariant.unk_00_16 == ov97_02233580())) {
             if (ov97_02232620(param0, v0)) {
                 UnkStruct_ov97_02232620 *v6 = ov97_02233508();
 
@@ -488,11 +488,11 @@ static BOOL ov97_0223282C(void)
     if ((v0->gameInfoLength >= 8) && (v0->gameInfo.ggid == ov97_02233554())) {
         UnkStruct_ov97_02233268 *v3 = (UnkStruct_ov97_02233268 *)v0->gameInfo.userGameInfo;
 
-        if ((v3->unk_00.unk_00.unk_00_0 == ov97_02233560()) && (v3->unk_00.unk_00.unk_00_8 <= ov97_02233570()) && (v3->unk_00.unk_04.unk_00_16 == ov97_02233580())) {
+        if ((v3->coins.coins.unk_00_0 == ov97_02233560()) && (v3->coins.coins.unk_00_8 <= ov97_02233570()) && (v3->coins.slotMachineVariant.unk_00_16 == ov97_02233580())) {
             UnkStruct_ov97_022335A8 v4 = ov97_02232210(v0->bssid);
-            UnkStruct_ov97_022335A8 *v5 = &v1->unk_00[v1->unk_1C3_0].unk_00;
+            UnkStruct_ov97_022335A8 *v5 = &v1->coins[v1->unk_1C3_0].coins;
 
-            if (v5->unk_00.val2 == v4.unk_00.val2) {
+            if (v5->coins.val2 == v4.coins.val2) {
                 if (ov97_022339D0() == 0) {
                     ov97_02232200();
                 }
@@ -696,21 +696,21 @@ static void ov97_02232AC8(WMPortRecvCallback *param0)
     UnkStruct_ov97_02232AC8 *v0 = ov97_02233538();
 
     if (v0->unk_19 == 1) {
-        UnkStruct_ov97_02233674 *v1 = (UnkStruct_ov97_02233674 *)v0->unk_0C;
+        UnkStruct_ov97_02233674 *v1 = (UnkStruct_ov97_02233674 *)v0->slotsMinigameDTO;
 
         DC_FlushRange(param0->data, param0->length);
-        MI_CpuCopy8(param0->data, v0->unk_0C, param0->length);
+        MI_CpuCopy8(param0->data, v0->slotsMinigameDTO, param0->length);
 
-        if ((v1->unk_00.unk_00_0 == ov97_02233560()) && (v1->unk_00.unk_00_8 <= ov97_02233570())) {
-            ov97_022337A4(v0->unk_0C);
+        if ((v1->coins.unk_00_0 == ov97_02233560()) && (v1->coins.unk_00_8 <= ov97_02233570())) {
+            ov97_022337A4(v0->slotsMinigameDTO);
 
             if (v1->unk_08.unk_00_0 != v0->unk_1C) {
                 return;
             }
 
-            ov97_02233810((UnkStruct_ov97_02233674 *)v0->unk_0C);
+            ov97_02233810((UnkStruct_ov97_02233674 *)v0->slotsMinigameDTO);
 
-            if ((ov97_022337D8(v0->unk_0C)) && (v1->unk_08.unk_00_8 != 1)) {
+            if ((ov97_022337D8(v0->slotsMinigameDTO)) && (v1->unk_08.unk_00_8 != 1)) {
                 v0->unk_19 = 2;
             } else {
                 v0->unk_19 = 0;
@@ -724,13 +724,13 @@ static void ov97_02232B40(WMPortRecvCallback *param0)
     UnkStruct_ov97_02232AC8 *v0 = ov97_02233538();
 
     if ((ov97_02233448() == 2) && (v0->unk_19 != 2)) {
-        UnkStruct_ov97_02233674 *v1 = (UnkStruct_ov97_02233674 *)v0->unk_0C;
+        UnkStruct_ov97_02233674 *v1 = (UnkStruct_ov97_02233674 *)v0->slotsMinigameDTO;
 
         DC_FlushRange(param0->data, param0->length);
-        MI_CpuCopy8(param0->data, v0->unk_0C, param0->length);
+        MI_CpuCopy8(param0->data, v0->slotsMinigameDTO, param0->length);
 
-        if ((v1->unk_00.unk_00_0 == ov97_02233560()) && (v1->unk_00.unk_00_8 <= ov97_02233570())) {
-            ov97_022337A4(v0->unk_0C);
+        if ((v1->coins.unk_00_0 == ov97_02233560()) && (v1->coins.unk_00_8 <= ov97_02233570())) {
+            ov97_022337A4(v0->slotsMinigameDTO);
 
             if (v1->unk_08.unk_00_0 != 0xFD) {
                 return;
@@ -739,9 +739,9 @@ static void ov97_02232B40(WMPortRecvCallback *param0)
                 int v3;
 
                 for (v3 = 0; v3 < 8; v3++) {
-                    if (v2->unk_00[v3].unk_06 == param0->aid) {
-                        v2->unk_00[v3].unk_08 = 1;
-                        v2->unk_00[v3].unk_09 = 3;
+                    if (v2->coins[v3].unk_06 == param0->aid) {
+                        v2->coins[v3].unk_08 = 1;
+                        v2->coins[v3].unk_09 = 3;
                         v0->unk_1A = 180;
                         v0->unk_19 = 0;
                         break;
@@ -760,27 +760,27 @@ static void ov97_02232BCC(WMPortRecvCallback *param0)
         ov97_02232B40(param0);
     } else {
         if (((v0->unk_19 == 1) || (v0->unk_19 == 3)) && (v0->unk_1B == 0)) {
-            UnkStruct_ov97_02233674 *v1 = (UnkStruct_ov97_02233674 *)v0->unk_0C;
+            UnkStruct_ov97_02233674 *v1 = (UnkStruct_ov97_02233674 *)v0->slotsMinigameDTO;
 
             DC_FlushRange(param0->data, param0->length);
-            MI_CpuCopy8(param0->data, v0->unk_0C, param0->length);
+            MI_CpuCopy8(param0->data, v0->slotsMinigameDTO, param0->length);
 
-            if ((v1->unk_00.unk_00_0 == ov97_02233560()) && (v1->unk_00.unk_00_8 <= ov97_02233570())) {
-                ov97_022337A4(v0->unk_0C);
+            if ((v1->coins.unk_00_0 == ov97_02233560()) && (v1->coins.unk_00_8 <= ov97_02233570())) {
+                ov97_022337A4(v0->slotsMinigameDTO);
 
                 if (v1->unk_08.unk_00_0 != v0->unk_1C) {
                     return;
                 }
 
-                ov97_02233810((UnkStruct_ov97_02233674 *)v0->unk_0C);
+                ov97_02233810((UnkStruct_ov97_02233674 *)v0->slotsMinigameDTO);
 
                 v0->unk_19 = 0;
 
-                if (ov97_022337D8(v0->unk_0C)) {
+                if (ov97_022337D8(v0->slotsMinigameDTO)) {
                     if (v1->unk_08.unk_00_0 == 0xFD) {
                         ov97_02232B40(param0);
                     } else {
-                        MI_CpuCopy8((u8 *)v0->unk_0C + v1->unk_0C.unk_00_0, v0->unk_04, v1->unk_0C.unk_00_8);
+                        MI_CpuCopy8((u8 *)v0->slotsMinigameDTO + v1->slotsMinigameDTO.unk_00_0, v0->slotMachineVariant, v1->slotsMinigameDTO.unk_00_8);
                     }
 
                     v1->unk_08.unk_00_8 = 0;

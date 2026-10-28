@@ -6,10 +6,10 @@
 #include "overlay083/struct_ov83_0223F054.h"
 
 typedef struct {
-    int unk_00;
-    UnkStruct_ov83_0223D784 *unk_04;
+    int coins;
+    UnkStruct_ov83_0223D784 *slotMachineVariant;
     UnkStruct_ov83_0223D95C *unk_08;
-    u32 unk_0C;
+    u32 slotsMinigameDTO;
     UnkStruct_ov83_0223F054 unk_10[8];
     int unk_410;
 } UnkStruct_ov83_0223ED3C;

@@ -12,7 +12,7 @@ void Location_InitFly(int flyDestination, Location *location);
 void Location_InitBlackOut(int blackOutDestination, Location *location);
 int GetMapBlackOutWarpId(enum MapHeaderID mapHeaderID);
 int GetMapFlyWarpId(enum MapHeaderID mapHeaderID);
-int GetSpawnIdByMapAndCoords(enum MapHeaderID mapHeaderID, int param1, int param2);
+int GetSpawnIdByMapAndCoords(enum MapHeaderID mapHeaderID, int slotsMinigameDTO, int param2);
 void TryUnlockFlyLocationByMap(FieldSystem *fieldSystem, enum MapHeaderID mapHeaderID);
 BOOL CheckFlyLocationUnlocked(FieldSystem *fieldSystem, int flyLocation);
 

@@ -19,7 +19,7 @@ void BattleFactory_PickOpponentTrainers(u8 challengeType, int currentRound, u16 
 const BattleFactoryPokemonPool *BattleFactory_GetPokemonPoolForTrainer(int trainerID, BOOL isOpenLevel);
 BOOL BattleFactory_SelectPokemonFromPool(const u16 excludedSpecies[], const u16 excludedItems[], int numExcluded, int numMons, u16 monSetIDs[], int unused, const BattleFactoryPokemonPool *pool, u16 tradeCount, u8 ivList[]);
 u8 BattleFactory_GetPlayerPartySize(u8 challengeType);
-u8 BattleFactory_GetOpponentPartySize(u8 challengeType, BOOL param1);
+u8 BattleFactory_GetOpponentPartySize(u8 challengeType, BOOL slotsMinigameDTO);
 void BattleFactory_SelectInitialRentalOptions(u16 round, u8 isOpenLevel, u16 *monSetIDs, FrontierPokemon *mons, u8 *ivs, u32 *personalities, u16 tradeCount, u16 *excludedSpecies, u16 *unused);
 void BattleFactory_SelectInitialOpponentMons(u8 numMons, u16 trainerID, u8 isOpenLevel, FrontierPokemon *excludedMons, u16 *monSetIDs, FrontierPokemon *mons, u8 *ivList, u32 *personalities, int numExcluded);
 FieldBattleDTO *BattleFactory_SetupBattle(BattleFactory *battleFactory, FieldFrontierDTO *fieldData);

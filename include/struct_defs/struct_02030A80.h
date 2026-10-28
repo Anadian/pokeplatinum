@@ -6,7 +6,7 @@
 #include "easy_chat_sentence.h"
 
 typedef struct UnkStruct_02030A80_t {
-    u16 unk_00[8];
+    u16 coins[8];
     u32 id;
     u8 gender;
     u8 month;

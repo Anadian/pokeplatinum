@@ -10,10 +10,10 @@ typedef void (*UnkFuncPtr_ov66_0222DDF0_4)(PPW_LOBBY_TIME_EVENT, void *);
 typedef void (*UnkFuncPtr_ov66_0222DDF0_5)(const void *, u32, void *);
 
 typedef struct {
-    UnkFuncPtr_ov66_0222DDF0_1 unk_00;
-    UnkFuncPtr_ov66_0222DDF0_2 unk_04;
+    UnkFuncPtr_ov66_0222DDF0_1 coins;
+    UnkFuncPtr_ov66_0222DDF0_2 slotMachineVariant;
     UnkFuncPtr_ov66_0222DDF0_3 unk_08;
-    UnkFuncPtr_ov66_0222DDF0_4 unk_0C;
+    UnkFuncPtr_ov66_0222DDF0_4 slotsMinigameDTO;
     UnkFuncPtr_ov66_0222DDF0_5 unk_10;
 } UnkStruct_ov66_022324F0;
 

@@ -4,7 +4,7 @@
 #include <dwc.h>
 
 typedef struct {
-    u16 unk_00[8];
+    u16 coins[8];
     u16 unk_10[8];
     u32 unk_20;
     u16 unk_24;

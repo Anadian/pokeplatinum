@@ -5,10 +5,10 @@
 
 typedef struct {
     u8 padding_00[4];
-    int unk_04;
+    int slotMachineVariant;
     s16 unk_08;
     u8 padding_0A;
-    UnkStruct_ov116_022649E4 *unk_0C;
+    UnkStruct_ov116_022649E4 *slotsMinigameDTO;
 } UnkStruct_ov116_02262A44;
 
 #endif // POKEPLATINUM_STRUCT_OV116_02262A44_H

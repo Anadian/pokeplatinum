@@ -7,15 +7,15 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    u32 unk_00;
-    int unk_04;
+    u32 coins;
+    int slotMachineVariant;
     fx32 unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     UnkEnum_ov101_021D2BDC unk_10;
     int unk_14;
     int unk_18;
     SysTask *unk_1C;
-    UnkStruct_ov101_021D13C8 *unk_20;
+    Overlay101State *unk_20;
 } UnkStruct_ov101_021D2D88;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D2D88_H

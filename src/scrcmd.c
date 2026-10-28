@@ -227,8 +227,8 @@
 #include "debug.h"
 
 typedef struct {
-    SysTask *unk_00;
-    SysTask *unk_04;
+    SysTask *coins;
+    SysTask *slotMachineVariant;
     MapObjectAnimCmd *unk_08;
     FieldSystem *fieldSystem;
 } UnkStruct_02040F28;
@@ -368,7 +368,7 @@ static BOOL ScrCmd_0A3(ScriptContext *ctx);
 static BOOL ScrCmd_Unused_0A4(ScriptContext *ctx);
 static BOOL ScrCmd_GetCurNetID(ScriptContext *ctx);
 static BOOL ScrCmd_DrawPokemonPreview(ScriptContext *ctx);
-static void FieldSystem_WriteSpeciesSeen(FieldSystem *fieldSystem, u16 param1);
+static void FieldSystem_WriteSpeciesSeen(FieldSystem *fieldSystem, u16 slotsMinigameDTO);
 static BOOL ScrCmd_RemovePokemonPreview(ScriptContext *ctx);
 static BOOL ScrCmd_StartVsSeeker(ScriptContext *ctx);
 static BOOL ScrCmd_SetMoveCodeForFacingDirection(ScriptContext *ctx);
@@ -641,7 +641,7 @@ static BOOL ScrCmd_ChangeDeoxysForm(ScriptContext *ctx);
 static BOOL ScrCmd_CheckPartyCombeeGenderCount(ScriptContext *ctx);
 static BOOL ScrCmd_HidePoketch(ScriptContext *ctx);
 static BOOL ScrCmd_ShowPoketch(ScriptContext *ctx);
-static BOOL ScrCmd_267(ScriptContext *ctx);
+static BOOL TriggerSlotsMinigame(ScriptContext *ctx);
 static BOOL ScrCmd_GetHour(ScriptContext *ctx);
 static BOOL ScrCmd_ShakeObject(ScriptContext *ctx);
 static BOOL ScrCmd_FlickerObject(ScriptContext *ctx);
@@ -739,8 +739,8 @@ static BOOL ScrCmd_CheckNoWiFiPlazaCooldown(ScriptContext *ctx);
 static BOOL ScrCmd_SetPartyGiratinaForm(ScriptContext *ctx);
 static BOOL ScrCmd_CheckPartyHasFatefulEncounterRegigigas(ScriptContext *ctx);
 static BOOL ScriptContext_WaitForMovement(ScriptContext *ctx);
-static void sub_02040F28(FieldSystem *fieldSystem, SysTask *param1, MapObjectAnimCmd *param2);
-static void sub_02040F5C(SysTask *param0, void *param1);
+static void sub_02040F28(FieldSystem *fieldSystem, SysTask *slotsMinigameDTO, MapObjectAnimCmd *param2);
+static void sub_02040F5C(SysTask *param0, void *slotsMinigameDTO);
 static u32 SaveData_GetRotomFormsInSave(SaveData *saveData);
 
 static const u8 sConditionTable[6][3] = {
@@ -2128,7 +2128,7 @@ static BOOL ScriptContext_WaitForMovement(ScriptContext *ctx)
     return FALSE;
 }
 
-static void sub_02040F28(FieldSystem *fieldSystem, SysTask *param1, MapObjectAnimCmd *param2)
+static void sub_02040F28(FieldSystem *fieldSystem, SysTask *slotsMinigameDTO, MapObjectAnimCmd *param2)
 {
     UnkStruct_02040F28 *v0 = NULL;
 
@@ -2140,27 +2140,27 @@ static void sub_02040F28(FieldSystem *fieldSystem, SysTask *param1, MapObjectAni
     }
 
     v0->fieldSystem = fieldSystem;
-    v0->unk_04 = param1;
+    v0->slotMachineVariant = slotsMinigameDTO;
     v0->unk_08 = param2;
-    v0->unk_00 = SysTask_Start(sub_02040F5C, v0, 0);
+    v0->coins = SysTask_Start(sub_02040F5C, v0, 0);
 
     return;
 }
 
-static void sub_02040F5C(SysTask *task, void *param1)
+static void sub_02040F5C(SysTask *task, void *slotsMinigameDTO)
 {
-    UnkStruct_02040F28 *v0 = (UnkStruct_02040F28 *)param1;
+    UnkStruct_02040F28 *v0 = (UnkStruct_02040F28 *)slotsMinigameDTO;
     u8 *v1 = FieldSystem_GetScriptMemberPtr(v0->fieldSystem, SCRIPT_MANAGER_MOVEMENT_COUNT);
 
-    if (MapObject_HasAnimationEnded(v0->unk_04) == 1) {
-        MapObject_FinishAnimation(v0->unk_04);
-        SysTask_Done(v0->unk_00);
+    if (MapObject_HasAnimationEnded(v0->slotMachineVariant) == 1) {
+        MapObject_FinishAnimation(v0->slotMachineVariant);
+        SysTask_Done(v0->coins);
 
         if (v0->unk_08) {
             Heap_Free(v0->unk_08);
         }
 
-        Heap_Free(param1);
+        Heap_Free(slotsMinigameDTO);
 
         if (*v1 == 0) {
             GF_ASSERT(FALSE);
@@ -2932,11 +2932,11 @@ static BOOL ScrCmd_WaitForTransition(ScriptContext *ctx)
     return TRUE;
 }
 
-static BOOL ImageClipsSlotHasData(FieldSystem *fieldSystem, int param1, int slot)
+static BOOL ImageClipsSlotHasData(FieldSystem *fieldSystem, int slotsMinigameDTO, int slot)
 {
     ImageClips *imageClips = SaveData_GetImageClips(fieldSystem->saveData);
 
-    if (param1 == 0) {
+    if (slotsMinigameDTO == 0) {
         if (!ImageClips_DressUpPhotoHasData(imageClips, slot)) {
             return FALSE;
         }
@@ -2962,7 +2962,7 @@ static UnkStruct_02041DC8 *sub_02041DC8(enum HeapID heapID, FieldSystem *fieldSy
 
     v0->imageClips = imageClips;
     v0->unk_08 = param2;
-    v0->unk_04 = slot;
+    v0->slotMachineVariant = slot;
 
     return v0;
 }
@@ -2985,7 +2985,7 @@ static BOOL ScrCmd_Unused_0A4(ScriptContext *ctx)
     u16 *v2 = ScriptContext_GetVarPointer(ctx);
 
     UnkStruct_ov98_02247168 *v0 = (*v1);
-    *v2 = v0->unk_04;
+    *v2 = v0->slotMachineVariant;
 
     Heap_Free(*v1);
     return FALSE;
@@ -3661,7 +3661,7 @@ static BOOL ScrCmd_0C3(ScriptContext *ctx)
     FieldOverworldState *fieldState = SaveData_GetFieldOverworldState(ctx->fieldSystem->saveData);
 
     FieldOverworldState_SetWeather(fieldState, OVERWORLD_WEATHER_CLEAR);
-    ov5_021D5F7C(ctx->fieldSystem->unk_04->unk_0C, FieldOverworldState_GetWeather(fieldState));
+    ov5_021D5F7C(ctx->fieldSystem->slotMachineVariant->slotsMinigameDTO, FieldOverworldState_GetWeather(fieldState));
 
     return TRUE;
 }
@@ -3671,7 +3671,7 @@ static BOOL ScrCmd_0C4(ScriptContext *ctx)
     FieldOverworldState *fieldState = SaveData_GetFieldOverworldState(ctx->fieldSystem->saveData);
 
     FieldOverworldState_SetWeather(fieldState, OVERWORLD_WEATHER_CLEAR);
-    ov5_021D5F7C(ctx->fieldSystem->unk_04->unk_0C, FieldOverworldState_GetWeather(fieldState));
+    ov5_021D5F7C(ctx->fieldSystem->slotMachineVariant->slotsMinigameDTO, FieldOverworldState_GetWeather(fieldState));
 
     return TRUE;
 }
@@ -5823,7 +5823,7 @@ static BOOL ScrCmd_ShowPoketch(ScriptContext *ctx)
     return FALSE;
 }
 
-static BOOL ScrCmd_267(ScriptContext *ctx)
+static BOOL TriggerSlotsMinigame(ScriptContext *ctx)
 {
 	EmulatorLog("%s: received %u", __func__, ctx);
     u16 slotMachineID = ScriptContext_GetVar(ctx);
@@ -6608,12 +6608,12 @@ static BOOL ScrCmd_AdvanceEternaGymClock(ScriptContext *ctx)
     return TRUE;
 }
 
-static void sub_020462C0(SysTask *ctx, void *param1)
+static void sub_020462C0(SysTask *ctx, void *slotsMinigameDTO)
 {
-    FieldSystem *fieldSystem = param1;
+    FieldSystem *fieldSystem = slotsMinigameDTO;
 
-    if (fieldSystem->unk_04->unk_0C) {
-        ov5_021D5F24(fieldSystem->unk_04->unk_0C, 26);
+    if (fieldSystem->slotMachineVariant->slotsMinigameDTO) {
+        ov5_021D5F24(fieldSystem->slotMachineVariant->slotsMinigameDTO, 26);
         SysTask_Done(ctx);
     }
 }
@@ -6631,7 +6631,7 @@ static BOOL ScrCmd_Unused_2CE(ScriptContext *ctx)
     FieldSystem *fieldSystem = ctx->fieldSystem;
     u16 v1 = FieldOverworldState_GetWeather(SaveData_GetFieldOverworldState(fieldSystem->saveData));
 
-    ov5_021D5F24(fieldSystem->unk_04->unk_0C, v1);
+    ov5_021D5F24(fieldSystem->slotMachineVariant->slotsMinigameDTO, v1);
     return TRUE;
 }
 
@@ -7082,7 +7082,7 @@ static BOOL ScrCmd_CheckNoWiFiPlazaCooldown(ScriptContext *ctx)
     u16 *destVar = ScriptContext_GetVarPointer(ctx);
 
     s64 timestamp = GetTimestamp();
-    s64 v3 = timestamp - fieldSystem->unk_C4.unk_00;
+    s64 v3 = timestamp - fieldSystem->unk_C4.coins;
 
     if (v3 >= 120) {
         *destVar = TRUE;

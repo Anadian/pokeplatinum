@@ -182,7 +182,7 @@ void *FieldSystem_GetScriptMemberPtr(FieldSystem *fieldSystem, u32 member);
 void FieldSystem_ShowStartMenu(FieldSystem *fieldSystem);
 u16 *FieldSystem_GetVarPointer(FieldSystem *fieldSystem, u16 varID);
 u16 FieldSystem_TryGetVar(FieldSystem *fieldSystem, u16 varID);
-u16 FieldSystem_GetGraphicsID(FieldSystem *fieldSystem, u16 param1);
+u16 FieldSystem_GetGraphicsID(FieldSystem *fieldSystem, u16 slotsMinigameDTO);
 BOOL FieldSystem_CheckFlag(FieldSystem *fieldSystem, u16 flagID);
 void FieldSystem_SetFlag(FieldSystem *fieldSystem, u16 flagID);
 void FieldSystem_ClearFlag(FieldSystem *fieldSystem, u16 flagID);
@@ -202,6 +202,6 @@ u8 Script_GetHiddenItemRange(u16 scriptID);
 HiddenItemTilePosition *FieldSystem_GetNearbyHiddenItems(FieldSystem *fieldSystem, enum HeapID heapID);
 void FieldSystem_InitNewGameState(FieldSystem *fieldSystem);
 void FieldSystem_RunScript(FieldSystem *fieldSystem, u16 scriptID);
-BOOL FieldSystem_RunInitScript(FieldSystem *fieldSystem, u8 param1);
+BOOL FieldSystem_RunInitScript(FieldSystem *fieldSystem, u8 slotsMinigameDTO);
 
 #endif // POKEPLATINUM_SCRIPT_MANAGER_H

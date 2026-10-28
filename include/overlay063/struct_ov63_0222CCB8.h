@@ -4,8 +4,8 @@
 #include "overlay063/struct_ov63_0222CC3C.h"
 
 typedef struct {
-    UnkStruct_ov63_0222CC3C unk_00;
-    u16 unk_04;
+    UnkStruct_ov63_0222CC3C coins;
+    u16 slotMachineVariant;
     u8 unk_06;
     u8 unk_07;
 } UnkStruct_ov63_0222CCB8;

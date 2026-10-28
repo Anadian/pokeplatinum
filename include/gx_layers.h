@@ -4,10 +4,10 @@
 #include <nitro/gx.h>
 
 typedef struct GXBanks {
-    GXVRamBG unk_00;
-    GXVRamBGExtPltt unk_04;
+    GXVRamBG coins;
+    GXVRamBGExtPltt slotMachineVariant;
     GXVRamSubBG unk_08;
-    GXVRamSubBGExtPltt unk_0C;
+    GXVRamSubBGExtPltt slotsMinigameDTO;
     GXVRamOBJ unk_10;
     GXVRamOBJExtPltt unk_14;
     GXVRamSubOBJ unk_18;

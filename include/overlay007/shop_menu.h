@@ -78,7 +78,7 @@ enum ShopStates {
 
 typedef struct {
     BgConfig *bgConfig;
-    void *unk_04;
+    void *slotMachineVariant;
     Window windows[SHOP_WINDOW_MAX + 1]; // beyond SHOP_WINDOW_MAX index here is unused
     ListMenu *listMenu;
     StringList *itemsList;

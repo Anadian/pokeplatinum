@@ -14,10 +14,10 @@
 #include "bg_window.h"
 
 typedef struct UnkStruct_ov65_02235130_t {
-    BOOL unk_00;
+    BOOL coins;
     u32 heapID;
     u32 unk_08;
-    BOOL unk_0C;
+    BOOL slotsMinigameDTO;
     BgConfig *unk_10;
     UnkStruct_ov65_022358CC unk_14;
     UnkStruct_ov65_022354D8 unk_1F0[48];

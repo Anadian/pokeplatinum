@@ -21,9 +21,9 @@ u8 Daycare_BufferGainedLevelsInSlot(Daycare *daycare, int slot, StringTemplate *
 void Daycare_ResetPersonalityAndStepCounter(Daycare *daycare);
 void Egg_CreateEgg(Pokemon *mon, u16 species, u8 param2, TrainerInfo *trainerInfo, int param4, int metLocation);
 void Daycare_GiveEggFromDaycare(Daycare *daycare, Party *party, TrainerInfo *trainerInfo);
-BOOL Daycare_Update(Daycare *daycare, Party *param1, FieldSystem *fieldSystem);
+BOOL Daycare_Update(Daycare *daycare, Party *slotsMinigameDTO, FieldSystem *fieldSystem);
 Pokemon *Party_GetFirstEgg(Party *party);
-void ov5_021E72BC(Daycare *daycare, StringTemplate *param1);
+void ov5_021E72BC(Daycare *daycare, StringTemplate *slotsMinigameDTO);
 void Daycare_BufferNicknameLevelGender(Daycare *daycare, u32 idxNickname, u32 idxLevel, u32 idxGender, u8 slot, StringTemplate *template);
 u16 Party_StringTemplateSetNicknameReturnSpecies(Party *party, int slot, StringTemplate *strTemplate);
 u8 Daycare_GetState(Daycare *daycare);

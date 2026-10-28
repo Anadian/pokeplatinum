@@ -12,27 +12,27 @@
 #include "sprite.h"
 #include "trainer_info.h"
 
-void ov114_0225C700(UnkStruct_ov114_0225C76C *param0, BOOL param1, SaveData *saveData, BOOL param3, UnkStruct_ov66_02230DBC *param4);
-u32 ov114_0225C76C(const UnkStruct_ov114_0225C76C *param0, u32 param1);
-u32 ov114_0225C78C(const UnkStruct_ov114_0225C76C *param0, u32 param1);
-BOOL ov114_0225C7A4(const UnkStruct_ov114_0225C76C *param0, u32 param1);
-TrainerInfo *ov114_0225C7CC(const UnkStruct_ov114_0225C76C *param0, u32 param1);
+void ov114_0225C700(UnkStruct_ov114_0225C76C *param0, BOOL slotsMinigameDTO, SaveData *saveData, BOOL param3, UnkStruct_ov66_02230DBC *param4);
+u32 ov114_0225C76C(const UnkStruct_ov114_0225C76C *param0, u32 slotsMinigameDTO);
+u32 ov114_0225C78C(const UnkStruct_ov114_0225C76C *param0, u32 slotsMinigameDTO);
+BOOL ov114_0225C7A4(const UnkStruct_ov114_0225C76C *param0, u32 slotsMinigameDTO);
+TrainerInfo *ov114_0225C7CC(const UnkStruct_ov114_0225C76C *param0, u32 slotsMinigameDTO);
 UnkStruct_ov114_0225D678 *ov114_0225C814(const UnkStruct_ov114_0225C76C *param0, u32 heapID);
 UnkStruct_ov114_0225D678 *ov114_0225C820(const UnkStruct_ov114_0225C76C *param0, u32 heapID);
 UnkStruct_ov114_0225D678 *ov114_0225C82C(const UnkStruct_ov114_0225C76C *param0, u32 heapID);
 void ov114_0225C838(UnkStruct_ov114_0225D678 *param0);
 BOOL ov114_0225C8BC(const UnkStruct_ov114_0225D678 *param0);
 int ov114_0225C8CC(const UnkStruct_ov114_0225D678 *param0);
-UnkStruct_ov114_0225E854 *ov114_0225C8E0(const UnkStruct_ov114_0225C76C *param0, const UnkStruct_ov114_0225C9A8 *param1, u32 heapID);
-UnkStruct_ov114_0225E854 *ov114_0225C8EC(const UnkStruct_ov114_0225C76C *param0, const UnkStruct_ov114_0225C9A8 *param1, u32 heapID);
-UnkStruct_ov114_0225E854 *ov114_0225C8F8(const UnkStruct_ov114_0225C76C *param0, const UnkStruct_ov114_0225C9A8 *param1, u32 heapID);
+UnkStruct_ov114_0225E854 *ov114_0225C8E0(const UnkStruct_ov114_0225C76C *param0, const UnkStruct_ov114_0225C9A8 *slotsMinigameDTO, u32 heapID);
+UnkStruct_ov114_0225E854 *ov114_0225C8EC(const UnkStruct_ov114_0225C76C *param0, const UnkStruct_ov114_0225C9A8 *slotsMinigameDTO, u32 heapID);
+UnkStruct_ov114_0225E854 *ov114_0225C8F8(const UnkStruct_ov114_0225C76C *param0, const UnkStruct_ov114_0225C9A8 *slotsMinigameDTO, u32 heapID);
 void ov114_0225C904(UnkStruct_ov114_0225E854 *param0);
 BOOL ov114_0225C9A0(const UnkStruct_ov114_0225E854 *param0);
 BOOL ov114_0225C9A4(const UnkStruct_ov114_0225E854 *param0);
-void ov114_0225C9A8(UnkStruct_ov114_0225C9A8 *param0, u32 param1);
-void ov114_0225CA24(UnkStruct_ov114_0225D678 *param0, int param1);
-void ov114_0225CA2C(UnkStruct_ov114_0225E854 *param0, u32 param1, BOOL param2);
-void ov114_0225CA44(UnkStruct_ov114_0225E854 *param0, BOOL param1);
+void ov114_0225C9A8(UnkStruct_ov114_0225C9A8 *param0, u32 slotsMinigameDTO);
+void ov114_0225CA24(UnkStruct_ov114_0225D678 *param0, int slotsMinigameDTO);
+void ov114_0225CA2C(UnkStruct_ov114_0225E854 *param0, u32 slotsMinigameDTO, BOOL param2);
+void ov114_0225CA44(UnkStruct_ov114_0225E854 *param0, BOOL slotsMinigameDTO);
 BOOL ov114_0225CA54(UnkStruct_ov114_0225C76C *param0);
 BOOL ov114_0225CA98(const UnkStruct_ov114_0225C76C *param0);
 UnkStruct_ov114_0225CAD4 *ov114_0225CAD4(SpriteList *param0, u32 heapID);

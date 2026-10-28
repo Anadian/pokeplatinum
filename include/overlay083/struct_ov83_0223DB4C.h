@@ -5,7 +5,7 @@
 #include "overlay083/struct_ov83_0223FCE8.h"
 
 typedef struct {
-    UnkStruct_ov83_0223DB4C_sub1 unk_00[4];
+    UnkStruct_ov83_0223DB4C_sub1 coins[4];
     UnkStruct_ov83_0223FCE8 unk_10;
 } UnkStruct_ov83_0223DB4C;
 

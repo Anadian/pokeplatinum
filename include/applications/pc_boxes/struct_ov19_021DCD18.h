@@ -6,8 +6,8 @@
 #include "sprite.h"
 
 typedef struct {
-    Sprite *unk_00;
-    NNSG2dImageProxy unk_04;
+    Sprite *coins;
+    NNSG2dImageProxy slotMachineVariant;
     u32 unk_28;
     u16 unk_2C;
     u16 unk_2E;

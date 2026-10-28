@@ -8,9 +8,9 @@
 
 typedef struct {
     SaveData *saveData;
-    UnkStruct_ov66_0222DFF8 *unk_04;
+    UnkStruct_ov66_0222DFF8 *slotMachineVariant;
     BOOL unk_08;
-    UnkStruct_ov66_0222DCE0_sub1 *unk_0C;
+    UnkStruct_ov66_0222DCE0_sub1 *slotsMinigameDTO;
     BOOL unk_10;
 } UnkStruct_ov66_02231024;
 

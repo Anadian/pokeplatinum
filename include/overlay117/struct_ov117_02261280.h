@@ -36,10 +36,10 @@
 #include "sys_task_manager.h"
 
 typedef struct UnkStruct_ov117_02261280_t {
-    UnkStruct_ov117_022605C0 *unk_00;
-    int unk_04;
+    UnkStruct_ov117_022605C0 *coins;
+    int slotMachineVariant;
     u32 unk_08;
-    u32 unk_0C[4];
+    u32 slotsMinigameDTO[4];
     UnkStruct_ov114_0225CAD4 *unk_1C;
     int unk_20;
     SpriteSystem *unk_24;

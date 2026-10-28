@@ -10,7 +10,7 @@
 #include "trainer_info.h"
 
 typedef struct UnkStruct_0202F298_t {
-    UnkStruct_0202FAA8 unk_00;
+    UnkStruct_0202FAA8 coins;
     UnkStruct_0202FAA8_sub1 unk_150;
     UnkStruct_0202FD30 unk_1150[4];
     TrainerInfo unk_1B68[4];

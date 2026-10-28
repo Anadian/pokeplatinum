@@ -18,15 +18,15 @@ struct UnkStruct_ov5_021D1A94_t {
     FieldSystem *fieldSystem;
     enum HeapID heapID;
     int unk_08;
-    UnkStruct_ov5_021D1BEC *unk_0C;
+    UnkStruct_ov5_021D1BEC *slotsMinigameDTO;
     SysTaskManager *sysTaskManager;
 };
 
 struct UnkStruct_ov5_021D1BEC_t {
-    UnkStruct_ov5_021D1A94 *unk_00;
+    UnkStruct_ov5_021D1A94 *coins;
     SysTask *sysTask1;
     SysTask *sysTask2;
-    const UnkStruct_ov6_0223E6EC *unk_0C;
+    const UnkStruct_ov6_0223E6EC *slotsMinigameDTO;
     void *unk_10;
 };
 
@@ -40,9 +40,9 @@ UnkStruct_ov5_021D1A94 *ov5_021D1A94(FieldSystem *fieldSystem, enum HeapID heapI
     v0->fieldSystem = fieldSystem;
     v0->heapID = heapID;
     v0->unk_08 = param2;
-    v0->unk_0C = Heap_Alloc(heapID, sizeof(UnkStruct_ov5_021D1BEC) * param2);
+    v0->slotsMinigameDTO = Heap_Alloc(heapID, sizeof(UnkStruct_ov5_021D1BEC) * param2);
 
-    MI_CpuClear32(v0->unk_0C, sizeof(UnkStruct_ov5_021D1BEC) * param2);
+    MI_CpuClear32(v0->slotsMinigameDTO, sizeof(UnkStruct_ov5_021D1BEC) * param2);
 
     v1 = SysTaskManager_GetRequiredSize(param2);
 
@@ -57,10 +57,10 @@ void ov5_021D1AE4(UnkStruct_ov5_021D1A94 *param0)
     int v0;
 
     for (v0 = 0; v0 < param0->unk_08; v0++) {
-        ov5_021D1BEC(&param0->unk_0C[v0]);
+        ov5_021D1BEC(&param0->slotsMinigameDTO[v0]);
     }
 
-    Heap_Free(param0->unk_0C);
+    Heap_Free(param0->slotsMinigameDTO);
     Heap_Free(param0->sysTaskManager);
     Heap_Free(param0);
 }
@@ -70,49 +70,49 @@ void ov5_021D1B18(UnkStruct_ov5_021D1A94 *param0)
     SysTaskManager_ExecuteTasks(param0->sysTaskManager);
 }
 
-static void ov5_021D1B24(SysTask *param0, void *param1)
+static void ov5_021D1B24(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D1BEC *v0 = param1;
+    UnkStruct_ov5_021D1BEC *v0 = slotsMinigameDTO;
 
-    if (FieldSystem_IsRunningFieldMapInner(v0->unk_00->fieldSystem)) {
-        if (v0->unk_0C->unk_10) {
-            v0->unk_0C->unk_10(v0, v0->unk_00->fieldSystem, v0->unk_10);
+    if (FieldSystem_IsRunningFieldMapInner(v0->coins->fieldSystem)) {
+        if (v0->slotsMinigameDTO->unk_10) {
+            v0->slotsMinigameDTO->unk_10(v0, v0->coins->fieldSystem, v0->unk_10);
         }
     }
 }
 
-static void ov5_021D1B48(SysTask *param0, void *param1)
+static void ov5_021D1B48(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D1BEC *v0 = param1;
+    UnkStruct_ov5_021D1BEC *v0 = slotsMinigameDTO;
 
-    if (FieldSystem_IsRunningFieldMapInner(v0->unk_00->fieldSystem)) {
-        if (v0->unk_0C->unk_14) {
-            v0->unk_0C->unk_14(v0, v0->unk_00->fieldSystem, v0->unk_10);
+    if (FieldSystem_IsRunningFieldMapInner(v0->coins->fieldSystem)) {
+        if (v0->slotsMinigameDTO->unk_14) {
+            v0->slotsMinigameDTO->unk_14(v0, v0->coins->fieldSystem, v0->unk_10);
         }
     }
 }
 
-UnkStruct_ov5_021D1BEC *ov5_021D1B6C(UnkStruct_ov5_021D1A94 *param0, const UnkStruct_ov6_0223E6EC *param1)
+UnkStruct_ov5_021D1BEC *ov5_021D1B6C(UnkStruct_ov5_021D1A94 *param0, const UnkStruct_ov6_0223E6EC *slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov5_021D1BEC *v1;
 
-    for (v1 = param0->unk_0C, v0 = 0; v0 < param0->unk_08; v1++, v0++) {
+    for (v1 = param0->slotsMinigameDTO, v0 = 0; v0 < param0->unk_08; v1++, v0++) {
         if (v1->sysTask1 == NULL) {
-            v1->sysTask1 = SysTask_Start(ov5_021D1B24, v1, param1->unk_00);
-            v1->sysTask2 = SysTaskManager_AddTask(param0->sysTaskManager, ov5_021D1B48, v1, param1->unk_00);
-            v1->unk_00 = param0;
-            v1->unk_0C = param1;
+            v1->sysTask1 = SysTask_Start(ov5_021D1B24, v1, slotsMinigameDTO->coins);
+            v1->sysTask2 = SysTaskManager_AddTask(param0->sysTaskManager, ov5_021D1B48, v1, slotsMinigameDTO->coins);
+            v1->coins = param0;
+            v1->slotsMinigameDTO = slotsMinigameDTO;
 
             GF_ASSERT(v1->sysTask1 != NULL);
             GF_ASSERT(v1->sysTask2 != NULL);
 
-            if (param1->unk_04 != 0) {
-                v1->unk_10 = Heap_Alloc(param0->heapID, param1->unk_04);
+            if (slotsMinigameDTO->slotMachineVariant != 0) {
+                v1->unk_10 = Heap_Alloc(param0->heapID, slotsMinigameDTO->slotMachineVariant);
             }
 
-            if (param1->unk_08) {
-                param1->unk_08(v1, param0->fieldSystem, v1->unk_10);
+            if (slotsMinigameDTO->unk_08) {
+                slotsMinigameDTO->unk_08(v1, param0->fieldSystem, v1->unk_10);
             }
 
             return v1;
@@ -129,11 +129,11 @@ void ov5_021D1BEC(UnkStruct_ov5_021D1BEC *param0)
         return;
     }
 
-    if (param0->unk_0C->unk_0C) {
-        param0->unk_0C->unk_0C(param0, param0->unk_00->fieldSystem, param0->unk_10);
+    if (param0->slotsMinigameDTO->slotsMinigameDTO) {
+        param0->slotsMinigameDTO->slotsMinigameDTO(param0, param0->coins->fieldSystem, param0->unk_10);
     }
 
-    if (param0->unk_0C->unk_04 != 0) {
+    if (param0->slotsMinigameDTO->slotMachineVariant != 0) {
         Heap_Free(param0->unk_10);
     }
 

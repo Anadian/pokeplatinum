@@ -15,25 +15,25 @@
 #include "res/graphics/field_effects/field_effects.naix"
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     FieldEffectManager *unk_08;
-    Simple3DModel unk_0C;
+    Simple3DModel slotsMinigameDTO;
     Simple3DRenderObj unk_20;
     MapObject *unk_74;
 } UnkStruct_021F50E8;
 
 typedef struct {
-    FieldEffectManager *unk_00;
-    UnkStruct_021F50E8 *unk_04;
+    FieldEffectManager *coins;
+    UnkStruct_021F50E8 *slotMachineVariant;
     MapObject *unk_08;
 } UnkStruct_ov5_021F511C;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    enum MapHeaderID unk_0C;
+    enum MapHeaderID slotsMinigameDTO;
     int unk_10;
     int unk_14;
     VecFx32 unk_18;
@@ -65,13 +65,13 @@ void ov5_021F50D8(void *param0)
 
 static void ov5_021F50E8(UnkStruct_021F50E8 *param0)
 {
-    FieldEffectManager_LoadModel(param0->unk_08, &param0->unk_0C, 0, ug_flag_nsbmd, 0);
-    Simple3D_CreateRenderObject(&param0->unk_20, &param0->unk_0C);
+    FieldEffectManager_LoadModel(param0->unk_08, &param0->slotsMinigameDTO, 0, ug_flag_nsbmd, 0);
+    Simple3D_CreateRenderObject(&param0->unk_20, &param0->slotsMinigameDTO);
 }
 
 static void ov5_021F5110(UnkStruct_021F50E8 *param0)
 {
-    Simple3D_FreeModel(&param0->unk_0C);
+    Simple3D_FreeModel(&param0->slotsMinigameDTO);
 }
 
 OverworldAnimManager *ov5_021F511C(MapObject *param0)
@@ -84,8 +84,8 @@ OverworldAnimManager *ov5_021F511C(MapObject *param0)
 
     v3 = MapObject_GetFieldEffectManager(param0);
 
-    v2.unk_00 = v3;
-    v2.unk_04 = FieldEffectManager_GetRendererContext(v3, 5);
+    v2.coins = v3;
+    v2.slotMachineVariant = FieldEffectManager_GetRendererContext(v3, 5);
     v2.unk_08 = param0;
 
     MapObject_GetPosPtr(param0, &v4);
@@ -96,16 +96,16 @@ OverworldAnimManager *ov5_021F511C(MapObject *param0)
     return v5;
 }
 
-static int ov5_021F5158(OverworldAnimManager *param0, void *param1)
+static int ov5_021F5158(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
     VecFx32 v2;
 
-    UnkStruct_ov5_021F5158 *v0 = param1;
+    UnkStruct_ov5_021F5158 *v0 = slotsMinigameDTO;
     const UnkStruct_ov5_021F511C *v1 = OverworldAnimManager_GetUserData(param0);
 
     v0->unk_30 = *v1;
     v0->unk_08 = MapObject_GetLocalID(v0->unk_30.unk_08);
-    v0->unk_0C = MapObject_GetMapHeaderID(v0->unk_30.unk_08);
+    v0->slotsMinigameDTO = MapObject_GetMapHeaderID(v0->unk_30.unk_08);
     v0->unk_24.y = (FX32_ONE * 6);
 
     MapObject_GetPosPtr(v0->unk_30.unk_08, &v2);
@@ -114,33 +114,33 @@ static int ov5_021F5158(OverworldAnimManager *param0, void *param1)
     return 1;
 }
 
-static void ov5_021F51A0(OverworldAnimManager *param0, void *param1)
+static void ov5_021F51A0(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
     return;
 }
 
-static void ov5_021F51A4(OverworldAnimManager *param0, void *param1)
+static void ov5_021F51A4(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov5_021F5158 *v0;
     MapObject *v1;
     VecFx32 v2;
 
-    v0 = param1;
+    v0 = slotsMinigameDTO;
     v1 = v0->unk_30.unk_08;
 
-    GF_ASSERT(sub_02062764(v1, v0->unk_08, v0->unk_0C) != 0);
+    GF_ASSERT(sub_02062764(v1, v0->unk_08, v0->slotsMinigameDTO) != 0);
 
-    switch (v0->unk_00) {
+    switch (v0->coins) {
     case 0:
         MapObject_GetPosPtr(v1, &v2);
         v2.z += (FX32_ONE * -10);
         OverworldAnimManager_SetPosition(param0, &v2);
         break;
     case 1:
-        v0->unk_04++;
+        v0->slotMachineVariant++;
 
-        if (v0->unk_04 >= 30) {
-            v0->unk_00++;
+        if (v0->slotMachineVariant >= 30) {
+            v0->coins++;
         }
         break;
     case 2:
@@ -148,9 +148,9 @@ static void ov5_021F51A4(OverworldAnimManager *param0, void *param1)
     }
 }
 
-static void ov5_021F5204(OverworldAnimManager *param0, void *param1)
+static void ov5_021F5204(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021F5158 *v0 = param1;
+    UnkStruct_ov5_021F5158 *v0 = slotsMinigameDTO;
 
     {
         VecFx32 v1, v2 = { FX32_ONE, FX32_ONE, FX32_ONE };
@@ -171,7 +171,7 @@ static void ov5_021F5204(OverworldAnimManager *param0, void *param1)
             MTX_Concat33(&v3, &v5, &v3);
         }
 
-        Simple3D_DrawRenderObjSimple(&v0->unk_30.unk_04->unk_20, &v1, &v2, &v3);
+        Simple3D_DrawRenderObjSimple(&v0->unk_30.slotMachineVariant->unk_20, &v1, &v2, &v3);
     }
 }
 

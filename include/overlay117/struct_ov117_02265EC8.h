@@ -6,8 +6,8 @@
 #include "sprite_system.h"
 
 typedef struct {
-    ManagedSprite *unk_00;
-    UnkStruct_ov117_02265EB0 unk_04[6][2];
+    ManagedSprite *coins;
+    UnkStruct_ov117_02265EB0 slotMachineVariant[6][2];
     UnkStruct_ov117_02265EB0 unk_F4;
     UnkStruct_ov117_02265EB0 unk_108[6];
     u8 unk_180[6];

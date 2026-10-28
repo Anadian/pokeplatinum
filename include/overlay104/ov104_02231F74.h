@@ -40,9 +40,9 @@ void FrontierMenuManager_AddListMenuEntry(FrontierMenuManager *menuManager, u32 
 void FrontierMenuManager_ShowListMenu(FrontierMenuManager *menuManager);
 void FrontierMenuManager_FreeListMenu(FrontierMenuManager *menuManager);
 void FrontierObject_DoAnimation(SysTask *task, void *data);
-void ov104_02232C80(UnkStruct_ov63_0222CCB8 *param0, UnkStruct_ov63_0222BEC0 *param1, int param2, int action);
-void ov104_02232CE0(FrontierGraphics *param0, Pokemon *param1, enum HeapID heapID, int param3, int param4, int param5, int param6, int param7, int param8, u16 param9);
-void ov104_02232E80(FrontierGraphics *param0, int param1);
+void ov104_02232C80(UnkStruct_ov63_0222CCB8 *param0, UnkStruct_ov63_0222BEC0 *slotsMinigameDTO, int param2, int action);
+void ov104_02232CE0(FrontierGraphics *param0, Pokemon *slotsMinigameDTO, enum HeapID heapID, int param3, int param4, int param5, int param6, int param7, int param8, u16 param9);
+void ov104_02232E80(FrontierGraphics *param0, int slotsMinigameDTO);
 void BattleFrontier_LoadMonSpriteData(FrontierGraphics *graphics);
 void BattleFrontier_UnloadMonSpriteData(FrontierGraphics *graphics);
 ManagedSprite *BattleFrontier_CreateMonSprite(FrontierGraphics *graphics, Pokemon *mon, int resourceID, int x, int y);
@@ -53,8 +53,8 @@ ManagedSprite *BattleFrontier_CreateItemSprite(FrontierGraphics *graphics, int x
 void BattleFrontier_DeleteItemSprite(FrontierGraphics *graphics, ManagedSprite *sprite);
 void BattleFrontier_PrintNormalTrainerMessage(FrontierScriptContext *ctx, u16 *args);
 void BattleFrontier_PrintTrainerMessage(FrontierScriptContext *ctx, u16 *args, u32 bankID);
-void ov104_0223319C(SysTask *param0, void *param1);
-void ov104_022331E8(SysTask *param0, void *param1);
+void ov104_0223319C(SysTask *param0, void *slotsMinigameDTO);
+void ov104_022331E8(SysTask *param0, void *slotsMinigameDTO);
 void FrontierMenuManager_SetHorizontalAnchor(FrontierMenuManager *menuManager, BOOL anchorRight);
 void FrontierMenuManager_SetVerticalAnchor(FrontierMenuManager *menuManager, BOOL anchorBottom);
 

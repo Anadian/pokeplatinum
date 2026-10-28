@@ -17,12 +17,12 @@
 #include "touch_screen_actions.h"
 #include "unk_0208A3F4.h"
 
-void sub_02089604(UnkStruct_02089688 *param0, int param1)
+void sub_02089604(UnkStruct_02089688 *param0, int slotsMinigameDTO)
 {
     int v0;
 
     param0->unk_2D8 = param0->unk_2D4;
-    param0->unk_2D4 = param1;
+    param0->unk_2D4 = slotsMinigameDTO;
     param0->unk_2DC = 0;
     param0->unk_2E0 = 0;
     param0->unk_2E4 = 0;
@@ -48,18 +48,18 @@ void sub_02089688(UnkStruct_02089688 *param0)
 
     for (v0 = 0; v0 < 4 + 1; v0++) {
         param0->unk_2AA[v0][0] = v1;
-        v1 += param0->unk_3B8.unk_04[v0];
+        v1 += param0->unk_3B8.slotMachineVariant[v0];
         param0->unk_2AA[v0][1] = v1;
     }
 
     sub_02089604(param0, param0->unk_3B8.unk_24 + 1);
 
     for (v0 = 0; v0 < 4; v0++) {
-        if (param0->unk_3B8.unk_04[v0] == 0) {
+        if (param0->unk_3B8.slotMachineVariant[v0] == 0) {
             break;
         }
 
-        param0->unk_2D0 += param0->unk_3B8.unk_04[v0];
+        param0->unk_2D0 += param0->unk_3B8.slotMachineVariant[v0];
         param0->unk_3EC++;
     }
 
@@ -68,7 +68,7 @@ void sub_02089688(UnkStruct_02089688 *param0)
     param0->unk_2A0[0] = 112 - v2 / 2;
 
     for (v0 = 0; v0 < 4; v0++) {
-        v2 = 8 * param0->unk_3EC + (8 * (param0->unk_2D0 - param0->unk_3B8.unk_04[v0]) + 32 * param0->unk_3B8.unk_04[v0]);
+        v2 = 8 * param0->unk_3EC + (8 * (param0->unk_2D0 - param0->unk_3B8.slotMachineVariant[v0]) + 32 * param0->unk_3B8.slotMachineVariant[v0]);
 
         param0->unk_2A0[v0 + 1] = 112 - v2 / 2;
     }
@@ -77,29 +77,29 @@ void sub_02089688(UnkStruct_02089688 *param0)
     v3 = 0;
 
     for (v0 = 0; v0 < param0->unk_3EC; v0++) {
-        v3 += param0->unk_3B8.unk_04[v0];
-        param0->unk_1C0[v0].unk_00 = v3 - 1;
+        v3 += param0->unk_3B8.slotMachineVariant[v0];
+        param0->unk_1C0[v0].coins = v3 - 1;
     }
 
     v5 = 0;
     v0 = 0;
 
     do {
-        for (v4 = 0; v4 < param0->unk_3B8.unk_04[v5]; v4++) {
-            param0->unk_00[v0].unk_04 = v5 + 1;
+        for (v4 = 0; v4 < param0->unk_3B8.slotMachineVariant[v5]; v4++) {
+            param0->coins[v0].slotMachineVariant = v5 + 1;
             v0++;
         }
         v5++;
     } while (v0 < param0->unk_2D0);
 
     for (v0 = 0; v0 < param0->unk_3B8.unk_24; v0++) {
-        param0->unk_3F0 += param0->unk_3B8.unk_04[v0];
+        param0->unk_3F0 += param0->unk_3B8.slotMachineVariant[v0];
     }
 }
 
-void sub_02089808(UnkStruct_02089688 *param0, int param1)
+void sub_02089808(UnkStruct_02089688 *param0, int slotsMinigameDTO)
 {
-    param0->unk_2C0 = param1;
+    param0->unk_2C0 = slotsMinigameDTO;
     param0->unk_2C4 = 0;
     param0->unk_2C8 = 0;
     param0->unk_2CC = 0;
@@ -116,7 +116,7 @@ BOOL sub_02089820(UnkStruct_02089688 *param0)
     sub_0208AF44(param0);
     sub_0208AFCC(param0);
     sub_0208B064(param0);
-    sub_0208B1C4(param0->unk_2EC.unk_0C, &param0->unk_2EC.unk_B0, 4, 2, 21, 27, 2, 100, param0->unk_3B8.unk_2C);
+    sub_0208B1C4(param0->unk_2EC.slotsMinigameDTO, &param0->unk_2EC.unk_B0, 4, 2, 21, 27, 2, 100, param0->unk_3B8.unk_2C);
 
     if (param0->unk_3B8.unk_30 != 0) {
         NNSG2dPaletteData *v0;
@@ -185,42 +185,42 @@ BOOL sub_02089974(UnkStruct_02089688 *param0)
         sub_0208AAB4(param0, 0, 0);
         {
             for (v0 = 0; v0 < param0->unk_2D0; v0++) {
-                if (param0->unk_00[v0].unk_14.unk_04 == 0) {
+                if (param0->coins[v0].unk_14.slotMachineVariant == 0) {
                     continue;
                 }
 
-                ManagedSprite_OffsetPositionXY(param0->unk_00[v0].unk_0C, param0->unk_00[v0].unk_14.unk_00, param0->unk_00[v0].unk_14.unk_02);
-                param0->unk_00[v0].unk_14.unk_04--;
+                ManagedSprite_OffsetPositionXY(param0->coins[v0].slotsMinigameDTO, param0->coins[v0].unk_14.coins, param0->coins[v0].unk_14.unk_02);
+                param0->coins[v0].unk_14.slotMachineVariant--;
 
                 if ((v0 >= param0->unk_2DC) && (v0 < param0->unk_2E0)) {
-                    ManagedSprite_SetAffineScale(param0->unk_00[v0].unk_0C, v1[param0->unk_00[v0].unk_14.unk_05], v1[param0->unk_00[v0].unk_14.unk_05]);
-                    param0->unk_00[v0].unk_14.unk_05++;
+                    ManagedSprite_SetAffineScale(param0->coins[v0].slotsMinigameDTO, v1[param0->coins[v0].unk_14.unk_05], v1[param0->coins[v0].unk_14.unk_05]);
+                    param0->coins[v0].unk_14.unk_05++;
                 }
 
                 if ((v0 >= param0->unk_2E4) && (v0 < param0->unk_2E8)) {
-                    ManagedSprite_SetAffineScale(param0->unk_00[v0].unk_0C, v2[param0->unk_00[v0].unk_14.unk_05], v2[param0->unk_00[v0].unk_14.unk_05]);
-                    param0->unk_00[v0].unk_14.unk_05++;
+                    ManagedSprite_SetAffineScale(param0->coins[v0].slotsMinigameDTO, v2[param0->coins[v0].unk_14.unk_05], v2[param0->coins[v0].unk_14.unk_05]);
+                    param0->coins[v0].unk_14.unk_05++;
                 }
             }
 
             for (v0 = 0; v0 < param0->unk_3EC; v0++) {
-                if (param0->unk_1C0[v0].unk_14.unk_04 == 0) {
+                if (param0->unk_1C0[v0].unk_14.slotMachineVariant == 0) {
                     continue;
                 }
 
-                ManagedSprite_OffsetPositionXY(param0->unk_1C0[v0].unk_0C, param0->unk_1C0[v0].unk_14.unk_00, param0->unk_1C0[v0].unk_14.unk_02);
-                param0->unk_1C0[v0].unk_14.unk_04--;
+                ManagedSprite_OffsetPositionXY(param0->unk_1C0[v0].slotsMinigameDTO, param0->unk_1C0[v0].unk_14.coins, param0->unk_1C0[v0].unk_14.unk_02);
+                param0->unk_1C0[v0].unk_14.slotMachineVariant--;
             }
 
-            if (param0->unk_00[0].unk_14.unk_04 == 0) {
+            if (param0->coins[0].unk_14.slotMachineVariant == 0) {
                 for (v0 = param0->unk_2DC; v0 < param0->unk_2E0; v0++) {
-                    ManagedSprite_SetAnim(param0->unk_00[v0].unk_0C, sub_0208AD98(param0->unk_00[v0].unk_00, param0->unk_00[v0].unk_08));
-                    ManagedSprite_TickFrame(param0->unk_00[v0].unk_0C);
+                    ManagedSprite_SetAnim(param0->coins[v0].slotsMinigameDTO, sub_0208AD98(param0->coins[v0].coins, param0->coins[v0].unk_08));
+                    ManagedSprite_TickFrame(param0->coins[v0].slotsMinigameDTO);
                 }
 
                 for (v0 = param0->unk_2E4; v0 < param0->unk_2E8; v0++) {
-                    ManagedSprite_SetAnim(param0->unk_00[v0].unk_0C, sub_0208AD98(param0->unk_00[v0].unk_00, param0->unk_00[v0].unk_08));
-                    ManagedSprite_TickFrame(param0->unk_00[v0].unk_0C);
+                    ManagedSprite_SetAnim(param0->coins[v0].slotsMinigameDTO, sub_0208AD98(param0->coins[v0].coins, param0->coins[v0].unk_08));
+                    ManagedSprite_TickFrame(param0->coins[v0].slotsMinigameDTO);
                 }
 
                 param0->unk_2C8++;
@@ -231,21 +231,21 @@ BOOL sub_02089974(UnkStruct_02089688 *param0)
         break;
     case 1:
         for (v0 = param0->unk_2DC; v0 < param0->unk_2E0; v0++) {
-            if (param0->unk_00[v0].unk_14.unk_05 == 6) {
+            if (param0->coins[v0].unk_14.unk_05 == 6) {
                 continue;
             }
 
-            ManagedSprite_SetAffineScale(param0->unk_00[v0].unk_0C, v1[param0->unk_00[v0].unk_14.unk_05], v1[param0->unk_00[v0].unk_14.unk_05]);
-            param0->unk_00[v0].unk_14.unk_05++;
+            ManagedSprite_SetAffineScale(param0->coins[v0].slotsMinigameDTO, v1[param0->coins[v0].unk_14.unk_05], v1[param0->coins[v0].unk_14.unk_05]);
+            param0->coins[v0].unk_14.unk_05++;
         }
 
         for (v0 = param0->unk_2E4; v0 < param0->unk_2E8; v0++) {
-            if (param0->unk_00[v0].unk_14.unk_05 == 6) {
+            if (param0->coins[v0].unk_14.unk_05 == 6) {
                 continue;
             }
 
-            ManagedSprite_SetAffineScale(param0->unk_00[v0].unk_0C, v2[param0->unk_00[v0].unk_14.unk_05], v2[param0->unk_00[v0].unk_14.unk_05]);
-            param0->unk_00[v0].unk_14.unk_05++;
+            ManagedSprite_SetAffineScale(param0->coins[v0].slotsMinigameDTO, v2[param0->coins[v0].unk_14.unk_05], v2[param0->coins[v0].unk_14.unk_05]);
+            param0->coins[v0].unk_14.unk_05++;
         }
 
         param0->unk_2CC++;
@@ -258,9 +258,9 @@ BOOL sub_02089974(UnkStruct_02089688 *param0)
         sub_0208AF44(param0);
 
         if (param0->unk_3AC.unk_08 == 0) {
-            sub_0208AAE4(param0, sub_0208A398(param0, param0->unk_3AC.unk_04));
+            sub_0208AAE4(param0, sub_0208A398(param0, param0->unk_3AC.slotMachineVariant));
         } else {
-            sub_0208AAE4(param0, sub_0208A3C0(param0, param0->unk_3AC.unk_04));
+            sub_0208AAE4(param0, sub_0208A3C0(param0, param0->unk_3AC.slotMachineVariant));
         }
 
         if (param0->unk_2D4 != 0) {
@@ -301,9 +301,9 @@ void sub_02089C20(UnkStruct_02089688 *param0)
         { 10, 10, 10, 11, 11 },
     };
     BOOL v1 = FALSE;
-    int v2 = Unk_020F2EC8[param0->unk_214[1].unk_14.unk_02][param0->unk_214[1].unk_14.unk_00];
+    int v2 = Unk_020F2EC8[param0->unk_214[1].unk_14.unk_02][param0->unk_214[1].unk_14.coins];
 
-    if (param0->unk_2C0 != 1 || param0->unk_3AC.unk_00 == 1) {
+    if (param0->unk_2C0 != 1 || param0->unk_3AC.coins == 1) {
         return;
     }
 
@@ -312,12 +312,12 @@ void sub_02089C20(UnkStruct_02089688 *param0)
             param0->unk_2EC.unk_88 = FALSE;
             sub_0208AB2C(param0, v2);
             if (v2 == 10 || v2 == 11) {
-                if (param0->unk_214[1].unk_00 != 2) {
-                    param0->unk_214[1].unk_00 = 2;
+                if (param0->unk_214[1].coins != 2) {
+                    param0->unk_214[1].coins = 2;
                 }
             } else {
-                if (param0->unk_214[1].unk_00 != 1) {
-                    param0->unk_214[1].unk_00 = 1;
+                if (param0->unk_214[1].coins != 1) {
+                    param0->unk_214[1].coins = 1;
                 }
             }
         }
@@ -338,25 +338,25 @@ void sub_02089C20(UnkStruct_02089688 *param0)
     } else if (gSystem.pressedKeysRepeatable & PAD_KEY_RIGHT) {
 
         if (v2 == 10) {
-            param0->unk_214[1].unk_14.unk_00 = 3;
+            param0->unk_214[1].unk_14.coins = 3;
         } else if (v2 == 11) {
-            param0->unk_214[1].unk_14.unk_00 = 0;
+            param0->unk_214[1].unk_14.coins = 0;
         } else {
-            param0->unk_214[1].unk_14.unk_00++;
-            param0->unk_214[1].unk_14.unk_00 %= 5;
+            param0->unk_214[1].unk_14.coins++;
+            param0->unk_214[1].unk_14.coins %= 5;
         }
         v1 = TRUE;
     } else if (gSystem.pressedKeysRepeatable & PAD_KEY_LEFT) {
 
         if (v2 == 10) {
-            param0->unk_214[1].unk_14.unk_00 = 3;
+            param0->unk_214[1].unk_14.coins = 3;
         } else if (v2 == 11) {
-            param0->unk_214[1].unk_14.unk_00 = 0;
+            param0->unk_214[1].unk_14.coins = 0;
         } else {
-            if (param0->unk_214[1].unk_14.unk_00 > 0) {
-                param0->unk_214[1].unk_14.unk_00--;
+            if (param0->unk_214[1].unk_14.coins > 0) {
+                param0->unk_214[1].unk_14.coins--;
             } else {
-                param0->unk_214[1].unk_14.unk_00 = 4;
+                param0->unk_214[1].unk_14.coins = 4;
             }
         }
         v1 = TRUE;
@@ -378,33 +378,33 @@ void sub_02089C20(UnkStruct_02089688 *param0)
                 return;
             }
 
-            v3 = param0->unk_214[0].unk_00;
-            param0->unk_00[v3].unk_00 = v2 + 1;
+            v3 = param0->unk_214[0].coins;
+            param0->coins[v3].coins = v2 + 1;
             sub_0208AAB4(param0, 1, FALSE);
             sub_0208AAB4(param0, 2, TRUE);
             sub_0208AB6C(param0, v2, 2);
-            ManagedSprite_SetAnim(param0->unk_00[v3].unk_0C, sub_0208AD98(param0->unk_00[v3].unk_00, param0->unk_00[v3].unk_08));
-            ManagedSprite_SetAnim(param0->unk_214[2].unk_0C, 3);
+            ManagedSprite_SetAnim(param0->coins[v3].slotsMinigameDTO, sub_0208AD98(param0->coins[v3].coins, param0->coins[v3].unk_08));
+            ManagedSprite_SetAnim(param0->unk_214[2].slotsMinigameDTO, 3);
 
-            v4 = param0->unk_00[v3].unk_04;
+            v4 = param0->coins[v3].slotMachineVariant;
             v3++;
             if (v3 == param0->unk_2D0) {
 
-                param0->unk_3AC.unk_00 = 1;
-                param0->unk_3AC.unk_04 = 0;
-                param0->unk_214[1].unk_14.unk_00 = 3;
+                param0->unk_3AC.coins = 1;
+                param0->unk_3AC.slotMachineVariant = 0;
+                param0->unk_214[1].unk_14.coins = 3;
                 param0->unk_214[1].unk_14.unk_02 = 2;
                 v1 = TRUE;
             } else {
-                v5 = param0->unk_00[v3].unk_04;
+                v5 = param0->coins[v3].slotMachineVariant;
 
                 if (v4 != v5) {
 
-                    param0->unk_3AC.unk_00 = 1;
-                    param0->unk_3AC.unk_04 = v5;
+                    param0->unk_3AC.coins = 1;
+                    param0->unk_3AC.slotMachineVariant = v5;
                 } else {
-                    param0->unk_3AC.unk_00 = 2;
-                    param0->unk_3AC.unk_04 = v3;
+                    param0->unk_3AC.coins = 2;
+                    param0->unk_3AC.slotMachineVariant = v3;
                 }
                 Sound_PlayEffect(1509);
             }
@@ -413,40 +413,40 @@ void sub_02089C20(UnkStruct_02089688 *param0)
         sub_02089FFC(param0);
         Sound_PlayEffect(1509);
     } else if (gSystem.pressedKeysRepeatable & PAD_BUTTON_L) {
-        int v6 = param0->unk_214[0].unk_00;
+        int v6 = param0->unk_214[0].coins;
 
         if (v6 == param0->unk_3F0) {
-            param0->unk_214[0].unk_00 = param0->unk_2D0 - 1;
+            param0->unk_214[0].coins = param0->unk_2D0 - 1;
         } else {
-            param0->unk_214[0].unk_00--;
+            param0->unk_214[0].coins--;
         }
-        v6 = param0->unk_214[0].unk_00;
+        v6 = param0->unk_214[0].coins;
 
-        if (param0->unk_00[v6].unk_08 == 1) {
-            param0->unk_3AC.unk_00 = 2;
-            param0->unk_3AC.unk_04 = v6;
+        if (param0->coins[v6].unk_08 == 1) {
+            param0->unk_3AC.coins = 2;
+            param0->unk_3AC.slotMachineVariant = v6;
         } else {
-            param0->unk_3AC.unk_00 = 1;
-            param0->unk_3AC.unk_04 = param0->unk_00[v6].unk_04;
+            param0->unk_3AC.coins = 1;
+            param0->unk_3AC.slotMachineVariant = param0->coins[v6].slotMachineVariant;
             param0->unk_3AC.unk_08 = 1;
         }
         Sound_PlayEffect(1504);
     } else if (gSystem.pressedKeysRepeatable & PAD_BUTTON_R) {
-        int v7 = param0->unk_214[0].unk_00;
+        int v7 = param0->unk_214[0].coins;
 
         if (v7 == param0->unk_2D0 - 1) {
-            param0->unk_214[0].unk_00 = param0->unk_3F0;
+            param0->unk_214[0].coins = param0->unk_3F0;
         } else {
-            param0->unk_214[0].unk_00++;
+            param0->unk_214[0].coins++;
         }
-        v7 = param0->unk_214[0].unk_00;
+        v7 = param0->unk_214[0].coins;
 
-        if (param0->unk_00[v7].unk_08 == 1) {
-            param0->unk_3AC.unk_00 = 2;
-            param0->unk_3AC.unk_04 = v7;
+        if (param0->coins[v7].unk_08 == 1) {
+            param0->unk_3AC.coins = 2;
+            param0->unk_3AC.slotMachineVariant = v7;
         } else {
-            param0->unk_3AC.unk_00 = 1;
-            param0->unk_3AC.unk_04 = param0->unk_00[v7].unk_04;
+            param0->unk_3AC.coins = 1;
+            param0->unk_3AC.slotMachineVariant = param0->coins[v7].slotMachineVariant;
         }
         Sound_PlayEffect(1504);
     }
@@ -454,16 +454,16 @@ void sub_02089C20(UnkStruct_02089688 *param0)
     if (v1 == TRUE) {
         Sound_PlayEffect(1504);
 
-        v2 = Unk_020F2EC8[param0->unk_214[1].unk_14.unk_02][param0->unk_214[1].unk_14.unk_00];
+        v2 = Unk_020F2EC8[param0->unk_214[1].unk_14.unk_02][param0->unk_214[1].unk_14.coins];
         sub_0208AB2C(param0, v2);
 
         if (v2 == 10 || v2 == 11) {
-            if (param0->unk_214[1].unk_00 != 2) {
-                param0->unk_214[1].unk_00 = 2;
+            if (param0->unk_214[1].coins != 2) {
+                param0->unk_214[1].coins = 2;
             }
         } else {
-            if (param0->unk_214[1].unk_00 != 1) {
-                param0->unk_214[1].unk_00 = 1;
+            if (param0->unk_214[1].coins != 1) {
+                param0->unk_214[1].coins = 1;
             }
         }
     }
@@ -475,16 +475,16 @@ void sub_02089F80(UnkStruct_02089688 *param0)
     u32 v1 = 0;
     String *v2 = String_Init(100, HEAP_ID_101);
 
-    param0->unk_268[1].unk_00 = 1;
-    param0->unk_268[1].unk_14.unk_04 = 0;
+    param0->unk_268[1].coins = 1;
+    param0->unk_268[1].unk_14.slotMachineVariant = 0;
 
     for (v0 = 0; v0 < param0->unk_2D0; v0++) {
-        if (param0->unk_00[v0].unk_00 == 0) {
-            param0->unk_00[v0].unk_00 = 1;
-            ManagedSprite_SetAnim(param0->unk_00[v0].unk_0C, sub_0208AD98(param0->unk_00[v0].unk_00, param0->unk_00[v0].unk_08));
+        if (param0->coins[v0].coins == 0) {
+            param0->coins[v0].coins = 1;
+            ManagedSprite_SetAnim(param0->coins[v0].slotsMinigameDTO, sub_0208AD98(param0->coins[v0].coins, param0->coins[v0].unk_08));
         }
 
-        v1 = param0->unk_00[v0].unk_00 - 1;
+        v1 = param0->coins[v0].coins - 1;
         String_FormatInt(v2, v1, 1, 1, 1);
         String_Concat(param0->unk_3B8.unk_1C, v2);
     }
@@ -499,39 +499,39 @@ void sub_02089FFC(UnkStruct_02089688 *param0)
     int v1;
     int v2;
 
-    param0->unk_268[0].unk_00 = 1;
-    param0->unk_268[0].unk_14.unk_04 = 0;
+    param0->unk_268[0].coins = 1;
+    param0->unk_268[0].unk_14.slotMachineVariant = 0;
 
     if (param0->unk_2D4 == 0) {
-        v0 = param0->unk_214[0].unk_00 = param0->unk_2D0 - 1;
-        v2 = param0->unk_00[v0].unk_04;
+        v0 = param0->unk_214[0].coins = param0->unk_2D0 - 1;
+        v2 = param0->coins[v0].slotMachineVariant;
 
-        param0->unk_3AC.unk_00 = 1;
-        param0->unk_3AC.unk_04 = v2;
+        param0->unk_3AC.coins = 1;
+        param0->unk_3AC.slotMachineVariant = v2;
         param0->unk_3AC.unk_08 = 1;
 
         return;
     }
 
-    v0 = param0->unk_214[0].unk_00;
-    param0->unk_00[v0].unk_00 = 0;
+    v0 = param0->unk_214[0].coins;
+    param0->coins[v0].coins = 0;
 
-    ManagedSprite_SetAnim(param0->unk_00[v0].unk_0C, sub_0208AD98(param0->unk_00[v0].unk_00, param0->unk_00[v0].unk_08));
-    v1 = param0->unk_00[v0].unk_04;
+    ManagedSprite_SetAnim(param0->coins[v0].slotsMinigameDTO, sub_0208AD98(param0->coins[v0].coins, param0->coins[v0].unk_08));
+    v1 = param0->coins[v0].slotMachineVariant;
 
     if (v0 > param0->unk_3F0) {
         v0--;
-        ManagedSprite_SetAnim(param0->unk_00[v0].unk_0C, sub_0208AD98(param0->unk_00[v0].unk_00, param0->unk_00[v0].unk_08));
+        ManagedSprite_SetAnim(param0->coins[v0].slotsMinigameDTO, sub_0208AD98(param0->coins[v0].coins, param0->coins[v0].unk_08));
 
-        v2 = param0->unk_00[v0].unk_04;
+        v2 = param0->coins[v0].slotMachineVariant;
 
         if (v1 != v2) {
-            param0->unk_3AC.unk_00 = 1;
-            param0->unk_3AC.unk_04 = v2;
+            param0->unk_3AC.coins = 1;
+            param0->unk_3AC.slotMachineVariant = v2;
             param0->unk_3AC.unk_08 = 1;
         } else {
-            param0->unk_3AC.unk_00 = 2;
-            param0->unk_3AC.unk_04 = v0;
+            param0->unk_3AC.coins = 2;
+            param0->unk_3AC.slotMachineVariant = v0;
         }
     }
 }
@@ -541,7 +541,7 @@ void sub_0208A0B8(UnkStruct_02089688 *param0)
     int v0;
 
     for (v0 = 0; v0 < 15 + 1; v0++) {
-        param0->unk_00[v0].unk_10 = &param0->unk_2EC.unk_18[v0];
+        param0->coins[v0].unk_10 = &param0->unk_2EC.unk_18[v0];
     }
 
     {
@@ -571,7 +571,7 @@ void sub_0208A0B8(UnkStruct_02089688 *param0)
     param0->unk_2EC.unk_14 = TouchScreenActions_RegisterHandler(param0->unk_2EC.unk_18, 0x1c, sub_0208A180, param0, HEAP_ID_101);
 }
 
-void sub_0208A180(u32 param0, enum TouchScreenButtonState param1, void *param2)
+void sub_0208A180(u32 param0, enum TouchScreenButtonState slotsMinigameDTO, void *param2)
 {
     UnkStruct_02089688 *v0 = param2;
 
@@ -583,32 +583,32 @@ void sub_0208A180(u32 param0, enum TouchScreenButtonState param1, void *param2)
         v0->unk_2EC.unk_88 = 1;
     }
 
-    if (param1 == TOUCH_BUTTON_PRESSED) {
+    if (slotsMinigameDTO == TOUCH_BUTTON_PRESSED) {
         if ((param0 >= 0) && (param0 < 16)) {
             if (param0 < v0->unk_3F0) {
                 return;
             }
 
-            if (v0->unk_00[param0].unk_08 == 1) {
-                v0->unk_3AC.unk_00 = 2;
-                v0->unk_3AC.unk_04 = param0;
+            if (v0->coins[param0].unk_08 == 1) {
+                v0->unk_3AC.coins = 2;
+                v0->unk_3AC.slotMachineVariant = param0;
             } else {
-                v0->unk_3AC.unk_00 = 1;
-                v0->unk_3AC.unk_04 = v0->unk_00[param0].unk_04;
+                v0->unk_3AC.coins = 1;
+                v0->unk_3AC.slotMachineVariant = v0->coins[param0].slotMachineVariant;
             }
 
             Sound_PlayEffect(SEQ_SE_DP_BUTTON3_sseq);
         } else {
             if (param0 == 26) {
-                v0->unk_214[1].unk_14.unk_00 = 0;
+                v0->unk_214[1].unk_14.coins = 0;
                 v0->unk_214[1].unk_14.unk_02 = 2;
                 Sound_PlayEffect(SEQ_SE_DP_BUTTON3_sseq);
             } else if (param0 == 27) {
-                v0->unk_214[1].unk_14.unk_00 = 3;
+                v0->unk_214[1].unk_14.coins = 3;
                 v0->unk_214[1].unk_14.unk_02 = 2;
                 Sound_PlayEffect(SEQ_SE_DP_PIRORIRO_sseq);
             } else {
-                v0->unk_214[1].unk_14.unk_00 = (param0 - 16) % 5;
+                v0->unk_214[1].unk_14.coins = (param0 - 16) % 5;
                 v0->unk_214[1].unk_14.unk_02 = (param0 - 16) / 5;
                 Sound_PlayEffect(SEQ_SE_DP_BUTTON3_sseq);
             }
@@ -622,34 +622,34 @@ void sub_0208A180(u32 param0, enum TouchScreenButtonState param1, void *param2)
                     return;
                 }
 
-                v1 = v0->unk_214[0].unk_00;
-                v0->unk_00[v1].unk_00 = param0 - 16 + 1;
+                v1 = v0->unk_214[0].coins;
+                v0->coins[v1].coins = param0 - 16 + 1;
 
-                ManagedSprite_SetAnim(v0->unk_00[v1].unk_0C, sub_0208AD98(v0->unk_00[v1].unk_00, v0->unk_00[v1].unk_08));
+                ManagedSprite_SetAnim(v0->coins[v1].slotsMinigameDTO, sub_0208AD98(v0->coins[v1].coins, v0->coins[v1].unk_08));
                 sub_0208AAB4(v0, 1, 1);
                 sub_0208AB2C(v0, param0 - 16);
                 sub_0208AAB4(v0, 1, 0);
                 sub_0208AAB4(v0, 2, 1);
                 sub_0208AB6C(v0, param0 - 16, 2);
-                ManagedSprite_SetAnim(v0->unk_214[2].unk_0C, 3);
+                ManagedSprite_SetAnim(v0->unk_214[2].slotsMinigameDTO, 3);
 
-                v2 = v0->unk_00[v1].unk_04;
+                v2 = v0->coins[v1].slotMachineVariant;
                 v1++;
 
                 if (v1 == v0->unk_2D0) {
-                    v0->unk_3AC.unk_00 = 1;
-                    v0->unk_3AC.unk_04 = 0;
+                    v0->unk_3AC.coins = 1;
+                    v0->unk_3AC.slotMachineVariant = 0;
                     v0->unk_3AC.unk_08 = 0;
                 } else {
-                    v3 = v0->unk_00[v1].unk_04;
+                    v3 = v0->coins[v1].slotMachineVariant;
 
                     if (v2 != v3) {
-                        v0->unk_3AC.unk_00 = 1;
-                        v0->unk_3AC.unk_04 = v3;
+                        v0->unk_3AC.coins = 1;
+                        v0->unk_3AC.slotMachineVariant = v3;
                         v0->unk_3AC.unk_08 = 0;
                     } else {
-                        v0->unk_3AC.unk_00 = 2;
-                        v0->unk_3AC.unk_04 = v1;
+                        v0->unk_3AC.coins = 2;
+                        v0->unk_3AC.slotMachineVariant = v1;
                     }
                 }
             } else {
@@ -665,18 +665,18 @@ void sub_0208A180(u32 param0, enum TouchScreenButtonState param1, void *param2)
 
 void sub_0208A328(UnkStruct_02089688 *param0)
 {
-    switch (param0->unk_3AC.unk_00) {
+    switch (param0->unk_3AC.coins) {
     case 0:
         break;
     case 1:
-        sub_02089604(param0, param0->unk_3AC.unk_04);
+        sub_02089604(param0, param0->unk_3AC.slotMachineVariant);
         sub_0208ADA4(param0);
         sub_0208ADE4(param0, 1);
         sub_02089808(param0, 2);
-        param0->unk_3AC.unk_00 = 0xFF;
+        param0->unk_3AC.coins = 0xFF;
         break;
     case 2:
-        sub_0208AAE4(param0, param0->unk_3AC.unk_04);
+        sub_0208AAE4(param0, param0->unk_3AC.slotMachineVariant);
         sub_0208A384(param0);
         break;
     case 0xFF:
@@ -686,17 +686,17 @@ void sub_0208A328(UnkStruct_02089688 *param0)
 
 void sub_0208A384(UnkStruct_02089688 *param0)
 {
-    param0->unk_3AC.unk_00 = 0;
-    param0->unk_3AC.unk_04 = 0;
+    param0->unk_3AC.coins = 0;
+    param0->unk_3AC.slotMachineVariant = 0;
     param0->unk_3AC.unk_08 = 0;
 }
 
-int sub_0208A398(UnkStruct_02089688 *param0, int param1)
+int sub_0208A398(UnkStruct_02089688 *param0, int slotsMinigameDTO)
 {
     int v0;
 
     for (v0 = 0; v0 < param0->unk_2D0; v0++) {
-        if (param0->unk_00[v0].unk_04 == param1) {
+        if (param0->coins[v0].slotMachineVariant == slotsMinigameDTO) {
             return v0;
         }
     }
@@ -704,14 +704,14 @@ int sub_0208A398(UnkStruct_02089688 *param0, int param1)
     return 0;
 }
 
-int sub_0208A3C0(UnkStruct_02089688 *param0, int param1)
+int sub_0208A3C0(UnkStruct_02089688 *param0, int slotsMinigameDTO)
 {
     int v0;
     int v1 = 0;
     int v2 = 0;
 
     for (v0 = 0; v0 < param0->unk_2D0; v0++) {
-        if (param0->unk_00[v0].unk_04 == param1) {
+        if (param0->coins[v0].slotMachineVariant == slotsMinigameDTO) {
             v2 = 1;
         } else {
             if (v2 == 1) {

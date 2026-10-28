@@ -4,8 +4,8 @@
 #include "enums.h"
 
 typedef struct {
-    u32 unk_00;
-    UnkEnum_ov101_021D6764 unk_04;
+    u32 coins;
+    UnkEnum_ov101_021D6764 slotMachineVariant;
 } UnkStruct_ov101_021D9784;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D9784_H

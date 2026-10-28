@@ -12,10 +12,10 @@
 #include "sys_task_manager.h"
 
 typedef struct UnkStruct_0205C22C_t {
-    UnkStruct_0205B43C *unk_00;
-    SysTask *unk_04;
+    UnkStruct_0205B43C *coins;
+    SysTask *slotMachineVariant;
     PlayerAvatar *playerAvatar;
-    UnkStruct_0205C680 unk_0C[50 + 1];
+    UnkStruct_0205C680 slotsMinigameDTO[50 + 1];
     FieldSystem *fieldSystem;
     PalPad *unk_474;
     UnkStruct_0205C95C *unk_478;

@@ -5,21 +5,21 @@
 #include "ppwlobby/ppw_lobby.h"
 
 class UnkClass_ov66_02235FC8 : public UnkClass_ov66_0225B6E4 {
-    PPW_LOBBY_CHANNEL_KIND unk_00;
-    PPWString unk_04;
+    PPW_LOBBY_CHANNEL_KIND coins;
+    PPWString slotMachineVariant;
     BOOL unk_10;
     BOOL unk_14;
 
 public:
     UnkClass_ov66_02235FC8()
-        : unk_00(PPW_LOBBY_CHANNEL_KIND_INVALID)
-        , unk_04()
+        : coins(PPW_LOBBY_CHANNEL_KIND_INVALID)
+        , slotMachineVariant()
     {
     }
 
-    UnkClass_ov66_02235FC8(PPW_LOBBY_CHANNEL_KIND param0, const PPWString &param1)
-        : unk_00(param0)
-        , unk_04(param1)
+    UnkClass_ov66_02235FC8(PPW_LOBBY_CHANNEL_KIND param0, const PPWString &slotsMinigameDTO)
+        : coins(param0)
+        , slotMachineVariant(slotsMinigameDTO)
         , unk_10(FALSE)
         , unk_14(FALSE)
     {
@@ -27,7 +27,7 @@ public:
 
     BOOL UnkClass_ov66_02235FC8_InlineFunc0() const
     {
-        if (unk_00 != PPW_LOBBY_CHANNEL_KIND_INVALID) {
+        if (coins != PPW_LOBBY_CHANNEL_KIND_INVALID) {
             return TRUE;
         } else {
             return FALSE;
@@ -36,12 +36,12 @@ public:
 
     PPW_LOBBY_CHANNEL_KIND UnkClass_ov66_02235FC8_InlineFunc1() const
     {
-        return unk_00;
+        return coins;
     }
 
     PPWString ov66_02235FC8() const
     {
-        return unk_04;
+        return slotMachineVariant;
     }
 
     void UnkClass_ov66_02235FC8_InlineFunc2()
@@ -64,10 +64,10 @@ public:
         return unk_14;
     }
 
-    void UnkClass_ov66_02235FC8_InlineFunc6(PPW_LOBBY_CHANNEL_KIND param0, const PPWString &param1)
+    void UnkClass_ov66_02235FC8_InlineFunc6(PPW_LOBBY_CHANNEL_KIND param0, const PPWString &slotsMinigameDTO)
     {
-        unk_00 = param0;
-        unk_04 = param1;
+        coins = param0;
+        slotMachineVariant = slotsMinigameDTO;
         unk_10 = FALSE;
         unk_14 = FALSE;
     }
@@ -80,12 +80,12 @@ public:
 
 class UnkClass_ov66_02236348 : public UnkClass_ov66_0225B6E4 {
 private:
-    UnkClass_ov66_02235FC8 unk_00;
+    UnkClass_ov66_02235FC8 coins;
     UnkClass_ov66_02235FC8 unk_18;
 
 public:
     UnkClass_ov66_02236348()
-        : unk_00()
+        : coins()
         , unk_18()
     {
     }
@@ -94,22 +94,22 @@ public:
     {
         switch (param0) {
         case 0:
-            return unk_00;
+            return coins;
         case 1:
             return unk_18;
         default:
-            return unk_00;
+            return coins;
         }
     }
 
-    void UnkClass_ov66_02236348_InlineFunc1(int param0, const UnkClass_ov66_02235FC8 &param1)
+    void UnkClass_ov66_02236348_InlineFunc1(int param0, const UnkClass_ov66_02235FC8 &slotsMinigameDTO)
     {
         switch (param0) {
         case 0:
-            unk_00 = param1;
+            coins = slotsMinigameDTO;
             break;
         case 1:
-            unk_18 = param1;
+            unk_18 = slotsMinigameDTO;
             break;
         default:
             break;
@@ -119,7 +119,7 @@ public:
     PPWString ov66_02236348(PPW_LOBBY_CHANNEL_KIND param0) const
     {
         if (param0 == PPW_LOBBY_CHANNEL_KIND_MAIN) {
-            return unk_00.ov66_02235FC8();
+            return coins.ov66_02235FC8();
         } else {
             return unk_18.ov66_02235FC8();
         }
@@ -127,8 +127,8 @@ public:
 
     PPW_LOBBY_CHANNEL_KIND UnkClass_ov66_02236348_InlineFunc2(const PPWString &param0) const
     {
-        if (unk_00.ov66_02235FC8() == param0) {
-            return unk_00.UnkClass_ov66_02235FC8_InlineFunc1();
+        if (coins.ov66_02235FC8() == param0) {
+            return coins.UnkClass_ov66_02235FC8_InlineFunc1();
         }
 
         if (unk_18.ov66_02235FC8() == param0) {

@@ -122,12 +122,12 @@ void JournalPrinter_RemoveWindows(JournalManager *journalManager)
     }
 }
 
-void JournalPrinter_PrintEntry(JournalManager *journalManager, u32 param1)
+void JournalPrinter_PrintEntry(JournalManager *journalManager, u32 slotsMinigameDTO)
 {
     Window *titleWindow;
     Window *eventsWindow;
 
-    if (param1 == 0) {
+    if (slotsMinigameDTO == 0) {
         titleWindow = &journalManager->window[0];
         eventsWindow = &journalManager->window[1];
     } else {

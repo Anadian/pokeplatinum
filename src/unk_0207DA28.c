@@ -42,10 +42,10 @@ FS_EXTERN_OVERLAY(overlay116);
 FS_EXTERN_OVERLAY(overlay117);
 
 typedef struct {
-    UnkStruct_ov98_02247168 *unk_00;
-    int unk_04;
+    UnkStruct_ov98_02247168 *coins;
+    int slotMachineVariant;
     u16 *unk_08;
-    u8 unk_0C;
+    u8 slotsMinigameDTO;
     u8 unk_0D;
     void *unk_10;
     u32 unk_14;
@@ -89,102 +89,102 @@ static BOOL sub_0207DA28(FieldTask *task)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
     UnkStruct_0207DE40 *v2 = FieldTask_GetEnv(task);
 
-    switch (v2->unk_04) {
+    switch (v2->slotMachineVariant) {
     case 0:
-        v2->unk_00->saveData = fieldSystem->saveData;
+        v2->coins->saveData = fieldSystem->saveData;
     case 1:
-        v2->unk_04++;
+        v2->slotMachineVariant++;
 
-        if (v2->unk_00->unk_04 == 1) {
+        if (v2->coins->slotMachineVariant == 1) {
             if (WiFiList_HasValidLogin(fieldSystem->saveData)) {
-                v2->unk_04 = 10;
+                v2->slotMachineVariant = 10;
                 *(v2->unk_08) = 0;
             }
         }
         break;
     case 2:
-        FieldTask_RunApplication(task, &Unk_020F1B98, v2->unk_00);
-        v2->unk_04++;
+        FieldTask_RunApplication(task, &Unk_020F1B98, v2->coins);
+        v2->slotMachineVariant++;
         break;
     case 3:
         if (WiFiList_HasValidLogin(fieldSystem->saveData)) {
             SystemFlag_SetConnectedToWiFi(SaveData_GetVarsFlags(fieldSystem->saveData));
         }
 
-        switch (v2->unk_00->unk_04) {
+        switch (v2->coins->slotMachineVariant) {
         case 3:
-            v2->unk_0C = 0;
+            v2->slotsMinigameDTO = 0;
             v2->unk_0D = 0;
-            v2->unk_04 = 4;
+            v2->slotMachineVariant = 4;
             break;
         case 1:
-            v2->unk_0C = 50;
+            v2->slotsMinigameDTO = 50;
             v2->unk_0D = 0;
-            v2->unk_04 = 4;
+            v2->slotMachineVariant = 4;
             break;
         case 2:
-            v2->unk_0C = 100;
+            v2->slotsMinigameDTO = 100;
             v2->unk_0D = 0;
-            v2->unk_04 = 4;
+            v2->slotMachineVariant = 4;
             break;
         case 6:
-            v2->unk_0C = 0;
+            v2->slotsMinigameDTO = 0;
             v2->unk_0D = 1;
-            v2->unk_04 = 4;
+            v2->slotMachineVariant = 4;
             break;
         case 4:
-            v2->unk_0C = 50;
+            v2->slotsMinigameDTO = 50;
             v2->unk_0D = 1;
-            v2->unk_04 = 4;
+            v2->slotMachineVariant = 4;
             break;
         case 5:
-            v2->unk_0C = 100;
+            v2->slotsMinigameDTO = 100;
             v2->unk_0D = 1;
-            v2->unk_04 = 4;
+            v2->slotMachineVariant = 4;
             break;
         case 7:
-            v2->unk_04 = 6;
+            v2->slotMachineVariant = 6;
             break;
         case 10:
             *(v2->unk_08) = 1;
-            v2->unk_04 = 11;
+            v2->slotMachineVariant = 11;
             break;
         case 8:
-            v2->unk_04 = 9;
+            v2->slotMachineVariant = 9;
             break;
         case 11:
-            v2->unk_04 = 12;
+            v2->slotMachineVariant = 12;
             break;
         case 12:
-            v2->unk_04 = 16;
+            v2->slotMachineVariant = 16;
             break;
         case 13:
-            v2->unk_04 = 18;
+            v2->slotMachineVariant = 18;
             break;
         case 14:
-            v2->unk_04 = 22;
+            v2->slotMachineVariant = 22;
             break;
         case 15:
-            v2->unk_04 = 26;
+            v2->slotMachineVariant = 26;
             break;
         case 9:
-            v2->unk_04 = 8;
+            v2->slotMachineVariant = 8;
             break;
         }
         break;
     case 4:
-        Encounter_NewVsWiFi(task, v2->unk_00->unk_08, v2->unk_0C, v2->unk_0D);
-        v2->unk_04++;
+        Encounter_NewVsWiFi(task, v2->coins->unk_08, v2->slotsMinigameDTO, v2->unk_0D);
+        v2->slotMachineVariant++;
         break;
     case 5:
-        v2->unk_04 = 2;
+        v2->slotMachineVariant = 2;
         break;
     case 6:
         sub_0203DDDC(task);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 7:
-        v2->unk_04 = 2;
+        v2->slotMachineVariant = 2;
         break;
     case 8:
         Heap_Create(HEAP_ID_APPLICATION, HEAP_ID_54, DWC_UTILITY_WORK_SIZE + 0x100);
@@ -195,97 +195,97 @@ static BOOL sub_0207DA28(FieldTask *task)
     case 9:
     case 11:
     case 10:
-        Heap_Free(v2->unk_00);
+        Heap_Free(v2->coins);
         Heap_Free(v2);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         return 1;
     case 12:
         sub_0207DE04(v2, fieldSystem, HEAP_ID_FIELD2, 0);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 13:
         if (!FieldSystem_IsRunningApplication(fieldSystem)) {
-            v2->unk_04 = sub_0207DE40(v2);
+            v2->slotMachineVariant = sub_0207DE40(v2);
         }
         break;
     case 14:
         v2->unk_10 = PoffinBerrySelectionContext_CreateVoiceChat(fieldSystem, HEAP_ID_FIELD2, v2->unk_14);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 15:
         if (!FieldSystem_IsRunningApplication(fieldSystem)) {
             Heap_Free(v2->unk_10);
-            v2->unk_04 = 2;
+            v2->slotMachineVariant = 2;
         }
         break;
     case 16:
         sub_0203632C(0);
         v2->unk_10 = BattleFrontier_LaunchWFCFacilitySelector(fieldSystem, NULL);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 17:
         if (!FieldSystem_IsRunningApplication(fieldSystem)) {
             Heap_Free(v2->unk_10);
-            v2->unk_04 = 2;
+            v2->slotMachineVariant = 2;
         }
         break;
     case 18:
         sub_0207DE04(v2, fieldSystem, HEAP_ID_FIELD2, 1);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 19:
         if (!FieldSystem_IsRunningApplication(fieldSystem)) {
-            v2->unk_04 = sub_0207DE40(v2);
+            v2->slotMachineVariant = sub_0207DE40(v2);
         }
         break;
     case 20:
         sub_0207DF9C(fieldSystem);
         v2->unk_10 = sub_0207DE90(fieldSystem, HEAP_ID_FIELD2, v2->unk_14);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 21:
         if (!FieldSystem_IsRunningApplication(fieldSystem)) {
-            v2->unk_04 = 2;
+            v2->slotMachineVariant = 2;
             sub_0207DED8(v2->unk_10);
         }
         break;
     case 22:
         sub_0207DE04(v2, fieldSystem, HEAP_ID_FIELD2, 2);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 23:
         if (!FieldSystem_IsRunningApplication(fieldSystem)) {
-            v2->unk_04 = sub_0207DE40(v2);
+            v2->slotMachineVariant = sub_0207DE40(v2);
         }
         break;
     case 24:
         sub_0207DF9C(fieldSystem);
         v2->unk_10 = sub_0207DEEC(fieldSystem, HEAP_ID_FIELD2, v2->unk_14);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 25:
         if (!FieldSystem_IsRunningApplication(fieldSystem)) {
-            v2->unk_04 = 2;
+            v2->slotMachineVariant = 2;
             sub_0207DF2C(v2->unk_10);
         }
         break;
     case 26:
         sub_0207DE04(v2, fieldSystem, HEAP_ID_FIELD2, 3);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 27:
         if (!FieldSystem_IsRunningApplication(fieldSystem)) {
-            v2->unk_04 = sub_0207DE40(v2);
+            v2->slotMachineVariant = sub_0207DE40(v2);
         }
         break;
     case 28:
         sub_0207DF9C(fieldSystem);
         v2->unk_10 = sub_0207DF40(fieldSystem, HEAP_ID_FIELD2, v2->unk_14);
-        v2->unk_04++;
+        v2->slotMachineVariant++;
         break;
     case 29:
         if (!FieldSystem_IsRunningApplication(fieldSystem)) {
-            v2->unk_04 = 2;
+            v2->slotMachineVariant = 2;
             sub_0207DF88(v2->unk_10);
         }
         break;
@@ -301,8 +301,8 @@ static UnkStruct_0207DE40 *sub_0207DD94(void)
     UnkStruct_0207DE40 *v0 = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(UnkStruct_0207DE40));
 
     MI_CpuClear8(v0, sizeof(UnkStruct_0207DE40));
-    v0->unk_00 = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(UnkStruct_ov98_02247168));
-    MI_CpuClear8(v0->unk_00, sizeof(UnkStruct_ov98_02247168));
+    v0->coins = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(UnkStruct_ov98_02247168));
+    MI_CpuClear8(v0->coins, sizeof(UnkStruct_ov98_02247168));
     return v0;
 }
 
@@ -310,16 +310,16 @@ void sub_0207DDC0(FieldTask *param0)
 {
     UnkStruct_0207DE40 *v0 = sub_0207DD94();
 
-    v0->unk_00->unk_04 = 2;
+    v0->coins->slotMachineVariant = 2;
     FieldTask_InitCall(param0, sub_0207DA28, v0);
 }
 
-void sub_0207DDE0(FieldTask *param0, u16 *param1)
+void sub_0207DDE0(FieldTask *param0, u16 *slotsMinigameDTO)
 {
     UnkStruct_0207DE40 *v0 = sub_0207DD94();
 
-    v0->unk_00->unk_04 = 1;
-    v0->unk_08 = param1;
+    v0->coins->slotMachineVariant = 1;
+    v0->unk_08 = slotsMinigameDTO;
 
     FieldTask_InitCall(param0, sub_0207DA28, v0);
 }
@@ -328,11 +328,11 @@ static void sub_0207DE04(UnkStruct_0207DE40 *param0, FieldSystem *fieldSystem, e
 {
     UnkStruct_0207DE04 *v0 = Heap_Alloc(heapID, sizeof(UnkStruct_0207DE04));
 
-    v0->unk_00 = param3;
+    v0->coins = param3;
     v0->unk_01 = 2;
     v0->unk_02 = Unk_020F1B64[param3];
     v0->unk_03 = 0;
-    v0->unk_04 = 0;
+    v0->slotMachineVariant = 0;
     v0->saveData = fieldSystem->saveData;
 
     param0->unk_10 = v0;
@@ -345,28 +345,28 @@ static u32 sub_0207DE40(UnkStruct_0207DE40 *param0)
     UnkStruct_0207DE04 *v0 = param0->unk_10;
 
     if (v0->unk_03 == 1) {
-        switch (v0->unk_00) {
+        switch (v0->coins) {
         case 0:
-            param0->unk_04 = 14;
+            param0->slotMachineVariant = 14;
             break;
         case 1:
-            param0->unk_04 = 20;
+            param0->slotMachineVariant = 20;
             break;
         case 2:
-            param0->unk_04 = 24;
+            param0->slotMachineVariant = 24;
             break;
         case 3:
-            param0->unk_04 = 28;
+            param0->slotMachineVariant = 28;
             break;
         }
     } else {
-        param0->unk_04 = 1;
+        param0->slotMachineVariant = 1;
     }
 
-    param0->unk_14 = v0->unk_04;
+    param0->unk_14 = v0->slotMachineVariant;
     Heap_Free(param0->unk_10);
 
-    return param0->unk_04;
+    return param0->slotMachineVariant;
 }
 
 static UnkStruct_ov115_02260440 *sub_0207DE90(FieldSystem *fieldSystem, enum HeapID heapID, u32 param2)

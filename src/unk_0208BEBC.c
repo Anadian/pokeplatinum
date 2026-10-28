@@ -23,11 +23,11 @@
 
 FS_EXTERN_OVERLAY(overlay62);
 
-static int sub_0208BF38(ApplicationManager *appMan, int *param1);
-static int sub_0208BF44(ApplicationManager *appMan, int *param1);
-static int sub_0208BEBC(ApplicationManager *appMan, int *param1, int param2);
-static int sub_0208BF50(ApplicationManager *appMan, int *param1);
-static int sub_0208BF6C(ApplicationManager *appMan, int *param1);
+static int sub_0208BF38(ApplicationManager *appMan, int *slotsMinigameDTO);
+static int sub_0208BF44(ApplicationManager *appMan, int *slotsMinigameDTO);
+static int sub_0208BEBC(ApplicationManager *appMan, int *slotsMinigameDTO, int param2);
+static int sub_0208BF50(ApplicationManager *appMan, int *slotsMinigameDTO);
+static int sub_0208BF6C(ApplicationManager *appMan, int *slotsMinigameDTO);
 
 const ApplicationManagerTemplate Unk_020F3050 = {
     sub_0208BF38,
@@ -43,7 +43,7 @@ const ApplicationManagerTemplate Unk_020F3060 = {
     FS_OVERLAY_ID(overlay62)
 };
 
-static int sub_0208BEBC(ApplicationManager *appMan, int *param1, int param2)
+static int sub_0208BEBC(ApplicationManager *appMan, int *slotsMinigameDTO, int param2)
 {
     UnkStruct_0208C06C *v0;
 
@@ -77,50 +77,50 @@ static int sub_0208BEBC(ApplicationManager *appMan, int *param1, int param2)
     return 1;
 }
 
-static int sub_0208BF38(ApplicationManager *appMan, int *param1)
+static int sub_0208BF38(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
-    return sub_0208BEBC(appMan, param1, 0);
+    return sub_0208BEBC(appMan, slotsMinigameDTO, 0);
 }
 
-static int sub_0208BF44(ApplicationManager *appMan, int *param1)
+static int sub_0208BF44(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
-    return sub_0208BEBC(appMan, param1, 1);
+    return sub_0208BEBC(appMan, slotsMinigameDTO, 1);
 }
 
-static int sub_0208BF50(ApplicationManager *appMan, int *param1)
+static int sub_0208BF50(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     BOOL v0 = 0;
     UnkStruct_0208C06C *v1 = sub_0208BA78(appMan);
 
-    v1->unk_10 = param1;
-    v0 = ov62_0222F910(v1, param1);
+    v1->unk_10 = slotsMinigameDTO;
+    v0 = ov62_0222F910(v1, slotsMinigameDTO);
 
     return (v0) ? 1 : 0;
 }
 
-static int sub_0208BF6C(ApplicationManager *appMan, int *param1)
+static int sub_0208BF6C(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_0208C06C *v0 = sub_0208BA78(appMan);
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         ov62_0223069C(v0);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 1:
         ov62_0223066C(v0);
         ov62_02230B74(v0);
         ov62_0223113C(v0);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 2: {
         if (sub_0208B988(v0->unk_6F0) == 0) {
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
     } break;
     case 3: {
         if (sub_0208B988(v0->unk_6F4) == 0) {
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
     } break;
     default:

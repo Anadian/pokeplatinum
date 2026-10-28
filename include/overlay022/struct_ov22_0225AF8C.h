@@ -6,8 +6,8 @@
 #include "bg_window.h"
 
 typedef struct {
-    BgConfig *unk_00;
-    int unk_04;
+    BgConfig *coins;
+    int slotMachineVariant;
     int unk_08;
     enum HeapID heapID;
 } UnkStruct_ov22_0225AF8C;

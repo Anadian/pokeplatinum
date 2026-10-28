@@ -909,10 +909,10 @@ static BOOL Field_UpdatePoison(FieldSystem *fieldSystem)
     case FLDPSN_NONE:
         return FALSE;
     case FLDPSN_POISONED:
-        Field_DoPoisonEffect(fieldSystem->unk_04->unk_20);
+        Field_DoPoisonEffect(fieldSystem->slotMachineVariant->unk_20);
         return FALSE;
     case FLDPSN_FAINTED:
-        Field_DoPoisonEffect(fieldSystem->unk_04->unk_20);
+        Field_DoPoisonEffect(fieldSystem->slotMachineVariant->unk_20);
         ScriptManager_Set(fieldSystem, SCRIPT_ID(COMMON_SCRIPTS, 3), NULL);
         return TRUE;
     }

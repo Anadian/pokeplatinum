@@ -18,28 +18,28 @@
 #include "res/graphics/field_effects/field_effects.naix"
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    SysTask *unk_0C;
+    SysTask *slotsMinigameDTO;
     FieldEffectManager *unk_10;
     Simple3DModel unk_14;
     Simple3DRenderObj unk_28;
 } UnkStruct_ov5_021F2874;
 
 typedef struct {
-    int unk_00;
-    FieldEffectManager *unk_04;
+    int coins;
+    FieldEffectManager *slotMachineVariant;
     FieldSystem *fieldSystem;
-    UnkStruct_ov5_021F2874 *unk_0C;
+    UnkStruct_ov5_021F2874 *slotsMinigameDTO;
     MapObject *unk_10;
 } UnkStruct_ov5_021F28F4;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     UnkStruct_ov5_021F28F4 unk_10;
 } UnkStruct_ov5_021F2974;
 
@@ -70,48 +70,48 @@ void ov5_021F2864(void *param0)
 
 static void ov5_021F2874(UnkStruct_ov5_021F2874 *param0)
 {
-    param0->unk_00++;
+    param0->coins++;
 }
 
 static void ov5_021F287C(UnkStruct_ov5_021F2874 *param0)
 {
-    param0->unk_00--;
+    param0->coins--;
 
-    GF_ASSERT(param0->unk_00 >= 0);
+    GF_ASSERT(param0->coins >= 0);
 }
 
 static void ov5_021F288C(UnkStruct_ov5_021F2874 *param0)
 {
-    if (param0->unk_04 == 0) {
+    if (param0->slotMachineVariant == 0) {
         FieldEffectManager_LoadModel(param0->unk_10, &param0->unk_14, 0, rock_climb_mount_nsbmd, 1);
         Simple3D_CreateRenderObject(&param0->unk_28, &param0->unk_14);
-        param0->unk_04 = 1;
+        param0->slotMachineVariant = 1;
     }
 }
 
 static void ov5_021F28C0(UnkStruct_ov5_021F2874 *param0)
 {
-    if (param0->unk_04 == 1) {
-        param0->unk_04 = 0;
+    if (param0->slotMachineVariant == 1) {
+        param0->slotMachineVariant = 0;
         Simple3D_FreeModel(&param0->unk_14);
     }
 }
 
 static void ov5_021F28D4(UnkStruct_ov5_021F2874 *param0)
 {
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         ov5_021F288C(param0);
     }
 }
 
 static void ov5_021F28E4(UnkStruct_ov5_021F2874 *param0)
 {
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         ov5_021F28C0(param0);
     }
 }
 
-OverworldAnimManager *ov5_021F28F4(MapObject *param0, int param1, int param2, int param3, int param4)
+OverworldAnimManager *ov5_021F28F4(MapObject *param0, int slotsMinigameDTO, int param2, int param3, int param4)
 {
     int v0;
     OverworldAnimManager *v1;
@@ -119,14 +119,14 @@ OverworldAnimManager *ov5_021F28F4(MapObject *param0, int param1, int param2, in
     VecFx32 v3 = { 0, 0, 0 };
     FieldEffectManager *v4 = MapObject_GetFieldEffectManager(param0);
 
-    v2.unk_00 = param3;
-    v2.unk_04 = v4;
+    v2.coins = param3;
+    v2.slotMachineVariant = v4;
     v2.fieldSystem = MapObject_FieldSystem(param0);
-    v2.unk_0C = FieldEffectManager_GetRendererContext(v4, 16);
+    v2.slotsMinigameDTO = FieldEffectManager_GetRendererContext(v4, 16);
     v2.unk_10 = param0;
 
     if (param4 == 0) {
-        v3.x = (((param1) << 4) * FX32_ONE) + ((16 * FX32_ONE) >> 1);
+        v3.x = (((slotsMinigameDTO) << 4) * FX32_ONE) + ((16 * FX32_ONE) >> 1);
         v3.z = (((param2) << 4) * FX32_ONE) + ((16 * FX32_ONE) >> 1);
         MapObject_RecalculatePositionHeight(v2.fieldSystem, &v3);
     } else {
@@ -139,41 +139,41 @@ OverworldAnimManager *ov5_021F28F4(MapObject *param0, int param1, int param2, in
     return v1;
 }
 
-void ov5_021F2974(OverworldAnimManager *param0, int param1)
+void ov5_021F2974(OverworldAnimManager *param0, int slotsMinigameDTO)
 {
     UnkStruct_ov5_021F2974 *v0 = OverworldAnimManager_GetFuncsContext(param0);
-    v0->unk_0C = param1;
+    v0->slotsMinigameDTO = slotsMinigameDTO;
 }
 
-static int ov5_021F2980(OverworldAnimManager *param0, void *param1)
+static int ov5_021F2980(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021F2974 *v0 = param1;
+    UnkStruct_ov5_021F2974 *v0 = slotsMinigameDTO;
     const UnkStruct_ov5_021F28F4 *v1 = OverworldAnimManager_GetUserData(param0);
 
     v0->unk_10 = *v1;
-    v0->unk_04 = v1->unk_00;
-    v0->unk_0C = OverworldAnimManager_GetUserInt(param0);
+    v0->slotMachineVariant = v1->coins;
+    v0->slotsMinigameDTO = OverworldAnimManager_GetUserInt(param0);
 
-    ov5_021F28D4(v0->unk_10.unk_0C);
-    ov5_021F2874(v0->unk_10.unk_0C);
+    ov5_021F28D4(v0->unk_10.slotsMinigameDTO);
+    ov5_021F2874(v0->unk_10.slotsMinigameDTO);
 
     return 1;
 }
 
-static void ov5_021F29BC(OverworldAnimManager *param0, void *param1)
+static void ov5_021F29BC(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021F2974 *v0 = param1;
+    UnkStruct_ov5_021F2974 *v0 = slotsMinigameDTO;
 
-    ov5_021F287C(v0->unk_10.unk_0C);
-    ov5_021F28E4(v0->unk_10.unk_0C);
+    ov5_021F287C(v0->unk_10.slotsMinigameDTO);
+    ov5_021F28E4(v0->unk_10.slotsMinigameDTO);
 }
 
-static void ov5_021F29D0(OverworldAnimManager *param0, void *param1)
+static void ov5_021F29D0(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021F2974 *v0 = param1;
+    UnkStruct_ov5_021F2974 *v0 = slotsMinigameDTO;
     MapObject *v1 = v0->unk_10.unk_10;
 
-    if (v0->unk_0C == 0) {
+    if (v0->slotsMinigameDTO == 0) {
         return;
     }
 
@@ -191,11 +191,11 @@ static void ov5_021F29D0(OverworldAnimManager *param0, void *param1)
     }
 }
 
-static void ov5_021F2A04(OverworldAnimManager *param0, void *param1)
+static void ov5_021F2A04(OverworldAnimManager *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021F2974 *v0 = param1;
+    UnkStruct_ov5_021F2974 *v0 = slotsMinigameDTO;
 
-    if (v0->unk_00 == 1) {
+    if (v0->coins == 1) {
         return;
     }
 
@@ -207,9 +207,9 @@ static void ov5_021F2A04(OverworldAnimManager *param0, void *param1)
         u32 v1 = 0;
         MtxFx33 v2;
         VecFx32 v3, v4 = { FX32_ONE, FX32_ONE, FX32_ONE };
-        Simple3DRenderObj *v5 = &v0->unk_10.unk_0C->unk_28;
+        Simple3DRenderObj *v5 = &v0->unk_10.slotsMinigameDTO->unk_28;
 
-        switch (v0->unk_04) {
+        switch (v0->slotMachineVariant) {
         case 0:
             v1 = 180;
             break;

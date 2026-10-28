@@ -7,10 +7,10 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    ManagedSprite *unk_00;
-    UnkStruct_ov17_0223F2E4 *unk_04;
+    ManagedSprite *coins;
+    UnkStruct_ov17_0223F2E4 *slotMachineVariant;
     SysTask *unk_08;
-    s32 unk_0C;
+    s32 slotsMinigameDTO;
     u8 unk_10;
 } UnkStruct_ov17_0224A8D4;
 

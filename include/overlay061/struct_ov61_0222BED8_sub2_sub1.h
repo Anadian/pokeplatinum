@@ -4,8 +4,8 @@
 #include "overlay061/struct_ov61_0222BED8_sub2_sub1_sub1.h"
 
 typedef struct {
-    u32 unk_00;
-    int unk_04;
+    u32 coins;
+    int slotMachineVariant;
     int unk_08[4];
     UnkStruct_ov61_0222BED8_sub2_sub1_sub1 unk_18[4];
     int unk_E8;

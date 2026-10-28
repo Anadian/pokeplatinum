@@ -7,9 +7,9 @@
 #include "spl.h"
 
 typedef struct {
-    UnkStruct_0207C894 unk_00;
+    UnkStruct_0207C894 coins;
     SPLEmitter *unk_08;
-    ParticleSystem *unk_0C;
+    ParticleSystem *slotsMinigameDTO;
 } UnkStruct_0207C8C4;
 
 #endif // POKEPLATINUM_STRUCT_0207C8C4_H

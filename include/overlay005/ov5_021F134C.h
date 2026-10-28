@@ -10,6 +10,6 @@
 void *ov5_021F134C(FieldEffectManager *param0);
 void ov5_021F1370(void *param0);
 void ov5_021F1570(MapObject *param0);
-OverworldAnimManager *ov5_021F16D4(MapObject *param0, int param1);
+OverworldAnimManager *ov5_021F16D4(MapObject *param0, int slotsMinigameDTO);
 
 #endif // POKEPLATINUM_OV5_021F134C_H

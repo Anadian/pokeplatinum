@@ -75,7 +75,7 @@ typedef struct MapObjectsToPreload {
 
 typedef struct FieldSystem_t {
     FieldProcessManager *processManager;
-    FieldSystem_sub2 *unk_04;
+    FieldSystem_sub2 *slotMachineVariant;
     BgConfig *bgConfig;
     SaveData *saveData;
     FieldTask *task;

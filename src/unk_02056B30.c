@@ -36,18 +36,18 @@
 #include "unk_020655F4.h"
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     Location unk_08;
     void *unk_1C;
     int unk_20;
 } UnkStruct_02056BDC;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     u16 unk_10;
     int unk_14;
     int unk_18;
@@ -100,18 +100,18 @@ static const UnkFuncPtr_020EC57C Unk_020EC57C[7] = {
     NULL
 };
 
-void sub_02056B30(FieldTask *taskMan, int param1, int param2, int param3, u16 param4, int param5, int param6, enum HeapID heapID)
+void sub_02056B30(FieldTask *taskMan, int slotsMinigameDTO, int param2, int param3, u16 param4, int param5, int param6, enum HeapID heapID)
 {
     UnkStruct_02056B30 *v0 = Heap_Alloc(heapID, sizeof(UnkStruct_02056B30));
 
-    v0->unk_04 = param1;
+    v0->slotMachineVariant = slotsMinigameDTO;
     v0->unk_08 = param2;
-    v0->unk_0C = param3;
+    v0->slotsMinigameDTO = param3;
     v0->unk_10 = param4;
     v0->unk_14 = param5;
     v0->unk_18 = param6;
     v0->heapID = heapID;
-    v0->unk_00 = 0;
+    v0->coins = 0;
 
     FieldTask_InitCall(taskMan, sub_02056B70, v0);
 }
@@ -121,15 +121,15 @@ static BOOL sub_02056B70(FieldTask *taskMan)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     UnkStruct_02056B30 *v1 = FieldTask_GetEnv(taskMan);
 
-    switch (v1->unk_00) {
+    switch (v1->coins) {
     case 0:
-        HBlankSystem_Stop(fieldSystem->unk_04->hBlankSystem);
-        StartScreenFade(v1->unk_04, v1->unk_08, v1->unk_0C, v1->unk_10, v1->unk_14, v1->unk_18, v1->heapID);
-        v1->unk_00++;
+        HBlankSystem_Stop(fieldSystem->slotMachineVariant->hBlankSystem);
+        StartScreenFade(v1->slotMachineVariant, v1->unk_08, v1->slotsMinigameDTO, v1->unk_10, v1->unk_14, v1->unk_18, v1->heapID);
+        v1->coins++;
         break;
     case 1:
         if (IsScreenFadeDone()) {
-            HBlankSystem_Start(fieldSystem->unk_04->hBlankSystem);
+            HBlankSystem_Start(fieldSystem->slotMachineVariant->hBlankSystem);
             Heap_Free(v1);
             return 1;
         }
@@ -138,56 +138,56 @@ static BOOL sub_02056B70(FieldTask *taskMan)
     return 0;
 }
 
-void sub_02056BDC(FieldSystem *fieldSystem, const int param1, const int param2, const int param3, const int param4, const int param5, const int param6)
+void sub_02056BDC(FieldSystem *fieldSystem, const int slotsMinigameDTO, const int param2, const int param3, const int param4, const int param5, const int param6)
 {
     UnkStruct_02056BDC *v0 = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(UnkStruct_02056BDC));
 
-    v0->unk_00 = 0;
-    v0->unk_04 = 0;
+    v0->coins = 0;
+    v0->slotMachineVariant = 0;
 
-    Location_Set(&v0->unk_08, param1, param2, param3, param4, param5);
+    Location_Set(&v0->unk_08, slotsMinigameDTO, param2, param3, param4, param5);
 
     v0->unk_20 = param6;
 
     FieldSystem_CreateTask(fieldSystem, sub_02056CFC, v0);
 }
 
-void sub_02056C18(FieldSystem *fieldSystem, const int param1, const int param2, const int param3, const int param4, const int param5)
+void sub_02056C18(FieldSystem *fieldSystem, const int slotsMinigameDTO, const int param2, const int param3, const int param4, const int param5)
 {
     UnkStruct_02056BDC *v2 = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(UnkStruct_02056BDC));
 
-    v2->unk_00 = 0;
-    v2->unk_04 = 0;
+    v2->coins = 0;
+    v2->slotMachineVariant = 0;
 
-    Location_Set(&v2->unk_08, param1, param2, param3, param4, param5);
+    Location_Set(&v2->unk_08, slotsMinigameDTO, param2, param3, param4, param5);
 
     enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
     int v1 = 0;
 
     if (MapHeader_IsCave(mapHeaderID)) {
-        if (MapHeader_IsCave(param1)) {
+        if (MapHeader_IsCave(slotsMinigameDTO)) {
             v1 = 6;
-        } else if (MapHeader_IsOutdoors(param1)) {
+        } else if (MapHeader_IsOutdoors(slotsMinigameDTO)) {
             v1 = 5;
-        } else if (MapHeader_IsBuilding(param1)) {
+        } else if (MapHeader_IsBuilding(slotsMinigameDTO)) {
             v1 = 6;
         } else {
             GF_ASSERT(FALSE);
         }
     } else if (MapHeader_IsOutdoors(mapHeaderID)) {
-        if (MapHeader_IsCave(param1)) {
+        if (MapHeader_IsCave(slotsMinigameDTO)) {
             v1 = 4;
-        } else if (MapHeader_IsBuilding(param1)) {
+        } else if (MapHeader_IsBuilding(slotsMinigameDTO)) {
             v1 = 6;
         } else {
             GF_ASSERT(FALSE);
         }
     } else if (MapHeader_IsBuilding(mapHeaderID)) {
-        if (MapHeader_IsOutdoors(param1)) {
+        if (MapHeader_IsOutdoors(slotsMinigameDTO)) {
             v1 = 0;
-        } else if (MapHeader_IsBuilding(param1)) {
+        } else if (MapHeader_IsBuilding(slotsMinigameDTO)) {
             v1 = 6;
-        } else if (MapHeader_IsCave(param1)) {
+        } else if (MapHeader_IsCave(slotsMinigameDTO)) {
             v1 = 0;
         } else {
             GF_ASSERT(FALSE);
@@ -207,31 +207,31 @@ static BOOL sub_02056CFC(FieldTask *taskMan)
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
     Location *v2 = &v1->unk_08;
 
-    switch (v1->unk_00) {
+    switch (v1->coins) {
     case 0:
-        v1->unk_04 = 0;
+        v1->slotMachineVariant = 0;
         FieldBGM_TryFadeIn(fieldSystem, v2->mapHeaderID);
         FieldTask_InitCall(taskMan, Unk_020EC560[v1->unk_20], v1);
-        (v1->unk_00)++;
+        (v1->coins)++;
         break;
     case 1:
         FieldTransition_FinishMap(taskMan);
-        (v1->unk_00)++;
+        (v1->coins)++;
         break;
     case 2:
         FieldTask_ChangeMapByLocation(taskMan, &v1->unk_08);
-        (v1->unk_00)++;
+        (v1->coins)++;
         break;
     case 3:
         FieldTransition_StartMap(taskMan);
-        (v1->unk_00)++;
+        (v1->coins)++;
         break;
     case 4:
         if (Unk_020EC57C[v1->unk_20] != NULL) {
             Unk_020EC57C[v1->unk_20](fieldSystem);
         }
 
-        (v1->unk_00)++;
+        (v1->coins)++;
         break;
     case 5:
         if (Sound_IsFadeActive()) {
@@ -241,9 +241,9 @@ static BOOL sub_02056CFC(FieldTask *taskMan)
         FieldBGM_PlayForMapHeader(fieldSystem, v2->mapHeaderID);
         FieldSystem_RequestLocationName(fieldSystem);
 
-        v1->unk_04 = 0;
+        v1->slotMachineVariant = 0;
         FieldTask_InitCall(taskMan, Unk_020EC544[v1->unk_20], v1);
-        (v1->unk_00)++;
+        (v1->coins)++;
         break;
     case 6:
         Heap_Free(v1);
@@ -258,12 +258,12 @@ static BOOL sub_02056DE4(FieldTask *taskMan)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0:
         Sound_PlayEffect(SEQ_SE_DP_KAIDAN2_sseq);
 
         FieldTransition_FadeOut(taskMan);
-        (v1->unk_04)++;
+        (v1->slotMachineVariant)++;
         break;
     case 1:
         return 1;
@@ -278,24 +278,24 @@ static BOOL sub_02056E20(FieldTask *taskMan)
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
     UnkStruct_ov5_021D432C *v2;
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0:
         v1->unk_1C = ov5_021D431C();
         v2 = (UnkStruct_ov5_021D432C *)v1->unk_1C;
         ov5_021D4334(PlayerAvatar_GetXPos(fieldSystem->playerAvatar), PlayerAvatar_GetZPos(fieldSystem->playerAvatar), v2);
-        (v1->unk_04)++;
+        (v1->slotMachineVariant)++;
         break;
     case 1:
         v2 = (UnkStruct_ov5_021D432C *)v1->unk_1C;
 
         if (ov5_021D433C(fieldSystem, v2)) {
             ov5_021D432C(v1->unk_1C);
-            (v1->unk_04)++;
+            (v1->slotMachineVariant)++;
         }
         break;
     case 2:
         FieldTransition_FadeOut(taskMan);
-        (v1->unk_04)++;
+        (v1->slotMachineVariant)++;
         break;
     case 3:
         return 1;
@@ -310,19 +310,19 @@ static BOOL sub_02056EA4(FieldTask *taskMan)
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
     UnkStruct_ov5_021D432C *v2;
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0:
         v1->unk_1C = ov5_021D431C();
         v2 = (UnkStruct_ov5_021D432C *)v1->unk_1C;
         ov5_021D4334(PlayerAvatar_GetXPos(fieldSystem->playerAvatar), PlayerAvatar_GetZPos(fieldSystem->playerAvatar), v2);
-        (v1->unk_04)++;
+        (v1->slotMachineVariant)++;
         break;
     case 1:
         v2 = (UnkStruct_ov5_021D432C *)v1->unk_1C;
 
         if (ov5_021D4A24(fieldSystem, v2, PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar))) {
             ov5_021D432C(v1->unk_1C);
-            (v1->unk_04)++;
+            (v1->slotMachineVariant)++;
         }
         break;
     case 2:
@@ -338,7 +338,7 @@ static BOOL sub_02056F1C(FieldTask *taskMan)
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
     MapObject *v2;
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0: {
         int v3 = PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar);
 
@@ -352,20 +352,20 @@ static BOOL sub_02056F1C(FieldTask *taskMan)
             GF_ASSERT(FALSE);
         }
     }
-        (v1->unk_04)++;
+        (v1->slotMachineVariant)++;
         break;
     case 1:
         v2 = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
 
         if (LocalMapObj_CheckAnimationFinished(v2) == 1) {
             sub_020656AC(v2);
-            (v1->unk_04)++;
+            (v1->slotMachineVariant)++;
         }
         break;
     case 2:
         Sound_PlayEffect(SEQ_SE_DP_KAIDAN2_sseq);
         FieldMap_FadeScreen(FADE_TYPE_BRIGHTNESS_OUT);
-        (v1->unk_04)++;
+        (v1->slotMachineVariant)++;
         break;
     case 3:
         if (IsScreenFadeDone()) {
@@ -383,13 +383,13 @@ static BOOL sub_02056FC0(FieldTask *taskMan)
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
     MapObject *v2 = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0: {
         UnkStruct_ov5_021D4E00 *v3;
 
         v3 = ov5_021D4E00();
         FieldTask_InitCall(taskMan, ov5_021D4FA0, v3);
-        v1->unk_04++;
+        v1->slotMachineVariant++;
     } break;
     case 1:
         return 1;
@@ -404,13 +404,13 @@ static BOOL sub_02057008(FieldTask *taskMan)
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
     MapObject *v2 = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0: {
         UnkStruct_ov5_021D4E00 *v3;
 
         v3 = ov5_021D4E00();
         FieldTask_InitCall(taskMan, ov5_021D4F14, v3);
-        v1->unk_04++;
+        v1->slotMachineVariant++;
     } break;
     case 1:
         return 1;
@@ -426,7 +426,7 @@ static BOOL sub_02057050(FieldTask *taskMan)
     UnkStruct_02056BDC *v2 = FieldTask_GetEnv(taskMan);
     UnkStruct_ov5_021D432C *v3;
 
-    switch (v2->unk_04) {
+    switch (v2->slotMachineVariant) {
     case 0: {
         u8 v4;
         MapObject *v5 = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
@@ -435,20 +435,20 @@ static BOOL sub_02057050(FieldTask *taskMan)
 
         if (TileBehavior_IsDoor(v4)) {
             MapObject_SetHidden(v5, 1);
-            (v2->unk_04) = 1;
+            (v2->slotMachineVariant) = 1;
         } else {
             UnkStruct_ov5_021D4E00 *v6;
 
             v6 = ov5_021D4E00();
             FieldTask_InitCall(taskMan, ov5_021D5020, v6);
-            (v2->unk_04) = 3;
+            (v2->slotMachineVariant) = 3;
         }
     } break;
     case 1:
         v2->unk_1C = (UnkStruct_ov5_021D432C *)ov5_021D431C();
         v3 = (UnkStruct_ov5_021D432C *)v2->unk_1C;
         ov5_021D4334(PlayerAvatar_GetXPos(fieldSystem->playerAvatar), PlayerAvatar_GetZPos(fieldSystem->playerAvatar), v3);
-        (v2->unk_04)++;
+        (v2->slotMachineVariant)++;
         break;
     case 2:
         v3 = (UnkStruct_ov5_021D432C *)v2->unk_1C;
@@ -477,7 +477,7 @@ static BOOL sub_0205711C(FieldTask *taskMan)
     UnkStruct_02056BDC *v2 = FieldTask_GetEnv(taskMan);
     UnkStruct_ov5_021D432C *v3;
 
-    switch (v2->unk_04) {
+    switch (v2->slotMachineVariant) {
     case 0: {
         u8 v4;
         MapObject *v5 = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
@@ -486,14 +486,14 @@ static BOOL sub_0205711C(FieldTask *taskMan)
 
         if (TileBehavior_IsDoor(v4)) {
             MapObject_SetHidden(v5, 1);
-            v2->unk_04 = 1;
+            v2->slotMachineVariant = 1;
             FieldTask_InitJump(taskMan, sub_02057050, v2);
         } else {
             UnkStruct_ov5_021D4E00 *v6;
 
             v6 = ov5_021D4E00();
             FieldTask_InitCall(taskMan, ov5_021D5150, v6);
-            (v2->unk_04)++;
+            (v2->slotMachineVariant)++;
         }
     } break;
     case 1:
@@ -509,19 +509,19 @@ static BOOL sub_020571A0(FieldTask *taskMan)
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
     UnkStruct_ov5_021D432C *v2;
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0:
         v1->unk_1C = ov5_021D431C();
         v2 = (UnkStruct_ov5_021D432C *)v1->unk_1C;
         ov5_021D4334(PlayerAvatar_GetXPos(fieldSystem->playerAvatar), PlayerAvatar_GetZPos(fieldSystem->playerAvatar), v2);
-        (v1->unk_04)++;
+        (v1->slotMachineVariant)++;
         break;
     case 1:
         v2 = (UnkStruct_ov5_021D432C *)v1->unk_1C;
 
         if (ov5_021D4858(fieldSystem, v2, PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar))) {
             ov5_021D432C(v1->unk_1C);
-            (v1->unk_04)++;
+            (v1->slotMachineVariant)++;
         }
         break;
     case 2:
@@ -537,7 +537,7 @@ static BOOL sub_02057218(FieldTask *taskMan)
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
     MapObject *v2;
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0:
 
         FieldMap_FadeScreen(FADE_TYPE_BRIGHTNESS_IN);
@@ -559,19 +559,19 @@ static BOOL sub_02057218(FieldTask *taskMan)
             GF_ASSERT(FALSE);
         }
 
-        (v1->unk_04)++;
+        (v1->slotMachineVariant)++;
         break;
     case 1:
         v2 = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
 
         if (LocalMapObj_CheckAnimationFinished(v2) == 1) {
             sub_020656AC(v2);
-            (v1->unk_04)++;
+            (v1->slotMachineVariant)++;
         }
         break;
     case 2:
         if (IsScreenFadeDone()) {
-            (v1->unk_04)++;
+            (v1->slotMachineVariant)++;
         }
         break;
     case 3:
@@ -587,13 +587,13 @@ static BOOL sub_020572B8(FieldTask *taskMan)
     UnkStruct_02056BDC *v1 = FieldTask_GetEnv(taskMan);
     MapObject *v2 = PlayerAvatar_GetMapObject(fieldSystem->playerAvatar);
 
-    switch (v1->unk_04) {
+    switch (v1->slotMachineVariant) {
     case 0: {
         UnkStruct_ov5_021D4E00 *v3;
 
         v3 = ov5_021D4E00();
         FieldTask_InitCall(taskMan, ov5_021D4E10, v3);
-        v1->unk_04++;
+        v1->slotMachineVariant++;
     } break;
     case 1:
         return 1;

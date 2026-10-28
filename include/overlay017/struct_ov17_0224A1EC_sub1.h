@@ -7,10 +7,10 @@
 struct UnkStruct_ov17_0224DF54_t;
 
 typedef struct {
-    SysTask *unk_00;
-    ManagedSprite *unk_04;
+    SysTask *coins;
+    ManagedSprite *slotMachineVariant;
     struct UnkStruct_ov17_0224DF54_t *unk_08;
-    u8 unk_0C;
+    u8 slotsMinigameDTO;
     u8 unk_0D;
     s8 unk_0E;
 } UnkStruct_ov17_0224A1EC_sub1;

@@ -7,8 +7,8 @@
 #include "journal.h"
 
 typedef struct {
-    UnkStruct_0205C22C *unk_00;
-    JournalEntry *unk_04;
+    UnkStruct_0205C22C *coins;
+    JournalEntry *slotMachineVariant;
     Options *options;
 } UnkStruct_0203DDFC;
 

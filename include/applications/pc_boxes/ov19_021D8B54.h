@@ -10,8 +10,8 @@
 #include "narc.h"
 #include "sprite.h"
 
-BOOL ov19_021D8B54(UnkStruct_ov19_021D8E00 *param0, UnkStruct_ov19_021D61B0 *param1, const BoxApplication *param2, SpriteList *param3, NARC *param4);
-void ov19_021D8C1C(UnkStruct_ov19_021D8E00 *param0, NARC *param1);
+BOOL ov19_021D8B54(UnkStruct_ov19_021D8E00 *param0, UnkStruct_ov19_021D61B0 *slotsMinigameDTO, const BoxApplication *param2, SpriteList *param3, NARC *param4);
+void ov19_021D8C1C(UnkStruct_ov19_021D8E00 *param0, NARC *slotsMinigameDTO);
 void ov19_021D8E84(UnkStruct_ov19_021D8E00 *param0);
 void ov19_021D8F60(UnkStruct_ov19_021D8E00 *param0);
 BOOL ov19_021D9074(UnkStruct_ov19_021D8E00 *param0);
@@ -32,10 +32,10 @@ void ov19_021D99F4(UnkStruct_ov19_021D8E00 *param0);
 void ov19_021D9A2C(UnkStruct_ov19_021D8E00 *param0);
 void ov19_021D9A64(UnkStruct_ov19_021D8E00 *param0);
 void ov19_021D9A8C(UnkStruct_ov19_021D8E00 *param0);
-void ov19_021D9AB0(UnkStruct_ov19_021D8E00 *param0, u32 param1);
+void ov19_021D9AB0(UnkStruct_ov19_021D8E00 *param0, u32 slotsMinigameDTO);
 void ov19_021D9AEC(UnkStruct_ov19_021D8E00 *param0);
 void BoxGraphics_OpenMultiSelectCursor(UnkStruct_ov19_021D8E00 *param0);
-void ov19_021D9B1C(UnkStruct_ov19_021D8E00 *param0, VecFx32 *param1);
+void ov19_021D9B1C(UnkStruct_ov19_021D8E00 *param0, VecFx32 *slotsMinigameDTO);
 void ov19_021D9B34(UnkStruct_ov19_021D8E00 *param0);
 BOOL ov19_021D9B64(UnkStruct_ov19_021D8E00 *param0);
 void ov19_021D9BD4(UnkStruct_ov19_021D8E00 *param0);

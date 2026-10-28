@@ -15,8 +15,8 @@ void FrontierScriptManager_Free(FrontierScriptManager *scriptMan);
 void FrontierScriptManager_Load(FrontierScriptManager *scriptMan, int scene, int offsetID);
 void FrontierScriptManager_UpdateMessageLoader(FrontierScriptManager *scriptMan, int scene, enum HeapID heapID);
 UnkStruct_ov104_0222E8C8 *ov104_0222E8C8(FrontierScriptManager *param0, enum HeapID heapID);
-void ov104_0222E8E8(FrontierScriptManager *param0, UnkStruct_ov104_0222E8C8 *param1);
-u16 *ov104_0222E91C(FrontierScriptManager *param0, int param1);
+void ov104_0222E8E8(FrontierScriptManager *param0, UnkStruct_ov104_0222E8C8 *slotsMinigameDTO);
+u16 *ov104_0222E91C(FrontierScriptManager *param0, int slotsMinigameDTO);
 FrontierGraphics *FrontierScriptManager_GetGraphics(FrontierScriptManager *scriptMan);
 
 #endif // POKEPLATINUM_FRONTIER_SCRIPT_MANAGER_H

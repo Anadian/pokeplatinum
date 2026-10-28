@@ -17,21 +17,21 @@ typedef int (*EasyChatMainFunc)(EasyChatApp *easyChatApp, int *state);
 typedef void (*EasyChatTaskFunc)(EasyChatApp *easyChatApp, int *state);
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     u8 unk_01;
 } UnkStruct_ov20_021D1F34;
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
-    u16 unk_04;
+    u16 slotMachineVariant;
     u8 unk_06;
     u8 unk_07;
     int unk_08;
 } UnkStruct_ov20_021D18BC;
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s8 unk_02;
     s8 unk_03;
 } UnkStruct_ov20_021D0F64;
@@ -74,13 +74,13 @@ u32 EasyChat_GetType(const EasyChatApp *easyChatApp);
 u32 EasyChat_GetInstructionBankEntry(const EasyChatApp *easyChatApp);
 u32 EasyChat_GetMode(const EasyChatApp *easyChatApp);
 u32 ov20_021D1F9C(const EasyChatApp *easyChatApp);
-u16 EasyChat_GetWordAtSlot(const EasyChatApp *easyChatApp, int param1);
-String *ov20_021D1FC0(const EasyChatApp *easyChatApp, u32 param1);
+u16 EasyChat_GetWordAtSlot(const EasyChatApp *easyChatApp, int slotsMinigameDTO);
+String *ov20_021D1FC0(const EasyChatApp *easyChatApp, u32 slotsMinigameDTO);
 u32 EasyChat_GetCurrentWordSlot(const EasyChatApp *easyChatApp);
 u32 ov20_021D1FD4(const EasyChatApp *easyChatApp);
 u32 EasyChat_GetCategoryCursorPos(const EasyChatApp *easyChatApp);
 u32 ov20_021D1FE4(const EasyChatApp *easyChatApp);
-void ov20_021D2008(const EasyChatApp *easyChatApp, u32 param1, String *param2);
+void ov20_021D2008(const EasyChatApp *easyChatApp, u32 slotsMinigameDTO, String *param2);
 u32 ov20_021D2034(const EasyChatApp *easyChatApp);
 int ov20_021D2040(const EasyChatApp *easyChatApp);
 BOOL ov20_021D204C(const EasyChatApp *easyChatApp);

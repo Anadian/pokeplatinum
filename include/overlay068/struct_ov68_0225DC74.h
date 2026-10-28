@@ -2,8 +2,8 @@
 #define POKEPLATINUM_STRUCT_OV68_0225DC74_H
 
 typedef struct {
-    u32 unk_00[3];
-    u64 unk_0C;
+    u32 coins[3];
+    u64 slotsMinigameDTO;
 } UnkStruct_ov68_0225DC74;
 
 #endif // POKEPLATINUM_STRUCT_OV68_0225DC74_H

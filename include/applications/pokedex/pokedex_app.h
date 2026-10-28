@@ -11,7 +11,7 @@
 #include "pokedex_memory.h"
 
 typedef struct PokedexApp {
-    BOOL unk_00;
+    BOOL coins;
     enum HeapID heapID;
     PokedexMemory *pokedexMemory;
     PokedexSortData sortData;

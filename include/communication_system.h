@@ -11,8 +11,8 @@
 
 #define COMM_RING_BUFFER_SIZE 264
 
-BOOL CommSys_InitServer(BOOL param0, BOOL param1, int param2, BOOL param3);
-BOOL CommSys_InitClient(BOOL param0, BOOL param1, int param2);
+BOOL CommSys_InitServer(BOOL param0, BOOL slotsMinigameDTO, int param2, BOOL param3);
+BOOL CommSys_InitClient(BOOL param0, BOOL slotsMinigameDTO, int param2);
 void CommSys_SwitchTransitionTypeToParallel(void);
 void CommSys_SwitchTransitionTypeToServerClient(void);
 BOOL CommSys_TransitionTypeIsParallel(void);
@@ -22,9 +22,9 @@ BOOL CommSys_Update(void);
 void CommSys_Reset(void);
 void CommSys_ResetDS(void);
 void CommSys_ResetBattleClient(void);
-void sub_0203509C(u16 param0, u16 *param1, u16 param2);
+void sub_0203509C(u16 param0, u16 *slotsMinigameDTO, u16 param2);
 void sub_020351F8(u16 param0, u16 *buffer, u16 param2);
-void sub_020352C0(u16 param0, u16 *param1, u16 param2);
+void sub_020352C0(u16 param0, u16 *slotsMinigameDTO, u16 param2);
 void CommSys_RandomizePlayerMovement(void);
 void CommSys_ReversePlayerMovement(void);
 void CommSys_RevertPlayerMovementToNormal(void);
@@ -60,7 +60,7 @@ int CommType_MaxPlayers(int param0);
 int CommType_MinPlayers(int param0);
 void CommSys_SetAlone(BOOL param0);
 BOOL CommSys_IsAlone(void);
-void sub_0203619C(int param0, int param1, void *param2, void *param3);
+void sub_0203619C(int param0, int slotsMinigameDTO, void *param2, void *param3);
 void CommSys_Seed(MATHRandContext32 *rand);
 BOOL CommSys_IsCmdQueuedServer(int cmd);
 BOOL CommSys_IsCmdQueued(int cmd);
@@ -68,7 +68,7 @@ BOOL sub_02036284(void);
 BOOL sub_0203629C(void);
 void CommSys_SetWifiConnected(BOOL param0);
 BOOL CommSys_WifiConnected(void);
-void sub_020362DC(int param0, int param1);
+void sub_020362DC(int param0, int slotsMinigameDTO);
 int sub_020362F4(int networkId);
 BOOL sub_02036314(void);
 void sub_0203632C(BOOL param0);

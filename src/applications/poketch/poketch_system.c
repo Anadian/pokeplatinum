@@ -68,7 +68,7 @@ static void PoketchEvent_OnAppChange(PoketchSystem *poketchSys);
 static void PoketchEvent_OnShutdown(PoketchSystem *poketchSys);
 static void PoketchSystem_LoadApp(PoketchSystem *poketchSys, int appID);
 static void PoketchSystem_UnloadApp(PoketchSystem *poketchSys);
-static void PoketchSystem_InitApp(PoketchSystem *poketchSys, u32 param1);
+static void PoketchSystem_InitApp(PoketchSystem *poketchSys, u32 slotsMinigameDTO);
 static BOOL PoketchSystem_IsAppInitialized(PoketchSystem *poketchSys);
 static void PoketchSystem_ShutdownApp(PoketchSystem *poketchSys);
 static BOOL PoketchSystem_IsAppShutdown(PoketchSystem *poketchSys);

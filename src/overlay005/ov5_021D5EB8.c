@@ -31,49 +31,49 @@
 #include "sys_task_manager.h"
 
 typedef struct UnkStruct_ov5_021D5EF8_t {
-    UnkStruct_ov5_021D6594 *unk_00;
-    int unk_04;
+    UnkStruct_ov5_021D6594 *coins;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     int unk_10;
     SysTask *unk_14;
 } UnkStruct_ov5_021D5EF8;
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
 } UnkStruct_ov5_021F8D90;
 
 typedef struct {
-    SpriteResource *unk_00[4];
+    SpriteResource *coins[4];
     AffineSpriteListTemplate unk_10;
     SpriteResourcesHeader unk_40;
 } UnkStruct_ov5_021D6690;
 
 typedef struct {
-    char *unk_00;
-    char *unk_04;
+    char *coins;
+    char *slotMachineVariant;
     char *unk_08;
-    NNSG2dScreenData *unk_0C;
+    NNSG2dScreenData *slotsMinigameDTO;
     NNSG2dCharacterData *unk_10;
     NNSG2dPaletteData *unk_14;
 } UnkStruct_ov5_021D6D84;
 
 typedef struct UnkStruct_ov5_021D6FA8_tag {
-    UnkStruct_ov5_021D6594 *unk_00;
-    Sprite *unk_04;
+    UnkStruct_ov5_021D6594 *coins;
+    Sprite *slotMachineVariant;
     void *unk_08;
-    s32 unk_0C[10];
+    s32 slotsMinigameDTO[10];
     struct UnkStruct_ov5_021D6FA8_tag *unk_34;
     struct UnkStruct_ov5_021D6FA8_tag *unk_38;
 } UnkStruct_ov5_021D6FA8;
 
 typedef struct {
-    UnkStruct_ov5_021D6594 *unk_00;
-    void *unk_04;
+    UnkStruct_ov5_021D6594 *coins;
+    void *slotMachineVariant;
     const UnkStruct_ov5_021D6690 *unk_08;
-    UnkStruct_ov5_021D6FA8 unk_0C;
+    UnkStruct_ov5_021D6FA8 slotsMinigameDTO;
     UnkStruct_ov5_021D6FA8 unk_48[48];
     SysTask *unk_B88;
     VecFx32 unk_B8C;
@@ -88,11 +88,11 @@ typedef struct {
 typedef void (*UnkFuncPtr_ov5_021D69B8)(SysTask *, void *);
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
-    int unk_04;
+    int slotMachineVariant;
     UnkStruct_ov5_021DB4B8 *unk_08;
-    UnkStruct_ov5_021D6690 *unk_0C;
+    UnkStruct_ov5_021D6690 *slotsMinigameDTO;
     u16 unk_10;
     u16 unk_12;
     SysTask *unk_14;
@@ -102,7 +102,7 @@ typedef struct {
 typedef void (*UnkFuncPtr_ov5_021D6FF0)(UnkStruct_ov5_021D6FA8 *);
 
 typedef struct {
-    SpriteResourceCollection *unk_00[4];
+    SpriteResourceCollection *coins[4];
     SpriteResourceTable *unk_10;
     NNSG2dRendererInstance unk_14;
     NNSG2dRenderSurface unk_C0;
@@ -111,8 +111,8 @@ typedef struct {
 } UnkStruct_ov5_021D61D0;
 
 typedef struct UnkStruct_ov5_021D6594_t {
-    UnkStruct_ov5_021D69B8 *unk_00;
-    const UnkStruct_ov5_021F8D90 *unk_04;
+    UnkStruct_ov5_021D69B8 *coins;
+    const UnkStruct_ov5_021F8D90 *slotMachineVariant;
     UnkStruct_ov5_021D61D0 unk_08;
     FieldSystem *fieldSystem;
     NARC *unk_144;
@@ -121,12 +121,12 @@ typedef struct UnkStruct_ov5_021D6594_t {
 typedef void (*UnkFuncPtr_ov5_021D7210)(UnkStruct_ov5_021DB4B8 *, int);
 
 typedef struct {
-    UnkStruct_ov5_021DB4B8 *unk_00;
-    s16 unk_04;
+    UnkStruct_ov5_021DB4B8 *coins;
+    s16 slotMachineVariant;
     s16 unk_06;
     s16 unk_08;
     s16 unk_0A;
-    s16 unk_0C;
+    s16 slotsMinigameDTO;
     s16 unk_0E;
     s16 unk_10;
     s16 unk_12;
@@ -137,24 +137,24 @@ typedef struct {
 typedef void (*UnkFuncPtr_ov5_021D7210_1)(UnkStruct_ov5_021DB4B8 *, int);
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     int unk_10;
 } UnkStruct_ov5_021D64FC;
 
 typedef struct {
-    fx32 unk_00;
-    fx32 unk_04;
+    fx32 coins;
+    fx32 slotMachineVariant;
     fx32 unk_08;
-    s16 unk_0C;
+    s16 slotsMinigameDTO;
     s16 unk_0E;
 } UnkStruct_ov5_021D6538;
 
 typedef struct {
-    FogManager *unk_00;
-    UnkStruct_ov5_021D64FC unk_04;
+    FogManager *coins;
+    UnkStruct_ov5_021D64FC slotMachineVariant;
     UnkStruct_ov5_021D64FC unk_18;
     UnkStruct_ov5_021D64FC unk_2C;
     UnkStruct_ov5_021D64FC unk_40;
@@ -162,8 +162,8 @@ typedef struct {
 } UnkStruct_ov5_021D7308;
 
 typedef struct {
-    FogManager *unk_00;
-    char unk_04[32];
+    FogManager *coins;
+    char slotMachineVariant[32];
     s32 unk_24;
     s32 unk_28;
     s16 unk_2C;
@@ -171,25 +171,25 @@ typedef struct {
 } UnkStruct_ov5_021D7480;
 
 typedef struct {
-    UnkStruct_ov5_021D7210 unk_00;
+    UnkStruct_ov5_021D7210 coins;
     UnkStruct_ov5_021D7480 unk_1C;
     UnkStruct_ov5_021D7308 unk_4C;
     s32 unk_B4[10];
 } UnkStruct_ov5_021D9984;
 
 typedef struct {
-    UnkStruct_ov5_021D7210 unk_00;
+    UnkStruct_ov5_021D7210 coins;
     s32 unk_1C[10];
 } UnkStruct_ov5_021DA8A0;
 
 typedef struct {
-    UnkStruct_ov5_021D7480 unk_00;
+    UnkStruct_ov5_021D7480 coins;
     UnkStruct_ov5_021D7308 unk_30;
     s32 unk_98[10];
 } UnkStruct_ov5_021D84D4;
 
 typedef struct {
-    UnkStruct_ov5_021D64FC unk_00;
+    UnkStruct_ov5_021D64FC coins;
     s16 unk_14;
     s16 unk_16;
     u16 unk_18;
@@ -197,7 +197,7 @@ typedef struct {
 } UnkStruct_ov5_021DAC68;
 
 typedef struct {
-    UnkStruct_ov5_021D64FC unk_00;
+    UnkStruct_ov5_021D64FC coins;
     UnkStruct_ov5_021D7480 unk_14;
     UnkStruct_ov5_021D7308 unk_44;
     fx32 unk_AC;
@@ -207,15 +207,15 @@ typedef struct {
 } UnkStruct_ov5_021DB144;
 
 typedef struct {
-    UnkStruct_ov5_021D64FC unk_00;
+    UnkStruct_ov5_021D64FC coins;
     UnkStruct_ov5_021D7480 unk_14;
     UnkStruct_ov5_021D7308 unk_44;
 } UnkStruct_ov5_021D879C;
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s16 unk_02;
-    UnkStruct_ov5_021D6538 unk_04;
+    UnkStruct_ov5_021D6538 slotMachineVariant;
     HBlankSystem *unk_14;
     HBlankTask *unk_18;
     BufferManager *bufferManagers[2];
@@ -225,117 +225,117 @@ typedef struct {
 } UnkStruct_ov5_021DB614;
 
 typedef struct {
-    UnkStruct_ov5_021DB614 unk_00;
+    UnkStruct_ov5_021DB614 coins;
 } UnkStruct_ov5_021DB04C;
 
-static void ov5_021D5FE4(SysTask *param0, void *param1);
-static void ov5_021D60B4(SysTask *param0, void *param1);
-static int ov5_021D6178(int param0, int param1);
-static void ov5_021DB4B8(UnkStruct_ov5_021DB4B8 *param0, int param1);
+static void ov5_021D5FE4(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D60B4(SysTask *param0, void *slotsMinigameDTO);
+static int ov5_021D6178(int param0, int slotsMinigameDTO);
+static void ov5_021DB4B8(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
 static void ov5_021DB4E4(UnkStruct_ov5_021DB4B8 *param0);
-static void ov5_021D64E4(int param0, int param1);
-static void ov5_021D64FC(UnkStruct_ov5_021D64FC *param0, int param1, int param2, int param3);
+static void ov5_021D64E4(int param0, int slotsMinigameDTO);
+static void ov5_021D64FC(UnkStruct_ov5_021D64FC *param0, int slotsMinigameDTO, int param2, int param3);
 static BOOL ov5_021D650C(UnkStruct_ov5_021D64FC *param0);
-static void ov5_021D6538(UnkStruct_ov5_021D6538 *param0, fx32 param1, fx32 param2, int param3);
+static void ov5_021D6538(UnkStruct_ov5_021D6538 *param0, fx32 slotsMinigameDTO, fx32 param2, int param3);
 static BOOL ov5_021D6548(UnkStruct_ov5_021D6538 *param0);
-static void ov5_021D6594(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2);
-static void ov5_021D6A2C(UnkStruct_ov5_021D6594 *param0, int param1);
-static void ov5_021D6690(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2);
-static SpriteResource *ov5_021D65C0(SpriteResourceTable *param0, int param1, int param2, SpriteResourceCollection *param3, NARC *param4, u32 param5);
+static void ov5_021D6594(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2);
+static void ov5_021D6A2C(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO);
+static void ov5_021D6690(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2);
+static SpriteResource *ov5_021D65C0(SpriteResourceTable *param0, int slotsMinigameDTO, int param2, SpriteResourceCollection *param3, NARC *param4, u32 param5);
 static void ov5_021D61D0(UnkStruct_ov5_021D61D0 *param0);
-static void ov5_021D6290(SpriteResourceTable *param0, int param1, int param2);
+static void ov5_021D6290(SpriteResourceTable *param0, int slotsMinigameDTO, int param2);
 static void ov5_021D62BC(UnkStruct_ov5_021D61D0 *param0);
-static void ov5_021D6284(SysTask *param0, void *param1);
-static void ov5_021D630C(Sprite *param0, VecFx32 *param1);
+static void ov5_021D6284(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D630C(Sprite *param0, VecFx32 *slotsMinigameDTO);
 static void ov5_021D6FA8(UnkStruct_ov5_021D6FA8 *param0);
 static void ov5_021D6FD8(UnkStruct_ov5_021D6FA8 *param0);
-static UnkStruct_ov5_021D6FA8 *ov5_021D6F00(UnkStruct_ov5_021DB4B8 *param0, int param1);
-static void ov5_021D6F4C(SpriteResourcesHeader *param0, UnkStruct_ov5_021D6594 *param1, UnkStruct_ov5_021D6690 *param2, int param3, int param4);
-static BOOL ov5_021D6A48(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *param1);
-static void ov5_021D6FF0(UnkStruct_ov5_021D6FA8 *param0, UnkFuncPtr_ov5_021D6FF0 param1);
+static UnkStruct_ov5_021D6FA8 *ov5_021D6F00(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
+static void ov5_021D6F4C(SpriteResourcesHeader *param0, UnkStruct_ov5_021D6594 *slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2, int param3, int param4);
+static BOOL ov5_021D6A48(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *slotsMinigameDTO);
+static void ov5_021D6FF0(UnkStruct_ov5_021D6FA8 *param0, UnkFuncPtr_ov5_021D6FF0 slotsMinigameDTO);
 static void ov5_021D700C(UnkStruct_ov5_021DB4B8 *param0);
 static VecFx32 ov5_021D7010(UnkStruct_ov5_021D6FA8 *param0);
-static void ov5_021D7028(fx32 *param0, fx32 *param1, UnkStruct_ov5_021DB4B8 *param2);
-static void ov5_021D717C(UnkStruct_ov5_021DB4B8 *param0, int *param1, int *param2);
-static void ov5_021D71B4(UnkStruct_ov5_021DB4B8 *param0, fx32 *param1, fx32 *param2);
-static void ov5_021D6EC8(UnkStruct_ov5_021D6FA8 *param0, int param1);
+static void ov5_021D7028(fx32 *param0, fx32 *slotsMinigameDTO, UnkStruct_ov5_021DB4B8 *param2);
+static void ov5_021D717C(UnkStruct_ov5_021DB4B8 *param0, int *slotsMinigameDTO, int *param2);
+static void ov5_021D71B4(UnkStruct_ov5_021DB4B8 *param0, fx32 *slotsMinigameDTO, fx32 *param2);
+static void ov5_021D6EC8(UnkStruct_ov5_021D6FA8 *param0, int slotsMinigameDTO);
 static void ov5_021D6EF0(UnkStruct_ov5_021D6FA8 *param0);
-static void ov5_021D7210(UnkStruct_ov5_021D7210 *param0, UnkStruct_ov5_021DB4B8 *param1, s32 param2, s32 param3, s32 param4, s32 param5, s32 param6, s32 param7, s32 param8, UnkFuncPtr_ov5_021D7210_1 param9);
-static void ov5_021D7238(UnkStruct_ov5_021D7210 *param0, s32 param1, s32 param2, s32 param3, s32 param4);
+static void ov5_021D7210(UnkStruct_ov5_021D7210 *param0, UnkStruct_ov5_021DB4B8 *slotsMinigameDTO, s32 param2, s32 param3, s32 param4, s32 param5, s32 param6, s32 param7, s32 param8, UnkFuncPtr_ov5_021D7210_1 param9);
+static void ov5_021D7238(UnkStruct_ov5_021D7210 *param0, s32 slotsMinigameDTO, s32 param2, s32 param3, s32 param4);
 static int ov5_021D7244(UnkStruct_ov5_021D7210 *param0);
-static void ov5_021D7308(UnkStruct_ov5_021D7308 *param0, UnkStruct_ov5_021D7480 *param1, FogManager *param2, int param3, int param4, GXRgb param5, int param6, u32 param7);
-static int ov5_021D735C(UnkStruct_ov5_021D7308 *param0, UnkStruct_ov5_021D7480 *param1, u32 param2);
-static void ov5_021D7384(FogManager *param0, int param1, int param2, GXRgb param3);
-static void ov5_021D73B0(UnkStruct_ov5_021D7308 *param0, FogManager *param1, int param2, int param3, GXRgb param4, int param5);
+static void ov5_021D7308(UnkStruct_ov5_021D7308 *param0, UnkStruct_ov5_021D7480 *slotsMinigameDTO, FogManager *param2, int param3, int param4, GXRgb param5, int param6, u32 param7);
+static int ov5_021D735C(UnkStruct_ov5_021D7308 *param0, UnkStruct_ov5_021D7480 *slotsMinigameDTO, u32 param2);
+static void ov5_021D7384(FogManager *param0, int slotsMinigameDTO, int param2, GXRgb param3);
+static void ov5_021D73B0(UnkStruct_ov5_021D7308 *param0, FogManager *slotsMinigameDTO, int param2, int param3, GXRgb param4, int param5);
 static BOOL ov5_021D7434(UnkStruct_ov5_021D7308 *param0);
 static void ov5_021D7480(UnkStruct_ov5_021D7480 *param0);
-static void ov5_021D749C(UnkStruct_ov5_021D7480 *param0, int param1, BOOL param2);
+static void ov5_021D749C(UnkStruct_ov5_021D7480 *param0, int slotsMinigameDTO, BOOL param2);
 static int ov5_021D74B8(UnkStruct_ov5_021D7480 *param0);
 static int ov5_021D74F4(UnkStruct_ov5_021D7480 *param0);
 static void ov5_021D74D4(UnkStruct_ov5_021D7480 *param0);
 static void ov5_021D7534(UnkStruct_ov5_021D7480 *param0);
-static void ov5_021D7568(UnkStruct_ov5_021DB4B8 *param0, UnkFuncPtr_ov5_021D7210_1 param1, int param2, int param3, int param4, UnkFuncPtr_ov5_021D6FF0 param5);
+static void ov5_021D7568(UnkStruct_ov5_021DB4B8 *param0, UnkFuncPtr_ov5_021D7210_1 slotsMinigameDTO, int param2, int param3, int param4, UnkFuncPtr_ov5_021D6FF0 param5);
 static UnkStruct_ov5_021D6FA8 *ov5_021D75E4(UnkStruct_ov5_021DB4B8 *param0);
-static BOOL ov5_021D66D0(UnkStruct_ov5_021D6594 *param0, int param1);
-static BOOL ov5_021D6730(UnkStruct_ov5_021D6594 *param0, int param1);
-static BOOL ov5_021D676C(UnkStruct_ov5_021D6594 *param0, int param1, int param2, u32 param3);
-static void ov5_021D6868(UnkStruct_ov5_021D6594 *param0, int param1, u32 param2);
-static void ov5_021D6890(UnkStruct_ov5_021D6594 *param0, int param1);
-static void ov5_021D68B8(UnkStruct_ov5_021D6594 *param0, int param1);
+static BOOL ov5_021D66D0(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO);
+static BOOL ov5_021D6730(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO);
+static BOOL ov5_021D676C(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, int param2, u32 param3);
+static void ov5_021D6868(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, u32 param2);
+static void ov5_021D6890(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO);
+static void ov5_021D68B8(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO);
 static void ov5_021D69B8(UnkStruct_ov5_021D69B8 *param0);
-static void ov5_021D6A84(SysTask *param0, void *param1);
-static BOOL ov5_021D6B60(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *param1);
+static void ov5_021D6A84(SysTask *param0, void *slotsMinigameDTO);
+static BOOL ov5_021D6B60(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *slotsMinigameDTO);
 static BOOL ov5_021D6BC4(UnkStruct_ov5_021D69B8 *param0);
-static void ov5_021D6BFC(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2);
-static void ov5_021D6C30(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2);
-static void ov5_021D6C64(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2);
-static void ov5_021D6CA0(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2);
-static void ov5_021D6CDC(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *param1);
+static void ov5_021D6BFC(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2);
+static void ov5_021D6C30(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2);
+static void ov5_021D6C64(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2);
+static void ov5_021D6CA0(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2);
+static void ov5_021D6CDC(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *slotsMinigameDTO);
 static void ov5_021D6D34(UnkStruct_ov5_021DB4B8 *param0);
 static void ov5_021D6D64(UnkStruct_ov5_021DB4B8 *param0);
-static void ov5_021D6D84(UnkStruct_ov5_021D6594 *param0, int param1);
-static void ov5_021D6DCC(UnkStruct_ov5_021D6594 *param0, int param1);
-static void ov5_021D6E20(UnkStruct_ov5_021D6594 *param0, int param1);
-static void ov5_021D7604(SysTask *param0, void *param1);
-static void ov5_021D7658(SysTask *param0, void *param1);
-static void ov5_021D79F0(SysTask *param0, void *param1);
-static void ov5_021D7E54(SysTask *param0, void *param1);
-static void ov5_021D823C(SysTask *param0, void *param1);
-static void ov5_021D84D4(SysTask *param0, void *param1);
-static void ov5_021D8638(SysTask *param0, void *param1);
-static void ov5_021D879C(SysTask *param0, void *param1);
-static void ov5_021D8948(SysTask *param0, void *param1);
-static void ov5_021D8D08(SysTask *param0, void *param1);
-static void ov5_021D8FF8(SysTask *param0, void *param1);
-static void ov5_021D9464(SysTask *param0, void *param1);
-static void ov5_021D97E8(SysTask *param0, void *param1);
-static void ov5_021D9FF8(SysTask *param0, void *param1);
-static void ov5_021D9F0C(SysTask *param0, void *param1);
-static void ov5_021DA244(SysTask *param0, void *param1);
-static void ov5_021DA748(SysTask *param0, void *param1);
-static void ov5_021DA8A0(SysTask *param0, void *param1);
-static void ov5_021DAB78(SysTask *param0, void *param1);
-static void ov5_021DAC68(SysTask *param0, void *param1);
-static void ov5_021DAD38(SysTask *param0, void *param1);
-static void ov5_021DAEC0(SysTask *param0, void *param1);
-static void ov5_021DB04C(SysTask *param0, void *param1);
-static void ov5_021DB144(SysTask *param0, void *param1);
-static void ov5_021DB3A8(SysTask *param0, void *param1);
-static void ov5_021DB3C4(SysTask *param0, void *param1);
-static void ov5_021DB3E0(SysTask *param0, void *param1);
-static void ov5_021DB40C(SysTask *param0, void *param1);
-static void ov5_021DB438(SysTask *param0, void *param1);
-static void ov5_021DB460(SysTask *param0, void *param1);
-static void ov5_021DB48C(SysTask *param0, void *param1);
-static void ov5_021D78A4(UnkStruct_ov5_021DB4B8 *param0, int param1);
-static void ov5_021D7C40(UnkStruct_ov5_021DB4B8 *param0, int param1);
-static void ov5_021D8098(UnkStruct_ov5_021DB4B8 *param0, int param1);
-static void ov5_021D8B88(UnkStruct_ov5_021DB4B8 *param0, int param1);
-static void ov5_021D92C4(UnkStruct_ov5_021DB4B8 *param0, int param1);
-static void ov5_021D9690(UnkStruct_ov5_021DB4B8 *param0, int param1);
-static void ov5_021DA0A8(UnkStruct_ov5_021DB4B8 *param0, int param1);
-static void ov5_021DA5A0(UnkStruct_ov5_021DB4B8 *param0, int param1);
-static void ov5_021DA9DC(UnkStruct_ov5_021DB4B8 *param0, int param1);
+static void ov5_021D6D84(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO);
+static void ov5_021D6DCC(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO);
+static void ov5_021D6E20(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO);
+static void ov5_021D7604(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D7658(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D79F0(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D7E54(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D823C(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D84D4(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D8638(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D879C(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D8948(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D8D08(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D8FF8(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D9464(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D97E8(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D9FF8(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D9F0C(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DA244(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DA748(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DA8A0(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DAB78(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DAC68(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DAD38(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DAEC0(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB04C(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB144(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB3A8(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB3C4(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB3E0(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB40C(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB438(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB460(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB48C(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021D78A4(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
+static void ov5_021D7C40(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
+static void ov5_021D8098(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
+static void ov5_021D8B88(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
+static void ov5_021D92C4(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
+static void ov5_021D9690(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
+static void ov5_021DA0A8(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
+static void ov5_021DA5A0(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
+static void ov5_021DA9DC(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO);
 static void ov5_021D7960(UnkStruct_ov5_021D6FA8 *param0);
 static void ov5_021D7E20(UnkStruct_ov5_021D6FA8 *param0);
 static void ov5_021D81BC(UnkStruct_ov5_021D6FA8 *param0);
@@ -345,38 +345,38 @@ static void ov5_021D97C0(UnkStruct_ov5_021D6FA8 *param0);
 static void ov5_021DA1A8(UnkStruct_ov5_021D6FA8 *param0);
 static void ov5_021DA6BC(UnkStruct_ov5_021D6FA8 *param0);
 static void ov5_021DAADC(UnkStruct_ov5_021D6FA8 *param0);
-static void ov5_021D9984(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1);
-static BOOL ov5_021D9A0C(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1);
-static void ov5_021D9A58(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1);
-static void ov5_021D9AEC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1);
-static void ov5_021D9B28(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1);
-static BOOL ov5_021D9B68(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1);
-static void ov5_021D9BC0(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1);
-static void ov5_021D9BEC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1);
-static void ov5_021D9C20(SysTask *param0, void *param1, u32 param2, u32 param3, u32 param4, u32 param5);
-static void ov5_021D9DFC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D84D4 *param1, u32 param2, u32 param3, GXRgb param4, u32 param5, u32 param6);
-static void ov5_021DB614(UnkStruct_ov5_021DB614 *param0, HBlankSystem *param1);
+static void ov5_021D9984(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO);
+static BOOL ov5_021D9A0C(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO);
+static void ov5_021D9A58(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO);
+static void ov5_021D9AEC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO);
+static void ov5_021D9B28(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO);
+static BOOL ov5_021D9B68(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO);
+static void ov5_021D9BC0(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO);
+static void ov5_021D9BEC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO);
+static void ov5_021D9C20(SysTask *param0, void *slotsMinigameDTO, u32 param2, u32 param3, u32 param4, u32 param5);
+static void ov5_021D9DFC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D84D4 *slotsMinigameDTO, u32 param2, u32 param3, GXRgb param4, u32 param5, u32 param6);
+static void ov5_021DB614(UnkStruct_ov5_021DB614 *param0, HBlankSystem *slotsMinigameDTO);
 static void ov5_021DB690(UnkStruct_ov5_021DB614 *param0);
-static void ov5_021DB6E0(UnkStruct_ov5_021DB614 *param0, fx32 param1, fx32 param2, int param3, int param4, int param5);
+static void ov5_021DB6E0(UnkStruct_ov5_021DB614 *param0, fx32 slotsMinigameDTO, fx32 param2, int param3, int param4, int param5);
 static BOOL ov5_021DB700(UnkStruct_ov5_021DB614 *param0);
-static void ov5_021DB72C(HBlankTask *param0, void *param1);
-static void ov5_021DB78C(SysTask *param0, void *param1);
+static void ov5_021DB72C(HBlankTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB78C(SysTask *param0, void *slotsMinigameDTO);
 static void ov5_021DB7A4(UnkStruct_ov5_021DB614 *param0);
-static void ov5_021DB7B8(SysTask *param0, void *param1);
-static void ov5_021DB7F8(SysTask *param0, void *param1);
+static void ov5_021DB7B8(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021DB7F8(SysTask *param0, void *slotsMinigameDTO);
 static void ov5_021DB500(UnkStruct_ov5_021DB614 *param0);
 static void ov5_021DB7CC(UnkStruct_ov5_021DB614 *param0);
-static void ov5_021DB588(fx32 param0, int param1, int param2, int param3, int *param4, int *param5);
+static void ov5_021DB588(fx32 param0, int slotsMinigameDTO, int param2, int param3, int *param4, int *param5);
 
 UnkStruct_ov5_021D5EF8 *ov5_021D5EB8(FieldSystem *fieldSystem)
 {
     UnkStruct_ov5_021D5EF8 *v0 = Heap_Alloc(HEAP_ID_FIELD1, sizeof(UnkStruct_ov5_021D5EF8));
     memset(v0, 0, sizeof(UnkStruct_ov5_021D5EF8));
 
-    v0->unk_00 = ov5_021D6364(fieldSystem);
-    v0->unk_04 = 0;
+    v0->coins = ov5_021D6364(fieldSystem);
+    v0->slotMachineVariant = 0;
     v0->unk_08 = 0;
-    v0->unk_0C = 6;
+    v0->slotsMinigameDTO = 6;
     v0->unk_14 = NULL;
     v0->unk_10 = 31;
 
@@ -391,61 +391,61 @@ void ov5_021D5EF8(UnkStruct_ov5_021D5EF8 *param0)
         SysTask_Done(param0->unk_14);
     }
 
-    ov5_021D63A4(&param0->unk_00);
+    ov5_021D63A4(&param0->coins);
     memset(param0, 0, sizeof(UnkStruct_ov5_021D5EF8));
     Heap_Free(param0);
 
     param0 = NULL;
 }
 
-void ov5_021D5F24(UnkStruct_ov5_021D5EF8 *param0, int param1)
+void ov5_021D5F24(UnkStruct_ov5_021D5EF8 *param0, int slotsMinigameDTO)
 {
     BOOL v0;
 
-    GF_ASSERT(param0->unk_0C == 6);
-    GF_ASSERT(param1 < 31);
+    GF_ASSERT(param0->slotsMinigameDTO == 6);
+    GF_ASSERT(slotsMinigameDTO < 31);
 
-    if (param0->unk_04 == param1) {
+    if (param0->slotMachineVariant == slotsMinigameDTO) {
         return;
     }
 
-    v0 = ov5_021D6418(param0->unk_00, 8, param0->unk_04);
+    v0 = ov5_021D6418(param0->coins, 8, param0->slotMachineVariant);
     GF_ASSERT(v0);
 
-    v0 = ov5_021D6418(param0->unk_00, 0, param1);
+    v0 = ov5_021D6418(param0->coins, 0, slotsMinigameDTO);
     GF_ASSERT(v0);
 
-    v0 = ov5_021D6418(param0->unk_00, 3, param1);
+    v0 = ov5_021D6418(param0->coins, 3, slotsMinigameDTO);
     GF_ASSERT(v0);
 
-    param0->unk_04 = param1;
+    param0->slotMachineVariant = slotsMinigameDTO;
 }
 
-BOOL ov5_021D5F7C(UnkStruct_ov5_021D5EF8 *param0, int param1)
+BOOL ov5_021D5F7C(UnkStruct_ov5_021D5EF8 *param0, int slotsMinigameDTO)
 {
     int v0;
 
-    GF_ASSERT(param1 < 31);
+    GF_ASSERT(slotsMinigameDTO < 31);
 
-    if (param0->unk_0C != 6) {
-        param0->unk_10 = param1;
+    if (param0->slotsMinigameDTO != 6) {
+        param0->unk_10 = slotsMinigameDTO;
         return 1;
     }
 
-    if (param0->unk_04 == param1) {
+    if (param0->slotMachineVariant == slotsMinigameDTO) {
         return 1;
     }
 
     GF_ASSERT(param0->unk_14 == NULL);
-    param0->unk_08 = param1;
+    param0->unk_08 = slotsMinigameDTO;
 
-    v0 = ov5_021D6178(param0->unk_04, param0->unk_08);
+    v0 = ov5_021D6178(param0->slotMachineVariant, param0->unk_08);
 
     if (v0 == 0) {
-        param0->unk_0C = 0;
+        param0->slotsMinigameDTO = 0;
         param0->unk_14 = SysTask_Start(ov5_021D5FE4, param0, 0);
     } else {
-        param0->unk_0C = 0;
+        param0->slotsMinigameDTO = 0;
         param0->unk_14 = SysTask_Start(ov5_021D60B4, param0, 0);
     }
 
@@ -454,51 +454,51 @@ BOOL ov5_021D5F7C(UnkStruct_ov5_021D5EF8 *param0, int param1)
 
 u32 ov5_021D5FE0(UnkStruct_ov5_021D5EF8 *param0)
 {
-    return param0->unk_04;
+    return param0->slotMachineVariant;
 }
 
-static void ov5_021D5FE4(SysTask *param0, void *param1)
+static void ov5_021D5FE4(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D5EF8 *v0 = param1;
+    UnkStruct_ov5_021D5EF8 *v0 = slotsMinigameDTO;
     BOOL v1;
 
-    switch (v0->unk_0C) {
+    switch (v0->slotsMinigameDTO) {
     case 0:
-        v1 = ov5_021D6418(v0->unk_00, 5, v0->unk_04);
+        v1 = ov5_021D6418(v0->coins, 5, v0->slotMachineVariant);
         GF_ASSERT(v1);
-        v0->unk_0C++;
+        v0->slotsMinigameDTO++;
         break;
     case 1:
-        v1 = ov5_021D64D0(v0->unk_00, v0->unk_04);
+        v1 = ov5_021D64D0(v0->coins, v0->slotMachineVariant);
 
         if (v1 != 3) {
-            v1 = ov5_021D6418(v0->unk_00, 8, v0->unk_04);
+            v1 = ov5_021D6418(v0->coins, 8, v0->slotMachineVariant);
             GF_ASSERT(v1);
-            v0->unk_0C++;
+            v0->slotsMinigameDTO++;
         }
         break;
     case 2:
-        v1 = ov5_021D6418(v0->unk_00, 1, v0->unk_08);
+        v1 = ov5_021D6418(v0->coins, 1, v0->unk_08);
         GF_ASSERT(v1);
-        v0->unk_0C++;
+        v0->slotsMinigameDTO++;
         break;
     case 3:
-        v1 = ov5_021D64D0(v0->unk_00, v0->unk_08);
+        v1 = ov5_021D64D0(v0->coins, v0->unk_08);
 
         if (v1 != 1) {
-            v0->unk_0C++;
+            v0->slotsMinigameDTO++;
         }
         break;
     case 4:
-        v1 = ov5_021D6418(v0->unk_00, 2, v0->unk_08);
+        v1 = ov5_021D6418(v0->coins, 2, v0->unk_08);
         GF_ASSERT(v1);
 
-        v0->unk_0C++;
-        v0->unk_04 = v0->unk_08;
+        v0->slotsMinigameDTO++;
+        v0->slotMachineVariant = v0->unk_08;
         v0->unk_08 = 0;
         break;
     case 5:
-        v0->unk_0C = 6;
+        v0->slotsMinigameDTO = 6;
         v0->unk_14 = NULL;
 
         SysTask_Done(param0);
@@ -513,44 +513,44 @@ static void ov5_021D5FE4(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021D60B4(SysTask *param0, void *param1)
+static void ov5_021D60B4(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D5EF8 *v0 = param1;
+    UnkStruct_ov5_021D5EF8 *v0 = slotsMinigameDTO;
     BOOL v1;
 
-    switch (v0->unk_0C) {
+    switch (v0->slotsMinigameDTO) {
     case 0:
-        v1 = ov5_021D6418(v0->unk_00, 1, v0->unk_08);
+        v1 = ov5_021D6418(v0->coins, 1, v0->unk_08);
         GF_ASSERT(v1);
-        v0->unk_0C++;
+        v0->slotsMinigameDTO++;
         break;
     case 1:
-        v1 = ov5_021D64D0(v0->unk_00, v0->unk_08);
+        v1 = ov5_021D64D0(v0->coins, v0->unk_08);
 
         if (v1 != 1) {
-            v0->unk_0C++;
+            v0->slotsMinigameDTO++;
         }
         break;
     case 2:
-        v1 = ov5_021D6418(v0->unk_00, 7, v0->unk_04);
+        v1 = ov5_021D6418(v0->coins, 7, v0->slotMachineVariant);
         GF_ASSERT(v1);
-        v1 = ov5_021D6418(v0->unk_00, 4, v0->unk_08);
+        v1 = ov5_021D6418(v0->coins, 4, v0->unk_08);
         GF_ASSERT(v1);
-        v0->unk_0C++;
+        v0->slotsMinigameDTO++;
         break;
     case 3:
-        v1 = ov5_021D64D0(v0->unk_00, v0->unk_04);
+        v1 = ov5_021D64D0(v0->coins, v0->slotMachineVariant);
 
         if (v1 != 3) {
-            v1 = ov5_021D6418(v0->unk_00, 8, v0->unk_04);
+            v1 = ov5_021D6418(v0->coins, 8, v0->slotMachineVariant);
             GF_ASSERT(v1);
-            v0->unk_0C++;
+            v0->slotsMinigameDTO++;
         }
         break;
     case 4:
-        v0->unk_04 = v0->unk_08;
+        v0->slotMachineVariant = v0->unk_08;
         v0->unk_08 = 0;
-        v0->unk_0C = 6;
+        v0->slotsMinigameDTO = 6;
         v0->unk_14 = NULL;
 
         SysTask_Done(param0);
@@ -565,28 +565,28 @@ static void ov5_021D60B4(SysTask *param0, void *param1)
     }
 }
 
-static int ov5_021D6178(int param0, int param1)
+static int ov5_021D6178(int param0, int slotsMinigameDTO)
 {
     int v0 = 0;
 
     switch (param0) {
     case 5:
-        if ((param1 == 6) || (param1 == 21) || (param1 == 7)) {
+        if ((slotsMinigameDTO == 6) || (slotsMinigameDTO == 21) || (slotsMinigameDTO == 7)) {
             v0 = 1;
         }
         break;
     case 6:
-        if ((param1 == 5) || (param1 == 21) || (param1 == 7)) {
+        if ((slotsMinigameDTO == 5) || (slotsMinigameDTO == 21) || (slotsMinigameDTO == 7)) {
             v0 = 1;
         }
         break;
     case 21:
-        if ((param1 == 5) || (param1 == 6) || (param1 == 7)) {
+        if ((slotsMinigameDTO == 5) || (slotsMinigameDTO == 6) || (slotsMinigameDTO == 7)) {
             v0 = 1;
         }
         break;
     case 7:
-        if ((param1 == 5) || (param1 == 21) || (param1 == 6)) {
+        if ((slotsMinigameDTO == 5) || (slotsMinigameDTO == 21) || (slotsMinigameDTO == 6)) {
             v0 = 1;
         }
         break;
@@ -777,7 +777,7 @@ static void ov5_021D61D0(UnkStruct_ov5_021D61D0 *param0)
     RenderOam_InitSurface(&param0->unk_C0, &v0, NNS_G2D_SURFACETYPE_MAIN2D, &param0->unk_14);
 
     for (v1 = 0; v1 < 4; v1++) {
-        param0->unk_00[v1] = SpriteResourceCollection_New(31, v1, HEAP_ID_FIELD1);
+        param0->coins[v1] = SpriteResourceCollection_New(31, v1, HEAP_ID_FIELD1);
     }
 
     v2 = SpriteResourceTable_Size();
@@ -800,15 +800,15 @@ static void ov5_021D61D0(UnkStruct_ov5_021D61D0 *param0)
     }
 }
 
-static void ov5_021D6284(SysTask *param0, void *param1)
+static void ov5_021D6284(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D61D0 *v0 = param1;
+    UnkStruct_ov5_021D61D0 *v0 = slotsMinigameDTO;
     SpriteList_Update(v0->unk_130);
 }
 
-static void ov5_021D6290(SpriteResourceTable *param0, int param1, int param2)
+static void ov5_021D6290(SpriteResourceTable *param0, int slotsMinigameDTO, int param2)
 {
-    SpriteResourceTable *v0 = SpriteResourceTable_GetArrayElement(param0, param1);
+    SpriteResourceTable *v0 = SpriteResourceTable_GetArrayElement(param0, slotsMinigameDTO);
     void *v1 = LoadMemberFromNARC(NARC_INDEX_DATA__WEATHER_SYS, param2, 0, HEAP_ID_FIELD1, 1);
 
     SpriteResourceTable_LoadFromBinary(v1, v0, HEAP_ID_FIELD1);
@@ -824,7 +824,7 @@ static void ov5_021D62BC(UnkStruct_ov5_021D61D0 *param0)
         v1 = SpriteResourceTable_GetArrayElement(param0->unk_10, v0);
 
         SpriteResourceTable_Clear(v1);
-        SpriteResourceCollection_Delete(param0->unk_00[v0]);
+        SpriteResourceCollection_Delete(param0->coins[v0]);
     }
 
     Heap_Free(param0->unk_10);
@@ -837,25 +837,25 @@ static void ov5_021D62BC(UnkStruct_ov5_021D61D0 *param0)
     param0->unk_134 = NULL;
 }
 
-static void ov5_021D630C(Sprite *param0, VecFx32 *param1)
+static void ov5_021D630C(Sprite *param0, VecFx32 *slotsMinigameDTO)
 {
-    if (param1->x > ((255 << FX32_SHIFT) + 64 * FX32_ONE)) {
-        param1->x %= ((255 << FX32_SHIFT) + 64 * FX32_ONE);
+    if (slotsMinigameDTO->x > ((255 << FX32_SHIFT) + 64 * FX32_ONE)) {
+        slotsMinigameDTO->x %= ((255 << FX32_SHIFT) + 64 * FX32_ONE);
     } else {
-        if (param1->x < (-64 * FX32_ONE)) {
-            param1->x += ((255 << FX32_SHIFT) + 64 * FX32_ONE);
+        if (slotsMinigameDTO->x < (-64 * FX32_ONE)) {
+            slotsMinigameDTO->x += ((255 << FX32_SHIFT) + 64 * FX32_ONE);
         }
     }
 
-    if (param1->y > ((192 << FX32_SHIFT) + 64 * FX32_ONE)) {
-        param1->y %= ((192 << FX32_SHIFT) + 64 * FX32_ONE);
+    if (slotsMinigameDTO->y > ((192 << FX32_SHIFT) + 64 * FX32_ONE)) {
+        slotsMinigameDTO->y %= ((192 << FX32_SHIFT) + 64 * FX32_ONE);
     } else {
-        if (param1->y < (-64 * FX32_ONE)) {
-            param1->y += ((192 << FX32_SHIFT) + 64 * FX32_ONE);
+        if (slotsMinigameDTO->y < (-64 * FX32_ONE)) {
+            slotsMinigameDTO->y += ((192 << FX32_SHIFT) + 64 * FX32_ONE);
         }
     }
 
-    Sprite_SetPosition(param0, param1);
+    Sprite_SetPosition(param0, slotsMinigameDTO);
 }
 
 UnkStruct_ov5_021D6594 *ov5_021D6364(FieldSystem *fieldSystem)
@@ -865,8 +865,8 @@ UnkStruct_ov5_021D6594 *ov5_021D6364(FieldSystem *fieldSystem)
 
     ov5_021D61D0(&v0->unk_08);
 
-    v0->unk_00 = Unk_ov5_02201D78;
-    v0->unk_04 = Unk_ov5_021F8D90;
+    v0->coins = Unk_ov5_02201D78;
+    v0->slotMachineVariant = Unk_ov5_021F8D90;
     v0->unk_144 = NARC_ctor(NARC_INDEX_DATA__WEATHER_SYS, HEAP_ID_FIELD1);
 
     return v0;
@@ -895,7 +895,7 @@ void ov5_021D63A4(UnkStruct_ov5_021D6594 **param0)
     }
 }
 
-BOOL ov5_021D6418(UnkStruct_ov5_021D6594 *param0, int param1, int param2)
+BOOL ov5_021D6418(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, int param2)
 {
     BOOL v0 = 1;
 
@@ -903,7 +903,7 @@ BOOL ov5_021D6418(UnkStruct_ov5_021D6594 *param0, int param1, int param2)
         return 0;
     }
 
-    switch (param1) {
+    switch (slotsMinigameDTO) {
     case 0:
         v0 = ov5_021D66D0(param0, param2);
         break;
@@ -942,85 +942,85 @@ BOOL ov5_021D6418(UnkStruct_ov5_021D6594 *param0, int param1, int param2)
     return v0;
 }
 
-int ov5_021D64D0(UnkStruct_ov5_021D6594 *param0, int param1)
+int ov5_021D64D0(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO)
 {
     UnkStruct_ov5_021D69B8 *v0;
 
-    if (param1 >= 31) {
+    if (slotsMinigameDTO >= 31) {
         return 0;
     }
 
-    v0 = param0->unk_00 + param1;
+    v0 = param0->coins + slotsMinigameDTO;
 
     return v0->unk_10;
 }
 
-static void ov5_021D64E4(int param0, int param1)
+static void ov5_021D64E4(int param0, int slotsMinigameDTO)
 {
-    G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG2, GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BD, param0, param1);
+    G2_SetBlendAlpha(GX_BLEND_PLANEMASK_BG2, GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BD, param0, slotsMinigameDTO);
 }
 
-static void ov5_021D64FC(UnkStruct_ov5_021D64FC *param0, int param1, int param2, int param3)
+static void ov5_021D64FC(UnkStruct_ov5_021D64FC *param0, int slotsMinigameDTO, int param2, int param3)
 {
-    param0->unk_00 = param1;
-    param0->unk_04 = param1;
-    param0->unk_08 = param2 - param1;
+    param0->coins = slotsMinigameDTO;
+    param0->slotMachineVariant = slotsMinigameDTO;
+    param0->unk_08 = param2 - slotsMinigameDTO;
     param0->unk_10 = param3;
-    param0->unk_0C = 0;
+    param0->slotsMinigameDTO = 0;
 }
 
 static BOOL ov5_021D650C(UnkStruct_ov5_021D64FC *param0)
 {
-    int v0 = param0->unk_08 * param0->unk_0C;
+    int v0 = param0->unk_08 * param0->slotsMinigameDTO;
     v0 = v0 / param0->unk_10;
 
-    param0->unk_00 = v0 + param0->unk_04;
+    param0->coins = v0 + param0->slotMachineVariant;
 
-    if ((param0->unk_0C + 1) <= param0->unk_10) {
-        param0->unk_0C++;
+    if ((param0->slotsMinigameDTO + 1) <= param0->unk_10) {
+        param0->slotsMinigameDTO++;
         return 0;
     }
 
-    param0->unk_0C = param0->unk_10;
+    param0->slotsMinigameDTO = param0->unk_10;
     return 1;
 }
 
-static void ov5_021D6538(UnkStruct_ov5_021D6538 *param0, fx32 param1, fx32 param2, int param3)
+static void ov5_021D6538(UnkStruct_ov5_021D6538 *param0, fx32 slotsMinigameDTO, fx32 param2, int param3)
 {
-    param0->unk_00 = param1;
-    param0->unk_04 = param1;
-    param0->unk_08 = param2 - param1;
+    param0->coins = slotsMinigameDTO;
+    param0->slotMachineVariant = slotsMinigameDTO;
+    param0->unk_08 = param2 - slotsMinigameDTO;
     param0->unk_0E = param3;
-    param0->unk_0C = 0;
+    param0->slotsMinigameDTO = 0;
 }
 
 static BOOL ov5_021D6548(UnkStruct_ov5_021D6538 *param0)
 {
     fx32 v0;
 
-    v0 = FX_Mul(param0->unk_08, param0->unk_0C);
+    v0 = FX_Mul(param0->unk_08, param0->slotsMinigameDTO);
     v0 = FX_Div(v0, param0->unk_0E);
 
-    param0->unk_00 = v0 + param0->unk_04;
+    param0->coins = v0 + param0->slotMachineVariant;
 
-    if ((param0->unk_0C + 1) <= param0->unk_0E) {
-        param0->unk_0C++;
+    if ((param0->slotsMinigameDTO + 1) <= param0->unk_0E) {
+        param0->slotsMinigameDTO++;
         return 0;
     }
 
-    param0->unk_0C = param0->unk_0E;
+    param0->slotsMinigameDTO = param0->unk_0E;
     return 1;
 }
 
-static void ov5_021D6594(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2)
+static void ov5_021D6594(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2)
 {
-    ov5_021D6BFC(param0, param1, param2);
-    ov5_021D6C30(param0, param1, param2);
-    ov5_021D6C64(param0, param1, param2);
-    ov5_021D6CA0(param0, param1, param2);
+    ov5_021D6BFC(param0, slotsMinigameDTO, param2);
+    ov5_021D6C30(param0, slotsMinigameDTO, param2);
+    ov5_021D6C64(param0, slotsMinigameDTO, param2);
+    ov5_021D6CA0(param0, slotsMinigameDTO, param2);
 }
 
-static SpriteResource *ov5_021D65C0(SpriteResourceTable *param0, int param1, int param2, SpriteResourceCollection *param3, NARC *param4, u32 param5)
+static SpriteResource *ov5_021D65C0(SpriteResourceTable *param0, int slotsMinigameDTO, int param2, SpriteResourceCollection *param3, NARC *param4, u32 param5)
 {
     SpriteResourceTable *v0;
     SpriteResource *v1;
@@ -1030,14 +1030,14 @@ static SpriteResource *ov5_021D65C0(SpriteResourceTable *param0, int param1, int
     int v5;
     int v6;
 
-    v0 = SpriteResourceTable_GetArrayElement(param0, param1);
+    v0 = SpriteResourceTable_GetArrayElement(param0, slotsMinigameDTO);
     v2 = SpriteResourceTable_GetNARCEntryMemberIndex(v0, param2);
     v3 = SpriteResourceTable_IsNARCEntryCompressed(v0, param2);
     v4 = SpriteResourceTable_GetEntryVRAMType(v0, param2);
     v5 = SpriteResourceTable_GetPaletteIndex(v0, param2);
     v6 = SpriteResourceTable_GetEntryID(v0, param2);
 
-    switch (param1) {
+    switch (slotsMinigameDTO) {
     case 0:
         v1 = SpriteResourceCollection_AddTilesFromEx(param3, param4, v2, v3, v6, v4, 4, param5);
         break;
@@ -1055,30 +1055,30 @@ static SpriteResource *ov5_021D65C0(SpriteResourceTable *param0, int param1, int
     return v1;
 }
 
-static void ov5_021D6690(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2)
+static void ov5_021D6690(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2)
 {
     int v0;
 
-    if (param1 != 0xffff) {
-        if (param2->unk_00[0]) {
-            SpriteTransfer_ResetCharTransfer(param2->unk_00[0]);
+    if (slotsMinigameDTO != 0xffff) {
+        if (param2->coins[0]) {
+            SpriteTransfer_ResetCharTransfer(param2->coins[0]);
         }
 
-        if (param2->unk_00[1]) {
-            SpriteTransfer_ResetPlttTransfer(param2->unk_00[1]);
+        if (param2->coins[1]) {
+            SpriteTransfer_ResetPlttTransfer(param2->coins[1]);
         }
 
         for (v0 = 0; v0 < 4; v0++) {
-            if (param2->unk_00[v0]) {
-                SpriteResourceCollection_Remove(param0->unk_08.unk_00[v0], param2->unk_00[v0]);
+            if (param2->coins[v0]) {
+                SpriteResourceCollection_Remove(param0->unk_08.coins[v0], param2->coins[v0]);
             }
         }
     }
 }
 
-static BOOL ov5_021D66D0(UnkStruct_ov5_021D6594 *param0, int param1)
+static BOOL ov5_021D66D0(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D69B8 *v0 = param0->unk_00 + param1;
+    UnkStruct_ov5_021D69B8 *v0 = param0->coins + slotsMinigameDTO;
     BOOL v1;
 
     if (v0->unk_08 == NULL) {
@@ -1096,9 +1096,9 @@ static BOOL ov5_021D66D0(UnkStruct_ov5_021D6594 *param0, int param1)
             return 0;
         }
 
-        v0->unk_08->unk_08 = v0->unk_0C;
+        v0->unk_08->unk_08 = v0->slotsMinigameDTO;
 
-        if (v0->unk_00 != 0xffff) {
+        if (v0->coins != 0xffff) {
             ov5_021D6D34(v0->unk_08);
         }
 
@@ -1110,9 +1110,9 @@ static BOOL ov5_021D66D0(UnkStruct_ov5_021D6594 *param0, int param1)
     return 1;
 }
 
-static BOOL ov5_021D6730(UnkStruct_ov5_021D6594 *param0, int param1)
+static BOOL ov5_021D6730(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D69B8 *v0 = param0->unk_00 + param1;
+    UnkStruct_ov5_021D69B8 *v0 = param0->coins + slotsMinigameDTO;
 
     if (v0->unk_08) {
         return 1;
@@ -1129,12 +1129,12 @@ static BOOL ov5_021D6730(UnkStruct_ov5_021D6594 *param0, int param1)
     return 1;
 }
 
-static BOOL ov5_021D676C(UnkStruct_ov5_021D6594 *param0, int param1, int param2, u32 param3)
+static BOOL ov5_021D676C(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, int param2, u32 param3)
 {
-    UnkStruct_ov5_021D69B8 *v0 = param0->unk_00 + param1;
+    UnkStruct_ov5_021D69B8 *v0 = param0->coins + slotsMinigameDTO;
 
-    if (v0->unk_00 != 0xffff) {
-        if (v0->unk_0C == NULL) {
+    if (v0->coins != 0xffff) {
+        if (v0->slotsMinigameDTO == NULL) {
             return 0;
         }
     }
@@ -1156,15 +1156,15 @@ static BOOL ov5_021D676C(UnkStruct_ov5_021D6594 *param0, int param1, int param2,
     v0->unk_10 = 3;
     v0->unk_08->unk_BA2 = param2;
     v0->unk_08->unk_BA6 = 0;
-    v0->unk_08->unk_0C.unk_34 = &v0->unk_08->unk_0C;
-    v0->unk_08->unk_0C.unk_38 = &v0->unk_08->unk_0C;
+    v0->unk_08->slotsMinigameDTO.unk_34 = &v0->unk_08->slotsMinigameDTO;
+    v0->unk_08->slotsMinigameDTO.unk_38 = &v0->unk_08->slotsMinigameDTO;
     v0->unk_08->unk_BA4 = param3;
     v0->unk_08->unk_B9C = 0;
     v0->unk_08->unk_B8C = *(NNS_G3dGlbGetCameraTarget());
 
-    if (v0->unk_04 > 0) {
-        v0->unk_08->unk_B98 = Heap_Alloc(HEAP_ID_FIELD1, v0->unk_04);
-        memset(v0->unk_08->unk_B98, 0, v0->unk_04);
+    if (v0->slotMachineVariant > 0) {
+        v0->unk_08->unk_B98 = Heap_Alloc(HEAP_ID_FIELD1, v0->slotMachineVariant);
+        memset(v0->unk_08->unk_B98, 0, v0->slotMachineVariant);
     } else {
         v0->unk_08->unk_B98 = NULL;
     }
@@ -1179,9 +1179,9 @@ static BOOL ov5_021D676C(UnkStruct_ov5_021D6594 *param0, int param1, int param2,
     return 1;
 }
 
-static void ov5_021D6868(UnkStruct_ov5_021D6594 *param0, int param1, u32 param2)
+static void ov5_021D6868(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, u32 param2)
 {
-    UnkStruct_ov5_021D69B8 *v0 = param0->unk_00 + param1;
+    UnkStruct_ov5_021D69B8 *v0 = param0->coins + slotsMinigameDTO;
 
     if (v0->unk_10 == 3) {
         v0->unk_08->unk_BA6 = 5;
@@ -1189,19 +1189,19 @@ static void ov5_021D6868(UnkStruct_ov5_021D6594 *param0, int param1, u32 param2)
     }
 }
 
-static void ov5_021D6890(UnkStruct_ov5_021D6594 *param0, int param1)
+static void ov5_021D6890(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D69B8 *v0 = param0->unk_00 + param1;
+    UnkStruct_ov5_021D69B8 *v0 = param0->coins + slotsMinigameDTO;
 
-    if (ov5_021D64D0(param0, param1) == 3) {
+    if (ov5_021D64D0(param0, slotsMinigameDTO) == 3) {
         v0->unk_08->unk_BA2 = 5;
         v0->unk_18(NULL, v0->unk_08);
     }
 }
 
-static void ov5_021D68B8(UnkStruct_ov5_021D6594 *param0, int param1)
+static void ov5_021D68B8(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D69B8 *v0 = param0->unk_00 + param1;
+    UnkStruct_ov5_021D69B8 *v0 = param0->coins + slotsMinigameDTO;
 
     if (v0->unk_02 != 0xffff) {
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 0);
@@ -1211,10 +1211,10 @@ static void ov5_021D68B8(UnkStruct_ov5_021D6594 *param0, int param1)
         G2_BlendNone();
     }
 
-    if (v0->unk_0C != NULL) {
-        ov5_021D6690(param0, v0->unk_00, v0->unk_0C);
-        Heap_FreeExplicit(HEAP_ID_FIELD1, v0->unk_0C);
-        v0->unk_0C = NULL;
+    if (v0->slotsMinigameDTO != NULL) {
+        ov5_021D6690(param0, v0->coins, v0->slotsMinigameDTO);
+        Heap_FreeExplicit(HEAP_ID_FIELD1, v0->slotsMinigameDTO);
+        v0->slotsMinigameDTO = NULL;
 
         if (v0->unk_14 != NULL) {
             SysTask_Done(v0->unk_14);
@@ -1223,9 +1223,9 @@ static void ov5_021D68B8(UnkStruct_ov5_021D6594 *param0, int param1)
     }
 
     if (v0->unk_08 != NULL) {
-        ov5_021D6FD8(&v0->unk_08->unk_0C);
+        ov5_021D6FD8(&v0->unk_08->slotsMinigameDTO);
 
-        if (v0->unk_00 != 0xffff) {
+        if (v0->coins != 0xffff) {
             ov5_021D6D64(v0->unk_08);
         }
 
@@ -1266,7 +1266,7 @@ static void ov5_021D69B8(UnkStruct_ov5_021D69B8 *param0)
     }
 
     if (param0->unk_08 != NULL) {
-        ov5_021D6FD8(&param0->unk_08->unk_0C);
+        ov5_021D6FD8(&param0->unk_08->slotsMinigameDTO);
 
         if (param0->unk_08->unk_B9C == 1) {
             ov5_021DB4E4(param0->unk_08);
@@ -1279,37 +1279,37 @@ static void ov5_021D69B8(UnkStruct_ov5_021D69B8 *param0)
     }
 }
 
-static void ov5_021D6A2C(UnkStruct_ov5_021D6594 *param0, int param1)
+static void ov5_021D6A2C(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO)
 {
-    ov5_021D6D84(param0, param1);
-    ov5_021D6DCC(param0, param1);
-    ov5_021D6E20(param0, param1);
+    ov5_021D6D84(param0, slotsMinigameDTO);
+    ov5_021D6DCC(param0, slotsMinigameDTO);
+    ov5_021D6E20(param0, slotsMinigameDTO);
 }
 
-static BOOL ov5_021D6A48(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *param1)
+static BOOL ov5_021D6A48(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *slotsMinigameDTO)
 {
     BOOL v0;
 
-    if (param1->unk_00 != 0xffff) {
-        if (param1->unk_0C == NULL) {
-            v0 = ov5_021D6BC4(param1);
+    if (slotsMinigameDTO->coins != 0xffff) {
+        if (slotsMinigameDTO->slotsMinigameDTO == NULL) {
+            v0 = ov5_021D6BC4(slotsMinigameDTO);
 
             if (v0 == 0) {
                 return 0;
             }
 
-            ov5_021D6594(param0, param1->unk_00, param1->unk_0C);
-            ov5_021D6CDC(param0, param1);
+            ov5_021D6594(param0, slotsMinigameDTO->coins, slotsMinigameDTO->slotsMinigameDTO);
+            ov5_021D6CDC(param0, slotsMinigameDTO);
         }
     }
 
     return 1;
 }
 
-static void ov5_021D6A84(SysTask *param0, void *param1)
+static void ov5_021D6A84(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021D69B8 *v0 = param1;
-    UnkStruct_ov5_021D6594 *v1 = v0->unk_08->unk_00;
+    UnkStruct_ov5_021D69B8 *v0 = slotsMinigameDTO;
+    UnkStruct_ov5_021D6594 *v1 = v0->unk_08->coins;
     BOOL v2;
 
     switch (v0->unk_12) {
@@ -1319,7 +1319,7 @@ static void ov5_021D6A84(SysTask *param0, void *param1)
         v0->unk_12++;
         break;
     case 1:
-        ov5_021D6BFC(v1, v0->unk_00, v0->unk_0C);
+        ov5_021D6BFC(v1, v0->coins, v0->slotsMinigameDTO);
         v0->unk_12++;
         break;
     case 2:
@@ -1327,7 +1327,7 @@ static void ov5_021D6A84(SysTask *param0, void *param1)
         v0->unk_12++;
         break;
     case 3:
-        ov5_021D6C30(v1, v0->unk_00, v0->unk_0C);
+        ov5_021D6C30(v1, v0->coins, v0->slotsMinigameDTO);
         v0->unk_12++;
         break;
     case 4:
@@ -1335,7 +1335,7 @@ static void ov5_021D6A84(SysTask *param0, void *param1)
         v0->unk_12++;
         break;
     case 5:
-        ov5_021D6C64(v1, v0->unk_00, v0->unk_0C);
+        ov5_021D6C64(v1, v0->coins, v0->slotsMinigameDTO);
         v0->unk_12++;
         break;
     case 6:
@@ -1343,14 +1343,14 @@ static void ov5_021D6A84(SysTask *param0, void *param1)
         v0->unk_12++;
         break;
     case 7:
-        ov5_021D6CA0(v1, v0->unk_00, v0->unk_0C);
+        ov5_021D6CA0(v1, v0->coins, v0->slotsMinigameDTO);
         v0->unk_12++;
         break;
     case 8:
         ov5_021D6CDC(v1, v0);
-        v0->unk_08->unk_08 = v0->unk_0C;
+        v0->unk_08->unk_08 = v0->slotsMinigameDTO;
 
-        if (v0->unk_00 != 0xffff) {
+        if (v0->coins != 0xffff) {
             ov5_021D6D34(v0->unk_08);
         }
 
@@ -1362,95 +1362,95 @@ static void ov5_021D6A84(SysTask *param0, void *param1)
     }
 }
 
-static BOOL ov5_021D6B60(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *param1)
+static BOOL ov5_021D6B60(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *slotsMinigameDTO)
 {
-    if (param1->unk_08) {
+    if (slotsMinigameDTO->unk_08) {
         return 1;
     }
 
-    param1->unk_08 = Heap_Alloc(HEAP_ID_FIELD1, sizeof(UnkStruct_ov5_021DB4B8));
+    slotsMinigameDTO->unk_08 = Heap_Alloc(HEAP_ID_FIELD1, sizeof(UnkStruct_ov5_021DB4B8));
 
-    if (param1->unk_08 == NULL) {
+    if (slotsMinigameDTO->unk_08 == NULL) {
         return 0;
     }
 
-    memset(param1->unk_08, 0, sizeof(UnkStruct_ov5_021DB4B8));
+    memset(slotsMinigameDTO->unk_08, 0, sizeof(UnkStruct_ov5_021DB4B8));
 
-    param1->unk_08->unk_00 = param0;
-    param1->unk_08->unk_BA2 = 0;
-    param1->unk_08->unk_BA6 = 0;
-    param1->unk_08->unk_0C.unk_34 = &param1->unk_08->unk_0C;
-    param1->unk_08->unk_0C.unk_38 = &param1->unk_08->unk_0C;
-    param1->unk_08->unk_B98 = NULL;
-    param1->unk_08->unk_04 = param1;
+    slotsMinigameDTO->unk_08->coins = param0;
+    slotsMinigameDTO->unk_08->unk_BA2 = 0;
+    slotsMinigameDTO->unk_08->unk_BA6 = 0;
+    slotsMinigameDTO->unk_08->slotsMinigameDTO.unk_34 = &slotsMinigameDTO->unk_08->slotsMinigameDTO;
+    slotsMinigameDTO->unk_08->slotsMinigameDTO.unk_38 = &slotsMinigameDTO->unk_08->slotsMinigameDTO;
+    slotsMinigameDTO->unk_08->unk_B98 = NULL;
+    slotsMinigameDTO->unk_08->slotMachineVariant = slotsMinigameDTO;
 
     return 1;
 }
 
 static BOOL ov5_021D6BC4(UnkStruct_ov5_021D69B8 *param0)
 {
-    if (param0->unk_00 != 0xffff) {
-        if (param0->unk_0C) {
+    if (param0->coins != 0xffff) {
+        if (param0->slotsMinigameDTO) {
             return 1;
         }
 
-        param0->unk_0C = Heap_Alloc(HEAP_ID_FIELD1, sizeof(UnkStruct_ov5_021D6690));
+        param0->slotsMinigameDTO = Heap_Alloc(HEAP_ID_FIELD1, sizeof(UnkStruct_ov5_021D6690));
 
-        if (param0->unk_0C == NULL) {
+        if (param0->slotsMinigameDTO == NULL) {
             return 0;
         }
 
-        memset(param0->unk_0C, 0, sizeof(UnkStruct_ov5_021D6690));
+        memset(param0->slotsMinigameDTO, 0, sizeof(UnkStruct_ov5_021D6690));
     }
 
     return 1;
 }
 
-static void ov5_021D6BFC(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2)
+static void ov5_021D6BFC(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2)
 {
-    if (param1 != 0xffff) {
-        param2->unk_00[2] = ov5_021D65C0(param0->unk_08.unk_10, 2, param1, param0->unk_08.unk_00[2], param0->unk_144, 0);
+    if (slotsMinigameDTO != 0xffff) {
+        param2->coins[2] = ov5_021D65C0(param0->unk_08.unk_10, 2, slotsMinigameDTO, param0->unk_08.coins[2], param0->unk_144, 0);
     }
 }
 
-static void ov5_021D6C30(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2)
+static void ov5_021D6C30(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2)
 {
-    if (param1 != 0xffff) {
-        param2->unk_00[3] = ov5_021D65C0(param0->unk_08.unk_10, 3, param1, param0->unk_08.unk_00[3], param0->unk_144, 0);
+    if (slotsMinigameDTO != 0xffff) {
+        param2->coins[3] = ov5_021D65C0(param0->unk_08.unk_10, 3, slotsMinigameDTO, param0->unk_08.coins[3], param0->unk_144, 0);
     }
 }
 
-static void ov5_021D6C64(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2)
+static void ov5_021D6C64(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2)
 {
-    if (param1 != 0xffff) {
-        param2->unk_00[0] = ov5_021D65C0(param0->unk_08.unk_10, 0, param1, param0->unk_08.unk_00[0], param0->unk_144, 1);
+    if (slotsMinigameDTO != 0xffff) {
+        param2->coins[0] = ov5_021D65C0(param0->unk_08.unk_10, 0, slotsMinigameDTO, param0->unk_08.coins[0], param0->unk_144, 1);
 
-        SpriteTransfer_RequestCharAtEnd(param2->unk_00[0]);
-        SpriteResource_ReleaseData(param2->unk_00[0]);
+        SpriteTransfer_RequestCharAtEnd(param2->coins[0]);
+        SpriteResource_ReleaseData(param2->coins[0]);
     }
 }
 
-static void ov5_021D6CA0(UnkStruct_ov5_021D6594 *param0, int param1, UnkStruct_ov5_021D6690 *param2)
+static void ov5_021D6CA0(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2)
 {
-    if (param1 != 0xffff) {
-        param2->unk_00[1] = ov5_021D65C0(param0->unk_08.unk_10, 1, param1, param0->unk_08.unk_00[1], param0->unk_144, 1);
+    if (slotsMinigameDTO != 0xffff) {
+        param2->coins[1] = ov5_021D65C0(param0->unk_08.unk_10, 1, slotsMinigameDTO, param0->unk_08.coins[1], param0->unk_144, 1);
 
-        SpriteTransfer_RequestPlttFreeSpace(param2->unk_00[1]);
-        SpriteResource_ReleaseData(param2->unk_00[1]);
+        SpriteTransfer_RequestPlttFreeSpace(param2->coins[1]);
+        SpriteResource_ReleaseData(param2->coins[1]);
     }
 }
 
-static void ov5_021D6CDC(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *param1)
+static void ov5_021D6CDC(UnkStruct_ov5_021D6594 *param0, UnkStruct_ov5_021D69B8 *slotsMinigameDTO)
 {
-    if (param1->unk_00 != 0xffff) {
-        ov5_021D6F4C(&param1->unk_0C->unk_40, param0, param1->unk_0C, 0, 1);
-        memset(&param1->unk_0C->unk_10, 0, sizeof(AffineSpriteListTemplate));
-        param1->unk_0C->unk_10.list = param0->unk_08.unk_130;
-        param1->unk_0C->unk_10.resourceData = &param1->unk_0C->unk_40;
-        param1->unk_0C->unk_10.affineScale.x = FX32_ONE;
-        param1->unk_0C->unk_10.affineScale.y = FX32_ONE;
-        param1->unk_0C->unk_10.affineScale.z = FX32_ONE;
-        param1->unk_0C->unk_10.vramType = 1;
+    if (slotsMinigameDTO->coins != 0xffff) {
+        ov5_021D6F4C(&slotsMinigameDTO->slotsMinigameDTO->unk_40, param0, slotsMinigameDTO->slotsMinigameDTO, 0, 1);
+        memset(&slotsMinigameDTO->slotsMinigameDTO->unk_10, 0, sizeof(AffineSpriteListTemplate));
+        slotsMinigameDTO->slotsMinigameDTO->unk_10.list = param0->unk_08.unk_130;
+        slotsMinigameDTO->slotsMinigameDTO->unk_10.resourceData = &slotsMinigameDTO->slotsMinigameDTO->unk_40;
+        slotsMinigameDTO->slotsMinigameDTO->unk_10.affineScale.x = FX32_ONE;
+        slotsMinigameDTO->slotsMinigameDTO->unk_10.affineScale.y = FX32_ONE;
+        slotsMinigameDTO->slotsMinigameDTO->unk_10.affineScale.z = FX32_ONE;
+        slotsMinigameDTO->slotsMinigameDTO->unk_10.vramType = 1;
     }
 }
 
@@ -1459,9 +1459,9 @@ static void ov5_021D6D34(UnkStruct_ov5_021DB4B8 *param0)
     int v0;
 
     for (v0 = 0; v0 < 48; v0++) {
-        param0->unk_48[v0].unk_04 = SpriteList_AddAffine(&param0->unk_08->unk_10);
-        Sprite_SetDrawFlag(param0->unk_48[v0].unk_04, FALSE);
-        GF_ASSERT(param0->unk_48[v0].unk_04);
+        param0->unk_48[v0].slotMachineVariant = SpriteList_AddAffine(&param0->unk_08->unk_10);
+        Sprite_SetDrawFlag(param0->unk_48[v0].slotMachineVariant, FALSE);
+        GF_ASSERT(param0->unk_48[v0].slotMachineVariant);
     }
 }
 
@@ -1470,59 +1470,59 @@ static void ov5_021D6D64(UnkStruct_ov5_021DB4B8 *param0)
     int v0;
 
     for (v0 = 0; v0 < 48; v0++) {
-        if (param0->unk_48[v0].unk_04) {
-            Sprite_Delete(param0->unk_48[v0].unk_04);
-            param0->unk_48[v0].unk_04 = NULL;
+        if (param0->unk_48[v0].slotMachineVariant) {
+            Sprite_Delete(param0->unk_48[v0].slotMachineVariant);
+            param0->unk_48[v0].slotMachineVariant = NULL;
         }
     }
 }
 
-static void ov5_021D6D84(UnkStruct_ov5_021D6594 *param0, int param1)
+static void ov5_021D6D84(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO)
 {
     UnkStruct_ov5_021D6D84 v0;
 
-    if (param1 != 0xffff) {
-        v0.unk_00 = NARC_AllocAndReadWholeMember(param0->unk_144, param0->unk_04[param1].unk_00, 4);
+    if (slotsMinigameDTO != 0xffff) {
+        v0.coins = NARC_AllocAndReadWholeMember(param0->unk_144, param0->slotMachineVariant[slotsMinigameDTO].coins, 4);
 
-        NNS_G2dGetUnpackedPaletteData(v0.unk_00, &v0.unk_14);
+        NNS_G2dGetUnpackedPaletteData(v0.coins, &v0.unk_14);
 
         Bg_LoadPalette(BG_LAYER_MAIN_2, v0.unk_14->pRawData, PALETTE_SIZE_BYTES, PLTT_OFFSET(6));
-        Heap_Free(v0.unk_00);
+        Heap_Free(v0.coins);
 
-        v0.unk_00 = NULL;
+        v0.coins = NULL;
     }
 }
 
-static void ov5_021D6DCC(UnkStruct_ov5_021D6594 *param0, int param1)
+static void ov5_021D6DCC(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO)
 {
     UnkStruct_ov5_021D6D84 v0;
 
-    if (param1 != 0xffff) {
-        v0.unk_04 = NARC_AllocAndReadWholeMember(param0->unk_144, param0->unk_04[param1].unk_04, 4);
+    if (slotsMinigameDTO != 0xffff) {
+        v0.slotMachineVariant = NARC_AllocAndReadWholeMember(param0->unk_144, param0->slotMachineVariant[slotsMinigameDTO].slotMachineVariant, 4);
 
-        NNS_G2dGetUnpackedCharacterData(v0.unk_04, &v0.unk_10);
+        NNS_G2dGetUnpackedCharacterData(v0.slotMachineVariant, &v0.unk_10);
 
         Bg_LoadTiles(param0->fieldSystem->bgConfig, 2, v0.unk_10->pRawData, v0.unk_10->szByte, 0);
-        Heap_Free(v0.unk_04);
+        Heap_Free(v0.slotMachineVariant);
 
-        v0.unk_04 = NULL;
+        v0.slotMachineVariant = NULL;
     }
 }
 
-static void ov5_021D6E20(UnkStruct_ov5_021D6594 *param0, int param1)
+static void ov5_021D6E20(UnkStruct_ov5_021D6594 *param0, int slotsMinigameDTO)
 {
     UnkStruct_ov5_021D6D84 v0;
 
-    if (param1 != 0xffff) {
+    if (slotsMinigameDTO != 0xffff) {
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 0);
 
-        v0.unk_08 = NARC_AllocAndReadWholeMember(param0->unk_144, param0->unk_04[param1].unk_08, 4);
+        v0.unk_08 = NARC_AllocAndReadWholeMember(param0->unk_144, param0->slotMachineVariant[slotsMinigameDTO].unk_08, 4);
         GF_ASSERT(v0.unk_08);
 
-        NNS_G2dGetUnpackedScreenData(v0.unk_08, &v0.unk_0C);
+        NNS_G2dGetUnpackedScreenData(v0.unk_08, &v0.slotsMinigameDTO);
 
-        Bg_CopyTilemapBufferRangeToVRAM(param0->fieldSystem->bgConfig, 2, (void *)v0.unk_0C->rawData, v0.unk_0C->szByte, 0);
-        Bg_LoadTilemapBuffer(param0->fieldSystem->bgConfig, 2, (void *)v0.unk_0C->rawData, v0.unk_0C->szByte);
+        Bg_CopyTilemapBufferRangeToVRAM(param0->fieldSystem->bgConfig, 2, (void *)v0.slotsMinigameDTO->rawData, v0.slotsMinigameDTO->szByte, 0);
+        Bg_LoadTilemapBuffer(param0->fieldSystem->bgConfig, 2, (void *)v0.slotsMinigameDTO->rawData, v0.slotsMinigameDTO->szByte);
         Bg_ChangeTilemapRectPalette(param0->fieldSystem->bgConfig, 2, 0, 0, 32, 32, 6);
         Bg_CopyTilemapBufferToVRAM(param0->fieldSystem->bgConfig, 2);
         Heap_Free(v0.unk_08);
@@ -1531,25 +1531,25 @@ static void ov5_021D6E20(UnkStruct_ov5_021D6594 *param0, int param1)
     }
 }
 
-static void ov5_021D6EC8(UnkStruct_ov5_021D6FA8 *param0, int param1)
+static void ov5_021D6EC8(UnkStruct_ov5_021D6FA8 *param0, int slotsMinigameDTO)
 {
     GF_ASSERT(param0->unk_08 == NULL);
-    GF_ASSERT(param1 > 0);
-    GF_ASSERT(param1 <= (sizeof(s32) * 10));
+    GF_ASSERT(slotsMinigameDTO > 0);
+    GF_ASSERT(slotsMinigameDTO <= (sizeof(s32) * 10));
 
-    param0->unk_08 = param0->unk_0C;
+    param0->unk_08 = param0->slotsMinigameDTO;
 }
 
 static void ov5_021D6EF0(UnkStruct_ov5_021D6FA8 *param0)
 {
     param0->unk_08 = NULL;
-    memset(param0->unk_0C, 0, (sizeof(s32) * 10));
+    memset(param0->slotsMinigameDTO, 0, (sizeof(s32) * 10));
 }
 
-static UnkStruct_ov5_021D6FA8 *ov5_021D6F00(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static UnkStruct_ov5_021D6FA8 *ov5_021D6F00(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     UnkStruct_ov5_021D6FA8 *v0;
-    UnkStruct_ov5_021D6594 *v1 = (UnkStruct_ov5_021D6594 *)param0->unk_00;
+    UnkStruct_ov5_021D6594 *v1 = (UnkStruct_ov5_021D6594 *)param0->coins;
 
     v0 = ov5_021D75E4(param0);
 
@@ -1557,35 +1557,35 @@ static UnkStruct_ov5_021D6FA8 *ov5_021D6F00(UnkStruct_ov5_021DB4B8 *param0, int 
         return NULL;
     }
 
-    v0->unk_00 = v1;
-    v0->unk_34 = &param0->unk_0C;
-    v0->unk_38 = param0->unk_0C.unk_38;
+    v0->coins = v1;
+    v0->unk_34 = &param0->slotsMinigameDTO;
+    v0->unk_38 = param0->slotsMinigameDTO.unk_38;
 
-    param0->unk_0C.unk_38->unk_34 = v0;
-    param0->unk_0C.unk_38 = v0;
+    param0->slotsMinigameDTO.unk_38->unk_34 = v0;
+    param0->slotsMinigameDTO.unk_38 = v0;
 
-    ov5_021D6EC8(v0, param1);
+    ov5_021D6EC8(v0, slotsMinigameDTO);
 
     if (v0->unk_08 == NULL) {
         return NULL;
     }
 
-    GF_ASSERT(v0->unk_04);
-    Sprite_SetDrawFlag(v0->unk_04, TRUE);
+    GF_ASSERT(v0->slotMachineVariant);
+    Sprite_SetDrawFlag(v0->slotMachineVariant, TRUE);
 
     return v0;
 }
 
-static void ov5_021D6F4C(SpriteResourcesHeader *param0, UnkStruct_ov5_021D6594 *param1, UnkStruct_ov5_021D6690 *param2, int param3, int param4)
+static void ov5_021D6F4C(SpriteResourcesHeader *param0, UnkStruct_ov5_021D6594 *slotsMinigameDTO, UnkStruct_ov5_021D6690 *param2, int param3, int param4)
 {
     int v0[4];
     int v1;
 
     for (v1 = 0; v1 < 4; v1++) {
-        v0[v1] = SpriteResource_GetID(param2->unk_00[v1]);
+        v0[v1] = SpriteResource_GetID(param2->coins[v1]);
     }
 
-    SpriteResourcesHeader_Init(param0, v0[0], v0[1], v0[2], v0[3], 0xffffffff, 0xffffffff, param3, param4, param1->unk_08.unk_00[0], param1->unk_08.unk_00[1], param1->unk_08.unk_00[2], param1->unk_08.unk_00[3], NULL, NULL);
+    SpriteResourcesHeader_Init(param0, v0[0], v0[1], v0[2], v0[3], 0xffffffff, 0xffffffff, param3, param4, slotsMinigameDTO->unk_08.coins[0], slotsMinigameDTO->unk_08.coins[1], slotsMinigameDTO->unk_08.coins[2], slotsMinigameDTO->unk_08.coins[3], NULL, NULL);
 }
 
 static void ov5_021D6FA8(UnkStruct_ov5_021D6FA8 *param0)
@@ -1595,13 +1595,13 @@ static void ov5_021D6FA8(UnkStruct_ov5_021D6FA8 *param0)
     param0->unk_38->unk_34 = param0->unk_34;
     param0->unk_34->unk_38 = param0->unk_38;
 
-    Sprite_SetDrawFlag(param0->unk_04, FALSE);
+    Sprite_SetDrawFlag(param0->slotMachineVariant, FALSE);
     ov5_021D6EF0(param0);
 
-    v0 = param0->unk_04;
+    v0 = param0->slotMachineVariant;
     memset(param0, 0, sizeof(UnkStruct_ov5_021D6FA8));
 
-    param0->unk_04 = v0;
+    param0->slotMachineVariant = v0;
 }
 
 static void ov5_021D6FD8(UnkStruct_ov5_021D6FA8 *param0)
@@ -1618,13 +1618,13 @@ static void ov5_021D6FD8(UnkStruct_ov5_021D6FA8 *param0)
     }
 }
 
-static void ov5_021D6FF0(UnkStruct_ov5_021D6FA8 *param0, UnkFuncPtr_ov5_021D6FF0 param1)
+static void ov5_021D6FF0(UnkStruct_ov5_021D6FA8 *param0, UnkFuncPtr_ov5_021D6FF0 slotsMinigameDTO)
 {
     UnkStruct_ov5_021D6FA8 *v0 = param0->unk_34;
     UnkStruct_ov5_021D6FA8 *v1 = v0->unk_34;
 
     while (v0 != param0) {
-        param1(v0);
+        slotsMinigameDTO(v0);
 
         v0 = v1;
         v1 = v0->unk_34;
@@ -1638,11 +1638,11 @@ static void ov5_021D700C(UnkStruct_ov5_021DB4B8 *param0)
 
 static VecFx32 ov5_021D7010(UnkStruct_ov5_021D6FA8 *param0)
 {
-    const VecFx32 *v0 = Sprite_GetPosition(param0->unk_04);
+    const VecFx32 *v0 = Sprite_GetPosition(param0->slotMachineVariant);
     return *v0;
 }
 
-static void ov5_021D7028(fx32 *param0, fx32 *param1, UnkStruct_ov5_021DB4B8 *param2)
+static void ov5_021D7028(fx32 *param0, fx32 *slotsMinigameDTO, UnkStruct_ov5_021DB4B8 *param2)
 {
     VecFx32 v0;
     fx32 v1, v2;
@@ -1656,7 +1656,7 @@ static void ov5_021D7028(fx32 *param0, fx32 *param1, UnkStruct_ov5_021DB4B8 *par
     v6 = (v0.z - param2->unk_B8C.z);
     v8 = FX_Div(FX32_CONST(4), FX32_CONST(3));
 
-    CalcLinearFov(Camera_GetFOV(param2->unk_00->fieldSystem->camera), Camera_GetDistance(param2->unk_00->fieldSystem->camera), v8, &v3, &v4);
+    CalcLinearFov(Camera_GetFOV(param2->coins->fieldSystem->camera), Camera_GetDistance(param2->coins->fieldSystem->camera), v8, &v3, &v4);
     v3 = FX_Div(v3, 256 * FX32_ONE);
 
     if (v6 <= 0) {
@@ -1696,20 +1696,20 @@ static void ov5_021D7028(fx32 *param0, fx32 *param1, UnkStruct_ov5_021DB4B8 *par
     }
 
     *param0 = v1;
-    *param1 = v2;
+    *slotsMinigameDTO = v2;
 }
 
-static void ov5_021D717C(UnkStruct_ov5_021DB4B8 *param0, int *param1, int *param2)
+static void ov5_021D717C(UnkStruct_ov5_021DB4B8 *param0, int *slotsMinigameDTO, int *param2)
 {
     fx32 v0, v1;
 
     ov5_021D71B4(param0, &v0, &v1);
 
-    if (param1 != NULL) {
-        *param1 = v0 >> FX32_SHIFT;
+    if (slotsMinigameDTO != NULL) {
+        *slotsMinigameDTO = v0 >> FX32_SHIFT;
 
-        if (*param1 < 0) {
-            *param1 += FX32_ONE;
+        if (*slotsMinigameDTO < 0) {
+            *slotsMinigameDTO += FX32_ONE;
         }
     }
 
@@ -1722,7 +1722,7 @@ static void ov5_021D717C(UnkStruct_ov5_021DB4B8 *param0, int *param1, int *param
     }
 }
 
-static void ov5_021D71B4(UnkStruct_ov5_021DB4B8 *param0, fx32 *param1, fx32 *param2)
+static void ov5_021D71B4(UnkStruct_ov5_021DB4B8 *param0, fx32 *slotsMinigameDTO, fx32 *param2)
 {
     UnkStruct_ov5_021D6FA8 *v0;
     fx32 v1, v2;
@@ -1730,21 +1730,21 @@ static void ov5_021D71B4(UnkStruct_ov5_021DB4B8 *param0, fx32 *param1, fx32 *par
 
     ov5_021D7028(&v1, &v2, param0);
 
-    v0 = param0->unk_0C.unk_34;
+    v0 = param0->slotsMinigameDTO.unk_34;
 
-    while (v0 != &param0->unk_0C) {
+    while (v0 != &param0->slotsMinigameDTO) {
         v3 = ov5_021D7010(v0);
 
         v3.x -= v1;
         v3.y -= v2;
 
-        ov5_021D630C(v0->unk_04, &v3);
+        ov5_021D630C(v0->slotMachineVariant, &v3);
 
         v0 = v0->unk_34;
     }
 
-    if (param1 != NULL) {
-        *param1 = v1;
+    if (slotsMinigameDTO != NULL) {
+        *slotsMinigameDTO = v1;
     }
 
     if (param2 != NULL) {
@@ -1752,14 +1752,14 @@ static void ov5_021D71B4(UnkStruct_ov5_021DB4B8 *param0, fx32 *param1, fx32 *par
     }
 }
 
-static void ov5_021D7210(UnkStruct_ov5_021D7210 *param0, UnkStruct_ov5_021DB4B8 *param1, s32 param2, s32 param3, s32 param4, s32 param5, s32 param6, s32 param7, s32 param8, UnkFuncPtr_ov5_021D7210_1 param9)
+static void ov5_021D7210(UnkStruct_ov5_021D7210 *param0, UnkStruct_ov5_021DB4B8 *slotsMinigameDTO, s32 param2, s32 param3, s32 param4, s32 param5, s32 param6, s32 param7, s32 param8, UnkFuncPtr_ov5_021D7210_1 param9)
 {
-    param0->unk_00 = param1;
-    param0->unk_04 = param2;
+    param0->coins = slotsMinigameDTO;
+    param0->slotMachineVariant = param2;
     param0->unk_06 = 0;
     param0->unk_08 = param3;
     param0->unk_0A = 0;
-    param0->unk_0C = param4;
+    param0->slotsMinigameDTO = param4;
     param0->unk_0E = param5;
     param0->unk_10 = param6;
     param0->unk_12 = param7;
@@ -1767,9 +1767,9 @@ static void ov5_021D7210(UnkStruct_ov5_021D7210 *param0, UnkStruct_ov5_021DB4B8 
     param0->unk_18 = param9;
 }
 
-static void ov5_021D7238(UnkStruct_ov5_021D7210 *param0, s32 param1, s32 param2, s32 param3, s32 param4)
+static void ov5_021D7238(UnkStruct_ov5_021D7210 *param0, s32 slotsMinigameDTO, s32 param2, s32 param3, s32 param4)
 {
-    param0->unk_0C = param1;
+    param0->slotsMinigameDTO = slotsMinigameDTO;
     param0->unk_0E = param2;
     param0->unk_10 = param3;
     param0->unk_14 = param4;
@@ -1804,16 +1804,16 @@ static int ov5_021D7244(UnkStruct_ov5_021D7210 *param0)
             v0 = 1;
         }
 
-        if (((param0->unk_04 >= param0->unk_0C) && (v0 == 0)) || ((param0->unk_04 <= param0->unk_0C) && (v0 == 1))) {
+        if (((param0->slotMachineVariant >= param0->slotsMinigameDTO) && (v0 == 0)) || ((param0->slotMachineVariant <= param0->slotsMinigameDTO) && (v0 == 1))) {
             v1 |= 2;
-            param0->unk_04 = param0->unk_0C;
+            param0->slotMachineVariant = param0->slotsMinigameDTO;
         }
     }
 
     (param0->unk_06)--;
 
     if (param0->unk_06 <= 0) {
-        param0->unk_18(param0->unk_00, param0->unk_04);
+        param0->unk_18(param0->coins, param0->slotMachineVariant);
         param0->unk_06 = param0->unk_08;
 
         if ((v1 & 1) == 0) {
@@ -1825,7 +1825,7 @@ static int ov5_021D7244(UnkStruct_ov5_021D7210 *param0)
 
             if (param0->unk_0A >= param0->unk_12) {
                 param0->unk_0A = 0;
-                param0->unk_04 += param0->unk_14;
+                param0->slotMachineVariant += param0->unk_14;
             }
         }
     }
@@ -1833,29 +1833,29 @@ static int ov5_021D7244(UnkStruct_ov5_021D7210 *param0)
     return v1;
 }
 
-static void ov5_021D7308(UnkStruct_ov5_021D7308 *param0, UnkStruct_ov5_021D7480 *param1, FogManager *param2, int param3, int param4, GXRgb param5, int param6, u32 param7)
+static void ov5_021D7308(UnkStruct_ov5_021D7308 *param0, UnkStruct_ov5_021D7480 *slotsMinigameDTO, FogManager *param2, int param3, int param4, GXRgb param5, int param6, u32 param7)
 {
-    param1->unk_00 = param2;
+    slotsMinigameDTO->coins = param2;
 
     if (param7 != 0) {
         if (param7 == 1) {
             ov5_021D7384(param2, param3, param4, param5);
-            ov5_021D7480(param1);
-            ov5_021D749C(param1, param6, 1);
+            ov5_021D7480(slotsMinigameDTO);
+            ov5_021D749C(slotsMinigameDTO, param6, 1);
         } else if (param7 == 2) {
             ov5_021D73B0(param0, param2, param3, param4, param5, param6 * 127);
         }
     }
 }
 
-static int ov5_021D735C(UnkStruct_ov5_021D7308 *param0, UnkStruct_ov5_021D7480 *param1, u32 param2)
+static int ov5_021D735C(UnkStruct_ov5_021D7308 *param0, UnkStruct_ov5_021D7480 *slotsMinigameDTO, u32 param2)
 {
     BOOL v0;
     int v1 = 1;
 
     if (param2 != 0) {
         if (param2 == 1) {
-            v1 = ov5_021D74B8(param1);
+            v1 = ov5_021D74B8(slotsMinigameDTO);
         } else if (param2 == 2) {
             v0 = ov5_021D7434(param0);
 
@@ -1868,25 +1868,25 @@ static int ov5_021D735C(UnkStruct_ov5_021D7308 *param0, UnkStruct_ov5_021D7480 *
     return v1;
 }
 
-static void ov5_021D7384(FogManager *param0, int param1, int param2, GXRgb param3)
+static void ov5_021D7384(FogManager *param0, int slotsMinigameDTO, int param2, GXRgb param3)
 {
-    FogManager_ApplyParameters(param0, FOG_PARAMETER_ALL, 1, GX_FOGBLEND_COLOR_ALPHA, param1, param2);
+    FogManager_ApplyParameters(param0, FOG_PARAMETER_ALL, 1, GX_FOGBLEND_COLOR_ALPHA, slotsMinigameDTO, param2);
     FogManager_ApplyColor(param0, FOG_PARAMETER_ALL, param3, 31);
 }
 
-static void ov5_021D73B0(UnkStruct_ov5_021D7308 *param0, FogManager *param1, int param2, int param3, GXRgb param4, int param5)
+static void ov5_021D73B0(UnkStruct_ov5_021D7308 *param0, FogManager *slotsMinigameDTO, int param2, int param3, GXRgb param4, int param5)
 {
     int v0;
     int v1;
     GXRgb v2;
 
-    v0 = FogManager_GetSlope(param1);
-    v1 = FogManager_GetOffset(param1);
-    v2 = FogManager_GetColor(param1);
+    v0 = FogManager_GetSlope(slotsMinigameDTO);
+    v1 = FogManager_GetOffset(slotsMinigameDTO);
+    v2 = FogManager_GetColor(slotsMinigameDTO);
 
-    param0->unk_00 = param1;
+    param0->coins = slotsMinigameDTO;
 
-    ov5_021D64FC(&param0->unk_04, v1, param3, param5);
+    ov5_021D64FC(&param0->slotMachineVariant, v1, param3, param5);
     ov5_021D64FC(&param0->unk_18, (((v2) >> GX_RGB_R_SHIFT) & 0x1f), (((param4) >> GX_RGB_R_SHIFT) & 0x1f), param5);
     ov5_021D64FC(&param0->unk_2C, (((v2) >> GX_RGB_G_SHIFT) & 0x1f), (((param4) >> GX_RGB_G_SHIFT) & 0x1f), param5);
     ov5_021D64FC(&param0->unk_40, (((v2) >> GX_RGB_B_SHIFT) & 0x1f), (((param4) >> GX_RGB_B_SHIFT) & 0x1f), param5);
@@ -1895,13 +1895,13 @@ static void ov5_021D73B0(UnkStruct_ov5_021D7308 *param0, FogManager *param1, int
 
 static BOOL ov5_021D7434(UnkStruct_ov5_021D7308 *param0)
 {
-    BOOL v0 = ov5_021D650C(&param0->unk_04);
+    BOOL v0 = ov5_021D650C(&param0->slotMachineVariant);
 
     ov5_021D650C(&param0->unk_18);
     ov5_021D650C(&param0->unk_2C);
     ov5_021D650C(&param0->unk_40);
     ov5_021D650C(&param0->unk_54);
-    ov5_021D7384(param0->unk_00, param0->unk_54.unk_00, param0->unk_04.unk_00, GX_RGB(param0->unk_18.unk_00, param0->unk_2C.unk_00, param0->unk_40.unk_00));
+    ov5_021D7384(param0->coins, param0->unk_54.coins, param0->slotMachineVariant.coins, GX_RGB(param0->unk_18.coins, param0->unk_2C.coins, param0->unk_40.coins));
 
     return v0;
 }
@@ -1911,17 +1911,17 @@ static void ov5_021D7480(UnkStruct_ov5_021D7480 *param0)
     int v0;
 
     for (v0 = 0; v0 < 32; v0++) {
-        param0->unk_04[v0] = 0;
+        param0->slotMachineVariant[v0] = 0;
     }
 
-    FogManager_ApplyDensityTable(param0->unk_00, param0->unk_04);
+    FogManager_ApplyDensityTable(param0->coins, param0->slotMachineVariant);
 }
 
-static void ov5_021D749C(UnkStruct_ov5_021D7480 *param0, int param1, BOOL param2)
+static void ov5_021D749C(UnkStruct_ov5_021D7480 *param0, int slotsMinigameDTO, BOOL param2)
 {
     param0->unk_24 = 127;
     param0->unk_28 = 0;
-    param0->unk_2C = param1;
+    param0->unk_2C = slotsMinigameDTO;
 
     if (param2 == 1) {
         param0->unk_2E = 1;
@@ -1935,7 +1935,7 @@ static int ov5_021D74B8(UnkStruct_ov5_021D7480 *param0)
     int v0 = ov5_021D74F4(param0);
 
     if (param0->unk_28 == 0) {
-        FogManager_ApplyDensityTable(param0->unk_00, param0->unk_04);
+        FogManager_ApplyDensityTable(param0->coins, param0->slotMachineVariant);
     }
 
     return v0;
@@ -1952,7 +1952,7 @@ static void ov5_021D74D4(UnkStruct_ov5_021D7480 *param0)
     param0->unk_2E = 1;
 
     ov5_021D7534(param0);
-    FogManager_ApplyDensityTable(param0->unk_00, param0->unk_04);
+    FogManager_ApplyDensityTable(param0->coins, param0->slotMachineVariant);
 }
 
 static int ov5_021D74F4(UnkStruct_ov5_021D7480 *param0)
@@ -1997,29 +1997,29 @@ static void ov5_021D7534(UnkStruct_ov5_021D7480 *param0)
     v1 = v2 / 4;
 
     for (v0 = 31; v0 > v1; v0--) {
-        param0->unk_04[v0] = ((v0 - v1) * 4);
+        param0->slotMachineVariant[v0] = ((v0 - v1) * 4);
 
-        if (param0->unk_04[v0] > 127) {
-            param0->unk_04[v0] = 127;
+        if (param0->slotMachineVariant[v0] > 127) {
+            param0->slotMachineVariant[v0] = 127;
         }
     }
 }
 
-static void ov5_021D7568(UnkStruct_ov5_021DB4B8 *param0, UnkFuncPtr_ov5_021D7210_1 param1, int param2, int param3, int param4, UnkFuncPtr_ov5_021D6FF0 param5)
+static void ov5_021D7568(UnkStruct_ov5_021DB4B8 *param0, UnkFuncPtr_ov5_021D7210_1 slotsMinigameDTO, int param2, int param3, int param4, UnkFuncPtr_ov5_021D6FF0 param5)
 {
     int v0, v1;
     int v2;
     UnkStruct_ov5_021D6FA8 *v3;
     UnkStruct_ov5_021D6FA8 *v4;
 
-    param1(param0, param2);
+    slotsMinigameDTO(param0, param2);
 
     v2 = 0;
-    v3 = param0->unk_0C.unk_34;
+    v3 = param0->slotsMinigameDTO.unk_34;
     v4 = v3->unk_34;
 
     for (v0 = 0; v0 < param2; v0++) {
-        if (v3 == &param0->unk_0C) {
+        if (v3 == &param0->slotsMinigameDTO) {
             break;
         }
 
@@ -2047,7 +2047,7 @@ static UnkStruct_ov5_021D6FA8 *ov5_021D75E4(UnkStruct_ov5_021DB4B8 *param0)
     int v0;
 
     for (v0 = 0; v0 < 48; v0++) {
-        if (param0->unk_48[v0].unk_00 == NULL) {
+        if (param0->unk_48[v0].coins == NULL) {
             return &param0->unk_48[v0];
         }
     }
@@ -2055,9 +2055,9 @@ static UnkStruct_ov5_021D6FA8 *ov5_021D75E4(UnkStruct_ov5_021DB4B8 *param0)
     return NULL;
 }
 
-static void ov5_021D7604(SysTask *param0, void *param1)
+static void ov5_021D7604(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
 
     switch (v0->unk_BA2) {
     case 0:
@@ -2078,7 +2078,7 @@ static void ov5_021D7604(SysTask *param0, void *param1)
         v0->unk_BA2 = 5;
         break;
     case 5: {
-        UnkStruct_ov5_021D69B8 *v1 = v0->unk_04;
+        UnkStruct_ov5_021D69B8 *v1 = v0->slotMachineVariant;
         ov5_021D69B8(v1);
     } break;
     default:
@@ -2086,9 +2086,9 @@ static void ov5_021D7604(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021D7658(SysTask *param0, void *param1)
+static void ov5_021D7658(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     UnkStruct_ov5_021D9984 *v2;
     int v3;
@@ -2098,8 +2098,8 @@ static void ov5_021D7658(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v2->unk_00, v0, 1, 8, 4, 0, -1, 1, 1, ov5_021D78A4);
-        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->unk_00->fieldSystem->fogMan, 3, 0x6F6F + 0x300, GX_RGB(26, 26, 26), 1, v0->unk_BA4);
+        ov5_021D7210(&v2->coins, v0, 1, 8, 4, 0, -1, 1, 1, ov5_021D78A4);
+        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->coins->fieldSystem->fogMan, 3, 0x6F6F + 0x300, GX_RGB(26, 26, 26), 1, v0->unk_BA4);
 
         v2->unk_B4[0] = 0;
 
@@ -2107,7 +2107,7 @@ static void ov5_021D7658(SysTask *param0, void *param1)
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -2120,11 +2120,11 @@ static void ov5_021D7658(SysTask *param0, void *param1)
         }
         break;
     case 2:
-        ov5_021D7210(&v2->unk_00, v0, 4, 0, 4, 0, -1, 1, 1, ov5_021D78A4);
+        ov5_021D7210(&v2->coins, v0, 4, 0, 4, 0, -1, 1, 1, ov5_021D78A4);
 
         if (v0->unk_BA4 != 0) {
-            v2->unk_1C.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v2->unk_1C.unk_00, 3, 0x6F6F + 0x300, GX_RGB(26, 26, 26));
+            v2->unk_1C.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v2->unk_1C.coins, 3, 0x6F6F + 0x300, GX_RGB(26, 26, 26));
 
             ov5_021D74D4(&v2->unk_1C);
         }
@@ -2134,13 +2134,13 @@ static void ov5_021D7658(SysTask *param0, void *param1)
         v0->unk_BA2 = 3;
         break;
     case 3:
-        if (v2->unk_00.unk_06-- <= 0) {
-            ov5_021D78A4(v0, v2->unk_00.unk_04);
-            v2->unk_00.unk_06 = v2->unk_00.unk_08;
+        if (v2->coins.unk_06-- <= 0) {
+            ov5_021D78A4(v0, v2->coins.slotMachineVariant);
+            v2->coins.unk_06 = v2->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v2->unk_00, 0, 8, 1, -1);
+            ov5_021D7238(&v2->coins, 0, 8, 1, -1);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v2->unk_1C, 1, 0);
@@ -2153,7 +2153,7 @@ static void ov5_021D7658(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -2165,7 +2165,7 @@ static void ov5_021D7658(SysTask *param0, void *param1)
             }
 
             if ((v4 == 1) && (v3 == 3)) {
-                if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+                if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                     v0->unk_BA2 = 5;
                 }
             }
@@ -2173,11 +2173,11 @@ static void ov5_021D7658(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v2->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v2->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v5 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v5 = v0->slotMachineVariant;
             ov5_021D69B8(v5);
         }
         break;
@@ -2186,13 +2186,13 @@ static void ov5_021D7658(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021D7960);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021D7960);
         ov5_021D717C(v0, NULL, NULL);
         ov5_021D700C(v0);
     }
 }
 
-static void ov5_021D78A4(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021D78A4(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov5_021D6FA8 *v1;
@@ -2202,7 +2202,7 @@ static void ov5_021D78A4(UnkStruct_ov5_021DB4B8 *param0, int param1)
     VecFx32 v5;
     u32 v6;
 
-    for (v0 = 0; v0 < param1; v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
         v1 = ov5_021D6F00(param0, sizeof(s32) * 8);
 
         if (v1 == NULL) {
@@ -2215,7 +2215,7 @@ static void ov5_021D78A4(UnkStruct_ov5_021DB4B8 *param0, int param1)
         v3[0] = 0;
         v4 = v6 % 3;
 
-        Sprite_SetAnimFrame(v1->unk_04, v4);
+        Sprite_SetAnimFrame(v1->slotMachineVariant, v4);
 
         v2 = (v6 % 20);
         v3[2] = 10 * (v4 + 1) + v2;
@@ -2238,7 +2238,7 @@ static void ov5_021D78A4(UnkStruct_ov5_021DB4B8 *param0, int param1)
         v5.y = -96 << FX32_SHIFT;
         v5.z = 0;
 
-        ov5_021D630C(v1->unk_04, &v5);
+        ov5_021D630C(v1->slotMachineVariant, &v5);
     }
 }
 
@@ -2264,11 +2264,11 @@ static void ov5_021D7960(UnkStruct_ov5_021D6FA8 *param0)
             } else {
                 v2[3] = 1;
                 v2[0] = 4;
-                Sprite_SetAnimFrame(v1->unk_04, 3);
+                Sprite_SetAnimFrame(v1->slotMachineVariant, 3);
             }
         }
 
-        ov5_021D630C(v1->unk_04, &v3);
+        ov5_021D630C(v1->slotMachineVariant, &v3);
         break;
     case 1:
         if (v2[0]-- <= 0) {
@@ -2281,9 +2281,9 @@ static void ov5_021D7960(UnkStruct_ov5_021D6FA8 *param0)
     }
 }
 
-static void ov5_021D79F0(SysTask *param0, void *param1)
+static void ov5_021D79F0(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     int v2;
     UnkStruct_ov5_021D9984 *v3 = (UnkStruct_ov5_021D9984 *)v0->unk_B98;
@@ -2292,16 +2292,16 @@ static void ov5_021D79F0(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v3->unk_00, v0, 1, 24, 1, 14, -5, 1, 0, ov5_021D7C40);
+        ov5_021D7210(&v3->coins, v0, 1, 24, 1, 14, -5, 1, 0, ov5_021D7C40);
         v3->unk_B4[1] = 0;
 
-        ov5_021D7308(&v3->unk_4C, &v3->unk_1C, v0->unk_00->fieldSystem->fogMan, 3, 0x6F6F + 0x300, GX_RGB(26, 26, 26), 1, v0->unk_BA4);
+        ov5_021D7308(&v3->unk_4C, &v3->unk_1C, v0->coins->fieldSystem->fogMan, 3, 0x6F6F + 0x300, GX_RGB(26, 26, 26), 1, v0->unk_BA4);
         v3->unk_B4[0] = 16;
 
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v4 = ov5_021D7244(&v3->unk_00);
+        v4 = ov5_021D7244(&v3->coins);
 
         if (v3->unk_B4[0] > 0) {
             v3->unk_B4[0]--;
@@ -2314,14 +2314,14 @@ static void ov5_021D79F0(SysTask *param0, void *param1)
         }
         break;
     case 2:
-        ov5_021D7210(&v3->unk_00, v0, 1, 14, 1, 14, -5, 1, 0, ov5_021D7C40);
+        ov5_021D7210(&v3->coins, v0, 1, 14, 1, 14, -5, 1, 0, ov5_021D7C40);
 
         v3->unk_B4[1] = 0;
         v3->unk_B4[2] = 0;
 
         if (v0->unk_BA4 != 0) {
-            v3->unk_1C.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v3->unk_1C.unk_00, 3, 0x6F6F + 0x300, GX_RGB(26, 26, 26));
+            v3->unk_1C.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v3->unk_1C.coins, 3, 0x6F6F + 0x300, GX_RGB(26, 26, 26));
             ov5_021D74D4(&v3->unk_1C);
         }
 
@@ -2330,13 +2330,13 @@ static void ov5_021D79F0(SysTask *param0, void *param1)
         v0->unk_BA2 = 3;
         break;
     case 3:
-        if (v3->unk_00.unk_06-- <= 0) {
-            ov5_021D7C40(v0, v3->unk_00.unk_04);
-            v3->unk_00.unk_06 = v3->unk_00.unk_08;
+        if (v3->coins.unk_06-- <= 0) {
+            ov5_021D7C40(v0, v3->coins.slotMachineVariant);
+            v3->coins.unk_06 = v3->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v3->unk_00, 0, 24, 5, -1);
+            ov5_021D7238(&v3->coins, 0, 24, 5, -1);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v3->unk_1C, 2, 0);
@@ -2347,7 +2347,7 @@ static void ov5_021D79F0(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v4 = ov5_021D7244(&v3->unk_00);
+        v4 = ov5_021D7244(&v3->coins);
 
         if (v3->unk_B4[0] > 0) {
             v3->unk_B4[0]--;
@@ -2361,7 +2361,7 @@ static void ov5_021D79F0(SysTask *param0, void *param1)
             if ((v5 == 1) && (v4 == 3)) {
                 v3->unk_B4[2] = 1;
 
-                if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+                if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                     v0->unk_BA2 = 5;
                 }
             }
@@ -2369,11 +2369,11 @@ static void ov5_021D79F0(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v3->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v3->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v6 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v6 = v0->slotMachineVariant;
             ov5_021D69B8(v6);
         }
         break;
@@ -2382,13 +2382,13 @@ static void ov5_021D79F0(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021D7E20);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021D7E20);
         ov5_021D717C(v0, NULL, NULL);
         ov5_021D700C(v0);
     }
 }
 
-static void ov5_021D7C40(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021D7C40(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     int v0;
     int v1;
@@ -2401,10 +2401,10 @@ static void ov5_021D7C40(UnkStruct_ov5_021DB4B8 *param0, int param1)
     v3 = (UnkStruct_ov5_021D9984 *)param0->unk_B98;
 
     if (v3->unk_B4[1] == 1) {
-        param1 *= 2;
+        slotsMinigameDTO *= 2;
     }
 
-    for (v0 = 0; v0 < param1; v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
         v2 = ov5_021D6F00(param0, sizeof(s32) * 10);
 
         if (v2 == NULL) {
@@ -2414,7 +2414,7 @@ static void ov5_021D7C40(UnkStruct_ov5_021DB4B8 *param0, int param1)
         v4 = (s32 *)v2->unk_08;
         v5 = MTRNG_Next() % 4;
 
-        Sprite_SetAnimFrame(v2->unk_04, v5);
+        Sprite_SetAnimFrame(v2->slotMachineVariant, v5);
 
         v4[4] = 10;
         v4[5] = 0;
@@ -2438,57 +2438,57 @@ static void ov5_021D7C40(UnkStruct_ov5_021DB4B8 *param0, int param1)
 
         v6.x = (-32 + (MTRNG_Next() % 414)) << FX32_SHIFT;
 
-        if ((v3->unk_B4[1] == 1) && (v0 >= (param1 / 2))) {
+        if ((v3->unk_B4[1] == 1) && (v0 >= (slotsMinigameDTO / 2))) {
             v6.y = (-40 - (MTRNG_Next() % 20)) << FX32_SHIFT;
         } else {
             v6.y = (-8 - (MTRNG_Next() % 20)) << FX32_SHIFT;
         }
 
-        ov5_021D630C(v2->unk_04, &v6);
+        ov5_021D630C(v2->slotMachineVariant, &v6);
     }
 }
 
-static void ov5_021D7D54(UnkStruct_ov5_021D6FA8 *param0, s32 *param1)
+static void ov5_021D7D54(UnkStruct_ov5_021D6FA8 *param0, s32 *slotsMinigameDTO)
 {
     VecFx32 v0;
     s32 *v1;
 
     v0 = ov5_021D7010(param0);
 
-    if ((param1[5] & 0xffff) >= param1[2]) {
-        v0.x += param1[1] << FX32_SHIFT;
+    if ((slotsMinigameDTO[5] & 0xffff) >= slotsMinigameDTO[2]) {
+        v0.x += slotsMinigameDTO[1] << FX32_SHIFT;
 
-        param1[4]++;
-        param1[5] &= 0xffff0000;
+        slotsMinigameDTO[4]++;
+        slotsMinigameDTO[5] &= 0xffff0000;
 
-        if (param1[4] < 10) {
-            param1[2]--;
+        if (slotsMinigameDTO[4] < 10) {
+            slotsMinigameDTO[2]--;
         } else {
-            param1[2]++;
+            slotsMinigameDTO[2]++;
         }
 
-        if (param1[4] >= 20) {
-            param1[4] = 0;
-            param1[1] *= -1;
+        if (slotsMinigameDTO[4] >= 20) {
+            slotsMinigameDTO[4] = 0;
+            slotsMinigameDTO[1] *= -1;
         }
     }
 
-    if ((param1[5] >> 16) >= param1[3]) {
+    if ((slotsMinigameDTO[5] >> 16) >= slotsMinigameDTO[3]) {
         v0.y += FX32_ONE;
-        param1[5] &= 0xffff;
+        slotsMinigameDTO[5] &= 0xffff;
     }
 
-    ov5_021D630C(param0->unk_04, &v0);
+    ov5_021D630C(param0->slotMachineVariant, &v0);
 
     v0.x >>= FX32_SHIFT;
     v0.y >>= FX32_SHIFT;
 
-    param1[6] = (param1[6] + 1) % 100;
-    param1[5]++;
-    param1[5] += 0x10000;
+    slotsMinigameDTO[6] = (slotsMinigameDTO[6] + 1) % 100;
+    slotsMinigameDTO[5]++;
+    slotsMinigameDTO[5] += 0x10000;
 
     if (((v0.y < -284) && (v0.y > -296)) || ((v0.y > 212) && (v0.y < 232))) {
-        v1 = (s32 *)(param1[0]);
+        v1 = (s32 *)(slotsMinigameDTO[0]);
         *v1 = 1;
         ov5_021D6FA8(param0);
     }
@@ -2519,9 +2519,9 @@ static void ov5_021D7E20(UnkStruct_ov5_021D6FA8 *param0)
     ov5_021D7D54(v0, v1);
 }
 
-static void ov5_021D7E54(SysTask *param0, void *param1)
+static void ov5_021D7E54(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     UnkStruct_ov5_021D9984 *v2;
     int v3;
@@ -2531,15 +2531,15 @@ static void ov5_021D7E54(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v2->unk_00, v0, 1, 30, 6, 3, -5, 2, 1, ov5_021D8098);
-        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->unk_00->fieldSystem->fogMan, 3, 0x6F6F + -0x200, GX_RGB(24, 24, 24), 2, v0->unk_BA4);
+        ov5_021D7210(&v2->coins, v0, 1, 30, 6, 3, -5, 2, 1, ov5_021D8098);
+        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->coins->fieldSystem->fogMan, 3, 0x6F6F + -0x200, GX_RGB(24, 24, 24), 2, v0->unk_BA4);
 
         v2->unk_B4[0] = 8;
         v2->unk_B4[1] = 0;
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -2552,11 +2552,11 @@ static void ov5_021D7E54(SysTask *param0, void *param1)
         }
         break;
     case 2:
-        ov5_021D7210(&v2->unk_00, v0, 6, 3, 6, 3, -5, 2, 1, ov5_021D8098);
+        ov5_021D7210(&v2->coins, v0, 6, 3, 6, 3, -5, 2, 1, ov5_021D8098);
 
         if (v0->unk_BA4 != 0) {
-            v2->unk_1C.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v2->unk_1C.unk_00, 3, 0x6F6F + -0x200, GX_RGB(24, 24, 24));
+            v2->unk_1C.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v2->unk_1C.coins, 3, 0x6F6F + -0x200, GX_RGB(24, 24, 24));
             ov5_021D74D4(&v2->unk_1C);
         }
 
@@ -2565,13 +2565,13 @@ static void ov5_021D7E54(SysTask *param0, void *param1)
         v0->unk_BA2 = 3;
         break;
     case 3:
-        if (v2->unk_00.unk_06-- <= 0) {
-            ov5_021D8098(v0, v2->unk_00.unk_04);
-            v2->unk_00.unk_06 = v2->unk_00.unk_08;
+        if (v2->coins.unk_06-- <= 0) {
+            ov5_021D8098(v0, v2->coins.slotMachineVariant);
+            v2->coins.unk_06 = v2->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v2->unk_00, 0, 30, 5, -3);
+            ov5_021D7238(&v2->coins, 0, 30, 5, -3);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v2->unk_1C, 1, 0);
@@ -2582,7 +2582,7 @@ static void ov5_021D7E54(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -2594,7 +2594,7 @@ static void ov5_021D7E54(SysTask *param0, void *param1)
             }
 
             if ((v4 == 1) && (v3 == 3)) {
-                if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+                if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                     v0->unk_BA2 = 5;
                 }
             }
@@ -2602,11 +2602,11 @@ static void ov5_021D7E54(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v2->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v2->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v5 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v5 = v0->slotMachineVariant;
             ov5_021D69B8(v5);
         }
         break;
@@ -2615,13 +2615,13 @@ static void ov5_021D7E54(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021D81BC);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021D81BC);
         ov5_021D717C(v0, NULL, NULL);
         ov5_021D700C(v0);
     }
 }
 
-static void ov5_021D8098(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021D8098(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov5_021D6FA8 *v1;
@@ -2634,7 +2634,7 @@ static void ov5_021D8098(UnkStruct_ov5_021DB4B8 *param0, int param1)
 
     v3 = (UnkStruct_ov5_021D9984 *)param0->unk_B98;
 
-    for (v0 = 0; v0 < param1; v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
         v1 = ov5_021D6F00(param0, sizeof(s32) * 8);
 
         if (v1 == NULL) {
@@ -2655,7 +2655,7 @@ static void ov5_021D8098(UnkStruct_ov5_021DB4B8 *param0, int param1)
         v4[1] = 4 + (MTRNG_Next() % (46 - 4));
 
         v7 = (v4[1] - 4) / (((46 - 4) / 3) + 1);
-        Sprite_SetAnimFrame(v1->unk_04, v7);
+        Sprite_SetAnimFrame(v1->slotMachineVariant, v7);
 
         v4[4] = -1 * (v7 + 1);
         v4[2] = v6[v2] * (v7 + 1);
@@ -2670,7 +2670,7 @@ static void ov5_021D8098(UnkStruct_ov5_021DB4B8 *param0, int param1)
             v8.x <<= FX32_SHIFT;
             v8.y <<= FX32_SHIFT;
 
-            ov5_021D630C(v1->unk_04, &v8);
+            ov5_021D630C(v1->slotMachineVariant, &v8);
         }
     }
 }
@@ -2699,7 +2699,7 @@ static void ov5_021D81BC(UnkStruct_ov5_021D6FA8 *param0)
             }
         }
 
-        ov5_021D630C(v0->unk_04, &v2);
+        ov5_021D630C(v0->slotMachineVariant, &v2);
         break;
     case 1:
         ov5_021D6FA8(v0);
@@ -2707,9 +2707,9 @@ static void ov5_021D81BC(UnkStruct_ov5_021D6FA8 *param0)
     }
 }
 
-static void ov5_021D823C(SysTask *param0, void *param1)
+static void ov5_021D823C(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     UnkStruct_ov5_021D9984 *v2;
     int v3;
@@ -2719,8 +2719,8 @@ static void ov5_021D823C(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v2->unk_00, v0, 1, 30, 6, 3, -5, 2, 1, ov5_021D8098);
-        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->unk_00->fieldSystem->fogMan, 3, 0x6F6F, GX_RGB(24, 24, 24), 2, v0->unk_BA4);
+        ov5_021D7210(&v2->coins, v0, 1, 30, 6, 3, -5, 2, 1, ov5_021D8098);
+        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->coins->fieldSystem->fogMan, 3, 0x6F6F, GX_RGB(24, 24, 24), 2, v0->unk_BA4);
 
         v2->unk_B4[0] = 8;
         v2->unk_B4[1] = 0;
@@ -2728,7 +2728,7 @@ static void ov5_021D823C(SysTask *param0, void *param1)
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -2745,11 +2745,11 @@ static void ov5_021D823C(SysTask *param0, void *param1)
         }
         break;
     case 2:
-        ov5_021D7210(&v2->unk_00, v0, 6, 3, 6, 3, -5, 2, 1, ov5_021D8098);
+        ov5_021D7210(&v2->coins, v0, 6, 3, 6, 3, -5, 2, 1, ov5_021D8098);
 
         if (v0->unk_BA4 != 0) {
-            v2->unk_1C.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v2->unk_1C.unk_00, 3, 0x6F6F, GX_RGB(24, 24, 24));
+            v2->unk_1C.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v2->unk_1C.coins, 3, 0x6F6F, GX_RGB(24, 24, 24));
 
             ov5_021D74D4(&v2->unk_1C);
         }
@@ -2762,13 +2762,13 @@ static void ov5_021D823C(SysTask *param0, void *param1)
         v0->unk_BA2 = 3;
         break;
     case 3:
-        if (v2->unk_00.unk_06-- <= 0) {
-            ov5_021D8098(v0, v2->unk_00.unk_04);
-            v2->unk_00.unk_06 = v2->unk_00.unk_08;
+        if (v2->coins.unk_06-- <= 0) {
+            ov5_021D8098(v0, v2->coins.slotMachineVariant);
+            v2->coins.unk_06 = v2->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v2->unk_00, 0, 30, 5, -3);
+            ov5_021D7238(&v2->coins, 0, 30, 5, -3);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v2->unk_1C, 1, 0);
@@ -2779,7 +2779,7 @@ static void ov5_021D823C(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -2795,7 +2795,7 @@ static void ov5_021D823C(SysTask *param0, void *param1)
             }
 
             if ((v4 == 1) && (v3 == 3)) {
-                if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+                if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                     v0->unk_BA2 = 5;
                 }
             }
@@ -2803,11 +2803,11 @@ static void ov5_021D823C(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v2->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v2->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v5 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v5 = v0->slotMachineVariant;
             ov5_021D69B8(v5);
         }
         break;
@@ -2816,7 +2816,7 @@ static void ov5_021D823C(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021D81BC);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021D81BC);
         ov5_021D717C(v0, NULL, NULL);
         ov5_021D700C(v0);
 
@@ -2825,9 +2825,9 @@ static void ov5_021D823C(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021D84D4(SysTask *param0, void *param1)
+static void ov5_021D84D4(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     UnkStruct_ov5_021D84D4 *v2;
     int v3;
@@ -2836,7 +2836,7 @@ static void ov5_021D84D4(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7308(&v2->unk_30, &v2->unk_00, v0->unk_00->fieldSystem->fogMan, 3, 0x6F6F + 0x200, GX_RGB(26, 26, 26), 2, v0->unk_BA4);
+        ov5_021D7308(&v2->unk_30, &v2->coins, v0->coins->fieldSystem->fogMan, 3, 0x6F6F + 0x200, GX_RGB(26, 26, 26), 2, v0->unk_BA4);
         v2->unk_98[0] = 16;
 
         v0->unk_BA2 = 1;
@@ -2845,7 +2845,7 @@ static void ov5_021D84D4(SysTask *param0, void *param1)
         if (v2->unk_98[0] > 0) {
             v2->unk_98[0]--;
         } else {
-            v3 = ov5_021D735C(&v2->unk_30, &v2->unk_00, v0->unk_BA4);
+            v3 = ov5_021D735C(&v2->unk_30, &v2->coins, v0->unk_BA4);
 
             if (v3 == 1) {
                 v0->unk_BA2 = 3;
@@ -2854,9 +2854,9 @@ static void ov5_021D84D4(SysTask *param0, void *param1)
         break;
     case 2:
         if (v0->unk_BA4 != 0) {
-            v2->unk_00.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v2->unk_00.unk_00, 3, 0x6F6F + 0x200, GX_RGB(26, 26, 26));
-            ov5_021D74D4(&v2->unk_00);
+            v2->coins.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v2->coins.coins, 3, 0x6F6F + 0x200, GX_RGB(26, 26, 26));
+            ov5_021D74D4(&v2->coins);
         }
 
         v0->unk_BA2 = 3;
@@ -2864,7 +2864,7 @@ static void ov5_021D84D4(SysTask *param0, void *param1)
     case 3:
         if (v0->unk_BA6 == 5) {
             if (v0->unk_BA4 != 0) {
-                ov5_021D749C(&v2->unk_00, 2, 0);
+                ov5_021D749C(&v2->coins, 2, 0);
             }
 
             v2->unk_98[0] = 16;
@@ -2876,7 +2876,7 @@ static void ov5_021D84D4(SysTask *param0, void *param1)
             v2->unk_98[0]--;
         } else {
             if (v0->unk_BA4 != 0) {
-                v3 = ov5_021D74B8(&v2->unk_00);
+                v3 = ov5_021D74B8(&v2->coins);
             } else {
                 v3 = 1;
             }
@@ -2888,11 +2888,11 @@ static void ov5_021D84D4(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v2->unk_00.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v2->coins.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
             ov5_021D69B8(v4);
         }
         break;
@@ -2901,9 +2901,9 @@ static void ov5_021D84D4(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021D8638(SysTask *param0, void *param1)
+static void ov5_021D8638(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     UnkStruct_ov5_021D84D4 *v2;
     int v3;
@@ -2912,7 +2912,7 @@ static void ov5_021D8638(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7308(&v2->unk_30, &v2->unk_00, v0->unk_00->fieldSystem->fogMan, 3, 0x6F6F + -0x9E0, GX_RGB(26, 26, 26), 2, v0->unk_BA4);
+        ov5_021D7308(&v2->unk_30, &v2->coins, v0->coins->fieldSystem->fogMan, 3, 0x6F6F + -0x9E0, GX_RGB(26, 26, 26), 2, v0->unk_BA4);
         v2->unk_98[0] = 16;
         v0->unk_BA2 = 1;
         break;
@@ -2920,7 +2920,7 @@ static void ov5_021D8638(SysTask *param0, void *param1)
         if (v2->unk_98[0] > 0) {
             v2->unk_98[0]--;
         } else {
-            v3 = ov5_021D735C(&v2->unk_30, &v2->unk_00, v0->unk_BA4);
+            v3 = ov5_021D735C(&v2->unk_30, &v2->coins, v0->unk_BA4);
 
             if (v3 == 1) {
                 v0->unk_BA2 = 3;
@@ -2929,9 +2929,9 @@ static void ov5_021D8638(SysTask *param0, void *param1)
         break;
     case 2:
         if (v0->unk_BA4 != 0) {
-            v2->unk_00.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v2->unk_00.unk_00, 3, 0x6F6F + -0x9E0, GX_RGB(26, 26, 26));
-            ov5_021D74D4(&v2->unk_00);
+            v2->coins.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v2->coins.coins, 3, 0x6F6F + -0x9E0, GX_RGB(26, 26, 26));
+            ov5_021D74D4(&v2->coins);
         }
 
         v0->unk_BA2 = 3;
@@ -2939,7 +2939,7 @@ static void ov5_021D8638(SysTask *param0, void *param1)
     case 3:
         if (v0->unk_BA6 == 5) {
             if (v0->unk_BA4 != 0) {
-                ov5_021D749C(&v2->unk_00, 2, 0);
+                ov5_021D749C(&v2->coins, 2, 0);
             }
 
             v2->unk_98[0] = 16;
@@ -2951,7 +2951,7 @@ static void ov5_021D8638(SysTask *param0, void *param1)
             v2->unk_98[0]--;
         } else {
             if (v0->unk_BA4 != 0) {
-                v3 = ov5_021D74B8(&v2->unk_00);
+                v3 = ov5_021D74B8(&v2->coins);
             } else {
                 v3 = 1;
             }
@@ -2963,11 +2963,11 @@ static void ov5_021D8638(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v2->unk_00.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v2->coins.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
             ov5_021D69B8(v4);
         }
         break;
@@ -2976,9 +2976,9 @@ static void ov5_021D8638(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021D879C(SysTask *param0, void *param1)
+static void ov5_021D879C(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D879C *v1;
     int v2;
     BOOL v3;
@@ -2987,8 +2987,8 @@ static void ov5_021D879C(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7308(&v1->unk_44, &v1->unk_14, v0->unk_00->fieldSystem->fogMan, 5, 0x6F6F + 0xAA0, GX_RGB(31, 31, 31), 2, v0->unk_BA4);
-        ov5_021D64FC(&v1->unk_00, 0, 16, 30);
+        ov5_021D7308(&v1->unk_44, &v1->unk_14, v0->coins->fieldSystem->fogMan, 5, 0x6F6F + 0xAA0, GX_RGB(31, 31, 31), 2, v0->unk_BA4);
+        ov5_021D64FC(&v1->coins, 0, 16, 30);
         ov5_021D64E4(0, 16);
         G2_SetBG2Priority(3);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
@@ -2996,9 +2996,9 @@ static void ov5_021D879C(SysTask *param0, void *param1)
         break;
     case 1:
         v2 = ov5_021D74B8(&v1->unk_14);
-        v3 = ov5_021D650C(&v1->unk_00);
+        v3 = ov5_021D650C(&v1->coins);
 
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if ((v2 == 1) && (v3 == 1)) {
             v0->unk_BA2 = 3;
@@ -3006,8 +3006,8 @@ static void ov5_021D879C(SysTask *param0, void *param1)
         break;
     case 2:
         if (v0->unk_BA4 != 0) {
-            v1->unk_14.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v1->unk_14.unk_00, 5, 0x6F6F + 0xAA0, GX_RGB(31, 31, 31));
+            v1->unk_14.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v1->unk_14.coins, 5, 0x6F6F + 0xAA0, GX_RGB(31, 31, 31));
             ov5_021D74D4(&v1->unk_14);
         }
 
@@ -3023,7 +3023,7 @@ static void ov5_021D879C(SysTask *param0, void *param1)
                 ov5_021D749C(&v1->unk_14, 1, 0);
             }
 
-            ov5_021D64FC(&v1->unk_00, 16, 0, 30);
+            ov5_021D64FC(&v1->coins, 16, 0, 30);
             v0->unk_BA2 = 4;
         }
         break;
@@ -3034,8 +3034,8 @@ static void ov5_021D879C(SysTask *param0, void *param1)
             v2 = 1;
         }
 
-        v3 = ov5_021D650C(&v1->unk_00);
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        v3 = ov5_021D650C(&v1->coins);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if ((v2 == 1) && (v3 == 1)) {
             v0->unk_BA2 = 5;
@@ -3043,11 +3043,11 @@ static void ov5_021D879C(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v1->unk_14.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v1->unk_14.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
             ov5_021D69B8(v4);
         }
 
@@ -3057,9 +3057,9 @@ static void ov5_021D879C(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021D8948(SysTask *param0, void *param1)
+static void ov5_021D8948(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     UnkStruct_ov5_021D9984 *v2;
     int v3;
@@ -3069,14 +3069,14 @@ static void ov5_021D8948(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v2->unk_00, v0, 1, 15, 8, 1, -2, 4, 2, ov5_021D8B88);
-        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->unk_00->fieldSystem->fogMan, 3, 28399, GX_RGB(26, 20, 5), 1, v0->unk_BA4);
+        ov5_021D7210(&v2->coins, v0, 1, 15, 8, 1, -2, 4, 2, ov5_021D8B88);
+        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->coins->fieldSystem->fogMan, 3, 28399, GX_RGB(26, 20, 5), 1, v0->unk_BA4);
         v2->unk_B4[0] = 0;
         v2->unk_B4[1] = 0;
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -3089,11 +3089,11 @@ static void ov5_021D8948(SysTask *param0, void *param1)
         }
         break;
     case 2:
-        ov5_021D7210(&v2->unk_00, v0, 8, 1, 8, 1, -2, 4, 2, ov5_021D8B88);
+        ov5_021D7210(&v2->coins, v0, 8, 1, 8, 1, -2, 4, 2, ov5_021D8B88);
 
         if (v0->unk_BA4 != 0) {
-            v2->unk_1C.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v2->unk_1C.unk_00, 3, 28399, GX_RGB(26, 20, 5));
+            v2->unk_1C.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v2->unk_1C.coins, 3, 28399, GX_RGB(26, 20, 5));
             ov5_021D74D4(&v2->unk_1C);
         }
 
@@ -3102,13 +3102,13 @@ static void ov5_021D8948(SysTask *param0, void *param1)
         v0->unk_BA2 = 3;
         break;
     case 3:
-        if (v2->unk_00.unk_06-- <= 0) {
-            ov5_021D8B88(v0, v2->unk_00.unk_04);
-            v2->unk_00.unk_06 = v2->unk_00.unk_08;
+        if (v2->coins.unk_06-- <= 0) {
+            ov5_021D8B88(v0, v2->coins.slotMachineVariant);
+            v2->coins.unk_06 = v2->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v2->unk_00, 0, 15, 2, -3);
+            ov5_021D7238(&v2->coins, 0, 15, 2, -3);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v2->unk_1C, 1, 0);
@@ -3119,7 +3119,7 @@ static void ov5_021D8948(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -3131,7 +3131,7 @@ static void ov5_021D8948(SysTask *param0, void *param1)
             }
 
             if ((v4 == 1) && (v3 == 3)) {
-                if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+                if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                     v0->unk_BA2 = 5;
                 }
             }
@@ -3139,11 +3139,11 @@ static void ov5_021D8948(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v2->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v2->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v5 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v5 = v0->slotMachineVariant;
             ov5_021D69B8(v5);
         }
         break;
@@ -3152,13 +3152,13 @@ static void ov5_021D8948(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021D8C90);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021D8C90);
         ov5_021D717C(v0, NULL, NULL);
         ov5_021D700C(v0);
     }
 }
 
-static void ov5_021D8B88(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021D8B88(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov5_021D6FA8 *v1;
@@ -3174,7 +3174,7 @@ static void ov5_021D8B88(UnkStruct_ov5_021DB4B8 *param0, int param1)
     v4->unk_B4[1] = (v4->unk_B4[1] + 1) % (40 * 8);
     v2 = v4->unk_B4[1] / 40;
 
-    for (v0 = 0; v0 < param1; v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
         v1 = ov5_021D6F00(param0, sizeof(s32) * 8);
 
         if (v1 == NULL) {
@@ -3200,7 +3200,7 @@ static void ov5_021D8B88(UnkStruct_ov5_021DB4B8 *param0, int param1)
             v5[2] += v5[2] / 2;
         }
 
-        Sprite_SetAnimFrame(v1->unk_04, v6);
+        Sprite_SetAnimFrame(v1->slotMachineVariant, v6);
 
         {
             VecFx32 v9;
@@ -3211,7 +3211,7 @@ static void ov5_021D8B88(UnkStruct_ov5_021DB4B8 *param0, int param1)
             v9.y = -64 + (MTRNG_Next() % 192);
             v9.y <<= FX32_SHIFT;
 
-            ov5_021D630C(v1->unk_04, &v9);
+            ov5_021D630C(v1->slotMachineVariant, &v9);
         }
     }
 }
@@ -3235,7 +3235,7 @@ static void ov5_021D8C90(UnkStruct_ov5_021D6FA8 *param0)
             v1[3] = 1;
         }
 
-        ov5_021D630C(v0->unk_04, &v2);
+        ov5_021D630C(v0->slotMachineVariant, &v2);
         break;
     case 1:
         ov5_021D6FA8(v0);
@@ -3243,9 +3243,9 @@ static void ov5_021D8C90(UnkStruct_ov5_021D6FA8 *param0)
     }
 }
 
-static void ov5_021D8D08(SysTask *param0, void *param1)
+static void ov5_021D8D08(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     int v2;
     int v3, v4;
@@ -3259,8 +3259,8 @@ static void ov5_021D8D08(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v5->unk_00, v0, 1, 15, 8, 1, -2, 4, 2, ov5_021D8B88);
-        ov5_021D7308(&v5->unk_4C, &v5->unk_1C, v0->unk_00->fieldSystem->fogMan, 3, 28399, GX_RGB(26, 20, 5), 1, v0->unk_BA4);
+        ov5_021D7210(&v5->coins, v0, 1, 15, 8, 1, -2, 4, 2, ov5_021D8B88);
+        ov5_021D7308(&v5->unk_4C, &v5->unk_1C, v0->coins->fieldSystem->fogMan, 3, 28399, GX_RGB(26, 20, 5), 1, v0->unk_BA4);
         v5->unk_B4[0] = 0;
         v5->unk_B4[1] = 0;
         v5->unk_B4[2] = 0;
@@ -3268,7 +3268,7 @@ static void ov5_021D8D08(SysTask *param0, void *param1)
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v6 = ov5_021D7244(&v5->unk_00);
+        v6 = ov5_021D7244(&v5->coins);
 
         if (v5->unk_B4[0] > 0) {
             v5->unk_B4[0]--;
@@ -3282,11 +3282,11 @@ static void ov5_021D8D08(SysTask *param0, void *param1)
         }
         break;
     case 2:
-        ov5_021D7210(&v5->unk_00, v0, 8, 1, 8, 1, -2, 4, 2, ov5_021D8B88);
+        ov5_021D7210(&v5->coins, v0, 8, 1, 8, 1, -2, 4, 2, ov5_021D8B88);
 
         if (v0->unk_BA4 != 0) {
-            v5->unk_1C.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v5->unk_1C.unk_00, 3, 28399, GX_RGB(26, 20, 5));
+            v5->unk_1C.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v5->unk_1C.coins, 3, 28399, GX_RGB(26, 20, 5));
             ov5_021D74D4(&v5->unk_1C);
         }
 
@@ -3299,21 +3299,21 @@ static void ov5_021D8D08(SysTask *param0, void *param1)
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
         break;
     case 3:
-        if (v5->unk_00.unk_06-- <= 0) {
+        if (v5->coins.unk_06-- <= 0) {
             v2 = v5->unk_B4[1] / 40;
             v5->unk_B4[3] = v8[v2];
 
             if (v5->unk_B4[3] <= -6) {
-                ov5_021D8B88(v0, v5->unk_00.unk_04 * 2);
+                ov5_021D8B88(v0, v5->coins.slotMachineVariant * 2);
             } else {
-                ov5_021D8B88(v0, v5->unk_00.unk_04);
+                ov5_021D8B88(v0, v5->coins.slotMachineVariant);
             }
 
-            v5->unk_00.unk_06 = v5->unk_00.unk_08;
+            v5->coins.unk_06 = v5->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v5->unk_00, 0, 15, 2, -3);
+            ov5_021D7238(&v5->coins, 0, 15, 2, -3);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v5->unk_1C, 1, 0);
@@ -3326,7 +3326,7 @@ static void ov5_021D8D08(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v6 = ov5_021D7244(&v5->unk_00);
+        v6 = ov5_021D7244(&v5->coins);
 
         if (v5->unk_B4[0] > 0) {
             v5->unk_B4[0]--;
@@ -3338,7 +3338,7 @@ static void ov5_021D8D08(SysTask *param0, void *param1)
             }
 
             if ((v7 == 1) && (v6 == 3)) {
-                if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+                if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                     v0->unk_BA2 = 5;
                 }
             }
@@ -3346,11 +3346,11 @@ static void ov5_021D8D08(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v5->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v5->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v10 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v10 = v0->slotMachineVariant;
             ov5_021D69B8(v10);
         }
         break;
@@ -3359,7 +3359,7 @@ static void ov5_021D8D08(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021D8C90);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021D8C90);
         ov5_021D717C(v0, &v3, &v4);
         ov5_021D700C(v0);
 
@@ -3368,9 +3368,9 @@ static void ov5_021D8D08(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021D8FF8(SysTask *param0, void *param1)
+static void ov5_021D8FF8(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     int v2;
     int v3, v4;
@@ -3382,15 +3382,15 @@ static void ov5_021D8FF8(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v5->unk_00, v0, 1, 30, 10, 1, -4, 2, 3, ov5_021D92C4);
-        ov5_021D7308(&v5->unk_4C, &v5->unk_1C, v0->unk_00->fieldSystem->fogMan, 3, 0x6F6F + -0x400, GX_RGB(24, 24, 24), 1, v0->unk_BA4);
+        ov5_021D7210(&v5->coins, v0, 1, 30, 10, 1, -4, 2, 3, ov5_021D92C4);
+        ov5_021D7308(&v5->unk_4C, &v5->unk_1C, v0->coins->fieldSystem->fogMan, 3, 0x6F6F + -0x400, GX_RGB(24, 24, 24), 1, v0->unk_BA4);
         v5->unk_B4[0] = 16;
         v5->unk_B4[1] = 0;
         v5->unk_B4[2] = 0;
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v6 = ov5_021D7244(&v5->unk_00);
+        v6 = ov5_021D7244(&v5->coins);
 
         if (v5->unk_B4[0] > 0) {
             v5->unk_B4[0]--;
@@ -3404,11 +3404,11 @@ static void ov5_021D8FF8(SysTask *param0, void *param1)
         }
         break;
     case 2:
-        ov5_021D7210(&v5->unk_00, v0, 10, 1, 10, 1, -4, 2, 3, ov5_021D92C4);
+        ov5_021D7210(&v5->coins, v0, 10, 1, 10, 1, -4, 2, 3, ov5_021D92C4);
 
         if (v0->unk_BA4 != 0) {
-            v5->unk_1C.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v5->unk_1C.unk_00, 3, 0x6F6F + -0x400, GX_RGB(24, 24, 24));
+            v5->unk_1C.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v5->unk_1C.coins, 3, 0x6F6F + -0x400, GX_RGB(24, 24, 24));
             ov5_021D74D4(&v5->unk_1C);
         }
 
@@ -3420,21 +3420,21 @@ static void ov5_021D8FF8(SysTask *param0, void *param1)
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
         break;
     case 3:
-        if (v5->unk_00.unk_06-- <= 0) {
+        if (v5->coins.unk_06-- <= 0) {
             v2 = v5->unk_B4[1] / 512;
             v2 = Unk_ov5_021F8CDC[v2];
 
             if (v2 <= -8) {
-                ov5_021D92C4(v0, v5->unk_00.unk_04 * 2);
+                ov5_021D92C4(v0, v5->coins.slotMachineVariant * 2);
             } else {
-                ov5_021D92C4(v0, v5->unk_00.unk_04);
+                ov5_021D92C4(v0, v5->coins.slotMachineVariant);
             }
 
-            v5->unk_00.unk_06 = v5->unk_00.unk_08;
+            v5->coins.unk_06 = v5->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v5->unk_00, 0, 12, 4, -4);
+            ov5_021D7238(&v5->coins, 0, 12, 4, -4);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v5->unk_1C, 1, 0);
@@ -3447,7 +3447,7 @@ static void ov5_021D8FF8(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v6 = ov5_021D7244(&v5->unk_00);
+        v6 = ov5_021D7244(&v5->coins);
 
         if (v5->unk_B4[0] > 0) {
             v5->unk_B4[0]--;
@@ -3459,7 +3459,7 @@ static void ov5_021D8FF8(SysTask *param0, void *param1)
             }
 
             if ((v7 == 1) && (v6 == 3)) {
-                if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+                if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                     v0->unk_BA2 = 5;
                 }
             }
@@ -3467,11 +3467,11 @@ static void ov5_021D8FF8(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v5->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v5->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v8 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v8 = v0->slotMachineVariant;
             ov5_021D69B8(v8);
         }
         break;
@@ -3480,14 +3480,14 @@ static void ov5_021D8FF8(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021D93DC);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021D93DC);
         ov5_021D700C(v0);
         v5->unk_B4[2] = (v5->unk_B4[2] + 12) % 256;
         G2_SetBG2Offset(v5->unk_B4[2] * 2, -v5->unk_B4[2]);
     }
 }
 
-static void ov5_021D92C4(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021D92C4(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov5_021D6FA8 *v1;
@@ -3505,7 +3505,7 @@ static void ov5_021D92C4(UnkStruct_ov5_021DB4B8 *param0, int param1)
 
     v2 = (v3->unk_B4[1] / 512);
 
-    for (v0 = 0; v0 < param1 * 4; v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO * 4; v0++) {
         v1 = ov5_021D6F00(param0, sizeof(s32) * 8);
 
         if (v1 == NULL) {
@@ -3518,7 +3518,7 @@ static void ov5_021D92C4(UnkStruct_ov5_021DB4B8 *param0, int param1)
         v4[1] = 18 + (MTRNG_Next() % (24 - 18));
         v5 = MTRNG_Next() % 4;
 
-        Sprite_SetAnimFrame(v1->unk_04, v5);
+        Sprite_SetAnimFrame(v1->slotMachineVariant, v5);
 
         v4[4] = Unk_ov5_021F8CDC[v2] * ((v5) + 1);
         v4[2] = Unk_ov5_021F8CEC[v2] * ((v5) + 1);
@@ -3540,7 +3540,7 @@ static void ov5_021D92C4(UnkStruct_ov5_021DB4B8 *param0, int param1)
             v6.y <<= FX32_SHIFT;
             v6.z = 0;
 
-            ov5_021D630C(v1->unk_04, &v6);
+            ov5_021D630C(v1->slotMachineVariant, &v6);
         }
     }
 }
@@ -3568,7 +3568,7 @@ static void ov5_021D93DC(UnkStruct_ov5_021D6FA8 *param0)
             }
         }
 
-        ov5_021D630C(v0->unk_04, &v2);
+        ov5_021D630C(v0->slotMachineVariant, &v2);
         break;
     case 1:
         ov5_021D6FA8(v0);
@@ -3576,9 +3576,9 @@ static void ov5_021D93DC(UnkStruct_ov5_021D6FA8 *param0)
     }
 }
 
-static void ov5_021D9464(SysTask *param0, void *param1)
+static void ov5_021D9464(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     UnkStruct_ov5_021D9984 *v2;
     int v3;
@@ -3588,13 +3588,13 @@ static void ov5_021D9464(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v2->unk_00, v0, 2, 16, 20, 2, -2, 4, 2, ov5_021D9690);
-        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->unk_00->fieldSystem->fogMan, 3, 0x6F6F + 0x200, GX_RGB(26, 26, 26), 1, v0->unk_BA4);
+        ov5_021D7210(&v2->coins, v0, 2, 16, 20, 2, -2, 4, 2, ov5_021D9690);
+        ov5_021D7308(&v2->unk_4C, &v2->unk_1C, v0->coins->fieldSystem->fogMan, 3, 0x6F6F + 0x200, GX_RGB(26, 26, 26), 1, v0->unk_BA4);
         v2->unk_B4[0] = 0;
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -3607,11 +3607,11 @@ static void ov5_021D9464(SysTask *param0, void *param1)
         }
         break;
     case 2:
-        ov5_021D7210(&v2->unk_00, v0, 20, 2, 20, 2, -2, 4, 2, ov5_021D9690);
+        ov5_021D7210(&v2->coins, v0, 20, 2, 20, 2, -2, 4, 2, ov5_021D9690);
 
         if (v0->unk_BA4 != 0) {
-            v2->unk_1C.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v2->unk_1C.unk_00, 3, 0x6F6F + 0x200, GX_RGB(26, 26, 26));
+            v2->unk_1C.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v2->unk_1C.coins, 3, 0x6F6F + 0x200, GX_RGB(26, 26, 26));
             ov5_021D74D4(&v2->unk_1C);
         }
 
@@ -3619,13 +3619,13 @@ static void ov5_021D9464(SysTask *param0, void *param1)
         v0->unk_BA2 = 3;
         break;
     case 3:
-        if (v2->unk_00.unk_06-- <= 0) {
-            ov5_021D9690(v0, v2->unk_00.unk_04);
-            v2->unk_00.unk_06 = v2->unk_00.unk_08;
+        if (v2->coins.unk_06-- <= 0) {
+            ov5_021D9690(v0, v2->coins.slotMachineVariant);
+            v2->coins.unk_06 = v2->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v2->unk_00, 0, 16, 6, -10);
+            ov5_021D7238(&v2->coins, 0, 16, 6, -10);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v2->unk_1C, 1, 0);
@@ -3636,7 +3636,7 @@ static void ov5_021D9464(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v2->unk_B4[0] > 0) {
             v2->unk_B4[0]--;
@@ -3644,7 +3644,7 @@ static void ov5_021D9464(SysTask *param0, void *param1)
             v4 = ov5_021D735C(&v2->unk_4C, &v2->unk_1C, v0->unk_BA4);
 
             if ((v4 == 1) && (v3 == 3)) {
-                if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+                if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                     v0->unk_BA2 = 5;
                 }
             }
@@ -3652,11 +3652,11 @@ static void ov5_021D9464(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v2->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v2->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v5 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v5 = v0->slotMachineVariant;
             ov5_021D69B8(v5);
         }
         break;
@@ -3665,13 +3665,13 @@ static void ov5_021D9464(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021D97C0);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021D97C0);
         ov5_021D717C(v0, NULL, NULL);
         ov5_021D700C(v0);
     }
 }
 
-static void ov5_021D9690(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021D9690(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov5_021D6FA8 *v1;
@@ -3682,7 +3682,7 @@ static void ov5_021D9690(UnkStruct_ov5_021DB4B8 *param0, int param1)
     VecFx32 v6;
     s32 *v7;
 
-    for (v0 = 0; v0 < param1; v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
         v1 = ov5_021D6F00(param0, sizeof(s32) * 8);
 
         if (v1 == NULL) {
@@ -3716,7 +3716,7 @@ static void ov5_021D9690(UnkStruct_ov5_021DB4B8 *param0, int param1)
             v6.y <<= FX32_SHIFT;
             v6.z = 0;
 
-            ov5_021D630C(v1->unk_04, &v6);
+            ov5_021D630C(v1->slotMachineVariant, &v6);
 
             v6.x >>= FX32_SHIFT;
             v6.y >>= FX32_SHIFT;
@@ -3738,7 +3738,7 @@ static void ov5_021D9690(UnkStruct_ov5_021DB4B8 *param0, int param1)
             v5 = MTRNG_Next() % 4;
         }
 
-        Sprite_SetAnimFrame(v1->unk_04, v5);
+        Sprite_SetAnimFrame(v1->slotMachineVariant, v5);
     }
 }
 
@@ -3765,9 +3765,9 @@ static void ov5_021D97C0(UnkStruct_ov5_021D6FA8 *param0)
     }
 }
 
-static void ov5_021D97E8(SysTask *param0, void *param1)
+static void ov5_021D97E8(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     s32 *v2 = (s32 *)v0->unk_B98;
 
@@ -3858,7 +3858,7 @@ static void ov5_021D97E8(SysTask *param0, void *param1)
         }
         break;
     case 5: {
-        UnkStruct_ov5_021D69B8 *v3 = v0->unk_04;
+        UnkStruct_ov5_021D69B8 *v3 = v0->slotMachineVariant;
         ov5_021D69B8(v3);
     } break;
     default:
@@ -3866,29 +3866,29 @@ static void ov5_021D97E8(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021D9984(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1)
+static void ov5_021D9984(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO)
 {
-    ov5_021D7210(&param1->unk_00, param0, 1, 15, 10, 0, -3, 2, 1, ov5_021DA0A8);
-    ov5_021D7308(&param1->unk_4C, &param1->unk_1C, param0->unk_00->fieldSystem->fogMan, 3, 0x6F6F, GX_RGB(26, 26, 26), 1, param0->unk_BA4);
+    ov5_021D7210(&slotsMinigameDTO->coins, param0, 1, 15, 10, 0, -3, 2, 1, ov5_021DA0A8);
+    ov5_021D7308(&slotsMinigameDTO->unk_4C, &slotsMinigameDTO->unk_1C, param0->coins->fieldSystem->fogMan, 3, 0x6F6F, GX_RGB(26, 26, 26), 1, param0->unk_BA4);
 
-    param1->unk_B4[0] = 0;
-    param1->unk_B4[1] = 0;
-    param1->unk_B4[2] = 0;
+    slotsMinigameDTO->unk_B4[0] = 0;
+    slotsMinigameDTO->unk_B4[1] = 0;
+    slotsMinigameDTO->unk_B4[2] = 0;
 
     ov5_021DB4B8(param0, 1595);
 }
 
-static BOOL ov5_021D9A0C(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1)
+static BOOL ov5_021D9A0C(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO)
 {
     int v0;
     int v1;
 
-    v0 = ov5_021D7244(&param1->unk_00);
+    v0 = ov5_021D7244(&slotsMinigameDTO->coins);
 
-    if (param1->unk_B4[0] > 0) {
-        param1->unk_B4[0]--;
+    if (slotsMinigameDTO->unk_B4[0] > 0) {
+        slotsMinigameDTO->unk_B4[0]--;
     } else {
-        v1 = ov5_021D735C(&param1->unk_4C, &param1->unk_1C, param0->unk_BA4);
+        v1 = ov5_021D735C(&slotsMinigameDTO->unk_4C, &slotsMinigameDTO->unk_1C, param0->unk_BA4);
 
         if ((v1 == 1) && (v0 == 3)) {
             return 1;
@@ -3898,63 +3898,63 @@ static BOOL ov5_021D9A0C(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 
     return 0;
 }
 
-static void ov5_021D9A58(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1)
+static void ov5_021D9A58(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO)
 {
-    ov5_021D7210(&param1->unk_00, param0, 10, 0, 10, 0, -3, 2, 1, ov5_021DA0A8);
+    ov5_021D7210(&slotsMinigameDTO->coins, param0, 10, 0, 10, 0, -3, 2, 1, ov5_021DA0A8);
 
     if (param0->unk_BA4 != 0) {
-        param1->unk_1C.unk_00 = param0->unk_00->fieldSystem->fogMan;
-        ov5_021D7384(param1->unk_1C.unk_00, 3, 0x6F6F, GX_RGB(26, 26, 26));
-        ov5_021D74D4(&param1->unk_1C);
+        slotsMinigameDTO->unk_1C.coins = param0->coins->fieldSystem->fogMan;
+        ov5_021D7384(slotsMinigameDTO->unk_1C.coins, 3, 0x6F6F, GX_RGB(26, 26, 26));
+        ov5_021D74D4(&slotsMinigameDTO->unk_1C);
     }
 
-    param1->unk_B4[1] = 0;
-    param1->unk_B4[2] = 0;
+    slotsMinigameDTO->unk_B4[1] = 0;
+    slotsMinigameDTO->unk_B4[2] = 0;
 
     ov5_021D7568(param0, ov5_021DA0A8, 20, 5, 1, ov5_021DA1A8);
     ov5_021DB4B8(param0, 1595);
 }
 
-static void ov5_021D9AEC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1)
+static void ov5_021D9AEC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO)
 {
-    param1->unk_B4[2] = (param1->unk_B4[2] + 1) % (60 * 5);
+    slotsMinigameDTO->unk_B4[2] = (slotsMinigameDTO->unk_B4[2] + 1) % (60 * 5);
 
-    if (param1->unk_00.unk_06-- <= 0) {
-        ov5_021DA0A8(param0, param1->unk_00.unk_04);
-        param1->unk_00.unk_06 = param1->unk_00.unk_08;
+    if (slotsMinigameDTO->coins.unk_06-- <= 0) {
+        ov5_021DA0A8(param0, slotsMinigameDTO->coins.slotMachineVariant);
+        slotsMinigameDTO->coins.unk_06 = slotsMinigameDTO->coins.unk_08;
     }
 }
 
-static void ov5_021D9B28(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1)
+static void ov5_021D9B28(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO)
 {
-    ov5_021D7238(&param1->unk_00, 0, 15, 3, -3);
+    ov5_021D7238(&slotsMinigameDTO->coins, 0, 15, 3, -3);
 
     if (param0->unk_BA4 != 0) {
-        ov5_021D749C(&param1->unk_1C, 1, 0);
+        ov5_021D749C(&slotsMinigameDTO->unk_1C, 1, 0);
     }
 
-    param1->unk_B4[0] = 0;
+    slotsMinigameDTO->unk_B4[0] = 0;
     ov5_021DB4E4(param0);
 }
 
-static BOOL ov5_021D9B68(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1)
+static BOOL ov5_021D9B68(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO)
 {
     int v0;
     int v1;
 
-    v0 = ov5_021D7244(&param1->unk_00);
+    v0 = ov5_021D7244(&slotsMinigameDTO->coins);
 
-    if (param1->unk_B4[0] > 0) {
-        param1->unk_B4[0]--;
+    if (slotsMinigameDTO->unk_B4[0] > 0) {
+        slotsMinigameDTO->unk_B4[0]--;
     } else {
         if (param0->unk_BA4 != 0) {
-            v1 = ov5_021D74B8(&param1->unk_1C);
+            v1 = ov5_021D74B8(&slotsMinigameDTO->unk_1C);
         } else {
             v1 = 1;
         }
 
         if ((v1 == 1) && (v0 == 3)) {
-            if (param0->unk_0C.unk_34 == &param0->unk_0C) {
+            if (param0->slotsMinigameDTO.unk_34 == &param0->slotsMinigameDTO) {
                 return 1;
             }
         }
@@ -3963,30 +3963,30 @@ static BOOL ov5_021D9B68(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 
     return 0;
 }
 
-static void ov5_021D9BC0(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1)
+static void ov5_021D9BC0(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO)
 {
     if (param0->unk_BA4 != 0) {
-        FogManager_ApplyParameters(param1->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+        FogManager_ApplyParameters(slotsMinigameDTO->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
     }
 
     {
-        UnkStruct_ov5_021D69B8 *v0 = param0->unk_04;
+        UnkStruct_ov5_021D69B8 *v0 = param0->slotMachineVariant;
         ov5_021D69B8(v0);
     }
 }
 
-static void ov5_021D9BEC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *param1)
+static void ov5_021D9BEC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D9984 *slotsMinigameDTO)
 {
     if ((param0->unk_BA2 != 5) && (param0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&param0->unk_0C, ov5_021DA1A8);
+        ov5_021D6FF0(&param0->slotsMinigameDTO, ov5_021DA1A8);
         ov5_021D717C(param0, NULL, NULL);
         ov5_021D700C(param0);
     }
 }
 
-static void ov5_021D9C20(SysTask *param0, void *param1, u32 param2, u32 param3, u32 param4, u32 param5)
+static void ov5_021D9C20(SysTask *param0, void *slotsMinigameDTO, u32 param2, u32 param3, u32 param4, u32 param5)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     UnkStruct_ov5_021D84D4 *v2;
     int v3;
@@ -3996,8 +3996,8 @@ static void ov5_021D9C20(SysTask *param0, void *param1, u32 param2, u32 param3, 
     switch (v0->unk_BA2) {
     case 0:
         if (v0->unk_BA4 != 0) {
-            ov5_021D7384(v0->unk_00->fieldSystem->fogMan, 5, 28591, (GX_RGB(0, 0, 0)));
-            FogManager_ApplyDensityTable(v0->unk_00->fieldSystem->fogMan, Unk_ov5_021F8E14);
+            ov5_021D7384(v0->coins->fieldSystem->fogMan, 5, 28591, (GX_RGB(0, 0, 0)));
+            FogManager_ApplyDensityTable(v0->coins->fieldSystem->fogMan, Unk_ov5_021F8E14);
             ov5_021D64E4(param2, 16 - param2);
 
             GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
@@ -4013,8 +4013,8 @@ static void ov5_021D9C20(SysTask *param0, void *param1, u32 param2, u32 param3, 
         break;
     case 2:
         if (v0->unk_BA4 != 0) {
-            ov5_021D7384(v0->unk_00->fieldSystem->fogMan, 5, 28591, (GX_RGB(0, 0, 0)));
-            FogManager_ApplyDensityTable(v0->unk_00->fieldSystem->fogMan, Unk_ov5_021F8E14);
+            ov5_021D7384(v0->coins->fieldSystem->fogMan, 5, 28591, (GX_RGB(0, 0, 0)));
+            FogManager_ApplyDensityTable(v0->coins->fieldSystem->fogMan, Unk_ov5_021F8E14);
             ov5_021D64E4(param2, 16 - param2);
             GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
             v2->unk_98[0] = param4;
@@ -4057,11 +4057,11 @@ static void ov5_021D9C20(SysTask *param0, void *param1, u32 param2, u32 param3, 
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v0->unk_00->fieldSystem->fogMan, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v0->coins->fieldSystem->fogMan, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
             ov5_021D69B8(v4);
         }
         break;
@@ -4070,18 +4070,18 @@ static void ov5_021D9C20(SysTask *param0, void *param1, u32 param2, u32 param3, 
     }
 }
 
-static void ov5_021D9DFC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D84D4 *param1, u32 param2, u32 param3, GXRgb param4, u32 param5, u32 param6)
+static void ov5_021D9DFC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D84D4 *slotsMinigameDTO, u32 param2, u32 param3, GXRgb param4, u32 param5, u32 param6)
 {
     int v0;
     int v1;
 
     switch (param0->unk_BA2) {
     case 0:
-        ov5_021D7308(&param1->unk_30, &param1->unk_00, param0->unk_00->fieldSystem->fogMan, param2, param3, param4, param5, param0->unk_BA4);
+        ov5_021D7308(&slotsMinigameDTO->unk_30, &slotsMinigameDTO->coins, param0->coins->fieldSystem->fogMan, param2, param3, param4, param5, param0->unk_BA4);
         param0->unk_BA2 = 1;
         break;
     case 1:
-        v1 = ov5_021D735C(&param1->unk_30, &param1->unk_00, param0->unk_BA4);
+        v1 = ov5_021D735C(&slotsMinigameDTO->unk_30, &slotsMinigameDTO->coins, param0->unk_BA4);
 
         if (v1 == 1) {
             param0->unk_BA2 = 3;
@@ -4089,9 +4089,9 @@ static void ov5_021D9DFC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D84D4 
         break;
     case 2:
         if (param0->unk_BA4 != 0) {
-            param1->unk_00.unk_00 = param0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(param1->unk_00.unk_00, param2, param3, param4);
-            ov5_021D74D4(&param1->unk_00);
+            slotsMinigameDTO->coins.coins = param0->coins->fieldSystem->fogMan;
+            ov5_021D7384(slotsMinigameDTO->coins.coins, param2, param3, param4);
+            ov5_021D74D4(&slotsMinigameDTO->coins);
         }
 
         param0->unk_BA2 = 3;
@@ -4099,7 +4099,7 @@ static void ov5_021D9DFC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D84D4 
     case 3:
         if (param0->unk_BA6 == 5) {
             if (param0->unk_BA4 != 0) {
-                ov5_021D749C(&param1->unk_00, param6, 0);
+                ov5_021D749C(&slotsMinigameDTO->coins, param6, 0);
             }
 
             param0->unk_BA2 = 4;
@@ -4107,7 +4107,7 @@ static void ov5_021D9DFC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D84D4 
         break;
     case 4:
         if (param0->unk_BA4 != 0) {
-            v1 = ov5_021D74B8(&param1->unk_00);
+            v1 = ov5_021D74B8(&slotsMinigameDTO->coins);
         } else {
             v1 = 1;
         }
@@ -4118,11 +4118,11 @@ static void ov5_021D9DFC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D84D4 
         break;
     case 5:
         if (param0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(param1->unk_00.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(slotsMinigameDTO->coins.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v2 = param0->unk_04;
+            UnkStruct_ov5_021D69B8 *v2 = param0->slotMachineVariant;
             ov5_021D69B8(v2);
         }
         break;
@@ -4131,16 +4131,16 @@ static void ov5_021D9DFC(UnkStruct_ov5_021DB4B8 *param0, UnkStruct_ov5_021D84D4 
     }
 }
 
-static void ov5_021D9F0C(SysTask *param0, void *param1)
+static void ov5_021D9F0C(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D9984 *v1 = (UnkStruct_ov5_021D9984 *)v0->unk_B98;
 
     switch (v0->unk_BA2) {
     case 0:
         ov5_021D9984(v0, v1);
-        ov5_021D6418(v0->unk_00, 0, 17);
-        ov5_021D6418(v0->unk_00, 3, 17);
+        ov5_021D6418(v0->coins, 0, 17);
+        ov5_021D6418(v0->coins, 3, 17);
 
         v0->unk_BA2 = 1;
         break;
@@ -4151,8 +4151,8 @@ static void ov5_021D9F0C(SysTask *param0, void *param1)
         break;
     case 2:
         ov5_021D9A58(v0, v1);
-        ov5_021D6418(v0->unk_00, 0, 17);
-        ov5_021D6418(v0->unk_00, 3, 17);
+        ov5_021D6418(v0->coins, 0, 17);
+        ov5_021D6418(v0->coins, 3, 17);
 
         v0->unk_BA2 = 3;
         break;
@@ -4161,7 +4161,7 @@ static void ov5_021D9F0C(SysTask *param0, void *param1)
 
         if (v0->unk_BA6 == 5) {
             ov5_021D9B28(v0, v1);
-            ov5_021D6418(v0->unk_00, 5, 17);
+            ov5_021D6418(v0->coins, 5, 17);
             v0->unk_BA2 = 4;
         }
         break;
@@ -4172,7 +4172,7 @@ static void ov5_021D9F0C(SysTask *param0, void *param1)
         break;
     case 5:
         ov5_021D9BC0(v0, v1);
-        ov5_021D6418(v0->unk_00, 8, 17);
+        ov5_021D6418(v0->coins, 8, 17);
         break;
     default:
         break;
@@ -4181,9 +4181,9 @@ static void ov5_021D9F0C(SysTask *param0, void *param1)
     ov5_021D9BEC(v0, v1);
 }
 
-static void ov5_021D9FF8(SysTask *param0, void *param1)
+static void ov5_021D9FF8(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D9984 *v1 = (UnkStruct_ov5_021D9984 *)v0->unk_B98;
 
     switch (v0->unk_BA2) {
@@ -4223,7 +4223,7 @@ static void ov5_021D9FF8(SysTask *param0, void *param1)
     ov5_021D9BEC(v0, v1);
 }
 
-static void ov5_021DA0A8(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021DA0A8(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov5_021D6FA8 *v1;
@@ -4237,7 +4237,7 @@ static void ov5_021DA0A8(UnkStruct_ov5_021DB4B8 *param0, int param1)
 
     v4 = (UnkStruct_ov5_021D9984 *)param0->unk_B98;
 
-    for (v0 = 0; v0 < param1; v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
         v1 = ov5_021D6F00(param0, sizeof(s32) * 8);
 
         if (v1 == NULL) {
@@ -4250,7 +4250,7 @@ static void ov5_021DA0A8(UnkStruct_ov5_021DB4B8 *param0, int param1)
         v3[0] = 0;
         v6 = v8 % 3;
 
-        Sprite_SetAnimFrame(v1->unk_04, v6);
+        Sprite_SetAnimFrame(v1->slotMachineVariant, v6);
 
         v3[4] = -24 * (v6 + 1);
         v3[2] = 24 * (v6 + 1);
@@ -4269,7 +4269,7 @@ static void ov5_021DA0A8(UnkStruct_ov5_021DB4B8 *param0, int param1)
             v9.x <<= FX32_SHIFT;
             v9.y <<= FX32_SHIFT;
 
-            ov5_021D630C(v1->unk_04, &v9);
+            ov5_021D630C(v1->slotMachineVariant, &v9);
         }
     }
 }
@@ -4293,11 +4293,11 @@ static void ov5_021DA1A8(UnkStruct_ov5_021D6FA8 *param0)
             } else {
                 v2[3] = 1;
                 v2[0] = 4;
-                Sprite_SetAnimFrame(v1->unk_04, 3);
+                Sprite_SetAnimFrame(v1->slotMachineVariant, 3);
             }
         }
 
-        ov5_021D630C(v1->unk_04, &v3);
+        ov5_021D630C(v1->slotMachineVariant, &v3);
         break;
     case 1:
         if (v2[0]-- <= 0) {
@@ -4310,9 +4310,9 @@ static void ov5_021DA1A8(UnkStruct_ov5_021D6FA8 *param0)
     }
 }
 
-static void ov5_021DA244(SysTask *param0, void *param1)
+static void ov5_021DA244(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     int v2;
     int v3, v4;
@@ -4325,20 +4325,20 @@ static void ov5_021DA244(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v7->unk_00, v0, 1, 12, 1, 6, -1, 4, 0, ov5_021DA5A0);
+        ov5_021D7210(&v7->coins, v0, 1, 12, 1, 6, -1, 4, 0, ov5_021DA5A0);
 
         v7->unk_B4[1] = 0;
         v7->unk_B4[2] = 0;
         v7->unk_B4[4] = 0;
         v7->unk_B4[5] = 0;
 
-        ov5_021D7308(&v7->unk_4C, &v7->unk_1C, v0->unk_00->fieldSystem->fogMan, 3 + 0, 0x6F6F + -0x40, GX_RGB(20, 20, 14), 1, v0->unk_BA4);
+        ov5_021D7308(&v7->unk_4C, &v7->unk_1C, v0->coins->fieldSystem->fogMan, 3 + 0, 0x6F6F + -0x40, GX_RGB(20, 20, 14), 1, v0->unk_BA4);
 
         v7->unk_B4[0] = 0;
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v8 = ov5_021D7244(&v7->unk_00);
+        v8 = ov5_021D7244(&v7->coins);
 
         if (v7->unk_B4[0] > 0) {
             v7->unk_B4[0]--;
@@ -4353,7 +4353,7 @@ static void ov5_021DA244(SysTask *param0, void *param1)
 
         break;
     case 2:
-        ov5_021D7210(&v7->unk_00, v0, 1, 6, 1, 6, -1, 4, 0, ov5_021DA5A0);
+        ov5_021D7210(&v7->coins, v0, 1, 6, 1, 6, -1, 4, 0, ov5_021DA5A0);
 
         v7->unk_B4[1] = 0;
         v7->unk_B4[2] = 0;
@@ -4361,8 +4361,8 @@ static void ov5_021DA244(SysTask *param0, void *param1)
         v7->unk_B4[5] = 0;
 
         if (v0->unk_BA4 != 0) {
-            v7->unk_1C.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v7->unk_1C.unk_00, 3, 0x6F6F + -0x40, GX_RGB(20, 20, 14));
+            v7->unk_1C.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v7->unk_1C.coins, 3, 0x6F6F + -0x40, GX_RGB(20, 20, 14));
             ov5_021D74D4(&v7->unk_1C);
         }
 
@@ -4371,13 +4371,13 @@ static void ov5_021DA244(SysTask *param0, void *param1)
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
         break;
     case 3:
-        if (v7->unk_00.unk_06-- <= 0) {
-            ov5_021DA5A0(v0, v7->unk_00.unk_04);
-            v7->unk_00.unk_06 = v7->unk_00.unk_08;
+        if (v7->coins.unk_06-- <= 0) {
+            ov5_021DA5A0(v0, v7->coins.slotMachineVariant);
+            v7->coins.unk_06 = v7->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v7->unk_00, 0, 12, 1, -1);
+            ov5_021D7238(&v7->coins, 0, 12, 1, -1);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v7->unk_1C, 1, 0);
@@ -4391,7 +4391,7 @@ static void ov5_021DA244(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v8 = ov5_021D7244(&v7->unk_00);
+        v8 = ov5_021D7244(&v7->coins);
 
         if (v7->unk_B4[0] > 0) {
             v7->unk_B4[0]--;
@@ -4403,7 +4403,7 @@ static void ov5_021DA244(SysTask *param0, void *param1)
             }
 
             if ((v9 == 1) && (v8 == 3)) {
-                if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+                if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                     v0->unk_BA2 = 5;
                 }
             }
@@ -4411,11 +4411,11 @@ static void ov5_021DA244(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v7->unk_1C.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v7->unk_1C.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v10 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v10 = v0->slotMachineVariant;
             ov5_021D69B8(v10);
         }
         break;
@@ -4424,7 +4424,7 @@ static void ov5_021DA244(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021DA6BC);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021DA6BC);
         ov5_021D717C(v0, &v3, &v4);
         ov5_021D700C(v0);
 
@@ -4461,7 +4461,7 @@ static void ov5_021DA244(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021DA5A0(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021DA5A0(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     int v0;
     int v1;
@@ -4473,10 +4473,10 @@ static void ov5_021DA5A0(UnkStruct_ov5_021DB4B8 *param0, int param1)
     v3 = param0->unk_B98;
 
     if (v3->unk_B4[1] == 1) {
-        param1 *= 2;
+        slotsMinigameDTO *= 2;
     }
 
-    for (v0 = 0; v0 < param1; v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
         v2 = ov5_021D6F00(param0, sizeof(s32) * 8);
 
         if (v2 == NULL) {
@@ -4486,7 +4486,7 @@ static void ov5_021DA5A0(UnkStruct_ov5_021DB4B8 *param0, int param1)
         v5 = (s32 *)v2->unk_08;
         v4 = MTRNG_Next() % 4;
 
-        Sprite_SetAnimFrame(v2->unk_04, v4);
+        Sprite_SetAnimFrame(v2->slotMachineVariant, v4);
 
         v5[4] = 10;
         v5[5] = 0;
@@ -4509,7 +4509,7 @@ static void ov5_021DA5A0(UnkStruct_ov5_021DB4B8 *param0, int param1)
 
             v6.x = -32 + (MTRNG_Next() % 414);
 
-            if ((v3->unk_B4[1] == 1) && (v0 >= (param1 / 2))) {
+            if ((v3->unk_B4[1] == 1) && (v0 >= (slotsMinigameDTO / 2))) {
                 v6.y = -40 - (MTRNG_Next() % 20);
             } else {
                 v6.y = -8 - (MTRNG_Next() % 20);
@@ -4519,7 +4519,7 @@ static void ov5_021DA5A0(UnkStruct_ov5_021DB4B8 *param0, int param1)
             v6.y <<= FX32_SHIFT;
             v6.z = 0;
 
-            ov5_021D630C(v2->unk_04, &v6);
+            ov5_021D630C(v2->slotMachineVariant, &v6);
         }
     }
 }
@@ -4535,7 +4535,7 @@ static void ov5_021DA6BC(UnkStruct_ov5_021D6FA8 *param0)
         v2.y += FX32_ONE;
         v1[5] = 0;
 
-        ov5_021D630C(v0->unk_04, &v2);
+        ov5_021D630C(v0->slotMachineVariant, &v2);
     }
 
     v1[5]++;
@@ -4560,9 +4560,9 @@ static void ov5_021DA6BC(UnkStruct_ov5_021D6FA8 *param0)
     }
 }
 
-static void ov5_021DA748(SysTask *param0, void *param1)
+static void ov5_021DA748(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     s32 *v1;
     int v2;
     int v3;
@@ -4640,7 +4640,7 @@ static void ov5_021DA748(SysTask *param0, void *param1)
         v0->unk_BA2 = 5;
         break;
     case 5: {
-        UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+        UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
         ov5_021D69B8(v4);
     } break;
     default:
@@ -4648,9 +4648,9 @@ static void ov5_021DA748(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021DA8A0(SysTask *param0, void *param1)
+static void ov5_021DA8A0(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     int v1;
     UnkStruct_ov5_021DA8A0 *v2;
     int v3;
@@ -4659,43 +4659,43 @@ static void ov5_021DA8A0(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7210(&v2->unk_00, v0, 1, 35, 4, 15, -2, 5, 1, ov5_021DA9DC);
+        ov5_021D7210(&v2->coins, v0, 1, 35, 4, 15, -2, 5, 1, ov5_021DA9DC);
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v3 == 3) {
             v0->unk_BA2 = 3;
         }
         break;
     case 2:
-        ov5_021D7210(&v2->unk_00, v0, 1, 4, 15, 15, -2, 5, 1, ov5_021DA9DC);
+        ov5_021D7210(&v2->coins, v0, 1, 4, 15, 15, -2, 5, 1, ov5_021DA9DC);
         ov5_021D7568(v0, ov5_021DA9DC, 16, 2, 1, ov5_021DAADC);
         v0->unk_BA2 = 3;
         break;
     case 3:
-        if (v2->unk_00.unk_06-- <= 0) {
-            ov5_021DA9DC(v0, v2->unk_00.unk_04);
-            v2->unk_00.unk_06 = v2->unk_00.unk_08;
+        if (v2->coins.unk_06-- <= 0) {
+            ov5_021DA9DC(v0, v2->coins.slotMachineVariant);
+            v2->coins.unk_06 = v2->coins.unk_08;
         }
 
         if (v0->unk_BA6 == 5) {
-            ov5_021D7238(&v2->unk_00, 0, 35, 2, -3);
+            ov5_021D7238(&v2->coins, 0, 35, 2, -3);
             v0->unk_BA2 = 4;
         }
         break;
     case 4:
-        v3 = ov5_021D7244(&v2->unk_00);
+        v3 = ov5_021D7244(&v2->coins);
 
         if (v3 == 3) {
-            if (v0->unk_0C.unk_34 == &v0->unk_0C) {
+            if (v0->slotsMinigameDTO.unk_34 == &v0->slotsMinigameDTO) {
                 v0->unk_BA2 = 5;
             }
         }
         break;
     case 5: {
-        UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+        UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
         ov5_021D69B8(v4);
     } break;
     default:
@@ -4703,13 +4703,13 @@ static void ov5_021DA8A0(SysTask *param0, void *param1)
     }
 
     if ((v0->unk_BA2 != 5) && (v0->unk_BA2 != 0)) {
-        ov5_021D6FF0(&v0->unk_0C, ov5_021DAADC);
+        ov5_021D6FF0(&v0->slotsMinigameDTO, ov5_021DAADC);
         ov5_021D717C(v0, NULL, NULL);
         ov5_021D700C(v0);
     }
 }
 
-static void ov5_021DA9DC(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021DA9DC(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     int v0;
     UnkStruct_ov5_021D6FA8 *v1;
@@ -4718,7 +4718,7 @@ static void ov5_021DA9DC(UnkStruct_ov5_021DB4B8 *param0, int param1)
     int v4;
     VecFx32 v5;
 
-    for (v0 = 0; v0 < param1; v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
         v1 = ov5_021D6F00(param0, sizeof(s32) * 8);
 
         if (v1 == NULL) {
@@ -4728,7 +4728,7 @@ static void ov5_021DA9DC(UnkStruct_ov5_021DB4B8 *param0, int param1)
         v2 = (s32 *)v1->unk_08;
         v4 = MTRNG_Next() % 0xe;
 
-        Sprite_SetAnimFrame(v1->unk_04, v4);
+        Sprite_SetAnimFrame(v1->slotMachineVariant, v4);
 
         v3 = v4 / 4;
         v3++;
@@ -4760,7 +4760,7 @@ static void ov5_021DA9DC(UnkStruct_ov5_021DB4B8 *param0, int param1)
         v5.x <<= FX32_SHIFT;
         v5.y <<= FX32_SHIFT;
 
-        ov5_021D630C(v1->unk_04, &v5);
+        ov5_021D630C(v1->slotMachineVariant, &v5);
     }
 }
 
@@ -4793,16 +4793,16 @@ static void ov5_021DAADC(UnkStruct_ov5_021D6FA8 *param0)
         }
     }
 
-    ov5_021D630C(v0->unk_04, &v2);
+    ov5_021D630C(v0->slotMachineVariant, &v2);
 
     if ((v2.y >> FX32_SHIFT) <= -16) {
         ov5_021D6FA8(v0);
     }
 }
 
-static void ov5_021DAB78(SysTask *param0, void *param1)
+static void ov5_021DAB78(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D879C *v1;
     BOOL v2;
     BOOL v3;
@@ -4811,7 +4811,7 @@ static void ov5_021DAB78(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D64FC(&v1->unk_00, 0, 16, 8);
+        ov5_021D64FC(&v1->coins, 0, 16, 8);
         ov5_021D64E4(0, 16);
 
         G2_SetBG2Priority(3);
@@ -4821,9 +4821,9 @@ static void ov5_021DAB78(SysTask *param0, void *param1)
         break;
     case 1:
         v3 = 1;
-        v2 = ov5_021D650C(&v1->unk_00);
+        v2 = ov5_021D650C(&v1->coins);
 
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if ((v2 == 1) && (v3 == 1)) {
             v0->unk_BA2 = 3;
@@ -4838,13 +4838,13 @@ static void ov5_021DAB78(SysTask *param0, void *param1)
         break;
     case 3:
         if (v0->unk_BA6 == 5) {
-            ov5_021D64FC(&v1->unk_00, 16, 0, 8);
+            ov5_021D64FC(&v1->coins, 16, 0, 8);
             v0->unk_BA2 = 4;
         }
         break;
     case 4:
-        v2 = ov5_021D650C(&v1->unk_00);
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        v2 = ov5_021D650C(&v1->coins);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
         v3 = 1;
 
         if ((v2 == 1) && (v3 == 1)) {
@@ -4852,7 +4852,7 @@ static void ov5_021DAB78(SysTask *param0, void *param1)
         }
         break;
     case 5: {
-        UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+        UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
         ov5_021D69B8(v4);
     } break;
     default:
@@ -4860,9 +4860,9 @@ static void ov5_021DAB78(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021DAC68(SysTask *param0, void *param1)
+static void ov5_021DAC68(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021DAC68 *v1;
     BOOL v2;
 
@@ -4870,14 +4870,14 @@ static void ov5_021DAC68(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D64FC(&v1->unk_00, 0, 4, 8);
+        ov5_021D64FC(&v1->coins, 0, 4, 8);
         ov5_021D64E4(0, 16);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
         v0->unk_BA2 = 1;
         break;
     case 1:
-        v2 = ov5_021D650C(&v1->unk_00);
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        v2 = ov5_021D650C(&v1->coins);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if (v2) {
             v0->unk_BA2 = 3;
@@ -4890,20 +4890,20 @@ static void ov5_021DAC68(SysTask *param0, void *param1)
         break;
     case 3:
         if (v0->unk_BA6 == 5) {
-            ov5_021D64FC(&v1->unk_00, 4, 0, 8);
+            ov5_021D64FC(&v1->coins, 4, 0, 8);
             v0->unk_BA2 = 4;
         }
         break;
     case 4:
-        v2 = ov5_021D650C(&v1->unk_00);
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        v2 = ov5_021D650C(&v1->coins);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if (v2) {
             v0->unk_BA2 = 5;
         }
         break;
     case 5: {
-        UnkStruct_ov5_021D69B8 *v3 = v0->unk_04;
+        UnkStruct_ov5_021D69B8 *v3 = v0->slotMachineVariant;
         ov5_021D69B8(v3);
     } break;
     default:
@@ -4911,9 +4911,9 @@ static void ov5_021DAC68(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021DAD38(SysTask *param0, void *param1)
+static void ov5_021DAD38(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D879C *v1;
     int v2;
     BOOL v3;
@@ -4922,17 +4922,17 @@ static void ov5_021DAD38(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7308(&v1->unk_44, &v1->unk_14, v0->unk_00->fieldSystem->fogMan, 7, 30287, (GX_RGB(0, 0, 0)), 1, v0->unk_BA4);
-        ov5_021D64FC(&v1->unk_00, 0, 9, 30);
+        ov5_021D7308(&v1->unk_44, &v1->unk_14, v0->coins->fieldSystem->fogMan, 7, 30287, (GX_RGB(0, 0, 0)), 1, v0->unk_BA4);
+        ov5_021D64FC(&v1->coins, 0, 9, 30);
         ov5_021D64E4(0, 16);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
         v0->unk_BA2 = 1;
         break;
     case 1:
         v2 = ov5_021D74B8(&v1->unk_14);
-        v3 = ov5_021D650C(&v1->unk_00);
+        v3 = ov5_021D650C(&v1->coins);
 
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if ((v2 == 1) && (v3 == 1)) {
             v0->unk_BA2 = 3;
@@ -4940,8 +4940,8 @@ static void ov5_021DAD38(SysTask *param0, void *param1)
         break;
     case 2:
         if (v0->unk_BA4 != 0) {
-            v1->unk_14.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v1->unk_14.unk_00, 7, 30287, (GX_RGB(0, 0, 0)));
+            v1->unk_14.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v1->unk_14.coins, 7, 30287, (GX_RGB(0, 0, 0)));
             ov5_021D74D4(&v1->unk_14);
         }
 
@@ -4956,7 +4956,7 @@ static void ov5_021DAD38(SysTask *param0, void *param1)
                 ov5_021D749C(&v1->unk_14, 1, 0);
             }
 
-            ov5_021D64FC(&v1->unk_00, 9, 0, 30);
+            ov5_021D64FC(&v1->coins, 9, 0, 30);
             v0->unk_BA2 = 4;
         }
         break;
@@ -4967,8 +4967,8 @@ static void ov5_021DAD38(SysTask *param0, void *param1)
             v2 = 1;
         }
 
-        v3 = ov5_021D650C(&v1->unk_00);
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        v3 = ov5_021D650C(&v1->coins);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if ((v2 == 1) && (v3 == 1)) {
             v0->unk_BA2 = 5;
@@ -4976,11 +4976,11 @@ static void ov5_021DAD38(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v1->unk_14.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v1->unk_14.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
             ov5_021D69B8(v4);
         }
         break;
@@ -4989,9 +4989,9 @@ static void ov5_021DAD38(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021DAEC0(SysTask *param0, void *param1)
+static void ov5_021DAEC0(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D879C *v1;
     int v2;
     BOOL v3;
@@ -5000,17 +5000,17 @@ static void ov5_021DAEC0(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D7308(&v1->unk_44, &v1->unk_14, v0->unk_00->fieldSystem->fogMan, 6, 30037, (GX_RGB(31, 31, 31)), 1, v0->unk_BA4);
-        ov5_021D64FC(&v1->unk_00, 0, 9, 30);
+        ov5_021D7308(&v1->unk_44, &v1->unk_14, v0->coins->fieldSystem->fogMan, 6, 30037, (GX_RGB(31, 31, 31)), 1, v0->unk_BA4);
+        ov5_021D64FC(&v1->coins, 0, 9, 30);
         ov5_021D64E4(0, 16);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
         v0->unk_BA2 = 1;
         break;
     case 1:
         v2 = ov5_021D74B8(&v1->unk_14);
-        v3 = ov5_021D650C(&v1->unk_00);
+        v3 = ov5_021D650C(&v1->coins);
 
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if ((v2 == 1) && (v3 == 1)) {
             v0->unk_BA2 = 3;
@@ -5018,8 +5018,8 @@ static void ov5_021DAEC0(SysTask *param0, void *param1)
         break;
     case 2:
         if (v0->unk_BA4 != 0) {
-            v1->unk_14.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v1->unk_14.unk_00, 6, 30037, (GX_RGB(31, 31, 31)));
+            v1->unk_14.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v1->unk_14.coins, 6, 30037, (GX_RGB(31, 31, 31)));
             ov5_021D74D4(&v1->unk_14);
         }
 
@@ -5033,7 +5033,7 @@ static void ov5_021DAEC0(SysTask *param0, void *param1)
                 ov5_021D749C(&v1->unk_14, 1, 0);
             }
 
-            ov5_021D64FC(&v1->unk_00, 9, 0, 30);
+            ov5_021D64FC(&v1->coins, 9, 0, 30);
             v0->unk_BA2 = 4;
         }
         break;
@@ -5044,8 +5044,8 @@ static void ov5_021DAEC0(SysTask *param0, void *param1)
             v2 = 1;
         }
 
-        v3 = ov5_021D650C(&v1->unk_00);
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        v3 = ov5_021D650C(&v1->coins);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if ((v2 == 1) && (v3 == 1)) {
             v0->unk_BA2 = 5;
@@ -5053,11 +5053,11 @@ static void ov5_021DAEC0(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v1->unk_14.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v1->unk_14.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
             ov5_021D69B8(v4);
         }
         break;
@@ -5066,25 +5066,25 @@ static void ov5_021DAEC0(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021DB04C(SysTask *param0, void *param1)
+static void ov5_021DB04C(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021DB04C *v1;
-    UnkStruct_ov5_021D6594 *v2 = v0->unk_00;
+    UnkStruct_ov5_021D6594 *v2 = v0->coins;
     FieldSystem *fieldSystem = v2->fieldSystem;
 
     v1 = (UnkStruct_ov5_021DB04C *)v0->unk_B98;
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021DB614(&v1->unk_00, fieldSystem->unk_04->hBlankSystem);
-        ov5_021DB6E0(&v1->unk_00, (FX32_CONST(256)), (FX32_CONST(32)), 128, 84, 30);
+        ov5_021DB614(&v1->coins, fieldSystem->slotMachineVariant->hBlankSystem);
+        ov5_021DB6E0(&v1->coins, (FX32_CONST(256)), (FX32_CONST(32)), 128, 84, 30);
         v0->unk_BA2 = 1;
         break;
     case 1:
-        if (ov5_021DB700(&v1->unk_00) == 1) {
+        if (ov5_021DB700(&v1->coins) == 1) {
             GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
-            ov5_021DB7A4(&v1->unk_00);
+            ov5_021DB7A4(&v1->coins);
             v0->unk_BA2 = 3;
         }
         break;
@@ -5094,22 +5094,22 @@ static void ov5_021DB04C(SysTask *param0, void *param1)
         break;
     case 3:
         if (v0->unk_BA6 == 5) {
-            ov5_021DB614(&v1->unk_00, fieldSystem->unk_04->hBlankSystem);
-            ov5_021DB6E0(&v1->unk_00, (FX32_CONST(32)), (FX32_CONST(256)), 128, 84, 30);
+            ov5_021DB614(&v1->coins, fieldSystem->slotMachineVariant->hBlankSystem);
+            ov5_021DB6E0(&v1->coins, (FX32_CONST(32)), (FX32_CONST(256)), 128, 84, 30);
             v0->unk_BA2 = 4;
         }
         break;
     case 4:
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 0);
 
-        if (ov5_021DB700(&v1->unk_00) == 1) {
+        if (ov5_021DB700(&v1->coins) == 1) {
             v0->unk_BA2 = 5;
         }
         break;
     case 5:
-        ov5_021DB690(&v1->unk_00);
+        ov5_021DB690(&v1->coins);
         {
-            UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
             ov5_021D69B8(v4);
         }
         break;
@@ -5118,9 +5118,9 @@ static void ov5_021DB04C(SysTask *param0, void *param1)
     }
 }
 
-static void ov5_021DB144(SysTask *param0, void *param1)
+static void ov5_021DB144(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021DB144 *v1;
     BOOL v2;
     BOOL v3;
@@ -5129,10 +5129,10 @@ static void ov5_021DB144(SysTask *param0, void *param1)
 
     switch (v0->unk_BA2) {
     case 0:
-        ov5_021D64FC(&v1->unk_00, 0, 7, 8);
+        ov5_021D64FC(&v1->coins, 0, 7, 8);
         ov5_021D64E4(0, 16);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
-        ov5_021D7308(&v1->unk_44, &v1->unk_14, v0->unk_00->fieldSystem->fogMan, 3, 0x6F6F + -1600, (GX_RGB(31, 31, 31)), 1, v0->unk_BA4);
+        ov5_021D7308(&v1->unk_44, &v1->unk_14, v0->coins->fieldSystem->fogMan, 3, 0x6F6F + -1600, (GX_RGB(31, 31, 31)), 1, v0->unk_BA4);
 
         v1->unk_AC = 0;
         v1->unk_B0 = 0;
@@ -5141,9 +5141,9 @@ static void ov5_021DB144(SysTask *param0, void *param1)
         break;
     case 1:
         v3 = ov5_021D735C(&v1->unk_44, &v1->unk_14, v0->unk_BA4);
-        v2 = ov5_021D650C(&v1->unk_00);
+        v2 = ov5_021D650C(&v1->coins);
 
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if ((v2 == v3) && (v2 == 1)) {
             v0->unk_BA2 = 3;
@@ -5153,8 +5153,8 @@ static void ov5_021DB144(SysTask *param0, void *param1)
         ov5_021D64E4(7, 16 - 7);
 
         if (v0->unk_BA4 != 0) {
-            v1->unk_14.unk_00 = v0->unk_00->fieldSystem->fogMan;
-            ov5_021D7384(v1->unk_14.unk_00, 3, 0x6F6F + -1600, (GX_RGB(31, 31, 31)));
+            v1->unk_14.coins = v0->coins->fieldSystem->fogMan;
+            ov5_021D7384(v1->unk_14.coins, 3, 0x6F6F + -1600, (GX_RGB(31, 31, 31)));
             ov5_021D74D4(&v1->unk_14);
         }
 
@@ -5167,7 +5167,7 @@ static void ov5_021DB144(SysTask *param0, void *param1)
         break;
     case 3:
         if (v0->unk_BA6 == 5) {
-            ov5_021D64FC(&v1->unk_00, 7, 0, 8);
+            ov5_021D64FC(&v1->coins, 7, 0, 8);
 
             if (v0->unk_BA4 != 0) {
                 ov5_021D749C(&v1->unk_14, 1, 0);
@@ -5177,10 +5177,10 @@ static void ov5_021DB144(SysTask *param0, void *param1)
         }
         break;
     case 4:
-        v2 = ov5_021D650C(&v1->unk_00);
+        v2 = ov5_021D650C(&v1->coins);
         v3 = ov5_021D74B8(&v1->unk_14);
 
-        ov5_021D64E4(v1->unk_00.unk_00, 16 - v1->unk_00.unk_00);
+        ov5_021D64E4(v1->coins.coins, 16 - v1->coins.coins);
 
         if ((v2 == v3) && (v2 == 1)) {
             v0->unk_BA2 = 5;
@@ -5188,11 +5188,11 @@ static void ov5_021DB144(SysTask *param0, void *param1)
         break;
     case 5:
         if (v0->unk_BA4 != 0) {
-            FogManager_ApplyParameters(v1->unk_14.unk_00, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
+            FogManager_ApplyParameters(v1->unk_14.coins, FOG_PARAMETER_ENABLED, FALSE, GX_FOGBLEND_COLOR_ALPHA, GX_FOGSLOPE_0x8000, 0);
         }
 
         {
-            UnkStruct_ov5_021D69B8 *v4 = v0->unk_04;
+            UnkStruct_ov5_021D69B8 *v4 = v0->slotMachineVariant;
             ov5_021D69B8(v4);
         }
         break;
@@ -5222,68 +5222,68 @@ static void ov5_021DB144(SysTask *param0, void *param1)
 
         v5 = Unk_ov5_02201D38[v1->unk_B4 / 8];
 
-        Bg_ScheduleScroll(v0->unk_00->fieldSystem->bgConfig, 2, 0, (v1->unk_AC >> FX32_SHIFT) + v5);
-        Bg_ScheduleScroll(v0->unk_00->fieldSystem->bgConfig, 2, 3, (v1->unk_B0 >> FX32_SHIFT));
+        Bg_ScheduleScroll(v0->coins->fieldSystem->bgConfig, 2, 0, (v1->unk_AC >> FX32_SHIFT) + v5);
+        Bg_ScheduleScroll(v0->coins->fieldSystem->bgConfig, 2, 3, (v1->unk_B0 >> FX32_SHIFT));
     }
 }
 
-static void ov5_021DB3A8(SysTask *param0, void *param1)
+static void ov5_021DB3A8(SysTask *param0, void *slotsMinigameDTO)
 {
-    ov5_021D9C20(param0, param1, 4, 4, (10 * 128), (2 * 128));
+    ov5_021D9C20(param0, slotsMinigameDTO, 4, 4, (10 * 128), (2 * 128));
 }
 
-static void ov5_021DB3C4(SysTask *param0, void *param1)
+static void ov5_021DB3C4(SysTask *param0, void *slotsMinigameDTO)
 {
-    ov5_021D9C20(param0, param1, 6, 1, (8 * 128), (2 * 128));
+    ov5_021D9C20(param0, slotsMinigameDTO, 6, 1, (8 * 128), (2 * 128));
 }
 
-static void ov5_021DB3E0(SysTask *param0, void *param1)
+static void ov5_021DB3E0(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D84D4 *v1 = (UnkStruct_ov5_021D84D4 *)v0->unk_B98;
 
     ov5_021D9DFC(v0, v1, 3, 26095, (GX_RGB(2, 2, 6)), 0, 0);
 }
 
-static void ov5_021DB40C(SysTask *param0, void *param1)
+static void ov5_021DB40C(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D84D4 *v1 = (UnkStruct_ov5_021D84D4 *)v0->unk_B98;
 
     ov5_021D9DFC(v0, v1, 2, 26415, (GX_RGB(13, 25, 30)), 0, 0);
 }
 
-static void ov5_021DB438(SysTask *param0, void *param1)
+static void ov5_021DB438(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D84D4 *v1 = (UnkStruct_ov5_021D84D4 *)v0->unk_B98;
 
     ov5_021D9DFC(v0, v1, 2, 26415, (GX_RGB(20, 0, 0)), 0, 0);
 }
 
-static void ov5_021DB460(SysTask *param0, void *param1)
+static void ov5_021DB460(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D84D4 *v1 = (UnkStruct_ov5_021D84D4 *)v0->unk_B98;
 
     ov5_021D9DFC(v0, v1, 2, 26415, (GX_RGB(0, 0, 20)), 0, 0);
 }
 
-static void ov5_021DB48C(SysTask *param0, void *param1)
+static void ov5_021DB48C(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)param1;
+    UnkStruct_ov5_021DB4B8 *v0 = (UnkStruct_ov5_021DB4B8 *)slotsMinigameDTO;
     UnkStruct_ov5_021D84D4 *v1 = (UnkStruct_ov5_021D84D4 *)v0->unk_B98;
 
     ov5_021D9DFC(v0, v1, 1, 19311, (GX_RGB(1, 1, 1)), 0, 0);
 }
 
-static void ov5_021DB4B8(UnkStruct_ov5_021DB4B8 *param0, int param1)
+static void ov5_021DB4B8(UnkStruct_ov5_021DB4B8 *param0, int slotsMinigameDTO)
 {
     GF_ASSERT(param0->unk_B9C == 0);
     param0->unk_B9C = 1;
-    param0->unk_BA0 = param1;
+    param0->unk_BA0 = slotsMinigameDTO;
 
-    Sound_PlayEffect(param1);
+    Sound_PlayEffect(slotsMinigameDTO);
 }
 
 static void ov5_021DB4E4(UnkStruct_ov5_021DB4B8 *param0)
@@ -5302,13 +5302,13 @@ static void ov5_021DB500(UnkStruct_ov5_021DB614 *param0)
 
     for (v0 = 0; v0 < 192; v0++) {
         if (v0 <= param0->unk_02) {
-            ov5_021DB588(param0->unk_04.unk_00, param0->unk_00, param0->unk_02, v0, &v1, &v2);
+            ov5_021DB588(param0->slotMachineVariant.coins, param0->coins, param0->unk_02, v0, &v1, &v2);
         } else {
             if (v0 <= (param0->unk_02 * 2)) {
                 v1 = v3[(param0->unk_02 * 2) - v0];
                 v2 = v4[(param0->unk_02 * 2) - v0];
             } else {
-                ov5_021DB588(param0->unk_04.unk_00, param0->unk_00, param0->unk_02, v0, &v1, &v2);
+                ov5_021DB588(param0->slotMachineVariant.coins, param0->coins, param0->unk_02, v0, &v1, &v2);
             }
         }
 
@@ -5317,7 +5317,7 @@ static void ov5_021DB500(UnkStruct_ov5_021DB614 *param0)
     }
 }
 
-static void ov5_021DB588(fx32 param0, int param1, int param2, int param3, int *param4, int *param5)
+static void ov5_021DB588(fx32 param0, int slotsMinigameDTO, int param2, int param3, int *param4, int *param5)
 {
     fx32 v0;
     fx32 v1;
@@ -5338,7 +5338,7 @@ static void ov5_021DB588(fx32 param0, int param1, int param2, int param3, int *p
         v2 = FX_Sqrt(FX_Mul(v0, v0) - FX_Mul(v1, v1));
         v2 >>= FX32_SHIFT;
 
-        *param4 = param1 - v2;
+        *param4 = slotsMinigameDTO - v2;
 
         if (*param4 < 0) {
             *param4 = 0;
@@ -5352,7 +5352,7 @@ static void ov5_021DB588(fx32 param0, int param1, int param2, int param3, int *p
     }
 }
 
-static void ov5_021DB614(UnkStruct_ov5_021DB614 *param0, HBlankSystem *param1)
+static void ov5_021DB614(UnkStruct_ov5_021DB614 *param0, HBlankSystem *slotsMinigameDTO)
 {
     int v0;
 
@@ -5366,7 +5366,7 @@ static void ov5_021DB614(UnkStruct_ov5_021DB614 *param0, HBlankSystem *param1)
         param0->unk_2C[3][v0] = 255;
     }
 
-    param0->unk_14 = param1;
+    param0->unk_14 = slotsMinigameDTO;
     SysTask_ExecuteAfterVBlank(ov5_021DB7F8, param0, 120);
     param0->unk_24 = SysTask_ExecuteAfterVBlank(ov5_021DB78C, param0, 1024);
     param0->unk_28 = 0;
@@ -5386,11 +5386,11 @@ static void ov5_021DB690(UnkStruct_ov5_021DB614 *param0)
     memset(param0, 0, sizeof(UnkStruct_ov5_021DB614));
 }
 
-static void ov5_021DB6E0(UnkStruct_ov5_021DB614 *param0, fx32 param1, fx32 param2, int param3, int param4, int param5)
+static void ov5_021DB6E0(UnkStruct_ov5_021DB614 *param0, fx32 slotsMinigameDTO, fx32 param2, int param3, int param4, int param5)
 {
-    ov5_021D6538(&param0->unk_04, param1, param2, param5);
+    ov5_021D6538(&param0->slotMachineVariant, slotsMinigameDTO, param2, param5);
 
-    param0->unk_00 = param3;
+    param0->coins = param3;
     param0->unk_02 = param4;
     param0->unk_28 = 1;
 
@@ -5407,7 +5407,7 @@ static BOOL ov5_021DB700(UnkStruct_ov5_021DB614 *param0)
         return 1;
     }
 
-    v0 = ov5_021D6548(&param0->unk_04);
+    v0 = ov5_021D6548(&param0->slotMachineVariant);
     ov5_021DB500(param0);
 
     if (v0 == 1) {
@@ -5417,9 +5417,9 @@ static BOOL ov5_021DB700(UnkStruct_ov5_021DB614 *param0)
     return v0;
 }
 
-static void ov5_021DB72C(HBlankTask *param0, void *param1)
+static void ov5_021DB72C(HBlankTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB614 *v0 = param1;
+    UnkStruct_ov5_021DB614 *v0 = slotsMinigameDTO;
     const u16 *v1[2];
     int v2;
     int v3;
@@ -5443,9 +5443,9 @@ static void ov5_021DB72C(HBlankTask *param0, void *param1)
     }
 }
 
-static void ov5_021DB78C(SysTask *param0, void *param1)
+static void ov5_021DB78C(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB614 *v0 = param1;
+    UnkStruct_ov5_021DB614 *v0 = slotsMinigameDTO;
     int v1;
 
     for (v1 = 0; v1 < 2; v1++) {
@@ -5458,9 +5458,9 @@ static void ov5_021DB7A4(UnkStruct_ov5_021DB614 *param0)
     SysTask_ExecuteAfterVBlank(ov5_021DB7B8, param0, 128);
 }
 
-static void ov5_021DB7B8(SysTask *param0, void *param1)
+static void ov5_021DB7B8(SysTask *param0, void *slotsMinigameDTO)
 {
-    ov5_021DB690(param1);
+    ov5_021DB690(slotsMinigameDTO);
     SysTask_Done(param0);
 }
 
@@ -5478,9 +5478,9 @@ static void ov5_021DB7CC(UnkStruct_ov5_021DB614 *param0)
     }
 }
 
-static void ov5_021DB7F8(SysTask *param0, void *param1)
+static void ov5_021DB7F8(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021DB614 *v0 = param1;
+    UnkStruct_ov5_021DB614 *v0 = slotsMinigameDTO;
     GXWndPlane v1 = G2_GetWndOutsidePlane();
     int v2 = GX_GetVisibleWnd();
 

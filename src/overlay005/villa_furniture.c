@@ -69,7 +69,7 @@ void Villa_DynamicMapFeaturesInit(FieldSystem *fieldSystem)
     villaDynamicData->fieldSystem = fieldSystem;
     villaDynamicData->persistedData = villaPersistedData;
 
-    fieldSystem->unk_04->dynamicMapFeaturesData = villaDynamicData;
+    fieldSystem->slotMachineVariant->dynamicMapFeaturesData = villaDynamicData;
 
     for (int i = 0; i < VILLA_FURNITURE_MAX; i++) {
         if (FieldSystem_OwnsVillaFurniture(fieldSystem, i) == TRUE) {
@@ -80,10 +80,10 @@ void Villa_DynamicMapFeaturesInit(FieldSystem *fieldSystem)
 
 void Villa_DynamicMapFeaturesFree(FieldSystem *fieldSystem)
 {
-    VillaDynamicMapData *villaDynamicData = fieldSystem->unk_04->dynamicMapFeaturesData;
+    VillaDynamicMapData *villaDynamicData = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
 
     Heap_Free(villaDynamicData);
-    fieldSystem->unk_04->dynamicMapFeaturesData = NULL;
+    fieldSystem->slotMachineVariant->dynamicMapFeaturesData = NULL;
 }
 
 BOOL Villa_DynamicMapFeaturesCheckCollision(FieldSystem *fieldSystem, const int tileX, const int tileZ, const fx32 height, BOOL *isColliding)

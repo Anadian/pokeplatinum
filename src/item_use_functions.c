@@ -130,11 +130,11 @@ static enum ItemUseCheckResult CanUseEscapeRope(const ItemUseContext *usageConte
 static enum ItemUseCheckResult CanUseAzureFlute(const ItemUseContext *usageContext);
 static BOOL MountOrUnmountBicycle(FieldTask *task);
 static BOOL PrintRegisteredKeyItemUseMessage(FieldTask *task);
-static void RegisteredItem_CreateGoToAppTask(ItemFieldUseContext *usageContext, void *param1);
+static void RegisteredItem_CreateGoToAppTask(ItemFieldUseContext *usageContext, void *slotsMinigameDTO);
 static BOOL RegisteredItem_GoToApp(FieldTask *task);
 static BOOL WarpWithEscapeRope(FieldTask *task);
 static BOOL sub_020685AC(FieldTask *task);
-static void PrintRegisteredKeyItemError(ItemFieldUseContext *usageContext, u32 param1);
+static void PrintRegisteredKeyItemError(ItemFieldUseContext *usageContext, u32 slotsMinigameDTO);
 
 // clang-format off
 static const ItemUseFuncDat sItemUseFuncs[] = {
@@ -234,12 +234,12 @@ static void ItemUseContext_InitForDistortionWorld(FieldSystem *fieldSystem, Item
     ctxOut->playerAvatar = fieldSystem->playerAvatar;
 }
 
-static UnkStruct_0206851C *sub_0206851C(u32 param0, u16 param1, u16 param2, u16 param3, u16 param4)
+static UnkStruct_0206851C *sub_0206851C(u32 param0, u16 slotsMinigameDTO, u16 param2, u16 param3, u16 param4)
 {
     UnkStruct_0206851C *v0 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(UnkStruct_0206851C));
 
-    v0->unk_00 = param0;
-    v0->unk_04 = param1;
+    v0->coins = param0;
+    v0->slotMachineVariant = slotsMinigameDTO;
     v0->unk_06 = param2;
     v0->unk_08 = param3;
     v0->unk_0A = param4;
@@ -259,9 +259,9 @@ static void sub_02068540(ItemMenuUseContext *usageContext, const ItemUseContext 
     menu->state = START_MENU_STATE_NEW_TASK;
 }
 
-static void sub_02068584(ItemFieldUseContext *usageContext, u32 param1)
+static void sub_02068584(ItemFieldUseContext *usageContext, u32 slotsMinigameDTO)
 {
-    void *v0 = sub_0206851C(param1, usageContext->unk_28, 0, 0, 0);
+    void *v0 = sub_0206851C(slotsMinigameDTO, usageContext->unk_28, 0, 0, 0);
     FieldSystem_CreateTask(usageContext->fieldSystem, sub_020685AC, v0);
 }
 
@@ -275,9 +275,9 @@ static BOOL sub_020685AC(FieldTask *task)
     switch (*v2) {
     case 0:
         sub_0203C9D4(fieldSystem, &v3);
-        ScriptManager_Start(task, v1->unk_00, v3, NULL);
+        ScriptManager_Start(task, v1->coins, v3, NULL);
 
-        *(u16 *)FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_DATA_PARAMETER_0) = v1->unk_04;
+        *(u16 *)FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_DATA_PARAMETER_0) = v1->slotMachineVariant;
         *(u16 *)FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_DATA_PARAMETER_1) = v1->unk_06;
         *(u16 *)FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_DATA_PARAMETER_2) = v1->unk_08;
         *(u16 *)FieldSystem_GetScriptMemberPtr(fieldSystem, SCRIPT_DATA_PARAMETER_3) = v1->unk_0A;
@@ -872,25 +872,25 @@ static BOOL PrintRegisteredKeyItemUseMessage(FieldTask *task)
     switch (v1->unk_16) {
     case 0:
         MapObjectMan_PauseAllMovement(fieldSystem->mapObjMan);
-        FieldMessage_AddWindow(fieldSystem->bgConfig, &v1->unk_00, 3);
+        FieldMessage_AddWindow(fieldSystem->bgConfig, &v1->coins, 3);
 
         const Options *options = SaveData_GetOptions(fieldSystem->saveData);
 
-        FieldMessage_DrawWindow(&v1->unk_00, options);
-        v1->unk_14 = FieldMessage_Print(&v1->unk_00, v1->unk_10, options, 1);
+        FieldMessage_DrawWindow(&v1->coins, options);
+        v1->unk_14 = FieldMessage_Print(&v1->coins, v1->unk_10, options, 1);
         v1->unk_16++;
         break;
     case 1:
         if (FieldMessage_FinishedPrinting(v1->unk_14) == TRUE) {
             if (gSystem.pressedKeys & (PAD_KEY | PAD_BUTTON_A | PAD_BUTTON_B)) {
-                Window_EraseMessageBox(&v1->unk_00, 0);
+                Window_EraseMessageBox(&v1->coins, 0);
                 v1->unk_16++;
             }
         }
         break;
     case 2:
         MapObjectMan_UnpauseAllMovement(fieldSystem->mapObjMan);
-        Window_Remove(&v1->unk_00);
+        Window_Remove(&v1->coins);
         String_Free(v1->unk_10);
         Heap_Free(v1);
 
@@ -1070,14 +1070,14 @@ BOOL sub_02069238(FieldSystem *fieldSystem)
     usageContext->fieldSystem = fieldSystem;
     usageContext->unk_28 = item;
 
-    ItemUseContext_Init(fieldSystem, &usageContext->unk_04);
+    ItemUseContext_Init(fieldSystem, &usageContext->slotMachineVariant);
 
     usageResult = 0;
 
     if (checkUse == NULL) {
         usageResult = useInField(usageContext);
     } else {
-        u32 usageCheckResult = checkUse(&usageContext->unk_04);
+        u32 usageCheckResult = checkUse(&usageContext->slotMachineVariant);
 
         if (usageCheckResult == 0) {
             usageResult = useInField(usageContext);
@@ -1156,8 +1156,8 @@ static BOOL RegisteredItem_GoToApp(FieldTask *task)
     return FALSE;
 }
 
-static void RegisteredItem_CreateGoToAppTask(ItemFieldUseContext *usageContext, void *param1)
+static void RegisteredItem_CreateGoToAppTask(ItemFieldUseContext *usageContext, void *slotsMinigameDTO)
 {
-    usageContext->unk_20 = param1;
+    usageContext->unk_20 = slotsMinigameDTO;
     FieldSystem_CreateTask(usageContext->fieldSystem, RegisteredItem_GoToApp, usageContext);
 }

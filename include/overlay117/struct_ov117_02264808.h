@@ -4,8 +4,8 @@
 #include "overlay117/struct_ov117_02264508.h"
 
 typedef struct {
-    BOOL unk_00;
-    UnkStruct_ov117_02264508 unk_04[36];
+    BOOL coins;
+    UnkStruct_ov117_02264508 slotMachineVariant[36];
     UnkStruct_ov117_02264508 unk_868[8];
     UnkStruct_ov117_02264508 unk_928[3];
     u8 padding_970[4];

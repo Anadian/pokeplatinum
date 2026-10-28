@@ -6,8 +6,8 @@
 #include "billboard.h"
 
 typedef struct {
-    int unk_00;
-    MapObject *unk_04;
+    int coins;
+    MapObject *slotMachineVariant;
     Billboard **unk_08;
 } UnkStruct_ov5_021EE294;
 

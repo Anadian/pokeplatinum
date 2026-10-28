@@ -15,7 +15,7 @@ typedef struct {
     ApplicationManager *appMan;
     SaveData *saveData;
     Options *options;
-    void *unk_0C;
+    void *slotsMinigameDTO;
     NNSFndHeapHandle unk_10;
     DWCInetControl unk_14;
     u16 unk_7C;

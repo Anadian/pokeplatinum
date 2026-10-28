@@ -14,7 +14,7 @@
 #include "trainer_info.h"
 #include "wifi_list.h"
 
-int sub_0203909C(SaveData *saveData, DWCFriendData *param1, int *param2)
+int sub_0203909C(SaveData *saveData, DWCFriendData *slotsMinigameDTO, int *param2)
 {
     int v0;
     DWCUserData *v1 = WiFiList_GetUserData(SaveData_GetWiFiList(saveData));
@@ -22,15 +22,15 @@ int sub_0203909C(SaveData *saveData, DWCFriendData *param1, int *param2)
 
     *param2 = -1;
 
-    if (!DWC_IsValidFriendData(param1)) {
+    if (!DWC_IsValidFriendData(slotsMinigameDTO)) {
         return 3;
     }
 
     for (v0 = 0; v0 < 32; v0++) {
-        if (DWC_IsEqualFriendData(param1, v2 + v0)) {
+        if (DWC_IsEqualFriendData(slotsMinigameDTO, v2 + v0)) {
             *param2 = v0;
             return 0;
-        } else if ((DWC_GetGsProfileId(v1, param1) > 0) && (DWC_GetGsProfileId(v1, param1) == DWC_GetGsProfileId(v1, v2 + v0))) {
+        } else if ((DWC_GetGsProfileId(v1, slotsMinigameDTO) > 0) && (DWC_GetGsProfileId(v1, slotsMinigameDTO) == DWC_GetGsProfileId(v1, v2 + v0))) {
             *param2 = v0;
             return 1;
         } else if ((*param2 < 0) && !DWC_IsValidFriendData(v2 + v0)) {
@@ -41,18 +41,18 @@ int sub_0203909C(SaveData *saveData, DWCFriendData *param1, int *param2)
     return 2;
 }
 
-int sub_02039140(SaveData *saveData, u64 param1, int *param2)
+int sub_02039140(SaveData *saveData, u64 slotsMinigameDTO, int *param2)
 {
     int v0;
     DWCUserData *v1 = WiFiList_GetUserData(SaveData_GetWiFiList(saveData));
     DWCFriendData *v2 = sub_0202AED8(SaveData_GetWiFiList(saveData), 0);
     DWCFriendData v3;
 
-    if (!DWC_CheckFriendKey(v1, param1)) {
+    if (!DWC_CheckFriendKey(v1, slotsMinigameDTO)) {
         return 3;
     }
 
-    DWC_CreateFriendKeyToken(&v3, param1);
+    DWC_CreateFriendKeyToken(&v3, slotsMinigameDTO);
 
     if (DWC_GetGsProfileId(v1, &v3) <= 0) {
         return 3;
@@ -72,7 +72,7 @@ int sub_02039140(SaveData *saveData, u64 param1, int *param2)
     return 2;
 }
 
-BOOL sub_020391DC(SaveData *saveData, int *param1, enum HeapID heapID)
+BOOL sub_020391DC(SaveData *saveData, int *slotsMinigameDTO, enum HeapID heapID)
 {
     int v0, v1 = 0, v2;
     DWCFriendData *v3 = sub_0202AED8(SaveData_GetWiFiList(saveData), 0);
@@ -89,21 +89,21 @@ BOOL sub_020391DC(SaveData *saveData, int *param1, enum HeapID heapID)
             continue;
         }
 
-        param1[v0] = sub_0203909C(saveData, v4, &v2);
+        slotsMinigameDTO[v0] = sub_0203909C(saveData, v4, &v2);
 
-        GF_ASSERT(param1[v0] != 3);
+        GF_ASSERT(slotsMinigameDTO[v0] != 3);
 
-        if (param1[v0] == 0) {
+        if (slotsMinigameDTO[v0] == 0) {
             sub_02039298(saveData, v0, v2, heapID, 2);
             CommInfo_SavePlayerRecord(saveData);
-        } else if (param1[v0] == 1) {
+        } else if (slotsMinigameDTO[v0] == 1) {
             if (!CommManager_IsConnectedToWifi()) {
                 sub_02039298(saveData, v0, v2, heapID, 1);
                 MI_CpuCopy8(v4, &v3[v2], sizeof(DWCFriendData));
 
                 CommInfo_SavePlayerRecord(saveData);
             }
-        } else if (param1[v0] == 2) {
+        } else if (slotsMinigameDTO[v0] == 2) {
             v1 = 1;
         }
     }
@@ -111,16 +111,16 @@ BOOL sub_020391DC(SaveData *saveData, int *param1, enum HeapID heapID)
     return v1;
 }
 
-void sub_02039298(SaveData *saveData, int param1, int param2, enum HeapID heapID, int param4)
+void sub_02039298(SaveData *saveData, int slotsMinigameDTO, int param2, enum HeapID heapID, int param4)
 {
     WiFiList *v0 = SaveData_GetWiFiList(saveData);
     DWCFriendData *v1 = sub_0202AED8(v0, param2);
-    TrainerInfo *v2 = CommInfo_TrainerInfo(param1);
+    TrainerInfo *v2 = CommInfo_TrainerInfo(slotsMinigameDTO);
     DWCFriendData *v3;
     String *v4;
 
     if (param4 != 2) {
-        v3 = CommInfo_DWCFriendData(param1);
+        v3 = CommInfo_DWCFriendData(slotsMinigameDTO);
         MI_CpuCopy8(v3, v1, sizeof(DWCFriendData));
     }
 
@@ -139,17 +139,17 @@ void sub_02039298(SaveData *saveData, int param1, int param2, enum HeapID heapID
 
     v4 = String_Init(120, heapID);
 
-    String_CopyChars(v4, sub_02032F54(param1));
+    String_CopyChars(v4, sub_02032F54(slotsMinigameDTO));
     sub_0202AF50(v0, param2, v4);
     String_Free(v4);
     sub_0202AE2C(v0, param2, 7, TrainerInfo_Appearance(v2));
     CommInfo_SavePlayerRecord(saveData);
 }
 
-int sub_02039390(SaveData *saveData, int param1)
+int sub_02039390(SaveData *saveData, int slotsMinigameDTO)
 {
     int v0, v1;
-    DWCFriendData *v2 = CommInfo_DWCFriendData(param1);
+    DWCFriendData *v2 = CommInfo_DWCFriendData(slotsMinigameDTO);
     WiFiList *v3 = SaveData_GetWiFiList(saveData);
 
     for (v0 = 0; v0 < 32; v0++) {

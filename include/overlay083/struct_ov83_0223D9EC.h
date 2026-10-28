@@ -2,10 +2,10 @@
 #define POKEPLATINUM_STRUCT_OV83_0223D9EC_H
 
 typedef struct {
-    fx32 unk_00;
-    fx32 unk_04;
+    fx32 coins;
+    fx32 slotMachineVariant;
     fx32 unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     int unk_10;
 } UnkStruct_ov83_0223D9EC;
 

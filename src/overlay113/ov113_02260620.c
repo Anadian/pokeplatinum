@@ -46,7 +46,7 @@ static const TouchScreenRect Unk_ov113_02260D4C[] = {
     { 0xFF, 0x0, 0x0, 0x0 }
 };
 
-void ov113_02260620(MessageLoader *param0, StringTemplate *param1, Window param2[], UnkStruct_ov66_0222DFF8 *param3, s32 param4)
+void ov113_02260620(MessageLoader *param0, StringTemplate *slotsMinigameDTO, Window param2[], UnkStruct_ov66_0222DFF8 *param3, s32 param4)
 {
     const WiFiPlazaProfile *v0;
     TrainerInfo *v1;
@@ -87,12 +87,12 @@ void ov113_02260620(MessageLoader *param0, StringTemplate *param1, Window param2
     v4 = TrainerInfo_NameNewString(v1, HEAP_ID_118);
     v6 = TrainerInfo_Gender(v1);
 
-    StringTemplate_SetString(param1, 0, v4, v6, 1, GAME_LANGUAGE);
+    StringTemplate_SetString(slotsMinigameDTO, 0, v4, v6, 1, GAME_LANGUAGE);
 
     v2 = MessageLoader_GetNewString(param0, 0);
     v3 = String_Init(v5, HEAP_ID_118);
 
-    StringTemplate_Format(param1, v3, v2);
+    StringTemplate_Format(slotsMinigameDTO, v3, v2);
     Window_FillTilemap(&param2[v7], 0x0);
 
     if (ov66_0222E924(param3, v8) == 1) {
@@ -109,22 +109,22 @@ void ov113_02260620(MessageLoader *param0, StringTemplate *param1, Window param2
     Heap_Free(v1);
 }
 
-void ov113_02260714(Window param0[], u32 param1)
+void ov113_02260714(Window param0[], u32 slotsMinigameDTO)
 {
-    if (param1 >= 8) {
+    if (slotsMinigameDTO >= 8) {
         GF_ASSERT(FALSE);
         return;
     }
 
-    Window_ClearAndCopyToVRAM(&param0[param1]);
+    Window_ClearAndCopyToVRAM(&param0[slotsMinigameDTO]);
 }
 
-u16 ov113_0226072C(int param0, u32 param1)
+u16 ov113_0226072C(int param0, u32 slotsMinigameDTO)
 {
-    return Unk_ov113_02260D6C[param1 % NELEMS(Unk_ov113_02260D6C)][param0];
+    return Unk_ov113_02260D6C[slotsMinigameDTO % NELEMS(Unk_ov113_02260D6C)][param0];
 }
 
-int ov113_02260748(UnkStruct_ov113_02260818 *param0, int param1)
+int ov113_02260748(UnkStruct_ov113_02260818 *param0, int slotsMinigameDTO)
 {
     int v0;
     int v1 = 0xff;
@@ -132,7 +132,7 @@ int ov113_02260748(UnkStruct_ov113_02260818 *param0, int param1)
     v0 = TouchScreen_CheckRectanglePressed(Unk_ov113_02260D4C);
 
     if (v0 < 6) {
-        if ((param1 != v0) && (param0[v0].unk_02 != 0) && (param0[v0].unk_02 <= NATIONAL_DEX_COUNT)) {
+        if ((slotsMinigameDTO != v0) && (param0[v0].unk_02 != 0) && (param0[v0].unk_02 <= NATIONAL_DEX_COUNT)) {
             v1 = v0;
         }
     } else if (v0 == 6) {

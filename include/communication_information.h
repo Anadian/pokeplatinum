@@ -36,7 +36,7 @@ int CommInfo_PlayerRegion(int netId);
 BOOL CommInfo_PlayerHasGiftPenalty(int netID);
 BOOL CommInfo_CheckBattleRegulation(void);
 void CommInfo_SavePlayerRecord(SaveData *saveData);
-void sub_020331B4(SaveData *saveData, int param1);
+void sub_020331B4(SaveData *saveData, int slotsMinigameDTO);
 void CommInfo_SetTradeResult(SaveData *saveData, int val);
 void CommInfo_SetPersonalTrainerInfo(TrainerInfo *trainerInfo);
 

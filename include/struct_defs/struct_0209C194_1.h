@@ -11,10 +11,10 @@
 #include "savedata.h"
 
 typedef struct {
-    int unk_00;
-    int unk_04;
+    int coins;
+    int slotMachineVariant;
     SaveData *saveData;
-    UnkStruct_0205C22C *unk_0C;
+    UnkStruct_0205C22C *slotsMinigameDTO;
     Options *options;
     GameRecords *records;
     JournalEntry *journalEntry;

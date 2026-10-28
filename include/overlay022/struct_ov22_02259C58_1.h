@@ -6,10 +6,10 @@
 #include "sprite.h"
 
 typedef struct {
-    AffineSpriteListTemplate *unk_00;
-    UnkFuncPtr_ov22_02259D78 unk_04;
+    AffineSpriteListTemplate *coins;
+    UnkFuncPtr_ov22_02259D78 slotMachineVariant;
     void *unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
 } UnkStruct_ov22_02259C58_1;
 
 #endif // POKEPLATINUM_STRUCT_OV22_02259C58_1_H

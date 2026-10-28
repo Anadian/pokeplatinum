@@ -12,9 +12,9 @@
 
 typedef struct {
     enum HeapID heapID;
-    int unk_04;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     fx32 unk_10;
     fx32 unk_14;
     fx32 unk_18;
@@ -26,7 +26,7 @@ typedef struct {
     Camera *camera;
 } UnkStruct_ov5_021F0FB8;
 
-static void ov5_021F0F2C(SysTask *param0, void *param1);
+static void ov5_021F0F2C(SysTask *param0, void *slotsMinigameDTO);
 static void ov5_021F0FB8(UnkStruct_ov5_021F0FB8 *param0);
 static void ov5_021F0FC8(UnkStruct_ov5_021F0FB8 *param0);
 static void ov5_021F0FE0(UnkStruct_ov5_021F0FB8 *param0);
@@ -42,7 +42,7 @@ SysTask *ov5_021F0EB0(FieldSystem *fieldSystem, enum HeapID heapID)
     memset(v1, 0, (sizeof(UnkStruct_ov5_021F0FB8)));
 
     v1->heapID = heapID;
-    v1->unk_0C = 0;
+    v1->slotsMinigameDTO = 0;
     v1->fieldSystem = fieldSystem;
     v1->camera = fieldSystem->camera;
     v1->unk_10 = Camera_GetDistance(v1->camera);
@@ -66,22 +66,22 @@ void ov5_021F0EFC(SysTask *param0)
     SysTask_Done(param0);
 }
 
-void ov5_021F0F10(SysTask *param0, int param1, fx32 param2, u32 param3)
+void ov5_021F0F10(SysTask *param0, int slotsMinigameDTO, fx32 param2, u32 param3)
 {
     UnkStruct_ov5_021F0FB8 *v0 = SysTask_GetParam(param0);
 
-    v0->unk_04 = 0;
+    v0->slotMachineVariant = 0;
     v0->unk_08 = 0;
-    v0->unk_0C = param1;
+    v0->slotsMinigameDTO = slotsMinigameDTO;
     v0->unk_14 = param2;
     v0->unk_1C = param3;
     v0->unk_24 = 0;
 }
 
-static void ov5_021F0F2C(SysTask *param0, void *param1)
+static void ov5_021F0F2C(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov5_021F0FB8 *v0 = param1;
-    Unk_ov5_0220020C[v0->unk_0C](v0);
+    UnkStruct_ov5_021F0FB8 *v0 = slotsMinigameDTO;
+    Unk_ov5_0220020C[v0->slotsMinigameDTO](v0);
 }
 
 static void ov5_021F0F40(UnkStruct_ov5_021F0FB8 *param0)
@@ -91,13 +91,13 @@ static void ov5_021F0F40(UnkStruct_ov5_021F0FB8 *param0)
 
 static void ov5_021F0F48(UnkStruct_ov5_021F0FB8 *param0)
 {
-    switch (param0->unk_04) {
+    switch (param0->slotMachineVariant) {
     case 0:
         ov5_021F0FC8(param0);
-        param0->unk_04++;
+        param0->slotMachineVariant++;
     case 1:
         if (ov5_021F0FF8(param0) == 1) {
-            param0->unk_04++;
+            param0->slotMachineVariant++;
             param0->unk_08 = 1;
         }
 
@@ -107,13 +107,13 @@ static void ov5_021F0F48(UnkStruct_ov5_021F0FB8 *param0)
 
 static void ov5_021F0F80(UnkStruct_ov5_021F0FB8 *param0)
 {
-    switch (param0->unk_04) {
+    switch (param0->slotMachineVariant) {
     case 0:
         ov5_021F0FE0(param0);
-        param0->unk_04++;
+        param0->slotMachineVariant++;
     case 1:
         if (ov5_021F0FF8(param0) == 1) {
-            param0->unk_04++;
+            param0->slotMachineVariant++;
             param0->unk_08 = 1;
         }
 

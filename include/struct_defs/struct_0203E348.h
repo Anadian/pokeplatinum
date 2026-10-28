@@ -3,7 +3,7 @@
 
 #include "game_records.h"
 
-// Formerly known as UnkStruct_0203E348.
+// Formerly known as SlotsMinigameDTO.
 typedef struct {
     int *coinsPointer;
     int slotMachineVariant;

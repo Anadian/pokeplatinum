@@ -9,7 +9,7 @@ typedef struct {
     FieldSystem *fieldSystem;
     SaveData *saveData;
     int unk_08;
-    u8 unk_0C;
+    u8 slotsMinigameDTO;
     u8 padding_0D[3];
 } UnkStruct_0203E6C0;
 

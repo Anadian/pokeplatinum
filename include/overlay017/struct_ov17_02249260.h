@@ -4,7 +4,7 @@
 #include "overlay017/struct_ov17_0224792C.h"
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     u8 unk_01;
     u8 unk_02;
     UnkStruct_ov17_0224792C unk_03;
@@ -13,7 +13,7 @@ typedef struct {
     u8 unk_09;
     s8 unk_0A;
     s8 unk_0B;
-    s8 unk_0C;
+    s8 slotsMinigameDTO;
     u16 unk_0E;
     u16 unk_10;
 } UnkStruct_ov17_02249260;

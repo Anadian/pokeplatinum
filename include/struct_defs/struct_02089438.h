@@ -5,8 +5,8 @@
 #include "string_gf.h"
 
 typedef struct {
-    int unk_00;
-    int unk_04[5];
+    int coins;
+    int slotMachineVariant[5];
     int unk_18;
     String *unk_1C;
     Options *options;

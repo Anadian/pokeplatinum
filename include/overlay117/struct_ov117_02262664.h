@@ -2,9 +2,9 @@
 #define POKEPLATINUM_STRUCT_OV117_02262664_H
 
 typedef struct {
-    int unk_00;
+    int coins;
     u8 padding_04[8];
-    int unk_0C;
+    int slotsMinigameDTO;
     int unk_10;
     int unk_14;
     u8 unk_18;

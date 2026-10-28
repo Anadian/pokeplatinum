@@ -10,8 +10,8 @@
 #include "sprite.h"
 
 typedef struct {
-    void *unk_00;
-    NNSG2dAnimBankData *unk_04;
+    void *coins;
+    NNSG2dAnimBankData *slotMachineVariant;
     void *unk_08;
     u8 padding_0C;
     NNSG2dCellDataBank *unk_10;

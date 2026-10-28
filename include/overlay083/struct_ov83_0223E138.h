@@ -9,10 +9,10 @@
 #include "bg_window.h"
 
 typedef struct {
-    int unk_00;
-    BgConfig *unk_04;
+    int coins;
+    BgConfig *slotMachineVariant;
     Window *unk_08;
-    Window *unk_0C;
+    Window *slotsMinigameDTO;
     int unk_10;
     int unk_14;
     UnkStruct_ov83_0223DEA0 *unk_18;

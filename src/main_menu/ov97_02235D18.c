@@ -11,7 +11,7 @@ typedef struct GBANameLengths {
     u8 trainerNameLength;
     u8 pokemonNameLength1;
     u8 pokemonNameLength2;
-    u8 unk_04;
+    u8 slotMachineVariant;
     u8 unk_05;
     u8 unk_06;
     u8 unk_07;
@@ -19,7 +19,7 @@ typedef struct GBANameLengths {
     u8 unk_09;
     u8 unk_0A;
     u8 unk_0B;
-    u8 unk_0C;
+    u8 slotsMinigameDTO;
     u8 unk_0D;
     u8 unk_0E;
     u8 unk_0F;
@@ -115,15 +115,15 @@ typedef struct {
 } GBAPokemonCartInfo;
 
 typedef struct {
-    u8 unk_00[4084];
+    u8 coins[4084];
     u16 unk_FF4; // GBASectorID
     u16 unk_FF6;
     u32 unk_FF8;
     u32 unk_FFC;
 } UnkStruct_ov97_02235F4C;
 
-static int ov97_02235DC8(const GBAPokemonCartInfo *cartInfo, int param1);
-static u16 ov97_02235FFC(void *param0, int *param1, u32 *param2);
+static int ov97_02235DC8(const GBAPokemonCartInfo *cartInfo, int slotsMinigameDTO);
+static u16 ov97_02235FFC(void *param0, int *slotsMinigameDTO, u32 *param2);
 static u32 ov97_02236244(struct CTRDGTaskInfo_tag *param0);
 static GBAPkmnGameHeader sGBAPokemonGameHeader;
 static const GBAPokemonCartInfo sGBAPokemonCartInfo[30];
@@ -193,7 +193,7 @@ int GBACart_GetLanguage()
     return sLoadedGBACartInfo->language;
 }
 
-static int ov97_02235DC8(const GBAPokemonCartInfo *cartInfo, int param1)
+static int ov97_02235DC8(const GBAPokemonCartInfo *cartInfo, int slotsMinigameDTO)
 {
     u32 agbGameCode;
 
@@ -207,7 +207,7 @@ static int ov97_02235DC8(const GBAPokemonCartInfo *cartInfo, int param1)
     {
         int i;
 
-        for (i = 0; i < param1; i++) {
+        for (i = 0; i < slotsMinigameDTO; i++) {
             if (cartInfo[i].agbGameCodeReversed == agbGameCode) {
                 sLoadedGBACartInfo = cartInfo + i;
                 break;
@@ -256,12 +256,12 @@ static int ov97_02235DC8(const GBAPokemonCartInfo *cartInfo, int param1)
     return 0;
 }
 
-static u16 ov97_02235E7C(u32 *param0, u16 param1)
+static u16 ov97_02235E7C(u32 *param0, u16 slotsMinigameDTO)
 {
     u16 v0;
     u32 v1 = 0;
 
-    for (v0 = 0; v0 < (param1 / 4); v0++) {
+    for (v0 = 0; v0 < (slotsMinigameDTO / 4); v0++) {
         v1 += *param0;
         param0++;
     }
@@ -269,9 +269,9 @@ static u16 ov97_02235E7C(u32 *param0, u16 param1)
     return (u16)(((v1 >> 16) & 0xffff) + (v1 & 0xffff));
 }
 
-static void ov97_02235EAC(int param0, void *param1)
+static void ov97_02235EAC(int param0, void *slotsMinigameDTO)
 {
-    CTRDG_ReadAgbFlash((u16)param0, 0, param1, 0x1000);
+    CTRDG_ReadAgbFlash((u16)param0, 0, slotsMinigameDTO, 0x1000);
 }
 
 static u16 GetGBASectorSize(int gbaSectorID)
@@ -308,12 +308,12 @@ static void *GetGBASaveSectorById(int gbaSectorID)
     return NULL;
 }
 
-static u16 ov97_02235F4C(int param0, void *param1, u32 *param2)
+static u16 ov97_02235F4C(int param0, void *slotsMinigameDTO, u32 *param2)
 {
     u32 v0 = 0;
     u16 v1 = 0;
     u16 v2;
-    UnkStruct_ov97_02235F4C *v3 = (UnkStruct_ov97_02235F4C *)param1;
+    UnkStruct_ov97_02235F4C *v3 = (UnkStruct_ov97_02235F4C *)slotsMinigameDTO;
     int v4;
 
     *param2 = 0;
@@ -325,7 +325,7 @@ static u16 ov97_02235F4C(int param0, void *param1, u32 *param2)
 
         if (v3->unk_FF8 == 0x8012025) {
             v1 = 1;
-            v2 = ov97_02235E7C((u32 *)v3->unk_00, GetGBASectorSize(v3->unk_FF4));
+            v2 = ov97_02235E7C((u32 *)v3->coins, GetGBASectorSize(v3->unk_FF4));
 
             if (v3->unk_FF6 == v2) {
                 *param2 = v3->unk_FFC;
@@ -345,7 +345,7 @@ static u16 ov97_02235F4C(int param0, void *param1, u32 *param2)
     }
 }
 
-static u16 ov97_02235FFC(void *param0, int *param1, u32 *param2)
+static u16 ov97_02235FFC(void *param0, int *slotsMinigameDTO, u32 *param2)
 {
     u16 v0, v1;
     u32 v2, v3;
@@ -357,18 +357,18 @@ static u16 ov97_02235FFC(void *param0, int *param1, u32 *param2)
         if (((v2 == 0xffffffff) && (v3 == 0x0)) || ((v2 == 0x0) && (v3 == 0xffffffff))) {
             if ((v2 + 1) < (v3 + 1)) {
                 *param2 = v3;
-                *param1 = 1;
+                *slotsMinigameDTO = 1;
             } else {
                 *param2 = v2;
-                *param1 = 0;
+                *slotsMinigameDTO = 0;
             }
         } else {
             if (v2 < v3) {
                 *param2 = v3;
-                *param1 = 1;
+                *slotsMinigameDTO = 1;
             } else {
                 *param2 = v2;
-                *param1 = 0;
+                *slotsMinigameDTO = 0;
             }
         }
 
@@ -379,10 +379,10 @@ static u16 ov97_02235FFC(void *param0, int *param1, u32 *param2)
         *param2 = v2;
 
         if (v1 == 0xff) {
-            *param1 = 0;
+            *slotsMinigameDTO = 0;
             return 0xff;
         } else {
-            *param1 = 0;
+            *slotsMinigameDTO = 0;
             return 0x1;
         }
     }
@@ -391,23 +391,23 @@ static u16 ov97_02235FFC(void *param0, int *param1, u32 *param2)
         *param2 = v3;
 
         if (v0 == 0xff) {
-            *param1 = 1;
+            *slotsMinigameDTO = 1;
             return 0xff;
         } else {
-            *param1 = 1;
+            *slotsMinigameDTO = 1;
             return 0x1;
         }
     }
 
     if ((v0 == 0x0) && (v1 == 0x0)) {
         *param2 = 0;
-        *param1 = 0;
+        *slotsMinigameDTO = 0;
 
         return 0x0;
     }
 
     *param2 = 0;
-    *param1 = 0;
+    *slotsMinigameDTO = 0;
 
     return 0x2;
 }
@@ -417,7 +417,7 @@ static u32 Unk_ov97_0223F448;
 
 int ov97_022360D8()
 {
-    u16 v0 = ov97_02235FFC((void *)sGBASaveSlot->unk_00, &Unk_ov97_0223F438, &Unk_ov97_0223F448);
+    u16 v0 = ov97_02235FFC((void *)sGBASaveSlot->coins, &Unk_ov97_0223F438, &Unk_ov97_0223F448);
 
     if (v0 != 0x1) {
         switch (v0) {
@@ -433,19 +433,19 @@ int ov97_022360D8()
     if ((Unk_ov97_0223F438 == 0) || (Unk_ov97_0223F438 == 1)) {
         int v1;
         u32 v2 = 0;
-        UnkStruct_ov97_02235F4C *v3 = (UnkStruct_ov97_02235F4C *)sGBASaveSlot->unk_00;
+        UnkStruct_ov97_02235F4C *v3 = (UnkStruct_ov97_02235F4C *)sGBASaveSlot->coins;
 
         for (v1 = 0; v1 < 14; v1++) {
             ov97_02235EAC(v1 + Unk_ov97_0223F438 * 14, (void *)v3);
 
             if (v3->unk_FF8 == 0x8012025) {
-                u16 v4 = ov97_02235E7C((u32 *)v3->unk_00, GetGBASectorSize(v3->unk_FF4));
+                u16 v4 = ov97_02235E7C((u32 *)v3->coins, GetGBASectorSize(v3->unk_FF4));
 
                 if (v3->unk_FF6 == v4) {
                     Unk_ov97_0223F448 = v3->unk_FFC;
                     v2 |= (0x1 << v3->unk_FF4);
 
-                    MI_CpuCopy32((u32 *)v3->unk_00, GetGBASaveSectorById(v3->unk_FF4), GetGBASectorSize(v3->unk_FF4));
+                    MI_CpuCopy32((u32 *)v3->coins, GetGBASaveSectorById(v3->unk_FF4), GetGBASectorSize(v3->unk_FF4));
 
                     if (v3->unk_FF4 == 0) {
                         Unk_ov97_0223F444 = v1;
@@ -469,17 +469,17 @@ static int Unk_ov97_0223F44C = 0;
 
 static void ov97_022361B0(int gbaSectorID)
 {
-    UnkStruct_ov97_02235F4C *v0 = (UnkStruct_ov97_02235F4C *)sGBASaveSlot->unk_00;
+    UnkStruct_ov97_02235F4C *v0 = (UnkStruct_ov97_02235F4C *)sGBASaveSlot->coins;
 
     Unk_ov97_0223F44C = 1;
 
     MI_CpuClear32(v0, 0x1000);
-    MI_CpuCopy32(GetGBASaveSectorById(gbaSectorID), v0->unk_00, GetGBASectorSize(gbaSectorID));
+    MI_CpuCopy32(GetGBASaveSectorById(gbaSectorID), v0->coins, GetGBASectorSize(gbaSectorID));
 
     v0->unk_FFC = Unk_ov97_0223F448;
     v0->unk_FF4 = (u16)gbaSectorID;
     v0->unk_FF8 = 0x8012025;
-    v0->unk_FF6 = ov97_02235E7C((u32 *)v0->unk_00, GetGBASectorSize(gbaSectorID));
+    v0->unk_FF6 = ov97_02235E7C((u32 *)v0->coins, GetGBASectorSize(gbaSectorID));
 
     {
         u8 v1 = (u8)(((gbaSectorID + Unk_ov97_0223F444 + 1) % 14) + 14 * Unk_ov97_0223EC00);

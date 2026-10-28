@@ -71,40 +71,40 @@
 FS_EXTERN_OVERLAY(overlay63);
 
 typedef struct {
-    u32 unk_00;
-    u32 unk_04;
+    u32 coins;
+    u32 slotMachineVariant;
 } UnkStruct_ov64_022322E4;
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s16 unk_02;
-    u8 unk_04;
+    u8 slotMachineVariant;
     u8 unk_05;
 } UnkStruct_ov64_0223221C;
 
 typedef struct {
-    void *unk_00[2];
+    void *coins[2];
     NNSG2dScreenData *unk_08[2];
 } UnkStruct_ov64_022300E4;
 
 typedef struct {
-    String *unk_00;
-    String *unk_04;
+    String *coins;
+    String *slotMachineVariant;
 } UnkStruct_ov64_0222E060_sub1;
 
 typedef struct {
-    const u16 *unk_00;
-    BOOL unk_04;
+    const u16 *coins;
+    BOOL slotMachineVariant;
 } UnkStruct_ov64_0222E060_sub2;
 
 typedef struct {
-    u32 unk_00;
-    u8 unk_04[32];
+    u32 coins;
+    u8 slotMachineVariant[32];
 } UnkStruct_ov64_022301B4;
 
 typedef struct {
     SaveData *saveData;
-    u8 unk_04;
+    u8 slotMachineVariant;
     u8 unk_05;
     u8 unk_06;
     s8 unk_07;
@@ -114,8 +114,8 @@ typedef struct {
 } UnkStruct_ov64_0222E060;
 
 typedef struct {
-    BgConfig *unk_00;
-    SpriteList *unk_04;
+    BgConfig *coins;
+    SpriteList *slotMachineVariant;
     NNSG2dRenderSurface unk_08;
     G2dRenderer unk_78;
     SpriteResourceCollection *unk_204[4];
@@ -133,8 +133,8 @@ typedef struct {
 } UnkStruct_ov64_0222E21C;
 
 typedef struct {
-    u32 unk_00;
-    Window unk_04;
+    u32 coins;
+    Window slotMachineVariant;
     void *unk_14;
     NNSG2dScreenData *unk_18;
     Window unk_1C;
@@ -145,20 +145,20 @@ typedef struct {
 } UnkStruct_ov64_0222F038;
 
 typedef struct {
-    UnkStruct_ov64_0223221C unk_00;
+    UnkStruct_ov64_0223221C coins;
     Window unk_08;
     UnkStruct_ov63_0222BB38 *unk_18[8];
 } UnkStruct_ov64_02230074;
 
 typedef struct {
-    UnkStruct_ov64_0223221C unk_00;
+    UnkStruct_ov64_0223221C coins;
     u32 unk_08;
 } UnkStruct_ov64_02232324;
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s16 unk_02;
-    s16 unk_04;
+    s16 slotMachineVariant;
     s16 unk_06;
     UnkStruct_ov64_02230074 unk_08[3];
     s16 unk_AA;
@@ -180,35 +180,35 @@ typedef struct {
 
 typedef struct {
     ApplicationManager *appMan;
-    NamingScreenArgs *unk_04;
+    NamingScreenArgs *slotMachineVariant;
     UnkStruct_02089438 *unk_08;
 } UnkStruct_ov64_02230444;
 
 typedef struct {
-    Window unk_00;
+    Window coins;
     Window unk_10;
     void *unk_20;
     NNSG2dScreenData *unk_24;
 } UnkStruct_ov64_02230620;
 
 typedef struct {
-    void *unk_00[7];
+    void *coins[7];
     NNSG2dScreenData *unk_1C[7];
 } UnkStruct_ov64_02230F60;
 
 typedef struct {
-    UnkStruct_ov64_0223221C unk_00;
+    UnkStruct_ov64_0223221C coins;
     u32 unk_08;
-    Window *unk_0C[7];
+    Window *slotsMinigameDTO[7];
     u32 unk_28[7];
 } UnkStruct_ov64_02230F98;
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s16 unk_02;
-    s32 unk_04;
+    s32 slotMachineVariant;
     int unk_08;
-    u16 unk_0C;
+    u16 slotsMinigameDTO;
     u16 unk_0E;
     BOOL unk_10;
     UnkStruct_ov64_02230F98 unk_14[3];
@@ -216,15 +216,15 @@ typedef struct {
 } UnkStruct_ov64_02230904;
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     u8 unk_01;
     u8 unk_02;
     u8 unk_03;
 } UnkStruct_ov64_0223222E;
 
 typedef struct {
-    u32 unk_00;
-    UnkStruct_ov64_0222E21C unk_04;
+    u32 coins;
+    UnkStruct_ov64_0222E21C slotMachineVariant;
     UnkStruct_ov64_0222E060 unk_28C;
     UnkStruct_ov64_0222F038 unk_2C8;
     UnkStruct_ov64_0222F0C4 unk_304;
@@ -237,15 +237,15 @@ typedef struct {
 static void ov64_0222DF3C(void *param0);
 static void ov64_0222DF48(UnkStruct_ov64_0222DFD0 *param0, enum HeapID heapID);
 static void ov64_0222DFD0(UnkStruct_ov64_0222DFD0 *param0);
-static void ov64_0222E040(UnkStruct_ov64_0222E060 *param0, void *param1, enum HeapID heapID);
+static void ov64_0222E040(UnkStruct_ov64_0222E060 *param0, void *slotsMinigameDTO, enum HeapID heapID);
 static void ov64_0222E060(UnkStruct_ov64_0222E060 *param0);
-static void ov64_0222E074(UnkStruct_ov64_0222E060 *param0, u8 param1, u8 param2);
-static void ov64_0222E07C(UnkStruct_ov64_0222E060 *param0, const String *param1, const String *param2);
-static u32 ov64_0222E09C(UnkStruct_ov64_0222E060 *param0, String *param1, String *param2);
-static void ov64_0222E158(UnkStruct_ov64_0222E060 *param0, const u16 *param1);
-static void ov64_0222E160(UnkStruct_ov64_0222E060 *param0, u32 param1);
+static void ov64_0222E074(UnkStruct_ov64_0222E060 *param0, u8 slotsMinigameDTO, u8 param2);
+static void ov64_0222E07C(UnkStruct_ov64_0222E060 *param0, const String *slotsMinigameDTO, const String *param2);
+static u32 ov64_0222E09C(UnkStruct_ov64_0222E060 *param0, String *slotsMinigameDTO, String *param2);
+static void ov64_0222E158(UnkStruct_ov64_0222E060 *param0, const u16 *slotsMinigameDTO);
+static void ov64_0222E160(UnkStruct_ov64_0222E060 *param0, u32 slotsMinigameDTO);
 static void ov64_0222E164(UnkStruct_ov64_0222E060 *param0);
-static void ov64_0222E1A4(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0222E060 *param1, enum HeapID heapID);
+static void ov64_0222E1A4(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0222E060 *slotsMinigameDTO, enum HeapID heapID);
 static void ov64_0222E21C(UnkStruct_ov64_0222E21C *param0);
 static void ov64_0222E228(UnkStruct_ov64_0222E21C *param0);
 static void ov64_0222E23C(UnkStruct_ov64_0222E21C *param0);
@@ -256,118 +256,118 @@ static void ov64_0222E3D8(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID);
 static void ov64_0222E570(UnkStruct_ov64_0222E21C *param0);
 static void ov64_0222E5D8(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID);
 static void ov64_0222E604(UnkStruct_ov64_0222E21C *param0);
-static void ov64_0222E620(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0222E060 *param1, enum HeapID heapID);
+static void ov64_0222E620(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0222E060 *slotsMinigameDTO, enum HeapID heapID);
 static void ov64_0222E6B4(UnkStruct_ov64_0222E21C *param0);
 static void ov64_0222E6D8(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID);
 static void ov64_0222E71C(UnkStruct_ov64_0222E21C *param0);
-static void ov64_0222E738(UnkStruct_ov64_0222E21C *param0, u32 param1);
+static void ov64_0222E738(UnkStruct_ov64_0222E21C *param0, u32 slotsMinigameDTO);
 static void ov64_0222E7C8(UnkStruct_ov64_0222E21C *param0);
-static void ov64_0222E7F8(UnkStruct_ov64_0222E21C *param0, u64 param1);
-static void ov64_0222E970(UnkStruct_ov64_0222E21C *param0, u32 param1);
-static void ov64_0222E990(UnkStruct_ov64_0222E21C *param0, u32 param1);
+static void ov64_0222E7F8(UnkStruct_ov64_0222E21C *param0, u64 slotsMinigameDTO);
+static void ov64_0222E970(UnkStruct_ov64_0222E21C *param0, u32 slotsMinigameDTO);
+static void ov64_0222E990(UnkStruct_ov64_0222E21C *param0, u32 slotsMinigameDTO);
 static void ov64_0222E9A4(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID);
 static void ov64_0222EA0C(UnkStruct_ov64_0222E21C *param0);
-static void ov64_0222EA28(UnkStruct_ov64_0222E21C *param0, BOOL param1);
-static void ov64_0222EA48(UnkStruct_ov64_0222E21C *param0, BOOL param1);
-static void ov64_0222EA68(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_0222EC8C(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_0222EC94(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_0222EE00(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_0222EE20(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static BOOL ov64_0222EE84(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_0222EF08(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *param1);
-static void ov64_0222EF4C(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1);
-static void ov64_0222EF64(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *param1);
-static void ov64_0222EFBC(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, enum HeapID heapID);
+static void ov64_0222EA28(UnkStruct_ov64_0222E21C *param0, BOOL slotsMinigameDTO);
+static void ov64_0222EA48(UnkStruct_ov64_0222E21C *param0, BOOL slotsMinigameDTO);
+static void ov64_0222EA68(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_0222EC8C(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_0222EC94(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_0222EE00(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_0222EE20(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static BOOL ov64_0222EE84(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_0222EF08(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO);
+static void ov64_0222EF4C(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO);
+static void ov64_0222EF64(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO);
+static void ov64_0222EFBC(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, enum HeapID heapID);
 static BOOL ov64_0222F038(const UnkStruct_ov64_0222F038 *param0);
 static void ov64_0222F050(UnkStruct_ov64_0222F038 *param0);
-static BOOL ov64_0222F068(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1);
-static void ov64_0222F09C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static int ov64_0222F0C4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_0222F40C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_0222F414(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_0222F5F4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_0222F668(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_0222F6E8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static u32 ov64_0222F798(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_0222F8F8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static BOOL ov64_0222F948(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_0222FA70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static u32 ov64_0222FB24(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static BOOL ov64_0222FBA4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_0222FC1C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static BOOL ov64_0222FC48(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_0222FC80(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3, u32 param4, u32 param5, enum HeapID heapID);
-static void ov64_0222FCF0(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2);
-static void ov64_0222FD7C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3);
-static void ov64_0222FDD0(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3);
-static void ov64_0222FE5C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, int param2);
-static void ov64_0222FE70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, enum HeapID heapID);
+static BOOL ov64_0222F068(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO);
+static void ov64_0222F09C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static int ov64_0222F0C4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_0222F40C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_0222F414(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_0222F5F4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_0222F668(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_0222F6E8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static u32 ov64_0222F798(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_0222F8F8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static BOOL ov64_0222F948(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_0222FA70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static u32 ov64_0222FB24(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static BOOL ov64_0222FBA4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_0222FC1C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static BOOL ov64_0222FC48(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_0222FC80(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3, u32 param4, u32 param5, enum HeapID heapID);
+static void ov64_0222FCF0(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2);
+static void ov64_0222FD7C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3);
+static void ov64_0222FDD0(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3);
+static void ov64_0222FE5C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, int param2);
+static void ov64_0222FE70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, enum HeapID heapID);
 static BOOL ov64_0222FEFC(const UnkStruct_ov64_0222F0C4 *param0);
 static void ov64_0222FF18(UnkStruct_ov64_0222F0C4 *param0);
 static u32 ov64_0222FF38(const UnkStruct_ov64_0222F0C4 *param0);
-static void ov64_0222FF48(ListMenu *param0, u32 param1, u8 param2);
+static void ov64_0222FF48(ListMenu *param0, u32 slotsMinigameDTO, u8 param2);
 static void ov64_0222FF5C(UnkStruct_ov64_0222F0C4 *param0);
 static BOOL ov64_02230008(UnkStruct_ov64_0222F0C4 *param0);
 static void ov64_02230044(UnkStruct_ov64_0222F0C4 *param0);
-static void ov64_02230074(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_0223221C *param2, u32 param3, u32 param4);
-static void ov64_022300D8(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1);
-static void ov64_022300E4(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_022300E4 *param2);
-static void ov64_02230130(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2);
-static void ov64_022301B4(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, UnkStruct_ov63_0222AE60 *param3, const UnkStruct_ov64_022300E4 *param4, const UnkStruct_ov64_022301B4 *param5, u32 param6, enum HeapID heapID);
-static void ov64_02230240(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_022300E4 *param2);
-static void ov64_022302CC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1);
-static void ov64_022302EC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov63_0222AE60 *param1, UnkStruct_ov64_0222E21C *param2, const UnkStruct_ov64_022300E4 *param3, u32 param4, WiFiList *param5, u32 param6, enum HeapID heapID);
-static void ov64_022303CC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_022300E4 *param2, u32 param3);
-static void ov64_02230444(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static int ov64_0223044C(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222DFD0 *param1, UnkStruct_ov64_0222E060 *param2, UnkStruct_ov64_0222E21C *param3, enum HeapID heapID);
-static void ov64_022305CC(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_022305D4(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_022305D8(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static NamingScreenArgs *ov64_022305DC(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, enum HeapID heapID);
-static void ov64_02230620(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static int ov64_02230628(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_02230678(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_02230680(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02230804(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_0223081C(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_0223087C(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E21C *param1);
-static void ov64_022308DC(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static int ov64_02230904(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02230A50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_02230A58(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3);
-static BOOL ov64_02230A9C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3);
-static void ov64_02230B1C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02230BA0(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2);
-static void ov64_02230BD8(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02230C1C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1);
-static void ov64_02230C50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3, u32 param4, u32 param5);
-static void ov64_02230C8C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3);
-static void ov64_02230D50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1);
-static void ov64_02230D98(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3);
-static void ov64_02230DE4(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3);
-static BOOL ov64_02230EA8(UnkStruct_ov64_0222E060 *param0, int param1);
-static void ov64_02230F24(UnkStruct_ov64_02230F60 *param0, UnkStruct_ov64_0222E21C *param1, enum HeapID heapID);
+static void ov64_02230074(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_0223221C *param2, u32 param3, u32 param4);
+static void ov64_022300D8(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO);
+static void ov64_022300E4(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_022300E4 *param2);
+static void ov64_02230130(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2);
+static void ov64_022301B4(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, UnkStruct_ov63_0222AE60 *param3, const UnkStruct_ov64_022300E4 *param4, const UnkStruct_ov64_022301B4 *param5, u32 param6, enum HeapID heapID);
+static void ov64_02230240(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_022300E4 *param2);
+static void ov64_022302CC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO);
+static void ov64_022302EC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov63_0222AE60 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, const UnkStruct_ov64_022300E4 *param3, u32 param4, WiFiList *param5, u32 param6, enum HeapID heapID);
+static void ov64_022303CC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_022300E4 *param2, u32 param3);
+static void ov64_02230444(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static int ov64_0223044C(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222DFD0 *slotsMinigameDTO, UnkStruct_ov64_0222E060 *param2, UnkStruct_ov64_0222E21C *param3, enum HeapID heapID);
+static void ov64_022305CC(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_022305D4(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_022305D8(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static NamingScreenArgs *ov64_022305DC(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, enum HeapID heapID);
+static void ov64_02230620(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static int ov64_02230628(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_02230678(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_02230680(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02230804(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_0223081C(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_0223087C(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO);
+static void ov64_022308DC(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static int ov64_02230904(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02230A50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_02230A58(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3);
+static BOOL ov64_02230A9C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3);
+static void ov64_02230B1C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02230BA0(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2);
+static void ov64_02230BD8(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02230C1C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO);
+static void ov64_02230C50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3, u32 param4, u32 param5);
+static void ov64_02230C8C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3);
+static void ov64_02230D50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO);
+static void ov64_02230D98(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3);
+static void ov64_02230DE4(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3);
+static BOOL ov64_02230EA8(UnkStruct_ov64_0222E060 *param0, int slotsMinigameDTO);
+static void ov64_02230F24(UnkStruct_ov64_02230F60 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, enum HeapID heapID);
 static void ov64_02230F60(UnkStruct_ov64_02230F60 *param0);
-static void ov64_02230F78(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_0223221C *param2, u32 param3, enum HeapID heapID);
+static void ov64_02230F78(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_0223221C *param2, u32 param3, enum HeapID heapID);
 static void ov64_02230F98(UnkStruct_ov64_02230F98 *param0);
-static void ov64_02230F9C(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3, const UnkStruct_ov64_0223222E *param4, enum HeapID heapID);
-static void ov64_02231058(UnkStruct_ov64_02230F98 *param0, u32 param1);
-static void ov64_02231080(UnkStruct_ov64_02230F98 *param0, u32 param1);
-static void ov64_022310A4(UnkStruct_ov64_02230F98 *param0, u32 param1);
-static void ov64_022310D4(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3, const UnkStruct_ov64_02230F60 *param4, u32 param5);
-static void ov64_02231144(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *param1);
-static void ov64_02231164(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02231528(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02231664(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02231A00(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02231BE0(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02231D58(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02231E94(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
-static void ov64_02232038(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0223221C *param1);
-static void ov64_022320B8(UnkStruct_ov64_02230F98 *param0, u32 param1, u32 param2, UnkStruct_ov64_0222E060 *param3, UnkStruct_ov64_0222E21C *param4, u32 entryID, u32 xOffset, u32 yOffset, TextColor color, String *string, String *fmtString, u32 param11);
-static void ov64_02232138(UnkStruct_ov64_02230904 *param0, s32 param1);
+static void ov64_02230F9C(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3, const UnkStruct_ov64_0223222E *param4, enum HeapID heapID);
+static void ov64_02231058(UnkStruct_ov64_02230F98 *param0, u32 slotsMinigameDTO);
+static void ov64_02231080(UnkStruct_ov64_02230F98 *param0, u32 slotsMinigameDTO);
+static void ov64_022310A4(UnkStruct_ov64_02230F98 *param0, u32 slotsMinigameDTO);
+static void ov64_022310D4(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3, const UnkStruct_ov64_02230F60 *param4, u32 param5);
+static void ov64_02231144(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO);
+static void ov64_02231164(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02231528(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02231664(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02231A00(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02231BE0(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02231D58(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02231E94(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID);
+static void ov64_02232038(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0223221C *slotsMinigameDTO);
+static void ov64_022320B8(UnkStruct_ov64_02230F98 *param0, u32 slotsMinigameDTO, u32 param2, UnkStruct_ov64_0222E060 *param3, UnkStruct_ov64_0222E21C *param4, u32 entryID, u32 xOffset, u32 yOffset, TextColor color, String *string, String *fmtString, u32 param11);
+static void ov64_02232138(UnkStruct_ov64_02230904 *param0, s32 slotsMinigameDTO);
 static BOOL ov64_0223217C(UnkStruct_ov64_0222E060 *param0, enum HeapID heapID);
 
 static const UnkStruct_ov64_0223221C Unk_ov64_0223221C[3] = {
@@ -589,7 +589,7 @@ static const u8 Unk_ov64_02232434[7] = {
     0x1
 };
 
-int ov64_0222DCE0(ApplicationManager *appMan, int *param1)
+int ov64_0222DCE0(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov64_0222DFD0 *v0;
 
@@ -600,12 +600,12 @@ int ov64_0222DCE0(ApplicationManager *appMan, int *param1)
     memset(v0, 0, sizeof(UnkStruct_ov64_0222DFD0));
 
     ov64_0222E040(&v0->unk_28C, ApplicationManager_Args(appMan), HEAP_ID_52);
-    ov64_0222E1A4(&v0->unk_04, &v0->unk_28C, HEAP_ID_52);
-    ov64_0222EA68(&v0->unk_2C8, &v0->unk_28C, &v0->unk_04, HEAP_ID_52);
-    ov64_0222F09C(&v0->unk_304, &v0->unk_28C, &v0->unk_04, HEAP_ID_52);
-    ov64_02230444(&v0->unk_410, &v0->unk_28C, &v0->unk_04, HEAP_ID_52);
-    ov64_02230620(&v0->unk_41C, &v0->unk_28C, &v0->unk_04, HEAP_ID_52);
-    ov64_022308DC(&v0->unk_444, &v0->unk_28C, &v0->unk_04, HEAP_ID_52);
+    ov64_0222E1A4(&v0->slotMachineVariant, &v0->unk_28C, HEAP_ID_52);
+    ov64_0222EA68(&v0->unk_2C8, &v0->unk_28C, &v0->slotMachineVariant, HEAP_ID_52);
+    ov64_0222F09C(&v0->unk_304, &v0->unk_28C, &v0->slotMachineVariant, HEAP_ID_52);
+    ov64_02230444(&v0->unk_410, &v0->unk_28C, &v0->slotMachineVariant, HEAP_ID_52);
+    ov64_02230620(&v0->unk_41C, &v0->unk_28C, &v0->slotMachineVariant, HEAP_ID_52);
+    ov64_022308DC(&v0->unk_444, &v0->unk_28C, &v0->slotMachineVariant, HEAP_ID_52);
 
     SetVBlankCallback(ov64_0222DF3C, v0);
     DisableHBlank();
@@ -613,69 +613,69 @@ int ov64_0222DCE0(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-int ov64_0222DDAC(ApplicationManager *appMan, int *param1)
+int ov64_0222DDAC(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov64_0222DFD0 *v0 = ApplicationManager_Data(appMan);
     int v1;
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
 
-        switch (v0->unk_00) {
+        switch (v0->coins) {
         case 0:
-            v1 = ov64_0222EA70(&v0->unk_2C8, &v0->unk_28C, &v0->unk_04, HEAP_ID_52);
+            v1 = ov64_0222EA70(&v0->unk_2C8, &v0->unk_28C, &v0->slotMachineVariant, HEAP_ID_52);
             break;
         case 1:
-            v1 = ov64_0222F0C4(&v0->unk_304, &v0->unk_28C, &v0->unk_04, HEAP_ID_52);
+            v1 = ov64_0222F0C4(&v0->unk_304, &v0->unk_28C, &v0->slotMachineVariant, HEAP_ID_52);
             break;
         case 2:
-            v1 = ov64_0223044C(&v0->unk_410, v0, &v0->unk_28C, &v0->unk_04, HEAP_ID_52);
+            v1 = ov64_0223044C(&v0->unk_410, v0, &v0->unk_28C, &v0->slotMachineVariant, HEAP_ID_52);
             break;
         case 3:
-            v1 = ov64_02230628(&v0->unk_41C, &v0->unk_28C, &v0->unk_04);
+            v1 = ov64_02230628(&v0->unk_41C, &v0->unk_28C, &v0->slotMachineVariant);
             break;
         case 4:
-            v1 = ov64_02230904(&v0->unk_444, &v0->unk_28C, &v0->unk_04, HEAP_ID_52);
+            v1 = ov64_02230904(&v0->unk_444, &v0->unk_28C, &v0->slotMachineVariant, HEAP_ID_52);
             break;
         case 5:
             return 1;
         }
 
         if (v1 == 1) {
-            v0->unk_00 = v0->unk_28C.unk_05;
-            v0->unk_28C.unk_04 = v0->unk_28C.unk_06;
+            v0->coins = v0->unk_28C.unk_05;
+            v0->unk_28C.slotMachineVariant = v0->unk_28C.unk_06;
             v0->unk_558 = 4;
-            (*param1) = 1;
+            (*slotsMinigameDTO) = 1;
         }
         break;
     case 1:
         v0->unk_558--;
 
         if (v0->unk_558 <= 0) {
-            (*param1) = 0;
+            (*slotsMinigameDTO) = 0;
         }
         break;
     }
 
-    ov64_0222E21C(&v0->unk_04);
+    ov64_0222E21C(&v0->slotMachineVariant);
 
     return 0;
 }
 
-int ov64_0222DEA4(ApplicationManager *appMan, int *param1)
+int ov64_0222DEA4(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov64_0222DFD0 *v0 = ApplicationManager_Data(appMan);
 
     SetVBlankCallback(NULL, NULL);
     DisableHBlank();
 
-    ov64_0222EC8C(&v0->unk_2C8, &v0->unk_28C, &v0->unk_04);
-    ov64_0222F40C(&v0->unk_304, &v0->unk_28C, &v0->unk_04);
-    ov64_022305CC(&v0->unk_410, &v0->unk_28C, &v0->unk_04);
-    ov64_02230678(&v0->unk_41C, &v0->unk_28C, &v0->unk_04);
-    ov64_02230A50(&v0->unk_444, &v0->unk_28C, &v0->unk_04);
+    ov64_0222EC8C(&v0->unk_2C8, &v0->unk_28C, &v0->slotMachineVariant);
+    ov64_0222F40C(&v0->unk_304, &v0->unk_28C, &v0->slotMachineVariant);
+    ov64_022305CC(&v0->unk_410, &v0->unk_28C, &v0->slotMachineVariant);
+    ov64_02230678(&v0->unk_41C, &v0->unk_28C, &v0->slotMachineVariant);
+    ov64_02230A50(&v0->unk_444, &v0->unk_28C, &v0->slotMachineVariant);
 
-    ov64_0222E23C(&v0->unk_04);
+    ov64_0222E23C(&v0->slotMachineVariant);
     ov64_0222E060(&v0->unk_28C);
 
     ApplicationManager_FreeData(appMan);
@@ -688,18 +688,18 @@ int ov64_0222DEA4(ApplicationManager *appMan, int *param1)
 static void ov64_0222DF3C(void *param0)
 {
     UnkStruct_ov64_0222DFD0 *v0 = param0;
-    ov64_0222E228(&v0->unk_04);
+    ov64_0222E228(&v0->slotMachineVariant);
 }
 
 static void ov64_0222DF48(UnkStruct_ov64_0222DFD0 *param0, enum HeapID heapID)
 {
-    ov64_0222E1A4(&param0->unk_04, &param0->unk_28C, heapID);
+    ov64_0222E1A4(&param0->slotMachineVariant, &param0->unk_28C, heapID);
 
-    ov64_0222EC94(&param0->unk_2C8, &param0->unk_28C, &param0->unk_04, heapID);
-    ov64_0222F414(&param0->unk_304, &param0->unk_28C, &param0->unk_04, heapID);
-    ov64_022305D4(&param0->unk_410, &param0->unk_28C, &param0->unk_04, heapID);
-    ov64_02230680(&param0->unk_41C, &param0->unk_28C, &param0->unk_04, heapID);
-    ov64_02230B1C(&param0->unk_444, &param0->unk_28C, &param0->unk_04, heapID);
+    ov64_0222EC94(&param0->unk_2C8, &param0->unk_28C, &param0->slotMachineVariant, heapID);
+    ov64_0222F414(&param0->unk_304, &param0->unk_28C, &param0->slotMachineVariant, heapID);
+    ov64_022305D4(&param0->unk_410, &param0->unk_28C, &param0->slotMachineVariant, heapID);
+    ov64_02230680(&param0->unk_41C, &param0->unk_28C, &param0->slotMachineVariant, heapID);
+    ov64_02230B1C(&param0->unk_444, &param0->unk_28C, &param0->slotMachineVariant, heapID);
 
     SetVBlankCallback(ov64_0222DF3C, param0);
     DisableHBlank();
@@ -710,45 +710,45 @@ static void ov64_0222DFD0(UnkStruct_ov64_0222DFD0 *param0)
     SetVBlankCallback(NULL, NULL);
     DisableHBlank();
 
-    ov64_0222EE00(&param0->unk_2C8, &param0->unk_28C, &param0->unk_04);
-    ov64_0222F5F4(&param0->unk_304, &param0->unk_28C, &param0->unk_04);
-    ov64_022305D8(&param0->unk_410, &param0->unk_28C, &param0->unk_04);
-    ov64_02230804(&param0->unk_41C, &param0->unk_28C, &param0->unk_04);
-    ov64_02230BA0(&param0->unk_444, &param0->unk_28C, &param0->unk_04);
-    ov64_0222E23C(&param0->unk_04);
+    ov64_0222EE00(&param0->unk_2C8, &param0->unk_28C, &param0->slotMachineVariant);
+    ov64_0222F5F4(&param0->unk_304, &param0->unk_28C, &param0->slotMachineVariant);
+    ov64_022305D8(&param0->unk_410, &param0->unk_28C, &param0->slotMachineVariant);
+    ov64_02230804(&param0->unk_41C, &param0->unk_28C, &param0->slotMachineVariant);
+    ov64_02230BA0(&param0->unk_444, &param0->unk_28C, &param0->slotMachineVariant);
+    ov64_0222E23C(&param0->slotMachineVariant);
 }
 
-static void ov64_0222E040(UnkStruct_ov64_0222E060 *param0, void *param1, enum HeapID heapID)
+static void ov64_0222E040(UnkStruct_ov64_0222E060 *param0, void *slotsMinigameDTO, enum HeapID heapID)
 {
-    param0->saveData = param1;
-    param0->unk_2C.unk_00 = String_Init(128, heapID);
-    param0->unk_2C.unk_04 = String_Init(128, heapID);
+    param0->saveData = slotsMinigameDTO;
+    param0->unk_2C.coins = String_Init(128, heapID);
+    param0->unk_2C.slotMachineVariant = String_Init(128, heapID);
 }
 
 static void ov64_0222E060(UnkStruct_ov64_0222E060 *param0)
 {
-    String_Free(param0->unk_2C.unk_00);
-    String_Free(param0->unk_2C.unk_04);
+    String_Free(param0->unk_2C.coins);
+    String_Free(param0->unk_2C.slotMachineVariant);
 }
 
-static void ov64_0222E074(UnkStruct_ov64_0222E060 *param0, u8 param1, u8 param2)
+static void ov64_0222E074(UnkStruct_ov64_0222E060 *param0, u8 slotsMinigameDTO, u8 param2)
 {
-    param0->unk_05 = param1;
+    param0->unk_05 = slotsMinigameDTO;
     param0->unk_06 = param2;
 }
 
-static void ov64_0222E07C(UnkStruct_ov64_0222E060 *param0, const String *param1, const String *param2)
+static void ov64_0222E07C(UnkStruct_ov64_0222E060 *param0, const String *slotsMinigameDTO, const String *param2)
 {
-    if (param1) {
-        String_Copy(param0->unk_2C.unk_00, param1);
+    if (slotsMinigameDTO) {
+        String_Copy(param0->unk_2C.coins, slotsMinigameDTO);
     }
 
     if (param2) {
-        String_Copy(param0->unk_2C.unk_04, param2);
+        String_Copy(param0->unk_2C.slotMachineVariant, param2);
     }
 }
 
-static u32 ov64_0222E09C(UnkStruct_ov64_0222E060 *param0, String *param1, String *param2)
+static u32 ov64_0222E09C(UnkStruct_ov64_0222E060 *param0, String *slotsMinigameDTO, String *param2)
 {
     int v0;
     WiFiList *v1;
@@ -768,7 +768,7 @@ static u32 ov64_0222E09C(UnkStruct_ov64_0222E060 *param0, String *param1, String
         v2 = WiFiList_IsValidFriendData(v1, v0);
 
         if (v2 == 0) {
-            v4 = String_AtoI(param1, &v3);
+            v4 = String_AtoI(slotsMinigameDTO, &v3);
 
             if ((v3 == 1) && (v4 != v5)) {
                 v7 = WiFiList_GetUserData(v1);
@@ -800,15 +800,15 @@ static u32 ov64_0222E09C(UnkStruct_ov64_0222E060 *param0, String *param1, String
     return 0;
 }
 
-static void ov64_0222E158(UnkStruct_ov64_0222E060 *param0, const u16 *param1)
+static void ov64_0222E158(UnkStruct_ov64_0222E060 *param0, const u16 *slotsMinigameDTO)
 {
-    param0->unk_34.unk_00 = param1;
-    param0->unk_34.unk_04 = 1;
+    param0->unk_34.coins = slotsMinigameDTO;
+    param0->unk_34.slotMachineVariant = 1;
 }
 
-static void ov64_0222E160(UnkStruct_ov64_0222E060 *param0, u32 param1)
+static void ov64_0222E160(UnkStruct_ov64_0222E060 *param0, u32 slotsMinigameDTO)
 {
-    param0->unk_07 = param1;
+    param0->unk_07 = slotsMinigameDTO;
 }
 
 static void ov64_0222E164(UnkStruct_ov64_0222E060 *param0)
@@ -820,17 +820,17 @@ static void ov64_0222E164(UnkStruct_ov64_0222E060 *param0)
 
     v1 = SaveData_GetWiFiList(param0->saveData);
 
-    param0->unk_08.unk_00 = 0;
+    param0->unk_08.coins = 0;
 
     for (v0 = 0; v0 < (8 * 4); v0++) {
         if (WiFiList_IsValidFriendData(v1, v0) == 1) {
-            param0->unk_08.unk_04[param0->unk_08.unk_00] = v0;
-            param0->unk_08.unk_00++;
+            param0->unk_08.slotMachineVariant[param0->unk_08.coins] = v0;
+            param0->unk_08.coins++;
         }
     }
 }
 
-static void ov64_0222E1A4(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0222E060 *param1, enum HeapID heapID)
+static void ov64_0222E1A4(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0222E060 *slotsMinigameDTO, enum HeapID heapID)
 {
     gSystem.whichScreenIs3D = DS_SCREEN_MAIN;
     GXLayers_SwapDisplay();
@@ -840,7 +840,7 @@ static void ov64_0222E1A4(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_
     ov64_0222E290(param0, heapID);
     ov64_0222E3D8(param0, heapID);
     ov64_0222E5D8(param0, heapID);
-    ov64_0222E620(param0, param1, heapID);
+    ov64_0222E620(param0, slotsMinigameDTO, heapID);
     ov64_0222E9A4(param0, heapID);
     ov64_0222E6D8(param0, heapID);
 
@@ -852,12 +852,12 @@ static void ov64_0222E1A4(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_
 
 static void ov64_0222E21C(UnkStruct_ov64_0222E21C *param0)
 {
-    SpriteList_Update(param0->unk_04);
+    SpriteList_Update(param0->slotMachineVariant);
 }
 
 static void ov64_0222E228(UnkStruct_ov64_0222E21C *param0)
 {
-    Bg_RunScheduledUpdates(param0->unk_00);
+    Bg_RunScheduledUpdates(param0->coins);
     VramTransfer_Process();
     RenderOam_Transfer();
 }
@@ -896,7 +896,7 @@ static void ov64_0222E290(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID)
 {
     int v0;
 
-    param0->unk_00 = BgConfig_New(heapID);
+    param0->coins = BgConfig_New(heapID);
 
     {
         GraphicsModes v1 = {
@@ -910,20 +910,20 @@ static void ov64_0222E290(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID)
     }
 
     for (v0 = 0; v0 < 5; v0++) {
-        Bg_InitFromTemplate(param0->unk_00, Unk_ov64_02232258[v0], &Unk_ov64_02232390[v0], 0);
+        Bg_InitFromTemplate(param0->coins, Unk_ov64_02232258[v0], &Unk_ov64_02232390[v0], 0);
         Bg_ClearTilesRange(Unk_ov64_02232258[v0], 32, 0, heapID);
-        Bg_ClearTilemap(param0->unk_00, Unk_ov64_02232258[v0]);
+        Bg_ClearTilemap(param0->coins, Unk_ov64_02232258[v0]);
     }
 
     Graphics_LoadPaletteFromOpenNARC(param0->unk_21C, 0, 0, 0, ((6 + 1) - 0) * 32, heapID);
     Graphics_LoadPaletteFromOpenNARC(param0->unk_21C, 0, 4, 0, ((4 + 1) - 0) * 32, heapID);
 
-    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_21C, 18, param0->unk_00, Unk_ov64_02232258[0], 0, 0, 0, heapID);
-    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_21C, 18, param0->unk_00, Unk_ov64_02232258[2], 0, 0, 0, heapID);
-    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_21C, 13, param0->unk_00, Unk_ov64_02232258[4], 0, 0, 0, heapID);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_21C, 18, param0->coins, Unk_ov64_02232258[0], 0, 0, 0, heapID);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_21C, 18, param0->coins, Unk_ov64_02232258[2], 0, 0, 0, heapID);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(param0->unk_21C, 13, param0->coins, Unk_ov64_02232258[4], 0, 0, 0, heapID);
 
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_21C, 12, param0->unk_00, Unk_ov64_02232258[0], 0, 0, 0, heapID);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_21C, 14, param0->unk_00, Unk_ov64_02232258[4], 0, 0, 0, heapID);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_21C, 12, param0->coins, Unk_ov64_02232258[0], 0, 0, 0, heapID);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_21C, 14, param0->coins, Unk_ov64_02232258[4], 0, 0, 0, heapID);
 }
 
 static void ov64_0222E3AC(UnkStruct_ov64_0222E21C *param0)
@@ -931,11 +931,11 @@ static void ov64_0222E3AC(UnkStruct_ov64_0222E21C *param0)
     int v0;
 
     for (v0 = 0; v0 < 5; v0++) {
-        Bg_FreeTilemapBuffer(param0->unk_00, Unk_ov64_02232258[v0]);
+        Bg_FreeTilemapBuffer(param0->coins, Unk_ov64_02232258[v0]);
     }
 
-    Heap_Free(param0->unk_00);
-    param0->unk_00 = NULL;
+    Heap_Free(param0->coins);
+    param0->coins = NULL;
 }
 
 static void ov64_0222E3D8(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID)
@@ -961,7 +961,7 @@ static void ov64_0222E3D8(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID)
     CharTransfer_ClearBuffers();
     PlttTransfer_Clear();
 
-    param0->unk_04 = SpriteList_InitRendering(64, &param0->unk_78, heapID);
+    param0->slotMachineVariant = SpriteList_InitRendering(64, &param0->unk_78, heapID);
 
     RenderOam_InitSurface(&param0->unk_08, &Unk_ov64_02232460, NNS_G2D_SURFACETYPE_MAIN2D, &param0->unk_78.renderer);
 
@@ -1000,7 +1000,7 @@ static void ov64_0222E570(UnkStruct_ov64_0222E21C *param0)
         SpriteResourceCollection_Delete(param0->unk_204[v0]);
     }
 
-    SpriteList_Delete(param0->unk_04);
+    SpriteList_Delete(param0->slotMachineVariant);
     CharTransfer_Free();
     PlttTransfer_Free();
     RenderOam_Free();
@@ -1019,15 +1019,15 @@ static void ov64_0222E604(UnkStruct_ov64_0222E21C *param0)
     StringTemplate_Free(param0->unk_214);
 }
 
-static void ov64_0222E620(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0222E060 *param1, enum HeapID heapID)
+static void ov64_0222E620(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0222E060 *slotsMinigameDTO, enum HeapID heapID)
 {
-    int v0 = Options_Frame(SaveData_GetOptions(param1->saveData));
+    int v0 = Options_Frame(SaveData_GetOptions(slotsMinigameDTO->saveData));
 
     Font_LoadScreenIndicatorsPalette(PAL_LOAD_MAIN_BG, PLTT_OFFSET(7), heapID);
-    LoadMessageBoxGraphics(param0->unk_00, Unk_ov64_02232258[1], 1 + 9, 8, v0, heapID);
-    LoadStandardWindowGraphics(param0->unk_00, Unk_ov64_02232258[1], 1, 9, 0, heapID);
+    LoadMessageBoxGraphics(param0->coins, Unk_ov64_02232258[1], 1 + 9, 8, v0, heapID);
+    LoadStandardWindowGraphics(param0->coins, Unk_ov64_02232258[1], 1, 9, 0, heapID);
     Window_Init(&param0->unk_220);
-    Window_Add(param0->unk_00, &param0->unk_220, Unk_ov64_02232258[1], 1, 0, 24, 3, 7, (1 + 9) + (18 + 12));
+    Window_Add(param0->coins, &param0->unk_220, Unk_ov64_02232258[1], 1, 0, 24, 3, 7, (1 + 9) + (18 + 12));
 
     param0->unk_230 = String_Init(128, heapID);
     param0->unk_234 = String_Init(128, heapID);
@@ -1049,7 +1049,7 @@ static void ov64_0222E6D8(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID)
     int v1;
 
     for (v1 = 0; v1 < 2; v1++) {
-        param0->unk_278.unk_00[v1] = Graphics_GetScrnDataFromOpenNARC(param0->unk_21C, v0[v1], 0, &param0->unk_278.unk_08[v1], heapID);
+        param0->unk_278.coins[v1] = Graphics_GetScrnDataFromOpenNARC(param0->unk_21C, v0[v1], 0, &param0->unk_278.unk_08[v1], heapID);
     }
 }
 
@@ -1058,18 +1058,18 @@ static void ov64_0222E71C(UnkStruct_ov64_0222E21C *param0)
     int v0;
 
     for (v0 = 0; v0 < 2; v0++) {
-        Heap_Free(param0->unk_278.unk_00[v0]);
+        Heap_Free(param0->unk_278.coins[v0]);
     }
 }
 
-static void ov64_0222E738(UnkStruct_ov64_0222E21C *param0, u32 param1)
+static void ov64_0222E738(UnkStruct_ov64_0222E21C *param0, u32 slotsMinigameDTO)
 {
     if (Text_IsPrinterActive(param0->unk_238) == 1) {
         Text_RemovePrinter(param0->unk_238);
     }
 
     Window_FillTilemap(&param0->unk_220, 0);
-    MessageLoader_GetString(param0->unk_218, param1, param0->unk_234);
+    MessageLoader_GetString(param0->unk_218, slotsMinigameDTO, param0->unk_234);
     StringTemplate_Format(param0->unk_214, param0->unk_230, param0->unk_234);
 
     param0->unk_238 = Text_AddPrinterWithParamsAndColor(&param0->unk_220, FONT_MESSAGE, param0->unk_230, 0, 4, TEXT_SPEED_QUICK, TEXT_COLOR(15, 2, 0), NULL);
@@ -1086,17 +1086,17 @@ static void ov64_0222E7C8(UnkStruct_ov64_0222E21C *param0)
     Window_ClearAndScheduleCopyToVRAM(&param0->unk_220);
 }
 
-static void ov64_0222E7F8(UnkStruct_ov64_0222E21C *param0, u64 param1)
+static void ov64_0222E7F8(UnkStruct_ov64_0222E21C *param0, u64 slotsMinigameDTO)
 {
     u64 v0;
 
-    v0 = param1 / 100000000;
+    v0 = slotsMinigameDTO / 100000000;
     StringTemplate_SetNumber(param0->unk_214, 1, v0, 4, 2, 1);
 
-    v0 = (param1 / 10000) % 10000;
+    v0 = (slotsMinigameDTO / 10000) % 10000;
     StringTemplate_SetNumber(param0->unk_214, 2, v0, 4, 2, 1);
 
-    v0 = param1 % 10000;
+    v0 = slotsMinigameDTO % 10000;
     StringTemplate_SetNumber(param0->unk_214, 3, v0, 4, 2, 1);
 }
 
@@ -1143,14 +1143,14 @@ static BOOL ov64_0222E8FC(UnkStruct_ov64_0222E21C *param0, SaveData *saveData, u
     return v2;
 }
 
-static void ov64_0222E970(UnkStruct_ov64_0222E21C *param0, u32 param1)
+static void ov64_0222E970(UnkStruct_ov64_0222E21C *param0, u32 slotsMinigameDTO)
 {
-    StringTemplate_SetNumber(param0->unk_214, 0, param1, 4, 1, 1);
+    StringTemplate_SetNumber(param0->unk_214, 0, slotsMinigameDTO, 4, 1, 1);
 }
 
-static void ov64_0222E990(UnkStruct_ov64_0222E21C *param0, u32 param1)
+static void ov64_0222E990(UnkStruct_ov64_0222E21C *param0, u32 slotsMinigameDTO)
 {
-    StringTemplate_SetPlazaMinigameName(param0->unk_214, 0, param1);
+    StringTemplate_SetPlazaMinigameName(param0->unk_214, 0, slotsMinigameDTO);
 }
 
 static void ov64_0222E9A4(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID)
@@ -1176,7 +1176,7 @@ static void ov64_0222E9A4(UnkStruct_ov64_0222E21C *param0, enum HeapID heapID)
     int v1;
 
     for (v1 = 0; v1 < 2; v1++) {
-        v0[v1].list = param0->unk_04;
+        v0[v1].list = param0->slotMachineVariant;
         v0[v1].resourceData = &param0->unk_23C;
         v0[v1].heapID = heapID;
 
@@ -1197,72 +1197,72 @@ static void ov64_0222EA0C(UnkStruct_ov64_0222E21C *param0)
     }
 }
 
-static void ov64_0222EA28(UnkStruct_ov64_0222E21C *param0, BOOL param1)
+static void ov64_0222EA28(UnkStruct_ov64_0222E21C *param0, BOOL slotsMinigameDTO)
 {
     int v0;
 
     for (v0 = 0; v0 < 2; v0++) {
-        Sprite_SetDrawFlag(param0->unk_270[v0], param1);
+        Sprite_SetDrawFlag(param0->unk_270[v0], slotsMinigameDTO);
     }
 }
 
-static void ov64_0222EA48(UnkStruct_ov64_0222E21C *param0, BOOL param1)
+static void ov64_0222EA48(UnkStruct_ov64_0222E21C *param0, BOOL slotsMinigameDTO)
 {
     int v0;
 
     for (v0 = 0; v0 < 2; v0++) {
-        Sprite_SetAnimateFlag(param0->unk_270[v0], param1);
+        Sprite_SetAnimateFlag(param0->unk_270[v0], slotsMinigameDTO);
     }
 }
 
-static void ov64_0222EA68(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_0222EA68(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    ov64_0222EC94(param0, param1, param2, heapID);
+    ov64_0222EC94(param0, slotsMinigameDTO, param2, heapID);
 }
 
-static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     BOOL v0;
 
-    switch (param1->unk_04) {
+    switch (slotsMinigameDTO->slotMachineVariant) {
     case 0:
-        ov64_0222EE20(param0, param1, param2);
+        ov64_0222EE20(param0, slotsMinigameDTO, param2);
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_CIRCLE_IN, FADE_TYPE_CIRCLE_IN, COLOR_BLACK, 6, 1, heapID);
-        param1->unk_04 = 1;
+        slotsMinigameDTO->slotMachineVariant = 1;
         break;
     case 1:
         if (IsScreenFadeDone()) {
-            param1->unk_04 = 3;
+            slotsMinigameDTO->slotMachineVariant = 3;
         }
         break;
     case 2:
-        ov64_0222EE20(param0, param1, param2);
-        param1->unk_04 = 3;
+        ov64_0222EE20(param0, slotsMinigameDTO, param2);
+        slotsMinigameDTO->slotMachineVariant = 3;
         break;
     case 3:
-        v0 = ov64_0222EE84(param0, param1, param2);
+        v0 = ov64_0222EE84(param0, slotsMinigameDTO, param2);
 
         if (v0 == 1) {
-            if (ov64_0222F068(param0, param1) == 1) {
-                ov64_0222EF4C(param0, param1);
+            if (ov64_0222F068(param0, slotsMinigameDTO) == 1) {
+                ov64_0222EF4C(param0, slotsMinigameDTO);
 
-                if ((param0->unk_00 == 3) || (param0->unk_00 == 1)) {
-                    param1->unk_04 = 4;
+                if ((param0->coins == 3) || (param0->coins == 1)) {
+                    slotsMinigameDTO->slotMachineVariant = 4;
                 } else {
                     ov64_0222EF64(param0, param2);
                     return 1;
                 }
             } else {
-                if (param0->unk_00 == 1) {
+                if (param0->coins == 1) {
                     ov64_0222EFBC(param0, param2, 53, heapID);
-                    param1->unk_04 = 10;
+                    slotsMinigameDTO->slotMachineVariant = 10;
                 }
             }
         }
         break;
     case 4:
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_CIRCLE_OUT, FADE_TYPE_CIRCLE_OUT, COLOR_BLACK, 6, 1, heapID);
-        param1->unk_04++;
+        slotsMinigameDTO->slotMachineVariant++;
         break;
     case 5:
         if (IsScreenFadeDone() == TRUE) {
@@ -1270,9 +1270,9 @@ static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E06
         }
         break;
     case 6:
-        ov64_0222EE20(param0, param1, param2);
+        ov64_0222EE20(param0, slotsMinigameDTO, param2);
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_CIRCLE_IN, FADE_TYPE_CIRCLE_IN, COLOR_BLACK, 6, 1, heapID);
-        param1->unk_04 = 7;
+        slotsMinigameDTO->slotMachineVariant = 7;
         break;
     case 7:
         if (IsScreenFadeDone()) {
@@ -1281,19 +1281,19 @@ static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E06
 
             v2 = TrainerInfo_New(heapID);
 
-            TrainerInfo_SetName(v2, String_GetData(param1->unk_2C.unk_00));
+            TrainerInfo_SetName(v2, String_GetData(slotsMinigameDTO->unk_2C.coins));
             StringTemplate_SetPlayerName(param2->unk_214, 0, v2);
             Heap_Free(v2);
 
-            v1 = String_AtoI(param1->unk_2C.unk_04, &v0);
+            v1 = String_AtoI(slotsMinigameDTO->unk_2C.slotMachineVariant, &v0);
 
             if (v0) {
                 ov64_0222E7F8(param2, v1);
                 ov64_0222EFBC(param0, param2, 49, heapID);
-                param1->unk_04 = 8;
+                slotsMinigameDTO->slotMachineVariant = 8;
             } else {
                 ov64_0222EFBC(param0, param2, 50, heapID);
-                param1->unk_04 = 10;
+                slotsMinigameDTO->slotMachineVariant = 10;
             }
         }
         break;
@@ -1302,8 +1302,8 @@ static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E06
             break;
         }
 
-        param0->unk_2C = Menu_MakeYesNoChoice(param2->unk_00, &Unk_ov64_022321CA, 1, 9, heapID);
-        param1->unk_04 = 9;
+        param0->unk_2C = Menu_MakeYesNoChoice(param2->coins, &Unk_ov64_022321CA, 1, 9, heapID);
+        slotsMinigameDTO->slotMachineVariant = 9;
         break;
     case 9: {
         int v3;
@@ -1321,17 +1321,17 @@ static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E06
             break;
         case 0xfffffffe:
             ov64_0222F050(param0);
-            param1->unk_04 = 3;
+            slotsMinigameDTO->slotMachineVariant = 3;
             break;
         default:
-            v4 = ov64_0222E09C(param1, param1->unk_2C.unk_04, param1->unk_2C.unk_00);
+            v4 = ov64_0222E09C(slotsMinigameDTO, slotsMinigameDTO->unk_2C.slotMachineVariant, slotsMinigameDTO->unk_2C.coins);
 
             if (v4 == 0) {
                 ov64_0222F050(param0);
-                param1->unk_04 = 3;
+                slotsMinigameDTO->slotMachineVariant = 3;
             } else {
                 ov64_0222EFBC(param0, param2, v5[v4], heapID);
-                param1->unk_04 = 10;
+                slotsMinigameDTO->slotMachineVariant = 10;
             }
             break;
         }
@@ -1343,7 +1343,7 @@ static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E06
 
         if (gSystem.pressedKeys & PAD_BUTTON_A) {
             ov64_0222F050(param0);
-            param1->unk_04 = 3;
+            slotsMinigameDTO->slotMachineVariant = 3;
         }
 
         break;
@@ -1352,12 +1352,12 @@ static int ov64_0222EA70(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E06
     return 0;
 }
 
-static void ov64_0222EC8C(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_0222EC8C(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
-    ov64_0222EE00(param0, param1, param2);
+    ov64_0222EE00(param0, slotsMinigameDTO, param2);
 }
 
-static void ov64_0222EC94(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_0222EC94(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     static const u8 entryIDs[4] = {
         0x1,
@@ -1380,29 +1380,29 @@ static void ov64_0222EC94(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E0
         0x80
     };
 
-    Window_Init(&param0->unk_04);
-    Window_Add(param2->unk_00, &param0->unk_04, BG_LAYER_MAIN_3, 3, 4, 26, 20, 7, 1);
+    Window_Init(&param0->slotMachineVariant);
+    Window_Add(param2->coins, &param0->slotMachineVariant, BG_LAYER_MAIN_3, 3, 4, 26, 20, 7, 1);
 
     Window_Init(&param0->unk_1C);
-    Window_Add(param2->unk_00, &param0->unk_1C, BG_LAYER_MAIN_1, 2, 19, 27, 4, 7, 112);
+    Window_Add(param2->coins, &param0->unk_1C, BG_LAYER_MAIN_1, 2, 19, 27, 4, 7, 112);
 
-    Window_FillTilemap(&param0->unk_04, 0);
+    Window_FillTilemap(&param0->slotMachineVariant, 0);
     Window_FillTilemap(&param0->unk_1C, 0);
 
     param0->unk_38 = String_Init(128, heapID);
-    param0->unk_34 = Options_TextFrameDelay(SaveData_GetOptions(param1->saveData));
+    param0->unk_34 = Options_TextFrameDelay(SaveData_GetOptions(slotsMinigameDTO->saveData));
 
     String *string = String_Init(128, heapID);
     String *fmtString = String_Init(128, heapID);
 
-    StringTemplate_SetPlayerName(param2->unk_214, 0, SaveData_GetTrainerInfo(param1->saveData));
+    StringTemplate_SetPlayerName(param2->unk_214, 0, SaveData_GetTrainerInfo(slotsMinigameDTO->saveData));
 
     int i;
     for (i = 0; i < 4; i++) {
         MessageLoader_GetString(param2->unk_218, entryIDs[i], fmtString);
         StringTemplate_Format(param2->unk_214, string, fmtString);
         u32 xOffset = xOffsets[i] + Font_CalcCenterAlignment(FONT_SYSTEM, string, 0, 208);
-        Text_AddPrinterWithParamsAndColor(&param0->unk_04, FONT_SYSTEM, string, xOffset, yOffsets[i], TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
+        Text_AddPrinterWithParamsAndColor(&param0->slotMachineVariant, FONT_SYSTEM, string, xOffset, yOffsets[i], TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
     }
 
     String_Free(string);
@@ -1411,28 +1411,28 @@ static void ov64_0222EC94(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E0
     param0->unk_14 = Graphics_GetScrnDataFromOpenNARC(param2->unk_21C, 1, 0, &param0->unk_18, heapID);
 }
 
-static void ov64_0222EE00(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_0222EE00(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
     String_Free(param0->unk_38);
-    Window_Remove(&param0->unk_04);
+    Window_Remove(&param0->slotMachineVariant);
     Window_Remove(&param0->unk_1C);
     Heap_Free(param0->unk_14);
 }
 
-static void ov64_0222EE20(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_0222EE20(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
     ov64_0222E738(param2, 0);
 
-    Window_ScheduleCopyToVRAM(&param0->unk_04);
-    Bg_LoadToTilemapRect(param2->unk_00, Unk_ov64_02232258[2], param0->unk_18->rawData, 0, 0, param0->unk_18->screenWidth / 8, param0->unk_18->screenHeight / 8);
-    Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[2], 0, 0);
-    Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[2], 3, 0);
+    Window_ScheduleCopyToVRAM(&param0->slotMachineVariant);
+    Bg_LoadToTilemapRect(param2->coins, Unk_ov64_02232258[2], param0->unk_18->rawData, 0, 0, param0->unk_18->screenWidth / 8, param0->unk_18->screenHeight / 8);
+    Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[2], 0, 0);
+    Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[2], 3, 0);
 
     ov64_0222EF08(param0, param2);
-    Bg_ScheduleTilemapTransfer(param2->unk_00, Unk_ov64_02232258[2]);
+    Bg_ScheduleTilemapTransfer(param2->coins, Unk_ov64_02232258[2]);
 }
 
-static BOOL ov64_0222EE84(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static BOOL ov64_0222EE84(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
     BOOL v0 = 0;
 
@@ -1443,18 +1443,18 @@ static BOOL ov64_0222EE84(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E0
 
     if (gSystem.pressedKeys & PAD_BUTTON_B) {
         Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
-        param0->unk_00 = 3;
+        param0->coins = 3;
         return 1;
     }
 
     if (gSystem.pressedKeysRepeatable & PAD_KEY_UP) {
-        if (param0->unk_00 > 0) {
-            param0->unk_00--;
+        if (param0->coins > 0) {
+            param0->coins--;
             v0 = 1;
         }
     } else if (gSystem.pressedKeysRepeatable & PAD_KEY_DOWN) {
-        if (param0->unk_00 < 3) {
-            param0->unk_00++;
+        if (param0->coins < 3) {
+            param0->coins++;
             v0 = 1;
         }
     }
@@ -1462,13 +1462,13 @@ static BOOL ov64_0222EE84(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E0
     if (v0 == 1) {
         Sound_PlayEffect(SEQ_SE_DP_BUTTON3_sseq);
         ov64_0222EF08(param0, param2);
-        Bg_ScheduleTilemapTransfer(param2->unk_00, Unk_ov64_02232258[2]);
+        Bg_ScheduleTilemapTransfer(param2->coins, Unk_ov64_02232258[2]);
     }
 
     return 0;
 }
 
-static void ov64_0222EF08(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *param1)
+static void ov64_0222EF08(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO)
 {
     int v0;
     static const u8 Unk_ov64_022321FC[4][2] = {
@@ -1480,44 +1480,44 @@ static void ov64_0222EF08(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E2
     u8 v2;
 
     for (v0 = 0; v0 < 4; v0++) {
-        if (param0->unk_00 == v0) {
+        if (param0->coins == v0) {
             v2 = 1;
         } else {
             v2 = 0;
         }
 
-        Bg_ChangeTilemapRectPalette(param1->unk_00, Unk_ov64_02232258[2], Unk_ov64_022321FC[v0][0], Unk_ov64_022321FC[v0][1], 28, 4, v2);
+        Bg_ChangeTilemapRectPalette(slotsMinigameDTO->coins, Unk_ov64_02232258[2], Unk_ov64_022321FC[v0][0], Unk_ov64_022321FC[v0][1], 28, 4, v2);
     }
 }
 
-static void ov64_0222EF4C(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1)
+static void ov64_0222EF4C(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO)
 {
     static const u8 v0[4] = {
         1, 2, 3, 5
     };
 
-    ov64_0222E074(param1, v0[param0->unk_00], 0);
+    ov64_0222E074(slotsMinigameDTO, v0[param0->coins], 0);
 }
 
-static void ov64_0222EF64(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *param1)
+static void ov64_0222EF64(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO)
 {
-    ov64_0222E7C8(param1);
+    ov64_0222E7C8(slotsMinigameDTO);
 
-    Bg_FillTilemapRect(param1->unk_00, Unk_ov64_02232258[2], 0, 0, 0, 32, 24, 0);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[2]);
-    Bg_FillTilemapRect(param1->unk_00, Unk_ov64_02232258[3], 0, 0, 0, 32, 24, 0);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[3]);
+    Bg_FillTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[2], 0, 0, 0, 32, 24, 0);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[2]);
+    Bg_FillTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[3], 0, 0, 0, 32, 24, 0);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[3]);
 
-    Window_ClearAndScheduleCopyToVRAM(&param0->unk_04);
+    Window_ClearAndScheduleCopyToVRAM(&param0->slotMachineVariant);
 }
 
-static void ov64_0222EFBC(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, enum HeapID heapID)
+static void ov64_0222EFBC(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, enum HeapID heapID)
 {
     String *v0 = String_Init(128, heapID);
 
     Window_FillTilemap(&param0->unk_1C, 15);
-    MessageLoader_GetString(param1->unk_218, param2, v0);
-    StringTemplate_Format(param1->unk_214, param0->unk_38, v0);
+    MessageLoader_GetString(slotsMinigameDTO->unk_218, param2, v0);
+    StringTemplate_Format(slotsMinigameDTO->unk_214, param0->unk_38, v0);
 
     param0->unk_30 = Text_AddPrinterWithParamsAndColor(&param0->unk_1C, FONT_MESSAGE, param0->unk_38, 0, 0, param0->unk_34, TEXT_COLOR(1, 2, 0), NULL);
 
@@ -1541,13 +1541,13 @@ static void ov64_0222F050(UnkStruct_ov64_0222F038 *param0)
     Window_ClearAndScheduleCopyToVRAM(&param0->unk_1C);
 }
 
-static BOOL ov64_0222F068(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *param1)
+static BOOL ov64_0222F068(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO)
 {
     int v0;
     WiFiList *v1;
 
-    if (param0->unk_00 == 1) {
-        v1 = SaveData_GetWiFiList(param1->saveData);
+    if (param0->coins == 1) {
+        v1 = SaveData_GetWiFiList(slotsMinigameDTO->saveData);
 
         for (v0 = 0; v0 < 32; v0++) {
             if (!WiFiList_IsValidFriendData(v1, v0)) {
@@ -1561,134 +1561,134 @@ static BOOL ov64_0222F068(UnkStruct_ov64_0222F038 *param0, UnkStruct_ov64_0222E0
     return 0;
 }
 
-static void ov64_0222F09C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_0222F09C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    param0->unk_DC = Options_TextFrameDelay(SaveData_GetOptions(param1->saveData));
-    ov64_0222F414(param0, param1, param2, heapID);
+    param0->unk_DC = Options_TextFrameDelay(SaveData_GetOptions(slotsMinigameDTO->saveData));
+    ov64_0222F414(param0, slotsMinigameDTO, param2, heapID);
 }
 
-static int ov64_0222F0C4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static int ov64_0222F0C4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     u32 v0;
     WiFiList *v1;
     u32 v2;
 
-    switch (param1->unk_04) {
+    switch (slotsMinigameDTO->slotMachineVariant) {
     case 0:
-        param0->unk_00 = 0;
+        param0->coins = 0;
         param0->unk_02 = 0;
-        param0->unk_04 = 0;
+        param0->slotMachineVariant = 0;
         param0->unk_06 = 0;
     case 1:
-        ov64_0222E164(param1);
-        ov64_0222F668(param0, param1, param2, heapID);
-        param1->unk_04 = 2;
+        ov64_0222E164(slotsMinigameDTO);
+        ov64_0222F668(param0, slotsMinigameDTO, param2, heapID);
+        slotsMinigameDTO->slotMachineVariant = 2;
         break;
     case 2:
-        v0 = ov64_0222F798(param0, param1, param2);
+        v0 = ov64_0222F798(param0, slotsMinigameDTO, param2);
 
         switch (v0) {
         case 0:
             break;
         case 1:
-            param0->unk_02 = param0->unk_00;
-            param0->unk_00--;
+            param0->unk_02 = param0->coins;
+            param0->coins--;
 
-            if (param0->unk_00 < 0) {
-                param0->unk_00 += 4;
+            if (param0->coins < 0) {
+                param0->coins += 4;
             }
 
-            ov64_0222FE5C(param0, param1, 2);
+            ov64_0222FE5C(param0, slotsMinigameDTO, 2);
             break;
         case 2:
-            param0->unk_02 = param0->unk_00;
-            param0->unk_00 = (param0->unk_00 + 1) % 4;
-            ov64_0222FE5C(param0, param1, 3);
+            param0->unk_02 = param0->coins;
+            param0->coins = (param0->coins + 1) % 4;
+            ov64_0222FE5C(param0, slotsMinigameDTO, 3);
             break;
         case 3:
-            param1->unk_04 = 23;
+            slotsMinigameDTO->slotMachineVariant = 23;
             break;
         case 4:
-            param1->unk_04 = 5;
+            slotsMinigameDTO->slotMachineVariant = 5;
             break;
         }
         break;
     case 3:
-        ov64_0222F8F8(param0, param1, param2, heapID);
-        param1->unk_04 = 4;
+        ov64_0222F8F8(param0, slotsMinigameDTO, param2, heapID);
+        slotsMinigameDTO->slotMachineVariant = 4;
         break;
     case 4:
-        v0 = ov64_0222F948(param0, param1, param2, heapID);
+        v0 = ov64_0222F948(param0, slotsMinigameDTO, param2, heapID);
 
         if (v0 == 1) {
-            param1->unk_04 = 2;
+            slotsMinigameDTO->slotMachineVariant = 2;
         }
         break;
     case 5:
-        ov64_0222E160(param1, ov64_0222FF38(param0));
-        ov64_0222FA70(param0, param1, param2, heapID);
-        param1->unk_04 = 6;
+        ov64_0222E160(slotsMinigameDTO, ov64_0222FF38(param0));
+        ov64_0222FA70(param0, slotsMinigameDTO, param2, heapID);
+        slotsMinigameDTO->slotMachineVariant = 6;
         break;
     case 6:
-        param1->unk_04 = ov64_0222FB24(param0, param1, param2, heapID);
+        slotsMinigameDTO->slotMachineVariant = ov64_0222FB24(param0, slotsMinigameDTO, param2, heapID);
         break;
     case 7:
         param0->unk_100 = 4;
-        param1->unk_04 = 8;
+        slotsMinigameDTO->slotMachineVariant = 8;
         break;
     case 8:
         param0->unk_100--;
 
         if (param0->unk_100 <= 0) {
-            ov64_0222F6E8(param0, param1, param2);
-            ov64_0222E074(param1, 4, 0);
+            ov64_0222F6E8(param0, slotsMinigameDTO, param2);
+            ov64_0222E074(slotsMinigameDTO, 4, 0);
             return 1;
         }
         break;
     case 9:
-        param0->unk_00 = param1->unk_07 / 8;
-        param0->unk_04 = param1->unk_07 % 8;
-        param1->unk_04 = 1;
+        param0->coins = slotsMinigameDTO->unk_07 / 8;
+        param0->slotMachineVariant = slotsMinigameDTO->unk_07 % 8;
+        slotsMinigameDTO->slotMachineVariant = 1;
         break;
     case 10:
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_CIRCLE_OUT, FADE_TYPE_CIRCLE_OUT, COLOR_BLACK, 6, 1, heapID);
 
         v2 = ov64_0222FF38(param0);
-        v1 = SaveData_GetWiFiList(param1->saveData);
+        v1 = SaveData_GetWiFiList(slotsMinigameDTO->saveData);
 
-        ov64_0222E158(param1, sub_0202AEF0(v1, param1->unk_08.unk_04[v2]));
-        param1->unk_04 = 11;
+        ov64_0222E158(slotsMinigameDTO, sub_0202AEF0(v1, slotsMinigameDTO->unk_08.slotMachineVariant[v2]));
+        slotsMinigameDTO->slotMachineVariant = 11;
         break;
     case 11:
         if (IsScreenFadeDone()) {
-            ov64_0222F6E8(param0, param1, param2);
-            ov64_0222E074(param1, 2, 4);
+            ov64_0222F6E8(param0, slotsMinigameDTO, param2);
+            ov64_0222E074(slotsMinigameDTO, 2, 4);
             return 1;
         }
         break;
     case 12:
         v2 = ov64_0222FF38(param0);
-        v1 = SaveData_GetWiFiList(param1->saveData);
-        sub_0202AF0C(v1, param1->unk_08.unk_04[v2], param1->unk_2C.unk_00);
+        v1 = SaveData_GetWiFiList(slotsMinigameDTO->saveData);
+        sub_0202AF0C(v1, slotsMinigameDTO->unk_08.slotMachineVariant[v2], slotsMinigameDTO->unk_2C.coins);
     case 13:
-        ov64_0222F668(param0, param1, param2, heapID);
+        ov64_0222F668(param0, slotsMinigameDTO, param2, heapID);
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_CIRCLE_IN, FADE_TYPE_CIRCLE_IN, COLOR_BLACK, 6, 1, heapID);
-        param1->unk_04 = 14;
+        slotsMinigameDTO->slotMachineVariant = 14;
         break;
     case 14:
         if (IsScreenFadeDone()) {
-            param1->unk_04 = 2;
+            slotsMinigameDTO->slotMachineVariant = 2;
         }
         break;
     case 15:
-        ov64_0222FC1C(param0, param1, param2, heapID);
-        param1->unk_04 = 16;
+        ov64_0222FC1C(param0, slotsMinigameDTO, param2, heapID);
+        slotsMinigameDTO->slotMachineVariant = 16;
         break;
     case 16:
-        v0 = ov64_0222FC48(param0, param1, param2, heapID);
+        v0 = ov64_0222FC48(param0, slotsMinigameDTO, param2, heapID);
 
         if (v0 == 1) {
-            param1->unk_04 = 17;
+            slotsMinigameDTO->slotMachineVariant = 17;
         }
         break;
     case 17:
@@ -1700,43 +1700,43 @@ static int ov64_0222F0C4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E06
         case 0xfffffffe:
             ov64_0222FF18(param0);
             ov64_0222EA28(param2, 1);
-            param1->unk_04 = 2;
+            slotsMinigameDTO->slotMachineVariant = 2;
             break;
         default:
             ov64_0222FF18(param0);
-            param1->unk_04 = 18;
+            slotsMinigameDTO->slotMachineVariant = 18;
             break;
         }
         break;
     case 18:
         ov64_0222FF5C(param0);
-        param1->unk_04 = 19;
+        slotsMinigameDTO->slotMachineVariant = 19;
         break;
     case 19:
         if (ov64_02230008(param0) == 1) {
-            v1 = SaveData_GetWiFiList(param1->saveData);
+            v1 = SaveData_GetWiFiList(slotsMinigameDTO->saveData);
             v2 = ov64_0222FF38(param0);
 
-            sub_0202AFD4(v1, param1->unk_08.unk_04[v2]);
-            BattleFrontierSave_ClearFriendStatsAndShift(SaveData_GetBattleFrontier(param1->saveData), param1->unk_08.unk_04[v2]);
-            ov64_0222E164(param1);
-            ov64_0222FC80(param0, param1, param2, param0->unk_00, param0->unk_04, 0, heapID);
+            sub_0202AFD4(v1, slotsMinigameDTO->unk_08.slotMachineVariant[v2]);
+            BattleFrontierSave_ClearFriendStatsAndShift(SaveData_GetBattleFrontier(slotsMinigameDTO->saveData), slotsMinigameDTO->unk_08.slotMachineVariant[v2]);
+            ov64_0222E164(slotsMinigameDTO);
+            ov64_0222FC80(param0, slotsMinigameDTO, param2, param0->coins, param0->slotMachineVariant, 0, heapID);
             ov64_0222EA28(param2, 1);
-            param1->unk_04 = 20;
+            slotsMinigameDTO->slotMachineVariant = 20;
         }
         break;
     case 20:
         ov64_02230044(param0);
-        param1->unk_04 = 2;
+        slotsMinigameDTO->slotMachineVariant = 2;
         break;
     case 21:
-        v0 = ov64_0222FBA4(param0, param1, param2, heapID);
+        v0 = ov64_0222FBA4(param0, slotsMinigameDTO, param2, heapID);
 
         if (v0 == 1) {
-            param1->unk_04 = 22;
+            slotsMinigameDTO->slotMachineVariant = 22;
         } else {
             ov64_0222EA28(param2, 1);
-            param1->unk_04 = 2;
+            slotsMinigameDTO->slotMachineVariant = 2;
         }
         break;
     case 22:
@@ -1746,25 +1746,25 @@ static int ov64_0222F0C4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E06
 
         if (gSystem.pressedKeys) {
             ov64_0222EA28(param2, 1);
-            param1->unk_04 = 2;
+            slotsMinigameDTO->slotMachineVariant = 2;
             ov64_0222FF18(param0);
         }
         break;
     case 23:
-        ov64_0222F6E8(param0, param1, param2);
-        ov64_0222E074(param1, 0, 2);
+        ov64_0222F6E8(param0, slotsMinigameDTO, param2);
+        ov64_0222E074(slotsMinigameDTO, 0, 2);
         return 1;
     }
 
     return 0;
 }
 
-static void ov64_0222F40C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_0222F40C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
-    ov64_0222F5F4(param0, param1, param2);
+    ov64_0222F5F4(param0, slotsMinigameDTO, param2);
 }
 
-static void ov64_0222F414(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_0222F414(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     static const u16 Unk_ov64_022321BC[3] = {
         0x1,
@@ -1789,11 +1789,11 @@ static void ov64_0222F414(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
         ov64_02230074(&param0->unk_08[i], param2, &Unk_ov64_0223221C[i], Unk_ov64_022321BC[i], heapID);
     }
 
-    param0->unk_B0 = ov63_0222AE60(param2->unk_04, NULL, 16, heapID);
+    param0->unk_B0 = ov63_0222AE60(param2->slotMachineVariant, NULL, 16, heapID);
     ov63_0222B02C(param0->unk_B0, 1, 2, heapID);
 
     Window_Init(&param0->unk_B4);
-    Window_Add(param2->unk_00, &param0->unk_B4, BG_LAYER_MAIN_1, 13, 21, 8, 3, 7, 112);
+    Window_Add(param2->coins, &param0->unk_B4, BG_LAYER_MAIN_1, 13, 21, 8, 3, 7, 112);
     Window_FillTilemap(&param0->unk_B4, 0);
 
     String *string = String_Init(128, heapID);
@@ -1802,30 +1802,30 @@ static void ov64_0222F414(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
     String_Free(string);
 
     Window_Init(&param0->unk_E0);
-    Window_Add(param2->unk_00, &param0->unk_E0, BG_LAYER_MAIN_1, 16, 9, 15, 8, 7, 136);
+    Window_Add(param2->coins, &param0->unk_E0, BG_LAYER_MAIN_1, 16, 9, 15, 8, 7, 136);
     Window_FillTilemap(&param0->unk_E0, 0);
 
     for (i = 0; i < 2; i++) {
         param0->unk_F0[i] = StringList_New(4, heapID);
         for (j = 0; j < 4; j++) {
-            StringList_AddFromMessageBank(param0->unk_F0[i], param2->unk_218, Unk_ov64_022322E4[i][j].unk_00, Unk_ov64_022322E4[i][j].unk_04);
+            StringList_AddFromMessageBank(param0->unk_F0[i], param2->unk_218, Unk_ov64_022322E4[i][j].coins, Unk_ov64_022322E4[i][j].slotMachineVariant);
         }
     }
 
     Window_Init(&param0->unk_C4);
-    Window_Add(param2->unk_00, &param0->unk_C4, BG_LAYER_MAIN_1, 2, 19, 27, 4, 7, 256);
+    Window_Add(param2->coins, &param0->unk_C4, BG_LAYER_MAIN_1, 2, 19, 27, 4, 7, 256);
     Window_FillTilemap(&param0->unk_C4, 15);
 
     param0->unk_D4 = String_Init(128, heapID);
 
-    Unk_ov64_022322B4.list = param2->unk_04;
+    Unk_ov64_022322B4.list = param2->slotMachineVariant;
     Unk_ov64_022322B4.resourceData = &param2->unk_23C;
     Unk_ov64_022322B4.heapID = heapID;
     param0->unk_104 = SpriteList_AddAffine(&Unk_ov64_022322B4);
     Sprite_SetDrawFlag(param0->unk_104, FALSE);
 }
 
-static void ov64_0222F5F4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_0222F5F4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
     int v0;
 
@@ -1848,22 +1848,22 @@ static void ov64_0222F5F4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
     }
 }
 
-static void ov64_0222F668(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_0222F668(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     int v0;
 
     ov64_0222E738(param2, 5);
 
-    Bg_CopyToTilemapRect(param2->unk_00, Unk_ov64_02232258[0], 11, 20, 10, 4, param2->unk_278.unk_08[1]->rawData, 6, 0, param2->unk_278.unk_08[1]->screenWidth / 8, param2->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_CopyToTilemapRect(param2->coins, Unk_ov64_02232258[0], 11, 20, 10, 4, param2->unk_278.unk_08[1]->rawData, 6, 0, param2->unk_278.unk_08[1]->screenWidth / 8, param2->unk_278.unk_08[1]->screenHeight / 8);
     Window_ScheduleCopyToVRAM(&param0->unk_B4);
 
-    Bg_ScheduleTilemapTransfer(param2->unk_00, Unk_ov64_02232258[0]);
+    Bg_ScheduleTilemapTransfer(param2->coins, Unk_ov64_02232258[0]);
 
     ov64_0222EA28(param2, 1);
-    ov64_0222FC80(param0, param1, param2, param0->unk_00, param0->unk_04, 0, heapID);
+    ov64_0222FC80(param0, slotsMinigameDTO, param2, param0->coins, param0->slotMachineVariant, 0, heapID);
 }
 
-static void ov64_0222F6E8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_0222F6E8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
     int v0;
 
@@ -1876,12 +1876,12 @@ static void ov64_0222F6E8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
 
     ov64_0222EA28(param2, 0);
 
-    Bg_CopyToTilemapRect(param2->unk_00, Unk_ov64_02232258[0], 11, 20, 10, 4, param2->unk_278.unk_08[1]->rawData, 0, 8, param2->unk_278.unk_08[1]->screenWidth / 8, param2->unk_278.unk_08[1]->screenHeight / 8);
-    Bg_CopyToTilemapRect(param2->unk_00, Unk_ov64_02232258[0], 0x16, 0, 9, 3, param2->unk_278.unk_08[1]->rawData, 0x10, 0x0, param2->unk_278.unk_08[1]->screenWidth / 8, param2->unk_278.unk_08[1]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param2->unk_00, Unk_ov64_02232258[0]);
+    Bg_CopyToTilemapRect(param2->coins, Unk_ov64_02232258[0], 11, 20, 10, 4, param2->unk_278.unk_08[1]->rawData, 0, 8, param2->unk_278.unk_08[1]->screenWidth / 8, param2->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_CopyToTilemapRect(param2->coins, Unk_ov64_02232258[0], 0x16, 0, 9, 3, param2->unk_278.unk_08[1]->rawData, 0x10, 0x0, param2->unk_278.unk_08[1]->screenWidth / 8, param2->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(param2->coins, Unk_ov64_02232258[0]);
 }
 
-static u32 ov64_0222F798(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static u32 ov64_0222F798(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
     u16 v0;
     BOOL v1;
@@ -1889,12 +1889,12 @@ static u32 ov64_0222F798(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E06
     int v3;
 
     if (gSystem.pressedKeys & PAD_BUTTON_A) {
-        if (param0->unk_04 == 8) {
+        if (param0->slotMachineVariant == 8) {
             Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
             return 3;
         }
 
-        if (param1->unk_08.unk_00 <= param0->unk_04 + (param0->unk_00 * 8)) {
+        if (slotsMinigameDTO->unk_08.coins <= param0->slotMachineVariant + (param0->coins * 8)) {
             return 0;
         }
 
@@ -1907,66 +1907,66 @@ static u32 ov64_0222F798(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E06
         return 3;
     }
 
-    v0 = param0->unk_04;
+    v0 = param0->slotMachineVariant;
     v1 = 0;
     v2 = 0;
 
     if (gSystem.pressedKeysRepeatable & PAD_KEY_UP) {
-        if (param0->unk_04 == 8) {
-            param0->unk_04 = param0->unk_06;
+        if (param0->slotMachineVariant == 8) {
+            param0->slotMachineVariant = param0->unk_06;
             v1 = 1;
             ov64_0222EA28(param2, 1);
         } else {
-            if (param0->unk_04 < (8 / 2)) {
-                if (param0->unk_04 > 0) {
-                    param0->unk_04--;
+            if (param0->slotMachineVariant < (8 / 2)) {
+                if (param0->slotMachineVariant > 0) {
+                    param0->slotMachineVariant--;
                     v1 = 1;
                 }
             } else {
-                if (param0->unk_04 > (8 / 2)) {
-                    param0->unk_04--;
+                if (param0->slotMachineVariant > (8 / 2)) {
+                    param0->slotMachineVariant--;
                     v1 = 1;
                 }
             }
         }
     } else if (gSystem.pressedKeysRepeatable & PAD_KEY_DOWN) {
-        if ((param0->unk_04 == 3) || (param0->unk_04 == 7)) {
-            param0->unk_04 = 8;
+        if ((param0->slotMachineVariant == 3) || (param0->slotMachineVariant == 7)) {
+            param0->slotMachineVariant = 8;
             v1 = 1;
 
             ov64_0222EA28(param2, 0);
         } else {
-            if (param0->unk_04 < (8 / 2)) {
-                if (param0->unk_04 < 3) {
-                    param0->unk_04++;
+            if (param0->slotMachineVariant < (8 / 2)) {
+                if (param0->slotMachineVariant < 3) {
+                    param0->slotMachineVariant++;
                     v1 = 1;
                 }
             } else {
-                if (param0->unk_04 < 7) {
-                    param0->unk_04++;
+                if (param0->slotMachineVariant < 7) {
+                    param0->slotMachineVariant++;
                     v1 = 1;
                 }
             }
         }
     } else if (gSystem.pressedKeysRepeatable & PAD_KEY_LEFT) {
-        if (param0->unk_04 != 8) {
-            if (param0->unk_04 < (8 / 2)) {
-                param0->unk_04 += (8 / 2);
+        if (param0->slotMachineVariant != 8) {
+            if (param0->slotMachineVariant < (8 / 2)) {
+                param0->slotMachineVariant += (8 / 2);
                 v1 = 1;
                 v2 = 1;
                 v3 = 2;
             } else {
-                param0->unk_04 -= (8 / 2);
+                param0->slotMachineVariant -= (8 / 2);
                 v1 = 1;
             }
         }
     } else if (gSystem.pressedKeysRepeatable & PAD_KEY_RIGHT) {
-        if (param0->unk_04 != 8) {
-            if (param0->unk_04 < (8 / 2)) {
-                param0->unk_04 += (8 / 2);
+        if (param0->slotMachineVariant != 8) {
+            if (param0->slotMachineVariant < (8 / 2)) {
+                param0->slotMachineVariant += (8 / 2);
                 v1 = 1;
             } else {
-                param0->unk_04 -= (8 / 2);
+                param0->slotMachineVariant -= (8 / 2);
                 v1 = 1;
                 v2 = 1;
                 v3 = 3;
@@ -1984,7 +1984,7 @@ static u32 ov64_0222F798(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E06
         if (v1 == 1) {
             Sound_PlayEffect(SEQ_SE_DP_BUTTON3_sseq);
 
-            ov64_02230130(&param0->unk_08[0], param2, param0->unk_04);
+            ov64_02230130(&param0->unk_08[0], param2, param0->slotMachineVariant);
             param0->unk_06 = v0;
         }
     }
@@ -1992,7 +1992,7 @@ static u32 ov64_0222F798(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E06
     return 0;
 }
 
-static void ov64_0222F8F8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_0222F8F8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     u16 v0;
 
@@ -2002,14 +2002,14 @@ static void ov64_0222F8F8(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
         v0 = 1;
     }
 
-    ov64_0222FC80(param0, param1, param2, param0->unk_00, param0->unk_04, v0, heapID);
+    ov64_0222FC80(param0, slotsMinigameDTO, param2, param0->coins, param0->slotMachineVariant, v0, heapID);
     ov64_02230130(&param0->unk_08[0], param2, 10);
     ov64_0222EA48(param2, 0);
 
     Sound_PlayEffect(SEQ_SE_DP_SELECT5_sseq);
 }
 
-static BOOL ov64_0222F948(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static BOOL ov64_0222F948(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     u32 v0;
     s32 v1;
@@ -2020,8 +2020,8 @@ static BOOL ov64_0222F948(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
     };
 
     if (param0->unk_AA >= 12) {
-        Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[2], 0, 0);
-        Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[3], 0, 0);
+        Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[2], 0, 0);
+        Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[3], 0, 0);
 
         v2 = Unk_ov64_02232460;
         SetRenderSurfaceViewRect(&param2->unk_08, &v2);
@@ -2033,7 +2033,7 @@ static BOOL ov64_0222F948(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
         }
 
         ov64_02230240(&param0->unk_08[v0], param2, &param2->unk_278);
-        ov64_0222FC80(param0, param1, param2, param0->unk_00, param0->unk_04, 0, heapID);
+        ov64_0222FC80(param0, slotsMinigameDTO, param2, param0->coins, param0->slotMachineVariant, 0, heapID);
         ov64_0222EA48(param2, 1);
         return 1;
     }
@@ -2044,8 +2044,8 @@ static BOOL ov64_0222F948(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
         v1 = -v1;
     }
 
-    Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[2], 0, v1);
-    Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[3], 0, v1);
+    Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[2], 0, v1);
+    Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[3], 0, v1);
 
     v2 = Unk_ov64_02232460;
     v2.posTopLeft.x += v1 << FX32_SHIFT;
@@ -2056,7 +2056,7 @@ static BOOL ov64_0222F948(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
         v3 = param0->unk_AA / (12 / 4);
 
         if (v4[v3]) {
-            v4[v3](param0, param2, param0->unk_00, param0->unk_02);
+            v4[v3](param0, param2, param0->coins, param0->unk_02);
         }
     }
 
@@ -2064,16 +2064,16 @@ static BOOL ov64_0222F948(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
     return 0;
 }
 
-static void ov64_0222FA70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_0222FA70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     ListMenuTemplate v0;
     WiFiList *v1;
     u32 v2;
     u32 v3;
 
-    v1 = SaveData_GetWiFiList(param1->saveData);
+    v1 = SaveData_GetWiFiList(slotsMinigameDTO->saveData);
     v3 = ov64_0222FF38(param0);
-    v2 = sub_0202AD2C(v1, param1->unk_08.unk_04[v3], 8);
+    v2 = sub_0202AD2C(v1, slotsMinigameDTO->unk_08.slotMachineVariant[v3], 8);
     v0 = Unk_ov64_0223226C;
 
     if (v2 == 2) {
@@ -2088,12 +2088,12 @@ static void ov64_0222FA70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
     Window_DrawStandardFrame(&param0->unk_E0, 1, 1, 9);
     Window_ScheduleCopyToVRAM(&param0->unk_E0);
 
-    ov64_0222E880(param2, param1->saveData, param1->unk_08.unk_04[v3], heapID);
+    ov64_0222E880(param2, slotsMinigameDTO->saveData, slotsMinigameDTO->unk_08.slotMachineVariant[v3], heapID);
     ov64_0222FE70(param0, param2, 12, heapID);
     ov64_0222EA28(param2, 0);
 }
 
-static u32 ov64_0222FB24(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static u32 ov64_0222FB24(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     u32 v0;
     u32 v1 = 6;
@@ -2131,22 +2131,22 @@ static u32 ov64_0222FB24(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E06
     return v1;
 }
 
-static BOOL ov64_0222FBA4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static BOOL ov64_0222FBA4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     WiFiList *v0;
     DWCFriendData *v1;
     u64 v2;
     u32 v3;
 
-    v0 = SaveData_GetWiFiList(param1->saveData);
+    v0 = SaveData_GetWiFiList(slotsMinigameDTO->saveData);
     v3 = ov64_0222FF38(param0);
-    v1 = sub_0202AED8(v0, param1->unk_08.unk_04[v3]);
+    v1 = sub_0202AED8(v0, slotsMinigameDTO->unk_08.slotMachineVariant[v3]);
     v2 = DWC_GetFriendKey(v1);
 
     if (v2 != 0) {
         Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
         ov64_0222E7F8(param2, v2);
-        ov64_0222E880(param2, param1->saveData, param1->unk_08.unk_04[v3], heapID);
+        ov64_0222E880(param2, slotsMinigameDTO->saveData, slotsMinigameDTO->unk_08.slotMachineVariant[v3], heapID);
         ov64_0222FE70(param0, param2, 55, heapID);
         return 1;
     }
@@ -2154,78 +2154,78 @@ static BOOL ov64_0222FBA4(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E0
     return 0;
 }
 
-static void ov64_0222FC1C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_0222FC1C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     u32 v0 = ov64_0222FF38(param0);
 
-    ov64_0222E880(param2, param1->saveData, param1->unk_08.unk_04[v0], heapID);
+    ov64_0222E880(param2, slotsMinigameDTO->saveData, slotsMinigameDTO->unk_08.slotMachineVariant[v0], heapID);
     ov64_0222FE70(param0, param2, 52, heapID);
 }
 
-static BOOL ov64_0222FC48(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static BOOL ov64_0222FC48(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     if (ov64_0222FEFC(param0) == 0) {
         return 0;
     }
 
-    param0->unk_FC = Menu_MakeYesNoChoice(param2->unk_00, &Unk_ov64_022321CA, 1, 9, heapID);
+    param0->unk_FC = Menu_MakeYesNoChoice(param2->coins, &Unk_ov64_022321CA, 1, 9, heapID);
     return 1;
 }
 
-static void ov64_0222FC80(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3, u32 param4, u32 param5, enum HeapID heapID)
+static void ov64_0222FC80(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3, u32 param4, u32 param5, enum HeapID heapID)
 {
     if (0 == param5) {
-        param0->unk_00 = param3;
-        param0->unk_04 = param4;
+        param0->coins = param3;
+        param0->slotMachineVariant = param4;
 
         ov64_0222FCF0(param0, param2, param3);
     }
 
     ov64_022300E4(&param0->unk_08[param5], param2, &param2->unk_278);
-    ov64_022301B4(&param0->unk_08[param5], param1, param2, param0->unk_B0, &param2->unk_278, &param1->unk_08, param3, heapID);
+    ov64_022301B4(&param0->unk_08[param5], slotsMinigameDTO, param2, param0->unk_B0, &param2->unk_278, &slotsMinigameDTO->unk_08, param3, heapID);
     ov64_02230130(&param0->unk_08[param5], param2, param4);
 }
 
-static void ov64_0222FCF0(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2)
+static void ov64_0222FCF0(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2)
 {
     u32 v0;
 
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], 0x16, 0, 9, 3, param1->unk_278.unk_08[1]->rawData, 0, 4, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], 0x16, 0, 9, 3, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 0, 4, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
 
     v0 = 0x16 + (2 * param2) + 1;
 
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, param1->unk_278.unk_08[1]->rawData, 3, Unk_ov64_02232428[param2], param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[0]);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 3, Unk_ov64_02232428[param2], slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[0]);
 }
 
-static void ov64_0222FD7C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3)
+static void ov64_0222FD7C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3)
 {
     u32 v0 = 0x16 + (2 * param3) + 1;
 
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, param1->unk_278.unk_08[1]->rawData, 4, Unk_ov64_02232428[param3], param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[0]);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 4, Unk_ov64_02232428[param3], slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[0]);
 }
 
-static void ov64_0222FDD0(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3)
+static void ov64_0222FDD0(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3)
 {
     u32 v0;
 
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], 0x16, 0, 9, 3, param1->unk_278.unk_08[1]->rawData, 0, 4, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], 0x16, 0, 9, 3, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 0, 4, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
 
     v0 = 0x16 + (2 * param2) + 1;
 
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, param1->unk_278.unk_08[1]->rawData, 3, Unk_ov64_02232428[param2], param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[0]);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 3, Unk_ov64_02232428[param2], slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[0]);
 }
 
-static void ov64_0222FE5C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *param1, int param2)
+static void ov64_0222FE5C(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, int param2)
 {
-    param1->unk_04 = 3;
+    slotsMinigameDTO->slotMachineVariant = 3;
     param0->unk_AC = param2;
     param0->unk_AA = 0;
 }
 
-static void ov64_0222FE70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, enum HeapID heapID)
+static void ov64_0222FE70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, enum HeapID heapID)
 {
     String *v0;
 
@@ -2233,8 +2233,8 @@ static void ov64_0222FE70(UnkStruct_ov64_0222F0C4 *param0, UnkStruct_ov64_0222E2
 
     v0 = String_Init(128, heapID);
 
-    MessageLoader_GetString(param1->unk_218, param2, v0);
-    StringTemplate_Format(param1->unk_214, param0->unk_D4, v0);
+    MessageLoader_GetString(slotsMinigameDTO->unk_218, param2, v0);
+    StringTemplate_Format(slotsMinigameDTO->unk_214, param0->unk_D4, v0);
 
     param0->unk_D8 = Text_AddPrinterWithParamsAndColor(&param0->unk_C4, FONT_MESSAGE, param0->unk_D4, 0, 0, param0->unk_DC, TEXT_COLOR(1, 2, 0), NULL);
 
@@ -2261,13 +2261,13 @@ static void ov64_0222FF18(UnkStruct_ov64_0222F0C4 *param0)
 
 static u32 ov64_0222FF38(const UnkStruct_ov64_0222F0C4 *param0)
 {
-    u32 v0 = param0->unk_00 * 8;
-    v0 += param0->unk_04;
+    u32 v0 = param0->coins * 8;
+    v0 += param0->slotMachineVariant;
 
     return v0;
 }
 
-static void ov64_0222FF48(ListMenu *param0, u32 param1, u8 param2)
+static void ov64_0222FF48(ListMenu *param0, u32 slotsMinigameDTO, u8 param2)
 {
     if (param2 == 0) {
         Sound_PlayEffect(SE_CONFIRM_sseq_3);
@@ -2286,10 +2286,10 @@ static void ov64_0222FF5C(UnkStruct_ov64_0222F0C4 *param0)
 
     Sprite_SetAnimateFlag(param0->unk_104, 1);
 
-    v1 = param0->unk_04;
+    v1 = param0->slotMachineVariant;
 
-    v0.x = ((MATH_ABS(Unk_ov64_0223221C[0].unk_00) + Unk_ov64_02232324[v1].unk_00.unk_00) * 8);
-    v0.y = ((MATH_ABS(Unk_ov64_0223221C[0].unk_02) + Unk_ov64_02232324[v1].unk_00.unk_02) * 8) + (-4 + 256);
+    v0.x = ((MATH_ABS(Unk_ov64_0223221C[0].coins) + Unk_ov64_02232324[v1].coins.coins) * 8);
+    v0.y = ((MATH_ABS(Unk_ov64_0223221C[0].unk_02) + Unk_ov64_02232324[v1].coins.unk_02) * 8) + (-4 + 256);
     v0.x <<= FX32_SHIFT;
     v0.y <<= FX32_SHIFT;
 
@@ -2328,26 +2328,26 @@ static void ov64_02230044(UnkStruct_ov64_0222F0C4 *param0)
     Sprite_SetAnimateFlag(param0->unk_104, 0);
 }
 
-static void ov64_02230074(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_0223221C *param2, u32 param3, u32 param4)
+static void ov64_02230074(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_0223221C *param2, u32 param3, u32 param4)
 {
-    param0->unk_00 = *param2;
+    param0->coins = *param2;
 
     Window_Init(&param0->unk_08);
-    Window_Add(param1->unk_00, &param0->unk_08, Unk_ov64_02232258[3], 4 + MATH_ABS(param2->unk_00), 4 + MATH_ABS(param2->unk_02), 26, 17, 7, param3);
+    Window_Add(slotsMinigameDTO->coins, &param0->unk_08, Unk_ov64_02232258[3], 4 + MATH_ABS(param2->coins), 4 + MATH_ABS(param2->unk_02), 26, 17, 7, param3);
 }
 
-static void ov64_022300D8(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1)
+static void ov64_022300D8(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO)
 {
     Window_Remove(&param0->unk_08);
 }
 
-static void ov64_022300E4(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_022300E4 *param2)
+static void ov64_022300E4(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_022300E4 *param2)
 {
-    Bg_LoadToTilemapRect(param1->unk_00, Unk_ov64_02232258[2], param2->unk_08[0]->rawData, MATH_ABS(param0->unk_00.unk_00), MATH_ABS(param0->unk_00.unk_02), param2->unk_08[0]->screenWidth / 8, param2->unk_08[0]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[2]);
+    Bg_LoadToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[2], param2->unk_08[0]->rawData, MATH_ABS(param0->coins.coins), MATH_ABS(param0->coins.unk_02), param2->unk_08[0]->screenWidth / 8, param2->unk_08[0]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[2]);
 }
 
-static void ov64_02230130(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2)
+static void ov64_02230130(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2)
 {
     int v0;
     int v1;
@@ -2359,20 +2359,20 @@ static void ov64_02230130(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E2
             v1 = 0;
         }
 
-        Bg_ChangeTilemapRectPalette(param1->unk_00, Unk_ov64_02232324[v0].unk_08, MATH_ABS(param0->unk_00.unk_00) + Unk_ov64_02232324[v0].unk_00.unk_00, MATH_ABS(param0->unk_00.unk_02) + Unk_ov64_02232324[v0].unk_00.unk_02, Unk_ov64_02232324[v0].unk_00.unk_04, Unk_ov64_02232324[v0].unk_00.unk_05, v1);
+        Bg_ChangeTilemapRectPalette(slotsMinigameDTO->coins, Unk_ov64_02232324[v0].unk_08, MATH_ABS(param0->coins.coins) + Unk_ov64_02232324[v0].coins.coins, MATH_ABS(param0->coins.unk_02) + Unk_ov64_02232324[v0].coins.unk_02, Unk_ov64_02232324[v0].coins.slotMachineVariant, Unk_ov64_02232324[v0].coins.unk_05, v1);
     }
 
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[2]);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[0]);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[2]);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[0]);
 }
 
-static void ov64_022301B4(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, UnkStruct_ov63_0222AE60 *param3, const UnkStruct_ov64_022300E4 *param4, const UnkStruct_ov64_022301B4 *param5, u32 param6, enum HeapID heapID)
+static void ov64_022301B4(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, UnkStruct_ov63_0222AE60 *param3, const UnkStruct_ov64_022300E4 *param4, const UnkStruct_ov64_022301B4 *param5, u32 param6, enum HeapID heapID)
 {
     int v0;
     int v1;
     WiFiList *v2;
 
-    v2 = SaveData_GetWiFiList(param1->saveData);
+    v2 = SaveData_GetWiFiList(slotsMinigameDTO->saveData);
 
     Window_FillTilemap(&param0->unk_08, 0);
     ov64_022302CC(param0, param2);
@@ -2380,29 +2380,29 @@ static void ov64_022301B4(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E0
     v1 = param6 * 8;
 
     for (v0 = 0; v0 < 8; v0++) {
-        if (param5->unk_00 > (v1 + v0)) {
-            ov64_022302EC(param0, param3, param2, param4, v0, v2, param5->unk_04[v1 + v0], heapID);
+        if (param5->coins > (v1 + v0)) {
+            ov64_022302EC(param0, param3, param2, param4, v0, v2, param5->slotMachineVariant[v1 + v0], heapID);
         } else {
             ov64_022303CC(param0, param2, param4, v0);
         }
     }
 
-    Bg_ScheduleTilemapTransfer(param2->unk_00, Unk_ov64_02232258[2]);
+    Bg_ScheduleTilemapTransfer(param2->coins, Unk_ov64_02232258[2]);
     Window_ScheduleCopyToVRAM(&param0->unk_08);
 }
 
-static void ov64_02230240(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_022300E4 *param2)
+static void ov64_02230240(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_022300E4 *param2)
 {
-    ov64_022302CC(param0, param1);
+    ov64_022302CC(param0, slotsMinigameDTO);
 
     Window_ClearAndScheduleCopyToVRAM(&param0->unk_08);
-    Bg_FillTilemapRect(param1->unk_00, Unk_ov64_02232258[2], 0, MATH_ABS(param0->unk_00.unk_00), MATH_ABS(param0->unk_00.unk_02), param0->unk_00.unk_04, param0->unk_00.unk_05, 0);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[2]);
-    Bg_FillTilemapRect(param1->unk_00, Unk_ov64_02232258[3], 0, MATH_ABS(param0->unk_00.unk_00), MATH_ABS(param0->unk_00.unk_02), param0->unk_00.unk_04, param0->unk_00.unk_05, 0);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[3]);
+    Bg_FillTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[2], 0, MATH_ABS(param0->coins.coins), MATH_ABS(param0->coins.unk_02), param0->coins.slotMachineVariant, param0->coins.unk_05, 0);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[2]);
+    Bg_FillTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[3], 0, MATH_ABS(param0->coins.coins), MATH_ABS(param0->coins.unk_02), param0->coins.slotMachineVariant, param0->coins.unk_05, 0);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[3]);
 }
 
-static void ov64_022302CC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1)
+static void ov64_022302CC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO)
 {
     int v0;
 
@@ -2414,7 +2414,7 @@ static void ov64_022302CC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E2
     }
 }
 
-static void ov64_022302EC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov63_0222AE60 *param1, UnkStruct_ov64_0222E21C *param2, const UnkStruct_ov64_022300E4 *param3, u32 param4, WiFiList *param5, u32 param6, enum HeapID heapID)
+static void ov64_022302EC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov63_0222AE60 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, const UnkStruct_ov64_022300E4 *param3, u32 param4, WiFiList *param5, u32 param6, enum HeapID heapID)
 {
     int v0;
     int v1;
@@ -2429,15 +2429,15 @@ static void ov64_022302EC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov63_0222AE
     if (v0 == 2) {
         ov64_022303CC(param0, param2, param3, param4);
     } else {
-        v2.unk_00 = ((param0->unk_00.unk_00 + Unk_ov64_02232324[param4].unk_00.unk_00) * 8) + 8;
-        v2.unk_02 = ((param0->unk_00.unk_02 + Unk_ov64_02232324[param4].unk_00.unk_02) * 8) + (6 + 256);
-        v2.unk_04 = 8;
+        v2.coins = ((param0->coins.coins + Unk_ov64_02232324[param4].coins.coins) * 8) + 8;
+        v2.unk_02 = ((param0->coins.unk_02 + Unk_ov64_02232324[param4].coins.unk_02) * 8) + (6 + 256);
+        v2.slotMachineVariant = 8;
         v2.unk_06 = 1;
-        param0->unk_18[param4] = ov63_0222B0C0(param1, &v2, v1, heapID);
+        param0->unk_18[param4] = ov63_0222B0C0(slotsMinigameDTO, &v2, v1, heapID);
     }
 
-    v4 = ((Unk_ov64_02232324[param4].unk_00.unk_00) * 8) + 0;
-    v5 = ((Unk_ov64_02232324[param4].unk_00.unk_02) * 8) + -24;
+    v4 = ((Unk_ov64_02232324[param4].coins.coins) * 8) + 0;
+    v5 = ((Unk_ov64_02232324[param4].coins.unk_02) * 8) + -24;
     v3 = String_Init(128, heapID);
 
     String_CopyChars(v3, sub_0202AEF0(param5, param6));
@@ -2445,24 +2445,24 @@ static void ov64_022302EC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov63_0222AE
     String_Free(v3);
 }
 
-static void ov64_022303CC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_022300E4 *param2, u32 param3)
+static void ov64_022303CC(UnkStruct_ov64_02230074 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_022300E4 *param2, u32 param3)
 {
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[2], MATH_ABS(param0->unk_00.unk_00) + Unk_ov64_02232324[param3].unk_00.unk_00, MATH_ABS(param0->unk_00.unk_02) + Unk_ov64_02232324[param3].unk_00.unk_02, 3, 4, param2->unk_08[1]->rawData, 0, 0, param2->unk_08[1]->screenWidth / 8, param2->unk_08[1]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[2]);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[2], MATH_ABS(param0->coins.coins) + Unk_ov64_02232324[param3].coins.coins, MATH_ABS(param0->coins.unk_02) + Unk_ov64_02232324[param3].coins.unk_02, 3, 4, param2->unk_08[1]->rawData, 0, 0, param2->unk_08[1]->screenWidth / 8, param2->unk_08[1]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[2]);
 }
 
-static void ov64_02230444(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02230444(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    ov64_022305D4(param0, param1, param2, heapID);
+    ov64_022305D4(param0, slotsMinigameDTO, param2, heapID);
 }
 
-static int ov64_0223044C(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222DFD0 *param1, UnkStruct_ov64_0222E060 *param2, UnkStruct_ov64_0222E21C *param3, enum HeapID heapID)
+static int ov64_0223044C(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222DFD0 *slotsMinigameDTO, UnkStruct_ov64_0222E060 *param2, UnkStruct_ov64_0222E21C *param3, enum HeapID heapID)
 {
     int v0[4];
 
-    switch (param2->unk_04) {
+    switch (param2->slotMachineVariant) {
     case 0:
-        param0->unk_04 = ov64_022305DC(param0, param2, heapID);
+        param0->slotMachineVariant = ov64_022305DC(param0, param2, heapID);
 
         v0[0] = 4;
         v0[1] = 4;
@@ -2470,9 +2470,9 @@ static int ov64_0223044C(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222DFD
         v0[3] = 0;
 
         param0->unk_08 = sub_02089400(heapID, 12, v0, SaveData_GetOptions(param2->saveData), 0, 0);
-        ov64_0222DFD0(param1);
-        param0->appMan = ApplicationManager_New(&gNamingScreenAppTemplate, param0->unk_04, heapID);
-        param2->unk_04 = 1;
+        ov64_0222DFD0(slotsMinigameDTO);
+        param0->appMan = ApplicationManager_New(&gNamingScreenAppTemplate, param0->slotMachineVariant, heapID);
+        param2->slotMachineVariant = 1;
         break;
     case 1:
         if (ApplicationManager_Exec(param0->appMan) == 0) {
@@ -2481,12 +2481,12 @@ static int ov64_0223044C(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222DFD
 
         ApplicationManager_Free(param0->appMan);
 
-        if (param0->unk_04->returnCode == NAMING_SCREEN_CODE_OK) {
+        if (param0->slotMachineVariant->returnCode == NAMING_SCREEN_CODE_OK) {
             param0->appMan = ApplicationManager_New(&Unk_020F2DBC, param0->unk_08, heapID);
-            param2->unk_04 = 2;
+            param2->slotMachineVariant = 2;
         } else {
             ov64_0222E074(param2, 0, 0);
-            param2->unk_04 = 3;
+            param2->slotMachineVariant = 3;
         }
         break;
     case 2:
@@ -2495,20 +2495,20 @@ static int ov64_0223044C(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222DFD
         }
 
         ApplicationManager_Free(param0->appMan);
-        ov64_0222E07C(param2, param0->unk_04->textInputStr, param0->unk_08->unk_1C);
+        ov64_0222E07C(param2, param0->slotMachineVariant->textInputStr, param0->unk_08->unk_1C);
         ov64_0222E074(param2, 0, 6);
-        param2->unk_04 = 3;
+        param2->slotMachineVariant = 3;
         break;
     case 3:
-        NamingScreenArgs_Free(param0->unk_04);
+        NamingScreenArgs_Free(param0->slotMachineVariant);
         sub_02089438(param0->unk_08);
-        ov64_0222DF48(param1, heapID);
+        ov64_0222DF48(slotsMinigameDTO, heapID);
         return 1;
     case 4:
-        param0->unk_04 = ov64_022305DC(param0, param2, heapID);
-        ov64_0222DFD0(param1);
-        param0->appMan = ApplicationManager_New(&gNamingScreenAppTemplate, param0->unk_04, heapID);
-        param2->unk_04 = 5;
+        param0->slotMachineVariant = ov64_022305DC(param0, param2, heapID);
+        ov64_0222DFD0(slotsMinigameDTO);
+        param0->appMan = ApplicationManager_New(&gNamingScreenAppTemplate, param0->slotMachineVariant, heapID);
+        param2->slotMachineVariant = 5;
         break;
     case 5:
         if (ApplicationManager_Exec(param0->appMan) == 0) {
@@ -2517,76 +2517,76 @@ static int ov64_0223044C(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222DFD
 
         ApplicationManager_Free(param0->appMan);
 
-        if (param0->unk_04->returnCode == NAMING_SCREEN_CODE_OK) {
+        if (param0->slotMachineVariant->returnCode == NAMING_SCREEN_CODE_OK) {
             ov64_0222E074(param2, 1, 12);
-            ov64_0222E07C(param2, param0->unk_04->textInputStr, NULL);
-            param2->unk_04 = 6;
+            ov64_0222E07C(param2, param0->slotMachineVariant->textInputStr, NULL);
+            param2->slotMachineVariant = 6;
         } else {
             ov64_0222E074(param2, 1, 13);
-            param2->unk_04 = 6;
+            param2->slotMachineVariant = 6;
         }
         break;
     case 6:
-        NamingScreenArgs_Free(param0->unk_04);
-        ov64_0222DF48(param1, heapID);
+        NamingScreenArgs_Free(param0->slotMachineVariant);
+        ov64_0222DF48(slotsMinigameDTO, heapID);
         return 1;
     }
 
     return 0;
 }
 
-static void ov64_022305CC(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_022305CC(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
-    ov64_022305D8(param0, param1, param2);
+    ov64_022305D8(param0, slotsMinigameDTO, param2);
 }
 
-static void ov64_022305D4(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
-{
-    return;
-}
-
-static void ov64_022305D8(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_022305D4(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     return;
 }
 
-static NamingScreenArgs *ov64_022305DC(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *param1, enum HeapID heapID)
+static void ov64_022305D8(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
+{
+    return;
+}
+
+static NamingScreenArgs *ov64_022305DC(UnkStruct_ov64_02230444 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, enum HeapID heapID)
 {
     NamingScreenArgs *v0;
 
-    v0 = NamingScreenArgs_Init(heapID, NAMING_SCREEN_TYPE_PAL_PAD, 0, TRAINER_NAME_LEN, SaveData_GetOptions(param1->saveData));
+    v0 = NamingScreenArgs_Init(heapID, NAMING_SCREEN_TYPE_PAL_PAD, 0, TRAINER_NAME_LEN, SaveData_GetOptions(slotsMinigameDTO->saveData));
 
-    if (param1->unk_34.unk_04 == 1) {
+    if (slotsMinigameDTO->unk_34.slotMachineVariant == 1) {
         {
-            if (IsFullWidthChar(*param1->unk_34.unk_00) == 0) {
-                String_CopyChars(v0->textInputStr, param1->unk_34.unk_00);
+            if (IsFullWidthChar(*slotsMinigameDTO->unk_34.coins) == 0) {
+                String_CopyChars(v0->textInputStr, slotsMinigameDTO->unk_34.coins);
             } else {
                 String_Clear(v0->textInputStr);
             }
         }
 
-        param1->unk_34.unk_04 = 0;
+        slotsMinigameDTO->unk_34.slotMachineVariant = 0;
     }
 
     return v0;
 }
 
-static void ov64_02230620(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02230620(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    ov64_02230680(param0, param1, param2, heapID);
+    ov64_02230680(param0, slotsMinigameDTO, param2, heapID);
 }
 
-static int ov64_02230628(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static int ov64_02230628(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
-    switch (param1->unk_04) {
+    switch (slotsMinigameDTO->slotMachineVariant) {
     case 0:
-        ov64_0223081C(param0, param1, param2);
-        param1->unk_04 = 1;
+        ov64_0223081C(param0, slotsMinigameDTO, param2);
+        slotsMinigameDTO->slotMachineVariant = 1;
         break;
     case 1:
         if (gSystem.pressedKeys & (PAD_BUTTON_A | PAD_BUTTON_B)) {
             Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
-            ov64_0222E074(param1, 0, 2);
+            ov64_0222E074(slotsMinigameDTO, 0, 2);
             ov64_0223087C(param0, param2);
             return 1;
         }
@@ -2596,30 +2596,30 @@ static int ov64_02230628(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E06
     return 0;
 }
 
-static void ov64_02230678(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_02230678(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
-    ov64_02230804(param0, param1, param2);
+    ov64_02230804(param0, slotsMinigameDTO, param2);
 }
 
-static void ov64_02230680(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02230680(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    Window_Init(&param0->unk_00);
-    Window_Add(param2->unk_00, &param0->unk_00, BG_LAYER_MAIN_3, 5, 13, 23, 8, 7, 1);
+    Window_Init(&param0->coins);
+    Window_Add(param2->coins, &param0->coins, BG_LAYER_MAIN_3, 5, 13, 23, 8, 7, 1);
 
     Window_Init(&param0->unk_10);
-    Window_Add(param2->unk_00, &param0->unk_10, BG_LAYER_MAIN_3, 9, 8, 15, 2, 7, 185);
+    Window_Add(param2->coins, &param0->unk_10, BG_LAYER_MAIN_3, 9, 8, 15, 2, 7, 185);
 
-    Window_FillTilemap(&param0->unk_00, 0);
+    Window_FillTilemap(&param0->coins, 0);
     Window_FillTilemap(&param0->unk_10, 0);
 
     String *string = String_Init(128, heapID);
     String *fmtString = String_Init(128, heapID);
 
-    u64 friendCode = DWC_CreateFriendKey(WiFiList_GetUserData(SaveData_GetWiFiList(param1->saveData)));
+    u64 friendCode = DWC_CreateFriendKey(WiFiList_GetUserData(SaveData_GetWiFiList(slotsMinigameDTO->saveData)));
     if (friendCode) {
         MessageLoader_GetString(param2->unk_218, 47, string);
         u32 xOffset = (184 - Font_CalcMaxLineWidth(FONT_SYSTEM, string, 0)) / 2;
-        Text_AddPrinterWithParamsAndColor(&param0->unk_00, FONT_SYSTEM, string, xOffset, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
+        Text_AddPrinterWithParamsAndColor(&param0->coins, FONT_SYSTEM, string, xOffset, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
 
         ov64_0222E7F8(param2, friendCode);
         MessageLoader_GetString(param2->unk_218, 51, fmtString);
@@ -2628,7 +2628,7 @@ static void ov64_02230680(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E0
     } else {
         MessageLoader_GetString(param2->unk_218, 48, string);
         u32 xOffset = (184 - Font_CalcMaxLineWidth(FONT_SYSTEM, string, 0)) / 2;
-        Text_AddPrinterWithParamsAndColor(&param0->unk_00, FONT_SYSTEM, string, xOffset, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
+        Text_AddPrinterWithParamsAndColor(&param0->coins, FONT_SYSTEM, string, xOffset, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
     }
 
     String_Free(string);
@@ -2637,78 +2637,78 @@ static void ov64_02230680(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E0
     param0->unk_20 = Graphics_GetScrnDataFromOpenNARC(param2->unk_21C, 11, 0, &param0->unk_24, heapID);
 }
 
-static void ov64_02230804(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_02230804(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
-    Window_Remove(&param0->unk_00);
+    Window_Remove(&param0->coins);
     Window_Remove(&param0->unk_10);
     Heap_Free(param0->unk_20);
 }
 
-static void ov64_0223081C(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_0223081C(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
-    StringTemplate_SetPlayerName(param2->unk_214, 0, SaveData_GetTrainerInfo(param1->saveData));
+    StringTemplate_SetPlayerName(param2->unk_214, 0, SaveData_GetTrainerInfo(slotsMinigameDTO->saveData));
     ov64_0222E738(param2, 46);
 
-    Bg_LoadToTilemapRect(param2->unk_00, Unk_ov64_02232258[2], param0->unk_24->rawData, 0, 0, param0->unk_24->screenWidth / 8, param0->unk_24->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param2->unk_00, Unk_ov64_02232258[2]);
-    Window_ScheduleCopyToVRAM(&param0->unk_00);
+    Bg_LoadToTilemapRect(param2->coins, Unk_ov64_02232258[2], param0->unk_24->rawData, 0, 0, param0->unk_24->screenWidth / 8, param0->unk_24->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(param2->coins, Unk_ov64_02232258[2]);
+    Window_ScheduleCopyToVRAM(&param0->coins);
     Window_ScheduleCopyToVRAM(&param0->unk_10);
 }
 
-static void ov64_0223087C(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E21C *param1)
+static void ov64_0223087C(UnkStruct_ov64_02230620 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO)
 {
-    ov64_0222E7C8(param1);
+    ov64_0222E7C8(slotsMinigameDTO);
 
-    Bg_FillTilemapRect(param1->unk_00, Unk_ov64_02232258[2], 0, 0, 0, 32, 24, 0);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[2]);
+    Bg_FillTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[2], 0, 0, 0, 32, 24, 0);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[2]);
 
-    Window_ClearAndScheduleCopyToVRAM(&param0->unk_00);
+    Window_ClearAndScheduleCopyToVRAM(&param0->coins);
     Window_ClearAndScheduleCopyToVRAM(&param0->unk_10);
 
-    Bg_FillTilemapRect(param1->unk_00, Unk_ov64_02232258[3], 0, 0, 0, 32, 24, 0);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[3]);
+    Bg_FillTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[3], 0, 0, 0, 32, 24, 0);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[3]);
 }
 
-static void ov64_022308DC(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_022308DC(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    param0->unk_10 = SystemFlag_HandleFirstArrivalToZone(SaveData_GetVarsFlags(param1->saveData), HANDLE_FLAG_CHECK, FIRST_ARRIVAL_BATTLE_PARK);
+    param0->unk_10 = SystemFlag_HandleFirstArrivalToZone(SaveData_GetVarsFlags(slotsMinigameDTO->saveData), HANDLE_FLAG_CHECK, FIRST_ARRIVAL_BATTLE_PARK);
 
-    ov64_02230B1C(param0, param1, param2, heapID);
+    ov64_02230B1C(param0, slotsMinigameDTO, param2, heapID);
 }
 
-static int ov64_02230904(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static int ov64_02230904(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     BOOL v0;
 
-    switch (param1->unk_04) {
+    switch (slotsMinigameDTO->slotMachineVariant) {
     case 0:
         param0->unk_0E = 0;
-        param0->unk_00 = 0;
+        param0->coins = 0;
     case 1:
-        ov64_02230BD8(param0, param1, param2, heapID);
-        param1->unk_04 = 2;
+        ov64_02230BD8(param0, slotsMinigameDTO, param2, heapID);
+        slotsMinigameDTO->slotMachineVariant = 2;
         break;
     case 2:
         if (gSystem.pressedKeys & (PAD_BUTTON_A | PAD_BUTTON_B)) {
             Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
-            param1->unk_04 = 6;
+            slotsMinigameDTO->slotMachineVariant = 6;
         } else {
             if (gSystem.pressedKeysRepeatable & PAD_KEY_LEFT) {
                 ov64_02232138(param0, -1);
-                param1->unk_04 = 3;
+                slotsMinigameDTO->slotMachineVariant = 3;
                 param0->unk_08 = 2;
             } else if (gSystem.pressedKeysRepeatable & PAD_KEY_RIGHT) {
                 ov64_02232138(param0, 1);
-                param1->unk_04 = 3;
+                slotsMinigameDTO->slotMachineVariant = 3;
                 param0->unk_08 = 3;
             } else if (gSystem.heldKeys & PAD_KEY_UP) {
-                param1->unk_04 = 5;
+                slotsMinigameDTO->slotMachineVariant = 5;
                 param0->unk_08 = 0;
-                param0->unk_0C = 4;
+                param0->slotsMinigameDTO = 4;
             } else if (gSystem.heldKeys & PAD_KEY_DOWN) {
-                param1->unk_04 = 5;
+                slotsMinigameDTO->slotMachineVariant = 5;
                 param0->unk_08 = 1;
-                param0->unk_0C = 4;
+                param0->slotsMinigameDTO = 4;
             }
         }
 
@@ -2717,59 +2717,59 @@ static int ov64_02230904(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E06
         }
         break;
     case 3:
-        ov64_02230A58(param0, param1, param2, heapID);
-        ov64_02230A9C(param0, param1, param2, heapID);
-        param1->unk_04 = 4;
+        ov64_02230A58(param0, slotsMinigameDTO, param2, heapID);
+        ov64_02230A9C(param0, slotsMinigameDTO, param2, heapID);
+        slotsMinigameDTO->slotMachineVariant = 4;
         break;
     case 4:
-        v0 = ov64_02230A9C(param0, param1, param2, heapID);
+        v0 = ov64_02230A9C(param0, slotsMinigameDTO, param2, heapID);
 
         if (v0 == 1) {
-            param1->unk_04 = 2;
+            slotsMinigameDTO->slotMachineVariant = 2;
         }
         break;
     case 5:
         if (param0->unk_0E) {
-            param0->unk_0C--;
+            param0->slotsMinigameDTO--;
 
-            if (param0->unk_0C > 0) {
+            if (param0->slotsMinigameDTO > 0) {
                 break;
             }
         }
 
-        v0 = ov64_02230EA8(param1, param0->unk_08);
+        v0 = ov64_02230EA8(slotsMinigameDTO, param0->unk_08);
 
         if (v0) {
             Sound_PlayEffect(SEQ_SE_DP_BUTTON3_sseq);
 
             ov64_02230C1C(param0, param2);
-            ov64_0222E074(param1, 4, 1);
+            ov64_0222E074(slotsMinigameDTO, 4, 1);
 
             param0->unk_0E = 1;
             return 1;
         }
 
-        param1->unk_04 = 2;
+        slotsMinigameDTO->slotMachineVariant = 2;
         break;
     case 6:
         ov64_02230C1C(param0, param2);
-        ov64_0222E074(param1, 1, 9);
+        ov64_0222E074(slotsMinigameDTO, 1, 9);
         return 1;
     }
 
     return 0;
 }
 
-static void ov64_02230A50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_02230A50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
-    ov64_02230BA0(param0, param1, param2);
+    ov64_02230BA0(param0, slotsMinigameDTO, param2);
 }
 
-static void ov64_02230A58(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3)
+static void ov64_02230A58(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3)
 {
     u32 v0;
 
-    param0->unk_04 = 0;
+    param0->slotMachineVariant = 0;
 
     ov64_0222EA48(param2, 0);
 
@@ -2779,11 +2779,11 @@ static void ov64_02230A58(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E0
         v0 = 1;
     }
 
-    ov64_02230C50(param0, param1, param2, v0, param0->unk_00, param3);
+    ov64_02230C50(param0, slotsMinigameDTO, param2, v0, param0->coins, param3);
     Sound_PlayEffect(SEQ_SE_DP_SELECT5_sseq);
 }
 
-static BOOL ov64_02230A9C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3)
+static BOOL ov64_02230A9C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3)
 {
     u32 v0;
     s32 v1;
@@ -2793,9 +2793,9 @@ static BOOL ov64_02230A9C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E0
         ov64_02230D98, NULL, ov64_02230DE4, NULL
     };
 
-    if (param0->unk_04 > 4) {
-        Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[2], 0, 0);
-        Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[3], 0, 0);
+    if (param0->slotMachineVariant > 4) {
+        Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[2], 0, 0);
+        Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[3], 0, 0);
 
         if (param0->unk_08 == 2) {
             v0 = 2;
@@ -2803,35 +2803,35 @@ static BOOL ov64_02230A9C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E0
             v0 = 1;
         }
 
-        ov64_02230C50(param0, param1, param2, 0, param0->unk_00, param3);
+        ov64_02230C50(param0, slotsMinigameDTO, param2, 0, param0->coins, param3);
         ov64_0222EA48(param2, 1);
 
         return 1;
     }
 
-    v1 = (param0->unk_04 * 256) / 4;
+    v1 = (param0->slotMachineVariant * 256) / 4;
 
     if (param0->unk_08 == 2) {
         v1 = -v1;
     }
 
-    Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[2], 0, v1);
-    Bg_ScheduleScroll(param2->unk_00, Unk_ov64_02232258[3], 0, v1);
+    Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[2], 0, v1);
+    Bg_ScheduleScroll(param2->coins, Unk_ov64_02232258[3], 0, v1);
 
-    if (param0->unk_04 % (4 / 4)) {
-        v3 = param0->unk_04 / (4 / 4);
+    if (param0->slotMachineVariant % (4 / 4)) {
+        v3 = param0->slotMachineVariant / (4 / 4);
 
         if (v4[v3]) {
-            v4[v3](param0, param2, param0->unk_00, param0->unk_02);
+            v4[v3](param0, param2, param0->coins, param0->unk_02);
         }
     }
 
-    param0->unk_04++;
+    param0->slotMachineVariant++;
 
     return 0;
 }
 
-static void ov64_02230B1C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02230B1C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
     int v0, v1;
     static const u32 v2[3] = {
@@ -2851,7 +2851,7 @@ static void ov64_02230B1C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E0
     }
 }
 
-static void ov64_02230BA0(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2)
+static void ov64_02230BA0(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2)
 {
     int v0, v1;
 
@@ -2866,86 +2866,86 @@ static void ov64_02230BA0(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E0
     ov64_02230F60(&param0->unk_DC);
 }
 
-static void ov64_02230BD8(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02230BD8(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    ov64_0222E880(param2, param1->saveData, param1->unk_08.unk_04[param1->unk_07], heapID);
+    ov64_0222E880(param2, slotsMinigameDTO->saveData, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], heapID);
     ov64_0222E738(param2, 13);
-    ov64_02230C50(param0, param1, param2, 0, param0->unk_00, heapID);
+    ov64_02230C50(param0, slotsMinigameDTO, param2, 0, param0->coins, heapID);
     ov64_0222EA28(param2, 1);
 }
 
-static void ov64_02230C1C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1)
+static void ov64_02230C1C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO)
 {
     int v0;
 
-    ov64_0222EA28(param1, 0);
+    ov64_0222EA28(slotsMinigameDTO, 0);
 
     for (v0 = 0; v0 < 3; v0++) {
-        ov64_02231144(&param0->unk_14[v0], param1);
+        ov64_02231144(&param0->unk_14[v0], slotsMinigameDTO);
     }
 
-    ov64_02230D50(param0, param1);
-    ov64_0222E7C8(param1);
+    ov64_02230D50(param0, slotsMinigameDTO);
+    ov64_0222E7C8(slotsMinigameDTO);
 }
 
-static void ov64_02230C50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3, u32 param4, u32 param5)
+static void ov64_02230C50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3, u32 param4, u32 param5)
 {
     if (param3 == 0) {
-        param0->unk_00 = param4;
+        param0->coins = param4;
 
         ov64_02230C8C(param0, param2, param4, param5);
     }
 
-    ov64_022310D4(&param0->unk_14[param3], param1, param2, param4, &param0->unk_DC, param5);
+    ov64_022310D4(&param0->unk_14[param3], slotsMinigameDTO, param2, param4, &param0->unk_DC, param5);
 }
 
-static void ov64_02230C8C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3)
+static void ov64_02230C8C(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3)
 {
     u32 v0;
 
     if (param0->unk_10 == 1) {
-        Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], 22, 0, 9, 3, param1->unk_278.unk_08[1]->rawData, 16, 4, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
+        Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], 22, 0, 9, 3, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 16, 4, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
     } else {
-        Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], 22, 0, 9, 3, param1->unk_278.unk_08[1]->rawData, 16, 4 + 3, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
+        Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], 22, 0, 9, 3, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 16, 4 + 3, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
     }
 
     v0 = 22 + (1 * param2) + 1;
 
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, param1->unk_278.unk_08[1]->rawData, 5, 0, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[0]);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 5, 0, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[0]);
 }
 
-static void ov64_02230D50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1)
+static void ov64_02230D50(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO)
 {
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], 22, 0, 9, 3, param1->unk_278.unk_08[1]->rawData, 0x10, 0x0, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[0]);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], 22, 0, 9, 3, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 0x10, 0x0, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[0]);
 }
 
-static void ov64_02230D98(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3)
+static void ov64_02230D98(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3)
 {
     int v0 = 22 + (1 * param3) + 1;
 
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, param1->unk_278.unk_08[1]->rawData, 5, 1, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[0]);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 5, 1, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[0]);
 }
 
-static void ov64_02230DE4(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3)
+static void ov64_02230DE4(UnkStruct_ov64_02230904 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3)
 {
     int v0;
 
     if (param0->unk_10 == 1) {
-        Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], 22, 0, 9, 3, param1->unk_278.unk_08[1]->rawData, 16, 4, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
+        Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], 22, 0, 9, 3, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 16, 4, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
     } else {
-        Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], 22, 0, 9, 3, param1->unk_278.unk_08[1]->rawData, 16, 4 + 3, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
+        Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], 22, 0, 9, 3, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 16, 4 + 3, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
     }
 
     v0 = 22 + (1 * param2) + 1;
 
-    Bg_CopyToTilemapRect(param1->unk_00, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, param1->unk_278.unk_08[1]->rawData, 5, 0, param1->unk_278.unk_08[1]->screenWidth / 8, param1->unk_278.unk_08[1]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param1->unk_00, Unk_ov64_02232258[0]);
+    Bg_CopyToTilemapRect(slotsMinigameDTO->coins, Unk_ov64_02232258[0], v0, 0 + 1, 1, 1, slotsMinigameDTO->unk_278.unk_08[1]->rawData, 5, 0, slotsMinigameDTO->unk_278.unk_08[1]->screenWidth / 8, slotsMinigameDTO->unk_278.unk_08[1]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(slotsMinigameDTO->coins, Unk_ov64_02232258[0]);
 }
 
-static BOOL ov64_02230EA8(UnkStruct_ov64_0222E060 *param0, int param1)
+static BOOL ov64_02230EA8(UnkStruct_ov64_0222E060 *param0, int slotsMinigameDTO)
 {
     int v0;
     u32 v1;
@@ -2953,15 +2953,15 @@ static BOOL ov64_02230EA8(UnkStruct_ov64_0222E060 *param0, int param1)
     WiFiList *v3 = SaveData_GetWiFiList(param0->saveData);
     v2 = param0->unk_07;
 
-    if (param1 == 0) {
-        for (v0 = 0; v0 < param0->unk_08.unk_00 - 1; v0++) {
+    if (slotsMinigameDTO == 0) {
+        for (v0 = 0; v0 < param0->unk_08.coins - 1; v0++) {
             v2--;
 
             if (v2 < 0) {
-                v2 += param0->unk_08.unk_00;
+                v2 += param0->unk_08.coins;
             }
 
-            v1 = sub_0202AD2C(v3, param0->unk_08.unk_04[v2], 8);
+            v1 = sub_0202AD2C(v3, param0->unk_08.slotMachineVariant[v2], 8);
 
             if (v1 != 2) {
                 param0->unk_07 = v2;
@@ -2969,10 +2969,10 @@ static BOOL ov64_02230EA8(UnkStruct_ov64_0222E060 *param0, int param1)
             }
         }
     } else {
-        for (v0 = 0; v0 < param0->unk_08.unk_00 - 1; v0++) {
-            v2 = (v2 + 1) % param0->unk_08.unk_00;
+        for (v0 = 0; v0 < param0->unk_08.coins - 1; v0++) {
+            v2 = (v2 + 1) % param0->unk_08.coins;
 
-            v1 = sub_0202AD2C(v3, param0->unk_08.unk_04[v2], 8);
+            v1 = sub_0202AD2C(v3, param0->unk_08.slotMachineVariant[v2], 8);
 
             if (v1 != 2) {
                 param0->unk_07 = v2;
@@ -2984,7 +2984,7 @@ static BOOL ov64_02230EA8(UnkStruct_ov64_0222E060 *param0, int param1)
     return 0;
 }
 
-static void ov64_02230F24(UnkStruct_ov64_02230F60 *param0, UnkStruct_ov64_0222E21C *param1, enum HeapID heapID)
+static void ov64_02230F24(UnkStruct_ov64_02230F60 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, enum HeapID heapID)
 {
     static const u8 v0[7] = {
         4,
@@ -2998,7 +2998,7 @@ static void ov64_02230F24(UnkStruct_ov64_02230F60 *param0, UnkStruct_ov64_0222E2
     int v1;
 
     for (v1 = 0; v1 < 7; v1++) {
-        param0->unk_00[v1] = Graphics_GetScrnDataFromOpenNARC(param1->unk_21C, v0[v1], 0, &param0->unk_1C[v1], heapID);
+        param0->coins[v1] = Graphics_GetScrnDataFromOpenNARC(slotsMinigameDTO->unk_21C, v0[v1], 0, &param0->unk_1C[v1], heapID);
     }
 }
 
@@ -3007,19 +3007,19 @@ static void ov64_02230F60(UnkStruct_ov64_02230F60 *param0)
     int v0;
 
     for (v0 = 0; v0 < 7; v0++) {
-        Heap_Free(param0->unk_00[v0]);
+        Heap_Free(param0->coins[v0]);
     }
 }
 
-static void ov64_02230F78(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *param1, const UnkStruct_ov64_0223221C *param2, u32 param3, enum HeapID heapID)
+static void ov64_02230F78(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, const UnkStruct_ov64_0223221C *param2, u32 param3, enum HeapID heapID)
 {
     int v0;
 
-    param0->unk_00 = *param2;
+    param0->coins = *param2;
     param0->unk_08 = param3;
 
     for (v0 = 0; v0 < 7; v0++) {
-        param0->unk_0C[v0] = NULL;
+        param0->slotsMinigameDTO[v0] = NULL;
         param0->unk_28[v0] = 0;
     }
 }
@@ -3029,53 +3029,53 @@ static void ov64_02230F98(UnkStruct_ov64_02230F98 *param0)
     return;
 }
 
-static void ov64_02230F9C(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *param1, u32 param2, u32 param3, const UnkStruct_ov64_0223222E *param4, enum HeapID heapID)
+static void ov64_02230F9C(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO, u32 param2, u32 param3, const UnkStruct_ov64_0223222E *param4, enum HeapID heapID)
 {
     int v0;
     u16 v1;
 
-    param0->unk_0C[param2] = Window_New(heapID, param3);
+    param0->slotsMinigameDTO[param2] = Window_New(heapID, param3);
     param0->unk_28[param2] = param3;
 
     v1 = param0->unk_08;
 
     for (v0 = 0; v0 < param3; v0++) {
-        Window_Init(&param0->unk_0C[param2][v0]);
-        Window_Add(param1->unk_00, &param0->unk_0C[param2][v0], Unk_ov64_02232258[3], MATH_ABS(param0->unk_00.unk_00) + param4[v0].unk_00, MATH_ABS(param0->unk_00.unk_02) + param4[v0].unk_01, param4[v0].unk_02, param4[v0].unk_03, 7, v1);
-        Window_FillTilemap(&param0->unk_0C[param2][v0], 0);
+        Window_Init(&param0->slotsMinigameDTO[param2][v0]);
+        Window_Add(slotsMinigameDTO->coins, &param0->slotsMinigameDTO[param2][v0], Unk_ov64_02232258[3], MATH_ABS(param0->coins.coins) + param4[v0].coins, MATH_ABS(param0->coins.unk_02) + param4[v0].unk_01, param4[v0].unk_02, param4[v0].unk_03, 7, v1);
+        Window_FillTilemap(&param0->slotsMinigameDTO[param2][v0], 0);
         v1 += (param4[v0].unk_02 * param4[v0].unk_03);
     }
 }
 
-static void ov64_02231058(UnkStruct_ov64_02230F98 *param0, u32 param1)
+static void ov64_02231058(UnkStruct_ov64_02230F98 *param0, u32 slotsMinigameDTO)
 {
-    if (param0->unk_0C[param1]) {
-        Windows_Delete(param0->unk_0C[param1], param0->unk_28[param1]);
-        param0->unk_0C[param1] = NULL;
-        param0->unk_28[param1] = 0;
+    if (param0->slotsMinigameDTO[slotsMinigameDTO]) {
+        Windows_Delete(param0->slotsMinigameDTO[slotsMinigameDTO], param0->unk_28[slotsMinigameDTO]);
+        param0->slotsMinigameDTO[slotsMinigameDTO] = NULL;
+        param0->unk_28[slotsMinigameDTO] = 0;
     }
 }
 
-static void ov64_02231080(UnkStruct_ov64_02230F98 *param0, u32 param1)
-{
-    int v0;
-
-    for (v0 = 0; v0 < param0->unk_28[param1]; v0++) {
-        Window_ScheduleCopyToVRAM(&param0->unk_0C[param1][v0]);
-    }
-}
-
-static void ov64_022310A4(UnkStruct_ov64_02230F98 *param0, u32 param1)
+static void ov64_02231080(UnkStruct_ov64_02230F98 *param0, u32 slotsMinigameDTO)
 {
     int v0;
 
-    for (v0 = 0; v0 < param0->unk_28[param1]; v0++) {
-        Window_ClearAndScheduleCopyToVRAM(&param0->unk_0C[param1][v0]);
-        Window_FillTilemap(&param0->unk_0C[param1][v0], 0);
+    for (v0 = 0; v0 < param0->unk_28[slotsMinigameDTO]; v0++) {
+        Window_ScheduleCopyToVRAM(&param0->slotsMinigameDTO[slotsMinigameDTO][v0]);
     }
 }
 
-static void ov64_022310D4(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, u32 param3, const UnkStruct_ov64_02230F60 *param4, u32 param5)
+static void ov64_022310A4(UnkStruct_ov64_02230F98 *param0, u32 slotsMinigameDTO)
+{
+    int v0;
+
+    for (v0 = 0; v0 < param0->unk_28[slotsMinigameDTO]; v0++) {
+        Window_ClearAndScheduleCopyToVRAM(&param0->slotsMinigameDTO[slotsMinigameDTO][v0]);
+        Window_FillTilemap(&param0->slotsMinigameDTO[slotsMinigameDTO][v0], 0);
+    }
+}
+
+static void ov64_022310D4(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, u32 param3, const UnkStruct_ov64_02230F60 *param4, u32 param5)
 {
     static void (*v0[7])(UnkStruct_ov64_02230F98 *, UnkStruct_ov64_0222E060 *, UnkStruct_ov64_0222E21C *, enum HeapID) = {
         ov64_02231164,
@@ -3089,13 +3089,13 @@ static void ov64_022310D4(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E0
 
     ov64_02231144(param0, param2);
 
-    Bg_LoadToTilemapRect(param2->unk_00, Unk_ov64_02232258[2], param4->unk_1C[param3]->rawData, MATH_ABS(param0->unk_00.unk_00), MATH_ABS(param0->unk_00.unk_02), param4->unk_1C[param3]->screenWidth / 8, param4->unk_1C[param3]->screenHeight / 8);
-    Bg_ScheduleTilemapTransfer(param2->unk_00, Unk_ov64_02232258[2]);
+    Bg_LoadToTilemapRect(param2->coins, Unk_ov64_02232258[2], param4->unk_1C[param3]->rawData, MATH_ABS(param0->coins.coins), MATH_ABS(param0->coins.unk_02), param4->unk_1C[param3]->screenWidth / 8, param4->unk_1C[param3]->screenHeight / 8);
+    Bg_ScheduleTilemapTransfer(param2->coins, Unk_ov64_02232258[2]);
 
-    v0[param3](param0, param1, param2, param5);
+    v0[param3](param0, slotsMinigameDTO, param2, param5);
 }
 
-static void ov64_02231144(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *param1)
+static void ov64_02231144(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E21C *slotsMinigameDTO)
 {
     int v0;
 
@@ -3103,55 +3103,55 @@ static void ov64_02231144(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E2
         ov64_022310A4(param0, v0);
     }
 
-    ov64_02232038(param1, &param0->unk_00);
+    ov64_02232038(slotsMinigameDTO, &param0->coins);
 }
 
-static void ov64_02231164(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02231164(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    WiFiList *wifiList = SaveData_GetWiFiList(param1->saveData);
+    WiFiList *wifiList = SaveData_GetWiFiList(slotsMinigameDTO->saveData);
 
     String *string = String_Init(128, heapID);
     String *fmtString = String_Init(128, heapID);
 
-    ov64_022320B8(param0, 0, 0, param1, param2, 14, 0, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 0, 0, slotsMinigameDTO, param2, 14, 0, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E8C0(param2, param1->saveData, param1->unk_08.unk_04[param1->unk_07], heapID);
-    ov64_022320B8(param0, 0, 0, param1, param2, 61, 128, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E8C0(param2, slotsMinigameDTO->saveData, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], heapID);
+    ov64_022320B8(param0, 0, 0, slotsMinigameDTO, param2, 61, 128, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 0, 0, param1, param2, 15, 0, 28, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 0, 0, slotsMinigameDTO, param2, 15, 0, 28, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_022320B8(param0, 0, 1, param1, param2, 16, 0, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
-    ov64_0222E970(param2, sub_0202AD2C(wifiList, param1->unk_08.unk_04[param1->unk_07], 1));
-    ov64_022320B8(param0, 0, 1, param1, param2, 18, 64, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_022320B8(param0, 0, 1, slotsMinigameDTO, param2, 16, 0, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_0222E970(param2, sub_0202AD2C(wifiList, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], 1));
+    ov64_022320B8(param0, 0, 1, slotsMinigameDTO, param2, 18, 64, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 0, 1, param1, param2, 17, 0, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
-    ov64_0222E970(param2, sub_0202AD2C(wifiList, param1->unk_08.unk_04[param1->unk_07], 2));
-    ov64_022320B8(param0, 0, 1, param1, param2, 18, 64, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_022320B8(param0, 0, 1, slotsMinigameDTO, param2, 17, 0, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_0222E970(param2, sub_0202AD2C(wifiList, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], 2));
+    ov64_022320B8(param0, 0, 1, slotsMinigameDTO, param2, 18, 64, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 0, 2, param1, param2, 19, 0, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
-    ov64_0222E970(param2, sub_0202AD2C(wifiList, param1->unk_08.unk_04[param1->unk_07], 3));
-    ov64_022320B8(param0, 0, 2, param1, param2, 20, 128, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_022320B8(param0, 0, 2, slotsMinigameDTO, param2, 19, 0, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_0222E970(param2, sub_0202AD2C(wifiList, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], 3));
+    ov64_022320B8(param0, 0, 2, slotsMinigameDTO, param2, 20, 128, 4, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    if (ov64_0223217C(param1, heapID)) {
-        ov64_022320B8(param0, 0, 2, param1, param2, 21, 0, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
-        ov64_0222E970(param2, sub_0202AD2C(wifiList, param1->unk_08.unk_04[param1->unk_07], 9));
-        ov64_022320B8(param0, 0, 2, param1, param2, 22, 128, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    if (ov64_0223217C(slotsMinigameDTO, heapID)) {
+        ov64_022320B8(param0, 0, 2, slotsMinigameDTO, param2, 21, 0, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+        ov64_0222E970(param2, sub_0202AD2C(wifiList, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], 9));
+        ov64_022320B8(param0, 0, 2, slotsMinigameDTO, param2, 22, 128, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
     }
 
-    ov64_022320B8(param0, 0, 3, param1, param2, 23, 0, 6, TEXT_COLOR(15, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 0, 3, slotsMinigameDTO, param2, 23, 0, 6, TEXT_COLOR(15, 2, 0), string, fmtString, 0);
 
-    if (ov64_0222E8FC(param2, param1->saveData, param1->unk_08.unk_04[param1->unk_07]) != 0) {
-        ov64_022320B8(param0, 0, 3, param1, param2, 24, 224, 6, TEXT_COLOR(15, 2, 0), string, fmtString, 2);
+    if (ov64_0222E8FC(param2, slotsMinigameDTO->saveData, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]) != 0) {
+        ov64_022320B8(param0, 0, 3, slotsMinigameDTO, param2, 24, 224, 6, TEXT_COLOR(15, 2, 0), string, fmtString, 2);
     }
 
     TrainerClassGraphicIndex v3;
-    u32 v0 = sub_0202AD2C(wifiList, param1->unk_08.unk_04[param1->unk_07], 8);
-    u32 v1 = sub_0202AD2C(wifiList, param1->unk_08.unk_04[param1->unk_07], 7);
+    u32 v0 = sub_0202AD2C(wifiList, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], 8);
+    u32 v1 = sub_0202AD2C(wifiList, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], 7);
     SpriteSystem_SetTrainerClassGraphicsIndex(Appearance_GetData(v0, v1, APPEARANCE_DATA_TRAINER_CLASS_2), FACE_FRONT, &v3);
 
     void *buffer = Heap_Alloc(heapID, 0xC80);
     CharacterSprite_LoadTiledData(v3.narcID, v3.scan, heapID, 0, 0, 10, 10, buffer);
-    Window_BlitBitmapRect(&param0->unk_0C[0][4], buffer, 0, 0, 80, 80, 4, 4, 80, 80);
+    Window_BlitBitmapRect(&param0->slotsMinigameDTO[0][4], buffer, 0, 0, 80, 80, 4, 4, 80, 80);
     Heap_Free(buffer);
 
     Graphics_LoadPalette(v3.narcID, v3.palette, PAL_LOAD_MAIN_BG, 320, 32, heapID);
@@ -3165,42 +3165,42 @@ static void ov64_02231164(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E0
         color = TEXT_COLOR(1, 2, 0);
     }
 
-    ov64_0222E880(param2, param1->saveData, param1->unk_08.unk_04[param1->unk_07], heapID);
-    ov64_022320B8(param0, 0, 4, param1, param2, 6, 44, 88, color, string, fmtString, 1);
+    ov64_0222E880(param2, slotsMinigameDTO->saveData, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], heapID);
+    ov64_022320B8(param0, 0, 4, slotsMinigameDTO, param2, 6, 44, 88, color, string, fmtString, 1);
 
     ov64_02231080(param0, 0);
 
-    int x = Window_GetXPos(&param0->unk_0C[0][4]);
-    int y = Window_GetYPos(&param0->unk_0C[0][4]);
-    Bg_ChangeTilemapRectPalette(param2->unk_00, BG_LAYER_MAIN_3, x, y, 11, 11, 10);
+    int x = Window_GetXPos(&param0->slotsMinigameDTO[0][4]);
+    int y = Window_GetYPos(&param0->slotsMinigameDTO[0][4]);
+    Bg_ChangeTilemapRectPalette(param2->coins, BG_LAYER_MAIN_3, x, y, 11, 11, 10);
 
     String_Free(string);
     String_Free(fmtString);
 }
 
-static void ov64_02231528(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02231528(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(param1->saveData);
+    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(slotsMinigameDTO->saveData);
 
     String *string = String_Init(128, heapID);
     String *fmtString = String_Init(128, heapID);
 
-    ov64_022320B8(param0, 2, 0, param1, param2, 25, 0, 8, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 2, 0, slotsMinigameDTO, param2, 25, 0, 8, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
     u32 entryID;
-    if (BattleFrontierSave_GetStat(frontier, STAT_TOWER_WFC_STREAK_ACTIVE, param1->unk_08.unk_04[param1->unk_07]) == 0) {
+    if (BattleFrontierSave_GetStat(frontier, STAT_TOWER_WFC_STREAK_ACTIVE, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]) == 0) {
         entryID = 30;
     } else {
         entryID = 31;
     }
 
-    ov64_022320B8(param0, 2, 0, param1, param2, entryID, 0, 32, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_TOWER_LATEST_STREAK_MODE_6, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 2, 0, param1, param2, 38, 160, 32, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_022320B8(param0, 2, 0, slotsMinigameDTO, param2, entryID, 0, 32, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_TOWER_LATEST_STREAK_MODE_6, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 2, 0, slotsMinigameDTO, param2, 38, 160, 32, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 2, 0, param1, param2, 32, 0, 56, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_TOWER_RECORD_STREAK_MODE_6, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 2, 0, param1, param2, 38, 160, 56, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_022320B8(param0, 2, 0, slotsMinigameDTO, param2, 32, 0, 56, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_TOWER_RECORD_STREAK_MODE_6, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 2, 0, slotsMinigameDTO, param2, 38, 160, 56, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     ov64_02231080(param0, 2);
 
@@ -3208,65 +3208,65 @@ static void ov64_02231528(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E0
     String_Free(fmtString);
 }
 
-static void ov64_02231664(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02231664(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(param1->saveData);
+    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(slotsMinigameDTO->saveData);
 
     String *string = String_Init(128, heapID);
     String *fmtString = String_Init(128, heapID);
 
-    ov64_022320B8(param0, 3, 0, param1, param2, 26, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 3, 0, slotsMinigameDTO, param2, 26, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_022320B8(param0, 3, 1, param1, param2, 33, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
-    ov64_022320B8(param0, 3, 1, param1, param2, 35, 224, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_022320B8(param0, 3, 1, slotsMinigameDTO, param2, 33, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 3, 1, slotsMinigameDTO, param2, 35, 224, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     u32 entryID;
-    if (BattleFrontierSave_GetStat(frontier, STAT_FACTORY_50_WFC_STREAK_ACTIVE, param1->unk_08.unk_04[param1->unk_07]) == 0) {
+    if (BattleFrontierSave_GetStat(frontier, STAT_FACTORY_50_WFC_STREAK_ACTIVE, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]) == 0) {
         entryID = 30;
     } else {
         entryID = 31;
     }
 
-    ov64_022320B8(param0, 3, 2, param1, param2, entryID, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 3, 2, slotsMinigameDTO, param2, entryID, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_LATEST_STREAK_50_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 3, 2, param1, param2, 38, 112, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_LATEST_STREAK_50_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 3, 2, slotsMinigameDTO, param2, 38, 112, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_LATEST_TRADE_COUNT_50_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 3, 2, param1, param2, 39, 224, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_LATEST_TRADE_COUNT_50_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 3, 2, slotsMinigameDTO, param2, 39, 224, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 3, 2, param1, param2, 32, 0, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 3, 2, slotsMinigameDTO, param2, 32, 0, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_RECORD_STREAK_50_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 3, 2, param1, param2, 38, 112, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_RECORD_STREAK_50_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 3, 2, slotsMinigameDTO, param2, 38, 112, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_RECORD_TRADE_COUNT_50_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 3, 2, param1, param2, 39, 224, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_RECORD_TRADE_COUNT_50_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 3, 2, slotsMinigameDTO, param2, 39, 224, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 3, 3, param1, param2, 34, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
-    ov64_022320B8(param0, 3, 3, param1, param2, 35, 224, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_022320B8(param0, 3, 3, slotsMinigameDTO, param2, 34, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 3, 3, slotsMinigameDTO, param2, 35, 224, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    if (BattleFrontierSave_GetStat(frontier, STAT_FACTORY_OPEN_WFC_STREAK_ACTIVE, param1->unk_08.unk_04[param1->unk_07]) == 0) {
+    if (BattleFrontierSave_GetStat(frontier, STAT_FACTORY_OPEN_WFC_STREAK_ACTIVE, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]) == 0) {
         entryID = 30;
     } else {
         entryID = 31;
     }
 
-    ov64_022320B8(param0, 3, 4, param1, param2, entryID, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 3, 4, slotsMinigameDTO, param2, entryID, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_LATEST_STREAK_OPEN_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 3, 4, param1, param2, 38, 112, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_LATEST_STREAK_OPEN_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 3, 4, slotsMinigameDTO, param2, 38, 112, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_LATEST_TRADE_COUNT_OPEN_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 3, 4, param1, param2, 39, 224, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_LATEST_TRADE_COUNT_OPEN_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 3, 4, slotsMinigameDTO, param2, 39, 224, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 3, 4, param1, param2, 32, 0, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 3, 4, slotsMinigameDTO, param2, 32, 0, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_RECORD_STREAK_OPEN_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 3, 4, param1, param2, 38, 112, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_RECORD_STREAK_OPEN_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 3, 4, slotsMinigameDTO, param2, 38, 112, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_RECORD_TRADE_COUNT_OPEN_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 3, 4, param1, param2, 39, 224, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_FACTORY_RECORD_TRADE_COUNT_OPEN_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 3, 4, slotsMinigameDTO, param2, 39, 224, 16, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     ov64_02231080(param0, 3);
 
@@ -3274,38 +3274,38 @@ static void ov64_02231664(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E0
     String_Free(fmtString);
 }
 
-static void ov64_02231A00(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02231A00(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(param1->saveData);
+    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(slotsMinigameDTO->saveData);
 
     String *string = String_Init(128, heapID);
     String *fmtString = String_Init(128, heapID);
 
-    ov64_022320B8(param0, 4, 0, param1, param2, 27, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
-    ov64_022320B8(param0, 4, 0, param1, param2, 36, 224, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_022320B8(param0, 4, 0, slotsMinigameDTO, param2, 27, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 4, 0, slotsMinigameDTO, param2, 36, 224, 20, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     u32 entryID;
-    if (BattleFrontierSave_GetStat(frontier, STAT_CASTLE_WFC_STREAK_ACTIVE, param1->unk_08.unk_04[param1->unk_07]) == 0) {
+    if (BattleFrontierSave_GetStat(frontier, STAT_CASTLE_WFC_STREAK_ACTIVE, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]) == 0) {
         entryID = 30;
     } else {
         entryID = 31;
     }
 
-    ov64_022320B8(param0, 4, 0, param1, param2, entryID, 0, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 4, 0, slotsMinigameDTO, param2, entryID, 0, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_CASTLE_LATEST_STREAK_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 4, 0, param1, param2, 41, 112, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_CASTLE_LATEST_STREAK_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 4, 0, slotsMinigameDTO, param2, 41, 112, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_CASTLE_LATEST_CP_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 4, 0, param1, param2, 40, 224, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_CASTLE_LATEST_CP_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 4, 0, slotsMinigameDTO, param2, 40, 224, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 4, 0, param1, param2, 32, 0, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 4, 0, slotsMinigameDTO, param2, 32, 0, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_CASTLE_RECORD_STREAK_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 4, 0, param1, param2, 41, 112, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_CASTLE_RECORD_STREAK_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 4, 0, slotsMinigameDTO, param2, 41, 112, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 1);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_CASTLE_RECORD_CP_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 4, 0, param1, param2, 40, 224, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_CASTLE_RECORD_CP_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 4, 0, slotsMinigameDTO, param2, 40, 224, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     ov64_02231080(param0, 4);
 
@@ -3313,35 +3313,35 @@ static void ov64_02231A00(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E0
     String_Free(fmtString);
 }
 
-static void ov64_02231BE0(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02231BE0(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(param1->saveData);
+    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(slotsMinigameDTO->saveData);
 
     String *string = String_Init(128, heapID);
     String *fmtString = String_Init(128, heapID);
 
-    ov64_022320B8(param0, 5, 0, param1, param2, 28, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 5, 0, slotsMinigameDTO, param2, 28, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    String *speciesName = MessageUtil_SpeciesName(BattleFrontierSave_GetStat(frontier, STAT_HALL_LATEST_SPECIES_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]), heapID);
-    Text_AddPrinterWithParamsAndColor(&param0->unk_0C[5][0], FONT_SYSTEM, speciesName, 0, 24, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
+    String *speciesName = MessageUtil_SpeciesName(BattleFrontierSave_GetStat(frontier, STAT_HALL_LATEST_SPECIES_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]), heapID);
+    Text_AddPrinterWithParamsAndColor(&param0->slotsMinigameDTO[5][0], FONT_SYSTEM, speciesName, 0, 24, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 0), NULL);
     String_Free(speciesName);
 
     u32 entryID;
-    if (BattleFrontierSave_GetStat(frontier, STAT_HALL_WFC_STREAK_ACTIVE, param1->unk_08.unk_04[param1->unk_07]) == 0) {
+    if (BattleFrontierSave_GetStat(frontier, STAT_HALL_WFC_STREAK_ACTIVE, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]) == 0) {
         entryID = 30;
     } else {
         entryID = 31;
     }
 
-    ov64_022320B8(param0, 5, 0, param1, param2, entryID, 0, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 5, 0, slotsMinigameDTO, param2, entryID, 0, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_HALL_LATEST_STREAK_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 5, 0, param1, param2, 38, 160, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_HALL_LATEST_STREAK_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 5, 0, slotsMinigameDTO, param2, 38, 160, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 5, 0, param1, param2, 32, 0, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 5, 0, slotsMinigameDTO, param2, 32, 0, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, 122, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 5, 0, param1, param2, 38, 160, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, 122, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 5, 0, slotsMinigameDTO, param2, 38, 160, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     ov64_02231080(param0, 5);
 
@@ -3349,31 +3349,31 @@ static void ov64_02231BE0(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E0
     String_Free(fmtString);
 }
 
-static void ov64_02231D58(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02231D58(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(param1->saveData);
+    BattleFrontierSave *frontier = SaveData_GetBattleFrontier(slotsMinigameDTO->saveData);
 
     String *string = String_Init(128, heapID);
     String *fmtString = String_Init(128, heapID);
 
-    ov64_022320B8(param0, 6, 0, param1, param2, 29, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 6, 0, slotsMinigameDTO, param2, 29, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
     u32 entryID;
-    if (BattleFrontierSave_GetStat(frontier, STAT_ARCADE_WFC_STREAK_ACTIVE, param1->unk_08.unk_04[param1->unk_07]) == 0) {
+    if (BattleFrontierSave_GetStat(frontier, STAT_ARCADE_WFC_STREAK_ACTIVE, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]) == 0) {
         entryID = 30;
     } else {
         entryID = 31;
     }
 
-    ov64_022320B8(param0, 6, 0, param1, param2, entryID, 0, 24, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 6, 0, slotsMinigameDTO, param2, entryID, 0, 24, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_ARCADE_LATEST_STREAK_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 6, 0, param1, param2, 42, 160, 24, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_ARCADE_LATEST_STREAK_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 6, 0, slotsMinigameDTO, param2, 42, 160, 24, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
-    ov64_022320B8(param0, 6, 0, param1, param2, 32, 0, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 6, 0, slotsMinigameDTO, param2, 32, 0, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_ARCADE_RECORD_STREAK_MULTI_WFC, param1->unk_08.unk_04[param1->unk_07]));
-    ov64_022320B8(param0, 6, 0, param1, param2, 42, 160, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, BattleFrontierSave_GetStat(frontier, STAT_ARCADE_RECORD_STREAK_MULTI_WFC, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07]));
+    ov64_022320B8(param0, 6, 0, slotsMinigameDTO, param2, 42, 160, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     ov64_02231080(param0, 6);
 
@@ -3381,33 +3381,33 @@ static void ov64_02231D58(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E0
     String_Free(fmtString);
 }
 
-static void ov64_02231E94(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *param1, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
+static void ov64_02231E94(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E060 *slotsMinigameDTO, UnkStruct_ov64_0222E21C *param2, enum HeapID heapID)
 {
-    BattleFrontierSave *unused = SaveData_GetBattleFrontier(param1->saveData);
-    WiFiList *wifiList = SaveData_GetWiFiList(param1->saveData);
+    BattleFrontierSave *unused = SaveData_GetBattleFrontier(slotsMinigameDTO->saveData);
+    WiFiList *wifiList = SaveData_GetWiFiList(slotsMinigameDTO->saveData);
 
     String *string = String_Init(128, heapID);
     String *fmtString = String_Init(128, heapID);
 
-    ov64_022320B8(param0, 1, 0, param1, param2, 43, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 1, 0, slotsMinigameDTO, param2, 43, 0, 0, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
     ov64_0222E990(param2, 0);
-    ov64_022320B8(param0, 1, 0, param1, param2, 44, 0, 24, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 1, 0, slotsMinigameDTO, param2, 44, 0, 24, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, sub_0202AD2C(wifiList, param1->unk_08.unk_04[param1->unk_07], 10));
-    ov64_022320B8(param0, 1, 0, param1, param2, 45, 160, 24, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, sub_0202AD2C(wifiList, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], 10));
+    ov64_022320B8(param0, 1, 0, slotsMinigameDTO, param2, 45, 160, 24, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     ov64_0222E990(param2, 1);
-    ov64_022320B8(param0, 1, 0, param1, param2, 44, 0, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 1, 0, slotsMinigameDTO, param2, 44, 0, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, sub_0202AD2C(wifiList, param1->unk_08.unk_04[param1->unk_07], 11));
-    ov64_022320B8(param0, 1, 0, param1, param2, 45, 160, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, sub_0202AD2C(wifiList, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], 11));
+    ov64_022320B8(param0, 1, 0, slotsMinigameDTO, param2, 45, 160, 48, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     ov64_0222E990(param2, 2);
-    ov64_022320B8(param0, 1, 0, param1, param2, 44, 0, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
+    ov64_022320B8(param0, 1, 0, slotsMinigameDTO, param2, 44, 0, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 0);
 
-    ov64_0222E970(param2, sub_0202AD2C(wifiList, param1->unk_08.unk_04[param1->unk_07], 12));
-    ov64_022320B8(param0, 1, 0, param1, param2, 45, 160, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
+    ov64_0222E970(param2, sub_0202AD2C(wifiList, slotsMinigameDTO->unk_08.slotMachineVariant[slotsMinigameDTO->unk_07], 12));
+    ov64_022320B8(param0, 1, 0, slotsMinigameDTO, param2, 45, 160, 72, TEXT_COLOR(1, 2, 0), string, fmtString, 2);
 
     ov64_02231080(param0, 1);
 
@@ -3415,15 +3415,15 @@ static void ov64_02231E94(UnkStruct_ov64_02230F98 *param0, UnkStruct_ov64_0222E0
     String_Free(fmtString);
 }
 
-static void ov64_02232038(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0223221C *param1)
+static void ov64_02232038(UnkStruct_ov64_0222E21C *param0, const UnkStruct_ov64_0223221C *slotsMinigameDTO)
 {
-    Bg_FillTilemapRect(param0->unk_00, Unk_ov64_02232258[2], 0, MATH_ABS(param1->unk_00), MATH_ABS(param1->unk_02), 32, 24, 0);
-    Bg_ScheduleTilemapTransfer(param0->unk_00, Unk_ov64_02232258[2]);
-    Bg_FillTilemapRect(param0->unk_00, Unk_ov64_02232258[3], 0, MATH_ABS(param1->unk_00), MATH_ABS(param1->unk_02), 32, 24, 0);
-    Bg_ScheduleTilemapTransfer(param0->unk_00, Unk_ov64_02232258[3]);
+    Bg_FillTilemapRect(param0->coins, Unk_ov64_02232258[2], 0, MATH_ABS(slotsMinigameDTO->coins), MATH_ABS(slotsMinigameDTO->unk_02), 32, 24, 0);
+    Bg_ScheduleTilemapTransfer(param0->coins, Unk_ov64_02232258[2]);
+    Bg_FillTilemapRect(param0->coins, Unk_ov64_02232258[3], 0, MATH_ABS(slotsMinigameDTO->coins), MATH_ABS(slotsMinigameDTO->unk_02), 32, 24, 0);
+    Bg_ScheduleTilemapTransfer(param0->coins, Unk_ov64_02232258[3]);
 }
 
-static void ov64_022320B8(UnkStruct_ov64_02230F98 *param0, u32 param1, u32 param2, UnkStruct_ov64_0222E060 *param3, UnkStruct_ov64_0222E21C *param4, u32 entryID, u32 xOffset, u32 yOffset, TextColor color, String *string, String *fmtString, u32 param11)
+static void ov64_022320B8(UnkStruct_ov64_02230F98 *param0, u32 slotsMinigameDTO, u32 param2, UnkStruct_ov64_0222E060 *param3, UnkStruct_ov64_0222E21C *param4, u32 entryID, u32 xOffset, u32 yOffset, TextColor color, String *string, String *fmtString, u32 param11)
 {
     MessageLoader_GetString(param4->unk_218, entryID, fmtString);
     StringTemplate_Format(param4->unk_214, string, fmtString);
@@ -3437,10 +3437,10 @@ static void ov64_022320B8(UnkStruct_ov64_02230F98 *param0, u32 param1, u32 param
         break;
     }
 
-    Text_AddPrinterWithParamsAndColor(&param0->unk_0C[param1][param2], FONT_SYSTEM, string, xOffset, yOffset, TEXT_SPEED_NO_TRANSFER, color, NULL);
+    Text_AddPrinterWithParamsAndColor(&param0->slotsMinigameDTO[slotsMinigameDTO][param2], FONT_SYSTEM, string, xOffset, yOffset, TEXT_SPEED_NO_TRANSFER, color, NULL);
 }
 
-static void ov64_02232138(UnkStruct_ov64_02230904 *param0, s32 param1)
+static void ov64_02232138(UnkStruct_ov64_02230904 *param0, s32 slotsMinigameDTO)
 {
     int v0;
 
@@ -3450,15 +3450,15 @@ static void ov64_02232138(UnkStruct_ov64_02230904 *param0, s32 param1)
         v0 = 2;
     }
 
-    if (param1 > 0) {
-        param0->unk_02 = param0->unk_00;
-        param0->unk_00 = (param0->unk_00 + param1) % v0;
-    } else if (param1 < 0) {
-        param0->unk_02 = param0->unk_00;
-        param0->unk_00 = param0->unk_00 + param1;
+    if (slotsMinigameDTO > 0) {
+        param0->unk_02 = param0->coins;
+        param0->coins = (param0->coins + slotsMinigameDTO) % v0;
+    } else if (slotsMinigameDTO < 0) {
+        param0->unk_02 = param0->coins;
+        param0->coins = param0->coins + slotsMinigameDTO;
 
-        if (param0->unk_00 < 0) {
-            param0->unk_00 += v0;
+        if (param0->coins < 0) {
+            param0->coins += v0;
         }
     }
 }

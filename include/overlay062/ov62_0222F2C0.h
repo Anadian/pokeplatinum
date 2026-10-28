@@ -8,10 +8,10 @@ void ov62_0222F514(UnkStruct_0208C06C *param0);
 void ov62_0222F824(int param0);
 void ov62_0222F834(UnkStruct_0208C06C *param0);
 void ov62_0222F8E4(void *param0);
-BOOL ov62_0222F910(UnkStruct_0208C06C *param0, int *param1);
-void ov62_0222FB44(UnkStruct_0208C06C *param0, int param1, BOOL param2, int *param3);
-void ov62_0222FB60(UnkStruct_0208C06C *param0, int param1);
-void ov62_0222FB6C(UnkStruct_0208C06C *param0, int param1);
+BOOL ov62_0222F910(UnkStruct_0208C06C *param0, int *slotsMinigameDTO);
+void ov62_0222FB44(UnkStruct_0208C06C *param0, int slotsMinigameDTO, BOOL param2, int *param3);
+void ov62_0222FB60(UnkStruct_0208C06C *param0, int slotsMinigameDTO);
+void ov62_0222FB6C(UnkStruct_0208C06C *param0, int slotsMinigameDTO);
 void ov62_0222FB74(UnkStruct_0208C06C *param0);
 BOOL ov62_0222FB90(UnkStruct_0208C06C *param0);
 BOOL ov62_0222FBF8(UnkStruct_0208C06C *param0);
@@ -24,6 +24,6 @@ void ov62_02230054(UnkStruct_0208C06C *param0);
 void ov62_02230060(UnkStruct_0208C06C *param0);
 void ov62_02230098(UnkStruct_0208C06C *param0);
 BOOL ov62_022300BC(UnkStruct_0208C06C *param0);
-void ov62_022300C8(UnkStruct_0208C06C *param0, int param1);
+void ov62_022300C8(UnkStruct_0208C06C *param0, int slotsMinigameDTO);
 
 #endif // POKEPLATINUM_OV62_0222F2C0_H

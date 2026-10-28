@@ -189,7 +189,7 @@ typedef struct LakeGuardiansArrivalContext {
 
 typedef struct CastModels {
     int unused_00;
-    CutsceneModel unk_04; // static background prop, unidentified; present and untouched in both stages
+    CutsceneModel slotMachineVariant; // static background prop, unidentified; present and untouched in both stages
     CutsceneModel distortionRipple;
     CutsceneModel shockwave;
     CutsceneModel dropletSplash;

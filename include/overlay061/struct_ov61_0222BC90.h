@@ -5,7 +5,7 @@
 #include "overlay061/struct_ov61_0222AFC0.h"
 
 typedef struct {
-    UnkStruct_ov61_0222AFC0 unk_00;
+    UnkStruct_ov61_0222AFC0 coins;
     UnkStruct_ov61_0222AE80 unk_80;
 } UnkStruct_ov61_0222BC90;
 

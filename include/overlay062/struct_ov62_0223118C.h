@@ -19,8 +19,8 @@
 #include "touch_screen_actions.h"
 
 typedef struct {
-    NARC *unk_00;
-    SpriteSystem *unk_04;
+    NARC *coins;
+    SpriteSystem *slotMachineVariant;
     SpriteManager *unk_08;
     u8 padding_0C[4];
     BgConfig *unk_10;

@@ -54,7 +54,7 @@ enum FormSubButtons {
 };
 
 typedef struct FormSubData {
-    int *unk_00;
+    int *coins;
     PokedexSortData *sortData;
     PokedexScreenManager *subScreen;
     PokedexScreenManager *mainScreen;
@@ -97,7 +97,7 @@ static BOOL FormSubGraphicsUpdate(void *graphics, PokedexGraphicsManager *graphi
 static BOOL FormSubGraphicsExit(void *graphics, PokedexGraphicsManager *graphicsMan, const void *data, const PokedexDataManager *dataMan);
 static void SetSpriteOAMModesXLU(FormSubGraphics *formSubGraphics);
 static void SetSpriteOAMModesNormal(FormSubGraphics *formSubGraphics);
-static void InitBlendTransition(FormSubGraphics *formSubGraphics, PokedexGraphicData **param1, const FormSubData *formSubData, BOOL isEntering);
+static void InitBlendTransition(FormSubGraphics *formSubGraphics, PokedexGraphicData **slotsMinigameDTO, const FormSubData *formSubData, BOOL isEntering);
 static BOOL AdvanceBlendTransition(FormSubGraphics *formSubGraphics, PokedexGraphicData **graphicData, const FormSubData *formSubData, BOOL isEntering);
 static void SetTouchScreen(FormSubPageData *formSubPageData, FormSubData *formSubData, enum HeapID heapID);
 static void SetButtonOutOfBounds(FormSubPageData *formSubPageData);
@@ -154,7 +154,7 @@ static FormSubData *LoadAppData(enum HeapID heapID, PokedexApp *pokedexApp)
     GF_ASSERT(formSubData);
     memset(formSubData, 0, sizeof(FormSubData));
 
-    formSubData->unk_00 = ov21_021D13A0(pokedexApp);
+    formSubData->coins = ov21_021D13A0(pokedexApp);
     formSubData->subScreen = ov21_021D1430(pokedexApp, 3);
     formSubData->mainScreen = ov21_021D1410(pokedexApp, 3);
     formSubData->sortData = PokedexMain_GetSortData(pokedexApp);
@@ -174,7 +174,7 @@ static PokedexGraphicData **LoadAppGraphics(enum HeapID heapID, PokedexApp *poke
     return graphicData;
 }
 
-static UnkStruct_ov21_021D4660 *ScreenStates(enum HeapID heapID, PokedexApp *param1)
+static UnkStruct_ov21_021D4660 *ScreenStates(enum HeapID heapID, PokedexApp *slotsMinigameDTO)
 {
     return NULL;
 }
@@ -352,15 +352,15 @@ static void SetSpriteOAMModesNormal(FormSubGraphics *formSubGraphics)
     sub_02012AF0(formSubGraphics->buttonText->fontOAM, GX_OAM_MODE_NORMAL);
 }
 
-static void InitBlendTransition(FormSubGraphics *formSubGraphics, PokedexGraphicData **param1, const FormSubData *formSubData, BOOL isEntering)
+static void InitBlendTransition(FormSubGraphics *formSubGraphics, PokedexGraphicData **slotsMinigameDTO, const FormSubData *formSubData, BOOL isEntering)
 {
     SetSpriteOAMModesXLU(formSubGraphics);
 
     if (ov21_021E33A4(formSubData->subScreen)) {
         if (isEntering) {
-            PokedexGraphics_InitBlendTransition(&(*param1)->blendSub, 1, -16, 0, 0, 16, (GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BD), (GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BD), 1);
+            PokedexGraphics_InitBlendTransition(&(*slotsMinigameDTO)->blendSub, 1, -16, 0, 0, 16, (GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BD), (GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BD), 1);
         } else {
-            PokedexGraphics_InitBlendTransition(&(*param1)->blendSub, 1, 0, -16, 16, 0, (GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BD), (GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BD), 1);
+            PokedexGraphics_InitBlendTransition(&(*slotsMinigameDTO)->blendSub, 1, 0, -16, 16, 0, (GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BD), (GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_BD), 1);
         }
     }
 }

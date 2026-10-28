@@ -6,9 +6,9 @@
 #include "overlay017/struct_ov17_0224F30C.h"
 
 typedef struct {
-    UnkStruct_ov17_02247A48 *unk_00;
-    UnkStruct_ov17_02243C80 unk_04;
-    UnkStruct_ov17_0224F30C *unk_0C;
+    UnkStruct_ov17_02247A48 *coins;
+    UnkStruct_ov17_02243C80 slotMachineVariant;
+    UnkStruct_ov17_0224F30C *slotsMinigameDTO;
     u8 state;
     s8 unk_11;
     u8 unk_12;

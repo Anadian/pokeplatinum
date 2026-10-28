@@ -5,10 +5,10 @@
 #include "software_sprite.h"
 
 typedef struct {
-    SoftwareSpriteCharsTemplate *unk_00;
-    int unk_04;
+    SoftwareSpriteCharsTemplate *coins;
+    int slotMachineVariant;
     SoftwareSpritePaletteTemplate *unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     ResourceCollection *unk_10;
     ResourceCollection *unk_14;
 } UnkStruct_ov22_02255CB8;

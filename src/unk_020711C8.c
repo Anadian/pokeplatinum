@@ -9,11 +9,11 @@
 #include "party.h"
 #include "savedata.h"
 
-UnkStruct_020711C8 *sub_020711C8(const enum HeapID heapID, const u8 param1, SaveData *saveData)
+UnkStruct_020711C8 *sub_020711C8(const enum HeapID heapID, const u8 slotsMinigameDTO, SaveData *saveData)
 {
     UnkStruct_020711C8 *v0 = Heap_AllocAtEnd(heapID, sizeof(UnkStruct_020711C8));
-    v0->unk_00 = Party_GetPokemonBySlotIndex(SaveData_GetParty(saveData), param1);
-    v0->unk_04 = NULL;
+    v0->coins = Party_GetPokemonBySlotIndex(SaveData_GetParty(saveData), slotsMinigameDTO);
+    v0->slotMachineVariant = NULL;
 
     return v0;
 }

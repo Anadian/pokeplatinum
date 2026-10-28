@@ -13,7 +13,7 @@ BOOL sub_0207DFAC(int param0)
     int v1;
     UnkStruct_0207DFAC *v2 = CommManager_GetUnk00();
 
-    v0 = v2->unk_00.unk_1B;
+    v0 = v2->coins.unk_1B;
     v1 = v2->unk_24[param0].unk_1B;
 
     if ((v0 == 12) && (v1 == 5)) {

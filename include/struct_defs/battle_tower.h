@@ -11,7 +11,7 @@
 #include "location.h"
 
 typedef struct BattleTower {
-    int unk_00;
+    int coins;
     enum HeapID heapID;
     u32 unk_08;
     u8 nextOpponentNum;

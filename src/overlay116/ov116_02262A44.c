@@ -8,15 +8,15 @@
 
 #include "heap.h"
 
-UnkStruct_ov116_02262A44 *ov116_02262A44(int param0, UnkStruct_ov116_022649E4 *param1)
+UnkStruct_ov116_02262A44 *ov116_02262A44(int param0, UnkStruct_ov116_022649E4 *slotsMinigameDTO)
 {
     UnkStruct_ov116_02262A44 *v0 = Heap_Alloc(HEAP_ID_106, sizeof(UnkStruct_ov116_02262A44));
 
     memset(v0, 0, sizeof(UnkStruct_ov116_02262A44));
 
-    v0->unk_04 = param0;
+    v0->slotMachineVariant = param0;
     v0->unk_08 = ((30 * 40) - 0);
-    v0->unk_0C = param1;
+    v0->slotsMinigameDTO = slotsMinigameDTO;
 
     return v0;
 }

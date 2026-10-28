@@ -230,18 +230,113 @@
     "symbolType": "subroutine"
   },
   "SlotsMinigame_FreeGraphics": {
-      "original": "ov101_021D107C",
-      "current": "SlotsMinigame_FreeGraphics",
-      "symbolType": "subroutine"
+    "original": "ov101_021D107C",
+    "current": "SlotsMinigame_FreeGraphics",
+    "symbolType": "subroutine"
   },
-	"SlotsMinigame_InitWindow": {
-		"original": "ov101_021D11D0",
-		"current": "SlotsMinigame_InitWindow",
-		"symbolType": "subroutine"
-	},
-	"SlotsMinigame_UpdateRecords":{
-		original: "ov101_021D0F3C",
-		current: "SlotsMinigame_UpdateRecords",
-		symbolType: "subroutine"
-	}
+  "SlotsMinigame_InitWindow": {
+    "original": "ov101_021D11D0",
+    "current": "SlotsMinigame_InitWindow",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_UpdateRecords": {
+    "original": "ov101_021D0F3C",
+    "current": "SlotsMinigame_UpdateRecords",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_SoundSequenceController": {
+    "original": "UnkStruct_ov101_021D1894",
+    "current": "SlotsMinigame_SoundSequenceController",
+    "symbolType": "struct"
+  },
+  "SlotsMinigame_SoundSequenceController.command": {
+    "original": "UnkStruct_ov101_021D1894.unk_00",
+    "current": "SlotsMinigame_SoundSequenceController.command",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_SoundSequenceController.isSoundSequenceChangeActive": {
+    "original": "UnkStruct_ov101_021D1894.unk_04",
+    "current": "SlotsMinigame_SoundSequenceController.isSoundSequenceChangeActive",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_SoundSequenceController.formerSequenceID": {
+    "original": "UnkStruct_ov101_021D1894.unk_08",
+    "current": "SlotsMinigame_SoundSequenceController.formerSequenceID",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_SoundSequenceController.currentSequenceID": {
+    "original": "UnkStruct_ov101_021D1894.unk_0C",
+    "current": "SlotsMinigame_SoundSequenceController.currentSequenceID",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_SoundSequenceController.task": {
+    "original": "UnkStruct_ov101_021D1894.unk_10",
+    "current": "SlotsMinigame_SoundSequenceController.task",
+    "symbolType": "member"
+  },
+  "Overlay101State": {
+    "original": "UnkStruct_ov101_021D13C8",
+    "current": "Overlay101State",
+    "symbolType": "struct"
+  },
+  "Overlay101State.soundSequenceController": {
+    "original": "UnkStruct_ov101_021D1894.unk_424",
+    "current": "Overlay101State.soundSequenceController",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_SoundSequenceID": {
+    "original": "UnkEnum_ov101_021D1894",
+    "current": "SlotsMinigame_SoundSequenceID",
+    "symbolType": "enum"
+  },
+  "SlotsMinigame_SoundSequenceID.BGM_FIELD": {
+    "original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_00",
+    "current": "SlotsMinigame_SoundSequenceID.BGM_FIELD",
+    "symbolType": "field"
+  },
+  "SlotsMinigame_SoundSequenceID.BGM_ATARI": {
+    "original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_01",
+    "current": "SlotsMinigame_SoundSequenceID.BGM_ATARI",
+    "symbolType": "field"
+  },
+  "SlotsMinigame_SoundSequenceID.BGM_00ATARI": {
+    "original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_02",
+    "current": "SlotsMinigame_SoundSequenceID.BGM_00ATARI",
+    "symbolType": "field"
+  },
+  "SlotsMinigame_SoundSequenceID.UNKNOWN": {
+    "original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_02",
+    "current": "SlotsMinigame_SoundSequenceID.UNKNOWN",
+    "symbolType": "field"
+  },
+  "SlotsMinigame_SoundSequence_StartChange": {
+    "original": "ov101_021D1894",
+    "current": "SlotsMinigame_SoundSequence_StartChange",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_SoundSequence_StartChange.overlayState": {
+    "original": "ov101_021D1894.param0",
+    "current": "SlotsMinigame_SoundSequence_StartChange.overlayState",
+    "symbolType": "param"
+  },
+  "SlotsMinigame_SoundSequence_StartChange.sequenceID": {
+    "original": "ov101_021D1894.param1",
+    "current": "SlotsMinigame_SoundSequence_StartChange.sequenceID",
+    "symbolType": "param"
+  },
+  "SlotsMinigame_SoundSequence_GetIsChangeActive": {
+    "original": "ov101_021D18B4",
+    "current": "SlotsMinigame_SoundSequence_GetIsChangeActive",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_SoundSequence_GetIsChangeActive.overlayState": {
+    "original": "ov101_021D18B4.param0",
+    "current": "SlotsMinigame_SoundSequence_GetIsChangeActive.overlayState",
+    "symbolType": "param"
+  },
+  "TriggerSlotsMinigame": {
+    "original": "ScrCmd_267",
+    "current": "TriggerSlotsMinigame",
+    "symbolType": "subroutine"
+  }
 }

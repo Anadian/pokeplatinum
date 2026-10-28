@@ -26,44 +26,44 @@
 #include "type_icon.h"
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
-    u16 unk_04;
+    u16 slotMachineVariant;
     u16 unk_06;
     UnkStruct_ov19_021DA9E0 *unk_08;
 } UnkStruct_ov19_021DAE2C;
 
-void Window_PutRectToTilemap(Window *param0, u32 param1, u32 param2);
+void Window_PutRectToTilemap(Window *param0, u32 slotsMinigameDTO, u32 param2);
 static void ov19_021DAB44(UnkStruct_ov19_021DA9E0 *param0);
 static void ov19_021DAC4C(UnkStruct_ov19_021DA9E0 *param0);
 static void ov19_021DAC90(UnkStruct_ov19_021DA9E0 *param0);
 static void ov19_021DACB0(UnkStruct_ov19_021DA9E0 *param0);
 static void ov19_021DACDC(UnkStruct_ov19_021DA9E0 *param0);
-static void ov19_021DACF8(SysTask *param0, void *param1);
-static void ov19_021DADCC(UnkStruct_ov19_021DA9E0 *param0, fx32 param1);
+static void ov19_021DACF8(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021DADCC(UnkStruct_ov19_021DA9E0 *param0, fx32 slotsMinigameDTO);
 static void ov19_021DAE10(UnkStruct_ov19_021DA9E0 *param0);
 static void ov19_021DAE2C(UnkStruct_ov19_021DAE2C *param0);
-static void ov19_021DAE60(Window *param0, UnkStruct_ov19_021DA9E0 *param1, u32 param2, u32 param3);
+static void ov19_021DAE60(Window *param0, UnkStruct_ov19_021DA9E0 *slotsMinigameDTO, u32 param2, u32 param3);
 static void ov19_021DB0E4(UnkStruct_ov19_021DA9E0 *param0);
-static void ov19_021DB24C(UnkStruct_ov19_021DA9E0 *param0, u8 param1);
+static void ov19_021DB24C(UnkStruct_ov19_021DA9E0 *param0, u8 slotsMinigameDTO);
 
-BOOL ov19_021DA92C(UnkStruct_ov19_021DA9E0 *param0, UnkStruct_ov19_021D61B0 *param1, const BoxApplication *param2, BgConfig *param3, SpriteList *param4, const MessageLoader *param5, NARC *param6)
+BOOL ov19_021DA92C(UnkStruct_ov19_021DA9E0 *param0, UnkStruct_ov19_021D61B0 *slotsMinigameDTO, const BoxApplication *param2, BgConfig *param3, SpriteList *param4, const MessageLoader *param5, NARC *param6)
 {
     int v0;
 
     if (BoxApp_GetBoxMode(param2) == PC_MODE_COMPARE) {
-        param0->unk_00 = 0;
+        param0->coins = 0;
         return 1;
     }
 
-    param0->unk_14 = param1;
+    param0->unk_14 = slotsMinigameDTO;
     param0->unk_08 = param3;
     param0->unk_10 = param2;
-    param0->unk_0C = param4;
-    param0->unk_04 = NULL;
+    param0->slotsMinigameDTO = param4;
+    param0->slotMachineVariant = NULL;
     param0->unk_4C = NULL;
     param0->unk_24 = NULL;
-    param0->unk_20 = ov19_021D7818(param1);
+    param0->unk_20 = ov19_021D7818(slotsMinigameDTO);
     param0->unk_18 = FontSpecialChars_Init(9, 6, 15, HEAP_ID_BOX_GRAPHICS);
     param0->unk_1C = FontSpecialChars_Init(1, 2, 15, HEAP_ID_BOX_GRAPHICS);
     param0->unk_28 = Graphics_GetCellBankFromOpenNARC(param6, 16, 1, &(param0->unk_2C), HEAP_ID_BOX_GRAPHICS);
@@ -76,7 +76,7 @@ BOOL ov19_021DA92C(UnkStruct_ov19_021DA9E0 *param0, UnkStruct_ov19_021D61B0 *par
         param0->unk_3C[v0] = NULL;
     }
 
-    param0->unk_00 = 1;
+    param0->coins = 1;
 
     return 1;
 }
@@ -85,17 +85,17 @@ void ov19_021DA9E0(UnkStruct_ov19_021DA9E0 *param0)
 {
     int v0;
 
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         return;
     }
 
-    if (param0->unk_04) {
+    if (param0->slotMachineVariant) {
         for (v0 = 0; v0 < 4; v0++) {
-            Window_Remove(&param0->unk_04[v0]);
+            Window_Remove(&param0->slotMachineVariant[v0]);
         }
 
-        Heap_Free(param0->unk_04);
-        param0->unk_04 = NULL;
+        Heap_Free(param0->slotMachineVariant);
+        param0->slotMachineVariant = NULL;
     }
 
     if (param0->unk_18) {
@@ -142,7 +142,7 @@ void ov19_021DA9E0(UnkStruct_ov19_021DA9E0 *param0)
 
 void ov19_021DAA80(UnkStruct_ov19_021DA9E0 *param0)
 {
-    if (param0->unk_00) {
+    if (param0->coins) {
         PokemonSpriteManager_UpdateCharAndPltt(param0->unk_20);
     }
 }
@@ -175,22 +175,22 @@ void ov19_021DAADC(UnkStruct_ov19_021DA9E0 *param0)
         { 2, 1, 21, 12, 4, 1, 343 }
     };
 
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         return;
     }
 
-    param0->unk_04 = Window_New(HEAP_ID_BOX_GRAPHICS, 4);
+    param0->slotMachineVariant = Window_New(HEAP_ID_BOX_GRAPHICS, 4);
 
-    if (param0->unk_04) {
+    if (param0->slotMachineVariant) {
         int v1;
 
         for (v1 = 0; v1 < 4; v1++) {
-            Window_AddFromTemplate(param0->unk_08, &param0->unk_04[v1], &v0[v1]);
+            Window_AddFromTemplate(param0->unk_08, &param0->slotMachineVariant[v1], &v0[v1]);
 
             if (v1 != 3) {
-                Window_PutToTilemap(&param0->unk_04[v1]);
+                Window_PutToTilemap(&param0->slotMachineVariant[v1]);
             } else {
-                Window_PutRectToTilemap(&param0->unk_04[v1], 12, 2);
+                Window_PutRectToTilemap(&param0->slotMachineVariant[v1], 12, 2);
             }
         }
 
@@ -218,7 +218,7 @@ static void ov19_021DAB44(UnkStruct_ov19_021DA9E0 *param0)
         Graphics_LoadImageMappingAndSetVramMode(narcID, v3, 1, 0, 0, NNS_G2D_VRAM_TYPE_2DMAIN, (1504 + (8 * i)) * 0x20, 10, &v0);
         ov19_021D783C(&v1, &v0, ov19_021D77D0(param0->unk_14), param0->unk_38, NULL, 3);
 
-        param0->unk_3C[i] = ov19_021D785C(param0->unk_0C, &v1, 24 + 36 * i, 176, 46, NNS_G2D_VRAM_TYPE_2DMAIN);
+        param0->unk_3C[i] = ov19_021D785C(param0->slotsMinigameDTO, &v1, 24 + 36 * i, 176, 46, NNS_G2D_VRAM_TYPE_2DMAIN);
         GF_ASSERT(param0->unk_3C[i] != NULL);
 
         Sprite_SetDrawFlag(param0->unk_3C[i], FALSE);
@@ -229,7 +229,7 @@ static void ov19_021DAB44(UnkStruct_ov19_021DA9E0 *param0)
     Graphics_LoadImageMapping(18, 15, 1, 0, 0, NNS_G2D_VRAM_TYPE_2DMAIN, 1480 * 0x20, 10, &v0);
     ov19_021D783C(&v1, &v0, ov19_021D77D0(param0->unk_14), param0->unk_2C, NULL, 3);
 
-    param0->unk_30 = ov19_021D785C(param0->unk_0C, &v1, 56, 176, 47, NNS_G2D_VRAM_TYPE_2DMAIN);
+    param0->unk_30 = ov19_021D785C(param0->slotsMinigameDTO, &v1, 56, 176, 47, NNS_G2D_VRAM_TYPE_2DMAIN);
 }
 
 static void ov19_021DAC4C(UnkStruct_ov19_021DA9E0 *param0)
@@ -240,7 +240,7 @@ static void ov19_021DAC4C(UnkStruct_ov19_021DA9E0 *param0)
         if (v0) {
             const PCMonPreview *preview = BoxApp_GetPCMonPreview(param0->unk_10);
 
-            v0->unk_00 = (preview->isEgg) ? 4 : 0;
+            v0->coins = (preview->isEgg) ? 4 : 0;
             v0->unk_08 = param0;
             param0->unk_4C = SysTask_Start(ov19_021DACF8, v0, 1);
         } else {
@@ -265,7 +265,7 @@ static void ov19_021DACB0(UnkStruct_ov19_021DA9E0 *param0)
     if (v0) {
         const PCMonPreview *preview = BoxApp_GetPCMonPreview(param0->unk_10);
 
-        v0->unk_00 = (preview->isEgg) ? 4 : 0;
+        v0->coins = (preview->isEgg) ? 4 : 0;
         ov19_021DAE10(param0);
     }
 }
@@ -275,47 +275,47 @@ static void ov19_021DACDC(UnkStruct_ov19_021DA9E0 *param0)
     UnkStruct_ov19_021DAE2C *v0 = SysTask_GetParam(param0->unk_4C);
 
     if (v0) {
-        v0->unk_00 = 4;
+        v0->coins = 4;
         ov19_021DAE10(param0);
     }
 }
 
-static void ov19_021DACF8(SysTask *param0, void *param1)
+static void ov19_021DACF8(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021DAE2C *v0 = (UnkStruct_ov19_021DAE2C *)param1;
+    UnkStruct_ov19_021DAE2C *v0 = (UnkStruct_ov19_021DAE2C *)slotsMinigameDTO;
     UnkStruct_ov19_021DA9E0 *v1 = v0->unk_08;
     const PCMonPreview *preview;
 
-    switch (v0->unk_00) {
+    switch (v0->coins) {
     case 0:
         if (BoxApp_IsMonAvailableToCursor(v1->unk_10) == FALSE) {
             break;
         }
 
         v0->unk_02 = 0;
-        v0->unk_00 = 1;
+        v0->coins = 1;
     case 1:
-        ov19_021DAE60(&v1->unk_04[3], v1, v0->unk_02, 0);
-        Window_LoadTiles(&v1->unk_04[3]);
-        v0->unk_04 = 0;
-        v0->unk_00 = 2;
+        ov19_021DAE60(&v1->slotMachineVariant[3], v1, v0->unk_02, 0);
+        Window_LoadTiles(&v1->slotMachineVariant[3]);
+        v0->slotMachineVariant = 0;
+        v0->coins = 2;
         break;
     case 2:
         preview = BoxApp_GetPCMonPreview(v1->unk_10);
 
-        if (!preview->isEgg && (++(v0->unk_04) > 80)) {
+        if (!preview->isEgg && (++(v0->slotMachineVariant) > 80)) {
             ov19_021DAE2C(v0);
-            v0->unk_04 = 0;
+            v0->slotMachineVariant = 0;
             v0->unk_06 = 0;
-            v0->unk_00 = 3;
+            v0->coins = 3;
         }
         break;
     case 3:
         v0->unk_06 += 4;
 
         ov19_021DADCC(v1, 4 << FX32_SHIFT);
-        Window_Scroll(&v1->unk_04[3], 0, 4, 0x0);
-        Window_LoadTiles(&v1->unk_04[3]);
+        Window_Scroll(&v1->slotMachineVariant[3], 0, 4, 0x0);
+        Window_LoadTiles(&v1->slotMachineVariant[3]);
 
         if (v0->unk_06 >= 16) {
             if (v0->unk_02 == 1) {
@@ -327,8 +327,8 @@ static void ov19_021DACF8(SysTask *param0, void *param1)
             }
 
             v0->unk_06 = 0;
-            v0->unk_04 = 0;
-            v0->unk_00 = 2;
+            v0->slotMachineVariant = 0;
+            v0->coins = 2;
         }
         break;
     case 4:
@@ -336,14 +336,14 @@ static void ov19_021DACF8(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021DADCC(UnkStruct_ov19_021DA9E0 *param0, fx32 param1)
+static void ov19_021DADCC(UnkStruct_ov19_021DA9E0 *param0, fx32 slotsMinigameDTO)
 {
     int v0;
     VecFx32 v1;
 
     for (v0 = 0; v0 < 2; v0++) {
         v1 = *Sprite_GetPosition(param0->unk_3C[v0]);
-        v1.y -= param1;
+        v1.y -= slotsMinigameDTO;
 
         Sprite_SetPosition(param0->unk_3C[v0], &v1);
 
@@ -368,7 +368,7 @@ static void ov19_021DAE10(UnkStruct_ov19_021DA9E0 *param0)
 static void ov19_021DAE2C(UnkStruct_ov19_021DAE2C *param0)
 {
     u32 v0;
-    Window *v1 = &(param0->unk_08->unk_04[3]);
+    Window *v1 = &(param0->unk_08->slotMachineVariant[3]);
 
     Window_FillTilemap(v1, 0);
     ov19_021DAE60(v1, param0->unk_08, param0->unk_02, 0);
@@ -382,20 +382,20 @@ static void ov19_021DAE2C(UnkStruct_ov19_021DAE2C *param0)
     ov19_021DAE60(v1, param0->unk_08, v0, 1);
 }
 
-static void ov19_021DAE60(Window *param0, UnkStruct_ov19_021DA9E0 *param1, u32 param2, u32 param3)
+static void ov19_021DAE60(Window *param0, UnkStruct_ov19_021DA9E0 *slotsMinigameDTO, u32 param2, u32 param3)
 {
     const String *v0;
     u32 v1 = (param3 * 16) + 0;
 
     switch (param2) {
     case 0:
-        v0 = param1->unk_10->pcMonPreview.heldItemName;
+        v0 = slotsMinigameDTO->unk_10->pcMonPreview.heldItemName;
         break;
     case 2:
-        v0 = param1->unk_10->pcMonPreview.nature;
+        v0 = slotsMinigameDTO->unk_10->pcMonPreview.nature;
         break;
     case 3:
-        v0 = param1->unk_10->pcMonPreview.ability;
+        v0 = slotsMinigameDTO->unk_10->pcMonPreview.ability;
         break;
 
     case 1: {
@@ -403,27 +403,27 @@ static void ov19_021DAE60(Window *param0, UnkStruct_ov19_021DA9E0 *param1, u32 p
         u32 v3, v4;
 
         v3 = TypeIcon_GetNARC();
-        v4 = TypeIcon_GetChar(param1->unk_10->pcMonPreview.type1);
+        v4 = TypeIcon_GetChar(slotsMinigameDTO->unk_10->pcMonPreview.type1);
 
-        Graphics_LoadObjectTiles(TypeIcon_GetNARC(), TypeIcon_GetChar(param1->unk_10->pcMonPreview.type1), 0, 1504 * 0x20, 0, 1, HEAP_ID_BOX_GRAPHICS);
+        Graphics_LoadObjectTiles(TypeIcon_GetNARC(), TypeIcon_GetChar(slotsMinigameDTO->unk_10->pcMonPreview.type1), 0, 1504 * 0x20, 0, 1, HEAP_ID_BOX_GRAPHICS);
 
-        v2 = *Sprite_GetPosition(param1->unk_3C[0]);
+        v2 = *Sprite_GetPosition(slotsMinigameDTO->unk_3C[0]);
         v2.y = (176 + (16 * param3)) << FX32_SHIFT;
 
-        Sprite_SetPosition(param1->unk_3C[0], &v2);
-        Sprite_SetExplicitPalette(param1->unk_3C[0], 10 + TypeIcon_GetPltt(param1->unk_10->pcMonPreview.type1));
-        Sprite_SetDrawFlag(param1->unk_3C[0], TRUE);
+        Sprite_SetPosition(slotsMinigameDTO->unk_3C[0], &v2);
+        Sprite_SetExplicitPalette(slotsMinigameDTO->unk_3C[0], 10 + TypeIcon_GetPltt(slotsMinigameDTO->unk_10->pcMonPreview.type1));
+        Sprite_SetDrawFlag(slotsMinigameDTO->unk_3C[0], TRUE);
 
-        if (param1->unk_10->pcMonPreview.type1 != param1->unk_10->pcMonPreview.type2) {
-            Graphics_LoadObjectTiles(TypeIcon_GetNARC(), TypeIcon_GetChar(param1->unk_10->pcMonPreview.type2), 0, (1504 + 8) * 0x20, 0, 1, HEAP_ID_BOX_GRAPHICS);
+        if (slotsMinigameDTO->unk_10->pcMonPreview.type1 != slotsMinigameDTO->unk_10->pcMonPreview.type2) {
+            Graphics_LoadObjectTiles(TypeIcon_GetNARC(), TypeIcon_GetChar(slotsMinigameDTO->unk_10->pcMonPreview.type2), 0, (1504 + 8) * 0x20, 0, 1, HEAP_ID_BOX_GRAPHICS);
 
             v2.x += (36 << FX32_SHIFT);
 
-            Sprite_SetPosition(param1->unk_3C[1], &v2);
-            Sprite_SetExplicitPalette(param1->unk_3C[1], 10 + TypeIcon_GetPltt(param1->unk_10->pcMonPreview.type2));
-            Sprite_SetDrawFlag(param1->unk_3C[1], TRUE);
+            Sprite_SetPosition(slotsMinigameDTO->unk_3C[1], &v2);
+            Sprite_SetExplicitPalette(slotsMinigameDTO->unk_3C[1], 10 + TypeIcon_GetPltt(slotsMinigameDTO->unk_10->pcMonPreview.type2));
+            Sprite_SetDrawFlag(slotsMinigameDTO->unk_3C[1], TRUE);
         } else {
-            Sprite_SetDrawFlag(param1->unk_3C[1], FALSE);
+            Sprite_SetDrawFlag(slotsMinigameDTO->unk_3C[1], FALSE);
         }
     }
         return;
@@ -436,35 +436,35 @@ static void ov19_021DAE60(Window *param0, UnkStruct_ov19_021DA9E0 *param1, u32 p
 
 void ov19_021DAF98(UnkStruct_ov19_021DA9E0 *param0)
 {
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         return;
     }
 
-    Window_FillTilemap(&param0->unk_04[0], 15);
-    Window_FillTilemap(&param0->unk_04[1], 15);
-    Window_FillTilemap(&param0->unk_04[2], 15);
-    Window_FillTilemap(&param0->unk_04[3], 0);
+    Window_FillTilemap(&param0->slotMachineVariant[0], 15);
+    Window_FillTilemap(&param0->slotMachineVariant[1], 15);
+    Window_FillTilemap(&param0->slotMachineVariant[2], 15);
+    Window_FillTilemap(&param0->slotMachineVariant[3], 0);
 
     if (BoxApp_IsMonAvailableToCursor(param0->unk_10)) {
         ov19_021DB0E4(param0);
     }
 
-    Window_LoadTiles(&param0->unk_04[0]);
-    Window_LoadTiles(&param0->unk_04[1]);
-    Window_LoadTiles(&param0->unk_04[2]);
-    Window_LoadTiles(&param0->unk_04[3]);
+    Window_LoadTiles(&param0->slotMachineVariant[0]);
+    Window_LoadTiles(&param0->slotMachineVariant[1]);
+    Window_LoadTiles(&param0->slotMachineVariant[2]);
+    Window_LoadTiles(&param0->slotMachineVariant[3]);
 }
 
 void ov19_021DAFF8(UnkStruct_ov19_021DA9E0 *param0)
 {
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         return;
     }
 
-    Window_FillTilemap(&param0->unk_04[0], 15);
-    Window_FillTilemap(&param0->unk_04[1], 15);
-    Window_FillTilemap(&param0->unk_04[2], 15);
-    Window_FillTilemap(&param0->unk_04[3], 0);
+    Window_FillTilemap(&param0->slotMachineVariant[0], 15);
+    Window_FillTilemap(&param0->slotMachineVariant[1], 15);
+    Window_FillTilemap(&param0->slotMachineVariant[2], 15);
+    Window_FillTilemap(&param0->slotMachineVariant[3], 0);
 
     if (param0->unk_24) {
         PokemonSprite_Delete(param0->unk_24);
@@ -477,24 +477,24 @@ void ov19_021DAFF8(UnkStruct_ov19_021DA9E0 *param0)
         ov19_021DB24C(param0, 0);
     }
 
-    Window_LoadTiles(&param0->unk_04[0]);
-    Window_LoadTiles(&param0->unk_04[1]);
-    Window_LoadTiles(&param0->unk_04[2]);
-    Window_LoadTiles(&param0->unk_04[3]);
+    Window_LoadTiles(&param0->slotMachineVariant[0]);
+    Window_LoadTiles(&param0->slotMachineVariant[1]);
+    Window_LoadTiles(&param0->slotMachineVariant[2]);
+    Window_LoadTiles(&param0->slotMachineVariant[3]);
 
     ov19_021DACB0(param0);
 }
 
 void ov19_021DB078(UnkStruct_ov19_021DA9E0 *param0)
 {
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         return;
     }
 
-    Window_FillTilemap(&param0->unk_04[0], 15);
-    Window_FillTilemap(&param0->unk_04[1], 15);
-    Window_FillTilemap(&param0->unk_04[2], 15);
-    Window_FillTilemap(&param0->unk_04[3], 0);
+    Window_FillTilemap(&param0->slotMachineVariant[0], 15);
+    Window_FillTilemap(&param0->slotMachineVariant[1], 15);
+    Window_FillTilemap(&param0->slotMachineVariant[2], 15);
+    Window_FillTilemap(&param0->slotMachineVariant[3], 0);
 
     if (param0->unk_24) {
         PokemonSprite_Delete(param0->unk_24);
@@ -503,10 +503,10 @@ void ov19_021DB078(UnkStruct_ov19_021DA9E0 *param0)
 
     ov19_021DB24C(param0, 0);
 
-    Window_LoadTiles(&param0->unk_04[0]);
-    Window_LoadTiles(&param0->unk_04[1]);
-    Window_LoadTiles(&param0->unk_04[2]);
-    Window_LoadTiles(&param0->unk_04[3]);
+    Window_LoadTiles(&param0->slotMachineVariant[0]);
+    Window_LoadTiles(&param0->slotMachineVariant[1]);
+    Window_LoadTiles(&param0->slotMachineVariant[2]);
+    Window_LoadTiles(&param0->slotMachineVariant[3]);
 
     ov19_021DACDC(param0);
 }
@@ -516,27 +516,27 @@ static void ov19_021DB0E4(UnkStruct_ov19_021DA9E0 *param0)
     PokemonSpriteTemplate v0;
     const PCMonPreview *preview = BoxApp_GetPCMonPreview(param0->unk_10);
 
-    Text_AddPrinterWithParamsAndColor(&param0->unk_04[0], FONT_SYSTEM, preview->speciesName, 2, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(9, 6, 15), NULL);
-    Text_AddPrinterWithParamsAndColor(&param0->unk_04[2], FONT_SYSTEM, preview->nickname, 2, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 15), NULL);
-    Text_AddPrinterWithParamsAndColor(&param0->unk_04[2], FONT_SYSTEM, preview->nickname, 2, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 15), NULL);
+    Text_AddPrinterWithParamsAndColor(&param0->slotMachineVariant[0], FONT_SYSTEM, preview->speciesName, 2, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(9, 6, 15), NULL);
+    Text_AddPrinterWithParamsAndColor(&param0->slotMachineVariant[2], FONT_SYSTEM, preview->nickname, 2, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 15), NULL);
+    Text_AddPrinterWithParamsAndColor(&param0->slotMachineVariant[2], FONT_SYSTEM, preview->nickname, 2, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 15), NULL);
 
     switch (preview->gender) {
     case 0:
-        Text_AddPrinterWithParamsAndColor(&param0->unk_04[2], FONT_SYSTEM, param0->unk_44, 70, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(7, 8, 15), NULL);
+        Text_AddPrinterWithParamsAndColor(&param0->slotMachineVariant[2], FONT_SYSTEM, param0->unk_44, 70, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(7, 8, 15), NULL);
         break;
     case 1:
-        Text_AddPrinterWithParamsAndColor(&param0->unk_04[2], FONT_SYSTEM, param0->unk_48, 70, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(3, 4, 15), NULL);
+        Text_AddPrinterWithParamsAndColor(&param0->slotMachineVariant[2], FONT_SYSTEM, param0->unk_48, 70, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(3, 4, 15), NULL);
         break;
     }
 
     if (preview->isEgg == FALSE) {
-        Text_AddPrinterWithParamsAndColor(&param0->unk_04[3], FONT_SYSTEM, preview->heldItemName, 0, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(9, 6, 0), NULL);
+        Text_AddPrinterWithParamsAndColor(&param0->slotMachineVariant[3], FONT_SYSTEM, preview->heldItemName, 0, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(9, 6, 0), NULL);
 
         if (preview->dexNum) {
-            FontSpecialChars_DrawPartyScreenText(param0->unk_18, 2, preview->dexNum, 3, 2, &(param0->unk_04[1]), 0, 0);
+            FontSpecialChars_DrawPartyScreenText(param0->unk_18, 2, preview->dexNum, 3, 2, &(param0->slotMachineVariant[1]), 0, 0);
         }
 
-        FontSpecialChars_DrawPartyScreenText(param0->unk_1C, 1, preview->level, 3, 1, &(param0->unk_04[2]), 0, 16);
+        FontSpecialChars_DrawPartyScreenText(param0->unk_1C, 1, preview->level, 3, 1, &(param0->slotMachineVariant[2]), 0, 16);
     }
 
     BoxPokemon_BuildSpriteTemplate(&v0, preview->mon, 2, 0);
@@ -546,7 +546,7 @@ static void ov19_021DB0E4(UnkStruct_ov19_021DA9E0 *param0)
 
 BOOL ov19_021DB220(UnkStruct_ov19_021DA9E0 *param0)
 {
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         return 1;
     }
 
@@ -555,7 +555,7 @@ BOOL ov19_021DB220(UnkStruct_ov19_021DA9E0 *param0)
 
 void ov19_021DB224(UnkStruct_ov19_021DA9E0 *param0)
 {
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         return;
     }
 
@@ -567,7 +567,7 @@ void ov19_021DB224(UnkStruct_ov19_021DA9E0 *param0)
     }
 }
 
-static void ov19_021DB24C(UnkStruct_ov19_021DA9E0 *param0, u8 param1)
+static void ov19_021DB24C(UnkStruct_ov19_021DA9E0 *param0, u8 slotsMinigameDTO)
 {
     u16 *v0;
     u32 v1;
@@ -578,7 +578,7 @@ static void ov19_021DB24C(UnkStruct_ov19_021DA9E0 *param0, u8 param1)
     v0 += v1;
 
     for (v2 = 0; v2 < 6; v2++) {
-        if (param1 & (1 << v2)) {
+        if (slotsMinigameDTO & (1 << v2)) {
             v0[v2] = (2 << 12) | (152 + v2);
         } else {
             v0[v2] = (2 << 12) | (132 + v2);
@@ -592,15 +592,15 @@ void ov19_021DB2B0(UnkStruct_ov19_021DA9E0 *param0)
 {
     const PCMonPreview *preview;
 
-    if (param0->unk_00 == 0) {
+    if (param0->coins == 0) {
         return;
     }
 
     preview = BoxApp_GetPCMonPreview(param0->unk_10);
-    Window_FillTilemap(&param0->unk_04[3], 0);
+    Window_FillTilemap(&param0->slotMachineVariant[3], 0);
 
     if (preview->isEgg == FALSE) {
-        Text_AddPrinterWithParamsAndColor(&param0->unk_04[3], FONT_SYSTEM, preview->heldItemName, 0, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(9, 6, 0), NULL);
+        Text_AddPrinterWithParamsAndColor(&param0->slotMachineVariant[3], FONT_SYSTEM, preview->heldItemName, 0, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(9, 6, 0), NULL);
     }
 
     ov19_021DACB0(param0);

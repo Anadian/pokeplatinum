@@ -6,7 +6,7 @@
 #include "pokemon.h"
 #include "trainer_info.h"
 
-PokemonInfoDisplayStruct *sub_02092494(Pokemon *param0, BOOL param1, enum HeapID heapID);
+PokemonInfoDisplayStruct *sub_02092494(Pokemon *param0, BOOL slotsMinigameDTO, enum HeapID heapID);
 void sub_0209282C(PokemonInfoDisplayStruct *param0);
 void UpdateMonStatusAndTrainerInfo(Pokemon *mon, TrainerInfo *trainerInfo, int sel, int metLocation, enum HeapID heapID);
 void UpdateBoxMonStatusAndTrainerInfo(BoxPokemon *boxMon, TrainerInfo *trainerInfo, int sel, int metLocation, enum HeapID heapID);

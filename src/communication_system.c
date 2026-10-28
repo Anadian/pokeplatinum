@@ -41,10 +41,10 @@ enum MovementState {
 };
 
 typedef struct {
-    u8 *unk_00;
-    UnkStruct_020322D8 *unk_04;
+    u8 *coins;
+    UnkStruct_020322D8 *slotMachineVariant;
     UnkStruct_020322D8 *unk_08;
-    u16 unk_0C;
+    u16 slotsMinigameDTO;
     u8 unk_0E;
     u8 unk_0F_0 : 1;
     u8 unk_0F_1 : 1;
@@ -52,8 +52,8 @@ typedef struct {
 } UnkStruct_020322D8_t;
 
 typedef struct {
-    int unk_00;
-    u8 *unk_04;
+    int coins;
+    u8 *slotMachineVariant;
     u16 unk_08;
     u8 unk_0A;
 } CommRecvPackage;
@@ -118,14 +118,14 @@ typedef struct {
 } CommunicationSystem;
 
 static void sub_0203463C(void);
-static void sub_0203498C(SysTask *param0, void *param1);
+static void sub_0203498C(SysTask *param0, void *slotsMinigameDTO);
 static void sub_02034B50(void);
 static void CommSys_UpdateServerClient(void);
 static void sub_02034F68(void);
 static void sub_02035394(BOOL param0);
 static void sub_020353B0(BOOL param0);
-static void sub_020350A4(u16 param0, u16 *param1, u16 param2);
-static void sub_02035200(u16 param0, u16 *param1, u16 param2);
+static void sub_020350A4(u16 param0, u16 *slotsMinigameDTO, u16 param2);
+static void sub_02035200(u16 param0, u16 *slotsMinigameDTO, u16 param2);
 static BOOL CommSys_CheckRecvLimit(void);
 static void CommSys_ApplyMovementModifiers(void);
 static void sub_020353CC(void);
@@ -133,7 +133,7 @@ static void CommSys_RecvData(void);
 static void CommSys_RecvDataServer(void);
 static BOOL sub_020357F0(u8 *param0);
 static void sub_020358C0(u8 *param0);
-static BOOL sub_020356A0(u8 *param0, int param1);
+static BOOL sub_020356A0(u8 *param0, int slotsMinigameDTO);
 static BOOL sub_02035730(u8 *param0);
 static void CommSys_Transmission(void);
 static BOOL sub_0203594C(void);
@@ -263,16 +263,16 @@ static void CommSys_ClearData(void)
         sCommunicationSystem->unk_63C[netId] = 0;
         sCommunicationSystem->commRecvServer[netId].unk_0A = 0xee;
         sCommunicationSystem->commRecvServer[netId].unk_08 = 0xffff;
-        sCommunicationSystem->commRecvServer[netId].unk_04 = NULL;
-        sCommunicationSystem->commRecvServer[netId].unk_00 = 0;
+        sCommunicationSystem->commRecvServer[netId].slotMachineVariant = NULL;
+        sCommunicationSystem->commRecvServer[netId].coins = 0;
         sCommunicationSystem->unk_664[netId] = 0;
     }
 
     sCommunicationSystem->unk_660 = 0;
     sCommunicationSystem->commRecvClient.unk_0A = 0xee;
     sCommunicationSystem->commRecvClient.unk_08 = 0xffff;
-    sCommunicationSystem->commRecvClient.unk_04 = NULL;
-    sCommunicationSystem->commRecvClient.unk_00 = 0;
+    sCommunicationSystem->commRecvClient.slotMachineVariant = NULL;
+    sCommunicationSystem->commRecvClient.coins = 0;
     sCommunicationSystem->unk_6AA = 1;
     sCommunicationSystem->unk_6AB = 1;
     Unk_021C07C4 = 0;
@@ -314,8 +314,8 @@ static void CommSys_ClearServerRecvData(int netId)
 
     sCommunicationSystem->commRecvServer[netId].unk_0A = 0xee;
     sCommunicationSystem->commRecvServer[netId].unk_08 = 0xffff;
-    sCommunicationSystem->commRecvServer[netId].unk_04 = NULL;
-    sCommunicationSystem->commRecvServer[netId].unk_00 = 0;
+    sCommunicationSystem->commRecvServer[netId].slotMachineVariant = NULL;
+    sCommunicationSystem->commRecvServer[netId].coins = 0;
 }
 
 static void sub_02034734(void)
@@ -334,12 +334,12 @@ static void sub_02034770(int param0)
     CommSys_ClearServerRecvData(param0);
 }
 
-BOOL CommSys_InitServer(BOOL param0, BOOL param1, int param2, BOOL param3)
+BOOL CommSys_InitServer(BOOL param0, BOOL slotsMinigameDTO, int param2, BOOL param3)
 {
     BOOL ret = TRUE;
 
     if (!CommLocal_IsWifiGroup(CommManager_GetCommType())) {
-        ret = CommServerClient_InitServer(param0, param1, param3);
+        ret = CommServerClient_InitServer(param0, slotsMinigameDTO, param3);
         WirelessManager_SetConnectCallback(sub_02034770);
     }
 
@@ -347,12 +347,12 @@ BOOL CommSys_InitServer(BOOL param0, BOOL param1, int param2, BOOL param3)
     return ret;
 }
 
-BOOL CommSys_InitClient(BOOL param0, BOOL param1, int param2)
+BOOL CommSys_InitClient(BOOL param0, BOOL slotsMinigameDTO, int param2)
 {
     BOOL v0 = TRUE;
 
     if (!CommLocal_IsWifiGroup(CommManager_GetCommType())) {
-        v0 = CommServerClient_InitClient(param0, param1);
+        v0 = CommServerClient_InitClient(param0, slotsMinigameDTO);
     }
 
     CommSys_Init(param0, param2);
@@ -476,7 +476,7 @@ BOOL sub_02034984(u16 param0)
     return sub_020339E8(param0);
 }
 
-static void sub_0203498C(SysTask *param0, void *param1)
+static void sub_0203498C(SysTask *param0, void *slotsMinigameDTO)
 {
     if (Unk_021C07C5) {
         sub_020353CC();
@@ -841,14 +841,14 @@ static void sub_02034F68(void)
     }
 }
 
-void sub_0203509C(u16 param0, u16 *param1, u16 param2)
+void sub_0203509C(u16 param0, u16 *slotsMinigameDTO, u16 param2)
 {
-    sub_020350A4(param0, param1, param2);
+    sub_020350A4(param0, slotsMinigameDTO, param2);
 }
 
-static void sub_020350A4(u16 param0, u16 *param1, u16 param2)
+static void sub_020350A4(u16 param0, u16 *slotsMinigameDTO, u16 param2)
 {
-    u8 *v0 = (u8 *)param1;
+    u8 *v0 = (u8 *)slotsMinigameDTO;
     int i;
     int v2 = param2;
 
@@ -960,9 +960,9 @@ static void sub_02035200(u16 param0, u16 *_buffer, u16 param2)
     }
 }
 
-void sub_020352C0(u16 param0, u16 *param1, u16 param2)
+void sub_020352C0(u16 param0, u16 *slotsMinigameDTO, u16 param2)
 {
-    u8 *buffer = (u8 *)param1;
+    u8 *buffer = (u8 *)slotsMinigameDTO;
     int v1;
 
     sCommunicationSystem->unk_664[param0]--;
@@ -1153,26 +1153,26 @@ void CommSys_RevertPlayerMovementToNormal(void)
     sCommunicationSystem->playerMovementState = MOVEMENT_STATE_NORMAL;
 }
 
-static BOOL sub_020356A0(u8 *param0, int param1)
+static BOOL sub_020356A0(u8 *param0, int slotsMinigameDTO)
 {
     u8 v1[2];
 
-    sCommunicationSystem->unk_63C[param1] = 0;
+    sCommunicationSystem->unk_63C[slotsMinigameDTO] = 0;
 
     if (0x10 == (*param0 & 0x10)) {
         v1[0] = *param0 & 0xc;
 
         if (v1[0] == 0x0) {
-            sCommunicationSystem->unk_63C[param1] |= PAD_KEY_UP;
+            sCommunicationSystem->unk_63C[slotsMinigameDTO] |= PAD_KEY_UP;
         } else if (v1[0] == 0x4) {
-            sCommunicationSystem->unk_63C[param1] |= PAD_KEY_DOWN;
+            sCommunicationSystem->unk_63C[slotsMinigameDTO] |= PAD_KEY_DOWN;
         } else if (v1[0] == 0x8) {
-            sCommunicationSystem->unk_63C[param1] |= PAD_KEY_LEFT;
+            sCommunicationSystem->unk_63C[slotsMinigameDTO] |= PAD_KEY_LEFT;
         } else if (v1[0] == 0xC) {
-            sCommunicationSystem->unk_63C[param1] |= PAD_KEY_RIGHT;
+            sCommunicationSystem->unk_63C[slotsMinigameDTO] |= PAD_KEY_RIGHT;
         }
 
-        sCommunicationSystem->recvSpeed[param1] = (*param0 >> 5) & 0x7;
+        sCommunicationSystem->recvSpeed[slotsMinigameDTO] = (*param0 >> 5) & 0x7;
     }
 
     return TRUE;
@@ -1241,8 +1241,8 @@ static BOOL sub_020357F0(u8 *param0)
     } else {
         UnkStruct_0203233C v3;
 
-        v3.unk_04 = v1 - 1;
-        v3.unk_00 = &param0[1];
+        v3.slotMachineVariant = v1 - 1;
+        v3.coins = &param0[1];
 
         if (!sub_02032574(&sCommunicationSystem->commQueueManSend, &v3, 1)) {
             sCommunicationSystem->unk_6AC = 1;
@@ -1275,12 +1275,12 @@ static void sub_020358C0(u8 *param0)
 
     UnkStruct_0203233C v2;
 
-    v2.unk_04 = 192 - 5;
-    v2.unk_00 = &param0[5];
+    v2.slotMachineVariant = 192 - 5;
+    v2.coins = &param0[5];
 
     if (sub_02032574(&sCommunicationSystem->commQueueManSendServer, &v2, 0)) {
         sCommunicationSystem->unk_6AD = 0;
-        param0[4] = (192 - 5) - v2.unk_04;
+        param0[4] = (192 - 5) - v2.slotMachineVariant;
     } else {
         sCommunicationSystem->unk_6AD = 1;
         param0[4] = 192 - 5;
@@ -1407,8 +1407,8 @@ static void CommSys_EndCallback(int netId, int command, int param2, void *param3
     CommCmd_Callback(netId, command, param2, param3);
     param4->unk_0A = 0xee;
     param4->unk_08 = 0xffff;
-    param4->unk_04 = NULL;
-    param4->unk_00 = 0;
+    param4->slotMachineVariant = NULL;
+    param4->coins = 0;
 }
 
 static void CommSys_RecvDataSingle(CommRing *ring, int netId, u8 *buffer, CommRecvPackage *param3)
@@ -1458,20 +1458,20 @@ static void CommSys_RecvDataSingle(CommRing *ring, int netId, u8 *buffer, CommRe
         }
 
         if (sub_020328D0(cmd)) {
-            if (param3->unk_04 == NULL) {
-                param3->unk_04 = sub_0203290C(cmd, netId, param3->unk_08);
+            if (param3->slotMachineVariant == NULL) {
+                param3->slotMachineVariant = sub_0203290C(cmd, netId, param3->unk_08);
             }
 
-            v3 = CommRing_Read(ring, buffer, size - param3->unk_00);
+            v3 = CommRing_Read(ring, buffer, size - param3->coins);
 
-            if (param3->unk_04) {
-                MI_CpuCopy8(buffer, &param3->unk_04[param3->unk_00], v3);
+            if (param3->slotMachineVariant) {
+                MI_CpuCopy8(buffer, &param3->slotMachineVariant[param3->coins], v3);
             }
 
-            param3->unk_00 += v3;
+            param3->coins += v3;
 
-            if (param3->unk_00 >= size) {
-                CommSys_EndCallback(netId, cmd, size, param3->unk_04, param3);
+            if (param3->coins >= size) {
+                CommSys_EndCallback(netId, cmd, size, param3->slotMachineVariant, param3);
 
                 if (cmd == 17) {
                     break;
@@ -1815,7 +1815,7 @@ BOOL CommSys_IsAlone(void)
     return FALSE;
 }
 
-void sub_0203619C(int param0, int param1, void *param2, void *param3)
+void sub_0203619C(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     u8 v0;
 
@@ -1867,10 +1867,10 @@ BOOL CommSys_WifiConnected(void)
     return sCommunicationSystem->wifiConnected;
 }
 
-void sub_020362DC(int param0, int param1)
+void sub_020362DC(int param0, int slotsMinigameDTO)
 {
     if (sCommunicationSystem) {
-        sCommunicationSystem->unk_69F[param1] = param0;
+        sCommunicationSystem->unk_69F[slotsMinigameDTO] = param0;
     }
 }
 

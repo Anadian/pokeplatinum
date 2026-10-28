@@ -972,7 +972,7 @@ BOOL ScrCmd_32E(ScriptContext *ctx)
     return 0;
 }
 
-static void ov5_021F7654(MapObject *param0, int param1)
+static void ov5_021F7654(MapObject *param0, int slotsMinigameDTO)
 {
     VecFx32 v0;
     Billboard *v1;
@@ -980,10 +980,10 @@ static void ov5_021F7654(MapObject *param0, int param1)
     MapObject_SetStatusFlagOn(param0, MAP_OBJ_STATUS_13);
     MapObject_GetPosPtr(param0, &v0);
 
-    v0.y = (((param1) << 4) * FX32_ONE);
+    v0.y = (((slotsMinigameDTO) << 4) * FX32_ONE);
 
     MapObject_SetPos(param0, &v0);
-    MapObject_SetY(param0, (param1) * 2);
+    MapObject_SetY(param0, (slotsMinigameDTO) * 2);
 
     v1 = ov5_021EB1A0(param0);
 

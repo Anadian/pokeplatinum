@@ -7,9 +7,9 @@
 #include "pc_boxes.h"
 #include "pokemon.h"
 
-int GTSApplication_SelectMon_Init(GTSApplicationState *param0, int param1);
-int GTSApplication_SelectMon_Main(GTSApplicationState *param0, int param1);
-int GTSApplication_SelectMon_Exit(GTSApplicationState *param0, int param1);
+int GTSApplication_SelectMon_Init(GTSApplicationState *param0, int slotsMinigameDTO);
+int GTSApplication_SelectMon_Main(GTSApplicationState *param0, int slotsMinigameDTO);
+int GTSApplication_SelectMon_Exit(GTSApplicationState *param0, int slotsMinigameDTO);
 BOOL GTSApplication_IsBoxIDParty(int boxID);
 BoxPokemon *GTSApplication_GetSelectedBoxMon(Party *party, PCBoxes *pcBoxes, int boxID, int pos);
 BOOL Pokemon_IsHoldingMail(Pokemon *mon);

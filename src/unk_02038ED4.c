@@ -11,7 +11,7 @@ void sub_02038ED4(int *param0)
     *param0 = 0;
 }
 
-int sub_02038EDC(SaveData *saveData, int param1, int *param2)
+int sub_02038EDC(SaveData *saveData, int slotsMinigameDTO, int *param2)
 {
     int v0;
 
@@ -22,7 +22,7 @@ int sub_02038EDC(SaveData *saveData, int param1, int *param2)
         break;
     case 1:
         if (CommTiming_IsSyncState(111)) {
-            SaveData_SaveStateInit(saveData, param1);
+            SaveData_SaveStateInit(saveData, slotsMinigameDTO);
             *param2 = 2;
         }
         break;

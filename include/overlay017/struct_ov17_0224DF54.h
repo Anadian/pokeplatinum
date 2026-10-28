@@ -19,10 +19,10 @@
 #include "sys_task_manager.h"
 
 typedef struct UnkStruct_ov17_0224DF54_t {
-    Contest *unk_00;
-    SysTask *unk_04;
+    Contest *coins;
+    SysTask *slotMachineVariant;
     SysTask *unk_08;
-    ParticleSystem *unk_0C;
+    ParticleSystem *slotsMinigameDTO;
     G3DPipelineBuffers *unk_10;
     UnkStruct_ov17_0224A1EC unk_14;
     UnkStruct_ov17_0224DF54_sub1 unk_A3C;

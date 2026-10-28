@@ -5,8 +5,8 @@
 
 void ov83_0223C958(UnkStruct_ov83_0223B784 *param0);
 void ov83_0223CAA4(UnkStruct_ov83_0223B784 *param0);
-int ov83_0223CB5C(UnkStruct_ov83_0223B784 *param0, int *param1);
-int ov83_0223CB8C(UnkStruct_ov83_0223B784 *param0, int *param1);
+int ov83_0223CB5C(UnkStruct_ov83_0223B784 *param0, int *slotsMinigameDTO);
+int ov83_0223CB8C(UnkStruct_ov83_0223B784 *param0, int *slotsMinigameDTO);
 void ov83_0223CBA4(UnkStruct_ov83_0223B784 *param0);
 void ov83_0223CBFC(UnkStruct_ov83_0223B784 *param0);
 

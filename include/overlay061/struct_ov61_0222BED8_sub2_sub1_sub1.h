@@ -4,12 +4,12 @@
 #include "easy_chat_sentence.h"
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     u8 unk_01;
     u8 unk_02;
     u8 unk_03;
-    u16 unk_04[4];
-    u32 unk_0C;
+    u16 slotMachineVariant[4];
+    u32 slotsMinigameDTO;
     u32 unk_10;
     u16 unk_14[8];
     EasyChatSentence unk_24;

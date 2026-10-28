@@ -84,7 +84,7 @@ static void FilterByName(int filterName, u16 *resultingPokedex, int *numResultin
 static void FilterByType(int typeFilter, u16 *resultingPokedex, int *numResulting, const u16 *encounteredPokedex, int caughtStatusLength, enum HeapID heapID, const Pokedex *pokedex);
 static void FilterByForm(int filterForm, u16 *resultingPokedex, int *numResulting, const u16 *encounteredPokedex, int caughtStatusLength, enum HeapID heapID, const Pokedex *pokedex);
 
-void PokedexSort_DefaultPokedexSort(PokedexSortData *param0, PokedexDefaultSortParams *param1, enum HeapID heapID)
+void PokedexSort_DefaultPokedexSort(PokedexSortData *param0, PokedexDefaultSortParams *slotsMinigameDTO, enum HeapID heapID)
 {
     int sortOrder;
     int filterName;
@@ -96,8 +96,8 @@ void PokedexSort_DefaultPokedexSort(PokedexSortData *param0, PokedexDefaultSortP
 
     memset(param0, 0, sizeof(PokedexSortData));
 
-    param0->pokedex = param1->pokedex;
-    param0->timeOfDay = param1->timeOfDay;
+    param0->pokedex = slotsMinigameDTO->pokedex;
+    param0->timeOfDay = slotsMinigameDTO->timeOfDay;
 
     if (Pokedex_IsNationalDexObtained(param0->pokedex)) {
         param0->isNationalDexUnlocked = TRUE;
@@ -105,14 +105,14 @@ void PokedexSort_DefaultPokedexSort(PokedexSortData *param0, PokedexDefaultSortP
         param0->isNationalDexUnlocked = FALSE;
     }
 
-    if (param1->bootMode == POKEDEX_BOOT_DEFAULT) {
+    if (slotsMinigameDTO->bootMode == POKEDEX_BOOT_DEFAULT) {
         if (param0->isNationalDexUnlocked) {
             isNationalDex = TRUE;
         } else {
             isNationalDex = FALSE;
         }
     } else {
-        isNationalDex = param1->bootMode;
+        isNationalDex = slotsMinigameDTO->bootMode;
     }
 
     if (isNationalDex == TRUE) {
@@ -135,13 +135,13 @@ void PokedexSort_DefaultPokedexSort(PokedexSortData *param0, PokedexDefaultSortP
 
     GF_ASSERT(dexExists);
 
-    PokedexSort_SetCurrentStatusIndexWithSpecies(param0, param1->currentSpecies);
-    PokedexSort_SetCurrentSpecies(param0, param1->currentSpecies);
-    PokedexSort_SetBootMode(param0, param1->bootMode);
+    PokedexSort_SetCurrentStatusIndexWithSpecies(param0, slotsMinigameDTO->currentSpecies);
+    PokedexSort_SetCurrentSpecies(param0, slotsMinigameDTO->currentSpecies);
+    PokedexSort_SetBootMode(param0, slotsMinigameDTO->bootMode);
 
-    param0->trainerGameCode = TrainerInfo_GameCode(param1->trainerInfo);
-    param0->trainerGender = TrainerInfo_Gender(param1->trainerInfo);
-    param0->trainerName = TrainerInfo_NameNewString(param1->trainerInfo, heapID);
+    param0->trainerGameCode = TrainerInfo_GameCode(slotsMinigameDTO->trainerInfo);
+    param0->trainerGender = TrainerInfo_Gender(slotsMinigameDTO->trainerInfo);
+    param0->trainerName = TrainerInfo_NameNewString(slotsMinigameDTO->trainerInfo, heapID);
     param0->HWData = Pokedex_HeightWeightData(heapID);
 
     if (param0->trainerGender == 0) {
@@ -150,10 +150,10 @@ void PokedexSort_DefaultPokedexSort(PokedexSortData *param0, PokedexDefaultSortP
         Pokedex_HeightWeightData_Load(param0->HWData, 1, heapID);
     }
 
-    param0->fullmoonIslandVisible = param1->fullmoonIslandVisible;
-    param0->newmoonIslandVisible = param1->newmoonIslandVisible;
-    param0->springPathVisible = param1->springPathVisible;
-    param0->seabreakPathVisible = param1->seabreakPathVisible;
+    param0->fullmoonIslandVisible = slotsMinigameDTO->fullmoonIslandVisible;
+    param0->newmoonIslandVisible = slotsMinigameDTO->newmoonIslandVisible;
+    param0->springPathVisible = slotsMinigameDTO->springPathVisible;
+    param0->seabreakPathVisible = slotsMinigameDTO->seabreakPathVisible;
 }
 
 void PokedexSort_PokedexStatusFreeHWData(PokedexSortData *param0)
@@ -382,9 +382,9 @@ BOOL PokedexSort_SortUnfiltered(PokedexSortData *param0, enum SortOrder sortOrde
     return PokedexSort_Sort(param0, sortOrder, filterName, filterType1, filterType2, filterForm, isNationalDex, heapID, FALSE);
 }
 
-BOOL ov21_021D36A4(const PokedexSortData *param0, int param1)
+BOOL ov21_021D36A4(const PokedexSortData *param0, int slotsMinigameDTO)
 {
-    if (param1 == 0) {
+    if (slotsMinigameDTO == 0) {
         return TRUE;
     }
 
@@ -395,12 +395,12 @@ BOOL ov21_021D36A4(const PokedexSortData *param0, int param1)
     return FALSE;
 }
 
-BOOL ov21_021D36C0(PokedexSortData *param0, int param1)
+BOOL ov21_021D36C0(PokedexSortData *param0, int slotsMinigameDTO)
 {
-    BOOL v0 = ov21_021D36A4(param0, param1);
+    BOOL v0 = ov21_021D36A4(param0, slotsMinigameDTO);
 
     if (v0) {
-        param0->isNationalDex = param1;
+        param0->isNationalDex = slotsMinigameDTO;
     }
 
     return v0;
@@ -591,7 +591,7 @@ u32 PokedexSort_TrainerGender(const PokedexSortData *param0)
     return param0->trainerGender;
 }
 
-BOOL ov21_021D392C(const PokedexSortData *param0, int param1)
+BOOL ov21_021D392C(const PokedexSortData *param0, int slotsMinigameDTO)
 {
     int species = PokedexSort_CurrentSpecies(param0);
 
@@ -599,7 +599,7 @@ BOOL ov21_021D392C(const PokedexSortData *param0, int param1)
         return FALSE;
     }
 
-    return Pokedex_IsLanguageObtained(param0->pokedex, species, param1);
+    return Pokedex_IsLanguageObtained(param0->pokedex, species, slotsMinigameDTO);
 }
 
 BOOL PokedexSort_CanDetectForms(const PokedexSortData *param0)

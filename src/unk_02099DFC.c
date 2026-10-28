@@ -22,9 +22,9 @@ FS_EXTERN_OVERLAY(game_opening);
 
 typedef struct {
     enum HeapID heapID;
-    int unk_04;
+    int slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     String *unk_10;
     BgConfig *unk_14;
     MessageLoader *unk_18;
@@ -34,17 +34,17 @@ typedef struct {
     void *unk_34;
 } UnkStruct_02099DFC;
 
-void EnqueueApplication(FSOverlayID param0, const ApplicationManagerTemplate *param1);
-int sub_02099DFC(ApplicationManager *appMan, int *param1);
-int sub_02099E38(ApplicationManager *appMan, int *param1);
-int sub_02099F54(ApplicationManager *appMan, int *param1);
+void EnqueueApplication(FSOverlayID param0, const ApplicationManagerTemplate *slotsMinigameDTO);
+int sub_02099DFC(ApplicationManager *appMan, int *slotsMinigameDTO);
+int sub_02099E38(ApplicationManager *appMan, int *slotsMinigameDTO);
+int sub_02099F54(ApplicationManager *appMan, int *slotsMinigameDTO);
 static void sub_02099F74(void *param0);
 static void sub_02099F80(UnkStruct_02099DFC *param0);
 static void sub_0209A044(UnkStruct_02099DFC *param0);
 static void sub_0209A098(UnkStruct_02099DFC *param0);
 static void sub_0209A0E0(UnkStruct_02099DFC *param0);
 static BOOL sub_0209A0F4(UnkStruct_02099DFC *param0);
-static BOOL sub_0209A200(UnkStruct_02099DFC *param0, u32 param1, int param2, int param3);
+static BOOL sub_0209A200(UnkStruct_02099DFC *param0, u32 slotsMinigameDTO, int param2, int param3);
 
 extern const ApplicationManagerTemplate gTitleScreenAppTemplate;
 
@@ -75,7 +75,7 @@ static const WindowTemplate Unk_020F89EC = {
     0x155
 };
 
-int sub_02099DFC(ApplicationManager *appMan, int *param1)
+int sub_02099DFC(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_02099DFC *v0;
 
@@ -85,18 +85,18 @@ int sub_02099DFC(ApplicationManager *appMan, int *param1)
     memset(v0, 0, sizeof(UnkStruct_02099DFC));
 
     v0->heapID = HEAP_ID_88;
-    v0->unk_04 = 0;
+    v0->slotMachineVariant = 0;
     v0->saveData = ((ApplicationArgs *)ApplicationManager_Args(appMan))->saveData;
 
     return 1;
 }
 
-int sub_02099E38(ApplicationManager *appMan, int *param1)
+int sub_02099E38(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_02099DFC *v0 = ApplicationManager_Data(appMan);
     int v1 = 0;
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         Sound_StopBGM(SEQ_TITLE01_sseq, 0);
         Sound_ConfigureBGMChannelsAndReverb(SOUND_CHANNEL_CONFIG_DEFAULT);
@@ -117,17 +117,17 @@ int sub_02099E38(ApplicationManager *appMan, int *param1)
         SetVBlankCallback(sub_02099F74, (void *)v0);
         GXLayers_TurnBothDispOn();
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, COLOR_BLACK, 6, 1, v0->heapID);
-        *param1 = 1;
+        *slotsMinigameDTO = 1;
         break;
     case 1:
         if (IsScreenFadeDone() == TRUE) {
-            *param1 = 2;
+            *slotsMinigameDTO = 2;
         }
         break;
     case 2:
         if (sub_0209A0F4(v0) == TRUE) {
             StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, v0->heapID);
-            *param1 = 3;
+            *slotsMinigameDTO = 3;
         }
         break;
     case 3:
@@ -143,7 +143,7 @@ int sub_02099E38(ApplicationManager *appMan, int *param1)
     return v1;
 }
 
-int sub_02099F54(ApplicationManager *appMan, int *param1)
+int sub_02099F54(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_02099DFC *v0 = ApplicationManager_Data(appMan);
     int heapID = v0->heapID;
@@ -250,11 +250,11 @@ static BOOL sub_0209A0F4(UnkStruct_02099DFC *param0)
 {
     BOOL v0 = 0;
 
-    switch (param0->unk_04) {
+    switch (param0->slotMachineVariant) {
     case 0:
         if (sub_0209A200(param0, 0, 1, 4) == TRUE) {
             param0->unk_2C = Menu_MakeYesNoChoiceWithCursorAt(param0->unk_14, &Unk_020F89EC, 512 - (18 + 12) - 9, 3, 1, param0->heapID);
-            param0->unk_04 = 1;
+            param0->slotMachineVariant = 1;
         }
         break;
     case 1: {
@@ -262,17 +262,17 @@ static BOOL sub_0209A0F4(UnkStruct_02099DFC *param0)
 
         switch (v1) {
         case 0:
-            param0->unk_04 = 2;
+            param0->slotMachineVariant = 2;
             break;
         case 0xfffffffe:
-            param0->unk_04 = 6;
+            param0->slotMachineVariant = 6;
             break;
         }
     } break;
     case 2:
         if (sub_0209A200(param0, 1, 1, 4) == TRUE) {
             param0->unk_2C = Menu_MakeYesNoChoiceWithCursorAt(param0->unk_14, &Unk_020F89EC, (512 - (18 + 12)) - 9, 3, 1, param0->heapID);
-            param0->unk_04 = 3;
+            param0->slotMachineVariant = 3;
         }
         break;
     case 3: {
@@ -280,23 +280,23 @@ static BOOL sub_0209A0F4(UnkStruct_02099DFC *param0)
 
         switch (v2) {
         case 0:
-            param0->unk_04 = 4;
+            param0->slotMachineVariant = 4;
             break;
         case 0xfffffffe:
-            param0->unk_04 = 6;
+            param0->slotMachineVariant = 6;
             break;
         }
     } break;
     case 4:
         if (sub_0209A200(param0, 2, 1, 0) == TRUE) {
             param0->unk_34 = Window_AddWaitDial(&param0->unk_1C, 512 - (18 + 12));
-            param0->unk_04 = 5;
+            param0->slotMachineVariant = 5;
         }
         break;
     case 5:
         SaveData_Erase(param0->saveData);
         DestroyWaitDial(param0->unk_34);
-        param0->unk_04 = 6;
+        param0->slotMachineVariant = 6;
         break;
     case 6:
         Bg_ClearTilemap(param0->unk_14, BG_LAYER_MAIN_0);
@@ -307,7 +307,7 @@ static BOOL sub_0209A0F4(UnkStruct_02099DFC *param0)
     return v0;
 }
 
-static BOOL sub_0209A200(UnkStruct_02099DFC *param0, u32 param1, int param2, int param3)
+static BOOL sub_0209A200(UnkStruct_02099DFC *param0, u32 slotsMinigameDTO, int param2, int param3)
 {
     BOOL v0 = 0;
 
@@ -317,8 +317,8 @@ static BOOL sub_0209A200(UnkStruct_02099DFC *param0, u32 param1, int param2, int
         Window_DrawMessageBoxWithScrollCursor(&param0->unk_1C, 0, 512 - (18 + 12), 2);
 
         param0->unk_10 = String_Init(0x400, param0->heapID);
-        MessageLoader_GetString(param0->unk_18, param1, param0->unk_10);
-        param0->unk_0C = Text_AddPrinterWithParams(&param0->unk_1C, FONT_MESSAGE, param0->unk_10, 0, 0, param3, NULL);
+        MessageLoader_GetString(param0->unk_18, slotsMinigameDTO, param0->unk_10);
+        param0->slotsMinigameDTO = Text_AddPrinterWithParams(&param0->unk_1C, FONT_MESSAGE, param0->unk_10, 0, 0, param3, NULL);
 
         if (param3 == 0) {
             String_Free(param0->unk_10);
@@ -328,7 +328,7 @@ static BOOL sub_0209A200(UnkStruct_02099DFC *param0, u32 param1, int param2, int
         param0->unk_08++;
         break;
     case 1:
-        if (!(Text_IsPrinterActive(param0->unk_0C))) {
+        if (!(Text_IsPrinterActive(param0->slotsMinigameDTO))) {
             String_Free(param0->unk_10);
             param0->unk_08++;
         }

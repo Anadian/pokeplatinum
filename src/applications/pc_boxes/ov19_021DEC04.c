@@ -32,10 +32,10 @@
 #include "res/text/bank/box_messages.h"
 
 struct UnkStruct_ov19_021DEC04_t {
-    BOOL unk_00;
-    UnkStruct_ov19_021D61B0 *unk_04;
+    BOOL coins;
+    UnkStruct_ov19_021D61B0 *slotMachineVariant;
     const BoxApplication *unk_08;
-    BgConfig *unk_0C;
+    BgConfig *slotsMinigameDTO;
     SpriteList *unk_10;
     UnkStruct_ov19_021DA384 *unk_14;
     u32 unk_18[2];
@@ -66,26 +66,26 @@ static void ov19_021DEF64(UnkStruct_ov19_021DEC04 *param0);
 static void ov19_021DEFC8(UnkStruct_ov19_021DEC04 *param0);
 static void ov19_021DF03C(UnkStruct_ov19_021DEC04 *param0);
 static void ov19_021DF064(UnkStruct_ov19_021DEC04 *param0);
-static void ov19_021DF0CC(UnkStruct_ov19_021DEC04 *param0, int param1);
+static void ov19_021DF0CC(UnkStruct_ov19_021DEC04 *param0, int slotsMinigameDTO);
 static void ov19_021DF108(UnkStruct_ov19_021DEC04 *param0);
 static void ov19_021DF140(UnkStruct_ov19_021DEC04 *param0);
-static void ov19_021DF178(UnkStruct_ov19_021DEC04 *param0, int param1);
-static void ov19_021DF250(UnkStruct_ov19_021DEC04 *param0, int param1);
+static void ov19_021DF178(UnkStruct_ov19_021DEC04 *param0, int slotsMinigameDTO);
+static void ov19_021DF250(UnkStruct_ov19_021DEC04 *param0, int slotsMinigameDTO);
 static void ov19_021DF270(UnkStruct_ov19_021DEC04 *param0);
 static void ov19_021DF2A8(UnkStruct_ov19_021DEC04 *param0);
-static inline u32 inline_ov19_021DF3AC(Window *param0, u32 param1, const String *param2);
+static inline u32 inline_ov19_021DF3AC(Window *param0, u32 slotsMinigameDTO, const String *param2);
 static void ov19_021DF2E0(UnkStruct_ov19_021DEC04 *param0);
 static void ov19_021DF394(UnkStruct_ov19_021DEC04 *param0);
-static void ov19_021DF3AC(UnkStruct_ov19_021DEC04 *param0, int param1);
-static void ov19_021DF4D0(UnkStruct_ov19_021DEC04 *param0, int param1);
-static void ov19_021DF5D0(UnkStruct_ov19_021DEC04 *param0, NARC *param1);
-static void ov19_021DF730(UnkStruct_ov19_021DEC04 *param0, u32 param1);
+static void ov19_021DF3AC(UnkStruct_ov19_021DEC04 *param0, int slotsMinigameDTO);
+static void ov19_021DF4D0(UnkStruct_ov19_021DEC04 *param0, int slotsMinigameDTO);
+static void ov19_021DF5D0(UnkStruct_ov19_021DEC04 *param0, NARC *slotsMinigameDTO);
+static void ov19_021DF730(UnkStruct_ov19_021DEC04 *param0, u32 slotsMinigameDTO);
 static void ov19_021DF7D0(UnkStruct_ov19_021DEC04 *param0);
 static void ov19_021DF834(UnkStruct_ov19_021DEC04 *param0);
-static void ov19_021DF8C8(UnkStruct_ov19_021DEC04 *param0, int param1);
-static void ov19_021DF930(SysTask *param0, void *param1);
+static void ov19_021DF8C8(UnkStruct_ov19_021DEC04 *param0, int slotsMinigameDTO);
+static void ov19_021DF930(SysTask *param0, void *slotsMinigameDTO);
 
-BOOL ov19_021DEC04(UnkStruct_ov19_021DEC04 **param0, UnkStruct_ov19_021D61B0 *param1, const BoxApplication *param2, BgConfig *param3, SpriteList *param4, MessageLoader *param5, NARC *param6)
+BOOL ov19_021DEC04(UnkStruct_ov19_021DEC04 **param0, UnkStruct_ov19_021D61B0 *slotsMinigameDTO, const BoxApplication *param2, BgConfig *param3, SpriteList *param4, MessageLoader *param5, NARC *param6)
 {
     if (BoxApp_GetBoxMode(param2) != PC_MODE_COMPARE) {
         *param0 = NULL;
@@ -94,11 +94,11 @@ BOOL ov19_021DEC04(UnkStruct_ov19_021DEC04 **param0, UnkStruct_ov19_021D61B0 *pa
         UnkStruct_ov19_021DEC04 *v0 = Heap_Alloc(HEAP_ID_BOX_GRAPHICS, sizeof(UnkStruct_ov19_021DEC04));
 
         if (v0) {
-            v0->unk_04 = param1;
+            v0->slotMachineVariant = slotsMinigameDTO;
             v0->unk_08 = param2;
-            v0->unk_0C = param3;
+            v0->slotsMinigameDTO = param3;
             v0->unk_10 = param4;
-            v0->unk_14 = ov19_021D77D8(param1);
+            v0->unk_14 = ov19_021D77D8(slotsMinigameDTO);
             v0->unk_370 = Graphics_GetScrnDataFromOpenNARC(param6, 7, 1, &(v0->unk_368), HEAP_ID_BOX_GRAPHICS);
             v0->unk_374 = Graphics_GetScrnDataFromOpenNARC(param6, 8, 1, &(v0->unk_36C), HEAP_ID_BOX_GRAPHICS);
             v0->unk_6C = param5;
@@ -126,36 +126,36 @@ void ov19_021DECAC(UnkStruct_ov19_021DEC04 *param0)
     }
 }
 
-void ov19_021DECE8(UnkStruct_ov19_021DEC04 *param0, NARC *param1)
+void ov19_021DECE8(UnkStruct_ov19_021DEC04 *param0, NARC *slotsMinigameDTO)
 {
     if (param0) {
         ov19_021DEEFC(param0);
 
-        Graphics_LoadTilesToBgLayerFromOpenNARC(param1, 132, param0->unk_0C, 5, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
-        Graphics_LoadTilemapToBgLayerFromOpenNARC(param1, 129, param0->unk_0C, 5, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
-        Graphics_LoadTilemapToBgLayerFromOpenNARC(param1, 130, param0->unk_0C, 6, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
-        Graphics_LoadTilemapToBgLayerFromOpenNARC(param1, 131, param0->unk_0C, 7, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
-        Graphics_LoadPaletteFromOpenNARC(param1, 133, 4, 0, 0x20 * 4, HEAP_ID_BOX_GRAPHICS);
+        Graphics_LoadTilesToBgLayerFromOpenNARC(slotsMinigameDTO, 132, param0->slotsMinigameDTO, 5, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
+        Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO, 129, param0->slotsMinigameDTO, 5, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
+        Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO, 130, param0->slotsMinigameDTO, 6, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
+        Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO, 131, param0->slotsMinigameDTO, 7, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
+        Graphics_LoadPaletteFromOpenNARC(slotsMinigameDTO, 133, 4, 0, 0x20 * 4, HEAP_ID_BOX_GRAPHICS);
         Graphics_LoadPalette(NARC_INDEX_POKETOOL__ICONGRA__PL_POKE_ICON, PokeIconPalettesFileIndex(), 5, 4 * 0x20, 4 * 0x20, HEAP_ID_BOX_GRAPHICS);
         Bg_ClearTilesRange(4, 0x20, 0, HEAP_ID_BOX_GRAPHICS);
-        Bg_FillTilemapRect(param0->unk_0C, 4, 0x0, 0, 0, 32, 32, 17);
+        Bg_FillTilemapRect(param0->slotsMinigameDTO, 4, 0x0, 0, 0, 32, 32, 17);
 
         ov19_021DEF64(param0);
         ov19_021DEFC8(param0);
 
         param0->unk_378 = BoxApp_GetCompareMode(param0->unk_08);
 
-        Bg_CopyTilemapBufferToVRAM(param0->unk_0C, 4);
-        ov19_021DF5D0(param0, param1);
+        Bg_CopyTilemapBufferToVRAM(param0->slotsMinigameDTO, 4);
+        ov19_021DF5D0(param0, slotsMinigameDTO);
     }
 }
 
-void ov19_021DEDDC(UnkStruct_ov19_021DEC04 *param0, BOOL param1)
+void ov19_021DEDDC(UnkStruct_ov19_021DEC04 *param0, BOOL slotsMinigameDTO)
 {
     if (param0) {
         int v0 = BoxApp_GetCompareMonSlot(param0->unk_08);
 
-        if (param1) {
+        if (slotsMinigameDTO) {
             Sprite_SetAnim(param0->unk_28[v0 ^ 1], 2);
             Sprite_SetAnim(param0->unk_28[v0], 0);
         } else {
@@ -200,7 +200,7 @@ void ov19_021DEE88(UnkStruct_ov19_021DEC04 *param0)
     if (param0) {
         param0->unk_37C = 0;
         ov19_021DF0CC(param0, param0->unk_378);
-        Bg_CopyTilemapBufferToVRAM(param0->unk_0C, 4);
+        Bg_CopyTilemapBufferToVRAM(param0->slotsMinigameDTO, 4);
     }
 }
 
@@ -215,7 +215,7 @@ BOOL ov19_021DEEA8(UnkStruct_ov19_021DEC04 *param0)
         case 1:
             ov19_021DF2E0(param0);
             ov19_021DF064(param0);
-            Bg_CopyTilemapBufferToVRAM(param0->unk_0C, 4);
+            Bg_CopyTilemapBufferToVRAM(param0->slotsMinigameDTO, 4);
             param0->unk_37C++;
             break;
         case 2:
@@ -231,9 +231,9 @@ static void ov19_021DEEFC(UnkStruct_ov19_021DEC04 *param0)
 {
     NNSG2dScreenData *v0 = (BoxApp_GetCompareMonSlot(param0->unk_08) == 0) ? param0->unk_368 : param0->unk_36C;
 
-    Bg_CopyToTilemapRect(param0->unk_0C, 2, 0, 0, 6, 32, v0->rawData, 0, 0, 32, 32);
-    Bg_CopyToTilemapRect(param0->unk_0C, 2, 26, 0, 6, 32, v0->rawData, 26, 0, 32, 32);
-    Bg_CopyTilemapBufferToVRAM(param0->unk_0C, 2);
+    Bg_CopyToTilemapRect(param0->slotsMinigameDTO, 2, 0, 0, 6, 32, v0->rawData, 0, 0, 32, 32);
+    Bg_CopyToTilemapRect(param0->slotsMinigameDTO, 2, 26, 0, 6, 32, v0->rawData, 26, 0, 32, 32);
+    Bg_CopyTilemapBufferToVRAM(param0->slotsMinigameDTO, 2);
 }
 
 static void ov19_021DEF64(UnkStruct_ov19_021DEC04 *param0)
@@ -271,7 +271,7 @@ static void ov19_021DEFC8(UnkStruct_ov19_021DEC04 *param0)
     }
 
     for (v1 = 0; v1 < NELEMS(v0); v1++) {
-        Window_AddFromTemplate(param0->unk_0C, &param0->unk_78[0 + v1], &v0[v1]);
+        Window_AddFromTemplate(param0->slotsMinigameDTO, &param0->unk_78[0 + v1], &v0[v1]);
         Window_PutToTilemap(&param0->unk_78[0 + v1]);
     }
 
@@ -321,9 +321,9 @@ static void ov19_021DF064(UnkStruct_ov19_021DEC04 *param0)
     param0->unk_378 = v0;
 }
 
-static void ov19_021DF0CC(UnkStruct_ov19_021DEC04 *param0, int param1)
+static void ov19_021DF0CC(UnkStruct_ov19_021DEC04 *param0, int slotsMinigameDTO)
 {
-    switch (param1) {
+    switch (slotsMinigameDTO) {
     case 0:
         ov19_021DF140(param0);
         ov19_021DF394(param0);
@@ -348,7 +348,7 @@ static void ov19_021DF108(UnkStruct_ov19_021DEC04 *param0)
     int v1;
 
     for (v1 = 0; v1 < NELEMS(v0); v1++) {
-        Window_AddFromTemplate(param0->unk_0C, &param0->unk_78[3 + v1], &v0[v1]);
+        Window_AddFromTemplate(param0->slotsMinigameDTO, &param0->unk_78[3 + v1], &v0[v1]);
         Window_PutToTilemap(&param0->unk_78[3 + v1]);
         Window_FillTilemap(&param0->unk_78[3 + v1], 0);
     }
@@ -373,10 +373,10 @@ static void ov19_021DF178(UnkStruct_ov19_021DEC04 *param0, int compareMonSlot)
 #define DEFINE_01(ty) ((484 << FX32_SHIFT) + (((((ty) - 484) << FX32_SHIFT) * 10) / 100))
 
     static const struct {
-        fx32 unk_00;
-        fx32 unk_04;
+        fx32 coins;
+        fx32 slotMachineVariant;
         fx32 unk_08;
-        fx32 unk_0C;
+        fx32 slotsMinigameDTO;
     } v0[] = {
         { DEFINE_00(128), DEFINE_01(438), 128 << FX32_SHIFT, 438 << FX32_SHIFT },
         { DEFINE_00(172), DEFINE_01(470), 172 << FX32_SHIFT, 470 << FX32_SHIFT },
@@ -401,8 +401,8 @@ static void ov19_021DF178(UnkStruct_ov19_021DEC04 *param0, int compareMonSlot)
         v6.z = 0;
 
         for (i = 0; i < CONTEST_TYPE_MAX; i++) {
-            v6.x = v0[i].unk_00 + (((v0[i].unk_08 - v0[i].unk_00) / 256) * (int)(*contestStat));
-            v6.y = v0[i].unk_04 + (((v0[i].unk_0C - v0[i].unk_04) / 256) * (int)(*contestStat));
+            v6.x = v0[i].coins + (((v0[i].unk_08 - v0[i].coins) / 256) * (int)(*contestStat));
+            v6.y = v0[i].slotMachineVariant + (((v0[i].slotsMinigameDTO - v0[i].slotMachineVariant) / 256) * (int)(*contestStat));
             Sprite_SetPosition(param0->unk_34[compareMonSlot][i], &v6);
             BoxGraphics_SetSpritePriority(param0->unk_34[compareMonSlot][i], 0);
             BoxGraphics_SetSpritePriority(param0->unk_34[compareMonSlot ^ 1][i], 1);
@@ -435,7 +435,7 @@ static void ov19_021DF270(UnkStruct_ov19_021DEC04 *param0)
     int v1;
 
     for (v1 = 0; v1 < NELEMS(v0); v1++) {
-        Window_AddFromTemplate(param0->unk_0C, &param0->unk_78[5 + v1], &v0[v1]);
+        Window_AddFromTemplate(param0->slotsMinigameDTO, &param0->unk_78[5 + v1], &v0[v1]);
         Window_PutToTilemap(&param0->unk_78[5 + v1]);
         Window_FillTilemap(&param0->unk_78[5 + v1], 0);
     }
@@ -454,9 +454,9 @@ static void ov19_021DF2A8(UnkStruct_ov19_021DEC04 *param0)
     }
 }
 
-static inline u32 inline_ov19_021DF3AC(Window *param0, u32 param1, const String *param2)
+static inline u32 inline_ov19_021DF3AC(Window *param0, u32 slotsMinigameDTO, const String *param2)
 {
-    return ((param0->width * 8) - Font_CalcStringWidth(param1, param2, 0)) / 2;
+    return ((param0->width * 8) - Font_CalcStringWidth(slotsMinigameDTO, param2, 0)) / 2;
 }
 
 static void ov19_021DF2E0(UnkStruct_ov19_021DEC04 *param0)
@@ -574,10 +574,10 @@ static void ov19_021DF4D0(UnkStruct_ov19_021DEC04 *param0, int compareMonSlot)
     Window_LoadTiles(v0);
 }
 
-static void ov19_021DF5D0(UnkStruct_ov19_021DEC04 *param0, NARC *param1)
+static void ov19_021DF5D0(UnkStruct_ov19_021DEC04 *param0, NARC *slotsMinigameDTO)
 {
     static const struct {
-        s16 unk_00;
+        s16 coins;
         s16 unk_02;
     } v0[] = {
         { 0, 568 },
@@ -587,16 +587,16 @@ static void ov19_021DF5D0(UnkStruct_ov19_021DEC04 *param0, NARC *param1)
     SpriteResourcesHeader v2;
     u32 v3, v4, v5;
 
-    param0->unk_5C = Graphics_GetCellBankFromOpenNARC(param1, 135, 1, &(param0->unk_60), HEAP_ID_BOX_GRAPHICS);
-    param0->unk_64 = Graphics_GetAnimBankFromOpenNARC(param1, 136, 1, &(param0->unk_68), HEAP_ID_BOX_GRAPHICS);
+    param0->unk_5C = Graphics_GetCellBankFromOpenNARC(slotsMinigameDTO, 135, 1, &(param0->unk_60), HEAP_ID_BOX_GRAPHICS);
+    param0->unk_64 = Graphics_GetAnimBankFromOpenNARC(slotsMinigameDTO, 136, 1, &(param0->unk_68), HEAP_ID_BOX_GRAPHICS);
 
-    Graphics_LoadPaletteFromOpenNARC(param1, 137, 5, 0, 0x20 * 3, HEAP_ID_BOX_GRAPHICS);
+    Graphics_LoadPaletteFromOpenNARC(slotsMinigameDTO, 137, 5, 0, 0x20 * 3, HEAP_ID_BOX_GRAPHICS);
     NNS_G2dInitImageProxy(&v1);
-    v3 = Graphics_LoadImageMappingFromOpenNARC(param1, 134, 1, 0, 0, NNS_G2D_VRAM_TYPE_2DSUB, 0, 10, &v1);
-    ov19_021D783C(&v2, &v1, ov19_021D77D0(param0->unk_04), param0->unk_60, param0->unk_68, 1);
+    v3 = Graphics_LoadImageMappingFromOpenNARC(slotsMinigameDTO, 134, 1, 0, 0, NNS_G2D_VRAM_TYPE_2DSUB, 0, 10, &v1);
+    ov19_021D783C(&v2, &v1, ov19_021D77D0(param0->slotMachineVariant), param0->unk_60, param0->unk_68, 1);
 
     for (v4 = 0; v4 < 2; v4++) {
-        param0->unk_28[v4] = ov19_021D785C(param0->unk_10, &v2, v0[v4].unk_00, v0[v4].unk_02, 0, NNS_G2D_VRAM_TYPE_2DSUB);
+        param0->unk_28[v4] = ov19_021D785C(param0->unk_10, &v2, v0[v4].coins, v0[v4].unk_02, 0, NNS_G2D_VRAM_TYPE_2DSUB);
 
         Sprite_SetExplicitPalette(param0->unk_28[v4], v4);
         Sprite_SetAnim(param0->unk_28[v4], 0);
@@ -618,10 +618,10 @@ static void ov19_021DF5D0(UnkStruct_ov19_021DEC04 *param0, NARC *param1)
     ov19_021DF730(param0, v3);
 }
 
-static void ov19_021DF730(UnkStruct_ov19_021DEC04 *param0, u32 param1)
+static void ov19_021DF730(UnkStruct_ov19_021DEC04 *param0, u32 slotsMinigameDTO)
 {
     static const struct {
-        s16 unk_00;
+        s16 coins;
         s16 unk_02;
     } v0[] = {
         { 112, 394 },
@@ -630,14 +630,14 @@ static void ov19_021DF730(UnkStruct_ov19_021DEC04 *param0, u32 param1)
     NNSG2dImageProxy v1;
     SpriteResourcesHeader v2;
 
-    ov19_021D783C(&v2, &v1, ov19_021D77D0(param0->unk_04), ov19_021DA80C(param0->unk_14), ov19_021DA810(param0->unk_14), 1);
+    ov19_021D783C(&v2, &v1, ov19_021D77D0(param0->slotMachineVariant), ov19_021DA80C(param0->unk_14), ov19_021DA810(param0->unk_14), 1);
 
     for (int i = 0; i < 2; i++) {
-        param0->unk_18[i] = param1 + (i * (4 * 4) * 0x20);
+        param0->unk_18[i] = slotsMinigameDTO + (i * (4 * 4) * 0x20);
         NNS_G2dInitImageProxy(&v1);
         NNS_G2dSetImageLocation(&v1, NNS_G2D_VRAM_TYPE_2DSUB, param0->unk_18[i]);
         v1.attr.mappingType = GXS_GetOBJVRamModeChar();
-        param0->unk_20[i] = ov19_021D785C(param0->unk_10, &v2, v0[i].unk_00, v0[i].unk_02, 1 - i, NNS_G2D_VRAM_TYPE_2DSUB);
+        param0->unk_20[i] = ov19_021D785C(param0->unk_10, &v2, v0[i].coins, v0[i].unk_02, 1 - i, NNS_G2D_VRAM_TYPE_2DSUB);
         Sprite_SetDrawFlag(param0->unk_20[i], FALSE);
     }
 }
@@ -705,9 +705,9 @@ static void ov19_021DF8C8(UnkStruct_ov19_021DEC04 *param0, int compareMonSlot)
     Window_LoadTiles(window);
 }
 
-static void ov19_021DF930(SysTask *param0, void *param1)
+static void ov19_021DF930(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021DEC04 *v0 = param1;
+    UnkStruct_ov19_021DEC04 *v0 = slotsMinigameDTO;
     BOOL pressedAnimation = BoxApp_IsCompareButtonPressed(v0->unk_08);
 
     if (Sprite_GetActiveAnim(v0->unk_30) == 3) {

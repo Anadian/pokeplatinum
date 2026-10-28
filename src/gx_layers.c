@@ -24,10 +24,10 @@ void GXLayers_SetBanks(const GXBanks *banks)
     GX_ResetBankForTex();
     GX_ResetBankForTexPltt();
 
-    GX_SetBankForBG(banks->unk_00);
-    GX_SetBankForBGExtPltt(banks->unk_04);
+    GX_SetBankForBG(banks->coins);
+    GX_SetBankForBGExtPltt(banks->slotMachineVariant);
     GX_SetBankForSubBG(banks->unk_08);
-    GX_SetBankForSubBGExtPltt(banks->unk_0C);
+    GX_SetBankForSubBGExtPltt(banks->slotsMinigameDTO);
     GX_SetBankForOBJ(banks->unk_10);
     GX_SetBankForOBJExtPltt(banks->unk_14);
     GX_SetBankForSubOBJ(banks->unk_18);

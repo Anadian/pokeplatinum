@@ -23,8 +23,8 @@
 typedef void (*UnkFuncPtr_ov97_0222D0A4)(void);
 
 typedef struct {
-    MysteryGiftAppData *unk_00;
-    MATHRandContext32 unk_04;
+    MysteryGiftAppData *coins;
+    MATHRandContext32 slotMachineVariant;
     SysTask *unk_1C;
     UnkFuncPtr_ov97_0222D0A4 unk_20;
     u16 unk_24;
@@ -36,7 +36,7 @@ typedef struct {
     u8 unk_3C1[16];
 } UnkStruct_ov97_0223F1A4;
 
-static void ov97_0222D19C(SysTask *param0, void *param1);
+static void ov97_0222D19C(SysTask *param0, void *slotsMinigameDTO);
 static void ov97_0222D0B4(void);
 static void ov97_0222D0F0(void);
 static void ov97_0222D128(void);
@@ -62,15 +62,15 @@ static void ov97_0222D04C(MysteryGiftAppData *param0)
 
     Unk_ov97_0223F1A4->unk_24 = 50;
     Unk_ov97_0223F1A4->unk_1C = SysTask_Start(ov97_0222D19C, NULL, 10);
-    Unk_ov97_0223F1A4->unk_00 = param0;
+    Unk_ov97_0223F1A4->coins = param0;
 
-    CommSys_Seed(&Unk_ov97_0223F1A4->unk_04);
+    CommSys_Seed(&Unk_ov97_0223F1A4->slotMachineVariant);
 }
 
-static void ov97_0222D0A4(UnkFuncPtr_ov97_0222D0A4 param0, int param1)
+static void ov97_0222D0A4(UnkFuncPtr_ov97_0222D0A4 param0, int slotsMinigameDTO)
 {
     Unk_ov97_0223F1A4->unk_20 = param0;
-    Unk_ov97_0223F1A4->unk_24 = param1;
+    Unk_ov97_0223F1A4->unk_24 = slotsMinigameDTO;
 }
 
 static void ov97_0222D0B4(void)
@@ -143,7 +143,7 @@ static void ov97_0222D198(void)
     return;
 }
 
-void ov97_0222D19C(SysTask *param0, void *param1)
+void ov97_0222D19C(SysTask *param0, void *slotsMinigameDTO)
 {
     if (Unk_ov97_0223F1A4 == NULL) {
         SysTask_Done(param0);
@@ -170,12 +170,12 @@ void ov97_0222D1C4(MysteryGiftAppData *param0, SaveData *saveData, int param2)
     ov97_0222D0A4(ov97_0222D0B4, 0);
 }
 
-void ov97_0222D1F0(const void *param0, int param1)
+void ov97_0222D1F0(const void *param0, int slotsMinigameDTO)
 {
-    CommSys_SendDataHugeServer(22, param0, param1);
+    CommSys_SendDataHugeServer(22, param0, slotsMinigameDTO);
 }
 
-void ov97_0222D200(MysteryGiftAppData *param0, int param1)
+void ov97_0222D200(MysteryGiftAppData *param0, int slotsMinigameDTO)
 {
     SaveData *saveData;
 
@@ -184,7 +184,7 @@ void ov97_0222D200(MysteryGiftAppData *param0, int param1)
     }
 
     saveData = ((ApplicationArgs *)ApplicationManager_Args(MysteryGiftApp_GetApplicationManager()))->saveData;
-    CommManager_StartRandomBattleClient(saveData, param1);
+    CommManager_StartRandomBattleClient(saveData, slotsMinigameDTO);
 
     ov97_0222D04C(param0);
     ov97_0222D0A4(ov97_0222D128, 0);
@@ -215,7 +215,7 @@ int ov97_0222D250(MysteryGiftAppData *param0)
     return -1;
 }
 
-void ov97_0222D284(int param0, int param1, void *param2, void *param3)
+void ov97_0222D284(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     if (Unk_ov97_0223F1A4->unk_27 != param0) {
         return;
@@ -234,12 +234,12 @@ int ov97_0222D2B0(void)
     return sizeof(WonderCard);
 }
 
-u8 *ov97_0222D2B8(int param0, void *param1, int param2)
+u8 *ov97_0222D2B8(int param0, void *slotsMinigameDTO, int param2)
 {
     return (u8 *)&Unk_ov97_0223F1A4->unk_68;
 }
 
-void ov97_0222D2C4(int param0, int param1, void *param2, void *param3)
+void ov97_0222D2C4(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     Unk_ov97_0223F1A4->unk_3C1[param0] = 1;
 }

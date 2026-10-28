@@ -142,12 +142,12 @@ FieldOverworldSave *SaveData_GetFieldOverworldSave(SaveData *saveData)
 
 void FieldSystem_SaveObjects(FieldSystem *fieldSystem)
 {
-    MapObjectSave *mapObjSave = ((FieldOverworldSave *)SaveData_GetFieldOverworldSave(fieldSystem->saveData))->unk_00;
+    MapObjectSave *mapObjSave = ((FieldOverworldSave *)SaveData_GetFieldOverworldSave(fieldSystem->saveData))->coins;
     MapObjectMan_SaveAll(fieldSystem, fieldSystem->mapObjMan, mapObjSave, 64);
 }
 
 void FieldSystem_LoadObjects(FieldSystem *fieldSystem)
 {
-    MapObjectSave *mapObjSave = ((FieldOverworldSave *)SaveData_GetFieldOverworldSave(fieldSystem->saveData))->unk_00;
+    MapObjectSave *mapObjSave = ((FieldOverworldSave *)SaveData_GetFieldOverworldSave(fieldSystem->saveData))->coins;
     MapObjectMan_LoadAllObjects(fieldSystem->mapObjMan, mapObjSave, 64);
 }

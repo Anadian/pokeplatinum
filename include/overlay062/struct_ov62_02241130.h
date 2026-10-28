@@ -7,10 +7,10 @@
 #include "savedata.h"
 
 typedef struct {
-    int unk_00;
+    int coins;
     enum HeapID heapID;
     SaveData *saveData;
-    UnkStruct_ov62_022349A8_sub2 unk_0C;
+    UnkStruct_ov62_022349A8_sub2 slotsMinigameDTO;
     UnkFuncPtr_ov62_022349A8 unk_38;
     void *unk_3C;
 } UnkStruct_ov62_02241130;

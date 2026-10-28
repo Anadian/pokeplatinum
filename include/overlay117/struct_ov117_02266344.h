@@ -4,7 +4,7 @@
 #include "sprite_system.h"
 
 typedef struct {
-    ManagedSprite *unk_00[2];
+    ManagedSprite *coins[2];
     fx32 unk_08[2];
     fx32 unk_10[2];
     u8 unk_18;

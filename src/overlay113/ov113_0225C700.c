@@ -65,21 +65,21 @@
 #include "yes_no_touch_menu.h"
 
 typedef struct {
-    Easy3DModel unk_00;
+    Easy3DModel coins;
     Easy3DObject unk_10;
 } UnkStruct_ov113_0225DBCC_sub1;
 
 typedef struct {
-    FontOAM *unk_00;
-    CharTransferAllocation unk_04;
+    FontOAM *coins;
+    CharTransferAllocation slotMachineVariant;
     u16 unk_10;
 } UnkStruct_ov113_0225E250;
 
 typedef struct UnkStruct_ov113_0225DBCC_t {
-    UnkStruct_ov66_0223127C *unk_00;
+    UnkStruct_ov66_0223127C *coins;
     SaveData *saveData;
     BgConfig *unk_08;
-    PaletteData *unk_0C;
+    PaletteData *slotsMinigameDTO;
     UnkStruct_02012744 *unk_10;
     G3DPipelineBuffers *unk_14;
     SysTask *unk_18;
@@ -124,11 +124,11 @@ typedef struct UnkStruct_ov113_0225DBCC_t {
     BOOL unk_19E0;
 } UnkStruct_ov113_0225DBCC;
 
-static void ov113_0225CEF0(SysTask *param0, void *param1);
+static void ov113_0225CEF0(SysTask *param0, void *slotsMinigameDTO);
 static void ov113_0225CF18(void *param0);
 static void ov113_0225CF58(BgConfig *param0);
 static void ov113_0225D12C(BgConfig *param0);
-static void ov113_0225D160(UnkStruct_ov113_0225DBCC *param0, NARC *param1);
+static void ov113_0225D160(UnkStruct_ov113_0225DBCC *param0, NARC *slotsMinigameDTO);
 static void ov113_0225DBCC(UnkStruct_ov113_0225DBCC *param0);
 static void ov113_0225DC4C(UnkStruct_ov113_0225DBCC *param0);
 static G3DPipelineBuffers *ov113_0225DC6C(enum HeapID heapID);
@@ -136,30 +136,30 @@ static void ov113_0225DC88(void);
 static void ov113_0225DD0C(G3DPipelineBuffers *param0);
 static void ov113_0225D9FC(UnkStruct_ov113_0225DBCC *param0);
 static void ov113_0225DA9C(UnkStruct_ov113_0225DBCC *param0);
-static void ov113_0225DAA8(UnkStruct_ov113_0225DBCC *param0, NARC *param1);
+static void ov113_0225DAA8(UnkStruct_ov113_0225DBCC *param0, NARC *slotsMinigameDTO);
 static void ov113_0225DAFC(UnkStruct_ov113_0225DBCC *param0);
 static void ov113_0225DB08(UnkStruct_ov113_0225DBCC *param0);
 static void ov113_0225E364(UnkStruct_ov113_0225DBCC *param0);
 static void ov113_0225DD14(UnkStruct_ov113_0225DBCC *param0);
-static void ov113_0225DD24(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_0225CA04 *param1);
+static void ov113_0225DD24(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_0225CA04 *slotsMinigameDTO);
 static void ov113_0225DD4C(int param0, SaveData *saveData, UnkStruct_ov113_02260818 *param2);
-static void ov113_0225D304(UnkStruct_ov113_0225DBCC *param0, NARC *param1);
-static void ov113_0225D630(UnkStruct_ov113_0225DBCC *param0, NARC *param1);
+static void ov113_0225D304(UnkStruct_ov113_0225DBCC *param0, NARC *slotsMinigameDTO);
+static void ov113_0225D630(UnkStruct_ov113_0225DBCC *param0, NARC *slotsMinigameDTO);
 static void ov113_0225D484(UnkStruct_ov113_0225DBCC *param0);
 static void ov113_0225D5D8(UnkStruct_ov113_0225DBCC *param0);
 static void ov113_0225D6F8(UnkStruct_ov113_0225DBCC *param0);
 static void ov113_0225D7A4(UnkStruct_ov113_0225DBCC *param0);
 static void ov113_0225D7CC(UnkStruct_ov113_0225DBCC *param0);
-static BOOL ov113_0225D938(int param0, int param1, ManagedSprite *param2, NARC *param3, NARC *param4, NNS_G2D_VRAM_TYPE param5, BOOL param6);
-static void ov113_0225E068(UnkStruct_ov113_0225DBCC *param0, int param1);
-static void ov113_0225E0D4(UnkStruct_ov113_0225DBCC *param0, int param1);
+static BOOL ov113_0225D938(int param0, int slotsMinigameDTO, ManagedSprite *param2, NARC *param3, NARC *param4, NNS_G2D_VRAM_TYPE param5, BOOL param6);
+static void ov113_0225E068(UnkStruct_ov113_0225DBCC *param0, int slotsMinigameDTO);
+static void ov113_0225E0D4(UnkStruct_ov113_0225DBCC *param0, int slotsMinigameDTO);
 static void ov113_0225E118(UnkStruct_ov113_0225DBCC *param0);
 static int ov113_0225DE98(UnkStruct_ov113_0225DBCC *param0);
-static void ov113_0225E15C(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_0225E250 *param1, const String *param2, enum Font param3, TextColor param4, int param5, int param6, int param7, int param8, int param9);
+static void ov113_0225E15C(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_0225E250 *slotsMinigameDTO, const String *param2, enum Font param3, TextColor param4, int param5, int param6, int param7, int param8, int param9);
 static void ov113_0225E250(UnkStruct_ov113_0225E250 *param0);
-static void ov113_0225E264(const String *param0, int param1, int *param2, int *param3);
+static void ov113_0225E264(const String *param0, int slotsMinigameDTO, int *param2, int *param3);
 static void ov113_0225E294(UnkStruct_ov113_0225DBCC *param0);
-static BOOL ov113_0225E318(UnkStruct_ov113_0225DBCC *param0, int param1);
+static BOOL ov113_0225E318(UnkStruct_ov113_0225DBCC *param0, int slotsMinigameDTO);
 
 static const CameraAngle Unk_ov113_022608B4 = {
     0x0,
@@ -324,7 +324,7 @@ static const SpriteTemplate Unk_ov113_022609D0 = {
     0x0
 };
 
-int ov113_0225C700(ApplicationManager *appMan, int *param1)
+int ov113_0225C700(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov113_0225DBCC *v0;
 
@@ -345,24 +345,24 @@ int ov113_0225C700(ApplicationManager *appMan, int *param1)
     v0 = ApplicationManager_NewData(appMan, sizeof(UnkStruct_ov113_0225DBCC), HEAP_ID_118);
     MI_CpuClear8(v0, sizeof(UnkStruct_ov113_0225DBCC));
 
-    v0->unk_00 = ApplicationManager_Args(appMan);
-    v0->saveData = ov66_0222E0C4(v0->unk_00->unk_00);
-    v0->unk_19E0 = ov66_0222E0C8(v0->unk_00->unk_00);
+    v0->coins = ApplicationManager_Args(appMan);
+    v0->saveData = ov66_0222E0C4(v0->coins->coins);
+    v0->unk_19E0 = ov66_0222E0C8(v0->coins->coins);
 
     ov113_0225DD14(v0);
-    ov113_0225DD4C(v0->unk_00->unk_04, v0->saveData, v0->unk_8D8);
+    ov113_0225DD4C(v0->coins->slotMachineVariant, v0->saveData, v0->unk_8D8);
 
     v0->unk_19D4 = (32 << 8);
     v0->unk_19D8 = v0->unk_19D4;
     v0->unk_14 = ov113_0225DC6C(HEAP_ID_118);
-    v0->unk_0C = PaletteData_New(HEAP_ID_118);
+    v0->slotsMinigameDTO = PaletteData_New(HEAP_ID_118);
 
-    PaletteData_SetAutoTransparent(v0->unk_0C, TRUE);
-    PaletteData_AllocBuffer(v0->unk_0C, PLTTBUF_MAIN_BG, PALETTE_SIZE_BYTES * 16, HEAP_ID_118);
-    PaletteData_AllocBuffer(v0->unk_0C, PLTTBUF_SUB_BG, PALETTE_SIZE_BYTES * 16, HEAP_ID_118);
-    PaletteData_AllocBuffer(v0->unk_0C, PLTTBUF_MAIN_OBJ, PALETTE_SIZE_BYTES * 14, HEAP_ID_118);
-    PaletteData_AllocBuffer(v0->unk_0C, PLTTBUF_SUB_OBJ, PALETTE_SIZE_BYTES * 16, HEAP_ID_118);
-    PaletteData_SetAutoTransparent(v0->unk_0C, TRUE);
+    PaletteData_SetAutoTransparent(v0->slotsMinigameDTO, TRUE);
+    PaletteData_AllocBuffer(v0->slotsMinigameDTO, PLTTBUF_MAIN_BG, PALETTE_SIZE_BYTES * 16, HEAP_ID_118);
+    PaletteData_AllocBuffer(v0->slotsMinigameDTO, PLTTBUF_SUB_BG, PALETTE_SIZE_BYTES * 16, HEAP_ID_118);
+    PaletteData_AllocBuffer(v0->slotsMinigameDTO, PLTTBUF_MAIN_OBJ, PALETTE_SIZE_BYTES * 14, HEAP_ID_118);
+    PaletteData_AllocBuffer(v0->slotsMinigameDTO, PLTTBUF_SUB_OBJ, PALETTE_SIZE_BYTES * 16, HEAP_ID_118);
+    PaletteData_SetAutoTransparent(v0->slotsMinigameDTO, TRUE);
 
     v0->unk_08 = BgConfig_New(HEAP_ID_118);
 
@@ -411,8 +411,8 @@ int ov113_0225C700(ApplicationManager *appMan, int *param1)
 
     StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, COLOR_BLACK, 6, 1, HEAP_ID_118);
 
-    if (v0->unk_00->unk_00 != NULL) {
-        ov66_0222E31C(v0->unk_00->unk_00, 1);
+    if (v0->coins->coins != NULL) {
+        ov66_0222E31C(v0->coins->coins, 1);
     }
 
     GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG0, 1);
@@ -439,27 +439,27 @@ int ov113_0225C700(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-int ov113_0225CA04(ApplicationManager *appMan, int *param1)
+int ov113_0225CA04(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov113_0225DBCC *v0 = ApplicationManager_Data(appMan);
 
-    ov113_0225E3F0(&v0->unk_194, v0->camera, v0->unk_9BC, v0->unk_00->unk_04);
+    ov113_0225E3F0(&v0->unk_194, v0->camera, v0->unk_9BC, v0->coins->slotMachineVariant);
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
-        v0->unk_168.unk_00 = 1;
+        v0->unk_168.coins = 1;
         ov113_022607D8(v0);
 
         {
             UnkStruct_ov113_0225CA04 v1;
             ov113_0225DD24(v0, &v1);
         }
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 1:
         if (IsScreenFadeDone() == TRUE) {
             v0->unk_9BC = 1;
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
         break;
     case 2:
@@ -468,7 +468,7 @@ int ov113_0225CA04(ApplicationManager *appMan, int *param1)
                 v0->unk_8D8[v0->unk_920].unk_09 = gSystem.touchX;
                 v0->unk_8D8[v0->unk_920].unk_0A = gSystem.touchY;
 
-                ov113_0225DDC0(v0, &v0->unk_8D8[v0->unk_920], v0->unk_168.unk_04);
+                ov113_0225DDC0(v0, &v0->unk_8D8[v0->unk_920], v0->unk_168.slotMachineVariant);
                 ov113_02260818(&v0->unk_8D8[v0->unk_920]);
             } else {
                 (void)0;
@@ -482,11 +482,11 @@ int ov113_0225CA04(ApplicationManager *appMan, int *param1)
             if (v2 < 6) {
                 v0->unk_920 = v2;
                 ov113_0225E068(v0, v2);
-            } else if (((*param1) == 2) && (v2 == 0xfe)) {
+            } else if (((*slotsMinigameDTO) == 2) && (v2 == 0xfe)) {
                 Sound_PlayEffect(SEQ_SE_DP_BUTTON3_sseq);
-                PaletteData_Blend(v0->unk_0C, PLTTBUF_MAIN_BG, 0 * 16 + 9, 1, 8, 0x0);
-                PaletteData_Blend(v0->unk_0C, PLTTBUF_MAIN_OBJ, v0->unk_921 * 16, 16, 8, 0x0);
-                *param1 = 3;
+                PaletteData_Blend(v0->slotsMinigameDTO, PLTTBUF_MAIN_BG, 0 * 16 + 9, 1, 8, 0x0);
+                PaletteData_Blend(v0->slotsMinigameDTO, PLTTBUF_MAIN_OBJ, v0->unk_921 * 16, 16, 8, 0x0);
+                *slotsMinigameDTO = 3;
             }
         }
         break;
@@ -495,7 +495,7 @@ int ov113_0225CA04(ApplicationManager *appMan, int *param1)
         Window_DrawMessageBoxWithScrollCursor(&v0->unk_B4, 0, 1, 14);
         MessageLoader_GetString(v0->unk_30, 2, v0->unk_C4);
         v0->unk_C8 = Text_AddPrinterWithParams(&v0->unk_B4, FONT_MESSAGE, v0->unk_C4, 0, 0, Options_TextFrameDelay(SaveData_GetOptions(v0->saveData)), NULL);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 4:
         if (Text_IsPrinterActive(v0->unk_C8) == 0) {
@@ -511,12 +511,12 @@ int ov113_0225CA04(ApplicationManager *appMan, int *param1)
             YesNoTouchMenu_InitWithParams(v0->unk_24, &v3);
 
             v0->unk_28 = 1;
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
 
         break;
     case 5:
-        PaletteData_LoadBufferFromHardware(v0->unk_0C, PLTTBUF_MAIN_BG, PLTT_DEST(11), PALETTE_SIZE_BYTES * 2);
+        PaletteData_LoadBufferFromHardware(v0->slotsMinigameDTO, PLTTBUF_MAIN_BG, PLTT_DEST(11), PALETTE_SIZE_BYTES * 2);
         {
             u32 v4 = YesNoTouchMenu_ProcessInput(v0->unk_24);
 
@@ -525,17 +525,17 @@ int ov113_0225CA04(ApplicationManager *appMan, int *param1)
                 YesNoTouchMenu_Reset(v0->unk_24);
                 v0->unk_28 = 0;
                 Window_EraseMessageBox(&v0->unk_B4, 0);
-                v0->unk_168.unk_00 = 0;
+                v0->unk_168.coins = 0;
                 v0->unk_9BC = 3;
-                *param1 = 9;
+                *slotsMinigameDTO = 9;
                 break;
             case YES_NO_TOUCH_MENU_NO:
                 YesNoTouchMenu_Reset(v0->unk_24);
                 v0->unk_28 = 0;
                 Window_EraseMessageBox(&v0->unk_B4, 0);
-                PaletteData_Blend(v0->unk_0C, PLTTBUF_MAIN_BG, 0 * 16 + 9, 1, 0, 0x0);
-                PaletteData_Blend(v0->unk_0C, PLTTBUF_MAIN_OBJ, v0->unk_921 * 16, 16, 0, 0x0);
-                *param1 = 2;
+                PaletteData_Blend(v0->slotsMinigameDTO, PLTTBUF_MAIN_BG, 0 * 16 + 9, 1, 0, 0x0);
+                PaletteData_Blend(v0->slotsMinigameDTO, PLTTBUF_MAIN_OBJ, v0->unk_921 * 16, 16, 0, 0x0);
+                *slotsMinigameDTO = 2;
                 break;
             }
         }
@@ -545,18 +545,18 @@ int ov113_0225CA04(ApplicationManager *appMan, int *param1)
         Window_DrawMessageBoxWithScrollCursor(&v0->unk_B4, 0, 1, 14);
         MessageLoader_GetString(v0->unk_30, 3, v0->unk_C4);
         v0->unk_C8 = Text_AddPrinterWithParams(&v0->unk_B4, FONT_MESSAGE, v0->unk_C4, 0, 0, Options_TextFrameDelay(SaveData_GetOptions(v0->saveData)), NULL);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 7:
         if (Text_IsPrinterActive(v0->unk_C8) == 0) {
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
         break;
     case 8:
         v0->unk_29++;
 
         if (v0->unk_29 > 90) {
-            *param1 = 9;
+            *slotsMinigameDTO = 9;
         }
         break;
     case 9:
@@ -565,11 +565,11 @@ int ov113_0225CA04(ApplicationManager *appMan, int *param1)
         }
 
         StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, HEAP_ID_118);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 10:
         if (IsScreenFadeDone() == TRUE) {
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
         break;
     default:
@@ -588,20 +588,20 @@ int ov113_0225CA04(ApplicationManager *appMan, int *param1)
             ov113_0225DE98(v0);
         }
 
-        if (((ov66_02231760() == 1) || (ov66_0222E12C(v0->unk_00->unk_00) == 1)) && ((*param1) != 4)) {
+        if (((ov66_02231760() == 1) || (ov66_0222E12C(v0->coins->coins) == 1)) && ((*slotsMinigameDTO) != 4)) {
             if (v0->unk_28 == 1) {
                 YesNoTouchMenu_Reset(v0->unk_24);
             }
 
-            v0->unk_168.unk_00 = 0;
+            v0->unk_168.coins = 0;
             v0->unk_9BC = 3;
 
             if (ov66_02231760() == 1) {
-                (*param1) = 9;
+                (*slotsMinigameDTO) = 9;
             } else {
                 Sound_PlayEffect(SEQ_SE_DP_PINPON_sseq);
-                ov66_0222E2A4(v0->unk_00->unk_00);
-                (*param1) = 6;
+                ov66_0222E2A4(v0->coins->coins);
+                (*slotsMinigameDTO) = 6;
             }
         }
     }
@@ -611,7 +611,7 @@ int ov113_0225CA04(ApplicationManager *appMan, int *param1)
     return 0;
 }
 
-int ov113_0225CDFC(ApplicationManager *appMan, int *param1)
+int ov113_0225CDFC(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_ov113_0225DBCC *v0 = ApplicationManager_Data(appMan);
 
@@ -633,11 +633,11 @@ int ov113_0225CDFC(ApplicationManager *appMan, int *param1)
     Heap_Free(v0->unk_08);
     SpriteSystem_FreeResourcesAndManager(v0->unk_1C, v0->unk_20);
     SpriteSystem_Free(v0->unk_1C);
-    PaletteData_FreeBuffer(v0->unk_0C, PLTTBUF_MAIN_BG);
-    PaletteData_FreeBuffer(v0->unk_0C, PLTTBUF_SUB_BG);
-    PaletteData_FreeBuffer(v0->unk_0C, PLTTBUF_MAIN_OBJ);
-    PaletteData_FreeBuffer(v0->unk_0C, PLTTBUF_SUB_OBJ);
-    PaletteData_Free(v0->unk_0C);
+    PaletteData_FreeBuffer(v0->slotsMinigameDTO, PLTTBUF_MAIN_BG);
+    PaletteData_FreeBuffer(v0->slotsMinigameDTO, PLTTBUF_SUB_BG);
+    PaletteData_FreeBuffer(v0->slotsMinigameDTO, PLTTBUF_MAIN_OBJ);
+    PaletteData_FreeBuffer(v0->slotsMinigameDTO, PLTTBUF_SUB_OBJ);
+    PaletteData_Free(v0->slotsMinigameDTO);
 
     ov113_0225DAFC(v0);
     ov113_0225DA9C(v0);
@@ -659,9 +659,9 @@ int ov113_0225CDFC(ApplicationManager *appMan, int *param1)
     return 1;
 }
 
-static void ov113_0225CEF0(SysTask *param0, void *param1)
+static void ov113_0225CEF0(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov113_0225DBCC *v0 = param1;
+    UnkStruct_ov113_0225DBCC *v0 = slotsMinigameDTO;
 
     ov113_0225E4E8(&v0->unk_194);
     ov113_0225DB08(v0);
@@ -679,7 +679,7 @@ static void ov113_0225CF18(void *param0)
 
     VramTransfer_Process();
     SpriteSystem_TransferOam();
-    PaletteData_CommitFadedBuffers(v0->unk_0C);
+    PaletteData_CommitFadedBuffers(v0->slotsMinigameDTO);
     Bg_RunScheduledUpdates(v0->unk_08);
 
     OS_SetIrqCheckFlag(OS_IE_V_BLANK);
@@ -863,24 +863,24 @@ static void ov113_0225D12C(BgConfig *param0)
     Bg_FreeTilemapBuffer(param0, BG_LAYER_MAIN_1);
 }
 
-static void ov113_0225D160(UnkStruct_ov113_0225DBCC *param0, NARC *param1)
+static void ov113_0225D160(UnkStruct_ov113_0225DBCC *param0, NARC *slotsMinigameDTO)
 {
     BgConfig *v0 = param0->unk_08;
     u16 *v1;
 
-    PaletteData_LoadBufferFromFileStart(param0->unk_0C, NARC_INDEX_GRAPHIC__FOOTPRINT_BOARD, 19, HEAP_ID_118, PLTTBUF_MAIN_BG, 0x200 - 0x40, 0);
-    Graphics_LoadTilesToBgLayerFromOpenNARC(param1, 18, param0->unk_08, 2, 0, 0, 0, HEAP_ID_118);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(param1, 17, param0->unk_08, 2, 0, 0, 0, HEAP_ID_118);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(param1, 20, param0->unk_08, 3, 0, 0, 0, HEAP_ID_118);
-    PaletteData_LoadBufferFromFileStart(param0->unk_0C, NARC_INDEX_GRAPHIC__FOOTPRINT_BOARD, 23, HEAP_ID_118, PLTTBUF_SUB_BG, 0, 0);
+    PaletteData_LoadBufferFromFileStart(param0->slotsMinigameDTO, NARC_INDEX_GRAPHIC__FOOTPRINT_BOARD, 19, HEAP_ID_118, PLTTBUF_MAIN_BG, 0x200 - 0x40, 0);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(slotsMinigameDTO, 18, param0->unk_08, 2, 0, 0, 0, HEAP_ID_118);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO, 17, param0->unk_08, 2, 0, 0, 0, HEAP_ID_118);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO, 20, param0->unk_08, 3, 0, 0, 0, HEAP_ID_118);
+    PaletteData_LoadBufferFromFileStart(param0->slotsMinigameDTO, NARC_INDEX_GRAPHIC__FOOTPRINT_BOARD, 23, HEAP_ID_118, PLTTBUF_SUB_BG, 0, 0);
 
-    if (param0->unk_00->unk_04 == 0) {
-        PaletteData_CopyBuffer(param0->unk_0C, 1, 16 * 1, 1, 16 * 0, PALETTE_SIZE_BYTES);
+    if (param0->coins->slotMachineVariant == 0) {
+        PaletteData_CopyBuffer(param0->slotsMinigameDTO, 1, 16 * 1, 1, 16 * 0, PALETTE_SIZE_BYTES);
     }
 
-    Graphics_LoadTilesToBgLayerFromOpenNARC(param1, 22, param0->unk_08, 6, 0, 0, 0, HEAP_ID_118);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(param1, 21, param0->unk_08, 6, 0, 0, 0, HEAP_ID_118);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(param1, 24, param0->unk_08, 7, 0, 0, 0, HEAP_ID_118);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(slotsMinigameDTO, 22, param0->unk_08, 6, 0, 0, 0, HEAP_ID_118);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO, 21, param0->unk_08, 6, 0, 0, 0, HEAP_ID_118);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO, 24, param0->unk_08, 7, 0, 0, 0, HEAP_ID_118);
 
     v1 = Bg_GetTilemapBuffer(param0->unk_08, 6);
 
@@ -891,51 +891,51 @@ static void ov113_0225D160(UnkStruct_ov113_0225DBCC *param0, NARC *param1)
         int v2;
         v2 = Options_Frame(SaveData_GetOptions(param0->saveData));
 
-        PaletteData_LoadBufferFromFileStart(param0->unk_0C, NARC_INDEX_GRAPHIC__PL_WINFRAME, GetMessageBoxPaletteNARCMember(v2), HEAP_ID_118, PLTTBUF_MAIN_BG, PALETTE_SIZE_BYTES, PLTT_DEST(14));
+        PaletteData_LoadBufferFromFileStart(param0->slotsMinigameDTO, NARC_INDEX_GRAPHIC__PL_WINFRAME, GetMessageBoxPaletteNARCMember(v2), HEAP_ID_118, PLTTBUF_MAIN_BG, PALETTE_SIZE_BYTES, PLTT_DEST(14));
         LoadMessageBoxGraphics(param0->unk_08, BG_LAYER_MAIN_1, 1, 14, v2, HEAP_ID_118);
-        PaletteData_LoadBufferFromFileStart(param0->unk_0C, NARC_INDEX_GRAPHIC__PL_FONT, 6, HEAP_ID_118, 0, PALETTE_SIZE_BYTES, PLTT_DEST(13));
+        PaletteData_LoadBufferFromFileStart(param0->slotsMinigameDTO, NARC_INDEX_GRAPHIC__PL_FONT, 6, HEAP_ID_118, 0, PALETTE_SIZE_BYTES, PLTT_DEST(13));
 
-        if (param0->unk_00->unk_04 == 0) {
-            PaletteData_LoadBufferFromFileStart(param0->unk_0C, NARC_INDEX_GRAPHIC__PL_FONT, 6, HEAP_ID_118, PLTTBUF_SUB_BG, PALETTE_SIZE_BYTES, PLTT_DEST(13));
+        if (param0->coins->slotMachineVariant == 0) {
+            PaletteData_LoadBufferFromFileStart(param0->slotsMinigameDTO, NARC_INDEX_GRAPHIC__PL_FONT, 6, HEAP_ID_118, PLTTBUF_SUB_BG, PALETTE_SIZE_BYTES, PLTT_DEST(13));
         } else {
-            PaletteData_LoadBufferFromFileStart(param0->unk_0C, NARC_INDEX_GRAPHIC__FOOTPRINT_BOARD, 25, HEAP_ID_118, PLTTBUF_SUB_BG, PALETTE_SIZE_BYTES, PLTT_DEST(13));
+            PaletteData_LoadBufferFromFileStart(param0->slotsMinigameDTO, NARC_INDEX_GRAPHIC__FOOTPRINT_BOARD, 25, HEAP_ID_118, PLTTBUF_SUB_BG, PALETTE_SIZE_BYTES, PLTT_DEST(13));
         }
     }
 
     Bg_ScheduleTilemapTransfer(param0->unk_08, 6);
 }
 
-static void ov113_0225D304(UnkStruct_ov113_0225DBCC *param0, NARC *param1)
+static void ov113_0225D304(UnkStruct_ov113_0225DBCC *param0, NARC *slotsMinigameDTO)
 {
     int v0, v1;
     u16 v2;
 
-    SpriteSystem_LoadPaletteBufferFromOpenNarc(param0->unk_0C, PLTTBUF_MAIN_OBJ, param0->unk_1C, param0->unk_20, param1, 3, FALSE, 3, NNS_G2D_VRAM_TYPE_2DMAIN, 10001);
-    SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 4, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 10007);
-    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 5, FALSE, 10002);
-    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 6, FALSE, 10002);
+    SpriteSystem_LoadPaletteBufferFromOpenNarc(param0->slotsMinigameDTO, PLTTBUF_MAIN_OBJ, param0->unk_1C, param0->unk_20, slotsMinigameDTO, 3, FALSE, 3, NNS_G2D_VRAM_TYPE_2DMAIN, 10001);
+    SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 4, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 10007);
+    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 5, FALSE, 10002);
+    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 6, FALSE, 10002);
 
     for (v0 = 0; v0 < 6; v0++) {
-        SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 16, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 10001 + v0);
+        SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 16, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 10001 + v0);
     }
 
-    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 15, FALSE, 10001);
-    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 14, FALSE, 10001);
+    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 15, FALSE, 10001);
+    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 14, FALSE, 10001);
 
-    v1 = SpriteSystem_LoadPaletteBufferFromOpenNarc(param0->unk_0C, PLTTBUF_MAIN_OBJ, param0->unk_1C, param0->unk_20, param1, 3, FALSE, 1, NNS_G2D_VRAM_TYPE_2DMAIN, 10002);
+    v1 = SpriteSystem_LoadPaletteBufferFromOpenNarc(param0->slotsMinigameDTO, PLTTBUF_MAIN_OBJ, param0->unk_1C, param0->unk_20, slotsMinigameDTO, 3, FALSE, 1, NNS_G2D_VRAM_TYPE_2DMAIN, 10002);
 
-    if (param0->unk_00->unk_04 == 0) {
+    if (param0->coins->slotMachineVariant == 0) {
         v2 = 0x0;
     } else {
         v2 = 0x7fff;
     }
 
-    PaletteData_FillBufferRange(param0->unk_0C, PLTTBUF_MAIN_OBJ, PLTTSEL_BOTH, v2, v1 * 16, v1 * 16 + 16);
-    SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 2, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 10008);
-    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 1, FALSE, 10003);
-    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 0, FALSE, 10003);
+    PaletteData_FillBufferRange(param0->slotsMinigameDTO, PLTTBUF_MAIN_OBJ, PLTTSEL_BOTH, v2, v1 * 16, v1 * 16 + 16);
+    SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 2, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 10008);
+    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 1, FALSE, 10003);
+    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 0, FALSE, 10003);
 
-    param0->unk_921 = SpriteSystem_LoadPaletteBuffer(param0->unk_0C, 2, param0->unk_1C, param0->unk_20, 187, 26, 0, 1, NNS_G2D_VRAM_TYPE_2DMAIN, 10003);
+    param0->unk_921 = SpriteSystem_LoadPaletteBuffer(param0->slotsMinigameDTO, 2, param0->unk_1C, param0->unk_20, 187, 26, 0, 1, NNS_G2D_VRAM_TYPE_2DMAIN, 10003);
 }
 
 static void ov113_0225D484(UnkStruct_ov113_0225DBCC *param0)
@@ -983,7 +983,7 @@ static void ov113_0225D484(UnkStruct_ov113_0225DBCC *param0)
 
         v2 = MessageLoader_GetNewString(param0->unk_30, 1);
         ov113_0225E15C(param0, &param0->unk_19C0, v2, FONT_SUBSCREEN, TEXT_COLOR(1, 2, 3), 0, 10003, 0x1c * 8, 176, 1);
-        sub_020129D0(param0->unk_19C0.unk_00, 1);
+        sub_020129D0(param0->unk_19C0.coins, 1);
         String_Free(v2);
     }
 }
@@ -1007,21 +1007,21 @@ static void ov113_0225D5D8(UnkStruct_ov113_0225DBCC *param0)
     ov113_0225E250(&param0->unk_19C0);
 }
 
-static void ov113_0225D630(UnkStruct_ov113_0225DBCC *param0, NARC *param1)
+static void ov113_0225D630(UnkStruct_ov113_0225DBCC *param0, NARC *slotsMinigameDTO)
 {
     int v0;
 
-    SpriteSystem_LoadPaletteBufferFromOpenNarc(param0->unk_0C, PLTTBUF_SUB_OBJ, param0->unk_1C, param0->unk_20, param1, 10, FALSE, 1, NNS_G2D_VRAM_TYPE_2DSUB, 10004);
-    SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 9, FALSE, NNS_G2D_VRAM_TYPE_2DSUB, 10009);
-    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 8, FALSE, 10004);
-    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 7, FALSE, 10004);
+    SpriteSystem_LoadPaletteBufferFromOpenNarc(param0->slotsMinigameDTO, PLTTBUF_SUB_OBJ, param0->unk_1C, param0->unk_20, slotsMinigameDTO, 10, FALSE, 1, NNS_G2D_VRAM_TYPE_2DSUB, 10004);
+    SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 9, FALSE, NNS_G2D_VRAM_TYPE_2DSUB, 10009);
+    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 8, FALSE, 10004);
+    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 7, FALSE, 10004);
 
     for (v0 = 0; v0 < 8; v0++) {
-        SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 13, FALSE, NNS_G2D_VRAM_TYPE_2DSUB, 10010 + v0);
+        SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 13, FALSE, NNS_G2D_VRAM_TYPE_2DSUB, 10010 + v0);
     }
 
-    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 12, FALSE, 10005);
-    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, param1, 11, FALSE, 10005);
+    SpriteSystem_LoadCellResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 12, FALSE, 10005);
+    SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_1C, param0->unk_20, slotsMinigameDTO, 11, FALSE, 10005);
 }
 
 static void ov113_0225D6F8(UnkStruct_ov113_0225DBCC *param0)
@@ -1063,8 +1063,8 @@ static void ov113_0225D7CC(UnkStruct_ov113_0225DBCC *param0)
     u16 *v2, *v3;
     int v4 = 0;
 
-    v2 = PaletteData_GetUnfadedBuffer(param0->unk_0C, 2);
-    v3 = PaletteData_GetFadedBuffer(param0->unk_0C, 2);
+    v2 = PaletteData_GetUnfadedBuffer(param0->slotsMinigameDTO, 2);
+    v3 = PaletteData_GetFadedBuffer(param0->slotsMinigameDTO, 2);
 
     for (v0 = 0; v0 < 6; v0++) {
         if ((param0->unk_8D8[v0].unk_02 == 0) || (param0->unk_8D8[v0].unk_02 > NATIONAL_DEX_COUNT)) {
@@ -1078,8 +1078,8 @@ static void ov113_0225D7CC(UnkStruct_ov113_0225DBCC *param0)
         } else {
             ov113_0225D938(param0->unk_8D8[v0].unk_02, param0->unk_8D8[v0].unk_08, param0->unk_954[v0], param0->unk_160, param0->unk_164, NNS_G2D_VRAM_TYPE_2DMAIN, param0->unk_19E0);
 
-            v2[1 * 16 + 1 + v0] = param0->unk_8D8[v0].unk_00;
-            v3[1 * 16 + 1 + v0] = param0->unk_8D8[v0].unk_00;
+            v2[1 * 16 + 1 + v0] = param0->unk_8D8[v0].coins;
+            v3[1 * 16 + 1 + v0] = param0->unk_8D8[v0].coins;
 
             BlendPalette(&v2[1 * 16 + 1 + v0], &v2[2 * 16 + 1 + v0], 1, 12, 0x0);
             v3[2 * 16 + 1 + v0] = v2[2 * 16 + 1 + v0];
@@ -1095,7 +1095,7 @@ static void ov113_0225D7CC(UnkStruct_ov113_0225DBCC *param0)
     Bg_ScheduleTilemapTransfer(param0->unk_08, 2);
 }
 
-static BOOL ov113_0225D938(int param0, int param1, ManagedSprite *param2, NARC *param3, NARC *param4, NNS_G2D_VRAM_TYPE param5, BOOL param6)
+static BOOL ov113_0225D938(int param0, int slotsMinigameDTO, ManagedSprite *param2, NARC *param3, NARC *param4, NNS_G2D_VRAM_TYPE param5, BOOL param6)
 {
     void *v0;
     NNSG2dImageProxy *v1;
@@ -1107,7 +1107,7 @@ static BOOL ov113_0225D938(int param0, int param1, ManagedSprite *param2, NARC *
         return 0;
     }
 
-    if (PokemonHasOverworldFootprint(param0, param1, param6) == 1) {
+    if (PokemonHasOverworldFootprint(param0, slotsMinigameDTO, param6) == 1) {
         v2 = LoadMemberFromOpenNARC(param4, 3 + param0, 1, HEAP_ID_118, 1);
         NNS_G2dGetUnpackedCharacterData(v2, &v3);
         DC_FlushRange(v3->pRawData, 0x20 * 8);
@@ -1167,18 +1167,18 @@ static void ov113_0225DA9C(UnkStruct_ov113_0225DBCC *param0)
     Camera_Delete(param0->camera);
 }
 
-static void ov113_0225DAA8(UnkStruct_ov113_0225DBCC *param0, NARC *param1)
+static void ov113_0225DAA8(UnkStruct_ov113_0225DBCC *param0, NARC *slotsMinigameDTO)
 {
     int v0;
 
-    if (param0->unk_00->unk_04 == 0) {
+    if (param0->coins->slotMachineVariant == 0) {
         v0 = 28;
     } else {
         v0 = 27;
     }
 
-    Easy3DModel_LoadFrom(&param0->unk_D8.unk_00, param1, v0, HEAP_ID_118);
-    Easy3DObject_Init(&param0->unk_D8.unk_10, &param0->unk_D8.unk_00);
+    Easy3DModel_LoadFrom(&param0->unk_D8.coins, slotsMinigameDTO, v0, HEAP_ID_118);
+    Easy3DObject_Init(&param0->unk_D8.unk_10, &param0->unk_D8.coins);
     Easy3DObject_SetPosition(&param0->unk_D8.unk_10, FX32_CONST(0), FX32_CONST(0), FX32_CONST(0));
     Easy3DObject_SetScale(&param0->unk_D8.unk_10, FX32_CONST(1.00f), FX32_CONST(1.00f), FX32_CONST(1.00f));
     Easy3DObject_SetVisible(&param0->unk_D8.unk_10, 1);
@@ -1186,7 +1186,7 @@ static void ov113_0225DAA8(UnkStruct_ov113_0225DBCC *param0, NARC *param1)
 
 static void ov113_0225DAFC(UnkStruct_ov113_0225DBCC *param0)
 {
-    Easy3DModel_Release(&param0->unk_D8.unk_00);
+    Easy3DModel_Release(&param0->unk_D8.coins);
 }
 
 static void ov113_0225DB08(UnkStruct_ov113_0225DBCC *param0)
@@ -1278,20 +1278,20 @@ static void ov113_0225DD0C(G3DPipelineBuffers *param0)
 static void ov113_0225DD14(UnkStruct_ov113_0225DBCC *param0)
 {
     UnkStruct_ov113_022607EC *v0 = &param0->unk_168;
-    v0->unk_04 = ov66_022328F0();
+    v0->slotMachineVariant = ov66_022328F0();
 }
 
-static void ov113_0225DD24(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_0225CA04 *param1)
+static void ov113_0225DD24(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_0225CA04 *slotsMinigameDTO)
 {
     UnkStruct_ov113_02260818 *v0;
 
-    MI_CpuClear8(param1, sizeof(UnkStruct_ov113_0225CA04));
+    MI_CpuClear8(slotsMinigameDTO, sizeof(UnkStruct_ov113_0225CA04));
 
-    v0 = &param1->unk_00;
+    v0 = &slotsMinigameDTO->coins;
 
     v0->unk_02 = 150;
-    v0->unk_00 = 0x1f;
-    v0->unk_04 = 0x101;
+    v0->coins = 0x1f;
+    v0->slotMachineVariant = 0x101;
     v0->unk_08 = 0;
 }
 
@@ -1315,29 +1315,29 @@ static void ov113_0225DD4C(int param0, SaveData *saveData, UnkStruct_ov113_02260
     for (v3 = 0; v3 < v1; v3++) {
         v2 = Party_GetPokemonBySlotIndex(v0, v3);
         param2[v3].unk_02 = Pokemon_GetValue(v2, MON_DATA_SPECIES_OR_EGG, NULL);
-        param2[v3].unk_04 = Pokemon_GetValue(v2, MON_DATA_PERSONALITY, NULL);
+        param2[v3].slotMachineVariant = Pokemon_GetValue(v2, MON_DATA_PERSONALITY, NULL);
         param2[v3].unk_08 = Pokemon_GetValue(v2, MON_DATA_FORM, NULL);
-        param2[v3].unk_00 = ov113_0226072C(param0, Pokemon_GetValue(v2, MON_DATA_OT_ID, NULL));
+        param2[v3].coins = ov113_0226072C(param0, Pokemon_GetValue(v2, MON_DATA_OT_ID, NULL));
     }
 }
 
-BOOL ov113_0225DDC0(UnkStruct_ov113_0225DBCC *param0, const UnkStruct_ov113_02260818 *param1, s32 param2)
+BOOL ov113_0225DDC0(UnkStruct_ov113_0225DBCC *param0, const UnkStruct_ov113_02260818 *slotsMinigameDTO, s32 param2)
 {
     int v0;
     u32 v1;
 
-    v0 = ov113_0225E398(param0, &param0->unk_194, param1, param0->unk_160, param0->unk_164, param0->unk_19E0);
+    v0 = ov113_0225E398(param0, &param0->unk_194, slotsMinigameDTO, param0->unk_160, param0->unk_164, param0->unk_19E0);
 
     if (v0 == 1) {
         v1 = ov66_02232B8C(param2);
 
         if (v1 != 0xffffffff) {
-            if ((param0->unk_99C[v1] != param1->unk_02) || (param0->unk_9AC[v1] != param1->unk_00)) {
-                param0->unk_99C[v1] = param1->unk_02;
-                param0->unk_9AC[v1] = param1->unk_00;
-                ov113_0225D938(param1->unk_02, param1->unk_08, param0->unk_970[v1], param0->unk_160, param0->unk_164, NNS_G2D_VRAM_TYPE_2DSUB, param0->unk_19E0);
+            if ((param0->unk_99C[v1] != slotsMinigameDTO->unk_02) || (param0->unk_9AC[v1] != slotsMinigameDTO->coins)) {
+                param0->unk_99C[v1] = slotsMinigameDTO->unk_02;
+                param0->unk_9AC[v1] = slotsMinigameDTO->coins;
+                ov113_0225D938(slotsMinigameDTO->unk_02, slotsMinigameDTO->unk_08, param0->unk_970[v1], param0->unk_160, param0->unk_164, NNS_G2D_VRAM_TYPE_2DSUB, param0->unk_19E0);
                 ManagedSprite_SetDrawFlag(param0->unk_970[v1], 1);
-                PaletteData_FillBufferRange(param0->unk_0C, PLTTBUF_SUB_BG, PLTTSEL_BOTH, param1->unk_00, (2 * 16 + 1) + v1, (2 * 16 + 1) + v1 + 1);
+                PaletteData_FillBufferRange(param0->slotsMinigameDTO, PLTTBUF_SUB_BG, PLTTSEL_BOTH, slotsMinigameDTO->coins, (2 * 16 + 1) + v1, (2 * 16 + 1) + v1 + 1);
             }
         }
 
@@ -1358,9 +1358,9 @@ static int ov113_0225DE98(UnkStruct_ov113_0225DBCC *param0)
     ov66_02232B4C(&v0);
 
     for (v1 = 0; v1 < 8; v1++) {
-        if (param0->unk_170[v1] != v0.unk_04[v1]) {
-            if (v0.unk_04[v1] != DWC_LOBBY_INVALID_USER_ID) {
-                ov113_02260620(param0->unk_30, param0->unk_2C, param0->unk_34, param0->unk_00->unk_00, v0.unk_04[v1]);
+        if (param0->unk_170[v1] != v0.slotMachineVariant[v1]) {
+            if (v0.slotMachineVariant[v1] != DWC_LOBBY_INVALID_USER_ID) {
+                ov113_02260620(param0->unk_30, param0->unk_2C, param0->unk_34, param0->coins->coins, v0.slotMachineVariant[v1]);
 
                 {
                     u16 *v5;
@@ -1388,13 +1388,13 @@ static int ov113_0225DE98(UnkStruct_ov113_0225DBCC *param0)
                 v3++;
             }
 
-            if (v0.unk_04[v1] == param0->unk_168.unk_04) {
+            if (v0.slotMachineVariant[v1] == param0->unk_168.slotMachineVariant) {
                 ManagedSprite_SetPositionXYWithSubscreenOffset(param0->unk_96C, Unk_ov113_02260914[v1][0], Unk_ov113_02260914[v1][1], (192 + 80) << FX32_SHIFT);
                 ManagedSprite_SetDrawFlag(param0->unk_96C, 1);
             }
         }
 
-        param0->unk_170[v1] = v0.unk_04[v1];
+        param0->unk_170[v1] = v0.slotMachineVariant[v1];
     }
 
     v4 = 0;
@@ -1418,17 +1418,17 @@ static int ov113_0225DE98(UnkStruct_ov113_0225DBCC *param0)
     return 0;
 }
 
-void ov113_0225E044(UnkStruct_ov113_0225DBCC *param0, s32 param1)
+void ov113_0225E044(UnkStruct_ov113_0225DBCC *param0, s32 slotsMinigameDTO)
 {
-    ov113_02260620(param0->unk_30, param0->unk_2C, param0->unk_34, param0->unk_00->unk_00, param1);
+    ov113_02260620(param0->unk_30, param0->unk_2C, param0->unk_34, param0->coins->coins, slotsMinigameDTO);
 }
 
-void ov113_0225E05C(UnkStruct_ov113_0225DBCC *param0, u32 param1)
+void ov113_0225E05C(UnkStruct_ov113_0225DBCC *param0, u32 slotsMinigameDTO)
 {
-    ov113_02260714(param0->unk_34, param1);
+    ov113_02260714(param0->unk_34, slotsMinigameDTO);
 }
 
-static void ov113_0225E068(UnkStruct_ov113_0225DBCC *param0, int param1)
+static void ov113_0225E068(UnkStruct_ov113_0225DBCC *param0, int slotsMinigameDTO)
 {
     SpriteTemplate v0;
     int v1;
@@ -1437,7 +1437,7 @@ static void ov113_0225E068(UnkStruct_ov113_0225DBCC *param0, int param1)
 
     for (v1 = 0; v1 < 3; v1++) {
         if (param0->unk_990[v1] == NULL) {
-            v0.x = 16 + 32 * param1;
+            v0.x = 16 + 32 * slotsMinigameDTO;
             v0.y = 176;
             param0->unk_990[v1] = SpriteSystem_NewSprite(param0->unk_1C, param0->unk_20, &v0);
 
@@ -1445,19 +1445,19 @@ static void ov113_0225E068(UnkStruct_ov113_0225DBCC *param0, int param1)
         }
     }
 
-    ov113_0225E0D4(param0, param1);
+    ov113_0225E0D4(param0, slotsMinigameDTO);
     Sound_PlayEffect(SEQ_SE_DP_BUTTON3_sseq);
 }
 
-static void ov113_0225E0D4(UnkStruct_ov113_0225DBCC *param0, int param1)
+static void ov113_0225E0D4(UnkStruct_ov113_0225DBCC *param0, int slotsMinigameDTO)
 {
     u16 *v0, *v1;
 
-    v0 = PaletteData_GetUnfadedBuffer(param0->unk_0C, 2);
-    v1 = PaletteData_GetFadedBuffer(param0->unk_0C, 2);
+    v0 = PaletteData_GetUnfadedBuffer(param0->slotsMinigameDTO, 2);
+    v1 = PaletteData_GetFadedBuffer(param0->slotsMinigameDTO, 2);
 
     MI_CpuCopy16(&v0[1 * 16 + 1], &v1[1 * 16 + 1], 6 * 2);
-    BlendPalette(&v0[1 * 16 + 1 + param1], &v1[1 * 16 + 1 + param1], 1, 6, 0x0);
+    BlendPalette(&v0[1 * 16 + 1 + slotsMinigameDTO], &v1[1 * 16 + 1 + slotsMinigameDTO], 1, 6, 0x0);
 }
 
 static void ov113_0225E118(UnkStruct_ov113_0225DBCC *param0)
@@ -1476,7 +1476,7 @@ static void ov113_0225E118(UnkStruct_ov113_0225DBCC *param0)
     }
 }
 
-static void ov113_0225E15C(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_0225E250 *param1, const String *param2, enum Font param3, TextColor param4, int param5, int param6, int param7, int param8, int param9)
+static void ov113_0225E15C(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_0225E250 *slotsMinigameDTO, const String *param2, enum Font param3, TextColor param4, int param5, int param6, int param7, int param8, int param9)
 {
     UnkStruct_020127E8 v0;
     Window v1;
@@ -1487,7 +1487,7 @@ static void ov113_0225E15C(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_022
     SpriteManager *v6;
     int v7, v8;
 
-    GF_ASSERT(param1->unk_00 == NULL);
+    GF_ASSERT(slotsMinigameDTO->coins == NULL);
 
     v5 = param0->unk_08;
     v6 = param0->unk_20;
@@ -1507,10 +1507,10 @@ static void ov113_0225E15C(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_022
 
     param8 -= 8;
 
-    v0.unk_00 = param0->unk_10;
-    v0.unk_04 = &v1;
+    v0.coins = param0->unk_10;
+    v0.slotMachineVariant = &v1;
     v0.unk_08 = SpriteManager_GetSpriteList(v6);
-    v0.unk_0C = SpriteManager_FindPlttResourceProxy(v6, param6);
+    v0.slotsMinigameDTO = SpriteManager_FindPlttResourceProxy(v6, param6);
     v0.unk_10 = NULL;
     v0.unk_14 = v2.offset;
     v0.unk_18 = param7;
@@ -1526,20 +1526,20 @@ static void ov113_0225E15C(UnkStruct_ov113_0225DBCC *param0, UnkStruct_ov113_022
     FontOAM_SetXY(v4, param7, param8);
     Window_Remove(&v1);
 
-    param1->unk_00 = v4;
-    param1->unk_04 = v2;
-    param1->unk_10 = v7;
+    slotsMinigameDTO->coins = v4;
+    slotsMinigameDTO->slotMachineVariant = v2;
+    slotsMinigameDTO->unk_10 = v7;
 }
 
 static void ov113_0225E250(UnkStruct_ov113_0225E250 *param0)
 {
-    sub_02012870(param0->unk_00);
-    CharTransfer_ClearRange(&param0->unk_04);
+    sub_02012870(param0->coins);
+    CharTransfer_ClearRange(&param0->slotMachineVariant);
 }
 
-static void ov113_0225E264(const String *param0, int param1, int *param2, int *param3)
+static void ov113_0225E264(const String *param0, int slotsMinigameDTO, int *param2, int *param3)
 {
-    int v0 = Font_CalcStringWidth(param1, param0, 0);
+    int v0 = Font_CalcStringWidth(slotsMinigameDTO, param0, 0);
     int v1 = v0 / 8;
 
     if (FX_ModS32(v0, 8) != 0) {
@@ -1577,9 +1577,9 @@ static void ov113_0225E294(UnkStruct_ov113_0225DBCC *param0)
     }
 }
 
-static BOOL ov113_0225E318(UnkStruct_ov113_0225DBCC *param0, int param1)
+static BOOL ov113_0225E318(UnkStruct_ov113_0225DBCC *param0, int slotsMinigameDTO)
 {
-    if (param0->unk_19D4 < param1) {
+    if (param0->unk_19D4 < slotsMinigameDTO) {
         return 0;
     }
 
@@ -1588,7 +1588,7 @@ static BOOL ov113_0225E318(UnkStruct_ov113_0225DBCC *param0, int param1)
         param0->unk_19D8 = param0->unk_19D4;
     }
 
-    param0->unk_19D4 -= param1;
+    param0->unk_19D4 -= slotsMinigameDTO;
     param0->unk_19DC = (param0->unk_19D8 - param0->unk_19D4) / 4;
 
     return 1;

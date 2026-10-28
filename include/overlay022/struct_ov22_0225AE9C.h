@@ -8,9 +8,9 @@
 #include "sprite.h"
 
 typedef struct {
-    BOOL unk_00;
-    Sprite *unk_04[2];
-    VecFx32 unk_0C[2];
+    BOOL coins;
+    Sprite *slotMachineVariant[2];
+    VecFx32 slotsMinigameDTO[2];
     UnkStruct_ov22_0225AD68 unk_24;
     UnkStruct_ov22_0225AD68 unk_38;
     UnkStruct_ov22_0225AD68 unk_4C;

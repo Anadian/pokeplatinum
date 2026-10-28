@@ -8,6 +8,6 @@
 
 void ov97_02232054(void);
 void ov97_02232074(BgConfig *param0);
-int ov97_02232148(SaveData *saveData, MysteryGiftEventData *param1);
+int ov97_02232148(SaveData *saveData, MysteryGiftEventData *slotsMinigameDTO);
 
 #endif // POKEPLATINUM_MAIN_MENU_02232054_H

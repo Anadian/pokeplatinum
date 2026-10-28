@@ -4,10 +4,10 @@
 #include "resource_collection.h"
 
 typedef struct {
-    u32 unk_00;
-    int unk_04;
+    u32 coins;
+    int slotMachineVariant;
     int unk_08;
-    TextureResourceManager *unk_0C;
+    TextureResourceManager *slotsMinigameDTO;
 } UnkStruct_ov5_021EDFBC;
 
 #endif // POKEPLATINUM_STRUCT_OV5_021EDFBC_H

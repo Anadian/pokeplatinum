@@ -13,10 +13,10 @@
 #include "sprite_util.h"
 
 typedef struct {
-    SoftwareSpriteManager *unk_00;
-    SoftwareSpriteChars **unk_04;
+    SoftwareSpriteManager *coins;
+    SoftwareSpriteChars **slotMachineVariant;
     int unk_08;
-    int unk_0C;
+    int slotsMinigameDTO;
     SoftwareSpritePalette **unk_10;
     int unk_14;
     int unk_18;

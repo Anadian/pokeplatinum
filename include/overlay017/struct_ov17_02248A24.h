@@ -5,7 +5,7 @@
 #include "overlay017/struct_ov17_02247A48.h"
 
 typedef struct {
-    UnkStruct_ov17_02247A48 *unk_00;
+    UnkStruct_ov17_02247A48 *coins;
     BallRotation *ballRotation;
     u8 unk_08;
     u8 unk_09;

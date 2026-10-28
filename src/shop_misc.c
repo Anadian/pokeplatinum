@@ -36,9 +36,9 @@ static u8 ShopMisc_FreeUnk04AndReinitFieldMap(FieldSystem *fieldSystem, ShopMenu
         return SHOP_STATE_REINIT_FIELD_MAP;
     }
 
-    shopMenu->itemSoldCount = BagContext_GetSoldAmount(shopMenu->unk_04);
+    shopMenu->itemSoldCount = BagContext_GetSoldAmount(shopMenu->slotMachineVariant);
 
-    Heap_Free(shopMenu->unk_04);
+    Heap_Free(shopMenu->slotMachineVariant);
     FieldSystem_StartFieldMap(fieldSystem);
 
     return SHOP_STATE_REINIT_SHOP;

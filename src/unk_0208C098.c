@@ -30,9 +30,9 @@ int sub_0208C098(int param0)
     return Unk_020F4030[param0];
 }
 
-u32 sub_0208C0A4(u32 param0, u32 param1)
+u32 sub_0208C0A4(u32 param0, u32 slotsMinigameDTO)
 {
-    u32 v0 = (param0 * param0) + (param1 * param1);
+    u32 v0 = (param0 * param0) + (slotsMinigameDTO * slotsMinigameDTO);
     v0 = SVC_Sqrt(v0 << 4);
 
     return v0 >> 2;
@@ -86,14 +86,14 @@ void App_StartScreenFade(u8 fadeOut, enum HeapID heapID)
     }
 }
 
-u8 sub_0208C15C(s16 *param0, u16 param1)
+u8 sub_0208C15C(s16 *param0, u16 slotsMinigameDTO)
 {
     s16 v0 = *param0;
 
     if (gSystem.pressedKeysRepeatable & PAD_KEY_UP) {
         *param0 += 1;
 
-        if (*param0 > param1) {
+        if (*param0 > slotsMinigameDTO) {
             *param0 = 1;
         }
 
@@ -108,7 +108,7 @@ u8 sub_0208C15C(s16 *param0, u16 param1)
         *param0 -= 1;
 
         if (*param0 <= 0) {
-            *param0 = param1;
+            *param0 = slotsMinigameDTO;
         }
 
         if (*param0 == v0) {
@@ -135,8 +135,8 @@ u8 sub_0208C15C(s16 *param0, u16 param1)
     if (gSystem.pressedKeysRepeatable & PAD_KEY_RIGHT) {
         *param0 += 10;
 
-        if (*param0 > param1) {
-            *param0 = param1;
+        if (*param0 > slotsMinigameDTO) {
+            *param0 = slotsMinigameDTO;
         }
 
         if (*param0 == v0) {

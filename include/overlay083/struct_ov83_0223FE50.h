@@ -10,8 +10,8 @@
 #include "trainer_info.h"
 
 typedef struct {
-    UnkStruct_ov83_0223DB4C_sub1 unk_00;
-    UnkStruct_ov83_0223D2E8 unk_04;
+    UnkStruct_ov83_0223DB4C_sub1 coins;
+    UnkStruct_ov83_0223D2E8 slotMachineVariant;
     UnkStruct_ov83_022401AC unk_20;
     UnkStruct_ov83_0223DB4C unk_34;
     UnkStruct_ov83_022401AC unk_58;

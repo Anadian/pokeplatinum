@@ -9,7 +9,7 @@
 
 typedef struct {
     u32 integrity;
-    UnkStruct_ov61_0222AE80_sub1 unk_04;
+    UnkStruct_ov61_0222AE80_sub1 slotMachineVariant;
     u32 unk_24;
     EasyChatSentence title;
     UnkStruct_ov61_0222AE80_sub2 unk_30[10];

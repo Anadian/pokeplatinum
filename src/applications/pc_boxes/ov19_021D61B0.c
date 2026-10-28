@@ -48,8 +48,8 @@
 #include "system.h"
 
 struct UnkStruct_ov19_021D61B0_t {
-    SysTask *unk_00;
-    SysTask *unk_04;
+    SysTask *coins;
+    SysTask *slotMachineVariant;
     SysTask *unk_08[4];
     SpriteList *unk_18;
     G2dRenderer unk_1C;
@@ -73,80 +73,80 @@ struct UnkStruct_ov19_021D61B0_t {
 
 typedef struct BoxTaskParams {
     enum BoxGraphicsFunctions function;
-    u16 unk_04;
+    u16 slotMachineVariant;
     u16 state;
     u16 unk_08;
     u16 unk_0A;
-    UnkStruct_ov19_021D61B0 *unk_0C;
+    UnkStruct_ov19_021D61B0 *slotsMinigameDTO;
     void *unk_10;
 } BoxTaskParams;
 
-static void ov19_021D6474(SysTask *param0, void *param1);
+static void ov19_021D6474(SysTask *param0, void *slotsMinigameDTO);
 static void BoxTaskParams_Free(BoxTaskParams *params);
-static void ov19_021D6664(SysTask *param0, void *param1);
-static void ov19_021D6694(SysTask *param0, void *param1);
-static void BoxGraphics_ScreenFadeBothToBlackLogIn(SysTask *task, void *param1);
-static void BoxGraphics_ScreenFadeBothToBlack1(SysTask *task, void *param1);
-static void BoxGraphics_ScreenFadeBothToBlack2(SysTask *task, void *param1);
-static void BoxGraphics_ChangeToNewBox(SysTask *param0, void *param1);
-static void BoxGraphics_MoveCursor(SysTask *param0, void *param1);
-static void BoxGraphics_PreviewMon(SysTask *param0, void *param1);
-static void ov19_021D69BC(SysTask *param0, void *param1);
-static void ov19_021D6A1C(SysTask *param0, void *param1);
-static void BoxGraphics_PickUpMonIntoCursor(SysTask *param0, void *param1);
-static void BoxGraphics_PlaceMonDownFromCursor(SysTask *param0, void *param1);
-static void ov19_021D6AB0(SysTask *param0, void *param1);
-static void ov19_021D6AEC(SysTask *param0, void *param1);
-static void ov19_021D6B1C(SysTask *param0, void *param1);
-static void BoxGraphics_PlayReleaseCursorMonAnimation(SysTask *task, void *param1);
-static void BoxGraphics_PlayReleaseBoxMonAnimation(SysTask *task, void *param1);
-static void BoxGraphics_PlayReleasePartyMonAnimation(SysTask *task, void *param1);
-static void BoxGraphics_DisplayItemInfo(SysTask *param0, void *param1);
-static void BoxGraphics_CloseItemInfo(SysTask *param0, void *param1);
-static void ov19_021D6CB0(SysTask *param0, void *param1);
-static void ov19_021D6CF8(SysTask *param0, void *param1);
-static void ov19_021D6D40(SysTask *param0, void *param1);
-static void ov19_021D6D88(SysTask *param0, void *param1);
-static void BoxGraphics_ItemShrinkToNothing(SysTask *param0, void *param1);
-static void BoxGraphics_DisplayBoxMessage(SysTask *task, void *param1);
-static void BoxGraphics_ShowMenu(SysTask *param0, void *param1);
-static void BoxGraphics_CloseMessageBox(SysTask *task, void *param1);
-static void ov19_021D6EC0(SysTask *param0, void *param1);
-static void BoxGraphics_UpdateMenuCursor(SysTask *param0, void *param1);
-static void ov19_021D6F0C(SysTask *param0, void *param1);
-static void BoxGraphics_ShowBoxSelectionPopup(SysTask *param0, void *param1);
-static void BoxGraphics_ScrollBoxSelectionPopup(SysTask *param0, void *param1);
-static void ov19_021D6FB0(SysTask *param0, void *param1);
-static void BoxGraphics_TransitionWallpaper(SysTask *param0, void *param1);
-static void BoxGraphics_PressBoxButton(SysTask *param0, void *param1);
-static void BoxGraphics_OpenPartyPopup(SysTask *param0, void *param1);
-static void ov19_021D7138(SysTask *param0, void *param1);
-static void BoxGraphics_PlayAdjustPartyAnimation(SysTask *task, void *param1);
-static void ov19_021D71F8(SysTask *param0, void *param1);
-static void BoxGraphics_SetMonMarkingsTransparency(SysTask *param0, void *param1);
-static void BoxGraphics_OpenOrCloseSelectedTouchDial(SysTask *param0, void *param1);
-static void ov19_021D72E8(SysTask *param0, void *param1);
-static void BoxGraphics_UpdateMarkingsTouchButton(SysTask *param0, void *param1);
-static void ov19_021D7340(SysTask *param0, void *param1);
-static void BoxGraphics_StartDrawMultiSelect(SysTask *param0, void *param1);
-static void ov19_021D7380(SysTask *param0, void *param1);
-static void BoxGraphics_ApplyMultiSelectMonShadingTask(SysTask *param0, void *param1);
-static void ov19_021D73B0(SysTask *param0, void *param1);
-static void ov19_021D73EC(SysTask *param0, void *param1);
-static void ov19_021D7408(SysTask *param0, void *param1);
-static void ov19_021D7424(SysTask *param0, void *param1);
-static void BoxGraphics_ScreenFadeBothToBlackLogOff(SysTask *task, void *param1);
-static void ov19_021D74B4(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *param1);
-static void ov19_021D75CC(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *param1, NARC *param2);
+static void ov19_021D6664(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6694(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_ScreenFadeBothToBlackLogIn(SysTask *task, void *slotsMinigameDTO);
+static void BoxGraphics_ScreenFadeBothToBlack1(SysTask *task, void *slotsMinigameDTO);
+static void BoxGraphics_ScreenFadeBothToBlack2(SysTask *task, void *slotsMinigameDTO);
+static void BoxGraphics_ChangeToNewBox(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_MoveCursor(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_PreviewMon(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D69BC(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6A1C(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_PickUpMonIntoCursor(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_PlaceMonDownFromCursor(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6AB0(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6AEC(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6B1C(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_PlayReleaseCursorMonAnimation(SysTask *task, void *slotsMinigameDTO);
+static void BoxGraphics_PlayReleaseBoxMonAnimation(SysTask *task, void *slotsMinigameDTO);
+static void BoxGraphics_PlayReleasePartyMonAnimation(SysTask *task, void *slotsMinigameDTO);
+static void BoxGraphics_DisplayItemInfo(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_CloseItemInfo(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6CB0(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6CF8(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6D40(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6D88(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_ItemShrinkToNothing(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_DisplayBoxMessage(SysTask *task, void *slotsMinigameDTO);
+static void BoxGraphics_ShowMenu(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_CloseMessageBox(SysTask *task, void *slotsMinigameDTO);
+static void ov19_021D6EC0(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_UpdateMenuCursor(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6F0C(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_ShowBoxSelectionPopup(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_ScrollBoxSelectionPopup(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D6FB0(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_TransitionWallpaper(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_PressBoxButton(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_OpenPartyPopup(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D7138(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_PlayAdjustPartyAnimation(SysTask *task, void *slotsMinigameDTO);
+static void ov19_021D71F8(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_SetMonMarkingsTransparency(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_OpenOrCloseSelectedTouchDial(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D72E8(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_UpdateMarkingsTouchButton(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D7340(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_StartDrawMultiSelect(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D7380(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_ApplyMultiSelectMonShadingTask(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D73B0(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D73EC(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D7408(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D7424(SysTask *param0, void *slotsMinigameDTO);
+static void BoxGraphics_ScreenFadeBothToBlackLogOff(SysTask *task, void *slotsMinigameDTO);
+static void ov19_021D74B4(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *slotsMinigameDTO);
+static void ov19_021D75CC(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *slotsMinigameDTO, NARC *param2);
 static void ov19_021D76FC(void);
-static void ov19_021D7774(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *param1, NARC *param2);
-static int BoxGraphics_GetBoxMoveDirection(u32 param0, u32 param1);
+static void ov19_021D7774(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *slotsMinigameDTO, NARC *param2);
+static int BoxGraphics_GetBoxMoveDirection(u32 param0, u32 slotsMinigameDTO);
 static void ov19_021D7970(void);
 static void ov19_021D797C(void);
 
 static const struct {
     SysTaskFunc sysTaskFunc;
-    u32 unk_04;
+    u32 slotMachineVariant;
 } sBoxGraphicsTaskHandlers[] = {
     [FUNC_ov19_021D6694] = { ov19_021D6694, 0 },
     [FUNC_BoxGraphics_ScreenFadeBothToBlack0] = { BoxGraphics_ScreenFadeBothToBlackLogIn, 0 },
@@ -202,12 +202,12 @@ static const struct {
     [FUNC_BoxGraphics_ScreenFadeBothToBlackLogOff] = { BoxGraphics_ScreenFadeBothToBlackLogOff, 0 },
 };
 
-BOOL BoxGraphics_Load(UnkStruct_ov19_021D61B0 **param0, const BoxApplication *param1, const BoxApplicationManager *param2)
+BOOL BoxGraphics_Load(UnkStruct_ov19_021D61B0 **param0, const BoxApplication *slotsMinigameDTO, const BoxApplicationManager *param2)
 {
     UnkStruct_ov19_021D61B0 *v0 = Heap_Alloc(HEAP_ID_BOX_GRAPHICS, sizeof(UnkStruct_ov19_021D61B0));
 
     if (v0 != NULL) {
-        v0->unk_1C4 = param1;
+        v0->unk_1C4 = slotsMinigameDTO;
         v0->unk_1C0 = BgConfig_New(HEAP_ID_BOX_GRAPHICS);
 
         if (v0->unk_1C0 != NULL) {
@@ -259,8 +259,8 @@ BOOL BoxGraphics_Load(UnkStruct_ov19_021D61B0 **param0, const BoxApplication *pa
             v2 &= ov19_021DEC04(&(v0->unk_B410), v0, v0->unk_1C4, v0->unk_1C0, v0->unk_18, BoxAppMan_GetBoxMessagesLoader(param2), boxGraphicsNarc);
 
             v0->unk_B414 = param2;
-            v0->unk_00 = SysTask_Start(ov19_021D6474, v0, 2);
-            v0->unk_04 = ov19_021D77C8(ov19_021D6664, v0, 1);
+            v0->coins = SysTask_Start(ov19_021D6474, v0, 2);
+            v0->slotMachineVariant = ov19_021D77C8(ov19_021D6664, v0, 1);
 
             NARC_dtor(boxGraphicsNarc);
 
@@ -271,9 +271,9 @@ BOOL BoxGraphics_Load(UnkStruct_ov19_021D61B0 **param0, const BoxApplication *pa
     return FALSE;
 }
 
-static void ov19_021D6474(SysTask *param0, void *param1)
+static void ov19_021D6474(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D61B0 *v0 = (UnkStruct_ov19_021D61B0 *)param1;
+    UnkStruct_ov19_021D61B0 *v0 = (UnkStruct_ov19_021D61B0 *)slotsMinigameDTO;
 
     ov19_021D797C();
 
@@ -289,8 +289,8 @@ static void ov19_021D6474(SysTask *param0, void *param1)
 void BoxGraphics_Free(UnkStruct_ov19_021D61B0 *param0)
 {
     SetVBlankCallback(NULL, NULL);
-    SysTask_Done(param0->unk_00);
-    SysTask_Done(param0->unk_04);
+    SysTask_Done(param0->coins);
+    SysTask_Done(param0->slotMachineVariant);
 
     ov19_021DECAC(param0->unk_B410);
     ov19_021DE440(param0->unk_B40C);
@@ -323,14 +323,14 @@ void BoxGraphics_TaskHandler(UnkStruct_ov19_021D61B0 *param0, enum BoxGraphicsFu
 
         for (u32 i = 0; i < 4; i++) {
             if (param0->unk_08[i] == NULL) {
-                taskParams = Heap_Alloc(HEAP_ID_BOX_GRAPHICS, sizeof(BoxTaskParams) + sBoxGraphicsTaskHandlers[function].unk_04);
+                taskParams = Heap_Alloc(HEAP_ID_BOX_GRAPHICS, sizeof(BoxTaskParams) + sBoxGraphicsTaskHandlers[function].slotMachineVariant);
 
                 if (taskParams != NULL) {
                     taskParams->function = function;
-                    taskParams->unk_04 = i;
+                    taskParams->slotMachineVariant = i;
                     taskParams->state = 0;
-                    taskParams->unk_0C = param0;
-                    taskParams->unk_10 = ((u8 *)(taskParams) + sBoxGraphicsTaskHandlers[function].unk_04);
+                    taskParams->slotsMinigameDTO = param0;
+                    taskParams->unk_10 = ((u8 *)(taskParams) + sBoxGraphicsTaskHandlers[function].slotMachineVariant);
 
                     param0->unk_08[i] = SysTask_Start(sBoxGraphicsTaskHandlers[function].sysTaskFunc, taskParams, 1);
                 } else {
@@ -375,16 +375,16 @@ BOOL BoxGraphics_CheckAllTasksDone(UnkStruct_ov19_021D61B0 *param0)
 
 static void BoxTaskParams_Free(BoxTaskParams *params)
 {
-    UnkStruct_ov19_021D61B0 *v0 = params->unk_0C;
+    UnkStruct_ov19_021D61B0 *v0 = params->slotsMinigameDTO;
 
-    SysTask_Done(v0->unk_08[params->unk_04]);
-    v0->unk_08[params->unk_04] = NULL;
+    SysTask_Done(v0->unk_08[params->slotMachineVariant]);
+    v0->unk_08[params->slotMachineVariant] = NULL;
     Heap_Free(params);
 }
 
-static void ov19_021D6664(SysTask *param0, void *param1)
+static void ov19_021D6664(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D61B0 *v0 = (UnkStruct_ov19_021D61B0 *)param1;
+    UnkStruct_ov19_021D61B0 *v0 = (UnkStruct_ov19_021D61B0 *)slotsMinigameDTO;
 
     ov19_021DAA80(&v0->unk_6604);
 
@@ -394,12 +394,12 @@ static void ov19_021D6664(SysTask *param0, void *param1)
     OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
-static void ov19_021D6694(SysTask *param0, void *param1)
+static void ov19_021D6694(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *params = (BoxTaskParams *)param1;
-    v0 = params->unk_0C;
+    BoxTaskParams *params = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = params->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (params->state) {
@@ -428,12 +428,12 @@ static void ov19_021D6694(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_ScreenFadeBothToBlackLogIn(SysTask *task, void *param1)
+static void BoxGraphics_ScreenFadeBothToBlackLogIn(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -451,12 +451,12 @@ static void BoxGraphics_ScreenFadeBothToBlackLogIn(SysTask *task, void *param1)
     }
 }
 
-static void BoxGraphics_ScreenFadeBothToBlack1(SysTask *task, void *param1)
+static void BoxGraphics_ScreenFadeBothToBlack1(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -473,12 +473,12 @@ static void BoxGraphics_ScreenFadeBothToBlack1(SysTask *task, void *param1)
     }
 }
 
-static void BoxGraphics_ScreenFadeBothToBlack2(SysTask *task, void *param1)
+static void BoxGraphics_ScreenFadeBothToBlack2(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -499,7 +499,7 @@ static void BoxGraphics_ChangeToNewBox(SysTask *param0, void *taskParams)
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
     BoxTaskParams *params = (BoxTaskParams *)taskParams;
-    v0 = params->unk_0C;
+    v0 = params->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (params->state) {
@@ -537,12 +537,12 @@ static void BoxGraphics_ChangeToNewBox(SysTask *param0, void *taskParams)
     }
 }
 
-static void BoxGraphics_MoveCursor(SysTask *param0, void *param1)
+static void BoxGraphics_MoveCursor(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -561,12 +561,12 @@ static void BoxGraphics_MoveCursor(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_PreviewMon(SysTask *param0, void *param1)
+static void BoxGraphics_PreviewMon(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     if (BoxApp_GetBoxMode(v1) != PC_MODE_COMPARE) {
@@ -596,12 +596,12 @@ static void BoxGraphics_PreviewMon(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D69BC(SysTask *param0, void *param1)
+static void ov19_021D69BC(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     if (BoxApp_GetPreviewMonSource(v1) == PREVIEW_MON_IN_CURSOR) {
@@ -621,24 +621,24 @@ static void ov19_021D69BC(SysTask *param0, void *param1)
     BoxTaskParams_Free(v2);
 }
 
-static void ov19_021D6A1C(SysTask *param0, void *param1)
+static void ov19_021D6A1C(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     ov19_021DB078(&(v0->unk_6604));
     BoxTaskParams_Free(v2);
 }
 
-static void BoxGraphics_PickUpMonIntoCursor(SysTask *task, void *param1)
+static void BoxGraphics_PickUpMonIntoCursor(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *params = (BoxTaskParams *)param1;
-    v0 = params->unk_0C;
+    BoxTaskParams *params = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = params->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (params->state) {
@@ -654,12 +654,12 @@ static void BoxGraphics_PickUpMonIntoCursor(SysTask *task, void *param1)
     }
 }
 
-static void BoxGraphics_PlaceMonDownFromCursor(SysTask *param0, void *param1)
+static void BoxGraphics_PlaceMonDownFromCursor(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -675,12 +675,12 @@ static void BoxGraphics_PlaceMonDownFromCursor(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D6AB0(SysTask *param0, void *param1)
+static void ov19_021D6AB0(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -696,12 +696,12 @@ static void ov19_021D6AB0(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D6AEC(SysTask *param0, void *param1)
+static void ov19_021D6AEC(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -715,12 +715,12 @@ static void ov19_021D6AEC(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D6B1C(SysTask *param0, void *param1)
+static void ov19_021D6B1C(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -740,12 +740,12 @@ static void ov19_021D6B1C(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_PlayReleaseCursorMonAnimation(SysTask *task, void *param1)
+static void BoxGraphics_PlayReleaseCursorMonAnimation(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -761,12 +761,12 @@ static void BoxGraphics_PlayReleaseCursorMonAnimation(SysTask *task, void *param
     }
 }
 
-static void BoxGraphics_PlayReleaseBoxMonAnimation(SysTask *param0, void *param1)
+static void BoxGraphics_PlayReleaseBoxMonAnimation(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -782,12 +782,12 @@ static void BoxGraphics_PlayReleaseBoxMonAnimation(SysTask *param0, void *param1
     }
 }
 
-static void BoxGraphics_PlayReleasePartyMonAnimation(SysTask *param0, void *param1)
+static void BoxGraphics_PlayReleasePartyMonAnimation(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -803,12 +803,12 @@ static void BoxGraphics_PlayReleasePartyMonAnimation(SysTask *param0, void *para
     }
 }
 
-static void BoxGraphics_DisplayItemInfo(SysTask *param0, void *param1)
+static void BoxGraphics_DisplayItemInfo(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -824,12 +824,12 @@ static void BoxGraphics_DisplayItemInfo(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_CloseItemInfo(SysTask *param0, void *param1)
+static void BoxGraphics_CloseItemInfo(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -845,12 +845,12 @@ static void BoxGraphics_CloseItemInfo(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D6CB0(SysTask *param0, void *param1)
+static void ov19_021D6CB0(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -867,12 +867,12 @@ static void ov19_021D6CB0(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D6CF8(SysTask *param0, void *param1)
+static void ov19_021D6CF8(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -889,12 +889,12 @@ static void ov19_021D6CF8(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D6D40(SysTask *param0, void *param1)
+static void ov19_021D6D40(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    BoxTaskParams *v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -911,15 +911,15 @@ static void ov19_021D6D40(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D6D88(SysTask *param0, void *param1)
+static void ov19_021D6D88(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
     BoxTaskParams *v2;
     u32 item;
 
-    v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
     item = BoxApp_GetPreviewedMonHeldItem(v1);
 
@@ -939,15 +939,15 @@ static void ov19_021D6D88(SysTask *param0, void *param1)
     BoxTaskParams_Free(v2);
 }
 
-static void BoxGraphics_ItemShrinkToNothing(SysTask *param0, void *param1)
+static void BoxGraphics_ItemShrinkToNothing(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
     BoxTaskParams *v2;
     u32 v3;
 
-    v2 = (BoxTaskParams *)param1;
-    v0 = v2->unk_0C;
+    v2 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v2->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (v2->state) {
@@ -965,28 +965,28 @@ static void BoxGraphics_ItemShrinkToNothing(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_DisplayBoxMessage(SysTask *param0, void *param1)
+static void BoxGraphics_DisplayBoxMessage(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *params;
     const BoxApplication *v2;
 
-    params = (BoxTaskParams *)param1;
-    v0 = params->unk_0C;
+    params = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = params->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     ov19_021DB448(&(v0->unk_6658), BoxApp_GetBoxMessageID(v2));
     BoxTaskParams_Free(params);
 }
 
-static void BoxGraphics_ShowMenu(SysTask *param0, void *param1)
+static void BoxGraphics_ShowMenu(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     ov19_021DB448(&(v0->unk_6658), BoxApp_GetBoxMessageID(v2));
@@ -994,32 +994,32 @@ static void BoxGraphics_ShowMenu(SysTask *param0, void *param1)
     BoxTaskParams_Free(v1);
 }
 
-static void BoxGraphics_CloseMessageBox(SysTask *param0, void *param1)
+static void BoxGraphics_CloseMessageBox(SysTask *param0, void *slotsMinigameDTO)
 {
-    BoxTaskParams *v1 = (BoxTaskParams *)param1;
-    UnkStruct_ov19_021D61B0 *v0 = v1->unk_0C;
+    BoxTaskParams *v1 = (BoxTaskParams *)slotsMinigameDTO;
+    UnkStruct_ov19_021D61B0 *v0 = v1->slotsMinigameDTO;
 
     ov19_021DB6F0(&(v0->unk_6658));
     BoxTaskParams_Free(v1);
 }
 
-static void ov19_021D6EC0(SysTask *param0, void *param1)
+static void ov19_021D6EC0(SysTask *param0, void *slotsMinigameDTO)
 {
-    BoxTaskParams *v1 = (BoxTaskParams *)param1;
-    UnkStruct_ov19_021D61B0 *v0 = v1->unk_0C;
+    BoxTaskParams *v1 = (BoxTaskParams *)slotsMinigameDTO;
+    UnkStruct_ov19_021D61B0 *v0 = v1->slotsMinigameDTO;
 
     ov19_021DB724(&(v0->unk_6658));
     BoxTaskParams_Free(v1);
 }
 
-static void BoxGraphics_UpdateMenuCursor(SysTask *task, void *param1)
+static void BoxGraphics_UpdateMenuCursor(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     Sound_PlayEffect(SE_CONFIRM_sseq_3);
@@ -1027,14 +1027,14 @@ static void BoxGraphics_UpdateMenuCursor(SysTask *task, void *param1)
     BoxTaskParams_Free(v1);
 }
 
-static void ov19_021D6F0C(SysTask *param0, void *param1)
+static void ov19_021D6F0C(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     Sound_PlayEffect(SEQ_SE_DP_DECIDE_sseq);
@@ -1042,14 +1042,14 @@ static void ov19_021D6F0C(SysTask *param0, void *param1)
     BoxTaskParams_Free(v1);
 }
 
-static void BoxGraphics_ShowBoxSelectionPopup(SysTask *task, void *param1)
+static void BoxGraphics_ShowBoxSelectionPopup(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *params;
     const BoxApplication *v2;
 
-    params = (BoxTaskParams *)param1;
-    v0 = params->unk_0C;
+    params = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = params->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (params->state) {
@@ -1064,14 +1064,14 @@ static void BoxGraphics_ShowBoxSelectionPopup(SysTask *task, void *param1)
     }
 }
 
-static void BoxGraphics_ScrollBoxSelectionPopup(SysTask *param0, void *param1)
+static void BoxGraphics_ScrollBoxSelectionPopup(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1085,14 +1085,14 @@ static void BoxGraphics_ScrollBoxSelectionPopup(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D6FB0(SysTask *param0, void *param1)
+static void ov19_021D6FB0(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1107,14 +1107,14 @@ static void ov19_021D6FB0(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_TransitionWallpaper(SysTask *task, void *param1)
+static void BoxGraphics_TransitionWallpaper(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *params;
     const BoxApplication *v2;
 
-    params = (BoxTaskParams *)param1;
-    v0 = params->unk_0C;
+    params = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = params->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (params->state) {
@@ -1130,14 +1130,14 @@ static void BoxGraphics_TransitionWallpaper(SysTask *task, void *param1)
     }
 }
 
-static void BoxGraphics_PressBoxButton(SysTask *param0, void *param1)
+static void BoxGraphics_PressBoxButton(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1176,14 +1176,14 @@ static void BoxGraphics_PressBoxButton(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_OpenPartyPopup(SysTask *param0, void *param1)
+static void BoxGraphics_OpenPartyPopup(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1201,14 +1201,14 @@ static void BoxGraphics_OpenPartyPopup(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D7138(SysTask *param0, void *param1)
+static void ov19_021D7138(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1235,14 +1235,14 @@ static void ov19_021D7138(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_PlayAdjustPartyAnimation(SysTask *task, void *param1)
+static void BoxGraphics_PlayAdjustPartyAnimation(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *params;
     const BoxApplication *v2;
 
-    params = (BoxTaskParams *)param1;
-    v0 = params->unk_0C;
+    params = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = params->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (params->state) {
@@ -1258,14 +1258,14 @@ static void BoxGraphics_PlayAdjustPartyAnimation(SysTask *task, void *param1)
     }
 }
 
-static void ov19_021D71F8(SysTask *param0, void *param1)
+static void ov19_021D71F8(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1286,14 +1286,14 @@ static void ov19_021D71F8(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_SetMonMarkingsTransparency(SysTask *param0, void *param1)
+static void BoxGraphics_SetMonMarkingsTransparency(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     ov19_021D8938(&v0->unk_494);
@@ -1302,14 +1302,14 @@ static void BoxGraphics_SetMonMarkingsTransparency(SysTask *param0, void *param1
     BoxTaskParams_Free(v1);
 }
 
-static void BoxGraphics_OpenOrCloseSelectedTouchDial(SysTask *param0, void *param1)
+static void BoxGraphics_OpenOrCloseSelectedTouchDial(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1335,14 +1335,14 @@ static void BoxGraphics_OpenOrCloseSelectedTouchDial(SysTask *param0, void *para
     }
 }
 
-static void ov19_021D72E8(SysTask *param0, void *param1)
+static void ov19_021D72E8(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1358,42 +1358,42 @@ static void ov19_021D72E8(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_UpdateMarkingsTouchButton(SysTask *param0, void *param1)
+static void BoxGraphics_UpdateMarkingsTouchButton(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     ov19_021DE2F4(v0->unk_B408);
     BoxTaskParams_Free(v1);
 }
 
-static void ov19_021D7340(SysTask *param0, void *param1)
+static void ov19_021D7340(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     ov19_021D9AEC(&(v0->unk_5E24));
     BoxTaskParams_Free(v1);
 }
 
-static void BoxGraphics_StartDrawMultiSelect(SysTask *param0, void *param1)
+static void BoxGraphics_StartDrawMultiSelect(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     BoxGraphics_OpenMultiSelectCursor(&(v0->unk_5E24));
@@ -1401,42 +1401,42 @@ static void BoxGraphics_StartDrawMultiSelect(SysTask *param0, void *param1)
     BoxTaskParams_Free(v1);
 }
 
-static void ov19_021D7380(SysTask *param0, void *param1)
+static void ov19_021D7380(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     ov19_021D8B14(&(v0->unk_494));
     BoxTaskParams_Free(v1);
 }
 
-static void BoxGraphics_ApplyMultiSelectMonShadingTask(SysTask *param0, void *param1)
+static void BoxGraphics_ApplyMultiSelectMonShadingTask(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     BoxGraphics_ApplyMultiSelectMonShading(&(v0->unk_494));
     BoxTaskParams_Free(v1);
 }
 
-static void ov19_021D73B0(SysTask *param0, void *param1)
+static void ov19_021D73B0(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1452,42 +1452,42 @@ static void ov19_021D73B0(SysTask *param0, void *param1)
     }
 }
 
-static void ov19_021D73EC(SysTask *param0, void *param1)
+static void ov19_021D73EC(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     ov19_021DEDDC(v0->unk_B410, 0);
     BoxTaskParams_Free(v1);
 }
 
-static void ov19_021D7408(SysTask *param0, void *param1)
+static void ov19_021D7408(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     ov19_021DEDDC(v0->unk_B410, 1);
     BoxTaskParams_Free(v1);
 }
 
-static void ov19_021D7424(SysTask *param0, void *param1)
+static void ov19_021D7424(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     BoxTaskParams *v1;
     const BoxApplication *v2;
 
-    v1 = (BoxTaskParams *)param1;
-    v0 = v1->unk_0C;
+    v1 = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = v1->slotsMinigameDTO;
     v2 = v0->unk_1C4;
 
     switch (v1->state) {
@@ -1503,12 +1503,12 @@ static void ov19_021D7424(SysTask *param0, void *param1)
     }
 }
 
-static void BoxGraphics_ScreenFadeBothToBlackLogOff(SysTask *task, void *param1)
+static void BoxGraphics_ScreenFadeBothToBlackLogOff(SysTask *task, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D61B0 *v0;
     const BoxApplication *v1;
-    BoxTaskParams *params = (BoxTaskParams *)param1;
-    v0 = params->unk_0C;
+    BoxTaskParams *params = (BoxTaskParams *)slotsMinigameDTO;
+    v0 = params->slotsMinigameDTO;
     v1 = v0->unk_1C4;
 
     switch (params->state) {
@@ -1525,7 +1525,7 @@ static void BoxGraphics_ScreenFadeBothToBlackLogOff(SysTask *task, void *param1)
     }
 }
 
-static void ov19_021D74B4(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *param1)
+static void ov19_021D74B4(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *slotsMinigameDTO)
 {
     static const GXBanks v0 = {
         GX_VRAM_BG_128_B,
@@ -1707,7 +1707,7 @@ static void ov19_021D74B4(UnkStruct_ov19_021D61B0 *param0, const BoxApplication 
     Bg_InitFromTemplate(param0->unk_1C0, BG_LAYER_MAIN_2, &v4, 0);
     Bg_InitFromTemplate(param0->unk_1C0, BG_LAYER_MAIN_3, &v5, 0);
 
-    if (BoxApp_GetBoxMode(param1) != PC_MODE_COMPARE) {
+    if (BoxApp_GetBoxMode(slotsMinigameDTO) != PC_MODE_COMPARE) {
         Bg_InitFromTemplate(param0->unk_1C0, BG_LAYER_SUB_0, &v6, 0);
         Bg_InitFromTemplate(param0->unk_1C0, BG_LAYER_SUB_1, &v7, 0);
         Bg_InitFromTemplate(param0->unk_1C0, BG_LAYER_SUB_2, &v8, 0);
@@ -1722,7 +1722,7 @@ static void ov19_021D74B4(UnkStruct_ov19_021D61B0 *param0, const BoxApplication 
     ov19_021D76FC();
 }
 
-static void ov19_021D75CC(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *param1, NARC *param2)
+static void ov19_021D75CC(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *slotsMinigameDTO, NARC *param2)
 {
     Graphics_LoadTilesToBgLayerFromOpenNARC(param2, 4, param0->unk_1C0, 1, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
     Bg_FillTilemapRect(param0->unk_1C0, 1, 0x0, 0, 0, 32, 32, 17);
@@ -1730,19 +1730,19 @@ static void ov19_021D75CC(UnkStruct_ov19_021D61B0 *param0, const BoxApplication 
     Graphics_LoadTilesToBgLayerFromOpenNARC(param2, 1, param0->unk_1C0, 2, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
     Graphics_LoadPaletteFromOpenNARC(param2, 5, 0, 0, 0x20 * 7, HEAP_ID_BOX_GRAPHICS);
 
-    if (BoxApp_GetBoxMode(param1) != PC_MODE_COMPARE) {
+    if (BoxApp_GetBoxMode(slotsMinigameDTO) != PC_MODE_COMPARE) {
         Graphics_LoadTilemapToBgLayerFromOpenNARC(param2, 0, param0->unk_1C0, 2, 0, 0, 1, HEAP_ID_BOX_GRAPHICS);
     }
 
     ov19_021D7A9C(&param0->unk_494);
-    ov19_021D7B4C(&param0->unk_494, &param1->customization, 0, TRUE);
+    ov19_021D7B4C(&param0->unk_494, &slotsMinigameDTO->customization, 0, TRUE);
     ov19_021DAADC(&(param0->unk_6604));
     ov19_021DB3C4(&(param0->unk_6658));
     ov19_021DBA9C(&(param0->unk_6690));
     ov19_021DD114(param0->unk_B408, param2);
     ov19_021DECE8(param0->unk_B410, param2);
 
-    if (BoxApp_GetCursorLocation(param1) == CURSOR_IN_PARTY) {
+    if (BoxApp_GetCursorLocation(slotsMinigameDTO) == CURSOR_IN_PARTY) {
         ov19_021DC6A0(&(param0->unk_B290));
     }
 
@@ -1768,7 +1768,7 @@ static void ov19_021D76FC(void)
     G3_ViewPort(0, 0, 255, 191);
 }
 
-static void ov19_021D7774(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *param1, NARC *param2)
+static void ov19_021D7774(UnkStruct_ov19_021D61B0 *param0, const BoxApplication *slotsMinigameDTO, NARC *param2)
 {
     ov19_021D8C1C(&param0->unk_5E24, param2);
     ov19_021DA864(&param0->unk_65BC, param2);
@@ -1790,9 +1790,9 @@ static int BoxGraphics_GetBoxMoveDirection(u32 sourceBoxID, u32 destBoxID)
     return (distanceRight >= distanceLeft) ? -1 : 1;
 }
 
-SysTask *ov19_021D77C8(SysTaskFunc param0, void *param1, u32 param2)
+SysTask *ov19_021D77C8(SysTaskFunc param0, void *slotsMinigameDTO, u32 param2)
 {
-    return SysTask_ExecuteOnVBlank(param0, param1, param2);
+    return SysTask_ExecuteOnVBlank(param0, slotsMinigameDTO, param2);
 }
 
 NNSG2dImagePaletteProxy *ov19_021D77D0(UnkStruct_ov19_021D61B0 *param0)
@@ -1844,9 +1844,9 @@ int ov19_021D7820(UnkStruct_ov19_021D61B0 *param0)
     }
 }
 
-void ov19_021D783C(SpriteResourcesHeader *param0, NNSG2dImageProxy *param1, NNSG2dImagePaletteProxy *param2, NNSG2dCellDataBank *param3, NNSG2dCellAnimBankData *param4, u32 param5)
+void ov19_021D783C(SpriteResourcesHeader *param0, NNSG2dImageProxy *slotsMinigameDTO, NNSG2dImagePaletteProxy *param2, NNSG2dCellDataBank *param3, NNSG2dCellAnimBankData *param4, u32 param5)
 {
-    param0->imageProxy = param1;
+    param0->imageProxy = slotsMinigameDTO;
     param0->paletteProxy = param2;
     param0->cellBank = param3;
     param0->cellAnimBank = param4;
@@ -1857,13 +1857,13 @@ void ov19_021D783C(SpriteResourcesHeader *param0, NNSG2dImageProxy *param1, NNSG
     param0->isVRamTransfer = 0;
 }
 
-Sprite *ov19_021D785C(SpriteList *param0, SpriteResourcesHeader *param1, u32 param2, u32 param3, u32 param4, int param5)
+Sprite *ov19_021D785C(SpriteList *param0, SpriteResourcesHeader *slotsMinigameDTO, u32 param2, u32 param3, u32 param4, int param5)
 {
     SpriteListTemplate v0;
     Sprite *v1;
 
     v0.list = param0;
-    v0.resourceData = param1;
+    v0.resourceData = slotsMinigameDTO;
     v0.position.x = param2 * FX32_ONE;
     v0.position.y = param3 * FX32_ONE;
     v0.position.z = 0;
@@ -1894,7 +1894,7 @@ void BoxGraphics_SetSpritePriority(Sprite *sprite, u32 priority)
     OS_RestoreInterrupts(mode);
 }
 
-void ov19_021D78C8(const u16 *param0, u16 *param1, u32 param2, u16 param3, u32 param4)
+void ov19_021D78C8(const u16 *param0, u16 *slotsMinigameDTO, u32 param2, u16 param3, u32 param4)
 {
     int v0, v1, v2;
     int v3, v4, v5;
@@ -1917,10 +1917,10 @@ void ov19_021D78C8(const u16 *param0, u16 *param1, u32 param2, u16 param3, u32 p
         v1 = (v1 >> 8) & 0x1f;
         v2 = (v2 >> 8) & 0x1f;
 
-        *param1 = ((v2 << 10) | (v1 << 5) | v0);
+        *slotsMinigameDTO = ((v2 << 10) | (v1 << 5) | v0);
 
         param0++;
-        param1++;
+        slotsMinigameDTO++;
     }
 }
 
@@ -1932,8 +1932,8 @@ const BoxApplicationManager *ov19_021D7964(UnkStruct_ov19_021D61B0 *param0)
 static u32 Unk_ov19_021E05EC = 0;
 
 static struct {
-    UnkFuncPtr_ov19_021D79B8 unk_00;
-    void *unk_04;
+    UnkFuncPtr_ov19_021D79B8 coins;
+    void *slotMachineVariant;
     void *unk_08;
 } Unk_ov19_021E05F0[32];
 
@@ -1950,8 +1950,8 @@ static void ov19_021D797C(void)
         for (i = 0; i < Unk_ov19_021E05EC; i++) {
             Heap_Free(Unk_ov19_021E05F0[i].unk_08);
 
-            if (Unk_ov19_021E05F0[i].unk_00) {
-                Unk_ov19_021E05F0[i].unk_00(Unk_ov19_021E05F0[i].unk_04);
+            if (Unk_ov19_021E05F0[i].coins) {
+                Unk_ov19_021E05F0[i].coins(Unk_ov19_021E05F0[i].slotMachineVariant);
             }
         }
 
@@ -1959,12 +1959,12 @@ static void ov19_021D797C(void)
     }
 }
 
-void ov19_021D79B8(void *param0, UnkFuncPtr_ov19_021D79B8 param1, void *param2)
+void ov19_021D79B8(void *param0, UnkFuncPtr_ov19_021D79B8 slotsMinigameDTO, void *param2)
 {
     GF_ASSERT(Unk_ov19_021E05EC < 32);
 
     Unk_ov19_021E05F0[Unk_ov19_021E05EC].unk_08 = param0;
-    Unk_ov19_021E05F0[Unk_ov19_021E05EC].unk_00 = param1;
-    Unk_ov19_021E05F0[Unk_ov19_021E05EC].unk_04 = param2;
+    Unk_ov19_021E05F0[Unk_ov19_021E05EC].coins = slotsMinigameDTO;
+    Unk_ov19_021E05F0[Unk_ov19_021E05EC].slotMachineVariant = param2;
     Unk_ov19_021E05EC++;
 }

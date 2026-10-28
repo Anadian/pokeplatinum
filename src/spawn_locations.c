@@ -108,10 +108,10 @@ int GetMapFlyWarpId(enum MapHeaderID mapHeaderID)
     return 0;
 }
 
-int GetSpawnIdByMapAndCoords(enum MapHeaderID mapHeaderID, int param1, int param2)
+int GetSpawnIdByMapAndCoords(enum MapHeaderID mapHeaderID, int slotsMinigameDTO, int param2)
 {
     int i;
-    int v1 = param1 / 32;
+    int v1 = slotsMinigameDTO / 32;
     int v2 = param2 / 32;
     int destinationId = 0;
 

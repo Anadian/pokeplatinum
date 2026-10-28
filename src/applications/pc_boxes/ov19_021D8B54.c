@@ -25,11 +25,11 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    Sprite *unk_00;
-    u16 unk_04;
+    Sprite *coins;
+    u16 slotMachineVariant;
     u16 unk_06;
     u32 unk_08;
-    fx32 unk_0C;
+    fx32 slotsMinigameDTO;
     fx32 unk_10;
     fx32 unk_14;
     fx32 unk_18;
@@ -40,21 +40,21 @@ typedef struct {
 } UnkStruct_ov19_021D9554;
 
 static void ov19_021D8E00(UnkStruct_ov19_021D8E00 *param0);
-static void ov19_021D8EE0(const UnkStruct_ov19_021D8E00 *param0, BOOL *param1, BOOL *param2);
-static void ov19_021D9088(SysTask *param0, void *param1);
-static void ov19_021D928C(SysTask *param0, void *param1);
-static void ov19_021D93D0(SysTask *param0, void *param1);
-static void ov19_021D9554(UnkStruct_ov19_021D8E00 *param0, Sprite *param1, fx32 param2, s32 param3, u32 param4);
+static void ov19_021D8EE0(const UnkStruct_ov19_021D8E00 *param0, BOOL *slotsMinigameDTO, BOOL *param2);
+static void ov19_021D9088(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D928C(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D93D0(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D9554(UnkStruct_ov19_021D8E00 *param0, Sprite *slotsMinigameDTO, fx32 param2, s32 param3, u32 param4);
 static BOOL ov19_021D95E0(UnkStruct_ov19_021D8E00 *param0);
 static void ov19_021D95F4(void *param0);
-static void ov19_021D9600(SysTask *param0, void *param1);
-static void ov19_021D9718(SysTask *param0, void *param1);
-static void ov19_021D9894(SysTask *param0, void *param1);
-static void ov19_021D9B78(SysTask *param0, void *param1);
-static void ov19_021D9C18(SysTask *param0, void *param1);
-static void ov19_021D9CB4(SysTask *param0, void *param1);
-static void ov19_021D9D48(s32 *param0, s32 *param1, u8 *param2, UnkStruct_ov19_021D8E00 *param3);
-static void ov19_021D9E04(UnkStruct_ov19_021D8E00 *param0, VecFx32 *param1);
+static void ov19_021D9600(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D9718(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D9894(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D9B78(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D9C18(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D9CB4(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D9D48(s32 *param0, s32 *slotsMinigameDTO, u8 *param2, UnkStruct_ov19_021D8E00 *param3);
+static void ov19_021D9E04(UnkStruct_ov19_021D8E00 *param0, VecFx32 *slotsMinigameDTO);
 static void ov19_021D9EB0(UnkStruct_ov19_021D8E00 *param0);
 static void ov19_021DA038(UnkStruct_ov19_021D8E00 *param0);
 static void ov19_021DA06C(UnkStruct_ov19_021D8E00 *param0);
@@ -63,21 +63,21 @@ static void ov19_021DA1F8(UnkStruct_ov19_021D8E00 *param0);
 static void ov19_021DA204(UnkStruct_ov19_021D8E00 *param0);
 static Sprite *ov19_021DA224(UnkStruct_ov19_021D8E00 *param0);
 
-BOOL ov19_021D8B54(UnkStruct_ov19_021D8E00 *param0, UnkStruct_ov19_021D61B0 *param1, const BoxApplication *param2, SpriteList *param3, NARC *param4)
+BOOL ov19_021D8B54(UnkStruct_ov19_021D8E00 *param0, UnkStruct_ov19_021D61B0 *slotsMinigameDTO, const BoxApplication *param2, SpriteList *param3, NARC *param4)
 {
-    param0->unk_794 = param1;
+    param0->unk_794 = slotsMinigameDTO;
     param0->unk_790 = param2;
-    param0->unk_00 = param3;
-    param0->unk_758 = ov19_021D77E0(param1);
-    param0->unk_75C = ov19_021D77E8(param1);
-    param0->unk_48 = ov19_021D77D8(param1);
+    param0->coins = param3;
+    param0->unk_758 = ov19_021D77E0(slotsMinigameDTO);
+    param0->unk_75C = ov19_021D77E8(slotsMinigameDTO);
+    param0->unk_48 = ov19_021D77D8(slotsMinigameDTO);
     param0->unk_785 = BoxApp_GetCursorLocation(param2);
     param0->unk_789 = BoxApp_GetCursorBoxCol(param2);
     param0->unk_78A = BoxApp_GetCursorBoxRow(param2);
     param0->unk_78B = BoxApp_GetCursorPartyPosition(param2);
-    param0->unk_04 = NULL;
+    param0->slotMachineVariant = NULL;
     param0->unk_08 = NULL;
-    param0->unk_0C = NULL;
+    param0->slotsMinigameDTO = NULL;
     param0->unk_10 = NULL;
     param0->unk_754 = 0;
     param0->unk_78E = 1;
@@ -91,19 +91,19 @@ BOOL ov19_021D8B54(UnkStruct_ov19_021D8E00 *param0, UnkStruct_ov19_021D61B0 *par
     return 1;
 }
 
-void ov19_021D8C1C(UnkStruct_ov19_021D8E00 *param0, NARC *param1)
+void ov19_021D8C1C(UnkStruct_ov19_021D8E00 *param0, NARC *slotsMinigameDTO)
 {
     SpriteResourcesHeader v0;
     u32 cursorLocation, pcMode;
 
     NNS_G2dInitImageProxy(&(param0->unk_24));
 
-    Graphics_LoadImageMappingFromOpenNARC(param1, 12, 1, 0, 0, NNS_G2D_VRAM_TYPE_2DMAIN, 0 * 0x20, 10, &(param0->unk_24));
+    Graphics_LoadImageMappingFromOpenNARC(slotsMinigameDTO, 12, 1, 0, 0, NNS_G2D_VRAM_TYPE_2DMAIN, 0 * 0x20, 10, &(param0->unk_24));
     ov19_021D783C(&v0, &(param0->unk_24), ov19_021D77D0(param0->unk_794), param0->unk_1C, param0->unk_20, ((param0->unk_785 == 1) ? 1 : 2));
     ov19_021D9D48(&param0->unk_764, &param0->unk_768, &param0->unk_785, param0);
 
-    param0->unk_04 = ov19_021D785C(param0->unk_00, &v0, param0->unk_764, param0->unk_768, 1, NNS_G2D_VRAM_TYPE_2DMAIN);
-    param0->unk_08 = ov19_021D785C(param0->unk_00, &v0, param0->unk_764, param0->unk_768 + 24, 42, NNS_G2D_VRAM_TYPE_2DMAIN);
+    param0->slotMachineVariant = ov19_021D785C(param0->coins, &v0, param0->unk_764, param0->unk_768, 1, NNS_G2D_VRAM_TYPE_2DMAIN);
+    param0->unk_08 = ov19_021D785C(param0->coins, &v0, param0->unk_764, param0->unk_768 + 24, 42, NNS_G2D_VRAM_TYPE_2DMAIN);
 
     cursorLocation = BoxApp_GetCursorLocation(param0->unk_790);
     pcMode = BoxApp_GetBoxMode(param0->unk_790);
@@ -120,8 +120,8 @@ void ov19_021D8C1C(UnkStruct_ov19_021D8E00 *param0, NARC *param1)
         }
 
         v0.priority = 2;
-        param0->unk_0C = ov19_021D785C(param0->unk_00, &v0, v3, 20, 43, NNS_G2D_VRAM_TYPE_2DMAIN);
-        param0->unk_10 = ov19_021D785C(param0->unk_00, &v0, v4, 20, 43, NNS_G2D_VRAM_TYPE_2DMAIN);
+        param0->slotsMinigameDTO = ov19_021D785C(param0->coins, &v0, v3, 20, 43, NNS_G2D_VRAM_TYPE_2DMAIN);
+        param0->unk_10 = ov19_021D785C(param0->coins, &v0, v4, 20, 43, NNS_G2D_VRAM_TYPE_2DMAIN);
     }
 
     Sprite_SetAnim(param0->unk_08, 5);
@@ -130,10 +130,10 @@ void ov19_021D8C1C(UnkStruct_ov19_021D8E00 *param0, NARC *param1)
     cursorLocation = BoxApp_GetCursorLocation(param0->unk_790);
 
     if (cursorLocation != CURSOR_ON_BOX_HEADER) {
-        Sprite_SetAnim(param0->unk_0C, 6);
+        Sprite_SetAnim(param0->slotsMinigameDTO, 6);
         Sprite_SetAnim(param0->unk_10, 7);
     } else {
-        Sprite_SetAnim(param0->unk_0C, 8);
+        Sprite_SetAnim(param0->slotsMinigameDTO, 8);
         Sprite_SetAnim(param0->unk_10, 9);
     }
 
@@ -143,11 +143,11 @@ void ov19_021D8C1C(UnkStruct_ov19_021D8E00 *param0, NARC *param1)
 
     if (pcMode != PC_MODE_MOVE_ITEMS) {
         if (BoxApp_GetPreviewMonSource(param0->unk_790) == PREVIEW_MON_UNDER_CURSOR) {
-            Sprite_SetAnim(param0->unk_04, 0);
+            Sprite_SetAnim(param0->slotMachineVariant, 0);
             ov19_021DA3CC(param0->unk_48, param0->unk_4C, (5 * 6));
             param0->unk_78C = 0;
         } else {
-            Sprite_SetAnim(param0->unk_04, 2);
+            Sprite_SetAnim(param0->slotMachineVariant, 2);
             ov19_021D8E00(param0);
             param0->unk_78C = 1;
         }
@@ -155,10 +155,10 @@ void ov19_021D8C1C(UnkStruct_ov19_021D8E00 *param0, NARC *param1)
         param0->unk_78D = 0;
     } else {
         if (BoxApp_GetCursorItem(param0->unk_790) == ITEM_NONE) {
-            Sprite_SetAnim(param0->unk_04, 0);
+            Sprite_SetAnim(param0->slotMachineVariant, 0);
             param0->unk_78D = 0;
         } else {
-            Sprite_SetAnim(param0->unk_04, 2);
+            Sprite_SetAnim(param0->slotMachineVariant, 2);
             param0->unk_78D = 1;
         }
 
@@ -176,15 +176,15 @@ static void ov19_021D8E00(UnkStruct_ov19_021D8E00 *param0)
     VecFx32 v0;
     s32 v1, v2;
 
-    v0 = *Sprite_GetPosition(param0->unk_04);
+    v0 = *Sprite_GetPosition(param0->slotMachineVariant);
     v1 = (v0.x >> FX32_SHIFT) - 0;
     v2 = (v0.y >> FX32_SHIFT) - -4;
 
     ov19_021DA3CC(param0->unk_48, param0->unk_4C, 1);
-    ov19_021DA428(param0->unk_48, BoxApp_GetPreviewedBoxMon(param0->unk_790), v1, v2, Sprite_GetExplicitPriority(param0->unk_04), 2, 1240, param0->unk_4C);
+    ov19_021DA428(param0->unk_48, BoxApp_GetPreviewedBoxMon(param0->unk_790), v1, v2, Sprite_GetExplicitPriority(param0->slotMachineVariant), 2, 1240, param0->unk_4C);
 
-    param0->unk_664[0].unk_00 = (0 * FX32_ONE);
-    param0->unk_664[0].unk_04 = (-4 * FX32_ONE);
+    param0->unk_664[0].coins = (0 * FX32_ONE);
+    param0->unk_664[0].slotMachineVariant = (-4 * FX32_ONE);
     param0->unk_754 = 1;
     param0->unk_78C = 1;
 }
@@ -201,9 +201,9 @@ void ov19_021D8E84(UnkStruct_ov19_021D8E00 *param0)
         param0->unk_18 = NULL;
     }
 
-    if (param0->unk_04 != NULL) {
-        Sprite_Delete(param0->unk_04);
-        param0->unk_04 = NULL;
+    if (param0->slotMachineVariant != NULL) {
+        Sprite_Delete(param0->slotMachineVariant);
+        param0->slotMachineVariant = NULL;
     }
 
     if (param0->unk_08 != NULL) {
@@ -211,9 +211,9 @@ void ov19_021D8E84(UnkStruct_ov19_021D8E00 *param0)
         param0->unk_08 = NULL;
     }
 
-    if (param0->unk_0C != NULL) {
-        Sprite_Delete(param0->unk_0C);
-        param0->unk_0C = NULL;
+    if (param0->slotsMinigameDTO != NULL) {
+        Sprite_Delete(param0->slotsMinigameDTO);
+        param0->slotsMinigameDTO = NULL;
     }
 
     if (param0->unk_10 != NULL) {
@@ -222,9 +222,9 @@ void ov19_021D8E84(UnkStruct_ov19_021D8E00 *param0)
     }
 }
 
-static void ov19_021D8EE0(const UnkStruct_ov19_021D8E00 *param0, BOOL *param1, BOOL *param2)
+static void ov19_021D8EE0(const UnkStruct_ov19_021D8E00 *param0, BOOL *slotsMinigameDTO, BOOL *param2)
 {
-    *param1 = *param2 = 0;
+    *slotsMinigameDTO = *param2 = 0;
 
     switch (param0->unk_785) {
     case 0:
@@ -232,7 +232,7 @@ static void ov19_021D8EE0(const UnkStruct_ov19_021D8E00 *param0, BOOL *param1, B
             u32 col = BoxApp_GetCursorBoxCol(param0->unk_790);
 
             if ((param0->unk_789 == 0) && (col == 5) || (param0->unk_789 == 5) && (col == 0)) {
-                *param1 = 1;
+                *slotsMinigameDTO = 1;
             }
         }
         break;
@@ -312,9 +312,9 @@ BOOL ov19_021D9074(UnkStruct_ov19_021D8E00 *param0)
     return param0->unk_787 == 0;
 }
 
-static void ov19_021D9088(SysTask *param0, void *param1)
+static void ov19_021D9088(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D8E00 *v0 = (UnkStruct_ov19_021D8E00 *)param1;
+    UnkStruct_ov19_021D8E00 *v0 = (UnkStruct_ov19_021D8E00 *)slotsMinigameDTO;
     VecFx32 v1;
 
     v1.z = 0;
@@ -368,10 +368,10 @@ static void ov19_021D9088(SysTask *param0, void *param1)
     }
 
     if (v0->unk_786 != 2) {
-        Sprite_SetAnim(v0->unk_0C, 6);
+        Sprite_SetAnim(v0->slotsMinigameDTO, 6);
         Sprite_SetAnim(v0->unk_10, 7);
     } else {
-        Sprite_SetAnim(v0->unk_0C, 8);
+        Sprite_SetAnim(v0->slotsMinigameDTO, 8);
         Sprite_SetAnim(v0->unk_10, 9);
     }
 
@@ -380,7 +380,7 @@ static void ov19_021D9088(SysTask *param0, void *param1)
 
 void ov19_021D9230(UnkStruct_ov19_021D8E00 *param0)
 {
-    Sprite_SetAnim(param0->unk_04, 1);
+    Sprite_SetAnim(param0->slotMachineVariant, 1);
 
     param0->unk_780 = (12 << FX32_SHIFT) / 6;
     param0->unk_770 = (param0->unk_768 + 12);
@@ -396,10 +396,10 @@ BOOL ov19_021D9278(UnkStruct_ov19_021D8E00 *param0)
     return param0->unk_784 == 255;
 }
 
-static void ov19_021D928C(SysTask *param0, void *param1)
+static void ov19_021D928C(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D8E00 *v0 = (UnkStruct_ov19_021D8E00 *)param1;
-    VecFx32 v1 = *(Sprite_GetPosition(v0->unk_04));
+    UnkStruct_ov19_021D8E00 *v0 = (UnkStruct_ov19_021D8E00 *)slotsMinigameDTO;
+    VecFx32 v1 = *(Sprite_GetPosition(v0->slotMachineVariant));
 
     switch (v0->unk_784) {
     case 0:
@@ -415,7 +415,7 @@ static void ov19_021D928C(SysTask *param0, void *param1)
         v1.y = v0->unk_770 << FX32_SHIFT;
 
         ov19_021D9E04(v0, &v1);
-        Sprite_SetAnim(v0->unk_04, 2);
+        Sprite_SetAnim(v0->slotMachineVariant, 2);
         ov19_021DA038(v0);
 
         v0->unk_787 = 6;
@@ -458,10 +458,10 @@ BOOL ov19_021D939C(UnkStruct_ov19_021D8E00 *param0)
     return 0;
 }
 
-static void ov19_021D93D0(SysTask *param0, void *param1)
+static void ov19_021D93D0(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D8E00 *v0 = (UnkStruct_ov19_021D8E00 *)param1;
-    VecFx32 v1 = *(Sprite_GetPosition(v0->unk_04));
+    UnkStruct_ov19_021D8E00 *v0 = (UnkStruct_ov19_021D8E00 *)slotsMinigameDTO;
+    VecFx32 v1 = *(Sprite_GetPosition(v0->slotMachineVariant));
 
     switch (v0->unk_784) {
     case 0:
@@ -477,7 +477,7 @@ static void ov19_021D93D0(SysTask *param0, void *param1)
         v1.y = v0->unk_770 << FX32_SHIFT;
 
         ov19_021D9E04(v0, &v1);
-        Sprite_SetAnim(v0->unk_04, 1);
+        Sprite_SetAnim(v0->slotMachineVariant, 1);
         ov19_021DA1F8(v0);
 
         v0->unk_787 = 6;
@@ -493,7 +493,7 @@ static void ov19_021D93D0(SysTask *param0, void *param1)
         v1.y = v0->unk_768 << FX32_SHIFT;
 
         ov19_021D9E04(v0, &v1);
-        Sprite_SetAnim(v0->unk_04, 0);
+        Sprite_SetAnim(v0->slotMachineVariant, 0);
 
         v0->unk_784 = 255;
         v0->unk_78E = 1;
@@ -507,16 +507,16 @@ void ov19_021D94B4(UnkStruct_ov19_021D8E00 *param0)
     VecFx32 v0;
     Sprite *v1;
 
-    Sprite_SetAnim(param0->unk_04, 1);
+    Sprite_SetAnim(param0->slotMachineVariant, 1);
 
     param0->unk_788 = 0;
 
     v1 = ov19_021DA224(param0);
     v0 = *(Sprite_GetPosition(v1));
-    ov19_021D9554(param0, param0->unk_4C->unk_00, v0.y, 1, Sprite_GetPriority(v1));
+    ov19_021D9554(param0, param0->unk_4C->coins, v0.y, 1, Sprite_GetPriority(v1));
 
-    v0 = *(Sprite_GetPosition(param0->unk_4C->unk_00));
-    ov19_021D9554(param0, v1, v0.y, -1, Sprite_GetPriority(param0->unk_4C->unk_00));
+    v0 = *(Sprite_GetPosition(param0->unk_4C->coins));
+    ov19_021D9554(param0, v1, v0.y, -1, Sprite_GetPriority(param0->unk_4C->coins));
 
     param0->unk_784 = 0;
 }
@@ -524,7 +524,7 @@ void ov19_021D94B4(UnkStruct_ov19_021D8E00 *param0)
 BOOL ov19_021D9530(UnkStruct_ov19_021D8E00 *param0)
 {
     if (ov19_021D95E0(param0)) {
-        Sprite_SetAnim(param0->unk_04, 2);
+        Sprite_SetAnim(param0->slotMachineVariant, 2);
         ov19_021DA110(param0);
         return 1;
     }
@@ -532,25 +532,25 @@ BOOL ov19_021D9530(UnkStruct_ov19_021D8E00 *param0)
     return 0;
 }
 
-static void ov19_021D9554(UnkStruct_ov19_021D8E00 *param0, Sprite *param1, fx32 param2, s32 param3, u32 param4)
+static void ov19_021D9554(UnkStruct_ov19_021D8E00 *param0, Sprite *slotsMinigameDTO, fx32 param2, s32 param3, u32 param4)
 {
     UnkStruct_ov19_021D9554 *v0 = Heap_Alloc(HEAP_ID_BOX_GRAPHICS, sizeof(UnkStruct_ov19_021D9554));
 
     if (v0) {
         VecFx32 v1;
 
-        v1 = *Sprite_GetPosition(param1);
+        v1 = *Sprite_GetPosition(slotsMinigameDTO);
 
-        v0->unk_00 = param1;
-        v0->unk_04 = 12;
+        v0->coins = slotsMinigameDTO;
+        v0->slotMachineVariant = 12;
         v0->unk_06 = 12 / 2;
         v0->unk_08 = param4;
-        v0->unk_0C = v1.y;
+        v0->slotsMinigameDTO = v1.y;
         v0->unk_14 = v1.x;
         v0->unk_10 = param2;
         v0->unk_18 = 0;
         v0->unk_24 = param3 * 12;
-        v0->unk_1C = (v0->unk_10 - v0->unk_0C) / 12;
+        v0->unk_1C = (v0->unk_10 - v0->slotsMinigameDTO) / 12;
         v0->unk_20 = (180 << FX32_SHIFT) / 12;
         v0->unk_28 = param0;
 
@@ -574,35 +574,35 @@ static void ov19_021D95F4(void *param0)
     v0->unk_788 = 0;
 }
 
-static void ov19_021D9600(SysTask *param0, void *param1)
+static void ov19_021D9600(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D9554 *v0 = (UnkStruct_ov19_021D9554 *)param1;
+    UnkStruct_ov19_021D9554 *v0 = (UnkStruct_ov19_021D9554 *)slotsMinigameDTO;
     VecFx32 v1;
 
-    v1 = *Sprite_GetPosition(v0->unk_00);
+    v1 = *Sprite_GetPosition(v0->coins);
 
-    if (v0->unk_04) {
+    if (v0->slotMachineVariant) {
         fx32 v2;
 
-        v0->unk_04--;
+        v0->slotMachineVariant--;
 
-        if (v0->unk_04 == v0->unk_06) {
-            BoxGraphics_SetSpritePriority(v0->unk_00, v0->unk_08);
+        if (v0->slotMachineVariant == v0->unk_06) {
+            BoxGraphics_SetSpritePriority(v0->coins, v0->unk_08);
         }
 
-        v0->unk_0C += v0->unk_1C;
-        v1.y = v0->unk_0C;
+        v0->slotsMinigameDTO += v0->unk_1C;
+        v1.y = v0->slotsMinigameDTO;
         v0->unk_18 += v0->unk_20;
         v2 = v0->unk_24 * CalcSineDegrees(v0->unk_18 >> FX32_SHIFT);
         v1.x = v0->unk_14 + v2;
 
-        Sprite_SetPosition(v0->unk_00, &v1);
+        Sprite_SetPosition(v0->coins, &v1);
     } else {
         v1.x = v0->unk_14;
         v1.y = v0->unk_10;
 
-        Sprite_SetPosition(v0->unk_00, &v1);
-        ov19_021D79B8(param1, ov19_021D95F4, v0->unk_28);
+        Sprite_SetPosition(v0->coins, &v1);
+        ov19_021D79B8(slotsMinigameDTO, ov19_021D95F4, v0->unk_28);
         SysTask_Done(param0);
     }
 }
@@ -612,10 +612,10 @@ void ov19_021D9690(UnkStruct_ov19_021D8E00 *param0)
     VecFx32 v0;
 
     if ((param0->unk_78C == 0) && (param0->unk_78D == 0)) {
-        Sprite_SetAnim(param0->unk_04, 3);
+        Sprite_SetAnim(param0->slotMachineVariant, 3);
     }
 
-    v0 = *Sprite_GetPosition(param0->unk_04);
+    v0 = *Sprite_GetPosition(param0->slotMachineVariant);
     v0.y += (-2 * FX32_ONE);
 
     ov19_021D9E04(param0, &v0);
@@ -633,28 +633,28 @@ BOOL ov19_021D9704(UnkStruct_ov19_021D8E00 *param0)
     return param0->unk_788 == 0;
 }
 
-static void ov19_021D9718(SysTask *param0, void *param1)
+static void ov19_021D9718(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D8E00 *v0 = (UnkStruct_ov19_021D8E00 *)param1;
+    UnkStruct_ov19_021D8E00 *v0 = (UnkStruct_ov19_021D8E00 *)slotsMinigameDTO;
 
     switch (v0->unk_784) {
     case 0:
         if (++(v0->unk_787) >= 4) {
-            VecFx32 v1 = *Sprite_GetPosition(v0->unk_04);
+            VecFx32 v1 = *Sprite_GetPosition(v0->slotMachineVariant);
 
             v0->unk_770 = (v1.y >> FX32_SHIFT) + 6;
             v0->unk_780 = (6 * FX32_ONE) / 2;
             v0->unk_787 = 2;
 
             if ((v0->unk_78C == 0) && (v0->unk_78D == 0)) {
-                Sprite_SetAnim(v0->unk_04, 4);
+                Sprite_SetAnim(v0->slotMachineVariant, 4);
             }
 
             v0->unk_784++;
         }
         break;
     case 1: {
-        VecFx32 v2 = *Sprite_GetPosition(v0->unk_04);
+        VecFx32 v2 = *Sprite_GetPosition(v0->slotMachineVariant);
 
         if (v0->unk_787) {
             v2.y += v0->unk_780;
@@ -672,7 +672,7 @@ static void ov19_021D9718(SysTask *param0, void *param1)
 
 void ov19_021D97FC(UnkStruct_ov19_021D8E00 *param0)
 {
-    VecFx32 v0 = *Sprite_GetPosition(param0->unk_04);
+    VecFx32 v0 = *Sprite_GetPosition(param0->slotMachineVariant);
 
     param0->unk_770 = (v0.y >> FX32_SHIFT) + -4;
     param0->unk_780 = (-4 * FX32_ONE) / 4;
@@ -688,8 +688,8 @@ BOOL ov19_021D9858(UnkStruct_ov19_021D8E00 *param0)
 {
     if (param0->unk_788 == 0) {
         if ((param0->unk_78C == 0) && (param0->unk_78D == 0)) {
-            if (Sprite_GetActiveAnim(param0->unk_04) != 0) {
-                Sprite_SetAnim(param0->unk_04, 0);
+            if (Sprite_GetActiveAnim(param0->slotMachineVariant) != 0) {
+                Sprite_SetAnim(param0->slotMachineVariant, 0);
             }
         }
 
@@ -699,13 +699,13 @@ BOOL ov19_021D9858(UnkStruct_ov19_021D8E00 *param0)
     return 0;
 }
 
-static void ov19_021D9894(SysTask *param0, void *param1)
+static void ov19_021D9894(SysTask *param0, void *slotsMinigameDTO)
 {
     UnkStruct_ov19_021D8E00 *v0;
     VecFx32 v1;
 
-    v0 = (UnkStruct_ov19_021D8E00 *)param1;
-    v1 = *Sprite_GetPosition(v0->unk_04);
+    v0 = (UnkStruct_ov19_021D8E00 *)slotsMinigameDTO;
+    v1 = *Sprite_GetPosition(v0->slotMachineVariant);
 
     if (v0->unk_787) {
         v1.y += v0->unk_780;
@@ -726,12 +726,12 @@ void ov19_021D9900(UnkStruct_ov19_021D8E00 *param0)
     }
 
     ov19_021DA204(param0);
-    Sprite_SetAnim(param0->unk_04, 0);
+    Sprite_SetAnim(param0->slotMachineVariant, 0);
 }
 
 void ov19_021D9938(UnkStruct_ov19_021D8E00 *param0)
 {
-    Sprite_SetAnim(param0->unk_04, 1);
+    Sprite_SetAnim(param0->slotMachineVariant, 1);
     ov19_021DA7B8(param0->unk_48, param0->unk_4C, 1);
 
     param0->unk_784 = 0;
@@ -750,7 +750,7 @@ BOOL ov19_021D995C(UnkStruct_ov19_021D8E00 *param0)
     case 1:
         if (BoxAppMan_HasCheckedCanReleaseMon(v0)) {
             if (BoxAppMan_CanReleaseMon(v0)) {
-                Sprite_SetAnim(param0->unk_04, 0);
+                Sprite_SetAnim(param0->slotMachineVariant, 0);
                 ov19_021DA204(param0);
                 return 1;
             } else {
@@ -761,7 +761,7 @@ BOOL ov19_021D995C(UnkStruct_ov19_021D8E00 *param0)
         break;
     case 2:
         if (ov19_021DA7E0(param0->unk_48, param0->unk_4C)) {
-            Sprite_SetAnim(param0->unk_04, 2);
+            Sprite_SetAnim(param0->slotMachineVariant, 2);
             return 1;
         }
 
@@ -773,10 +773,10 @@ BOOL ov19_021D995C(UnkStruct_ov19_021D8E00 *param0)
 
 void ov19_021D99F4(UnkStruct_ov19_021D8E00 *param0)
 {
-    Sprite_SetExplicitPriority(param0->unk_04, 1);
+    Sprite_SetExplicitPriority(param0->slotMachineVariant, 1);
 
     if (param0->unk_78C) {
-        Sprite_SetExplicitPriority(param0->unk_4C->unk_00, 1);
+        Sprite_SetExplicitPriority(param0->unk_4C->coins, 1);
     }
 
     if (param0->unk_78D) {
@@ -786,10 +786,10 @@ void ov19_021D99F4(UnkStruct_ov19_021D8E00 *param0)
 
 void ov19_021D9A2C(UnkStruct_ov19_021D8E00 *param0)
 {
-    Sprite_SetExplicitPriority(param0->unk_04, 2);
+    Sprite_SetExplicitPriority(param0->slotMachineVariant, 2);
 
     if (param0->unk_78C) {
-        Sprite_SetExplicitPriority(param0->unk_4C->unk_00, 2);
+        Sprite_SetExplicitPriority(param0->unk_4C->coins, 2);
     }
 
     if (param0->unk_78D) {
@@ -809,15 +809,15 @@ void ov19_021D9A8C(UnkStruct_ov19_021D8E00 *param0)
 {
     u32 v0 = BoxApp_GetMonSpriteTransparencyMask(param0->unk_790);
 
-    if (param0->unk_4C->unk_00 != NULL) {
+    if (param0->unk_4C->coins != NULL) {
         ov19_021DA63C(param0->unk_48, param0->unk_4C, v0);
     }
 }
 
-void ov19_021D9AB0(UnkStruct_ov19_021D8E00 *param0, u32 param1)
+void ov19_021D9AB0(UnkStruct_ov19_021D8E00 *param0, u32 slotsMinigameDTO)
 {
-    if (param0->unk_4C->unk_00 != NULL) {
-        ov19_021DA690(param0->unk_48, param0->unk_4C, param1);
+    if (param0->unk_4C->coins != NULL) {
+        ov19_021DA690(param0->unk_48, param0->unk_4C, slotsMinigameDTO);
         ov19_021DA63C(param0->unk_48, param0->unk_4C, BoxApp_GetMonSpriteTransparencyMask(param0->unk_790));
         ov19_021DA694(param0->unk_48, param0->unk_4C, 0);
     }
@@ -826,20 +826,20 @@ void ov19_021D9AB0(UnkStruct_ov19_021D8E00 *param0, u32 param1)
 void ov19_021D9AEC(UnkStruct_ov19_021D8E00 *param0)
 {
     if (BoxApp_IsCursorFastMode(param0->unk_790)) {
-        Sprite_SetExplicitPalette(param0->unk_04, 1);
+        Sprite_SetExplicitPalette(param0->slotMachineVariant, 1);
     } else {
-        Sprite_SetExplicitPalette(param0->unk_04, 0);
+        Sprite_SetExplicitPalette(param0->slotMachineVariant, 0);
     }
 }
 
 void BoxGraphics_OpenMultiSelectCursor(UnkStruct_ov19_021D8E00 *param0)
 {
-    Sprite_SetAnim(param0->unk_04, 1);
+    Sprite_SetAnim(param0->slotMachineVariant, 1);
 }
 
-void ov19_021D9B1C(UnkStruct_ov19_021D8E00 *param0, VecFx32 *param1)
+void ov19_021D9B1C(UnkStruct_ov19_021D8E00 *param0, VecFx32 *slotsMinigameDTO)
 {
-    *param1 = *(Sprite_GetPosition(param0->unk_04));
+    *slotsMinigameDTO = *(Sprite_GetPosition(param0->slotMachineVariant));
 }
 
 void ov19_021D9B34(UnkStruct_ov19_021D8E00 *param0)
@@ -857,19 +857,19 @@ BOOL ov19_021D9B64(UnkStruct_ov19_021D8E00 *param0)
     return param0->unk_788 == 0;
 }
 
-static void ov19_021D9B78(SysTask *param0, void *param1)
+static void ov19_021D9B78(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D8E00 *v0 = param1;
+    UnkStruct_ov19_021D8E00 *v0 = slotsMinigameDTO;
 
     switch (v0->unk_784) {
     case 0:
-        Sprite_SetAnim(v0->unk_04, 1);
+        Sprite_SetAnim(v0->slotMachineVariant, 1);
         ov19_021DE954(v0->unk_760);
         v0->unk_784++;
         break;
     case 1:
         if (ov19_021DE9A8(v0->unk_760)) {
-            Sprite_SetAnim(v0->unk_04, 2);
+            Sprite_SetAnim(v0->slotMachineVariant, 2);
             v0->unk_788 = 0;
             SysTask_Done(param0);
         }
@@ -891,19 +891,19 @@ BOOL ov19_021D9C04(UnkStruct_ov19_021D8E00 *param0)
     return param0->unk_788 == 0;
 }
 
-static void ov19_021D9C18(SysTask *param0, void *param1)
+static void ov19_021D9C18(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D8E00 *v0 = param1;
+    UnkStruct_ov19_021D8E00 *v0 = slotsMinigameDTO;
 
     switch (v0->unk_784) {
     case 0:
-        Sprite_SetAnim(v0->unk_04, 1);
+        Sprite_SetAnim(v0->slotMachineVariant, 1);
         ov19_021DEA18(v0->unk_760);
         v0->unk_784++;
         break;
     case 1:
         if (ov19_021DEA64(v0->unk_760)) {
-            Sprite_SetAnim(v0->unk_04, 0);
+            Sprite_SetAnim(v0->slotMachineVariant, 0);
             v0->unk_788 = 0;
             SysTask_Done(param0);
         }
@@ -924,19 +924,19 @@ BOOL ov19_021D9CA0(UnkStruct_ov19_021D8E00 *param0)
     return param0->unk_788 == 0;
 }
 
-static void ov19_021D9CB4(SysTask *param0, void *param1)
+static void ov19_021D9CB4(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_ov19_021D8E00 *v0 = param1;
+    UnkStruct_ov19_021D8E00 *v0 = slotsMinigameDTO;
 
     switch (v0->unk_784) {
     case 0:
-        Sprite_SetAnim(v0->unk_04, 1);
+        Sprite_SetAnim(v0->slotMachineVariant, 1);
         ov19_021DEA74(v0->unk_760);
         v0->unk_784++;
         break;
     case 1:
         if (ov19_021DEB08(v0->unk_760)) {
-            Sprite_SetAnim(v0->unk_04, 2);
+            Sprite_SetAnim(v0->slotMachineVariant, 2);
             v0->unk_788 = 0;
             SysTask_Done(param0);
         }
@@ -946,19 +946,19 @@ static void ov19_021D9CB4(SysTask *param0, void *param1)
 void ov19_021D9D10(UnkStruct_ov19_021D8E00 *param0)
 {
     if (param0->unk_78D) {
-        Sprite_SetAnim(param0->unk_04, 1);
+        Sprite_SetAnim(param0->slotMachineVariant, 1);
     }
 }
 
 void ov19_021D9D28(UnkStruct_ov19_021D8E00 *param0)
 {
     if (param0->unk_78D) {
-        Sprite_SetAnim(param0->unk_04, 0);
+        Sprite_SetAnim(param0->slotMachineVariant, 0);
         param0->unk_78D = 0;
     }
 }
 
-static void ov19_021D9D48(s32 *param0, s32 *param1, u8 *cursorLocation, UnkStruct_ov19_021D8E00 *param3)
+static void ov19_021D9D48(s32 *param0, s32 *slotsMinigameDTO, u8 *cursorLocation, UnkStruct_ov19_021D8E00 *param3)
 {
     const BoxApplication *v0 = param3->unk_790;
 
@@ -967,33 +967,33 @@ static void ov19_021D9D48(s32 *param0, s32 *param1, u8 *cursorLocation, UnkStruc
     switch (*cursorLocation) {
     case CURSOR_IN_BOX:
         *param0 = 112 + ov19_021D7820(param3->unk_794) + BoxApp_GetCursorBoxCol(v0) * 24 + 0;
-        *param1 = 40 + BoxApp_GetCursorBoxRow(v0) * 24 + -16;
+        *slotsMinigameDTO = 40 + BoxApp_GetCursorBoxRow(v0) * 24 + -16;
         break;
     case CURSOR_IN_PARTY: {
         u32 partyIndex = BoxApp_GetCursorPartyPosition(v0);
 
-        ov19_021DCD30(ov19_021D77E8(param3->unk_794), partyIndex, param0, param1);
+        ov19_021DCD30(ov19_021D77E8(param3->unk_794), partyIndex, param0, slotsMinigameDTO);
         (*param0) += 0;
-        (*param1) += -16;
+        (*slotsMinigameDTO) += -16;
     } break;
     case CURSOR_ON_BOX_HEADER:
         *param0 = 168 + ov19_021D7820(param3->unk_794);
-        *param1 = 8;
+        *slotsMinigameDTO = 8;
         break;
     case CURSOR_ON_PARTY_BUTTON:
         *param0 = 159 + ov19_021D7820(param3->unk_794);
-        *param1 = 160;
+        *slotsMinigameDTO = 160;
         break;
     case CURSOR_ON_CLOSE_BUTTON:
         *param0 = 235 + ov19_021D7820(param3->unk_794);
-        *param1 = 160;
+        *slotsMinigameDTO = 160;
         break;
     }
 }
 
-static void ov19_021D9E04(UnkStruct_ov19_021D8E00 *param0, VecFx32 *param1)
+static void ov19_021D9E04(UnkStruct_ov19_021D8E00 *param0, VecFx32 *slotsMinigameDTO)
 {
-    Sprite_SetPosition(param0->unk_04, param1);
+    Sprite_SetPosition(param0->slotMachineVariant, slotsMinigameDTO);
 
     if (param0->unk_78C) {
         VecFx32 v0;
@@ -1002,18 +1002,18 @@ static void ov19_021D9E04(UnkStruct_ov19_021D8E00 *param0, VecFx32 *param1)
         v0.z = 0;
 
         for (v1 = 0; v1 < param0->unk_754; v1++) {
-            v0.x = param1->x + param0->unk_664[v1].unk_00;
-            v0.y = param1->y - param0->unk_664[v1].unk_04;
-            Sprite_SetPosition(param0->unk_4C[v1].unk_00, &v0);
+            v0.x = slotsMinigameDTO->x + param0->unk_664[v1].coins;
+            v0.y = slotsMinigameDTO->y - param0->unk_664[v1].slotMachineVariant;
+            Sprite_SetPosition(param0->unk_4C[v1].coins, &v0);
         }
     }
 
     if (param0->unk_78D) {
-        ov19_021DEB9C(param0->unk_760, param1);
+        ov19_021DEB9C(param0->unk_760, slotsMinigameDTO);
     }
 
     if (param0->unk_78E) {
-        VecFx32 v2 = *param1;
+        VecFx32 v2 = *slotsMinigameDTO;
 
         v2.y += (24 << FX32_SHIFT);
         Sprite_SetPosition(param0->unk_08, &v2);
@@ -1027,8 +1027,8 @@ static void ov19_021D9EB0(UnkStruct_ov19_021D8E00 *param0)
             u32 posInBox = BoxApp_GetCursorBoxPosition(param0->unk_790);
             ov19_021D8408(param0->unk_758, posInBox, 1240, param0->unk_4C);
             param0->unk_754 = 1;
-            param0->unk_664[0].unk_00 = (0 * FX32_ONE);
-            param0->unk_664[0].unk_04 = (-4 * FX32_ONE);
+            param0->unk_664[0].coins = (0 * FX32_ONE);
+            param0->unk_664[0].slotMachineVariant = (-4 * FX32_ONE);
         } else {
             u32 v1, v2, v3, v4, v5, v6, v7, col, row;
 
@@ -1042,9 +1042,9 @@ static void ov19_021D9EB0(UnkStruct_ov19_021D8E00 *param0)
                 for (v2 = v4; v2 <= v5; v2++) {
                     ov19_021D8408(param0->unk_758, v3 * 6 + v2, 1520 + v1 * 16, &param0->unk_4C[v1]);
 
-                    if (param0->unk_4C[v1].unk_00 != NULL) {
-                        param0->unk_664[v1].unk_00 = (0 + (v2 - col) * 24) * FX32_ONE;
-                        param0->unk_664[v1].unk_04 = (-4 - (v3 - row) * 24) * FX32_ONE;
+                    if (param0->unk_4C[v1].coins != NULL) {
+                        param0->unk_664[v1].coins = (0 + (v2 - col) * 24) * FX32_ONE;
+                        param0->unk_664[v1].slotMachineVariant = (-4 - (v3 - row) * 24) * FX32_ONE;
                         v1++;
                     }
                 }
@@ -1058,8 +1058,8 @@ static void ov19_021D9EB0(UnkStruct_ov19_021D8E00 *param0)
         ov19_021DCC44(param0->unk_75C, partyIndex, 1240, param0->unk_4C);
 
         param0->unk_754 = 1;
-        param0->unk_664[0].unk_00 = (0 * FX32_ONE);
-        param0->unk_664[0].unk_04 = (-4 * FX32_ONE);
+        param0->unk_664[0].coins = (0 * FX32_ONE);
+        param0->unk_664[0].slotMachineVariant = (-4 * FX32_ONE);
     }
 }
 
@@ -1068,7 +1068,7 @@ static void ov19_021DA038(UnkStruct_ov19_021D8E00 *param0)
     int v0;
 
     for (v0 = 0; v0 < param0->unk_754; v0++) {
-        BoxGraphics_SetSpritePriority(param0->unk_4C[v0].unk_00, 2);
+        BoxGraphics_SetSpritePriority(param0->unk_4C[v0].coins, 2);
     }
 
     param0->unk_78C = 1;
@@ -1151,10 +1151,10 @@ static Sprite *ov19_021DA224(UnkStruct_ov19_021D8E00 *param0)
     if (BoxApp_GetCursorLocation(param0->unk_790) == CURSOR_IN_BOX) {
         cursorPosition = BoxApp_GetCursorBoxPosition(param0->unk_790);
         v0 = ov19_021D84C8(param0->unk_758, cursorPosition);
-        return v0->unk_00;
+        return v0->coins;
     } else {
         cursorPosition = BoxApp_GetCursorPartyPosition(param0->unk_790);
         v0 = ov19_021DCD18(param0->unk_75C, cursorPosition);
-        return v0->unk_00;
+        return v0->coins;
     }
 }

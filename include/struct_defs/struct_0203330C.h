@@ -4,8 +4,8 @@
 #include "easy_chat_sentence.h"
 
 typedef struct {
-    u32 unk_00;
-    u8 unk_04;
+    u32 coins;
+    u8 slotMachineVariant;
     u8 unk_05;
     u8 unk_06;
     u8 unk_07;

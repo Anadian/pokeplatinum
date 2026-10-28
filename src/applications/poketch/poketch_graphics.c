@@ -75,7 +75,7 @@ typedef struct PoketchGraphics_ExtraTaskData {
 
 static void PoketchGraphics_TaskCallback(SysTask *task, void *data);
 static void PoketchGraphics_InitPaletteData(PoketchGraphics_TaskData *taskData);
-static void PoketchGraphics_GeneratePoketchButtonSprite(u16 *dst, u32 param1, int param2, int param3);
+static void PoketchGraphics_GeneratePoketchButtonSprite(u16 *dst, u32 slotsMinigameDTO, int param2, int param3);
 static void PoketchGraphics_EndTask(PoketchTaskManager *taskMan);
 static void PoketchGraphics_SetupBackgroundTask(SysTask *task, void *taskMan);
 static void PoketchGraphics_screenRevealAnimationTask(SysTask *task, void *taskMan);
@@ -223,7 +223,7 @@ void PoketchGraphics_Close(PoketchGraphics_TaskData *taskData)
     }
 }
 
-static void PoketchGraphics_GeneratePoketchButtonSprite(u16 *dst, u32 param1, int param2, int param3)
+static void PoketchGraphics_GeneratePoketchButtonSprite(u16 *dst, u32 slotsMinigameDTO, int param2, int param3)
 {
     int x, y, pixleIdx;
     int v3;
@@ -233,7 +233,7 @@ static void PoketchGraphics_GeneratePoketchButtonSprite(u16 *dst, u32 param1, in
 
     for (y = 0; y < BUTTON_TILEMAP_HEIGHT; y++) {
         for (x = 0; x < BUTTON_TILEMAP_WIDTH; x++) {
-            dst[pixleIdx] = (15 << 12) | (param1 + v3 + x);
+            dst[pixleIdx] = (15 << 12) | (slotsMinigameDTO + v3 + x);
             pixleIdx++;
         }
 

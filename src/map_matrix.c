@@ -138,7 +138,7 @@ u8 MapMatrix_GetMatrixID(const MapMatrix *mapMatrix)
     return mapMatrix->matrixID;
 }
 
-int MapMatrix_GetAltitudeAtCoords(const MapMatrix *mapMatrix, const int param1, const int x, const int y, const int width)
+int MapMatrix_GetAltitudeAtCoords(const MapMatrix *mapMatrix, const int slotsMinigameDTO, const int x, const int y, const int width)
 {
     GF_ASSERT(x < width);
     GF_ASSERT((x + y * width) < MAP_MATRIX_MAX_SIZE);

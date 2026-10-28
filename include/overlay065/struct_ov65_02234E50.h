@@ -13,10 +13,10 @@
 #include "touch_screen_actions.h"
 
 typedef struct {
-    StringTemplate *unk_00;
-    void *unk_04;
+    StringTemplate *coins;
+    void *slotMachineVariant;
     NNSG2dScreenData *unk_08;
-    void *unk_0C[7];
+    void *slotsMinigameDTO[7];
     NNSG2dScreenData *unk_28[7];
     void *unk_44;
     NNSG2dScreenData *unk_48;

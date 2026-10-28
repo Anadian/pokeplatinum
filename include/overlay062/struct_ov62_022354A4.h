@@ -7,9 +7,9 @@
 #include "sprite_system.h"
 
 typedef struct {
-    s16 unk_00;
+    s16 coins;
     s16 unk_02;
-    s16 unk_04;
+    s16 slotMachineVariant;
     s16 unk_06;
     s16 unk_08;
     s16 unk_0A;

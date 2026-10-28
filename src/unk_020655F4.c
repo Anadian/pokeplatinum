@@ -48,7 +48,7 @@ typedef struct WalkOnSpotMovementData {
 
 typedef struct JumpMovementData {
     fx32 distance;
-    fx32 unk_04;
+    fx32 slotMachineVariant;
     u16 unk_08;
     u16 unk_0A;
     s8 dir;
@@ -67,8 +67,8 @@ typedef struct WarpMovementData {
 } WarpMovementData;
 
 typedef struct EmoteMovementData {
-    int unk_00;
-    OverworldAnimManager *unk_04;
+    int coins;
+    OverworldAnimManager *slotMachineVariant;
 } EmoteMovementData;
 
 typedef struct WalkUnevenMovementData {
@@ -80,17 +80,17 @@ typedef struct WalkUnevenMovementData {
 
 typedef struct UnkStruct_02066824 {
     int duration;
-    VecFx32 unk_04;
+    VecFx32 slotMachineVariant;
 } UnkStruct_02066824;
 
 typedef struct UnkStruct_02066F88 {
-    u8 unk_00;
+    u8 coins;
     u8 unk_01;
     u8 unk_02;
     u8 unk_03;
-    fx32 unk_04;
+    fx32 slotMachineVariant;
     fx32 unk_08;
-    u16 unk_0C;
+    u16 slotsMinigameDTO;
     u16 unk_0E;
 } UnkStruct_02066F88;
 
@@ -824,8 +824,8 @@ static BOOL MovementAction_Jump_Step1(MapObject *mapObj)
         MapObject_MovePosInDir(mapObj, data->dir, data->distance);
         MapObject_RecalculateObjectHeight(mapObj);
 
-        if (data->unk_04 >= FX32_CONST(16)) {
-            data->unk_04 = 0;
+        if (data->slotMachineVariant >= FX32_CONST(16)) {
+            data->slotMachineVariant = 0;
             MapObject_StepDir(mapObj, data->dir);
             MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_START_MOVEMENT);
         }
@@ -836,7 +836,7 @@ static BOOL MovementAction_Jump_Step1(MapObject *mapObj)
             distance = -distance;
         }
 
-        data->unk_04 += distance;
+        data->slotMachineVariant += distance;
     }
 
     data->unk_0A += data->unk_08;
@@ -1198,12 +1198,12 @@ static BOOL MovementAction_ResumeAnimation_Step0(MapObject *mapObj)
     return TRUE;
 }
 
-static void sub_020664A0(MapObject *mapObj, int param1, int param2)
+static void sub_020664A0(MapObject *mapObj, int slotsMinigameDTO, int param2)
 {
     EmoteMovementData *data = MapObject_InitMovementData(mapObj, sizeof(EmoteMovementData));
 
-    data->unk_00 = param1;
-    data->unk_04 = ov5_021F5D8C(mapObj, param1, 1, param2);
+    data->coins = slotsMinigameDTO;
+    data->slotMachineVariant = ov5_021F5D8C(mapObj, slotsMinigameDTO, 1, param2);
 
     MapObject_AdvanceMovementStep(mapObj);
 }
@@ -1212,8 +1212,8 @@ static BOOL MovementAction_Emote_Step1(MapObject *mapObj)
 {
     EmoteMovementData *data = MapObject_GetMovementData(mapObj);
 
-    if (ov5_021F5C4C(data->unk_04) == 1) {
-        OverworldAnimManager_Finish(data->unk_04);
+    if (ov5_021F5C4C(data->slotMachineVariant) == 1) {
+        OverworldAnimManager_Finish(data->slotMachineVariant);
         MapObject_AdvanceMovementStep(mapObj);
         return TRUE;
     }
@@ -1463,11 +1463,11 @@ static BOOL MovementAction_PlayerGiveReceive_Step1(MapObject *mapObj)
     return TRUE;
 }
 
-static void sub_02066824(MapObject *mapObj, const VecFx32 *param1, int param2, int param3, int param4, u8 param5)
+static void sub_02066824(MapObject *mapObj, const VecFx32 *slotsMinigameDTO, int param2, int param3, int param4, u8 param5)
 {
     UnkStruct_02066824 *data = MapObject_InitMovementData(mapObj, sizeof(UnkStruct_02066824));
     data->duration = param4;
-    data->unk_04 = *param1;
+    data->slotMachineVariant = *slotsMinigameDTO;
 
     MapObject_TryFace(mapObj, param2);
     MapObject_Turn(mapObj, param3);
@@ -1478,21 +1478,21 @@ static void sub_02066824(MapObject *mapObj, const VecFx32 *param1, int param2, i
     MapObject_SetYPrev(mapObj, MapObject_GetY(mapObj));
     MapObject_SetZPrev(mapObj, MapObject_GetZ(mapObj));
 
-    if (param1->x < 0) {
+    if (slotsMinigameDTO->x < 0) {
         MapObject_AddX(mapObj, -1);
-    } else if (param1->x > 0) {
+    } else if (slotsMinigameDTO->x > 0) {
         MapObject_AddX(mapObj, 1);
     }
 
-    if (param1->y < 0) {
+    if (slotsMinigameDTO->y < 0) {
         MapObject_AddY(mapObj, -1 * 2);
-    } else if (param1->y > 0) {
+    } else if (slotsMinigameDTO->y > 0) {
         MapObject_AddY(mapObj, 1 * 2);
     }
 
-    if (param1->z < 0) {
+    if (slotsMinigameDTO->z < 0) {
         MapObject_AddZ(mapObj, -1);
-    } else if (param1->z > 0) {
+    } else if (slotsMinigameDTO->z > 0) {
         MapObject_AddZ(mapObj, 1);
     }
 
@@ -1502,7 +1502,7 @@ static void sub_02066824(MapObject *mapObj, const VecFx32 *param1, int param2, i
 static BOOL sub_020668EC(MapObject *mapObj)
 {
     UnkStruct_02066824 *data = MapObject_GetMovementData(mapObj);
-    MapObject_AddVecToPos(mapObj, &data->unk_04);
+    MapObject_AddVecToPos(mapObj, &data->slotMachineVariant);
 
     if (--(data->duration) > 0) {
         return FALSE;
@@ -1779,12 +1779,12 @@ static void sub_02066F88(MapObject *mapObj, fx32 distance, int facingDir, int mo
     int v0 = 1;
     UnkStruct_02066F88 *v1 = MapObject_InitMovementData(mapObj, sizeof(UnkStruct_02066F88));
 
-    v1->unk_00 = duration;
-    v1->unk_04 = distance;
+    v1->coins = duration;
+    v1->slotMachineVariant = distance;
     v1->unk_02 = param6;
     v1->unk_01 = param7;
     v1->unk_03 = param8;
-    v1->unk_0E = (0x100 * 16) / v1->unk_00;
+    v1->unk_0E = (0x100 * 16) / v1->coins;
 
     MapObject_TryFace(mapObj, facingDir);
     MapObject_Turn(mapObj, movingDir);
@@ -1834,34 +1834,34 @@ static BOOL sub_02067068(MapObject *mapObj)
 
     switch (v2->unk_02) {
     case 0:
-        v1.x += v2->unk_04;
+        v1.x += v2->slotMachineVariant;
         break;
     case 1:
-        v1.y += v2->unk_04;
+        v1.y += v2->slotMachineVariant;
         break;
     case 2:
-        v1.z += v2->unk_04;
+        v1.z += v2->slotMachineVariant;
         break;
     }
 
     MapObject_SetPos(mapObj, &v1);
 
-    fx32 v0 = v2->unk_04;
+    fx32 v0 = v2->slotMachineVariant;
 
     if (v0 < 0) {
         v0 = -v0;
     }
 
     v2->unk_08 += v0;
-    v2->unk_0C += v2->unk_0E;
+    v2->slotsMinigameDTO += v2->unk_0E;
 
-    if (v2->unk_0C > (0x100 * (16 - 1))) {
-        v2->unk_0C = (0x100 * (16 - 1));
+    if (v2->slotsMinigameDTO > (0x100 * (16 - 1))) {
+        v2->slotsMinigameDTO = (0x100 * (16 - 1));
     }
 
     VecFx32 v3 = { 0, 0, 0 };
     const fx32 *jumpHeightsTable = sJumpHeightsTable[JUMP_HEIGHT_LOW];
-    u16 v5 = (v2->unk_0C) / 0x100;
+    u16 v5 = (v2->slotsMinigameDTO) / 0x100;
 
     v0 = jumpHeightsTable[v5];
 
@@ -1883,13 +1883,13 @@ static BOOL sub_02067068(MapObject *mapObj)
 
     MapObject_SetSpriteJumpOffset(mapObj, &v3);
 
-    v2->unk_00--;
+    v2->coins--;
 
-    if ((v2->unk_08 >= FX32_CONST(16)) && v2->unk_00) {
+    if ((v2->unk_08 >= FX32_CONST(16)) && v2->coins) {
         int v6 = 1;
 
         v2->unk_08 -= FX32_CONST(16);
-        v0 = v2->unk_04;
+        v0 = v2->slotMachineVariant;
 
         MapObject_SetXPrev(mapObj, MapObject_GetX(mapObj));
         MapObject_SetYPrev(mapObj, MapObject_GetY(mapObj));
@@ -1920,7 +1920,7 @@ static BOOL sub_02067068(MapObject *mapObj)
         }
     }
 
-    if (v2->unk_00 > 0) {
+    if (v2->coins > 0) {
         return FALSE;
     }
 

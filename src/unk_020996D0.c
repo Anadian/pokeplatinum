@@ -692,10 +692,10 @@ static const u8 Unk_020F7094[] = {
 };
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     u8 unk_01;
     u16 unk_02;
-    const u8 *unk_04;
+    const u8 *slotMachineVariant;
     u32 unk_08;
 } UnkStruct_020F6FB0;
 
@@ -729,7 +729,7 @@ u32 sub_020996D0(void)
 u32 GetCountryTableIndex(u32 country)
 {
     for (int i = 0; i < NELEMS(Unk_020F6FB0); i++) {
-        if (Unk_020F6FB0[i].unk_00 == country) {
+        if (Unk_020F6FB0[i].coins == country) {
             return i;
         }
     }
@@ -742,7 +742,7 @@ u32 sub_020996F4(u32 param0)
     u32 v0;
 
     for (v0 = 0; v0 < NELEMS(Unk_020F6FB0); v0++) {
-        if (Unk_020F6FB0[v0].unk_00 == param0) {
+        if (Unk_020F6FB0[v0].coins == param0) {
             return Unk_020F6FB0[v0].unk_08 + 1;
         }
     }
@@ -765,7 +765,7 @@ u32 sub_0209972C(u32 param0)
 u32 sub_02099748(u32 param0)
 {
     GF_ASSERT(param0 < NELEMS(Unk_020F6FB0));
-    return Unk_020F6FB0[param0].unk_00;
+    return Unk_020F6FB0[param0].coins;
 }
 
 u32 sub_02099764(u32 param0)
@@ -777,7 +777,7 @@ u32 sub_02099764(u32 param0)
 const u8 *sub_02099780(u32 param0)
 {
     GF_ASSERT(param0 < NELEMS(Unk_020F6FB0));
-    return Unk_020F6FB0[param0].unk_04;
+    return Unk_020F6FB0[param0].slotMachineVariant;
 }
 
 u32 sub_0209979C(u32 param0)

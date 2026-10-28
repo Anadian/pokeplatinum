@@ -43,12 +43,12 @@
 typedef void (*UnkFuncPtr_0205B43C)(UnkStruct_0205B43C *);
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
 } UnkStruct_0205B43C_sub1;
 
 typedef struct {
-    u16 unk_00;
+    u16 coins;
     u16 unk_02;
 } UnkStruct_0205B43C_sub2;
 
@@ -56,7 +56,7 @@ struct UnkStruct_0205B43C_t {
     FieldSystem *fieldSystem;
     SaveData *saveData;
     TrainerInfo *unk_08;
-    SysTask *unk_0C;
+    SysTask *slotsMinigameDTO;
     UnkFuncPtr_0205B43C unk_10;
     int unk_14;
     u32 unk_18;
@@ -89,7 +89,7 @@ struct UnkStruct_0205B43C_t {
 static UnkStruct_0205B43C *sub_0205B3A0(FieldSystem *fieldSystem);
 static void sub_0205B43C(UnkStruct_0205B43C *param0);
 static void sub_0205B4B0(UnkStruct_0205B43C *param0);
-static void sub_0205B5B4(UnkStruct_0205B43C *param0, UnkFuncPtr_0205B43C param1, int param2);
+static void sub_0205B5B4(UnkStruct_0205B43C *param0, UnkFuncPtr_0205B43C slotsMinigameDTO, int param2);
 static void sub_0205B5FC(UnkStruct_0205B43C *param0);
 static void sub_0205B620(UnkStruct_0205B43C *param0);
 static void sub_0205B754(UnkStruct_0205B43C *param0);
@@ -101,7 +101,7 @@ static void sub_0205B6C4(UnkStruct_0205B43C *param0);
 static void sub_0205B694(UnkStruct_0205B43C *param0);
 static void sub_0205C160(UnkStruct_0205B43C *param0);
 static int sub_0205B4D4(void);
-static int UnionRoom_GetTrainerBusyMessage(UnkStruct_0205B43C *param0, int param1);
+static int UnionRoom_GetTrainerBusyMessage(UnkStruct_0205B43C *param0, int slotsMinigameDTO);
 static int UnionRoom_GetStartMessage(int param0, int gender, StringTemplate *strTemplate);
 static void sub_0205B408(UnkStruct_0205B43C *param0);
 static void sub_0205BFF0(UnkStruct_0205B4F8 *param0);
@@ -160,7 +160,7 @@ static UnkStruct_0205B43C *sub_0205B3A0(FieldSystem *fieldSystem)
 
     v2->unk_10 = NULL;
     v2->unk_14 = 40;
-    v2->unk_0C = SysTask_Start(sub_0205B5BC, v2, 10);
+    v2->slotsMinigameDTO = SysTask_Start(sub_0205B5BC, v2, 10);
     v2->fieldSystem = fieldSystem;
     v2->saveData = saveData;
     v2->unk_08 = SaveData_GetTrainerInfo(saveData);
@@ -281,17 +281,17 @@ static void sub_0205B578(UnkStruct_0205B43C *param0)
     }
 }
 
-static void sub_0205B5B4(UnkStruct_0205B43C *param0, UnkFuncPtr_0205B43C param1, int param2)
+static void sub_0205B5B4(UnkStruct_0205B43C *param0, UnkFuncPtr_0205B43C slotsMinigameDTO, int param2)
 {
-    param0->unk_10 = param1;
+    param0->unk_10 = slotsMinigameDTO;
     param0->unk_14 = param2;
 }
 
 static WMBssDesc *Unk_021C085C[16];
 
-void sub_0205B5BC(SysTask *param0, void *param1)
+void sub_0205B5BC(SysTask *param0, void *slotsMinigameDTO)
 {
-    UnkStruct_0205B43C *v0 = (UnkStruct_0205B43C *)param1;
+    UnkStruct_0205B43C *v0 = (UnkStruct_0205B43C *)slotsMinigameDTO;
 
     if (v0 == NULL) {
         SysTask_Done(param0);
@@ -407,7 +407,7 @@ static void sub_0205B754(UnkStruct_0205B43C *param0)
         return;
     }
 
-    SysTask_Done(param0->unk_0C);
+    SysTask_Done(param0->slotsMinigameDTO);
     Heap_Free(param0);
     Heap_Destroy(HEAP_ID_31);
 }
@@ -417,21 +417,21 @@ FieldSystem *sub_0205B770(UnkStruct_0205B43C *param0)
     return param0->fieldSystem;
 }
 
-WMBssDesc *sub_0205B774(UnkStruct_0205B43C *param0, int param1)
+WMBssDesc *sub_0205B774(UnkStruct_0205B43C *param0, int slotsMinigameDTO)
 {
-    return param0->unk_110[param1];
+    return param0->unk_110[slotsMinigameDTO];
 }
 
 static UnkStruct_0205B4F8 *Unk_021C0854;
 
-int sub_0205B780(UnkStruct_0205B43C *param0, int param1)
+int sub_0205B780(UnkStruct_0205B43C *param0, int slotsMinigameDTO)
 {
     TrainerInfo *v0;
     UnkStruct_0203330C *v1;
     UnkStruct_0205B4F8 *v2;
 
-    param1--;
-    v0 = sub_02033FB0(param1);
+    slotsMinigameDTO--;
+    v0 = sub_02033FB0(slotsMinigameDTO);
 
     sub_0205C154(param0);
 
@@ -439,11 +439,11 @@ int sub_0205B780(UnkStruct_0205B43C *param0, int param1)
         return 5;
     }
 
-    if (param0->unk_110[param1] == NULL) {
+    if (param0->unk_110[slotsMinigameDTO] == NULL) {
         return 5;
     }
 
-    v1 = (UnkStruct_0203330C *)param0->unk_110[param1]->gameInfo.userGameInfo;
+    v1 = (UnkStruct_0203330C *)param0->unk_110[slotsMinigameDTO]->gameInfo.userGameInfo;
     v2 = (UnkStruct_0205B4F8 *)v1->unk_30;
 
     Unk_021C0854 = v2;
@@ -475,19 +475,19 @@ int sub_0205B780(UnkStruct_0205B43C *param0, int param1)
     return 5;
 }
 
-int sub_0205B804(UnkStruct_0205B43C *param0, int param1, u16 param2)
+int sub_0205B804(UnkStruct_0205B43C *param0, int slotsMinigameDTO, u16 param2)
 {
     TrainerInfo *v0;
     UnkStruct_0203330C *v1;
     UnkStruct_0205B4F8 *v2;
 
-    param1--;
+    slotsMinigameDTO--;
 
-    if (param0->unk_110[param1] == NULL) {
+    if (param0->unk_110[slotsMinigameDTO] == NULL) {
         return 5;
     }
 
-    v1 = (UnkStruct_0203330C *)param0->unk_110[param1]->gameInfo.userGameInfo;
+    v1 = (UnkStruct_0203330C *)param0->unk_110[slotsMinigameDTO]->gameInfo.userGameInfo;
     v2 = (UnkStruct_0205B4F8 *)v1->unk_30;
 
     Unk_021C0854 = v2;
@@ -499,7 +499,7 @@ int sub_0205B804(UnkStruct_0205B43C *param0, int param1, u16 param2)
         }
 
         param0->unk_30 = 5;
-        param0->unk_18 = param1;
+        param0->unk_18 = slotsMinigameDTO;
         param0->unk_20 = 1;
         param0->unk_24 = 0;
         param0->unk_1C = 0;
@@ -510,7 +510,7 @@ int sub_0205B804(UnkStruct_0205B43C *param0, int param1, u16 param2)
             return 5;
         }
 
-        param0->unk_18 = param1;
+        param0->unk_18 = slotsMinigameDTO;
         param0->unk_20 = 1;
         param0->unk_24 = 0;
         param0->unk_1C = 0;
@@ -521,7 +521,7 @@ int sub_0205B804(UnkStruct_0205B43C *param0, int param1, u16 param2)
             return 5;
         }
 
-        param0->unk_18 = param1;
+        param0->unk_18 = slotsMinigameDTO;
         param0->unk_20 = 2;
         param0->unk_24 = 0;
         param0->unk_1C = 0;
@@ -534,7 +534,7 @@ int sub_0205B804(UnkStruct_0205B43C *param0, int param1, u16 param2)
         }
 
         param0->unk_30 = 6;
-        param0->unk_18 = param1;
+        param0->unk_18 = slotsMinigameDTO;
         param0->unk_20 = 1;
         param0->unk_1C = 0;
         return 1;
@@ -594,11 +594,11 @@ u32 sub_0205B91C(UnkStruct_0205B43C *param0)
     return 7;
 }
 
-void sub_0205B930(UnkStruct_0205B43C *param0, int param1, u32 param2)
+void sub_0205B930(UnkStruct_0205B43C *param0, int slotsMinigameDTO, u32 param2)
 {
     u8 v0 = (u8)param2;
 
-    switch (param1) {
+    switch (slotsMinigameDTO) {
     case 0:
         if (param0->unk_44 == 0) {
             param0->unk_34 = v0;
@@ -621,17 +621,17 @@ void sub_0205B930(UnkStruct_0205B43C *param0, int param1, u32 param2)
     }
 }
 
-void sub_0205B988(int param0, int param1, void *param2, void *param3)
+void sub_0205B988(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     return;
 }
 
-void sub_0205B98C(int param0, int param1, void *param2, void *param3)
+void sub_0205B98C(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     return;
 }
 
-void sub_0205B990(int param0, int param1, void *param2, void *param3)
+void sub_0205B990(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     FieldSystem *fieldSystem = (FieldSystem *)param3;
 
@@ -641,7 +641,7 @@ void sub_0205B990(int param0, int param1, void *param2, void *param3)
 
 static int Unk_021C0858;
 
-void sub_0205B9AC(int param0, int param1, void *param2, void *param3)
+void sub_0205B9AC(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     FieldSystem *fieldSystem = (FieldSystem *)param3;
     u8 *v1 = (u8 *)param2;
@@ -652,7 +652,7 @@ void sub_0205B9AC(int param0, int param1, void *param2, void *param3)
     }
 }
 
-void sub_0205B9C4(int param0, int param1, void *param2, void *param3)
+void sub_0205B9C4(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     FieldSystem *fieldSystem = (FieldSystem *)param3;
     u8 *v1 = (u8 *)param2;
@@ -665,7 +665,7 @@ void sub_0205B9C4(int param0, int param1, void *param2, void *param3)
     }
 }
 
-void sub_0205B9E0(int param0, int param1, void *param2, void *param3)
+void sub_0205B9E0(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     FieldSystem *fieldSystem = (FieldSystem *)param3;
 
@@ -677,17 +677,17 @@ int sub_0205B9E8(UnkStruct_0205B43C *param0)
     return param0->unk_44;
 }
 
-int sub_0205B9EC(UnkStruct_0205B43C *param0, int param1)
+int sub_0205B9EC(UnkStruct_0205B43C *param0, int slotsMinigameDTO)
 {
     if (param0->unk_30 == 0) {
         CommSys_SendData(104, NULL, 0);
-        return param1;
+        return slotsMinigameDTO;
     }
 
     return 0;
 }
 
-void sub_0205BA08(int param0, int param1, void *param2, void *param3)
+void sub_0205BA08(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     FieldSystem *fieldSystem = (FieldSystem *)param3;
     TrainerCase *trainerCase = (TrainerCase *)param2;
@@ -709,15 +709,15 @@ void sub_0205BA08(int param0, int param1, void *param2, void *param3)
     }
 }
 
-u8 *sub_0205BA5C(int param0, void *param1, int param2)
+u8 *sub_0205BA5C(int param0, void *slotsMinigameDTO, int param2)
 {
-    FieldSystem *fieldSystem = (FieldSystem *)param1;
+    FieldSystem *fieldSystem = (FieldSystem *)slotsMinigameDTO;
     UnkStruct_0205B43C *v1 = fieldSystem->unk_7C;
 
     return (u8 *)v1->unk_188[param0];
 }
 
-void sub_0205BA6C(int param0, int param1, void *param2, void *param3)
+void sub_0205BA6C(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     FieldSystem *fieldSystem = (FieldSystem *)param3;
     UnkStruct_0205B43C *v1 = fieldSystem->unk_7C;
@@ -894,15 +894,15 @@ static int sub_0205BAC0(int param0)
     return -1;
 }
 
-static int UnionRoom_GetTrainerBusyMessage(UnkStruct_0205B43C *param0, int param1)
+static int UnionRoom_GetTrainerBusyMessage(UnkStruct_0205B43C *param0, int slotsMinigameDTO)
 {
     int gender, v1;
 
-    if (param1 > 9) {
-        v1 = sub_0205BAC0(param1);
-        GF_ASSERT(param1 != -1);
+    if (slotsMinigameDTO > 9) {
+        v1 = sub_0205BAC0(slotsMinigameDTO);
+        GF_ASSERT(slotsMinigameDTO != -1);
     } else {
-        v1 = param1;
+        v1 = slotsMinigameDTO;
     }
 
     if (param0->unk_110[v1] == NULL) {
@@ -917,8 +917,8 @@ static int UnionRoom_GetTrainerBusyMessage(UnkStruct_0205B43C *param0, int param
         return UnionRoom_Text_TrainersAppearsBusy;
     }
 
-    if (param1 > 9) {
-        gender = v4->unk_18[(param1 - 10) % 4];
+    if (slotsMinigameDTO > 9) {
+        gender = v4->unk_18[(slotsMinigameDTO - 10) % 4];
         gender = gender >> 7;
     } else {
         gender = TrainerInfo_Gender(trainerInfo);
@@ -1004,15 +1004,15 @@ static int UnionRoom_GetStartMessage(int param0, int gender, StringTemplate *str
     return UnionRoom_GetTrainerCasePlayerMessage(strTemplate);
 }
 
-int UnionRoom_GetMessage(UnkStruct_0205B43C *param0, int param1, int msgType, StringTemplate *strTemplate)
+int UnionRoom_GetMessage(UnkStruct_0205B43C *param0, int slotsMinigameDTO, int msgType, StringTemplate *strTemplate)
 {
-    param1--;
+    slotsMinigameDTO--;
 
     if (msgType == 0) {
-        return UnionRoom_GetTrainerBusyMessage(param0, param1);
+        return UnionRoom_GetTrainerBusyMessage(param0, slotsMinigameDTO);
     }
 
-    TrainerInfo *trainerInfo = sub_02033FB0(param1);
+    TrainerInfo *trainerInfo = sub_02033FB0(slotsMinigameDTO);
 
     if (trainerInfo == NULL) {
         CommManager_SetErrorHandling(1, 1);
@@ -1091,7 +1091,7 @@ u8 UnionRoom_GetCommInfoGameCode(void)
     return TrainerInfo_GameCode(trainerInfo);
 }
 
-static void sub_0205BE58(UnkStruct_0205B4F8 *param0, int param1)
+static void sub_0205BE58(UnkStruct_0205B4F8 *param0, int slotsMinigameDTO)
 {
     TrainerInfo *v0;
     int v1, v2 = 0;
@@ -1103,11 +1103,11 @@ static void sub_0205BE58(UnkStruct_0205B4F8 *param0, int param1)
 
         if (v0 != NULL) {
             if (CommSys_CurNetId() == 0) {
-                param0->unk_00[v3] = TrainerInfo_ID(v0);
+                param0->coins[v3] = TrainerInfo_ID(v0);
                 param0->unk_18[v3] = TrainerInfo_Appearance(v0) | (TrainerInfo_Gender(v0) << 7);
             }
         } else {
-            param0->unk_00[v3] = 0;
+            param0->coins[v3] = 0;
             param0->unk_18[v3] = 0;
         }
     }
@@ -1231,16 +1231,16 @@ static void sub_0205BFF0(UnkStruct_0205B4F8 *param0)
     param0->unk_1C = 0;
 
     for (v0 = 0; v0 < 4; v0++) {
-        param0->unk_00[v0] = 0;
+        param0->coins[v0] = 0;
         param0->unk_18[v0] = 0;
         param0->unk_10[v0] = 0;
         param0->unk_14[v0] = 0;
     }
 }
 
-void sub_0205C010(UnkStruct_0205B43C *param0, EasyChatSentence *param1)
+void sub_0205C010(UnkStruct_0205B43C *param0, EasyChatSentence *slotsMinigameDTO)
 {
-    EasyChatSentence_Copy(&param0->unk_178, param1);
+    EasyChatSentence_Copy(&param0->unk_178, slotsMinigameDTO);
     param0->unk_180 = 1;
 }
 
@@ -1254,7 +1254,7 @@ EasyChatSentence *sub_0205C028(UnkStruct_0205B43C *param0)
     return &param0->unk_178;
 }
 
-void UnionRoom_DoGreeting(StringTemplate *strTemplate, int param1, int param2, TrainerInfo *playerTrainerInfo, UnlockedEasyChatWords *unlockedWords)
+void UnionRoom_DoGreeting(StringTemplate *strTemplate, int slotsMinigameDTO, int param2, TrainerInfo *playerTrainerInfo, UnlockedEasyChatWords *unlockedWords)
 {
     TrainerInfo *commTrainerInfo;
     MessageLoader *msgLoader = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_UNION_ROOM, HEAP_ID_FIELD1);
@@ -1262,7 +1262,7 @@ void UnionRoom_DoGreeting(StringTemplate *strTemplate, int param1, int param2, T
 
     param2--;
 
-    if (param1 == 0) {
+    if (slotsMinigameDTO == 0) {
         commTrainerInfo = sub_02033FB0(param2);
     } else {
         commTrainerInfo = CommInfo_TrainerInfo(CommSys_CurNetId() ^ 1);

@@ -202,7 +202,7 @@ BN_MONT_CTX *BN_MONT_CTX_new(void);
 void BN_MONT_CTX_init(BN_MONT_CTX *ctx);
 void BN_MONT_CTX_free(BN_MONT_CTX *mont);
 BOOL BN_MONT_CTX_set_word(BN_MONT_CTX *mont, const BIGNUM *modulus, BN_CTX *ctx);
-void bn_from_montgomery_words(u32 *param0, u32 *param1, u32 *param2, int param3, u32 param4);
+void bn_from_montgomery_words(u32 *param0, u32 *slotsMinigameDTO, u32 *param2, int param3, u32 param4);
 
 void BN_RECP_CTX_init(BN_RECP_CTX *recp);
 void BN_RECP_CTX_free(BN_RECP_CTX *recp);
@@ -211,8 +211,8 @@ BOOL BN_mod_mul_reciprocal(BIGNUM *r, BIGNUM *x, BIGNUM *y, BN_RECP_CTX *recp, B
 BOOL BN_mod_exp_recp(BIGNUM *r, const BIGNUM *a, const BIGNUM *p, const BIGNUM *m, BN_CTX *ctx);
 BOOL BN_div_recp(BIGNUM *dv, BIGNUM *rem, BIGNUM *m, BN_RECP_CTX *recp, BN_CTX *ctx);
 
-int BN_gen_exp_bits(const BIGNUM *param0, u8 **param1, int unused, BN_CTX *param3);
-int BN_gen_exp_string(u8 *param0, const BIGNUM *param1, int param2);
+int BN_gen_exp_bits(const BIGNUM *param0, u8 **slotsMinigameDTO, int unused, BN_CTX *param3);
+int BN_gen_exp_string(u8 *param0, const BIGNUM *slotsMinigameDTO, int param2);
 
 #define LBITS(a)   ((a) & BN_MASK2l)
 #define HBITS(a)   (((a) >> BN_BITS4) & BN_MASK2l)

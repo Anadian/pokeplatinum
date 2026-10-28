@@ -17,10 +17,10 @@
 #include "overworld_anim_manager.h"
 
 typedef struct UnkStruct_ov101_021D13C8_t {
-    u32 unk_00;
-    u32 unk_04;
+    u32 coins;
+    u32 slotMachineVariant;
     u32 unk_08;
-    u32 unk_0C;
+    u32 slotsMinigameDTO;
     u32 unk_10;
     u32 unk_14;
     u32 unk_18;
@@ -57,7 +57,7 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     UnkStruct_ov101_021D4764 unk_13C;
     UnkStruct_ov101_021D4F58 unk_184;
     UnkStruct_ov101_021D148C unk_408;
-    UnkStruct_ov101_021D1894 unk_424;
+    SlotsMinigame_SoundSequenceController unk_424; //SlotsMinigame_SoundSequenceController
     NARC *unk_438;
     BgConfig *unk_43C;
     NNSG2dScreenData *unk_440;
@@ -94,6 +94,6 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     u32 unk_4BC;
     u32 unk_4C0;
     int msgBoxFrame;
-} UnkStruct_ov101_021D13C8;
+} Overlay101State;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D13C8_H

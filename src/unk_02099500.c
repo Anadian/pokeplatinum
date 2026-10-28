@@ -161,7 +161,7 @@ static const CommCmdTable Unk_020F68A4[] = {
     { BattleArcade_ProcessSpeciesCheckMsg, CommPacketSizeOf_Variable, NULL }
 };
 
-void sub_02099510(int param0, int param1, void *param2, void *param3)
+void sub_02099510(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     return;
 }

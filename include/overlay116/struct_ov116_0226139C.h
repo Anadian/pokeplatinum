@@ -15,10 +15,10 @@
 #include "overlay116/struct_ov116_022649E4.h"
 
 typedef struct {
-    UnkStruct_ov116_02262A44 *unk_00;
-    UnkStruct_ov116_02262A8C *unk_04;
+    UnkStruct_ov116_02262A44 *coins;
+    UnkStruct_ov116_02262A8C *slotMachineVariant;
     BOOL unk_08;
-    BOOL unk_0C;
+    BOOL slotsMinigameDTO;
     BOOL unk_10;
     UnkStruct_ov116_0226048C unk_14;
     UnkStruct_ov116_02260494 unk_1C;

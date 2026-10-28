@@ -22,7 +22,7 @@ void SealPlacement_FreeInactiveSeals(CapsuleAppManager *appMan);
 void SealPlacement_DrawActiveSeals(CapsuleAppManager *appMan, int flag);
 BOOL SealPlacement_SealIsValid(CapsuleAppManager *appMan, int index);
 void SealPlacement_FreeSeal(CapsuleAppManager *appMan, int sealIndex);
-void SealPlacement_UpdateSealOamMode(CapsuleAppManager *appMan, int param1);
+void SealPlacement_UpdateSealOamMode(CapsuleAppManager *appMan, int slotsMinigameDTO);
 BOOL SealPlacement_AnySealsChanged(CapsuleAppManager *appMan);
 void SealPlacement_UpdateSealXY(CapsuleAppManager *appMan, int sealIndex);
 void SealPlacement_LoadCapsuleSeals(CapsuleAppManager *appMan);

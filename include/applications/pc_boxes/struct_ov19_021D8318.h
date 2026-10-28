@@ -13,9 +13,9 @@ typedef struct {
     u8 unk_01;
     u8 unk_02;
     u8 unk_03;
-    u32 unk_04;
+    u32 slotMachineVariant;
     s32 unk_08;
-    s32 unk_0C;
+    s32 slotsMinigameDTO;
     s32 unk_10;
     s32 unk_14;
     u8 padding_18[24];

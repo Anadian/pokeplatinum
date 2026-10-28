@@ -10,7 +10,7 @@
 #include "bg_window.h"
 
 typedef struct {
-    UnkStruct_ov22_02259C58_1 unk_00;
+    UnkStruct_ov22_02259C58_1 coins;
     const Window *unk_10;
     const UnkStruct_02012744 *unk_14;
     const NNSG2dImagePaletteProxy *unk_18;

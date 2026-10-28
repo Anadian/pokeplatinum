@@ -6,8 +6,8 @@
 #include "sprite_util.h"
 
 typedef struct {
-    SpriteList *unk_00;
-    G2dRenderer unk_04;
+    SpriteList *coins;
+    G2dRenderer slotMachineVariant;
     SpriteResourceCollection *unk_190[4];
 } UnkStruct_ov5_021DE47C;
 

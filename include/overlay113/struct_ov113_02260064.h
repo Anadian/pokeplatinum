@@ -6,7 +6,7 @@
 typedef struct {
     CameraAngle cameraAngle;
     s32 unk_08;
-    s16 unk_0C;
+    s16 slotsMinigameDTO;
     u8 unk_0E;
     u8 unk_0F;
 } UnkStruct_ov113_02260064;

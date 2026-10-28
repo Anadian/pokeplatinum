@@ -20,6 +20,7 @@
 	update
 
 ROM_REVISION ?= 1
+DEBUG_SLOTS_MINIGAME ?= 0
 
 SUBPROJ_DIR := subprojects
 
@@ -140,6 +141,7 @@ configure: $(BUILD)/build.ninja
 $(BUILD)/build.ninja: | $(BUILD) $(SKREW_EXE) meson $(LSFGEN_OUT)
 	$(MESON) setup \
 		-Drevision=$(ROM_REVISION) \
+		-Ddebug_slots_minigame=$(DEBUG_SLOTS_MINIGAME) \
 		--wrap-mode=nopromote \
 		--native-file=meson/$(NATIVE) \
 		--cross-file=meson/$(CROSS) \

@@ -52,12 +52,12 @@ UnkStruct_ov97_0223222C *ov97_02233410(void)
 
 int ov97_02233418(void)
 {
-    return (int)ov97_02233410()->unk_00;
+    return (int)ov97_02233410()->coins;
 }
 
 void ov97_02233424(int param0)
 {
-    ov97_02233410()->unk_00 = (u8)param0;
+    ov97_02233410()->coins = (u8)param0;
 }
 
 int ov97_02233430(void)
@@ -122,7 +122,7 @@ WMBssDesc *ov97_022334B4(void)
 
 void ov97_022334C0(u16 param0)
 {
-    ov97_02233410()->unk_0C = param0;
+    ov97_02233410()->slotsMinigameDTO = param0;
 }
 
 BOOL ov97_022334CC(void)
@@ -181,22 +181,22 @@ void ov97_02233548(void)
 
 u32 ov97_02233554(void)
 {
-    return ov97_02233410()->unk_04;
+    return ov97_02233410()->slotMachineVariant;
 }
 
 u32 ov97_02233560(void)
 {
-    return (u32)ov97_02233410()->unk_40.unk_00.unk_00.unk_00_0;
+    return (u32)ov97_02233410()->unk_40.coins.coins.unk_00_0;
 }
 
 u32 ov97_02233570(void)
 {
-    return (u32)ov97_02233410()->unk_40.unk_00.unk_00.unk_00_8;
+    return (u32)ov97_02233410()->unk_40.coins.coins.unk_00_8;
 }
 
 u32 ov97_02233580(void)
 {
-    return (u32)ov97_02233410()->unk_40.unk_00.unk_04.unk_00_16;
+    return (u32)ov97_02233410()->unk_40.coins.slotMachineVariant.unk_00_16;
 }
 
 u32 ov97_0223358C(void)
@@ -219,10 +219,10 @@ UnkStruct_ov97_022335A8 ov97_022335A8(u8 *param0)
     u32 v0;
     UnkStruct_ov97_022335A8 v1;
 
-    v1.unk_00.val2 = 0;
+    v1.coins.val2 = 0;
 
     for (v0 = 0; v0 < 4; v0++) {
-        v1.unk_00.val1[v0] = param0[v0 + 2];
+        v1.coins.val1[v0] = param0[v0 + 2];
     }
 
     return v1;
@@ -233,18 +233,18 @@ UnkStruct_ov97_022335C8 ov97_022335C8(u8 *param0)
     u32 v0;
     UnkStruct_ov97_022335C8 v1;
 
-    v1.unk_00.val2 = 0;
+    v1.coins.val2 = 0;
 
     for (v0 = 0; v0 < 2; v0++) {
-        v1.unk_00.val1[v0] = param0[v0];
+        v1.coins.val1[v0] = param0[v0];
     }
 
     return v1;
 }
 
-void ov97_022335EC(u32 param0, u32 *param1, u32 *param2)
+void ov97_022335EC(u32 param0, u32 *slotsMinigameDTO, u32 *param2)
 {
-    *param1 = param0 % 10000;
+    *slotsMinigameDTO = param0 % 10000;
     *param2 = (param0 / 10000) % 10000;
 }
 
@@ -258,7 +258,7 @@ static u32 ov97_02233618()
     return ((u32)(OS_GetTick() + GX_GetVCount()) & 0xFFFFFFFE) + 1;
 }
 
-static u32 ov97_02233630(u32 param0, u32 param1, void *param2)
+static u32 ov97_02233630(u32 param0, u32 slotsMinigameDTO, void *param2)
 {
     u32 v0;
     u32 *v1 = (u32 *)param2;
@@ -266,7 +266,7 @@ static u32 ov97_02233630(u32 param0, u32 param1, void *param2)
 
     MATH_InitRand16(&v2, param0);
 
-    for (v0 = 0; v0 < param1 / sizeof(u32); v0++) {
+    for (v0 = 0; v0 < slotsMinigameDTO / sizeof(u32); v0++) {
         (*v1) ^= ((MATH_Rand16(&v2, 0) << 16) | MATH_Rand16(&v2, 0));
         v1++;
     }
@@ -274,33 +274,33 @@ static u32 ov97_02233630(u32 param0, u32 param1, void *param2)
     return v2.x;
 }
 
-void ov97_02233674(void *param0, void *param1, u32 param2, int param3, u32 param4)
+void ov97_02233674(void *param0, void *slotsMinigameDTO, u32 param2, int param3, u32 param4)
 {
     UnkStruct_ov97_02233674 *v0 = (UnkStruct_ov97_02233674 *)param0;
     UnkStruct_ov97_02233268 *v1 = ov97_02233590();
 
-    v0->unk_00.unk_00_0 = v1->unk_00.unk_00.unk_00_0;
-    v0->unk_00.unk_00_8 = v1->unk_00.unk_00.unk_00_8;
-    v0->unk_00.unk_00_12 = v1->unk_00.unk_00.unk_00_12;
-    v0->unk_00.unk_00_16 = (u16)ov97_02233618();
-    v0->unk_04.unk_00_0 = v1->unk_00.unk_04.unk_00_0;
-    v0->unk_04.unk_00_8 = v1->unk_00.unk_04.unk_00_8;
-    v0->unk_04.unk_00_12 = v1->unk_00.unk_04.unk_00_12;
-    v0->unk_04.unk_00_16 = 0;
+    v0->coins.unk_00_0 = v1->coins.coins.unk_00_0;
+    v0->coins.unk_00_8 = v1->coins.coins.unk_00_8;
+    v0->coins.unk_00_12 = v1->coins.coins.unk_00_12;
+    v0->coins.unk_00_16 = (u16)ov97_02233618();
+    v0->slotMachineVariant.unk_00_0 = v1->coins.slotMachineVariant.unk_00_0;
+    v0->slotMachineVariant.unk_00_8 = v1->coins.slotMachineVariant.unk_00_8;
+    v0->slotMachineVariant.unk_00_12 = v1->coins.slotMachineVariant.unk_00_12;
+    v0->slotMachineVariant.unk_00_16 = 0;
     v0->unk_08.unk_00_0 = (u8)param4;
     v0->unk_08.unk_00_8 = param3;
-    v0->unk_08.unk_00_16 = SVC_GetCRC16(0, param1, param2);
-    v0->unk_0C.unk_00_0 = (u8)ov97_02233614();
-    v0->unk_0C.unk_00_8 = param2;
+    v0->unk_08.unk_00_16 = SVC_GetCRC16(0, slotsMinigameDTO, param2);
+    v0->slotsMinigameDTO.unk_00_0 = (u8)ov97_02233614();
+    v0->slotsMinigameDTO.unk_00_8 = param2;
 
     if (param2) {
-        MI_CpuCopy8(param1, ((u8 *)param0) + v0->unk_0C.unk_00_0, param2);
+        MI_CpuCopy8(slotsMinigameDTO, ((u8 *)param0) + v0->slotsMinigameDTO.unk_00_0, param2);
     }
 
     ov97_02233810(v0);
 
-    if ((int)v1->unk_00.unk_00.unk_00_12 == 1) {
-        ov97_02233630(v0->unk_00.unk_00_16, param2 + v0->unk_0C.unk_00_0 - sizeof(UnkStruct_ov97_02233674_sub1), &v0->unk_04);
+    if ((int)v1->coins.coins.unk_00_12 == 1) {
+        ov97_02233630(v0->coins.unk_00_16, param2 + v0->slotsMinigameDTO.unk_00_0 - sizeof(UnkStruct_ov97_02233674_sub1), &v0->slotMachineVariant);
     }
 }
 
@@ -309,18 +309,18 @@ void ov97_022337A4(void *param0)
     UnkStruct_ov97_02233674 *v0 = (UnkStruct_ov97_02233674 *)param0;
     UnkStruct_ov97_02233268 *v1 = ov97_02233590();
 
-    if ((int)v0->unk_00.unk_00_12 == 1) {
+    if ((int)v0->coins.unk_00_12 == 1) {
         u32 v2;
 
-        v2 = ov97_02233630(v0->unk_00.unk_00_16, sizeof(UnkStruct_ov97_02233674_sub2) + sizeof(UnkStruct_ov97_02233674_sub3) + sizeof(UnkStruct_ov97_02233674_sub4), &v0->unk_04);
-        ov97_02233630(v2, v0->unk_0C.unk_00_0 + v0->unk_0C.unk_00_8 - sizeof(UnkStruct_ov97_02233674), (void *)((u32)param0 + sizeof(UnkStruct_ov97_02233674)));
+        v2 = ov97_02233630(v0->coins.unk_00_16, sizeof(UnkStruct_ov97_02233674_sub2) + sizeof(UnkStruct_ov97_02233674_sub3) + sizeof(UnkStruct_ov97_02233674_sub4), &v0->slotMachineVariant);
+        ov97_02233630(v2, v0->slotsMinigameDTO.unk_00_0 + v0->slotsMinigameDTO.unk_00_8 - sizeof(UnkStruct_ov97_02233674), (void *)((u32)param0 + sizeof(UnkStruct_ov97_02233674)));
     }
 }
 
 BOOL ov97_022337D8(void *param0)
 {
     UnkStruct_ov97_02233674 *v0 = (UnkStruct_ov97_02233674 *)param0;
-    u16 v1 = SVC_GetCRC16(0, ((u8 *)param0) + v0->unk_0C.unk_00_0, v0->unk_0C.unk_00_8);
+    u16 v1 = SVC_GetCRC16(0, ((u8 *)param0) + v0->slotsMinigameDTO.unk_00_0, v0->slotsMinigameDTO.unk_00_8);
 
     if (v0->unk_08.unk_00_16 == v1) {
         return 1;

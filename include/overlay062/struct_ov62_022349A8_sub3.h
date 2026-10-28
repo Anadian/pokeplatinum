@@ -19,16 +19,16 @@ typedef struct {
     };
     union {
         struct {
-            u8 unk_00;
+            u8 coins;
             u8 unk_01;
             u8 unk_02[2];
         } val1;
         struct {
-            u16 unk_00;
+            u16 coins;
             u16 unk_02;
         } val2;
         struct {
-            u64 unk_00;
+            u64 coins;
         } val3;
     } unk_21C;
 } UnkStruct_ov62_022349A8_sub3;

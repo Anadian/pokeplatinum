@@ -7,8 +7,8 @@
 #include "pokemon.h"
 
 typedef struct {
-    BallCapsuleConfig unk_00;
-    BallCapsuleSealEffect *unk_0C;
+    BallCapsuleConfig coins;
+    BallCapsuleSealEffect *slotsMinigameDTO;
     Pokemon *mon;
     u8 state;
     u8 unk_15;

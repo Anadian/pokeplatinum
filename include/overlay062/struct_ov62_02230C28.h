@@ -5,9 +5,9 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    ManagedSprite *unk_00[2];
+    ManagedSprite *coins[2];
     SysTask *unk_08;
-    fx32 unk_0C;
+    fx32 slotsMinigameDTO;
     f32 unk_10;
     s16 unk_14;
     s16 unk_16;

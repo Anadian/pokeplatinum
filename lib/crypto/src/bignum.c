@@ -1274,14 +1274,14 @@ void bn_sqr_normal(u32 *r, u32 *a, int n, u32 *tmp)
     bn_add_words(r, r, tmp, max);
 }
 
-void bn_from_montgomery_words(u32 *param0, u32 *param1, u32 *param2, int param3, u32 param4)
+void bn_from_montgomery_words(u32 *param0, u32 *slotsMinigameDTO, u32 *param2, int param3, u32 param4)
 {
     u32 v0 = 0;
-    u32 *v1 = param1 + param3;
+    u32 *v1 = slotsMinigameDTO + param3;
     int v2 = param4;
 
     for (int i = 0; i < param3; i++) {
-        u32 v3 = bn_mul_add_words(param1, param2, param3, *param1 * v2);
+        u32 v3 = bn_mul_add_words(slotsMinigameDTO, param2, param3, *slotsMinigameDTO * v2);
         v3 += v0;
 
         *v1 += v3;
@@ -1294,21 +1294,21 @@ void bn_from_montgomery_words(u32 *param0, u32 *param1, u32 *param2, int param3,
         if (*v1 < v3) {
             v0 += 1;
         }
-        param1 += 1;
+        slotsMinigameDTO += 1;
         v1 += 1;
     }
 
     int v4 = param3 - 1;
     if (v0 == 0) {
-        if (param1[v4] == param2[v4] && v4 > 0) {
+        if (slotsMinigameDTO[v4] == param2[v4] && v4 > 0) {
             do {
-                if (param1[v4] != param2[v4]) {
+                if (slotsMinigameDTO[v4] != param2[v4]) {
                     break;
                 }
                 v4--;
             } while (v4 > 0);
         }
-        if (param1[v4] >= param2[v4]) {
+        if (slotsMinigameDTO[v4] >= param2[v4]) {
             v0 = 1;
         } else {
             v0 = 0;
@@ -1316,12 +1316,12 @@ void bn_from_montgomery_words(u32 *param0, u32 *param1, u32 *param2, int param3,
     }
 
     if (v0 != 0) {
-        bn_sub_words(param0, param1, param2, param3);
+        bn_sub_words(param0, slotsMinigameDTO, param2, param3);
         return;
     }
 
     for (int i = 0; i < param3; i++) {
-        param0[i] = param1[i];
+        param0[i] = slotsMinigameDTO[i];
     }
 }
 
@@ -1358,7 +1358,7 @@ u32 BN_mod_inverse_word(u32 word)
     return ret;
 }
 
-int BN_gen_exp_bits(const BIGNUM *param0, u8 **param1, int unused, BN_CTX *param3)
+int BN_gen_exp_bits(const BIGNUM *param0, u8 **slotsMinigameDTO, int unused, BN_CTX *param3)
 {
     static const u8 Unk_ov97_0223DED0[] = { 0x0, 0x8, 0x1, 0x1, 0x1, 0x1, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0 };
     static const u8 Unk_ov97_0223DEDC[] = { 0x0, 0x8, 0x1, 0x1, 0x1, 0x4, 0x1, 0x0, 0x0, 0x0, 0x0, 0x0 };
@@ -1415,11 +1415,11 @@ int BN_gen_exp_bits(const BIGNUM *param0, u8 **param1, int unused, BN_CTX *param
     } else {
         v6 = 8;
     }
-    *param1 = v3;
+    *slotsMinigameDTO = v3;
     return v6 + 2;
 }
 
-int BN_gen_exp_string(u8 *param0, const BIGNUM *param1, int param2)
+int BN_gen_exp_string(u8 *param0, const BIGNUM *slotsMinigameDTO, int param2)
 {
     // clang-format off
     static const u8 Unk_ov97_0223DEF8[] = {
@@ -1459,13 +1459,13 @@ int BN_gen_exp_string(u8 *param0, const BIGNUM *param1, int param2)
     v1 = (1 << param2) - 1;
     u32 v8 = 0;
 
-    v0 = param0 + ((param2 + (param1->top << 5) - 1) / param2 * 2 + 2);
+    v0 = param0 + ((param2 + (slotsMinigameDTO->top << 5) - 1) / param2 * 2 + 2);
     *v0-- = 0;
     *v0-- = 0;
-    int v9 = param1->top;
-    v4 = param1->d + 1;
-    v3 = param1->d[0];
-    u32 v10 = param1->d[0];
+    int v9 = slotsMinigameDTO->top;
+    v4 = slotsMinigameDTO->d + 1;
+    v3 = slotsMinigameDTO->d[0];
+    u32 v10 = slotsMinigameDTO->d[0];
     v2 = 0;
     if (v9 > 1) {
         v2 = *v4++;

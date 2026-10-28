@@ -21,9 +21,9 @@
 #include "pokemon.h"
 #include "unk_02032798.h"
 
-static void sub_0209BA94(int param0, int param1, void *param2, void *param3);
+static void sub_0209BA94(int param0, int slotsMinigameDTO, void *param2, void *param3);
 static void BattleTower_HandleTrainerIDListCmd(int netID, int unused, void *data, void *context);
-static void sub_0209BB68(int param0, int param1, void *param2, void *param3);
+static void sub_0209BB68(int param0, int slotsMinigameDTO, void *param2, void *param3);
 static void WFCFacilitySelector_HandleFacilityAndStreakCmd(int netID, int unused, void *data, void *context);
 static void WFCFacilitySelector_HandleDidDropOutCmd(int netID, int unused, void *data, void *context);
 static void WFCFacilitySelector_HandleSelectedMonsCmd(int netID, int unused, void *data, void *context);
@@ -91,7 +91,7 @@ void sub_0209BA80(void *param0)
     CommCmd_Init(Unk_020F8BF0, v0, param0);
 }
 
-static void sub_0209BA94(int param0, int param1, void *param2, void *param3)
+static void sub_0209BA94(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     u16 v0;
     int v1;
@@ -150,7 +150,7 @@ static void BattleTower_HandleTrainerIDListCmd(int netID, int unused, void *data
     MI_CpuCopy8(trainerIDs, battleTower->trainerIDs, BT_OPPONENTS_COUNT * 2 * sizeof(u16));
 }
 
-static void sub_0209BB68(int param0, int param1, void *param2, void *param3)
+static void sub_0209BB68(int param0, int slotsMinigameDTO, void *param2, void *param3)
 {
     int v0;
     BattleTower *battleTower = param3;

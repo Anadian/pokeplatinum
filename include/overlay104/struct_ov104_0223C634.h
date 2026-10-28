@@ -9,7 +9,7 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    UnkStruct_ov63_0222BEC0 *unk_00;
+    UnkStruct_ov63_0222BEC0 *coins;
     UnkStruct_ov63_0222CE44 *sprite;
     UnkStruct_ov104_0223D570 unk_08;
     UnkStruct_ov104_0223D8F0 unk_26;

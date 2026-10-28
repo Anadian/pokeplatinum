@@ -32,33 +32,33 @@ enum EasyChatTouchButton {
 #define EC_JOY_REPEAT(buttons) (easyChatApp->pressedKeysRepeatable & (buttons))
 
 static EasyChatApp *EasyChatApp_New(ApplicationManager *appMan);
-static void ov20_021D0F64(UnkStruct_ov20_021D0F64 *param0, EasyChatSentence *param1);
+static void ov20_021D0F64(UnkStruct_ov20_021D0F64 *param0, EasyChatSentence *slotsMinigameDTO);
 static void EasyChat_FreeAppData(EasyChatApp *easyChatApp, ApplicationManager *appMan);
-static int EasyChat_Main_Initial(EasyChatApp *easyChatApp, int *param1);
-static int EasyChat_Main_OneWord(EasyChatApp *easyChatApp, int *param1);
-static int EasyChat_Main_TwoWords(EasyChatApp *easyChatApp, int *param1);
-static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *param1);
-static int ov20_021D1468(EasyChatApp *easyChatApp, int *param1);
-static int EasyChat_Main_SelectCategory(EasyChatApp *easyChatApp, int *param1);
+static int EasyChat_Main_Initial(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
+static int EasyChat_Main_OneWord(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
+static int EasyChat_Main_TwoWords(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
+static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
+static int ov20_021D1468(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
+static int EasyChat_Main_SelectCategory(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
 static BOOL ov20_021D16E8(EasyChatApp *easyChatApp);
 static BOOL EasyChat_HandleCategoryCursorMovement(EasyChatApp *easyChatApp);
 static BOOL EasyChat_HandleGroupModeCursorMovement(EasyChatApp *easyChatApp);
 static BOOL EasyChat_HandleABCModeCursorMovement(EasyChatApp *easyChatApp);
 static void ov20_021D1884(UnkStruct_ov20_021D18BC *param0, EasyChatApp *easyChatApp);
-static int EasyChat_Main_SelectWord(EasyChatApp *easyChatApp, int *param1);
-static int EasyChat_HandleSelectWordInput(UnkStruct_ov20_021D18BC *param0, u16 param1);
+static int EasyChat_Main_SelectWord(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
+static int EasyChat_HandleSelectWordInput(UnkStruct_ov20_021D18BC *param0, u16 slotsMinigameDTO);
 static int ov20_021D1B48(UnkStruct_ov20_021D18BC *param0);
 static int ov20_021D1B70(UnkStruct_ov20_021D18BC *param0);
 static BOOL ov20_021D1BB0(EasyChatApp *easyChatApp);
-static void EasyChat_SetTaskFunc(EasyChatApp *easyChatApp, EasyChatTaskFunc param1);
-static void ov20_021D1C5C(EasyChatApp *easyChatApp, int *param1);
-static void ov20_021D1C90(EasyChatApp *easyChatApp, int *param1);
-static void ov20_021D1DBC(EasyChatApp *easyChatApp, int *param1);
+static void EasyChat_SetTaskFunc(EasyChatApp *easyChatApp, EasyChatTaskFunc slotsMinigameDTO);
+static void ov20_021D1C5C(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
+static void ov20_021D1C90(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
+static void ov20_021D1DBC(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
 static BOOL ov20_021D1E70(EasyChatApp *easyChatApp);
 static BOOL EasyChat_IsEntryComplete(EasyChatApp *easyChatApp);
-static void ov20_021D1ED4(UnkStruct_ov20_021D1F34 *param0, int param1, int param2);
-static int ov20_021D1EDC(UnkStruct_ov20_021D1F34 *param0, u16 param1);
-static void ov20_021D1F38(EasyChatApp *easyChatApp, int *param1);
+static void ov20_021D1ED4(UnkStruct_ov20_021D1F34 *param0, int slotsMinigameDTO, int param2);
+static int ov20_021D1EDC(UnkStruct_ov20_021D1F34 *param0, u16 slotsMinigameDTO);
+static void ov20_021D1F38(EasyChatApp *easyChatApp, int *slotsMinigameDTO);
 
 BOOL EasyChat_Init(ApplicationManager *appMan, int *state)
 {
@@ -199,47 +199,47 @@ static EasyChatApp *EasyChatApp_New(ApplicationManager *appMan)
     return easyChatApp;
 }
 
-static void ov20_021D0F64(UnkStruct_ov20_021D0F64 *param0, EasyChatSentence *param1)
+static void ov20_021D0F64(UnkStruct_ov20_021D0F64 *param0, EasyChatSentence *slotsMinigameDTO)
 {
-    param0->unk_00 = EasyChatSentence_GetType(param1);
-    param0->unk_03 = EasyChatSentence_GetBankEntryCountForType(param0->unk_00);
-    param0->unk_02 = EasyChatSentence_GetID(param1);
+    param0->coins = EasyChatSentence_GetType(slotsMinigameDTO);
+    param0->unk_03 = EasyChatSentence_GetBankEntryCountForType(param0->coins);
+    param0->unk_02 = EasyChatSentence_GetID(slotsMinigameDTO);
 }
 
-static void ov20_021D0F88(UnkStruct_ov20_021D0F64 *param0, EasyChatSentence *param1)
+static void ov20_021D0F88(UnkStruct_ov20_021D0F64 *param0, EasyChatSentence *slotsMinigameDTO)
 {
     param0->unk_02++;
 
     if (param0->unk_02 >= param0->unk_03) {
         param0->unk_02 = 0;
-        param0->unk_00++;
+        param0->coins++;
 
-        if (param0->unk_00 >= 5) {
-            param0->unk_00 = 0;
+        if (param0->coins >= 5) {
+            param0->coins = 0;
         }
 
-        param0->unk_03 = EasyChatSentence_GetBankEntryCountForType(param0->unk_00);
+        param0->unk_03 = EasyChatSentence_GetBankEntryCountForType(param0->coins);
     }
 
-    EasyChatSentence_SetTypeAndID(param1, param0->unk_00, param0->unk_02);
+    EasyChatSentence_SetTypeAndID(slotsMinigameDTO, param0->coins, param0->unk_02);
 }
 
-static void ov20_021D0FCC(UnkStruct_ov20_021D0F64 *param0, EasyChatSentence *param1)
+static void ov20_021D0FCC(UnkStruct_ov20_021D0F64 *param0, EasyChatSentence *slotsMinigameDTO)
 {
     param0->unk_02--;
 
     if (param0->unk_02 < 0) {
-        param0->unk_00--;
+        param0->coins--;
 
-        if (param0->unk_00 < 0) {
-            param0->unk_00 = (5 - 1);
+        if (param0->coins < 0) {
+            param0->coins = (5 - 1);
         }
 
-        param0->unk_03 = EasyChatSentence_GetBankEntryCountForType(param0->unk_00);
+        param0->unk_03 = EasyChatSentence_GetBankEntryCountForType(param0->coins);
         param0->unk_02 = (param0->unk_03 - 1);
     }
 
-    EasyChatSentence_SetTypeAndID(param1, param0->unk_00, param0->unk_02);
+    EasyChatSentence_SetTypeAndID(slotsMinigameDTO, param0->coins, param0->unk_02);
 }
 
 static void EasyChat_FreeAppData(EasyChatApp *easyChatApp, ApplicationManager *appMan)
@@ -256,7 +256,7 @@ static void EasyChat_SetMainFunc(EasyChatApp *easyChatApp, EasyChatMainFunc func
     easyChatApp->state = 0;
 }
 
-static int EasyChat_Main_Initial(EasyChatApp *easyChatApp, int *param1)
+static int EasyChat_Main_Initial(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
     static const EasyChatMainFunc funcs[] = {
         [EASY_CHAT_TYPE_ONE_WORD] = EasyChat_Main_OneWord,
@@ -264,12 +264,12 @@ static int EasyChat_Main_Initial(EasyChatApp *easyChatApp, int *param1)
         [EASY_CHAT_TYPE_SENTENCE] = EasyChat_Main_Sentence,
     };
 
-    return funcs[easyChatApp->type](easyChatApp, param1);
+    return funcs[easyChatApp->type](easyChatApp, slotsMinigameDTO);
 }
 
-static int EasyChat_Main_OneWord(EasyChatApp *easyChatApp, int *param1)
+static int EasyChat_Main_OneWord(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         if (easyChatApp->touchedButtonIndex == TOUCH_BUTTON_GROUP_MODE && easyChatApp->mode != GROUP_MODE
             || easyChatApp->touchedButtonIndex == TOUCH_BUTTON_ABC_MODE && easyChatApp->mode != ABC_MODE
@@ -282,7 +282,7 @@ static int EasyChat_Main_OneWord(EasyChatApp *easyChatApp, int *param1)
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             easyChatApp->unk_4C = 0;
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_04);
-            *param1 = 1;
+            *slotsMinigameDTO = 1;
             break;
         }
 
@@ -296,7 +296,7 @@ static int EasyChat_Main_OneWord(EasyChatApp *easyChatApp, int *param1)
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             easyChatApp->categoryCursorPos = 0;
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_06);
-            *param1 = 2;
+            *slotsMinigameDTO = 2;
             break;
         }
         break;
@@ -315,9 +315,9 @@ static int EasyChat_Main_OneWord(EasyChatApp *easyChatApp, int *param1)
     return 0;
 }
 
-static int EasyChat_Main_TwoWords(EasyChatApp *easyChatApp, int *param1)
+static int EasyChat_Main_TwoWords(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         if (easyChatApp->touchedButtonIndex == TOUCH_BUTTON_GROUP_MODE && easyChatApp->mode != GROUP_MODE
             || easyChatApp->touchedButtonIndex == TOUCH_BUTTON_ABC_MODE && easyChatApp->mode != ABC_MODE
@@ -330,7 +330,7 @@ static int EasyChat_Main_TwoWords(EasyChatApp *easyChatApp, int *param1)
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             easyChatApp->unk_4C = 0;
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_04);
-            *param1 = 1;
+            *slotsMinigameDTO = 1;
             break;
         }
 
@@ -362,7 +362,7 @@ static int EasyChat_Main_TwoWords(EasyChatApp *easyChatApp, int *param1)
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             easyChatApp->categoryCursorPos = 0;
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_06);
-            *param1 = 2;
+            *slotsMinigameDTO = 2;
             break;
         }
         break;
@@ -381,12 +381,12 @@ static int EasyChat_Main_TwoWords(EasyChatApp *easyChatApp, int *param1)
     return 0;
 }
 
-static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *param1)
+static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         easyChatApp->unk_64 = ov20_021D2DF4(easyChatApp->unk_14);
-        *param1 = 1;
+        *slotsMinigameDTO = 1;
     case 1:
         if (easyChatApp->touchedButtonIndex == TOUCH_BUTTON_GROUP_MODE && easyChatApp->mode != GROUP_MODE
             || easyChatApp->touchedButtonIndex == TOUCH_BUTTON_ABC_MODE && easyChatApp->mode != ABC_MODE
@@ -413,7 +413,7 @@ static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *param1)
             } else {
                 easyChatApp->unk_4C = 0;
                 ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_04);
-                *param1 = 3;
+                *slotsMinigameDTO = 3;
                 break;
             }
         }
@@ -422,7 +422,7 @@ static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *param1)
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             easyChatApp->unk_4C = 0;
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_04);
-            *param1 = 3;
+            *slotsMinigameDTO = 3;
             break;
         }
 
@@ -431,7 +431,7 @@ static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *param1)
             easyChatApp->currentWordSlot = 0;
             ov20_021D0FCC(&easyChatApp->unk_60, &easyChatApp->sentence);
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_03);
-            *param1 = 2;
+            *slotsMinigameDTO = 2;
             break;
         }
 
@@ -440,7 +440,7 @@ static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *param1)
             easyChatApp->currentWordSlot = 0;
             ov20_021D0F88(&easyChatApp->unk_60, &easyChatApp->sentence);
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_03);
-            *param1 = 2;
+            *slotsMinigameDTO = 2;
             break;
         }
 
@@ -454,13 +454,13 @@ static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *param1)
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             easyChatApp->categoryCursorPos = 0;
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_06);
-            *param1 = 4;
+            *slotsMinigameDTO = 4;
             break;
         }
         break;
     case 2:
         if (ov20_021D2210(easyChatApp->unk_14, 3)) {
-            *param1 = 0;
+            *slotsMinigameDTO = 0;
         }
         break;
     case 3:
@@ -478,9 +478,9 @@ static int EasyChat_Main_Sentence(EasyChatApp *easyChatApp, int *param1)
     return 0;
 }
 
-static int ov20_021D1468(EasyChatApp *easyChatApp, int *param1)
+static int ov20_021D1468(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         if (ov20_021D21F8(easyChatApp->unk_14)) {
             if (easyChatApp->touchedButtonIndex == TOUCH_BUTTON_GROUP_MODE && easyChatApp->mode != GROUP_MODE
@@ -507,7 +507,7 @@ static int ov20_021D1468(EasyChatApp *easyChatApp, int *param1)
             if (EC_JOY_NEW(PAD_KEY_UP)) {
                 Sound_PlayEffect(SE_CONFIRM_sseq_3);
                 ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_05);
-                *param1 = 5;
+                *slotsMinigameDTO = 5;
                 break;
             }
 
@@ -515,32 +515,32 @@ static int ov20_021D1468(EasyChatApp *easyChatApp, int *param1)
                 Sound_PlayEffect(SE_CONFIRM_sseq_3);
 
                 if (easyChatApp->unk_4C == 0) {
-                    *param1 = 1;
+                    *slotsMinigameDTO = 1;
                     break;
                 } else {
-                    *param1 = 2;
+                    *slotsMinigameDTO = 2;
                     break;
                 }
             }
 
             if (EC_JOY_NEW(PAD_BUTTON_B)) {
                 Sound_PlayEffect(SE_CONFIRM_sseq_3);
-                *param1 = 2;
+                *slotsMinigameDTO = 2;
                 break;
             }
         }
         break;
     case 1:
-        *param1 = 3;
+        *slotsMinigameDTO = 3;
         EasyChat_SetTaskFunc(easyChatApp, ov20_021D1C90);
         break;
     case 2:
-        *param1 = 4;
+        *slotsMinigameDTO = 4;
         EasyChat_SetTaskFunc(easyChatApp, ov20_021D1DBC);
         break;
     case 3:
     case 4:
-        *param1 = 0;
+        *slotsMinigameDTO = 0;
         break;
     case 5:
         if (ov20_021D21F8(easyChatApp->unk_14)) {
@@ -552,9 +552,9 @@ static int ov20_021D1468(EasyChatApp *easyChatApp, int *param1)
     return 0;
 }
 
-static int EasyChat_Main_SelectCategory(EasyChatApp *easyChatApp, int *param1)
+static int EasyChat_Main_SelectCategory(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         if (ov20_021D2210(easyChatApp->unk_14, 15) == 0) {
             break;
@@ -567,7 +567,7 @@ static int EasyChat_Main_SelectCategory(EasyChatApp *easyChatApp, int *param1)
             easyChatApp->mode ^= 1;
             easyChatApp->categoryCursorPos = 0;
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_24);
-            *param1 = 2;
+            *slotsMinigameDTO = 2;
             break;
         }
 
@@ -575,7 +575,7 @@ static int EasyChat_Main_SelectCategory(EasyChatApp *easyChatApp, int *param1)
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_07);
             easyChatApp->nextMainFunc = EasyChat_Main_Initial;
-            *param1 = 1;
+            *slotsMinigameDTO = 1;
             break;
         }
 
@@ -584,13 +584,13 @@ static int EasyChat_Main_SelectCategory(EasyChatApp *easyChatApp, int *param1)
                 Sound_PlayEffect(SE_CONFIRM_sseq_3);
                 ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_07);
                 easyChatApp->nextMainFunc = EasyChat_Main_Initial;
-                *param1 = 1;
+                *slotsMinigameDTO = 1;
             } else if (ov20_021D16E8(easyChatApp)) {
                 Sound_PlayEffect(SE_CONFIRM_sseq_3);
                 ov20_021D1884(&easyChatApp->unk_54, easyChatApp);
                 easyChatApp->nextMainFunc = EasyChat_Main_SelectWord;
                 ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_08);
-                *param1 = 1;
+                *slotsMinigameDTO = 1;
             } else {
                 Sound_PlayEffect(SEQ_SE_DP_CUSTOM06_sseq);
             }
@@ -610,7 +610,7 @@ static int EasyChat_Main_SelectCategory(EasyChatApp *easyChatApp, int *param1)
         break;
     case 2:
         if (ov20_021D2210(easyChatApp->unk_14, 24)) {
-            *param1 = 0;
+            *slotsMinigameDTO = 0;
         }
         break;
     }
@@ -740,14 +740,14 @@ static BOOL EasyChat_HandleABCModeCursorMovement(EasyChatApp *easyChatApp)
 
 static void ov20_021D1884(UnkStruct_ov20_021D18BC *param0, EasyChatApp *easyChatApp)
 {
-    param0->unk_00 = 0;
+    param0->coins = 0;
     param0->unk_06 = 0;
     param0->unk_07 = 0;
-    param0->unk_04 = ov20_021D1FE4(easyChatApp);
+    param0->slotMachineVariant = ov20_021D1FE4(easyChatApp);
     param0->unk_08 = 0;
 
-    if (param0->unk_04 > 10) {
-        param0->unk_02 = ((param0->unk_04 - 10) / 2) + (param0->unk_04 & 1);
+    if (param0->slotMachineVariant > 10) {
+        param0->unk_02 = ((param0->slotMachineVariant - 10) / 2) + (param0->slotMachineVariant & 1);
     } else {
         param0->unk_02 = 0;
     }
@@ -760,7 +760,7 @@ static u32 ov20_021D18BC(const UnkStruct_ov20_021D18BC *param0)
 
 static u32 ov20_021D18C8(const UnkStruct_ov20_021D18BC *param0)
 {
-    return (param0->unk_00 * 2) + ov20_021D18BC(param0);
+    return (param0->coins * 2) + ov20_021D18BC(param0);
 }
 
 static int ov20_021D18D8(const UnkStruct_ov20_021D18BC *param0)
@@ -770,7 +770,7 @@ static int ov20_021D18D8(const UnkStruct_ov20_021D18BC *param0)
 
 static int ov20_021D18DC(const UnkStruct_ov20_021D18BC *param0)
 {
-    return param0->unk_00;
+    return param0->coins;
 }
 
 static int ov20_021D18E0(const UnkStruct_ov20_021D18BC *param0)
@@ -778,9 +778,9 @@ static int ov20_021D18E0(const UnkStruct_ov20_021D18BC *param0)
     return param0->unk_02;
 }
 
-static int EasyChat_Main_SelectWord(EasyChatApp *easyChatApp, int *param1)
+static int EasyChat_Main_SelectWord(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         if (easyChatApp->touchedButtonIndex == TOUCH_BUTTON_GROUP_MODE && easyChatApp->mode != GROUP_MODE
             || easyChatApp->touchedButtonIndex == TOUCH_BUTTON_ABC_MODE && easyChatApp->mode != ABC_MODE
@@ -790,7 +790,7 @@ static int EasyChat_Main_SelectWord(EasyChatApp *easyChatApp, int *param1)
             easyChatApp->mode ^= 1;
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_09);
             easyChatApp->nextMainFunc = EasyChat_Main_SelectCategory;
-            *param1 = 3;
+            *slotsMinigameDTO = 3;
             break;
         }
 
@@ -812,12 +812,12 @@ static int EasyChat_Main_SelectWord(EasyChatApp *easyChatApp, int *param1)
         case 2:
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_16);
-            *param1 = 1;
+            *slotsMinigameDTO = 1;
             return 0;
         case 3:
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_16);
-            *param1 = 2;
+            *slotsMinigameDTO = 2;
             return 0;
         }
 
@@ -825,7 +825,7 @@ static int EasyChat_Main_SelectWord(EasyChatApp *easyChatApp, int *param1)
             Sound_PlayEffect(SE_CONFIRM_sseq_3);
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_09);
             easyChatApp->nextMainFunc = EasyChat_Main_SelectCategory;
-            *param1 = 3;
+            *slotsMinigameDTO = 3;
             break;
         }
 
@@ -834,25 +834,25 @@ static int EasyChat_Main_SelectWord(EasyChatApp *easyChatApp, int *param1)
             ov20_021D1BB0(easyChatApp);
             easyChatApp->nextMainFunc = EasyChat_Main_Initial;
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_10);
-            *param1 = 3;
+            *slotsMinigameDTO = 3;
             break;
         }
         break;
     case 1:
         if (ov20_021D2210(easyChatApp->unk_14, EASY_CHAT_SYSTASK_16)) {
-            *param1 = 0;
+            *slotsMinigameDTO = 0;
         }
         break;
     case 2:
         if (ov20_021D2210(easyChatApp->unk_14, EASY_CHAT_SYSTASK_16)) {
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_15);
-            *param1 = 0;
+            *slotsMinigameDTO = 0;
         }
         break;
     case 3:
         if (ov20_021D21F8(easyChatApp->unk_14)) {
             EasyChat_SetMainFunc(easyChatApp, easyChatApp->nextMainFunc);
-            *param1 = 0;
+            *slotsMinigameDTO = 0;
         }
         break;
     }
@@ -867,11 +867,11 @@ static int EasyChat_HandleSelectWordInput(UnkStruct_ov20_021D18BC *param0, u16 p
             param0->unk_07++;
             u32 v0 = ov20_021D18C8(param0);
 
-            if (v0 < param0->unk_04) {
+            if (v0 < param0->slotMachineVariant) {
                 return 1;
             }
 
-            if (v0 == param0->unk_04) {
+            if (v0 == param0->slotMachineVariant) {
                 if (v0 & 1) {
                     param0->unk_06 = 0;
                     return 1;
@@ -880,11 +880,11 @@ static int EasyChat_HandleSelectWordInput(UnkStruct_ov20_021D18BC *param0, u16 p
 
             param0->unk_07--;
             return 4;
-        } else if (param0->unk_00 < param0->unk_02) {
+        } else if (param0->coins < param0->unk_02) {
             param0->unk_08 = 1;
-            param0->unk_00++;
+            param0->coins++;
 
-            if (ov20_021D18C8(param0) < param0->unk_04) {
+            if (ov20_021D18C8(param0) < param0->slotMachineVariant) {
                 return 2;
             } else {
                 param0->unk_06 = 0;
@@ -899,9 +899,9 @@ static int EasyChat_HandleSelectWordInput(UnkStruct_ov20_021D18BC *param0, u16 p
         if (param0->unk_07) {
             param0->unk_07--;
             return 1;
-        } else if (param0->unk_00) {
+        } else if (param0->coins) {
             param0->unk_08 = -1;
-            param0->unk_00--;
+            param0->coins--;
             return 2;
         }
 
@@ -911,7 +911,7 @@ static int EasyChat_HandleSelectWordInput(UnkStruct_ov20_021D18BC *param0, u16 p
     if (pressedKeysRepeatable & (PAD_KEY_LEFT | PAD_KEY_RIGHT)) {
         param0->unk_06 ^= 1;
 
-        if (ov20_021D18C8(param0) < param0->unk_04) {
+        if (ov20_021D18C8(param0) < param0->slotMachineVariant) {
             return 1;
         }
 
@@ -932,13 +932,13 @@ static int EasyChat_HandleSelectWordInput(UnkStruct_ov20_021D18BC *param0, u16 p
 
 static int ov20_021D1B48(UnkStruct_ov20_021D18BC *param0)
 {
-    if (param0->unk_00) {
-        if (param0->unk_00 >= 5) {
-            param0->unk_00 -= 5;
+    if (param0->coins) {
+        if (param0->coins >= 5) {
+            param0->coins -= 5;
             param0->unk_08 = -5;
         } else {
-            param0->unk_08 = -(param0->unk_00);
-            param0->unk_00 = 0;
+            param0->unk_08 = -(param0->coins);
+            param0->coins = 0;
         }
 
         return 2;
@@ -949,16 +949,16 @@ static int ov20_021D1B48(UnkStruct_ov20_021D18BC *param0)
 
 static int ov20_021D1B70(UnkStruct_ov20_021D18BC *param0)
 {
-    if (param0->unk_00 < param0->unk_02) {
-        if ((param0->unk_00 + 5) <= param0->unk_02) {
+    if (param0->coins < param0->unk_02) {
+        if ((param0->coins + 5) <= param0->unk_02) {
             param0->unk_08 = 5;
-            param0->unk_00 += 5;
+            param0->coins += 5;
         } else {
-            param0->unk_08 = param0->unk_02 - param0->unk_00;
-            param0->unk_00 = param0->unk_02;
+            param0->unk_08 = param0->unk_02 - param0->coins;
+            param0->coins = param0->unk_02;
         }
 
-        if (ov20_021D18C8(param0) < param0->unk_04) {
+        if (ov20_021D18C8(param0) < param0->slotMachineVariant) {
             return 2;
         } else {
             param0->unk_06 = 0;
@@ -995,12 +995,12 @@ static BOOL ov20_021D1BB0(EasyChatApp *easyChatApp)
     return EasyChat_IsEntryComplete(easyChatApp);
 }
 
-static int ov20_021D1C18(EasyChatApp *easyChatApp, int *param1)
+static int ov20_021D1C18(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_01);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 1:
         if (ov20_021D21F8(easyChatApp->unk_14)) {
@@ -1023,12 +1023,12 @@ static void EasyChat_ClearTaskFunc(EasyChatApp *easyChatApp)
     easyChatApp->taskFunc = NULL;
 }
 
-static void ov20_021D1C5C(EasyChatApp *easyChatApp, int *param1)
+static void ov20_021D1C5C(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_02);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 1:
         if (ov20_021D21F8(easyChatApp->unk_14)) {
@@ -1038,18 +1038,18 @@ static void ov20_021D1C5C(EasyChatApp *easyChatApp, int *param1)
     }
 }
 
-static void ov20_021D1C90(EasyChatApp *easyChatApp, int *param1)
+static void ov20_021D1C90(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         if (ov20_021D1E70(easyChatApp) || sub_02097568(easyChatApp->args)) {
             if (EasyChat_IsEntryComplete(easyChatApp)) {
                 ov20_021D1ED4(&easyChatApp->unk_66, 1, 0);
                 ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_18);
-                *param1 = 1;
+                *slotsMinigameDTO = 1;
             } else {
                 ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_20);
-                *param1 = 2;
+                *slotsMinigameDTO = 2;
             }
         } else {
             EasyChat_SetTaskFunc(easyChatApp, ov20_021D1DBC);
@@ -1066,7 +1066,7 @@ static void ov20_021D1C90(EasyChatApp *easyChatApp, int *param1)
             case -2:
                 Sound_PlayEffect(SE_CONFIRM_sseq_3);
                 ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_22);
-                *param1 = 3;
+                *slotsMinigameDTO = 3;
                 break;
             case 0:
                 Sound_PlayEffect(SE_CONFIRM_sseq_3);
@@ -1077,7 +1077,7 @@ static void ov20_021D1C90(EasyChatApp *easyChatApp, int *param1)
 
                 EasyChatArgs_UpdateContent(easyChatApp->args, easyChatApp->words, &easyChatApp->sentence);
                 EasyChat_SetMainFunc(easyChatApp, ov20_021D1C18);
-                *param1 = 3;
+                *slotsMinigameDTO = 3;
                 break;
             }
         }
@@ -1085,7 +1085,7 @@ static void ov20_021D1C90(EasyChatApp *easyChatApp, int *param1)
     case 2:
         if (EC_JOY_NEW(PAD_BUTTON_A | PAD_BUTTON_B | PAD_PLUS_KEY_MASK)) {
             ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_17);
-            *param1 = 3;
+            *slotsMinigameDTO = 3;
         }
         break;
     case 3:
@@ -1096,13 +1096,13 @@ static void ov20_021D1C90(EasyChatApp *easyChatApp, int *param1)
     }
 }
 
-static void ov20_021D1DBC(EasyChatApp *easyChatApp, int *param1)
+static void ov20_021D1DBC(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         ov20_021D1ED4(&easyChatApp->unk_66, 1, 1);
         ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_19);
-        *param1 = 1;
+        *slotsMinigameDTO = 1;
         break;
     case 1:
         if (ov20_021D2210(easyChatApp->unk_14, 21)) {
@@ -1115,12 +1115,12 @@ static void ov20_021D1DBC(EasyChatApp *easyChatApp, int *param1)
             case -2:
                 Sound_PlayEffect(SE_CONFIRM_sseq_3);
                 ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_22);
-                *param1 = 2;
+                *slotsMinigameDTO = 2;
                 break;
             case 0:
                 Sound_PlayEffect(SE_CONFIRM_sseq_3);
                 EasyChat_SetMainFunc(easyChatApp, ov20_021D1C18);
-                *param1 = 2;
+                *slotsMinigameDTO = 2;
                 break;
             }
         }
@@ -1152,37 +1152,37 @@ static BOOL EasyChat_IsEntryComplete(EasyChatApp *easyChatApp)
     return FALSE;
 }
 
-static void ov20_021D1ED4(UnkStruct_ov20_021D1F34 *param0, int param1, int param2)
+static void ov20_021D1ED4(UnkStruct_ov20_021D1F34 *param0, int slotsMinigameDTO, int param2)
 {
-    param0->unk_00 = param2;
-    param0->unk_01 = param1;
+    param0->coins = param2;
+    param0->unk_01 = slotsMinigameDTO;
 }
 
-static int ov20_021D1EDC(UnkStruct_ov20_021D1F34 *param0, u16 param1)
+static int ov20_021D1EDC(UnkStruct_ov20_021D1F34 *param0, u16 slotsMinigameDTO)
 {
-    if (param1 & PAD_KEY_UP) {
-        if (param0->unk_00 == 0) {
+    if (slotsMinigameDTO & PAD_KEY_UP) {
+        if (param0->coins == 0) {
             return -4;
         } else {
-            param0->unk_00--;
+            param0->coins--;
             return -3;
         }
     }
 
-    if (param1 & PAD_KEY_DOWN) {
-        if (param0->unk_00 == param0->unk_01) {
+    if (slotsMinigameDTO & PAD_KEY_DOWN) {
+        if (param0->coins == param0->unk_01) {
             return -4;
         } else {
-            param0->unk_00++;
+            param0->coins++;
             return -3;
         }
     }
 
-    if (param1 & PAD_BUTTON_A) {
-        return param0->unk_00;
+    if (slotsMinigameDTO & PAD_BUTTON_A) {
+        return param0->coins;
     }
 
-    if (param1 & PAD_BUTTON_B) {
+    if (slotsMinigameDTO & PAD_BUTTON_B) {
         return -2;
     }
 
@@ -1191,17 +1191,17 @@ static int ov20_021D1EDC(UnkStruct_ov20_021D1F34 *param0, u16 param1)
 
 static u32 ov20_021D1F34(const UnkStruct_ov20_021D1F34 *param0)
 {
-    return param0->unk_00;
+    return param0->coins;
 }
 
-static void ov20_021D1F38(EasyChatApp *easyChatApp, int *param1)
+static void ov20_021D1F38(EasyChatApp *easyChatApp, int *slotsMinigameDTO)
 {
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         Sound_PlayEffect(SEQ_SE_DP_BUTTON9_sseq);
         easyChatApp->mode ^= 1;
         ov20_021D21A0(easyChatApp->unk_14, EASY_CHAT_SYSTASK_23);
-        *param1 = 1;
+        *slotsMinigameDTO = 1;
         break;
     case 1:
         if (ov20_021D21F8(easyChatApp->unk_14)) {
@@ -1241,9 +1241,9 @@ u16 EasyChat_GetWordAtSlot(const EasyChatApp *easyChatApp, int slot)
     }
 }
 
-String *ov20_021D1FC0(const EasyChatApp *easyChatApp, u32 param1)
+String *ov20_021D1FC0(const EasyChatApp *easyChatApp, u32 slotsMinigameDTO)
 {
-    return EasyChatSentence_GetTemplateString(&easyChatApp->sentence, param1);
+    return EasyChatSentence_GetTemplateString(&easyChatApp->sentence, slotsMinigameDTO);
 }
 
 u32 EasyChat_GetCurrentWordSlot(const EasyChatApp *easyChatApp)
@@ -1270,12 +1270,12 @@ u32 ov20_021D1FE4(const EasyChatApp *easyChatApp)
     }
 }
 
-void ov20_021D2008(const EasyChatApp *easyChatApp, u32 param1, String *param2)
+void ov20_021D2008(const EasyChatApp *easyChatApp, u32 slotsMinigameDTO, String *param2)
 {
     if (easyChatApp->mode == GROUP_MODE) {
-        EasyChatWordList_GetStringByGroupIndex(easyChatApp->unk_18, easyChatApp->categoryCursorPos, param1, param2);
+        EasyChatWordList_GetStringByGroupIndex(easyChatApp->unk_18, easyChatApp->categoryCursorPos, slotsMinigameDTO, param2);
     } else {
-        EasyChatWordList_GetStringByLetterIndex(easyChatApp->unk_18, easyChatApp->categoryCursorPos, param1, param2);
+        EasyChatWordList_GetStringByLetterIndex(easyChatApp->unk_18, easyChatApp->categoryCursorPos, slotsMinigameDTO, param2);
     }
 }
 

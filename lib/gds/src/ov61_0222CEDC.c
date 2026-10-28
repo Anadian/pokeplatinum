@@ -8,7 +8,7 @@ static void ov61_0222CFD4(void);
 void ov61_0222CEDC(void)
 {
     ov61_0222CFD4();
-    memset(&Unk_ov61_0222E764.unk_00, 0, sizeof(UnkStruct_ov62_022349A8_sub1));
+    memset(&Unk_ov61_0222E764.coins, 0, sizeof(UnkStruct_ov62_022349A8_sub1));
     Unk_ov61_0222E764.unk_138 = 0;
     Unk_ov61_0222E764.unk_140[0] = 0;
     Unk_ov61_0222E764.unk_240 = 0;
@@ -19,7 +19,7 @@ void ov61_0222CEDC(void)
 BOOL ov61_0222CF40(char *url, int port, UnkStruct_ov62_022349A8_sub1 *param2)
 {
     if (param2) {
-        Unk_ov61_0222E764.unk_00 = *param2;
+        Unk_ov61_0222E764.coins = *param2;
         Unk_ov61_0222E764.unk_138 = 0;
     }
 
@@ -177,7 +177,7 @@ void ov61_0222D040(void)
     ov61_0222D4DC();
 }
 
-BOOL ov61_0222D1FC(int param0, void *param1, void *param2, int param3)
+BOOL ov61_0222D1FC(int param0, void *slotsMinigameDTO, void *param2, int param3)
 {
     ov61_0222D4C8();
     switch (Unk_ov61_0222E764.unk_13C) {
@@ -231,10 +231,10 @@ BOOL ov61_0222D1FC(int param0, void *param1, void *param2, int param3)
     memcpy(v1, &v2, 4);
 
     UnkStruct_ov61_0222D1FC *v3 = Unk_ov61_0222E764.unk_258 + 4;
-    v3->unk_00 = param0;
-    v3->unk_04 = Unk_ov61_0222E764.unk_00;
+    v3->coins = param0;
+    v3->slotMachineVariant = Unk_ov61_0222E764.coins;
     v3->unk_02 = 0;
-    memcpy(&v3->unk_136, param1, v2 - 0x140);
+    memcpy(&v3->unk_136, slotsMinigameDTO, v2 - 0x140);
 
     ov61_0222E0B8(Unk_ov61_0222E764.unk_258 + 4, Unk_ov61_0222E764.unk_254 - 4, Unk_ov61_0222E764.unk_258 + 4);
     Unk_ov61_0222E764.unk_13C = 2;

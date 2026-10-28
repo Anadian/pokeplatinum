@@ -15,270 +15,270 @@
 #include "trainer_info.h"
 #include "unk_02017038.h"
 
-static int DeterminePokemonStatus(Pokemon *param0, BOOL param1, int param2);
+static int DeterminePokemonStatus(Pokemon *param0, BOOL slotsMinigameDTO, int param2);
 static void InitializeNatureRelatedString(PokemonInfoDisplayStruct *param0);
-static void InitializePokemonMetInfoString(PokemonInfoDisplayStruct *param0, int param1);
-static void InitializeAlternateMetInfoString(PokemonInfoDisplayStruct *param0, int param1);
-static void InitializeSpecialMetInfoString(PokemonInfoDisplayStruct *param0, int param1, int param2);
+static void InitializePokemonMetInfoString(PokemonInfoDisplayStruct *param0, int slotsMinigameDTO);
+static void InitializeAlternateMetInfoString(PokemonInfoDisplayStruct *param0, int slotsMinigameDTO);
+static void InitializeSpecialMetInfoString(PokemonInfoDisplayStruct *param0, int slotsMinigameDTO, int param2);
 static void InitializeIVsString(PokemonInfoDisplayStruct *param0);
 static void InitializeFlavorAffinityString(PokemonInfoDisplayStruct *param0);
 static void InitializeFriendshipLevelString(PokemonInfoDisplayStruct *param0);
-static void AssignTrainerInfoToBoxPokemon(BoxPokemon *boxMon, TrainerInfo *param1, enum HeapID heapID);
+static void AssignTrainerInfoToBoxPokemon(BoxPokemon *boxMon, TrainerInfo *slotsMinigameDTO, enum HeapID heapID);
 static void BoxPokemon_SetMetLocationAndDate(BoxPokemon *boxMon, int metLocation, int isHatch);
 static void BoxPokemon_ResetMetLocationAndDate(BoxPokemon *boxMon, int isHatch);
 static void BoxPokemon_SetMetLevelToCurrentLevel(BoxPokemon *boxMon);
 static void BoxPokemon_SetFatefulEncounterFlag(BoxPokemon *boxMon);
 
-PokemonInfoDisplayStruct *sub_02092494(Pokemon *param0, BOOL param1, enum HeapID heapID)
+PokemonInfoDisplayStruct *sub_02092494(Pokemon *param0, BOOL slotsMinigameDTO, enum HeapID heapID)
 {
     PokemonInfoDisplayStruct *v0 = Heap_Alloc(heapID, sizeof(PokemonInfoDisplayStruct));
     v0->heapID = heapID;
-    v0->unk_04 = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_POKEMON_SUMMARY_SCREEN, v0->heapID);
+    v0->slotMachineVariant = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_POKEMON_SUMMARY_SCREEN, v0->heapID);
     v0->unk_08 = StringTemplate_New(9, 32, v0->heapID);
-    v0->unk_0C = param0;
-    v0->unk_10 = param1;
+    v0->slotsMinigameDTO = param0;
+    v0->unk_10 = slotsMinigameDTO;
 
     {
-        v0->unk_14.unk_00 = 0;
-        v0->unk_14.unk_04 = NULL;
+        v0->unk_14.coins = 0;
+        v0->unk_14.slotMachineVariant = NULL;
 
-        v0->unk_1C.unk_00 = 0;
-        v0->unk_1C.unk_04 = NULL;
+        v0->unk_1C.coins = 0;
+        v0->unk_1C.slotMachineVariant = NULL;
 
-        v0->unk_24.unk_00 = 0;
-        v0->unk_24.unk_04 = NULL;
+        v0->unk_24.coins = 0;
+        v0->unk_24.slotMachineVariant = NULL;
 
-        v0->unk_2C.unk_00 = 0;
-        v0->unk_2C.unk_04 = NULL;
+        v0->unk_2C.coins = 0;
+        v0->unk_2C.slotMachineVariant = NULL;
 
-        v0->unk_34.unk_00 = 0;
-        v0->unk_34.unk_04 = NULL;
+        v0->unk_34.coins = 0;
+        v0->unk_34.slotMachineVariant = NULL;
     }
 
-    switch (DeterminePokemonStatus(v0->unk_0C, v0->unk_10, v0->heapID)) {
+    switch (DeterminePokemonStatus(v0->slotsMinigameDTO, v0->unk_10, v0->heapID)) {
     case 0:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 49);
 
-        v0->unk_24.unk_00 = 6;
+        v0->unk_24.coins = 6;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 7;
+        v0->unk_2C.coins = 7;
         InitializeFlavorAffinityString(v0);
         break;
     case 1:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 50);
 
-        v0->unk_24.unk_00 = 6;
+        v0->unk_24.coins = 6;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 7;
+        v0->unk_2C.coins = 7;
         InitializeFlavorAffinityString(v0);
         break;
     case 2:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 51);
 
-        v0->unk_24.unk_00 = 6;
+        v0->unk_24.coins = 6;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 7;
+        v0->unk_2C.coins = 7;
         InitializeFlavorAffinityString(v0);
         break;
     case 3:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 52);
 
-        v0->unk_24.unk_00 = 8;
+        v0->unk_24.coins = 8;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 9;
+        v0->unk_2C.coins = 9;
         InitializeFlavorAffinityString(v0);
         break;
     case 4:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 53);
 
-        v0->unk_24.unk_00 = 8;
+        v0->unk_24.coins = 8;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 9;
+        v0->unk_2C.coins = 9;
         InitializeFlavorAffinityString(v0);
         break;
     case 5:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 54);
 
-        v0->unk_24.unk_00 = 8;
+        v0->unk_24.coins = 8;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 9;
+        v0->unk_2C.coins = 9;
         InitializeFlavorAffinityString(v0);
         break;
     case 6:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 55);
 
-        v0->unk_24.unk_00 = 8;
+        v0->unk_24.coins = 8;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 9;
+        v0->unk_2C.coins = 9;
         InitializeFlavorAffinityString(v0);
         break;
     case 7:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 56);
 
-        v0->unk_24.unk_00 = 7;
+        v0->unk_24.coins = 7;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 8;
+        v0->unk_2C.coins = 8;
         InitializeFlavorAffinityString(v0);
         break;
     case 8:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 57);
 
-        v0->unk_24.unk_00 = 7;
+        v0->unk_24.coins = 7;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 8;
+        v0->unk_2C.coins = 8;
         InitializeFlavorAffinityString(v0);
         break;
     case 9:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 58);
 
-        v0->unk_24.unk_00 = 9;
+        v0->unk_24.coins = 9;
         InitializeIVsString(v0);
         break;
     case 10:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 59);
 
-        v0->unk_24.unk_00 = 9;
+        v0->unk_24.coins = 9;
         InitializeIVsString(v0);
         break;
     case 11:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 60);
 
-        v0->unk_24.unk_00 = 9;
+        v0->unk_24.coins = 9;
         InitializeIVsString(v0);
         break;
     case 12:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 61);
 
-        v0->unk_24.unk_00 = 9;
+        v0->unk_24.coins = 9;
         InitializeIVsString(v0);
         break;
     case 13:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 62);
 
-        v0->unk_24.unk_00 = 9;
+        v0->unk_24.coins = 9;
         InitializeIVsString(v0);
         break;
     case 14:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializePokemonMetInfoString(v0, 63);
 
-        v0->unk_24.unk_00 = 9;
+        v0->unk_24.coins = 9;
         InitializeIVsString(v0);
         break;
     case 15:
-        v0->unk_14.unk_00 = 1;
+        v0->unk_14.coins = 1;
         InitializeNatureRelatedString(v0);
 
-        v0->unk_1C.unk_00 = 2;
+        v0->unk_1C.coins = 2;
         InitializeAlternateMetInfoString(v0, 64);
 
-        v0->unk_24.unk_00 = 6;
+        v0->unk_24.coins = 6;
         InitializeIVsString(v0);
 
-        v0->unk_2C.unk_00 = 7;
+        v0->unk_2C.coins = 7;
         InitializeFlavorAffinityString(v0);
         break;
     case 16:
-        v0->unk_1C.unk_00 = 1;
+        v0->unk_1C.coins = 1;
         InitializeSpecialMetInfoString(v0, 101, 0);
 
-        v0->unk_34.unk_00 = 6;
+        v0->unk_34.coins = 6;
         InitializeFriendshipLevelString(v0);
         break;
     case 17:
-        v0->unk_1C.unk_00 = 1;
+        v0->unk_1C.coins = 1;
         InitializeSpecialMetInfoString(v0, 102, 1);
 
-        v0->unk_34.unk_00 = 6;
+        v0->unk_34.coins = 6;
         InitializeFriendshipLevelString(v0);
         break;
     case 18:
-        v0->unk_1C.unk_00 = 1;
+        v0->unk_1C.coins = 1;
         InitializeSpecialMetInfoString(v0, 103, 0);
 
-        v0->unk_34.unk_00 = 6;
+        v0->unk_34.coins = 6;
         InitializeFriendshipLevelString(v0);
         break;
     case 19:
-        v0->unk_1C.unk_00 = 1;
+        v0->unk_1C.coins = 1;
         InitializeSpecialMetInfoString(v0, 103, 1);
 
-        v0->unk_34.unk_00 = 6;
+        v0->unk_34.coins = 6;
         InitializeFriendshipLevelString(v0);
         break;
     case 20:
-        v0->unk_1C.unk_00 = 1;
+        v0->unk_1C.coins = 1;
         InitializeSpecialMetInfoString(v0, 104, 0);
 
-        v0->unk_34.unk_00 = 6;
+        v0->unk_34.coins = 6;
         InitializeFriendshipLevelString(v0);
         break;
     }
@@ -288,76 +288,76 @@ PokemonInfoDisplayStruct *sub_02092494(Pokemon *param0, BOOL param1, enum HeapID
 
 void sub_0209282C(PokemonInfoDisplayStruct *param0)
 {
-    if (param0->unk_14.unk_04 != NULL) {
-        Heap_Free(param0->unk_14.unk_04);
+    if (param0->unk_14.slotMachineVariant != NULL) {
+        Heap_Free(param0->unk_14.slotMachineVariant);
     }
 
-    if (param0->unk_1C.unk_04 != NULL) {
-        Heap_Free(param0->unk_1C.unk_04);
+    if (param0->unk_1C.slotMachineVariant != NULL) {
+        Heap_Free(param0->unk_1C.slotMachineVariant);
     }
 
-    if (param0->unk_24.unk_04 != NULL) {
-        Heap_Free(param0->unk_24.unk_04);
+    if (param0->unk_24.slotMachineVariant != NULL) {
+        Heap_Free(param0->unk_24.slotMachineVariant);
     }
 
-    if (param0->unk_2C.unk_04 != NULL) {
-        Heap_Free(param0->unk_2C.unk_04);
+    if (param0->unk_2C.slotMachineVariant != NULL) {
+        Heap_Free(param0->unk_2C.slotMachineVariant);
     }
 
-    if (param0->unk_34.unk_04 != NULL) {
-        Heap_Free(param0->unk_34.unk_04);
+    if (param0->unk_34.slotMachineVariant != NULL) {
+        Heap_Free(param0->unk_34.slotMachineVariant);
     }
 
     StringTemplate_Free(param0->unk_08);
-    MessageLoader_Free(param0->unk_04);
+    MessageLoader_Free(param0->slotMachineVariant);
     Heap_Free(param0);
 }
 
 static void InitializeNatureRelatedString(PokemonInfoDisplayStruct *param0)
 {
-    int v0 = Pokemon_GetNature(param0->unk_0C);
+    int v0 = Pokemon_GetNature(param0->slotsMinigameDTO);
 
     if (v0 > 24) {
         return;
     }
 
-    param0->unk_14.unk_04 = String_Init(((2 * 18) * 2), param0->heapID);
-    MessageLoader_GetString(param0->unk_04, (24 + v0), param0->unk_14.unk_04);
+    param0->unk_14.slotMachineVariant = String_Init(((2 * 18) * 2), param0->heapID);
+    MessageLoader_GetString(param0->slotMachineVariant, (24 + v0), param0->unk_14.slotMachineVariant);
 }
 
-static void InitializePokemonMetInfoString(PokemonInfoDisplayStruct *param0, int param1)
+static void InitializePokemonMetInfoString(PokemonInfoDisplayStruct *param0, int slotsMinigameDTO)
 {
     String *v0 = String_Init((((2 * 18) * 2) * 8), param0->heapID);
 
-    param0->unk_1C.unk_04 = String_Init((((2 * 18) * 2) * 8), param0->heapID);
+    param0->unk_1C.slotMachineVariant = String_Init((((2 * 18) * 2) * 8), param0->heapID);
 
-    MessageLoader_GetString(param0->unk_04, param1, v0);
-    StringTemplate_SetNumber(param0->unk_08, 0, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_YEAR, NULL), 2, 2, 1);
-    StringTemplate_SetMonthName(param0->unk_08, 1, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_MONTH, NULL));
-    StringTemplate_SetNumber(param0->unk_08, 2, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_DAY, NULL), 2, 0, 1);
-    StringTemplate_SetNumber(param0->unk_08, 3, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_LEVEL, NULL), 3, 0, 1);
-    StringTemplate_SetMetLocationName(param0->unk_08, 4, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_LOCATION, NULL));
-    StringTemplate_SetNumber(param0->unk_08, 5, Pokemon_GetValue(param0->unk_0C, MON_DATA_EGG_YEAR, NULL), 2, 2, 1);
-    StringTemplate_SetMonthName(param0->unk_08, 6, Pokemon_GetValue(param0->unk_0C, MON_DATA_EGG_MONTH, NULL));
-    StringTemplate_SetNumber(param0->unk_08, 7, Pokemon_GetValue(param0->unk_0C, MON_DATA_EGG_DAY, NULL), 2, 0, 1);
-    StringTemplate_SetMetLocationName(param0->unk_08, 8, Pokemon_GetValue(param0->unk_0C, MON_DATA_EGG_LOCATION, NULL));
-    StringTemplate_Format(param0->unk_08, param0->unk_1C.unk_04, v0);
+    MessageLoader_GetString(param0->slotMachineVariant, slotsMinigameDTO, v0);
+    StringTemplate_SetNumber(param0->unk_08, 0, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_YEAR, NULL), 2, 2, 1);
+    StringTemplate_SetMonthName(param0->unk_08, 1, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_MONTH, NULL));
+    StringTemplate_SetNumber(param0->unk_08, 2, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_DAY, NULL), 2, 0, 1);
+    StringTemplate_SetNumber(param0->unk_08, 3, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_LEVEL, NULL), 3, 0, 1);
+    StringTemplate_SetMetLocationName(param0->unk_08, 4, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_LOCATION, NULL));
+    StringTemplate_SetNumber(param0->unk_08, 5, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_EGG_YEAR, NULL), 2, 2, 1);
+    StringTemplate_SetMonthName(param0->unk_08, 6, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_EGG_MONTH, NULL));
+    StringTemplate_SetNumber(param0->unk_08, 7, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_EGG_DAY, NULL), 2, 0, 1);
+    StringTemplate_SetMetLocationName(param0->unk_08, 8, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_EGG_LOCATION, NULL));
+    StringTemplate_Format(param0->unk_08, param0->unk_1C.slotMachineVariant, v0);
     String_Free(v0);
 }
 
-static void InitializeAlternateMetInfoString(PokemonInfoDisplayStruct *param0, int param1)
+static void InitializeAlternateMetInfoString(PokemonInfoDisplayStruct *param0, int slotsMinigameDTO)
 {
     String *v0 = String_Init((((2 * 18) * 2) * 4), param0->heapID);
 
-    param0->unk_1C.unk_04 = String_Init((((2 * 18) * 2) * 4), param0->heapID);
+    param0->unk_1C.slotMachineVariant = String_Init((((2 * 18) * 2) * 4), param0->heapID);
 
-    MessageLoader_GetString(param0->unk_04, param1, v0);
-    StringTemplate_SetNumber(param0->unk_08, 0, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_YEAR, NULL), 2, 2, 1);
-    StringTemplate_SetMonthName(param0->unk_08, 1, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_MONTH, NULL));
-    StringTemplate_SetNumber(param0->unk_08, 2, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_DAY, NULL), 2, 0, 1);
-    StringTemplate_SetNumber(param0->unk_08, 3, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_LEVEL, NULL), 3, 0, 1);
+    MessageLoader_GetString(param0->slotMachineVariant, slotsMinigameDTO, v0);
+    StringTemplate_SetNumber(param0->unk_08, 0, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_YEAR, NULL), 2, 2, 1);
+    StringTemplate_SetMonthName(param0->unk_08, 1, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_MONTH, NULL));
+    StringTemplate_SetNumber(param0->unk_08, 2, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_DAY, NULL), 2, 0, 1);
+    StringTemplate_SetNumber(param0->unk_08, 3, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_LEVEL, NULL), 3, 0, 1);
 
-    switch (Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_GAME, NULL)) {
+    switch (Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_GAME, NULL)) {
     default:
         StringTemplate_SetMetLocationName(param0->unk_08, 4, (SpecialMetLoc_GetId(1, 7)));
         break;
@@ -384,31 +384,31 @@ static void InitializeAlternateMetInfoString(PokemonInfoDisplayStruct *param0, i
         break;
     }
 
-    StringTemplate_Format(param0->unk_08, param0->unk_1C.unk_04, v0);
+    StringTemplate_Format(param0->unk_08, param0->unk_1C.slotMachineVariant, v0);
     String_Free(v0);
 }
 
-static void InitializeSpecialMetInfoString(PokemonInfoDisplayStruct *param0, int param1, int param2)
+static void InitializeSpecialMetInfoString(PokemonInfoDisplayStruct *param0, int slotsMinigameDTO, int param2)
 {
     String *v0 = String_Init((((2 * 18) * 2) * 5), param0->heapID);
 
-    param0->unk_1C.unk_04 = String_Init((((2 * 18) * 2) * 5), param0->heapID);
+    param0->unk_1C.slotMachineVariant = String_Init((((2 * 18) * 2) * 5), param0->heapID);
 
-    MessageLoader_GetString(param0->unk_04, param1, v0);
+    MessageLoader_GetString(param0->slotMachineVariant, slotsMinigameDTO, v0);
 
     if (param2 == 0) {
-        StringTemplate_SetNumber(param0->unk_08, 5, Pokemon_GetValue(param0->unk_0C, MON_DATA_EGG_YEAR, NULL), 2, 2, 1);
-        StringTemplate_SetMonthName(param0->unk_08, 6, Pokemon_GetValue(param0->unk_0C, MON_DATA_EGG_MONTH, NULL));
-        StringTemplate_SetNumber(param0->unk_08, 7, Pokemon_GetValue(param0->unk_0C, MON_DATA_EGG_DAY, NULL), 2, 0, 1);
-        StringTemplate_SetMetLocationName(param0->unk_08, 8, Pokemon_GetValue(param0->unk_0C, MON_DATA_EGG_LOCATION, NULL));
+        StringTemplate_SetNumber(param0->unk_08, 5, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_EGG_YEAR, NULL), 2, 2, 1);
+        StringTemplate_SetMonthName(param0->unk_08, 6, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_EGG_MONTH, NULL));
+        StringTemplate_SetNumber(param0->unk_08, 7, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_EGG_DAY, NULL), 2, 0, 1);
+        StringTemplate_SetMetLocationName(param0->unk_08, 8, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_EGG_LOCATION, NULL));
     } else {
-        StringTemplate_SetNumber(param0->unk_08, 5, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_YEAR, NULL), 2, 2, 1);
-        StringTemplate_SetMonthName(param0->unk_08, 6, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_MONTH, NULL));
-        StringTemplate_SetNumber(param0->unk_08, 7, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_DAY, NULL), 2, 0, 1);
-        StringTemplate_SetMetLocationName(param0->unk_08, 8, Pokemon_GetValue(param0->unk_0C, MON_DATA_MET_LOCATION, NULL));
+        StringTemplate_SetNumber(param0->unk_08, 5, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_YEAR, NULL), 2, 2, 1);
+        StringTemplate_SetMonthName(param0->unk_08, 6, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_MONTH, NULL));
+        StringTemplate_SetNumber(param0->unk_08, 7, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_DAY, NULL), 2, 0, 1);
+        StringTemplate_SetMetLocationName(param0->unk_08, 8, Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_MET_LOCATION, NULL));
     }
 
-    StringTemplate_Format(param0->unk_08, param0->unk_1C.unk_04, v0);
+    StringTemplate_Format(param0->unk_08, param0->unk_1C.slotMachineVariant, v0);
     String_Free(v0);
 }
 
@@ -426,16 +426,16 @@ static void InitializeIVsString(PokemonInfoDisplayStruct *param0)
     int v0[6], v1, v2;
     int v3, v4;
 
-    param0->unk_24.unk_04 = String_Init(((2 * 18) * 2), param0->heapID);
+    param0->unk_24.slotMachineVariant = String_Init(((2 * 18) * 2), param0->heapID);
 
-    v0[0] = (Pokemon_GetValue(param0->unk_0C, MON_DATA_HP_IV, NULL));
-    v0[1] = (Pokemon_GetValue(param0->unk_0C, MON_DATA_ATK_IV, NULL));
-    v0[2] = (Pokemon_GetValue(param0->unk_0C, MON_DATA_DEF_IV, NULL));
-    v0[3] = (Pokemon_GetValue(param0->unk_0C, MON_DATA_SPEED_IV, NULL));
-    v0[4] = (Pokemon_GetValue(param0->unk_0C, MON_DATA_SPATK_IV, NULL));
-    v0[5] = (Pokemon_GetValue(param0->unk_0C, MON_DATA_SPDEF_IV, NULL));
+    v0[0] = (Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_HP_IV, NULL));
+    v0[1] = (Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_ATK_IV, NULL));
+    v0[2] = (Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_DEF_IV, NULL));
+    v0[3] = (Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_SPEED_IV, NULL));
+    v0[4] = (Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_SPATK_IV, NULL));
+    v0[5] = (Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_SPDEF_IV, NULL));
 
-    switch (Pokemon_GetValue(param0->unk_0C, MON_DATA_PERSONALITY, NULL) % 6) {
+    switch (Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_PERSONALITY, NULL) % 6) {
     default:
     case 0:
         v1 = 0;
@@ -614,7 +614,7 @@ static void InitializeIVsString(PokemonInfoDisplayStruct *param0)
     }
 
     v4 = Unk_020F5578[v1][(v2 % 5)];
-    MessageLoader_GetString(param0->unk_04, v4, param0->unk_24.unk_04);
+    MessageLoader_GetString(param0->slotMachineVariant, v4, param0->unk_24.slotMachineVariant);
 }
 
 static const u16 Unk_020F556C[6] = {
@@ -630,25 +630,25 @@ static void InitializeFlavorAffinityString(PokemonInfoDisplayStruct *param0)
 {
     int v0, v1, v2;
 
-    param0->unk_2C.unk_04 = String_Init(((2 * 18) * 2), param0->heapID);
+    param0->unk_2C.slotMachineVariant = String_Init(((2 * 18) * 2), param0->heapID);
     v1 = 0;
 
     for (v0 = 0; v0 < 5; v0++) {
-        if (Pokemon_GetFlavorAffinity(param0->unk_0C, v0) == 1) {
+        if (Pokemon_GetFlavorAffinity(param0->slotsMinigameDTO, v0) == 1) {
             v1 = v0 + 1;
         }
     }
 
     v2 = Unk_020F556C[v1];
-    MessageLoader_GetString(param0->unk_04, v2, param0->unk_2C.unk_04);
+    MessageLoader_GetString(param0->slotMachineVariant, v2, param0->unk_2C.slotMachineVariant);
 }
 
 static void InitializeFriendshipLevelString(PokemonInfoDisplayStruct *param0)
 {
-    int v0 = Pokemon_GetValue(param0->unk_0C, MON_DATA_FRIENDSHIP, NULL);
+    int v0 = Pokemon_GetValue(param0->slotsMinigameDTO, MON_DATA_FRIENDSHIP, NULL);
     int v1;
 
-    param0->unk_34.unk_04 = String_Init((((2 * 18) * 2) * 4), param0->heapID);
+    param0->unk_34.slotMachineVariant = String_Init((((2 * 18) * 2) * 4), param0->heapID);
 
     if (v0 <= 5) {
         v1 = 105;
@@ -660,10 +660,10 @@ static void InitializeFriendshipLevelString(PokemonInfoDisplayStruct *param0)
         v1 = 108;
     }
 
-    MessageLoader_GetString(param0->unk_04, v1, param0->unk_34.unk_04);
+    MessageLoader_GetString(param0->slotMachineVariant, v1, param0->unk_34.slotMachineVariant);
 }
 
-static int DeterminePokemonStatus(Pokemon *param0, BOOL param1, int param2)
+static int DeterminePokemonStatus(Pokemon *param0, BOOL slotsMinigameDTO, int param2)
 {
     int v0 = 0;
 
@@ -672,7 +672,7 @@ static int DeterminePokemonStatus(Pokemon *param0, BOOL param1, int param2)
             if (Pokemon_GetValue(param0, MON_DATA_MET_LOCATION, NULL) == (SpecialMetLoc_GetId(0, 55))) {
                 v0 = 15;
             } else if (Pokemon_GetValue(param0, MON_DATA_FATEFUL_ENCOUNTER, NULL) == 1) {
-                if (param1 == 1) {
+                if (slotsMinigameDTO == 1) {
                     v0 = 7;
                 } else {
                     v0 = 8;
@@ -680,7 +680,7 @@ static int DeterminePokemonStatus(Pokemon *param0, BOOL param1, int param2)
             } else if (Pokemon_GetValue(param0, MON_DATA_MET_LOCATION, NULL) == (SpecialMetLoc_GetId(1, 1))) {
                 v0 = 2;
             } else {
-                if (param1 == 1) {
+                if (slotsMinigameDTO == 1) {
                     v0 = 0;
                 } else {
                     v0 = 1;
@@ -689,19 +689,19 @@ static int DeterminePokemonStatus(Pokemon *param0, BOOL param1, int param2)
         } else {
             if (Pokemon_GetValue(param0, MON_DATA_FATEFUL_ENCOUNTER, NULL) == 1) {
                 if (Pokemon_GetValue(param0, MON_DATA_EGG_LOCATION, NULL) == SpecialMetLoc_GetId(1, 2)) {
-                    if (param1 == 1) {
+                    if (slotsMinigameDTO == 1) {
                         v0 = 13;
                     } else {
                         v0 = 14;
                     }
                 } else if (Pokemon_GetValue(param0, MON_DATA_EGG_LOCATION, NULL) == SpecialMetLoc_GetId(2, 1)) {
-                    if (param1 == 1) {
+                    if (slotsMinigameDTO == 1) {
                         v0 = 11;
                     } else {
                         v0 = 12;
                     }
                 } else {
-                    if (param1 == 1) {
+                    if (slotsMinigameDTO == 1) {
                         v0 = 9;
                     } else {
                         v0 = 10;
@@ -709,13 +709,13 @@ static int DeterminePokemonStatus(Pokemon *param0, BOOL param1, int param2)
                 }
             } else {
                 if ((Pokemon_GetValue(param0, MON_DATA_EGG_LOCATION, NULL) == SpecialMetLoc_GetId(1, 1)) || (Pokemon_GetValue(param0, MON_DATA_EGG_LOCATION, NULL) == SpecialMetLoc_GetId(1, 0)) || (Pokemon_GetValue(param0, MON_DATA_EGG_LOCATION, NULL) == SpecialMetLoc_GetId(1, 9)) || (Pokemon_GetValue(param0, MON_DATA_EGG_LOCATION, NULL) == SpecialMetLoc_GetId(1, 10)) || (Pokemon_GetValue(param0, MON_DATA_EGG_LOCATION, NULL) == SpecialMetLoc_GetId(1, 11))) {
-                    if (param1 == 1) {
+                    if (slotsMinigameDTO == 1) {
                         v0 = 5;
                     } else {
                         v0 = 6;
                     }
                 } else {
-                    if (param1 == 1) {
+                    if (slotsMinigameDTO == 1) {
                         v0 = 3;
                     } else {
                         v0 = 4;
@@ -724,7 +724,7 @@ static int DeterminePokemonStatus(Pokemon *param0, BOOL param1, int param2)
             }
         }
     } else {
-        if (param1 == 1) {
+        if (slotsMinigameDTO == 1) {
             if (Pokemon_GetValue(param0, MON_DATA_FATEFUL_ENCOUNTER, NULL) == 1) {
                 if (Pokemon_GetValue(param0, MON_DATA_EGG_LOCATION, NULL) == (SpecialMetLoc_GetId(2, 1))) {
                     v0 = 20;

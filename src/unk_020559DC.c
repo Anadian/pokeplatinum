@@ -27,10 +27,10 @@
 #include "vars_flags.h"
 #include "wifi_history_save_data.h"
 
-static void FieldSystem_HandleDailyEvents(FieldSystem *fieldSystem, s32 param1);
-static void sub_02055B64(FieldSystem *fieldSystem, s32 param1, const RTCTime *param2);
-static void sub_02055A14(FieldSystem *fieldSystem, GameTime *param1, const RTCDate *param2);
-static void inline_020559DC(FieldSystem *fieldSystem, GameTime *param1, const RTCDate *param2, const RTCTime *param3);
+static void FieldSystem_HandleDailyEvents(FieldSystem *fieldSystem, s32 slotsMinigameDTO);
+static void sub_02055B64(FieldSystem *fieldSystem, s32 slotsMinigameDTO, const RTCTime *param2);
+static void sub_02055A14(FieldSystem *fieldSystem, GameTime *slotsMinigameDTO, const RTCDate *param2);
+static void inline_020559DC(FieldSystem *fieldSystem, GameTime *slotsMinigameDTO, const RTCDate *param2, const RTCTime *param3);
 
 void sub_020559DC(FieldSystem *fieldSystem)
 {
@@ -60,26 +60,26 @@ static void sub_02055A14(FieldSystem *fieldSystem, GameTime *gameTime, const RTC
     }
 }
 
-static void inline_020559DC(FieldSystem *fieldSystem, GameTime *param1, const RTCDate *param2, const RTCTime *param3)
+static void inline_020559DC(FieldSystem *fieldSystem, GameTime *slotsMinigameDTO, const RTCDate *param2, const RTCTime *param3)
 {
     s64 v0, v1;
     s32 v2;
 
     v0 = RTC_ConvertDateTimeToSecond(param2, param3);
-    v1 = RTC_ConvertDateTimeToSecond(&param1->date, &param1->time);
+    v1 = RTC_ConvertDateTimeToSecond(&slotsMinigameDTO->date, &slotsMinigameDTO->time);
 
     if (v0 < v1) {
-        param1->date = *param2;
-        param1->time = *param3;
+        slotsMinigameDTO->date = *param2;
+        slotsMinigameDTO->time = *param3;
     } else {
         v2 = (v0 - v1) / 60;
 
         if (v2 > 0) {
-            GameTime_DecrementPenalty(param1, v2);
+            GameTime_DecrementPenalty(slotsMinigameDTO, v2);
             sub_02055B64(fieldSystem, v2, param3);
 
-            param1->date = *param2;
-            param1->time = *param3;
+            slotsMinigameDTO->date = *param2;
+            slotsMinigameDTO->time = *param3;
         }
     }
 }
@@ -114,17 +114,17 @@ static void FieldSystem_HandleDailyEvents(FieldSystem *fieldSystem, s32 daysPass
     sub_0206F2F0(fieldSystem->saveData);
 }
 
-static void sub_02055B64(FieldSystem *fieldSystem, s32 param1, const RTCTime *rtcTime)
+static void sub_02055B64(FieldSystem *fieldSystem, s32 slotsMinigameDTO, const RTCTime *rtcTime)
 {
-    BerryPatches_ElapseTime(fieldSystem, param1);
-    SpecialEncounter_DecrementHoneyTreeTimers(fieldSystem->saveData, param1);
-    Underground_ProgressGiftPenalty(fieldSystem->saveData, param1, FieldSystem_HasPenalty(fieldSystem));
+    BerryPatches_ElapseTime(fieldSystem, slotsMinigameDTO);
+    SpecialEncounter_DecrementHoneyTreeTimers(fieldSystem->saveData, slotsMinigameDTO);
+    Underground_ProgressGiftPenalty(fieldSystem->saveData, slotsMinigameDTO, FieldSystem_HasPenalty(fieldSystem));
 
     TVBroadcast *broadcast = SaveData_GetTVBroadcast(fieldSystem->saveData);
-    TVBroadcast_UpdateProgramTimeSlot(broadcast, param1, rtcTime->minute);
+    TVBroadcast_UpdateProgramTimeSlot(broadcast, slotsMinigameDTO, rtcTime->minute);
 
     Party *party = SaveData_GetParty(fieldSystem->saveData);
-    Party_SetShayminForm(party, param1, rtcTime);
+    Party_SetShayminForm(party, slotsMinigameDTO, rtcTime);
 }
 
 enum TimeOfDay FieldSystem_GetTimeOfDay(const FieldSystem *fieldSystem)

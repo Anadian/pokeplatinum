@@ -44,7 +44,7 @@ enum ScreenState {
 
 typedef struct {
     int *exitFlag;
-    PokedexSortData *unk_04;
+    PokedexSortData *slotMachineVariant;
     UnkStruct_ov21_021D5B68 *unk_08;
     enum FilterMethod filterMethod;
     enum SortOrder sortOrder;
@@ -76,9 +76,9 @@ typedef struct {
     NNSG2dScreenData *screenData;
 } PokedexSearchDisplay;
 
-static PokedexSearchSettings *InitSearchSettings(enum HeapID heapID, PokedexApp *param1);
-static PokedexGraphicData **ov21_021D8724(enum HeapID heapID, PokedexApp *param1);
-static UnkStruct_ov21_021D4660 *ov21_021D874C(enum HeapID heapID, PokedexApp *param1);
+static PokedexSearchSettings *InitSearchSettings(enum HeapID heapID, PokedexApp *slotsMinigameDTO);
+static PokedexGraphicData **ov21_021D8724(enum HeapID heapID, PokedexApp *slotsMinigameDTO);
+static UnkStruct_ov21_021D4660 *ov21_021D874C(enum HeapID heapID, PokedexApp *slotsMinigameDTO);
 static void FreeSearchSettings(PokedexSearchSettings *searchSettings);
 static void ov21_021D879C(PokedexGraphicData **param0);
 static void ov21_021D87B0(UnkStruct_ov21_021D4660 *param0);
@@ -89,20 +89,20 @@ static int ov21_021D8928(PokedexDataManager *dataMan, void *data);
 static int EnterPokedexSearch(void *graphics, PokedexGraphicsManager *graphicsMan, const void *data, const PokedexDataManager *dataMan);
 static int UpdateDisplay(void *graphics, PokedexGraphicsManager *graphicsMan, const void *data, const PokedexDataManager *dataMan);
 static int ExitPokedexSearch(void *graphics, PokedexGraphicsManager *graphicsMan, const void *data, const PokedexDataManager *dataMan);
-static void LoadingScreenTransition(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID);
-static void LoadingScreenAnimation(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID);
+static void LoadingScreenTransition(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID);
+static void LoadingScreenAnimation(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID);
 static void SearchingMessage(PokedexGraphicData **param0, enum HeapID heapID);
 static void ReturnSearchDisplay(PokedexGraphicData **param0, PokedexSearchDisplay *searchDisplay, enum HeapID heapID);
-static void DefaultDisplay(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, const int *param3, enum HeapID heapID);
-static void ClearScreen(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1);
+static void DefaultDisplay(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, const int *param3, enum HeapID heapID);
+static void ClearScreen(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO);
 static void ov21_021D8B8C(PokedexGraphicData **param0, const PokedexSearchSettings *searchSettings, enum HeapID heapID);
-static void GetSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, enum HeapID heapID);
-static void FreeSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1);
-static void InitCellActors(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID);
+static void GetSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, enum HeapID heapID);
+static void FreeSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO);
+static void InitCellActors(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID);
 static void FreeCellActors(PokedexSearchDisplay *searchDisplay);
-static void GetDisplayMap(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID, int param4);
-static void FreeDisplayMap(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1);
-static void UpdateSelectionDisplay(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID);
+static void GetDisplayMap(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID, int param4);
+static void FreeDisplayMap(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO);
+static void UpdateSelectionDisplay(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID);
 static void FilterMethodMap(PokedexGraphicData **param0, int filterMethod, enum HeapID heapID);
 static void DescriptionMessage(PokedexGraphicData **param0, int filterMethod, enum HeapID heapID);
 static void SortOrderMessage(PokedexGraphicData **param0, int sortOrder, enum HeapID heapID);
@@ -114,11 +114,11 @@ static void FilterFormSilhouette(PokedexSearchDisplay *searchDisplay, int filter
 static void EmptyDexMessage(PokedexGraphicData **param0, enum HeapID heapID);
 static void ov21_021D8C00(PokedexGraphicData **param0);
 
-void PokedexSearch_TransitionFunctions(PokedexScreenManager *param0, PokedexApp *param1, enum HeapID heapID)
+void PokedexSearch_TransitionFunctions(PokedexScreenManager *param0, PokedexApp *slotsMinigameDTO, enum HeapID heapID)
 {
-    PokedexSearchSettings *searchSettings = InitSearchSettings(heapID, param1);
-    PokedexGraphicData **v1 = ov21_021D8724(heapID, param1);
-    UnkStruct_ov21_021D4660 *v2 = ov21_021D874C(heapID, param1);
+    PokedexSearchSettings *searchSettings = InitSearchSettings(heapID, slotsMinigameDTO);
+    PokedexGraphicData **v1 = ov21_021D8724(heapID, slotsMinigameDTO);
+    UnkStruct_ov21_021D4660 *v2 = ov21_021D874C(heapID, slotsMinigameDTO);
 
     param0->pageData = searchSettings;
     param0->pageGraphics = v1;
@@ -246,34 +246,34 @@ int PokedexSearch_GetScreenTimer(const PokedexScreenManager *param0)
     return searchSettings->screenTimer;
 }
 
-static PokedexSearchSettings *InitSearchSettings(enum HeapID heapID, PokedexApp *param1)
+static PokedexSearchSettings *InitSearchSettings(enum HeapID heapID, PokedexApp *slotsMinigameDTO)
 {
     PokedexSearchSettings *searchSettings = Heap_Alloc(heapID, sizeof(PokedexSearchSettings));
 
     GF_ASSERT(searchSettings);
     memset(searchSettings, 0, sizeof(PokedexSearchSettings));
 
-    searchSettings->exitFlag = ov21_021D138C(param1);
-    searchSettings->unk_04 = PokedexMain_GetSortData(param1);
-    PokedexScreenManager *v1 = ov21_021D1410(param1, 0);
+    searchSettings->exitFlag = ov21_021D138C(slotsMinigameDTO);
+    searchSettings->slotMachineVariant = PokedexMain_GetSortData(slotsMinigameDTO);
+    PokedexScreenManager *v1 = ov21_021D1410(slotsMinigameDTO, 0);
     searchSettings->unk_08 = v1->pageData;
 
     return searchSettings;
 }
 
-static PokedexGraphicData **ov21_021D8724(enum HeapID heapID, PokedexApp *param1)
+static PokedexGraphicData **ov21_021D8724(enum HeapID heapID, PokedexApp *slotsMinigameDTO)
 {
     PokedexGraphicData **v0 = Heap_Alloc(heapID, sizeof(PokedexGraphicData **));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(PokedexGraphicData **));
 
-    *v0 = PokedexMain_GetGraphicData(param1);
+    *v0 = PokedexMain_GetGraphicData(slotsMinigameDTO);
 
     return v0;
 }
 
-static UnkStruct_ov21_021D4660 *ov21_021D874C(enum HeapID heapID, PokedexApp *param1)
+static UnkStruct_ov21_021D4660 *ov21_021D874C(enum HeapID heapID, PokedexApp *slotsMinigameDTO)
 {
     int v1 = ov21_021D87C8();
 
@@ -282,7 +282,7 @@ static UnkStruct_ov21_021D4660 *ov21_021D874C(enum HeapID heapID, PokedexApp *pa
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4660) * v1);
 
-    ov21_021D47F0(heapID, &v0[0], param1, (1 << 1));
+    ov21_021D47F0(heapID, &v0[0], slotsMinigameDTO, (1 << 1));
 
     return v0;
 }
@@ -386,12 +386,12 @@ static int UpdateScreenState(PokedexDataManager *dataMan, void *data)
         break;
     case 3:
         BOOL dexExists = TRUE;
-        dexExists = PokedexSort_Sort(searchSettings->unk_04, searchSettings->sortOrder, searchSettings->filterName, searchSettings->typeFilter1, searchSettings->typeFilter2, searchSettings->filterForm, PokedexSort_IsNationalDex(searchSettings->unk_04), dataMan->heapID, TRUE);
+        dexExists = PokedexSort_Sort(searchSettings->slotMachineVariant, searchSettings->sortOrder, searchSettings->filterName, searchSettings->typeFilter1, searchSettings->typeFilter2, searchSettings->filterForm, PokedexSort_IsNationalDex(searchSettings->slotMachineVariant), dataMan->heapID, TRUE);
 
         if (dexExists == TRUE) {
             *searchSettings->exitFlag |= EXITSEARCH;
-            PokedexSort_SetCurrentValues(searchSettings->unk_04, 0);
-            searchSettings->unk_04->unk_1740 = 1;
+            PokedexSort_SetCurrentValues(searchSettings->slotMachineVariant, 0);
+            searchSettings->slotMachineVariant->unk_1740 = 1;
             searchSettings->unk_08->unk_18 = 1;
         } else {
             searchSettings->applyFilter = FALSE;
@@ -513,40 +513,40 @@ static int ExitPokedexSearch(void *graphics, PokedexGraphicsManager *graphicsMan
     return 0;
 }
 
-static void DefaultDisplay(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, const int *param3, enum HeapID heapID)
+static void DefaultDisplay(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, const int *param3, enum HeapID heapID)
 {
-    Bg_ClearTilemap((*param1)->bgConfig, 2);
-    Bg_ClearTilemap((*param1)->bgConfig, 1);
-    Window_FillTilemap(&(*param1)->window, 0);
-    Window_SetPalette(&(*param1)->window, 7);
+    Bg_ClearTilemap((*slotsMinigameDTO)->bgConfig, 2);
+    Bg_ClearTilemap((*slotsMinigameDTO)->bgConfig, 1);
+    Window_FillTilemap(&(*slotsMinigameDTO)->window, 0);
+    Window_SetPalette(&(*slotsMinigameDTO)->window, 7);
 
-    ov21_021D8C00(param1);
-    ov21_021D8B8C(param1, searchSettings, heapID);
-    GetDisplayMap(searchDisplay, param1, searchSettings, heapID, PokedexSort_IsNationalDex(searchSettings->unk_04));
-    GetSearchGraphics(searchDisplay, param1, heapID);
-    InitCellActors(searchDisplay, param1, searchSettings, heapID);
+    ov21_021D8C00(slotsMinigameDTO);
+    ov21_021D8B8C(slotsMinigameDTO, searchSettings, heapID);
+    GetDisplayMap(searchDisplay, slotsMinigameDTO, searchSettings, heapID, PokedexSort_IsNationalDex(searchSettings->slotMachineVariant));
+    GetSearchGraphics(searchDisplay, slotsMinigameDTO, heapID);
+    InitCellActors(searchDisplay, slotsMinigameDTO, searchSettings, heapID);
 
-    DescriptionMessage(param1, searchSettings->filterMethod, heapID);
-    FilterMethodMap(param1, searchSettings->filterMethod, heapID);
-    SortOrderMessage(param1, searchSettings->sortOrder, heapID);
-    FilterNameMessage(param1, searchSettings->filterName, heapID);
-    FilterType1Message(param1, searchSettings->typeFilter1, heapID);
-    FilterType2Message(param1, searchSettings->typeFilter2, heapID);
+    DescriptionMessage(slotsMinigameDTO, searchSettings->filterMethod, heapID);
+    FilterMethodMap(slotsMinigameDTO, searchSettings->filterMethod, heapID);
+    SortOrderMessage(slotsMinigameDTO, searchSettings->sortOrder, heapID);
+    FilterNameMessage(slotsMinigameDTO, searchSettings->filterName, heapID);
+    FilterType1Message(slotsMinigameDTO, searchSettings->typeFilter1, heapID);
+    FilterType2Message(slotsMinigameDTO, searchSettings->typeFilter2, heapID);
     FilterFormSilhouette(searchDisplay, searchSettings->filterForm);
 
     Bg_SetPriority(BG_LAYER_MAIN_1, 1);
     Bg_SetPriority(BG_LAYER_MAIN_2, 0);
 }
 
-static void ClearScreen(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1)
+static void ClearScreen(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO)
 {
     FreeCellActors(searchDisplay);
-    FreeSearchGraphics(searchDisplay, param1);
-    FreeDisplayMap(searchDisplay, param1);
+    FreeSearchGraphics(searchDisplay, slotsMinigameDTO);
+    FreeDisplayMap(searchDisplay, slotsMinigameDTO);
 
-    Bg_ClearTilemap((*param1)->bgConfig, 1);
-    Window_FillTilemap(&(*param1)->window, 0);
-    Window_SetPalette(&(*param1)->window, 0);
+    Bg_ClearTilemap((*slotsMinigameDTO)->bgConfig, 1);
+    Window_FillTilemap(&(*slotsMinigameDTO)->window, 0);
+    Window_SetPalette(&(*slotsMinigameDTO)->window, 0);
     Bg_SetPriority(BG_LAYER_MAIN_1, 0);
     Bg_SetPriority(BG_LAYER_MAIN_2, 1);
 }
@@ -557,7 +557,7 @@ static void ov21_021D8B8C(PokedexGraphicData **param0, const PokedexSearchSettin
     PokedexGraphics_LoadGraphicNarcPaletteData(*param0, search_NCLR, 0, 0, 32, heapID);
 }
 
-static void GetDisplayMap(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID, int param4)
+static void GetDisplayMap(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID, int param4)
 {
     int mapIndex;
 
@@ -567,10 +567,10 @@ static void GetDisplayMap(PokedexSearchDisplay *searchDisplay, PokedexGraphicDat
         mapIndex = search_sinnoh_NSCR_lz;
     }
 
-    searchDisplay->tileMap = PokedexGraphics_GetGraphicNarcTilemapData(*param1, mapIndex, TRUE, &searchDisplay->screenData, heapID);
+    searchDisplay->tileMap = PokedexGraphics_GetGraphicNarcTilemapData(*slotsMinigameDTO, mapIndex, TRUE, &searchDisplay->screenData, heapID);
 }
 
-static void FreeDisplayMap(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1)
+static void FreeDisplayMap(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO)
 {
     Heap_Free(searchDisplay->tileMap);
     searchDisplay->tileMap = NULL;
@@ -585,9 +585,9 @@ static void ov21_021D8C00(PokedexGraphicData **param0)
     PokemonSprite_ClearFade(v0);
 }
 
-static void GetSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, enum HeapID heapID)
+static void GetSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, enum HeapID heapID)
 {
-    PokedexGraphicData *v0 = *param1;
+    PokedexGraphicData *v0 = *slotsMinigameDTO;
     NARC *pokedexGraphics = PokedexGraphics_GetNARC(v0);
 
     searchDisplay->searchGraphics[SPRITE_RESOURCE_CHAR] = SpriteResourceCollection_AddTilesFrom(v0->spriteResourceCollection[SPRITE_RESOURCE_CHAR], pokedexGraphics, search_body_shapes_NCGR_lz, TRUE, search_body_shapes_NCGR_lz + 15000, NNS_G2D_VRAM_TYPE_2DMAIN, heapID);
@@ -604,9 +604,9 @@ static void GetSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraphi
     searchDisplay->searchGraphics[SPRITE_RESOURCE_ANIM] = SpriteResourceCollection_AddFrom(v0->spriteResourceCollection[SPRITE_RESOURCE_ANIM], pokedexGraphics, search_body_shapes_anim_NANR_lz, TRUE, search_body_shapes_anim_NANR_lz + 15000, SPRITE_RESOURCE_ANIM, heapID);
 }
 
-static void FreeSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1)
+static void FreeSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO)
 {
-    PokedexGraphicData *v0 = *param1;
+    PokedexGraphicData *v0 = *slotsMinigameDTO;
 
     SpriteTransfer_ResetCharTransfer(searchDisplay->searchGraphics[SPRITE_RESOURCE_CHAR]);
     SpriteTransfer_ResetPlttTransfer(searchDisplay->searchGraphics[SPRITE_RESOURCE_PLTT]);
@@ -617,11 +617,11 @@ static void FreeSearchGraphics(PokedexSearchDisplay *searchDisplay, PokedexGraph
     SpriteResourceCollection_Remove(v0->spriteResourceCollection[SPRITE_RESOURCE_ANIM], searchDisplay->searchGraphics[SPRITE_RESOURCE_ANIM]);
 }
 
-static void InitCellActors(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID)
+static void InitCellActors(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID)
 {
     SpriteResourcesHeader v0;
     SpriteListTemplate v1;
-    PokedexGraphicData *v2 = *param1;
+    PokedexGraphicData *v2 = *slotsMinigameDTO;
 
     SpriteResourcesHeader_Init(&v0, search_body_shapes_NCGR_lz + 15000, buttons_NCLR + 15000, search_body_shapes_cell_NCER_lz + 15000, search_body_shapes_anim_NANR_lz + 15000, 0xffffffff, 0xffffffff, FALSE, 2, v2->spriteResourceCollection[SPRITE_RESOURCE_CHAR], v2->spriteResourceCollection[SPRITE_RESOURCE_PLTT], v2->spriteResourceCollection[SPRITE_RESOURCE_CELL], v2->spriteResourceCollection[SPRITE_RESOURCE_ANIM], NULL, NULL);
 
@@ -704,47 +704,47 @@ static void EmptyDexMessage(PokedexGraphicData **param0, enum HeapID heapID)
     String_Free(noneMessage);
 }
 
-static void UpdateSelectionDisplay(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID)
+static void UpdateSelectionDisplay(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID)
 {
     if (searchSettings->noneFound != searchDisplay->noneFound) {
         searchDisplay->noneFound = searchSettings->noneFound;
 
         if (searchDisplay->noneFound == TRUE) {
             searchDisplay->noneFoundTimer = 64;
-            EmptyDexMessage(param1, heapID);
+            EmptyDexMessage(slotsMinigameDTO, heapID);
         }
     }
 
     if (searchDisplay->noneFoundTimer > 0) {
         searchDisplay->noneFoundTimer--;
     } else if (searchDisplay->noneFoundTimer == 0) {
-        DescriptionMessage(param1, searchSettings->filterMethod, heapID);
+        DescriptionMessage(slotsMinigameDTO, searchSettings->filterMethod, heapID);
         searchDisplay->noneFoundTimer--;
     }
 
     if (searchDisplay->filterMethod != searchSettings->filterMethod) {
-        FilterMethodMap(param1, searchSettings->filterMethod, heapID);
-        DescriptionMessage(param1, searchSettings->filterMethod, heapID);
+        FilterMethodMap(slotsMinigameDTO, searchSettings->filterMethod, heapID);
+        DescriptionMessage(slotsMinigameDTO, searchSettings->filterMethod, heapID);
         searchDisplay->filterMethod = searchSettings->filterMethod;
     }
 
     if (searchDisplay->sortOrder != searchSettings->sortOrder) {
-        SortOrderMessage(param1, searchSettings->sortOrder, heapID);
+        SortOrderMessage(slotsMinigameDTO, searchSettings->sortOrder, heapID);
         searchDisplay->sortOrder = searchSettings->sortOrder;
     }
 
     if (searchDisplay->filterName != searchSettings->filterName) {
-        FilterNameMessage(param1, searchSettings->filterName, heapID);
+        FilterNameMessage(slotsMinigameDTO, searchSettings->filterName, heapID);
         searchDisplay->filterName = searchSettings->filterName;
     }
 
     if (searchDisplay->typeFilter1 != searchSettings->typeFilter1) {
-        FilterType1Message(param1, searchSettings->typeFilter1, heapID);
+        FilterType1Message(slotsMinigameDTO, searchSettings->typeFilter1, heapID);
         searchDisplay->typeFilter1 = searchSettings->typeFilter1;
     }
 
     if (searchDisplay->typeFilter2 != searchSettings->typeFilter2) {
-        FilterType2Message(param1, searchSettings->typeFilter2, heapID);
+        FilterType2Message(slotsMinigameDTO, searchSettings->typeFilter2, heapID);
         searchDisplay->typeFilter2 = searchSettings->typeFilter2;
     }
 
@@ -999,30 +999,30 @@ static void FilterFormSilhouette(PokedexSearchDisplay *searchDisplay, int filter
     }
 }
 
-static void LoadingScreenTransition(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID)
+static void LoadingScreenTransition(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID)
 {
     if (searchSettings->screenTimer == 4) {
         if (searchSettings->screenState == SS_SEARCH) {
-            PokedexMain_SetLoadingScreenParams(&searchDisplay->loadingScreen, (*param1)->bgConfig, 2, searchDisplay->screenData, 0, 12, 0, 20, 4);
+            PokedexMain_SetLoadingScreenParams(&searchDisplay->loadingScreen, (*slotsMinigameDTO)->bgConfig, 2, searchDisplay->screenData, 0, 12, 0, 20, 4);
         } else {
-            ReturnSearchDisplay(param1, searchDisplay, heapID);
+            ReturnSearchDisplay(slotsMinigameDTO, searchDisplay, heapID);
 
-            PokedexMain_SetLoadingScreenParams(&searchDisplay->loadingScreen, (*param1)->bgConfig, 2, searchDisplay->screenData, 12, 0, 20, 0, 4);
+            PokedexMain_SetLoadingScreenParams(&searchDisplay->loadingScreen, (*slotsMinigameDTO)->bgConfig, 2, searchDisplay->screenData, 12, 0, 20, 0, 4);
         }
     }
 
     PokedexMain_LoadingScreenMove(&searchDisplay->loadingScreen);
 }
 
-static void LoadingScreenAnimation(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **param1, const PokedexSearchSettings *searchSettings, enum HeapID heapID)
+static void LoadingScreenAnimation(PokedexSearchDisplay *searchDisplay, PokedexGraphicData **slotsMinigameDTO, const PokedexSearchSettings *searchSettings, enum HeapID heapID)
 {
     if (searchSettings->screenTimer == 32) {
         Sprite_SetDrawFlag(searchDisplay->pokeball, TRUE);
-        SearchingMessage(param1, heapID);
+        SearchingMessage(slotsMinigameDTO, heapID);
     } else if (searchSettings->screenTimer == 0) {
         Sprite_SetDrawFlag(searchDisplay->pokeball, FALSE);
-        Window_FillTilemap(&(*param1)->window, 0);
-        Window_ScheduleCopyToVRAM(&(*param1)->window);
+        Window_FillTilemap(&(*slotsMinigameDTO)->window, 0);
+        Window_ScheduleCopyToVRAM(&(*slotsMinigameDTO)->window);
     }
 
     int time = 4 - searchSettings->screenTimer;

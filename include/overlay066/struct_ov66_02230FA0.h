@@ -6,8 +6,8 @@
 #include "overlay066/struct_ov66_0223177C_decl.h"
 
 typedef struct {
-    UnkStruct_ov66_0223177C *unk_00;
-    const UnkStruct_ov66_02231428 *unk_04;
+    UnkStruct_ov66_0223177C *coins;
+    const UnkStruct_ov66_02231428 *slotMachineVariant;
     UnkStruct_ov66_0222DFF8 *unk_08;
 } UnkStruct_ov66_02230FA0;
 

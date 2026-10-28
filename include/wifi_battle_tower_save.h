@@ -26,7 +26,7 @@ void FrontierEasyChatMessages_Init(FrontierEasyChatMessages *easyChatMsgs);
 void WifiBattleTowerDownloadData_Init(WifiBattleTowerDownloadData *downloadData);
 u32 WifiBattleTowerSave_GetField(WifiBattleTowerSave *save, int fieldId, void *outBuf);
 void WifiBattleTowerSave_SetField(WifiBattleTowerSave *save, int fieldId, const void *inBuf);
-void WifiBattleTowerSave_AddCounters(WifiBattleTowerSave *save, u8 param1, u16 param2, u16 param3);
+void WifiBattleTowerSave_AddCounters(WifiBattleTowerSave *save, u8 slotsMinigameDTO, u16 param2, u16 param3);
 BOOL WifiBattleTowerSave_GetIsInProgress(WifiBattleTowerSave *save);
 void WifiBattleTowerSave_SetIsInProgress(WifiBattleTowerSave *save, BOOL isInProgress);
 u16 WifiBattleTowerRecord_UpdateBattlePoints(WifiBattleTowerRecord *record, u16 value, int func);

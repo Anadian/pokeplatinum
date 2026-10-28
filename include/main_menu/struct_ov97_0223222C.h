@@ -9,13 +9,13 @@
 #include "main_menu/union_ov97_022334FC.h"
 
 typedef struct {
-    u8 unk_00;
+    u8 coins;
     u8 unk_01;
     u8 unk_02;
     u8 unk_03;
-    u32 unk_04;
+    u32 slotMachineVariant;
     int unk_08;
-    u16 unk_0C;
+    u16 slotsMinigameDTO;
     u16 unk_0E;
     BOOL unk_10;
     BOOL unk_14;

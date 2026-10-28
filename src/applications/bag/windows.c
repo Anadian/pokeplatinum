@@ -73,8 +73,8 @@
 #define ITEM_COUNT_NUMBER_START_POS (ITEM_LIST_WINDOW_WIDTH * TILE_WIDTH_PIXELS - 2)
 #define ITEM_COUNT_START_POS        (ITEM_COUNT_NUMBER_START_POS - 3 * DIGIT_WIDTH - ITEM_COUNT_X_OFFSET)
 
-static void DrawHMIcon(BagController *param0, u32 param1);
-static BOOL BagUITextPrinterCallback(TextPrinterTemplate *param0, u16 param1);
+static void DrawHMIcon(BagController *param0, u32 slotsMinigameDTO);
+static BOOL BagUITextPrinterCallback(TextPrinterTemplate *param0, u16 slotsMinigameDTO);
 
 static const WindowTemplate sYesNoMenuTemplate = {
     .bgLayer = BG_LAYER_MAIN_0,
@@ -573,9 +573,9 @@ u8 BagUI_PrintStrBufferToWideMsgBox(BagController *interface)
     return textPrinterID;
 }
 
-static BOOL BagUITextPrinterCallback(TextPrinterTemplate *template, u16 param1)
+static BOOL BagUITextPrinterCallback(TextPrinterTemplate *template, u16 slotsMinigameDTO)
 {
-    switch (param1) {
+    switch (slotsMinigameDTO) {
     case 1:
         return Sound_IsAnyEffectPlaying();
     case 2:

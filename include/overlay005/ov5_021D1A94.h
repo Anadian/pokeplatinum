@@ -11,7 +11,7 @@
 UnkStruct_ov5_021D1A94 *ov5_021D1A94(FieldSystem *fieldSystem, enum HeapID heapID, int param2);
 void ov5_021D1AE4(UnkStruct_ov5_021D1A94 *param0);
 void ov5_021D1B18(UnkStruct_ov5_021D1A94 *param0);
-UnkStruct_ov5_021D1BEC *ov5_021D1B6C(UnkStruct_ov5_021D1A94 *param0, const UnkStruct_ov6_0223E6EC *param1);
+UnkStruct_ov5_021D1BEC *ov5_021D1B6C(UnkStruct_ov5_021D1A94 *param0, const UnkStruct_ov6_0223E6EC *slotsMinigameDTO);
 void ov5_021D1BEC(UnkStruct_ov5_021D1BEC *param0);
 void *ov5_021D1C2C(UnkStruct_ov5_021D1BEC *param0);
 

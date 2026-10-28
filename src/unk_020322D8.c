@@ -47,13 +47,13 @@ BOOL CommQueue_IsEmpty(CommQueueMan *param0)
 
 static BOOL sub_02032318(UnkStruct_02032318 *param0)
 {
-    if (param0->unk_00 != NULL) {
-        if (param0->unk_00->unk_08 != NULL) {
-            param0->unk_00 = param0->unk_00->unk_08;
-            param0->unk_00->unk_04 = NULL;
+    if (param0->coins != NULL) {
+        if (param0->coins->unk_08 != NULL) {
+            param0->coins = param0->coins->unk_08;
+            param0->coins->slotMachineVariant = NULL;
         } else {
-            param0->unk_00 = NULL;
-            param0->unk_04 = NULL;
+            param0->coins = NULL;
+            param0->slotMachineVariant = NULL;
         }
 
         return 1;
@@ -62,49 +62,49 @@ static BOOL sub_02032318(UnkStruct_02032318 *param0)
     return 0;
 }
 
-static BOOL sub_0203233C(UnkStruct_0203233C *param0, u8 param1)
+static BOOL sub_0203233C(UnkStruct_0203233C *param0, u8 slotsMinigameDTO)
 {
-    *param0->unk_00 = param1;
-    param0->unk_00++;
-    param0->unk_04--;
+    *param0->coins = slotsMinigameDTO;
+    param0->coins++;
+    param0->slotMachineVariant--;
 
-    if (param0->unk_04 == 0) {
+    if (param0->slotMachineVariant == 0) {
         return 1;
     }
 
     return 0;
 }
 
-static BOOL sub_02032358(UnkStruct_020322D8 *param0, UnkStruct_0203233C *param1)
+static BOOL sub_02032358(UnkStruct_020322D8 *param0, UnkStruct_0203233C *slotsMinigameDTO)
 {
     int v0 = CommCmd_PacketSizeOf(param0->unk_0E);
 
     if (v0 == 0xffff) {
-        if (param1->unk_04 < 3) {
+        if (slotsMinigameDTO->slotMachineVariant < 3) {
             param0->unk_0F_0 = 0;
             return 1;
         }
     } else {
-        if (param1->unk_04 < 1) {
+        if (slotsMinigameDTO->slotMachineVariant < 1) {
             param0->unk_0F_0 = 0;
             return 1;
         }
     }
 
-    sub_0203233C(param1, param0->unk_0E);
+    sub_0203233C(slotsMinigameDTO, param0->unk_0E);
 
     if (v0 == 0xffff) {
-        sub_0203233C(param1, (param0->unk_0C >> 8) & 0xff);
-        sub_0203233C(param1, param0->unk_0C & 0xff);
+        sub_0203233C(slotsMinigameDTO, (param0->slotsMinigameDTO >> 8) & 0xff);
+        sub_0203233C(slotsMinigameDTO, param0->slotsMinigameDTO & 0xff);
     } else {
-        param0->unk_0C = v0;
+        param0->slotsMinigameDTO = v0;
     }
 
     param0->unk_0F_0 = 1;
     return 0;
 }
 
-static BOOL sub_020323D0(UnkStruct_020322D8 *param0, UnkStruct_0203233C *param1, CommRing *param2, BOOL param3)
+static BOOL sub_020323D0(UnkStruct_020322D8 *param0, UnkStruct_0203233C *slotsMinigameDTO, CommRing *param2, BOOL param3)
 {
     int v0;
     int v1;
@@ -116,40 +116,40 @@ static BOOL sub_020323D0(UnkStruct_020322D8 *param0, UnkStruct_0203233C *param1,
         v1 = 1;
     }
 
-    if ((param1->unk_04 < (param0->unk_0C + v1)) && (!param3)) {
+    if ((slotsMinigameDTO->slotMachineVariant < (param0->slotsMinigameDTO + v1)) && (!param3)) {
         return 0;
     }
 
     if (param0->unk_0F_0 != 1) {
-        if (sub_02032358(param0, param1)) {
+        if (sub_02032358(param0, slotsMinigameDTO)) {
             return 0;
         }
     }
 
-    if (param1->unk_04 < param0->unk_0C) {
+    if (slotsMinigameDTO->slotMachineVariant < param0->slotsMinigameDTO) {
         if (param0->unk_0F_1) {
-            CommRing_Read(param2, param1->unk_00, param1->unk_04);
+            CommRing_Read(param2, slotsMinigameDTO->coins, slotsMinigameDTO->slotMachineVariant);
         } else {
-            for (v0 = 0; v0 < param1->unk_04; v0++) {
-                param1->unk_00[v0] = param0->unk_00[v0];
+            for (v0 = 0; v0 < slotsMinigameDTO->slotMachineVariant; v0++) {
+                slotsMinigameDTO->coins[v0] = param0->coins[v0];
             }
         }
 
-        param0->unk_00 += param1->unk_04;
-        param0->unk_0C -= param1->unk_04;
-        param1->unk_04 = -1;
+        param0->coins += slotsMinigameDTO->slotMachineVariant;
+        param0->slotsMinigameDTO -= slotsMinigameDTO->slotMachineVariant;
+        slotsMinigameDTO->slotMachineVariant = -1;
 
         return 1;
     }
 
     if (param0->unk_0F_1) {
-        CommRing_Read(param2, param1->unk_00, param0->unk_0C);
+        CommRing_Read(param2, slotsMinigameDTO->coins, param0->slotsMinigameDTO);
     } else {
-        MI_CpuCopy8(param0->unk_00, param1->unk_00, param0->unk_0C);
+        MI_CpuCopy8(param0->coins, slotsMinigameDTO->coins, param0->slotsMinigameDTO);
     }
 
-    param1->unk_00 += param0->unk_0C;
-    param1->unk_04 -= param0->unk_0C;
+    slotsMinigameDTO->coins += param0->slotsMinigameDTO;
+    slotsMinigameDTO->slotMachineVariant -= param0->slotsMinigameDTO;
 
     return 1;
 }
@@ -187,23 +187,23 @@ BOOL CommQueue_Write(CommQueueMan *param0, int cmd, u8 *data, int size, BOOL par
         v1->unk_0F_1 = 1;
     }
 
-    v1->unk_0C = v3;
+    v1->slotsMinigameDTO = v3;
     v1->unk_0E = cmd;
-    v1->unk_00 = data;
+    v1->coins = data;
 
     if (param4 == 1) {
-        v2 = &param0->unk_00;
+        v2 = &param0->coins;
     } else {
         v2 = &param0->unk_08;
     }
 
-    if (v2->unk_04 == NULL) {
-        v2->unk_04 = v1;
-        v2->unk_00 = v1;
+    if (v2->slotMachineVariant == NULL) {
+        v2->slotMachineVariant = v1;
+        v2->coins = v1;
     } else {
-        v2->unk_04->unk_08 = v1;
-        v1->unk_04 = v2->unk_04;
-        v2->unk_04 = v1;
+        v2->slotMachineVariant->unk_08 = v1;
+        v1->slotMachineVariant = v2->slotMachineVariant;
+        v2->slotMachineVariant = v1;
     }
 
     return 1;
@@ -217,12 +217,12 @@ static UnkStruct_020322D8 *sub_02032530(CommQueueMan *param0)
         return param0->unk_10;
     }
 
-    if (param0->unk_00.unk_00 != NULL) {
-        return param0->unk_00.unk_00;
+    if (param0->coins.coins != NULL) {
+        return param0->coins.coins;
     }
 
-    if (param0->unk_08.unk_00 != NULL) {
-        return param0->unk_08.unk_00;
+    if (param0->unk_08.coins != NULL) {
+        return param0->unk_08.coins;
     }
 
     return NULL;
@@ -235,19 +235,19 @@ static void sub_02032550(CommQueueMan *param0)
     if (param0->unk_10 != NULL) {
         param0->unk_10 = NULL;
     } else {
-        if (!sub_02032318(&param0->unk_00)) {
+        if (!sub_02032318(&param0->coins)) {
             sub_02032318(&param0->unk_08);
         }
     }
 }
 
-BOOL sub_02032574(CommQueueMan *param0, UnkStruct_0203233C *param1, BOOL param2)
+BOOL sub_02032574(CommQueueMan *param0, UnkStruct_0203233C *slotsMinigameDTO, BOOL param2)
 {
     int v0;
     int v1;
     int v2 = 1;
 
-    while (param1->unk_04 > 0) {
+    while (slotsMinigameDTO->slotMachineVariant > 0) {
         UnkStruct_020322D8 *v3 = sub_02032530(param0);
 
         if (NULL == v3) {
@@ -256,12 +256,12 @@ BOOL sub_02032574(CommQueueMan *param0, UnkStruct_0203233C *param1, BOOL param2)
 
         sub_02032550(param0);
 
-        if (!sub_020323D0(v3, param1, param0->unk_14, v2)) {
+        if (!sub_020323D0(v3, slotsMinigameDTO, param0->unk_14, v2)) {
             param0->unk_10 = v3;
             break;
         }
 
-        if (-1 == param1->unk_04) {
+        if (-1 == slotsMinigameDTO->slotMachineVariant) {
             param0->unk_10 = v3;
             return 0;
         } else {
@@ -271,21 +271,21 @@ BOOL sub_02032574(CommQueueMan *param0, UnkStruct_0203233C *param1, BOOL param2)
         v2 = param2;
     }
 
-    for (v1 = 0; v1 < param1->unk_04; v1++) {
-        *param1->unk_00 = 0xee;
-        param1->unk_00++;
+    for (v1 = 0; v1 < slotsMinigameDTO->slotMachineVariant; v1++) {
+        *slotsMinigameDTO->coins = 0xee;
+        slotsMinigameDTO->coins++;
     }
 
     return 1;
 }
 
-void CommQueueMan_Init(CommQueueMan *param0, int param1, CommRing *param2)
+void CommQueueMan_Init(CommQueueMan *param0, int slotsMinigameDTO, CommRing *param2)
 {
     MI_CpuFill8(param0, 0, sizeof(CommQueueMan));
-    param0->unk_18 = Heap_Alloc(HEAP_ID_COMMUNICATION, sizeof(UnkStruct_020322D8) * param1);
+    param0->unk_18 = Heap_Alloc(HEAP_ID_COMMUNICATION, sizeof(UnkStruct_020322D8) * slotsMinigameDTO);
 
-    MI_CpuFill8(param0->unk_18, 0, sizeof(UnkStruct_020322D8) * param1);
-    param0->unk_1C = param1;
+    MI_CpuFill8(param0->unk_18, 0, sizeof(UnkStruct_020322D8) * slotsMinigameDTO);
+    param0->unk_1C = slotsMinigameDTO;
     param0->unk_14 = param2;
 }
 
@@ -293,10 +293,10 @@ void CommQueueMan_Reset(CommQueueMan *param0)
 {
     MI_CpuFill8(param0->unk_18, 0, sizeof(UnkStruct_020322D8) * param0->unk_1C);
 
-    param0->unk_00.unk_00 = NULL;
-    param0->unk_00.unk_04 = NULL;
-    param0->unk_08.unk_00 = NULL;
-    param0->unk_08.unk_04 = NULL;
+    param0->coins.coins = NULL;
+    param0->coins.slotMachineVariant = NULL;
+    param0->unk_08.coins = NULL;
+    param0->unk_08.slotMachineVariant = NULL;
     param0->unk_10 = NULL;
 }
 
@@ -305,13 +305,13 @@ void CommQueueMan_Delete(CommQueueMan *param0)
     Heap_Free(param0->unk_18);
 }
 
-BOOL CommQueueMan_IsCmdInQueue(CommQueueMan *param0, int param1)
+BOOL CommQueueMan_IsCmdInQueue(CommQueueMan *param0, int slotsMinigameDTO)
 {
     int v0;
     UnkStruct_020322D8 *v1 = param0->unk_18;
 
     for (v0 = 0; v0 < param0->unk_1C; v0++) {
-        if (v1->unk_0E == param1) {
+        if (v1->unk_0E == slotsMinigameDTO) {
             return 1;
         }
 

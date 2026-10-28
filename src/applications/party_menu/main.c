@@ -112,7 +112,7 @@ static void LoadGraphics(PartyMenuApplication *application, NARC *narc);
 static PartyMenuApplication *NewPartyMenuApplication(ApplicationManager *appMan);
 static void SetupRequestedMode(PartyMenuApplication *application);
 static void SetupRequestedModePanels(PartyMenuApplication *application);
-static u8 sub_0207F984(PartyMenuApplication *application, u8 param1);
+static u8 sub_0207F984(PartyMenuApplication *application, u8 slotsMinigameDTO);
 static u8 PartyMenu_HandleInput(PartyMenuApplication *application);
 static void InitAnimAndPaletteForSlot(PartyMenuApplication *application, u8 slot, u8 isSelected);
 static void SetupMenuCursor(PartyMenuApplication *application);
@@ -126,7 +126,7 @@ static u8 HandleSpecialInput(PartyMenuApplication *application);
 static int ApplyItemEffectOnPokemon(PartyMenuApplication *application);
 static u8 CheckItemUsageValidity(PartyMenuApplication *application);
 static int ProcessItemApplication(PartyMenuApplication *application);
-static int UpdatePokemonWithItem(PartyMenuApplication *application, Pokemon *param1, int *param2);
+static int UpdatePokemonWithItem(PartyMenuApplication *application, Pokemon *slotsMinigameDTO, int *param2);
 static int PartyMenu_ConfirmItemUpdate(PartyMenuApplication *application);
 static int PartyMenu_ShowItemSwapConfirmation(PartyMenuApplication *application);
 static int ProcessPokemonItemSwap(PartyMenuApplication *application);
@@ -136,7 +136,7 @@ static int UpdatePokemonFormWithItem(PartyMenuApplication *application);
 static void CheckContestEligibility(PartyMenuApplication *application, Pokemon *mon, u8 slot);
 static u32 CountEarnedRibbonsForContestType(Pokemon *mon, u8 contestType);
 static void sub_0207FE1C(PartyMenuApplication *application);
-static void CalculateWindowPosition(u8 param0, s16 *param1, s16 *param2);
+static void CalculateWindowPosition(u8 param0, s16 *slotsMinigameDTO, s16 *param2);
 static int CheckForItemApplication(PartyMenuApplication *application);
 static u8 CheckDuplicateValues(PartyMenuApplication *application);
 static u8 CheckUniqueValues(PartyMenuApplication *application);
@@ -154,22 +154,22 @@ static void DrawMemberPanels_EnteringContest(PartyMenuApplication *application, 
 static void DrawMemberPanels_SelectingOrder(PartyMenuApplication *application, const MemberPanelTemplate *templates);
 static void DrawEmptyMemberPanel(PartyMenuApplication *application, u8 slot, s16 x, s16 y);
 static u8 PartyMenu_TryHandleDirectionPadInput(PartyMenuApplication *application);
-static u8 sub_0207FBE0(PartyMenuApplication *application, u8 *param1, u8 *param2, u8 param3);
-static u8 sub_0207FC30(PartyMenuApplication *application, u8 *param1, u8 *param2, const u8 *param3);
+static u8 sub_0207FBE0(PartyMenuApplication *application, u8 *slotsMinigameDTO, u8 *param2, u8 param3);
+static u8 sub_0207FC30(PartyMenuApplication *application, u8 *slotsMinigameDTO, u8 *param2, const u8 *param3);
 static u8 PartyMenu_TryHandleTouchScreenButtons(PartyMenuApplication *application);
 static void sub_0207FFC8(PartyMenuApplication *application);
 static u8 GetContextMenuEntriesForPartyMon(PartyMenuApplication *application, u8 *buf);
-static u8 sub_020801F0(PartyMenuApplication *application, u8 *param1);
-static u8 sub_0208022C(PartyMenuApplication *application, u8 *param1);
-static u8 sub_0208027C(PartyMenuApplication *application, u8 *param1);
-static u8 sub_020802CC(PartyMenuApplication *application, u8 *param1);
-static u8 sub_0208031C(PartyMenuApplication *application, u8 *param1);
-static u8 sub_020801AC(PartyMenuApplication *application, u8 *param1);
-static u8 sub_020801B8(PartyMenuApplication *application, u8 *param1);
-u8 PartyMenu_CheckBattleHallEligibility(PartyMenuApplication *application, u8 param1);
-u8 PartyMenu_CheckBattleCastleEligibility(PartyMenuApplication *application, u8 param1);
+static u8 sub_020801F0(PartyMenuApplication *application, u8 *slotsMinigameDTO);
+static u8 sub_0208022C(PartyMenuApplication *application, u8 *slotsMinigameDTO);
+static u8 sub_0208027C(PartyMenuApplication *application, u8 *slotsMinigameDTO);
+static u8 sub_020802CC(PartyMenuApplication *application, u8 *slotsMinigameDTO);
+static u8 sub_0208031C(PartyMenuApplication *application, u8 *slotsMinigameDTO);
+static u8 sub_020801AC(PartyMenuApplication *application, u8 *slotsMinigameDTO);
+static u8 sub_020801B8(PartyMenuApplication *application, u8 *slotsMinigameDTO);
+u8 PartyMenu_CheckBattleHallEligibility(PartyMenuApplication *application, u8 slotsMinigameDTO);
+u8 PartyMenu_CheckBattleCastleEligibility(PartyMenuApplication *application, u8 slotsMinigameDTO);
 static u8 CheckCanUseHPTransferFieldMove(PartyMenuApplication *application);
-static BOOL PartyMenu_HPTransferUpdateHP(PartyMenuApplication *application, u8 param1, s8 param2);
+static BOOL PartyMenu_HPTransferUpdateHP(PartyMenuApplication *application, u8 slotsMinigameDTO, s8 param2);
 
 const ApplicationManagerTemplate gPokemonPartyAppTemplate = {
     .init = PartyMenu_Init,
@@ -1082,9 +1082,9 @@ static void SetupRequestedMode(PartyMenuApplication *application)
     PartyMenu_PrintButtonText(application, flags);
 }
 
-u8 sub_0207EF04(PartyMenuApplication *application, u8 param1)
+u8 sub_0207EF04(PartyMenuApplication *application, u8 slotsMinigameDTO)
 {
-    return application->partyMembers[param1].isPresent;
+    return application->partyMembers[slotsMinigameDTO].isPresent;
 }
 
 u8 PartyMenu_LoadMember(PartyMenuApplication *application, u8 slot)
@@ -1435,9 +1435,9 @@ void PartyMenu_UpdateSlotPalette(PartyMenuApplication *application, u8 slot)
     Bg_LoadPalette(BG_LAYER_MAIN_2, &application->colors[PLTT_DEST(palette)], 8 * sizeof(u16), PLTT_OFFSET(3 + slot));
 }
 
-static u8 sub_0207F984(PartyMenuApplication *application, u8 param1)
+static u8 sub_0207F984(PartyMenuApplication *application, u8 slotsMinigameDTO)
 {
-    if ((application->partyMenu->type == PARTY_MENU_TYPE_MULTI_BATTLE) && ((param1 & 1) != 0)) {
+    if ((application->partyMenu->type == PARTY_MENU_TYPE_MULTI_BATTLE) && ((slotsMinigameDTO & 1) != 0)) {
         return 1;
     }
 
@@ -1551,12 +1551,12 @@ static u8 PartyMenu_TryHandleDirectionPadInput(PartyMenuApplication *application
     return FALSE;
 }
 
-static u8 sub_0207FBE0(PartyMenuApplication *application, u8 *param1, u8 *param2, u8 param3)
+static u8 sub_0207FBE0(PartyMenuApplication *application, u8 *slotsMinigameDTO, u8 *param2, u8 param3)
 {
     u8 v0 = application->currPartySlot;
 
     while (TRUE) {
-        v0 = GridMenuCursor_CheckNavigation(application->cursorPosTable, param1, param2, NULL, NULL, v0, param3);
+        v0 = GridMenuCursor_CheckNavigation(application->cursorPosTable, slotsMinigameDTO, param2, NULL, NULL, v0, param3);
 
         if ((v0 == 6) || (v0 == 7) || (v0 == 0xff)) {
             break;
@@ -1570,7 +1570,7 @@ static u8 sub_0207FBE0(PartyMenuApplication *application, u8 *param1, u8 *param2
     return v0;
 }
 
-static u8 sub_0207FC30(PartyMenuApplication *application, u8 *param1, u8 *param2, const u8 *param3)
+static u8 sub_0207FC30(PartyMenuApplication *application, u8 *slotsMinigameDTO, u8 *param2, const u8 *param3)
 {
     u8 v0 = 0;
 
@@ -1580,14 +1580,14 @@ static u8 sub_0207FC30(PartyMenuApplication *application, u8 *param1, u8 *param2
         }
 
         if (sub_0207EF04(application, param3[v0]) != 0) {
-            GridMenuCursor_CheckNavigation(application->cursorPosTable, param1, param2, NULL, NULL, param3[v0], GRID_MENU_CURSOR_POSITION_DIRECTION_NONE);
+            GridMenuCursor_CheckNavigation(application->cursorPosTable, slotsMinigameDTO, param2, NULL, NULL, param3[v0], GRID_MENU_CURSOR_POSITION_DIRECTION_NONE);
             return param3[v0];
         }
 
         v0++;
     }
 
-    GridMenuCursor_CheckNavigation(application->cursorPosTable, param1, param2, NULL, NULL, 0, GRID_MENU_CURSOR_POSITION_DIRECTION_NONE);
+    GridMenuCursor_CheckNavigation(application->cursorPosTable, slotsMinigameDTO, param2, NULL, NULL, 0, GRID_MENU_CURSOR_POSITION_DIRECTION_NONE);
     return 0;
 }
 
@@ -1838,123 +1838,123 @@ static u8 GetContextMenuEntriesForPartyMon(PartyMenuApplication *application, u8
     return count;
 }
 
-static u8 sub_020801AC(PartyMenuApplication *application, u8 *param1)
+static u8 sub_020801AC(PartyMenuApplication *application, u8 *slotsMinigameDTO)
 {
-    param1[0] = 14;
-    param1[1] = 9;
+    slotsMinigameDTO[0] = 14;
+    slotsMinigameDTO[1] = 9;
 
     return 2;
 }
 
-static u8 sub_020801B8(PartyMenuApplication *application, u8 *param1)
+static u8 sub_020801B8(PartyMenuApplication *application, u8 *slotsMinigameDTO)
 {
     if (application->partyMembers[application->currPartySlot].isEgg == FALSE) {
-        param1[0] = 8;
-        param1[1] = 1;
-        param1[2] = 9;
+        slotsMinigameDTO[0] = 8;
+        slotsMinigameDTO[1] = 1;
+        slotsMinigameDTO[2] = 9;
 
         return 3;
     }
 
-    param1[0] = 1;
-    param1[1] = 9;
+    slotsMinigameDTO[0] = 1;
+    slotsMinigameDTO[1] = 9;
 
     return 2;
 }
 
-static u8 sub_020801F0(PartyMenuApplication *application, u8 *param1)
+static u8 sub_020801F0(PartyMenuApplication *application, u8 *slotsMinigameDTO)
 {
     if (application->partyMembers[application->currPartySlot].isContestEligible == TRUE) {
-        param1[0] = 13;
-        param1[1] = 1;
-        param1[2] = 9;
+        slotsMinigameDTO[0] = 13;
+        slotsMinigameDTO[1] = 1;
+        slotsMinigameDTO[2] = 9;
 
         return 3;
     }
 
-    param1[0] = 1;
-    param1[1] = 9;
+    slotsMinigameDTO[0] = 1;
+    slotsMinigameDTO[1] = 9;
 
     return 2;
 }
 
-static u8 sub_0208022C(PartyMenuApplication *application, u8 *param1)
+static u8 sub_0208022C(PartyMenuApplication *application, u8 *slotsMinigameDTO)
 {
     switch (PartyMenu_CheckEligibility(application, application->currPartySlot)) {
     case 0:
-        param1[0] = 1;
-        param1[1] = 9;
+        slotsMinigameDTO[0] = 1;
+        slotsMinigameDTO[1] = 9;
         return 2;
     case 1:
-        param1[0] = 11;
-        param1[1] = 1;
-        param1[2] = 9;
+        slotsMinigameDTO[0] = 11;
+        slotsMinigameDTO[1] = 1;
+        slotsMinigameDTO[2] = 9;
         return 3;
     case 2:
-        param1[0] = 12;
-        param1[1] = 1;
-        param1[2] = 9;
+        slotsMinigameDTO[0] = 12;
+        slotsMinigameDTO[1] = 1;
+        slotsMinigameDTO[2] = 9;
         return 3;
     }
 
     return 0;
 }
 
-static u8 sub_0208027C(PartyMenuApplication *application, u8 *param1)
+static u8 sub_0208027C(PartyMenuApplication *application, u8 *slotsMinigameDTO)
 {
     switch (PartyMenu_CheckBattleHallEligibility(application, application->currPartySlot)) {
     case 0:
-        param1[0] = 1;
-        param1[1] = 9;
+        slotsMinigameDTO[0] = 1;
+        slotsMinigameDTO[1] = 9;
         return 2;
     case 1:
-        param1[0] = 11;
-        param1[1] = 1;
-        param1[2] = 9;
+        slotsMinigameDTO[0] = 11;
+        slotsMinigameDTO[1] = 1;
+        slotsMinigameDTO[2] = 9;
         return 3;
     case 2:
-        param1[0] = 12;
-        param1[1] = 1;
-        param1[2] = 9;
+        slotsMinigameDTO[0] = 12;
+        slotsMinigameDTO[1] = 1;
+        slotsMinigameDTO[2] = 9;
         return 3;
     }
 
     return 0;
 }
 
-static u8 sub_020802CC(PartyMenuApplication *application, u8 *param1)
+static u8 sub_020802CC(PartyMenuApplication *application, u8 *slotsMinigameDTO)
 {
     switch (PartyMenu_CheckBattleCastleEligibility(application, application->currPartySlot)) {
     case 0:
-        param1[0] = 1;
-        param1[1] = 9;
+        slotsMinigameDTO[0] = 1;
+        slotsMinigameDTO[1] = 9;
         return 2;
     case 1:
-        param1[0] = 11;
-        param1[1] = 1;
-        param1[2] = 9;
+        slotsMinigameDTO[0] = 11;
+        slotsMinigameDTO[1] = 1;
+        slotsMinigameDTO[2] = 9;
         return 3;
     case 2:
-        param1[0] = 12;
-        param1[1] = 1;
-        param1[2] = 9;
+        slotsMinigameDTO[0] = 12;
+        slotsMinigameDTO[1] = 1;
+        slotsMinigameDTO[2] = 9;
         return 3;
     }
 
     return 0;
 }
 
-static u8 sub_0208031C(PartyMenuApplication *application, u8 *param1)
+static u8 sub_0208031C(PartyMenuApplication *application, u8 *slotsMinigameDTO)
 {
     if (application->partyMembers[application->currPartySlot].isEgg == TRUE) {
-        param1[0] = 1;
-        param1[1] = 15;
-        param1[2] = 9;
+        slotsMinigameDTO[0] = 1;
+        slotsMinigameDTO[1] = 15;
+        slotsMinigameDTO[2] = 9;
         return 3;
     }
 
-    param1[0] = 1;
-    param1[1] = 9;
+    slotsMinigameDTO[0] = 1;
+    slotsMinigameDTO[1] = 9;
 
     return 2;
 }
@@ -2397,9 +2397,9 @@ static void DrawMemberTouchScreenButton(PartyMenuApplication *application, u8 sl
 #undef TOUCH_BUTTON_TILE_HEIGHT
 #undef TOUCH_BUTTON_TILE_WIDTH
 
-static void CalculateWindowPosition(u8 application, s16 *param1, s16 *param2)
+static void CalculateWindowPosition(u8 application, s16 *slotsMinigameDTO, s16 *param2)
 {
-    *param1 = sTouchScreenButtonCoords[application][0] * 8 + ((5 * 8) >> 1);
+    *slotsMinigameDTO = sTouchScreenButtonCoords[application][0] * 8 + ((5 * 8) >> 1);
     *param2 = sTouchScreenButtonCoords[application][1] * 8 + ((5 * 8) >> 1);
 }
 

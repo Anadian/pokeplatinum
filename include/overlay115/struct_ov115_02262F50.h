@@ -6,8 +6,8 @@
 #include "trainer_info.h"
 
 typedef struct {
-    u32 unk_00;
-    UnkStruct_ov115_02262DC4 *unk_04;
+    u32 coins;
+    UnkStruct_ov115_02262DC4 *slotMachineVariant;
     const TrainerInfo *unk_08[4];
     u32 unk_18[4];
 } UnkStruct_ov115_02262F50;

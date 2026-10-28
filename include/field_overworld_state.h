@@ -29,7 +29,7 @@ typedef struct FieldOverworldState {
 } FieldOverworldState;
 
 typedef struct FieldOverworldSave {
-    MapObjectSave unk_00[64];
+    MapObjectSave coins[64];
 } FieldOverworldSave;
 
 int FieldOverworldState_Size(void);

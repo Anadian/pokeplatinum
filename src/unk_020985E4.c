@@ -28,8 +28,8 @@ void sub_020985E4(FieldTask *param0, SaveData *saveData)
     args->trainerInfo = SaveData_GetTrainerInfo(saveData);
     args->playerGender = TrainerInfo_Gender(args->trainerInfo);
 
-    v0->unk_00 = 0;
-    v0->unk_04 = args;
+    v0->coins = 0;
+    v0->slotMachineVariant = args;
 
     FieldTask_InitCall(param0, sub_0209862C, v0);
 }
@@ -39,10 +39,10 @@ BOOL sub_0209862C(FieldTask *param0)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(param0);
     UnkStruct_0209862C *v1 = FieldTask_GetEnv(param0);
 
-    switch (v1->unk_00) {
+    switch (v1->coins) {
     case 0:
         FieldMap_FadeScreen(FADE_TYPE_BRIGHTNESS_OUT);
-        v1->unk_00++;
+        v1->coins++;
     case 1:
         if (IsScreenFadeDone() == FALSE) {
             break;
@@ -56,26 +56,26 @@ BOOL sub_0209862C(FieldTask *param0)
                 FS_OVERLAY_ID(spear_pillar_cutscene)
             };
 
-            FieldSystem_StartChildProcess(fieldSystem, &v2, v1->unk_04);
-            v1->unk_00++;
+            FieldSystem_StartChildProcess(fieldSystem, &v2, v1->slotMachineVariant);
+            v1->coins++;
         }
         break;
     case 2:
         if (FieldSystem_IsRunningApplication(fieldSystem) == 0) {
             FieldSystem_StartFieldMap(fieldSystem);
-            v1->unk_00++;
+            v1->coins++;
         }
         break;
     case 3:
         if (FieldSystem_IsRunningFieldMap(fieldSystem) == 0) {
-            v1->unk_00++;
+            v1->coins++;
         }
         break;
     case 4:
-        v1->unk_00++;
+        v1->coins++;
         break;
     case 5:
-        Heap_Free(v1->unk_04);
+        Heap_Free(v1->slotMachineVariant);
         Heap_Free(v1);
         return 1;
         break;

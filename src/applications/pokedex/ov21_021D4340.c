@@ -20,28 +20,28 @@
 
 #include "heap.h"
 
-static void ov21_021D4628(PokedexScreenManager *param0, UnkStruct_ov21_021D423C *param1, PokedexUpdater *param2);
+static void ov21_021D4628(PokedexScreenManager *param0, UnkStruct_ov21_021D423C *slotsMinigameDTO, PokedexUpdater *param2);
 
 BOOL ov21_021D4340(UnkStruct_ov21_021D4340_1 *param0)
 {
     UnkStruct_ov21_021D4340 *v0 = param0->unk_08;
 
-    switch (param0->unk_00) {
+    switch (param0->coins) {
     case 0:
-        PokedexUpdater_DataExit(v0->unk_04);
-        param0->unk_00++;
+        PokedexUpdater_DataExit(v0->slotMachineVariant);
+        param0->coins++;
         break;
     case 1:
-        if (PokedexUpdater_IsPageExited(v0->unk_04) == 1) {
-            param0->unk_00++;
+        if (PokedexUpdater_IsPageExited(v0->slotMachineVariant) == 1) {
+            param0->coins++;
         }
         break;
     case 2:
-        ov21_021D4628(v0->unk_00, v0->unk_08, v0->unk_04);
-        param0->unk_00++;
+        ov21_021D4628(v0->coins, v0->unk_08, v0->slotMachineVariant);
+        param0->coins++;
         break;
     case 3:
-        if (PokedexUpdater_IsPageDataActive(v0->unk_04) == 1) {
+        if (PokedexUpdater_IsPageDataActive(v0->slotMachineVariant) == 1) {
             return 1;
         }
         break;
@@ -59,19 +59,19 @@ BOOL ov21_021D43A8(UnkStruct_ov21_021D4340_1 *param0)
     BOOL v1[4];
     int v2;
 
-    switch (param0->unk_00) {
+    switch (param0->coins) {
     case 0:
-        PokedexUpdater_DataExit(v0->unk_00);
-        PokedexUpdater_DataExit(v0->unk_04);
+        PokedexUpdater_DataExit(v0->coins);
+        PokedexUpdater_DataExit(v0->slotMachineVariant);
         PokedexUpdater_DataExit(v0->unk_08);
-        PokedexUpdater_DataExit(v0->unk_0C);
-        param0->unk_00++;
+        PokedexUpdater_DataExit(v0->slotsMinigameDTO);
+        param0->coins++;
         break;
     case 1:
-        v1[0] = PokedexUpdater_IsPageExited(v0->unk_00);
-        v1[1] = PokedexUpdater_IsPageExited(v0->unk_04);
+        v1[0] = PokedexUpdater_IsPageExited(v0->coins);
+        v1[1] = PokedexUpdater_IsPageExited(v0->slotMachineVariant);
         v1[2] = PokedexUpdater_IsPageExited(v0->unk_08);
-        v1[3] = PokedexUpdater_IsPageExited(v0->unk_0C);
+        v1[3] = PokedexUpdater_IsPageExited(v0->slotsMinigameDTO);
 
         for (v2 = 0; v2 < 4; v2++) {
             if (v1[v2] == 0) {
@@ -80,7 +80,7 @@ BOOL ov21_021D43A8(UnkStruct_ov21_021D4340_1 *param0)
         }
 
         if (v2 >= 4) {
-            param0->unk_00++;
+            param0->coins++;
         }
         break;
     case 2:
@@ -100,19 +100,19 @@ BOOL ov21_021D4434(UnkStruct_ov21_021D4340_1 *param0)
     BOOL v1[4];
     int v2;
 
-    switch (param0->unk_00) {
+    switch (param0->coins) {
     case 0:
-        PokedexUpdater_DataExit(v0->unk_00);
-        PokedexUpdater_DataExit(v0->unk_04);
+        PokedexUpdater_DataExit(v0->coins);
+        PokedexUpdater_DataExit(v0->slotMachineVariant);
         PokedexUpdater_DataExit(v0->unk_08);
-        PokedexUpdater_DataExit(v0->unk_0C);
-        param0->unk_00++;
+        PokedexUpdater_DataExit(v0->slotsMinigameDTO);
+        param0->coins++;
         break;
     case 1:
-        v1[0] = PokedexUpdater_IsPageExited(v0->unk_00);
-        v1[1] = PokedexUpdater_IsPageExited(v0->unk_04);
+        v1[0] = PokedexUpdater_IsPageExited(v0->coins);
+        v1[1] = PokedexUpdater_IsPageExited(v0->slotMachineVariant);
         v1[2] = PokedexUpdater_IsPageExited(v0->unk_08);
-        v1[3] = PokedexUpdater_IsPageExited(v0->unk_0C);
+        v1[3] = PokedexUpdater_IsPageExited(v0->slotsMinigameDTO);
 
         for (v2 = 0; v2 < 4; v2++) {
             if (v1[v2] == 0) {
@@ -121,25 +121,25 @@ BOOL ov21_021D4434(UnkStruct_ov21_021D4340_1 *param0)
         }
 
         if (v2 >= 4) {
-            param0->unk_00++;
+            param0->coins++;
         }
         break;
     case 2:
-        ov21_021D4628(v0->unk_20, v0->unk_10, v0->unk_00);
-        ov21_021D4628(v0->unk_24, v0->unk_14, v0->unk_04);
+        ov21_021D4628(v0->unk_20, v0->unk_10, v0->coins);
+        ov21_021D4628(v0->unk_24, v0->unk_14, v0->slotMachineVariant);
         ov21_021D4628(v0->unk_28, v0->unk_18, v0->unk_08);
-        ov21_021D4628(v0->unk_2C, v0->unk_1C, v0->unk_0C);
-        param0->unk_00++;
+        ov21_021D4628(v0->unk_2C, v0->unk_1C, v0->slotsMinigameDTO);
+        param0->coins++;
         break;
     case 3:
         if (v0->unk_20) {
-            v1[0] = PokedexUpdater_IsPageDataActive(v0->unk_00);
+            v1[0] = PokedexUpdater_IsPageDataActive(v0->coins);
         } else {
             v1[0] = 1;
         }
 
         if (v0->unk_24) {
-            v1[1] = PokedexUpdater_IsPageDataActive(v0->unk_04);
+            v1[1] = PokedexUpdater_IsPageDataActive(v0->slotMachineVariant);
         }
 
         if (v0->unk_28) {
@@ -149,7 +149,7 @@ BOOL ov21_021D4434(UnkStruct_ov21_021D4340_1 *param0)
         }
 
         if (v0->unk_2C) {
-            v1[3] = PokedexUpdater_IsPageDataActive(v0->unk_0C);
+            v1[3] = PokedexUpdater_IsPageDataActive(v0->slotsMinigameDTO);
         } else {
             v1[3] = 1;
         }
@@ -179,15 +179,15 @@ BOOL ov21_021D4558(UnkStruct_ov21_021D4340_1 *param0)
     BOOL v1[2];
     int v2;
 
-    switch (param0->unk_00) {
+    switch (param0->coins) {
     case 0:
-        PokedexUpdater_DataExit(v0->unk_00);
-        PokedexUpdater_DataExit(v0->unk_04);
-        param0->unk_00++;
+        PokedexUpdater_DataExit(v0->coins);
+        PokedexUpdater_DataExit(v0->slotMachineVariant);
+        param0->coins++;
         break;
     case 1:
-        v1[0] = PokedexUpdater_IsPageExited(v0->unk_00);
-        v1[1] = PokedexUpdater_IsPageExited(v0->unk_04);
+        v1[0] = PokedexUpdater_IsPageExited(v0->coins);
+        v1[1] = PokedexUpdater_IsPageExited(v0->slotMachineVariant);
 
         for (v2 = 0; v2 < 2; v2++) {
             if (v1[v2] == 0) {
@@ -196,23 +196,23 @@ BOOL ov21_021D4558(UnkStruct_ov21_021D4340_1 *param0)
         }
 
         if (v2 >= 2) {
-            param0->unk_00++;
+            param0->coins++;
         }
         break;
     case 2:
-        ov21_021D4628(v0->unk_10, v0->unk_08, v0->unk_00);
-        ov21_021D4628(v0->unk_14, v0->unk_0C, v0->unk_04);
-        param0->unk_00++;
+        ov21_021D4628(v0->unk_10, v0->unk_08, v0->coins);
+        ov21_021D4628(v0->unk_14, v0->slotsMinigameDTO, v0->slotMachineVariant);
+        param0->coins++;
         break;
     case 3:
         if (v0->unk_10) {
-            v1[0] = PokedexUpdater_IsPageDataActive(v0->unk_00);
+            v1[0] = PokedexUpdater_IsPageDataActive(v0->coins);
         } else {
             v1[0] = 1;
         }
 
         if (v0->unk_14) {
-            v1[1] = PokedexUpdater_IsPageDataActive(v0->unk_04);
+            v1[1] = PokedexUpdater_IsPageDataActive(v0->slotMachineVariant);
         } else {
             v1[1] = 1;
         }
@@ -235,7 +235,7 @@ BOOL ov21_021D4558(UnkStruct_ov21_021D4340_1 *param0)
     return 0;
 }
 
-static void ov21_021D4628(PokedexScreenManager *param0, UnkStruct_ov21_021D423C *param1, PokedexUpdater *pokedexUpdater)
+static void ov21_021D4628(PokedexScreenManager *param0, UnkStruct_ov21_021D423C *slotsMinigameDTO, PokedexUpdater *pokedexUpdater)
 {
     PokedexUpdaterTemplate pokedexUpdaterTemplate;
 
@@ -246,7 +246,7 @@ static void ov21_021D4628(PokedexScreenManager *param0, UnkStruct_ov21_021D423C 
         pokedexUpdaterTemplate.graphicsFunc = param0->graphicsFunc;
 
         PokedexUpdater_PopulateUpdater(pokedexUpdater, &pokedexUpdaterTemplate);
-        ov21_021D426C(param1, param0->screenStates, param0->numStates);
+        ov21_021D426C(slotsMinigameDTO, param0->screenStates, param0->numStates);
     }
 }
 
@@ -258,22 +258,22 @@ void ov21_021D4660(UnkStruct_ov21_021D4660 *param0)
     param0->unk_08.unk_08 = NULL;
 }
 
-void ov21_021D467C(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D467C(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4434 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4434;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4434;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4434));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4434));
 
-    v0->unk_00 = ov21_021D12EC(param2);
-    v0->unk_04 = ov21_021D1300(param2);
+    v0->coins = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D1300(param2);
     v0->unk_08 = ov21_021D1314(param2);
-    v0->unk_0C = ov21_021D1328(param2);
+    v0->slotsMinigameDTO = ov21_021D1328(param2);
     v0->unk_10 = ov21_021D133C(param2);
     v0->unk_14 = ov21_021D1350(param2);
     v0->unk_18 = ov21_021D1364(param2);
@@ -283,46 +283,46 @@ void ov21_021D467C(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexA
     v0->unk_28 = NULL;
     v0->unk_2C = NULL;
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D4704(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D4704(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D43A8 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D43A8;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D43A8;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D43A8));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D43A8));
 
-    v0->unk_00 = ov21_021D12EC(param2);
-    v0->unk_04 = ov21_021D1300(param2);
+    v0->coins = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D1300(param2);
     v0->unk_08 = ov21_021D1314(param2);
-    v0->unk_0C = ov21_021D1328(param2);
+    v0->slotsMinigameDTO = ov21_021D1328(param2);
     v0->unk_10 = ov21_021D13DC(param2);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D475C(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D475C(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4434 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4434;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4434;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4434));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4434));
 
-    v0->unk_00 = ov21_021D12EC(param2);
-    v0->unk_04 = ov21_021D1300(param2);
+    v0->coins = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D1300(param2);
     v0->unk_08 = ov21_021D1314(param2);
-    v0->unk_0C = ov21_021D1328(param2);
+    v0->slotsMinigameDTO = ov21_021D1328(param2);
     v0->unk_10 = ov21_021D133C(param2);
     v0->unk_14 = ov21_021D1350(param2);
     v0->unk_18 = ov21_021D1364(param2);
@@ -332,25 +332,25 @@ void ov21_021D475C(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexA
     v0->unk_28 = ov21_021D1410(param2, 5);
     v0->unk_2C = ov21_021D1430(param2, 3);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D47F0(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D47F0(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4434 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4434;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4434;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4434));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4434));
 
-    v0->unk_00 = ov21_021D12EC(param2);
-    v0->unk_04 = ov21_021D1300(param2);
+    v0->coins = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D1300(param2);
     v0->unk_08 = ov21_021D1314(param2);
-    v0->unk_0C = ov21_021D1328(param2);
+    v0->slotsMinigameDTO = ov21_021D1328(param2);
     v0->unk_10 = ov21_021D133C(param2);
     v0->unk_14 = ov21_021D1350(param2);
     v0->unk_18 = ov21_021D1364(param2);
@@ -360,208 +360,208 @@ void ov21_021D47F0(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexA
     v0->unk_28 = NULL;
     v0->unk_2C = NULL;
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D4878(UnkStruct_ov21_021D4660 *param0, PokedexApp *param1, enum HeapID heapID, int param3)
+void ov21_021D4878(UnkStruct_ov21_021D4660 *param0, PokedexApp *slotsMinigameDTO, enum HeapID heapID, int param3)
 {
     UnkStruct_ov21_021D4340 *v0;
 
-    param0->unk_00 = param3;
-    param0->unk_04 = ov21_021D4340;
+    param0->coins = param3;
+    param0->slotMachineVariant = ov21_021D4340;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4340));
     GF_ASSERT(v0);
 
-    v0->unk_00 = ov21_021D1410(param1, 0);
-    v0->unk_04 = ov21_021D12EC(param1);
-    v0->unk_08 = ov21_021D133C(param1);
+    v0->coins = ov21_021D1410(slotsMinigameDTO, 0);
+    v0->slotMachineVariant = ov21_021D12EC(slotsMinigameDTO);
+    v0->unk_08 = ov21_021D133C(slotsMinigameDTO);
 
     param0->unk_08.unk_08 = v0;
 }
 
-void ov21_021D48B8(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D48B8(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4558 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4558;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4558;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4558));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4558));
 
-    v0->unk_00 = ov21_021D12EC(param2);
-    v0->unk_04 = ov21_021D1300(param2);
+    v0->coins = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D1300(param2);
     v0->unk_08 = ov21_021D133C(param2);
-    v0->unk_0C = ov21_021D1350(param2);
+    v0->slotsMinigameDTO = ov21_021D1350(param2);
     v0->unk_10 = ov21_021D1410(param2, 6);
     v0->unk_14 = ov21_021D1430(param2, 4);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D491C(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D491C(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4558 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4558;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4558;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4558));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4558));
 
-    v0->unk_00 = ov21_021D12EC(param2);
-    v0->unk_04 = ov21_021D1300(param2);
+    v0->coins = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D1300(param2);
     v0->unk_08 = ov21_021D133C(param2);
-    v0->unk_0C = ov21_021D1350(param2);
+    v0->slotsMinigameDTO = ov21_021D1350(param2);
     v0->unk_10 = ov21_021D1410(param2, 7);
     v0->unk_14 = ov21_021D1430(param2, 5);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D4980(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D4980(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4558 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4558;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4558;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4558));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4558));
 
-    v0->unk_00 = ov21_021D12EC(param2);
-    v0->unk_04 = ov21_021D1300(param2);
+    v0->coins = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D1300(param2);
     v0->unk_08 = ov21_021D133C(param2);
-    v0->unk_0C = ov21_021D1350(param2);
+    v0->slotsMinigameDTO = ov21_021D1350(param2);
     v0->unk_10 = ov21_021D1410(param2, 8);
     v0->unk_14 = ov21_021D1430(param2, 6);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D49E4(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D49E4(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4340 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4340;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4340;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4340));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4340));
 
-    v0->unk_04 = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D12EC(param2);
     v0->unk_08 = ov21_021D133C(param2);
-    v0->unk_00 = ov21_021D1410(param2, 8);
+    v0->coins = ov21_021D1410(param2, 8);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D4A3C(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D4A3C(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4340 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4340;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4340;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4340));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4340));
 
-    v0->unk_04 = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D12EC(param2);
     v0->unk_08 = ov21_021D133C(param2);
-    v0->unk_00 = ov21_021D1410(param2, 9);
+    v0->coins = ov21_021D1410(param2, 9);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D4A94(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D4A94(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4558 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4558;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4558;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4558));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4558));
 
-    v0->unk_00 = ov21_021D12EC(param2);
-    v0->unk_04 = ov21_021D1300(param2);
+    v0->coins = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D1300(param2);
     v0->unk_08 = ov21_021D133C(param2);
-    v0->unk_0C = ov21_021D1350(param2);
+    v0->slotsMinigameDTO = ov21_021D1350(param2);
     v0->unk_10 = ov21_021D1410(param2, 2);
     v0->unk_14 = ov21_021D1430(param2, 2);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D4AF8(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D4AF8(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4340 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4340;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4340;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4340));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4340));
 
-    v0->unk_04 = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D12EC(param2);
     v0->unk_08 = ov21_021D133C(param2);
-    v0->unk_00 = ov21_021D1410(param2, 2);
+    v0->coins = ov21_021D1410(param2, 2);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D4B50(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D4B50(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4558 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4558;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4558;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4558));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4558));
 
-    v0->unk_00 = ov21_021D12EC(param2);
-    v0->unk_04 = ov21_021D1300(param2);
+    v0->coins = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D1300(param2);
     v0->unk_08 = ov21_021D133C(param2);
-    v0->unk_0C = ov21_021D1350(param2);
+    v0->slotsMinigameDTO = ov21_021D1350(param2);
     v0->unk_10 = ov21_021D1410(param2, 3);
     v0->unk_14 = ov21_021D1430(param2, 7);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }
 
-void ov21_021D4BB4(enum HeapID heapID, UnkStruct_ov21_021D4660 *param1, PokedexApp *param2, int param3)
+void ov21_021D4BB4(enum HeapID heapID, UnkStruct_ov21_021D4660 *slotsMinigameDTO, PokedexApp *param2, int param3)
 {
     UnkStruct_ov21_021D4340 *v0;
 
-    param1->unk_00 = param3;
-    param1->unk_04 = ov21_021D4340;
+    slotsMinigameDTO->coins = param3;
+    slotsMinigameDTO->slotMachineVariant = ov21_021D4340;
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_ov21_021D4340));
 
     GF_ASSERT(v0);
     memset(v0, 0, sizeof(UnkStruct_ov21_021D4340));
 
-    v0->unk_04 = ov21_021D12EC(param2);
+    v0->slotMachineVariant = ov21_021D12EC(param2);
     v0->unk_08 = ov21_021D133C(param2);
-    v0->unk_00 = ov21_021D1410(param2, 4);
+    v0->coins = ov21_021D1410(param2, 4);
 
-    param1->unk_08.unk_08 = v0;
+    slotsMinigameDTO->unk_08.unk_08 = v0;
 }

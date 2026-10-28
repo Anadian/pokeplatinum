@@ -6,8 +6,8 @@
 #include "bg_window.h"
 
 typedef struct {
-    BgConfig *unk_00;
-    MtxFx22 unk_04;
+    BgConfig *coins;
+    MtxFx22 slotMachineVariant;
     u32 unk_14;
     int unk_18;
     int unk_1C;

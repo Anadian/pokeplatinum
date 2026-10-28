@@ -28,20 +28,20 @@ typedef struct PokemonCryDurationParam {
     SysTask *task;
 } PokemonCryDurationParam;
 
-static void Sound_Impl_HandleBGMChange(u16 param0, enum SoundHandleType param1);
+static void Sound_Impl_HandleBGMChange(u16 param0, enum SoundHandleType slotsMinigameDTO);
 static BOOL Sound_Impl_PlayBGM(u16 seqID, u8 playerID, enum SoundHandleType handleType);
 static BOOL Sound_Impl_PlayFieldBGM(u16 seqID, u8 playerID, enum SoundHandleType handleType);
 static void Sound_Impl_ResetBGM(void);
 void Sound_StopAll(void);
-static void Sound_Impl_SetPokemonCryVolume(u16 param0, enum SoundHandleType param1, int param2);
+static void Sound_Impl_SetPokemonCryVolume(u16 param0, enum SoundHandleType slotsMinigameDTO, int param2);
 void Sound_StopPokemonCries(int param0);
 void Sound_SetPokemonCryDuration(int param0, enum HeapID heapID);
-static void Sound_Impl_CryDurationTask(SysTask *param0, void *param1);
+static void Sound_Impl_CryDurationTask(SysTask *param0, void *slotsMinigameDTO);
 void Sound_Impl_DestroyCryDurationTask(void);
 static BOOL Sound_Impl_IsShayminSkyForm(u16 species, u8 form);
 void Sound_ClearPokemonCryParams(void);
 static BOOL Sound_Impl_PlayPokemonCryEcho(u16 species, s8 pitch, u8 form);
-static BOOL Sound_PlayPokemonCryReversedEcho(u16 param0, s8 param1, int param2, int param3, enum HeapID heapID);
+static BOOL Sound_PlayPokemonCryReversedEcho(u16 param0, s8 slotsMinigameDTO, int param2, int param3, enum HeapID heapID);
 BOOL Sound_UpdateFanfareDelay(void);
 static void Sound_Impl_StopFanfare(int param0);
 BOOL Sound_IsBGMPausedByFanfare(void);

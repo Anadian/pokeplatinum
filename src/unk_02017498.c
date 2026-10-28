@@ -22,8 +22,8 @@ static NNSFndHeapHandle Unk_021BF678;
 
 static void sub_0201767C(UnkStruct_02017498 *param0);
 static void sub_020176B4(UnkStruct_02017498 *param0);
-static void *sub_020176DC(DWCAllocType param0, u32 param1, int param2);
-static void sub_02017704(DWCAllocType param0, void *param1, u32 param2);
+static void *sub_020176DC(DWCAllocType param0, u32 slotsMinigameDTO, int param2);
+static void sub_02017704(DWCAllocType param0, void *slotsMinigameDTO, u32 param2);
 
 static const ApplicationManagerTemplate Unk_020E5664 = {
     ov61_0222BF44,
@@ -32,7 +32,7 @@ static const ApplicationManagerTemplate Unk_020E5664 = {
     0xffffffff,
 };
 
-int sub_02017498(ApplicationManager *appMan, int *param1)
+int sub_02017498(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_02017498 *v0;
 
@@ -52,21 +52,21 @@ int sub_02017498(ApplicationManager *appMan, int *param1)
 
     v0 = ApplicationManager_NewData(appMan, sizeof(UnkStruct_02017498), HEAP_ID_116);
     MI_CpuClear8(v0, sizeof(UnkStruct_02017498));
-    v0->unk_00 = ApplicationManager_Args(appMan);
+    v0->coins = ApplicationManager_Args(appMan);
 
     Sound_SetSceneAndPlayBGM(SOUND_SCENE_11, SEQ_WIFILOBBY_sseq, 1);
 
     return 1;
 }
 
-int sub_02017524(ApplicationManager *appMan, int *param1)
+int sub_02017524(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_02017498 *v0 = ApplicationManager_Data(appMan);
 
-    switch (*param1) {
+    switch (*slotsMinigameDTO) {
     case 0:
         sub_0201767C(v0);
-        *param1 = 1;
+        *slotsMinigameDTO = 1;
         break;
     case 1:
         if (WirelessDriver_IsReady()) {
@@ -75,12 +75,12 @@ int sub_02017524(ApplicationManager *appMan, int *param1)
             DWC_SetMemFunc(sub_020176DC, sub_02017704);
 
             v0->unk_88 = 1;
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
         break;
     case 2:
         v0->appMan = ApplicationManager_New(&Unk_020E5664, v0, HEAP_ID_116);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 3:
         if (ApplicationManager_Exec(v0->appMan) == 1) {
@@ -88,34 +88,34 @@ int sub_02017524(ApplicationManager *appMan, int *param1)
 
             if (v0->unk_8C == 1) {
                 v0->unk_10 = 1;
-                (*param1)++;
+                (*slotsMinigameDTO)++;
             } else {
-                *param1 = 8;
+                *slotsMinigameDTO = 8;
             }
         }
         break;
     case 4: {
         const ApplicationManagerTemplate *v1;
 
-        v1 = sub_0208BE5C(v0->unk_00->unk_0C);
-        v0->appMan = ApplicationManager_New(v1, v0->unk_00->fieldSystem, HEAP_ID_116);
-        (*param1)++;
+        v1 = sub_0208BE5C(v0->coins->slotsMinigameDTO);
+        v0->appMan = ApplicationManager_New(v1, v0->coins->fieldSystem, HEAP_ID_116);
+        (*slotsMinigameDTO)++;
     } break;
     case 5:
         if (ApplicationManager_Exec(v0->appMan) == 1) {
             ApplicationManager_Free(v0->appMan);
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
         break;
     case 6:
         v0->appMan = ApplicationManager_New(&Unk_020E5664, v0, HEAP_ID_116);
-        (*param1)++;
+        (*slotsMinigameDTO)++;
         break;
     case 7:
         if (ApplicationManager_Exec(v0->appMan) == 1) {
             ApplicationManager_Free(v0->appMan);
             v0->unk_10 = 0;
-            (*param1)++;
+            (*slotsMinigameDTO)++;
         }
         break;
     case 8:
@@ -130,12 +130,12 @@ int sub_02017524(ApplicationManager *appMan, int *param1)
     return 0;
 }
 
-int sub_02017658(ApplicationManager *appMan, int *param1)
+int sub_02017658(ApplicationManager *appMan, int *slotsMinigameDTO)
 {
     UnkStruct_02017498 *v0 = ApplicationManager_Data(appMan);
 
     sub_020176B4(v0);
-    Heap_Free(v0->unk_00);
+    Heap_Free(v0->coins);
     ApplicationManager_FreeData(appMan);
     Heap_Destroy(HEAP_ID_116);
 
@@ -168,14 +168,14 @@ static void sub_020176B4(UnkStruct_02017498 *param0)
     }
 }
 
-static void *sub_020176DC(DWCAllocType param0, u32 param1, int param2)
+static void *sub_020176DC(DWCAllocType param0, u32 slotsMinigameDTO, int param2)
 {
 #pragma unused(param0)
     void *v0;
     OSIntrMode v1;
 
     v1 = OS_DisableInterrupts();
-    v0 = NNS_FndAllocFromExpHeapEx(Unk_021BF678, param1, param2);
+    v0 = NNS_FndAllocFromExpHeapEx(Unk_021BF678, slotsMinigameDTO, param2);
 
     OS_RestoreInterrupts(v1);
 
@@ -186,16 +186,16 @@ static void *sub_020176DC(DWCAllocType param0, u32 param1, int param2)
     return v0;
 }
 
-static void sub_02017704(DWCAllocType param0, void *param1, u32 param2)
+static void sub_02017704(DWCAllocType param0, void *slotsMinigameDTO, u32 param2)
 {
 #pragma unused(param0, param2)
     OSIntrMode v0;
 
-    if (!param1) {
+    if (!slotsMinigameDTO) {
         return;
     }
 
     v0 = OS_DisableInterrupts();
-    NNS_FndFreeToExpHeap(Unk_021BF678, param1);
+    NNS_FndFreeToExpHeap(Unk_021BF678, slotsMinigameDTO);
     OS_RestoreInterrupts(v0);
 }
