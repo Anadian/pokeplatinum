@@ -35,13 +35,13 @@ void ClearPalParkTransferPokemonData(MigratedPokemon *transferData)
     }
 }
 
-static int GetTransferSlotByTrainerID(MigratedPokemon *transferData, u32 slotsMinigameDTO)
+static int GetTransferSlotByTrainerID(MigratedPokemon *transferData, u32 param1)
 {
     int i, slot;
     s64 temp;
 
     for (i = 0; i < MAX_GBA_TRANSFER_HISTORY; i++) {
-        if (transferData->gbaTrainerIds[i] == slotsMinigameDTO) {
+        if (transferData->gbaTrainerIds[i] == param1) {
             return i;
         }
     }

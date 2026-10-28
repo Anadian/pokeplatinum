@@ -12,10 +12,10 @@
 #include "berry_patch_manager.h"
 
 struct FieldSystem_sub2_t {
-    BOOL coins;
-    UnkStruct_ov5_021D1A94 *slotMachineVariant;
+    BOOL unk_00;
+    UnkStruct_ov5_021D1A94 *unk_04;
     MapNamePopUp *mapPopup;
-    UnkStruct_ov5_021D5EF8 *slotsMinigameDTO;
+    UnkStruct_ov5_021D5EF8 *unk_0C;
     FieldTextureManager *unk_10;
     PoketchSystem *poketchSys;
     BerryPatchManager *berryPatchManager;

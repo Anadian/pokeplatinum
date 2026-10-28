@@ -48,10 +48,10 @@
 #include "constdata/const_020F410C.h"
 
 typedef struct {
-    PokemonSummary *coins;
+    PokemonSummary *unk_00;
     PartyMenu *partyMenu;
     UnkFuncPtr_0205AB10 *unk_08;
-    String *slotsMinigameDTO;
+    String *unk_0C;
     String *unk_10;
     Window unk_14;
     FieldSystem *fieldSystem;
@@ -84,12 +84,12 @@ typedef struct {
 } UnkStruct_0205A0D8;
 
 typedef struct {
-    u32 coins;
+    u32 unk_00;
 } UnkStruct_0205AD20;
 
 typedef struct {
-    String *coins;
-    String *slotMachineVariant;
+    String *unk_00;
+    String *unk_04;
     Window unk_08;
     StringTemplate *unk_18;
     MessageLoader *unk_1C;
@@ -99,19 +99,19 @@ typedef struct {
 } UnkStruct_0205B2D4;
 
 static void sub_0205AC28(UnkStruct_0205A0D8 *param0);
-static void sub_0205AC80(UnkStruct_0205A0D8 *param0, BOOL slotsMinigameDTO);
+static void sub_0205AC80(UnkStruct_0205A0D8 *param0, BOOL param1);
 static BOOL sub_0205ACC8(UnkStruct_0205A0D8 *param0);
 static BOOL sub_0205AD10(UnkStruct_0205A0D8 *param0);
-static void sub_0205ADF8(UnkStruct_0205A0D8 *param0, int slotsMinigameDTO);
+static void sub_0205ADF8(UnkStruct_0205A0D8 *param0, int param1);
 static int sub_0205AFE4(UnkStruct_0205A0D8 *param0);
 static void sub_0205B0B4(UnkStruct_0205A0D8 *param0);
 static BOOL sub_0205AD34(UnkStruct_0205A0D8 *param0);
 static BOOL sub_0205AD70(UnkStruct_0205A0D8 *param0);
 static void sub_0205ADAC(UnkStruct_0205A0D8 *param0);
 static void sub_0205AD80(UnkStruct_0205A0D8 *param0);
-static int sub_0205AA50(UnkStruct_0205A0D8 *param0, const String *slotsMinigameDTO);
-static void sub_0205AAA0(UnkStruct_0205A0D8 *param0, BOOL slotsMinigameDTO);
-static void sub_0205AF18(UnkStruct_0205A0D8 *param0, int slotsMinigameDTO);
+static int sub_0205AA50(UnkStruct_0205A0D8 *param0, const String *param1);
+static void sub_0205AAA0(UnkStruct_0205A0D8 *param0, BOOL param1);
+static void sub_0205AF18(UnkStruct_0205A0D8 *param0, int param1);
 static BOOL sub_0205AD20(UnkStruct_0205A0D8 *param0);
 
 static void sub_0205A0D8(UnkStruct_0205A0D8 *param0, FieldSystem *fieldSystem, Party *param2, int slot, int param4, enum HeapID heapID)
@@ -148,7 +148,7 @@ static void sub_0205A0D8(UnkStruct_0205A0D8 *param0, FieldSystem *fieldSystem, P
     PokemonSummaryScreen_FlagVisiblePages(monSummary, visiblePages);
     FieldSystem_StartChildProcess(fieldSystem, &gPokemonSummaryScreenApp, monSummary);
 
-    param0->coins = monSummary;
+    param0->unk_00 = monSummary;
 }
 
 static void sub_0205A164(UnkStruct_0205A0D8 *param0, enum HeapID heapID)
@@ -216,9 +216,9 @@ static BOOL sub_0205A2B0(UnkStruct_0205A0D8 *param0, FieldSystem *fieldSystem)
         return 0;
     }
 
-    param0->unk_3C = param0->coins->monIndex;
-    Heap_Free(param0->coins);
-    param0->coins = NULL;
+    param0->unk_3C = param0->unk_00->monIndex;
+    Heap_Free(param0->unk_00);
+    param0->unk_00 = NULL;
 
     return 1;
 }
@@ -263,8 +263,8 @@ static BOOL sub_0205A324(FieldTask *param0)
         }
         break;
     case 1:
-        MessageLoader_GetString(v0->unk_2C, 1, v0->slotsMinigameDTO);
-        v0->unk_30 = sub_0205AA50(v0, v0->slotsMinigameDTO);
+        MessageLoader_GetString(v0->unk_2C, 1, v0->unk_0C);
+        v0->unk_30 = sub_0205AA50(v0, v0->unk_0C);
         v0->unk_34 = 2;
         break;
     case 2:
@@ -330,9 +330,9 @@ static BOOL sub_0205A324(FieldTask *param0)
         break;
     case 11:
         CommPlayer_SetBattleDir();
-        MessageLoader_GetString(v0->unk_2C, 13, v0->slotsMinigameDTO);
+        MessageLoader_GetString(v0->unk_2C, 13, v0->unk_0C);
 
-        v0->unk_30 = sub_0205AA50(v0, v0->slotsMinigameDTO);
+        v0->unk_30 = sub_0205AA50(v0, v0->unk_0C);
         v0->unk_34 = 12;
         break;
     case 12:
@@ -422,8 +422,8 @@ static BOOL sub_0205A324(FieldTask *param0)
         break;
     case 24:
         CommPlayer_SetBattleDir();
-        MessageLoader_GetString(v0->unk_2C, 19, v0->slotsMinigameDTO);
-        v0->unk_30 = sub_0205AA50(v0, v0->slotsMinigameDTO);
+        MessageLoader_GetString(v0->unk_2C, 19, v0->unk_0C);
+        v0->unk_30 = sub_0205AA50(v0, v0->unk_0C);
         v0->unk_34 = 25;
         break;
     case 25:
@@ -440,8 +440,8 @@ static BOOL sub_0205A324(FieldTask *param0)
                 sub_0205AC80(v0, v0->unk_82);
                 CommTiming_StartSync(0);
                 StringTemplate_SetPlayerName(v0->unk_28, 0, v0->unk_74);
-                MessageLoader_GetString(v0->unk_2C, 14, v0->slotsMinigameDTO);
-                StringTemplate_Format(v0->unk_28, v0->unk_10, v0->slotsMinigameDTO);
+                MessageLoader_GetString(v0->unk_2C, 14, v0->unk_0C);
+                StringTemplate_Format(v0->unk_28, v0->unk_10, v0->unk_0C);
                 v0->unk_30 = sub_0205AA50(v0, v0->unk_10);
                 v0->unk_34 = 27;
             }
@@ -468,8 +468,8 @@ static BOOL sub_0205A324(FieldTask *param0)
             v0->unk_83 = sub_0205AD20(v0);
 
             if (v0->unk_82 && v0->unk_83) {
-                MessageLoader_GetString(v0->unk_2C, 20, v0->slotsMinigameDTO);
-                v0->unk_30 = sub_0205AA50(v0, v0->slotsMinigameDTO);
+                MessageLoader_GetString(v0->unk_2C, 20, v0->unk_0C);
+                v0->unk_30 = sub_0205AA50(v0, v0->unk_0C);
                 v0->unk_34 = 30;
             } else {
                 v0->unk_34 = 42;
@@ -479,8 +479,8 @@ static BOOL sub_0205A324(FieldTask *param0)
     case 30:
         if (FieldMessage_FinishedPrinting(v0->unk_30)) {
             v0->unk_89 = 0;
-            MessageLoader_GetString(v0->unk_2C, 17, v0->slotsMinigameDTO);
-            v0->unk_30 = sub_0205AA50(v0, v0->slotsMinigameDTO);
+            MessageLoader_GetString(v0->unk_2C, 17, v0->unk_0C);
+            v0->unk_30 = sub_0205AA50(v0, v0->unk_0C);
             v0->unk_84 = 0;
             v0->unk_34 = 31;
         }
@@ -502,8 +502,8 @@ static BOOL sub_0205A324(FieldTask *param0)
         case 2:
             sub_0205B0B4(v0);
             v0->unk_84 = 255;
-            MessageLoader_GetString(v0->unk_2C, 15, v0->slotsMinigameDTO);
-            v0->unk_30 = sub_0205AA50(v0, v0->slotsMinigameDTO);
+            MessageLoader_GetString(v0->unk_2C, 15, v0->unk_0C);
+            v0->unk_30 = sub_0205AA50(v0, v0->unk_0C);
             CommTiming_StartSync(2);
             v0->unk_34 = 39;
             break;
@@ -511,8 +511,8 @@ static BOOL sub_0205A324(FieldTask *param0)
         break;
     case 36:
         StringTemplate_SetSpeciesName(v0->unk_28, 1, Pokemon_GetBoxPokemon(Party_GetPokemonBySlotIndex(v0->unk_50, v0->unk_84)));
-        MessageLoader_GetString(v0->unk_2C, 18, v0->slotsMinigameDTO);
-        StringTemplate_Format(v0->unk_28, v0->unk_10, v0->slotsMinigameDTO);
+        MessageLoader_GetString(v0->unk_2C, 18, v0->unk_0C);
+        StringTemplate_Format(v0->unk_28, v0->unk_10, v0->unk_0C);
         v0->unk_30 = sub_0205AA50(v0, v0->unk_10);
         v0->unk_34 = 37;
         break;
@@ -526,15 +526,15 @@ static BOOL sub_0205A324(FieldTask *param0)
         switch (sub_0205AFE4(v0)) {
         case 2:
             sub_0205B0B4(v0);
-            MessageLoader_GetString(v0->unk_2C, 17, v0->slotsMinigameDTO);
-            v0->unk_30 = sub_0205AA50(v0, v0->slotsMinigameDTO);
+            MessageLoader_GetString(v0->unk_2C, 17, v0->unk_0C);
+            v0->unk_30 = sub_0205AA50(v0, v0->unk_0C);
             v0->unk_34 = 31;
             break;
         case 1:
             if (v0->unk_81 == 1) {
                 sub_0205B0B4(v0);
-                MessageLoader_GetString(v0->unk_2C, 14, v0->slotsMinigameDTO);
-                StringTemplate_Format(v0->unk_28, v0->unk_10, v0->slotsMinigameDTO);
+                MessageLoader_GetString(v0->unk_2C, 14, v0->unk_0C);
+                StringTemplate_Format(v0->unk_28, v0->unk_10, v0->unk_0C);
                 v0->unk_30 = sub_0205AA50(v0, v0->unk_10);
                 CommTiming_StartSync(2);
                 v0->unk_34 = 39;
@@ -586,8 +586,8 @@ static BOOL sub_0205A324(FieldTask *param0)
         }
         break;
     case 42:
-        MessageLoader_GetString(v0->unk_2C, 15, v0->slotsMinigameDTO);
-        v0->unk_30 = sub_0205AA50(v0, v0->slotsMinigameDTO);
+        MessageLoader_GetString(v0->unk_2C, 15, v0->unk_0C);
+        v0->unk_30 = sub_0205AA50(v0, v0->unk_0C);
         v0->unk_43 = 0;
         v0->unk_34 = 43;
         break;
@@ -611,7 +611,7 @@ static BOOL sub_0205A324(FieldTask *param0)
     return 0;
 }
 
-static int sub_0205AA50(UnkStruct_0205A0D8 *param0, const String *slotsMinigameDTO)
+static int sub_0205AA50(UnkStruct_0205A0D8 *param0, const String *param1)
 {
     Window *v0 = &(param0->unk_14);
 
@@ -622,13 +622,13 @@ static int sub_0205AA50(UnkStruct_0205A0D8 *param0, const String *slotsMinigameD
         FieldMessage_ClearWindow(v0);
     }
 
-    return FieldMessage_Print(v0, (String *)slotsMinigameDTO, SaveData_GetOptions(param0->fieldSystem->saveData), 1);
+    return FieldMessage_Print(v0, (String *)param1, SaveData_GetOptions(param0->fieldSystem->saveData), 1);
 }
 
-static void sub_0205AAA0(UnkStruct_0205A0D8 *param0, BOOL slotsMinigameDTO)
+static void sub_0205AAA0(UnkStruct_0205A0D8 *param0, BOOL param1)
 {
     if (Window_IsInUse(&(param0->unk_14))) {
-        if (slotsMinigameDTO) {
+        if (param1) {
             Window_EraseMessageBox(&param0->unk_14, 0);
             Window_ClearAndCopyToVRAM(&param0->unk_14);
         }
@@ -648,7 +648,7 @@ static void sub_0205AAA0(UnkStruct_0205A0D8 *param0, BOOL slotsMinigameDTO)
     }
 }
 
-void sub_0205AB10(FieldSystem *fieldSystem, UnkFuncPtr_0205AB10 *slotsMinigameDTO)
+void sub_0205AB10(FieldSystem *fieldSystem, UnkFuncPtr_0205AB10 *param1)
 {
     UnkStruct_0205A0D8 *v0;
     FieldTask *v1 = fieldSystem->task;
@@ -662,10 +662,10 @@ void sub_0205AB10(FieldSystem *fieldSystem, UnkFuncPtr_0205AB10 *slotsMinigameDT
 
     v0->unk_43 = 5;
     v0->fieldSystem = fieldSystem;
-    v0->unk_08 = slotsMinigameDTO;
+    v0->unk_08 = param1;
     v0->unk_28 = StringTemplate_Default(HEAP_ID_FIELD2);
     v0->unk_2C = MessageLoader_Init(MSG_LOADER_PRELOAD_ENTIRE_BANK, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_COMMUNICATION_CLUB, HEAP_ID_FIELD2);
-    v0->slotsMinigameDTO = String_Init(100 * 2, HEAP_ID_FIELD2);
+    v0->unk_0C = String_Init(100 * 2, HEAP_ID_FIELD2);
     v0->unk_10 = String_Init(100 * 2, HEAP_ID_FIELD2);
 
     Window_Init(&v0->unk_14);
@@ -725,7 +725,7 @@ static void sub_0205AC28(UnkStruct_0205A0D8 *param0)
 
     MessageLoader_Free(param0->unk_2C);
     StringTemplate_Free(param0->unk_28);
-    String_Free(param0->slotsMinigameDTO);
+    String_Free(param0->unk_0C);
     String_Free(param0->unk_10);
     ColoredArrow_Free(param0->unk_78);
 
@@ -737,7 +737,7 @@ static UnkStruct_0205A0D8 *sub_0205AC74(FieldSystem *fieldSystem)
     return FieldTask_GetEnv(fieldSystem->task);
 }
 
-static void sub_0205AC80(UnkStruct_0205A0D8 *param0, BOOL slotsMinigameDTO)
+static void sub_0205AC80(UnkStruct_0205A0D8 *param0, BOOL param1)
 {
     Party *v0;
     UnkStruct_0205AD20 *v1;
@@ -748,9 +748,9 @@ static void sub_0205AC80(UnkStruct_0205A0D8 *param0, BOOL slotsMinigameDTO)
     v2 = param0->unk_4C;
     v4 = Pokemon_GetStructSize();
     v1 = (UnkStruct_0205AD20 *)(v2 + v4 * 3);
-    v1->coins = slotsMinigameDTO;
+    v1->unk_00 = param1;
 
-    if (v1->coins) {
+    if (v1->unk_00) {
         for (v3 = 0; v3 < 3; v3++) {
             MI_CpuCopy8(Party_GetPokemonBySlotIndex(v0, param0->unk_3D[v3] - 1), v2, v4);
             v2 += v4;
@@ -796,7 +796,7 @@ static BOOL sub_0205AD10(UnkStruct_0205A0D8 *param0)
 static BOOL sub_0205AD20(UnkStruct_0205A0D8 *param0)
 {
     UnkStruct_0205AD20 *v0 = (UnkStruct_0205AD20 *)((u8 *)(param0->unk_48) + (Pokemon_GetStructSize() * 3));
-    return v0->coins;
+    return v0->unk_00;
 }
 
 static BOOL sub_0205AD34(UnkStruct_0205A0D8 *param0)
@@ -857,7 +857,7 @@ static void sub_0205ADAC(UnkStruct_0205A0D8 *param0)
     }
 }
 
-static void sub_0205ADF8(UnkStruct_0205A0D8 *param0, int slotsMinigameDTO)
+static void sub_0205ADF8(UnkStruct_0205A0D8 *param0, int param1)
 {
     Window *v0 = &(param0->unk_54);
 
@@ -875,25 +875,25 @@ static void sub_0205ADF8(UnkStruct_0205A0D8 *param0, int slotsMinigameDTO)
         for (v1 = 0; v1 < 3; v1++) {
             v2 = Pokemon_GetValue((Pokemon *)(&param0->unk_48[v1 * v3]), MON_DATA_SPECIES, NULL);
 
-            MessageLoader_GetString(v4, v2, param0->slotsMinigameDTO);
-            Text_AddPrinterWithParams(v0, FONT_SYSTEM, param0->slotsMinigameDTO, 16, v1 * 16, TEXT_SPEED_NO_TRANSFER, NULL);
+            MessageLoader_GetString(v4, v2, param0->unk_0C);
+            Text_AddPrinterWithParams(v0, FONT_SYSTEM, param0->unk_0C, 16, v1 * 16, TEXT_SPEED_NO_TRANSFER, NULL);
         }
 
-        MessageLoader_GetString(param0->unk_2C, 21, param0->slotsMinigameDTO);
-        Text_AddPrinterWithParams(v0, FONT_SYSTEM, param0->slotsMinigameDTO, 16, v1 * 16, TEXT_SPEED_NO_TRANSFER, NULL);
+        MessageLoader_GetString(param0->unk_2C, 21, param0->unk_0C);
+        Text_AddPrinterWithParams(v0, FONT_SYSTEM, param0->unk_0C, 16, v1 * 16, TEXT_SPEED_NO_TRANSFER, NULL);
         MessageLoader_Free(v4);
     }
 
     Window_FillRectWithColor(v0, 15, 0, 0, 16, v0->height * 8);
-    ColoredArrow_Print(param0->unk_78, &param0->unk_54, 0, slotsMinigameDTO * 16);
+    ColoredArrow_Print(param0->unk_78, &param0->unk_54, 0, param1 * 16);
     Window_DrawStandardFrame(&param0->unk_54, 0, 1, 11);
 
-    param0->unk_81 = slotsMinigameDTO;
+    param0->unk_81 = param1;
     param0->unk_80 = 3 + 1;
     param0->unk_7C = v0;
 }
 
-static void sub_0205AF18(UnkStruct_0205A0D8 *param0, int slotsMinigameDTO)
+static void sub_0205AF18(UnkStruct_0205A0D8 *param0, int param1)
 {
     Window *v0 = &(param0->unk_64);
 
@@ -905,17 +905,17 @@ static void sub_0205AF18(UnkStruct_0205A0D8 *param0, int slotsMinigameDTO)
         Window_FillTilemap(v0, 15);
 
         for (v1 = 0; v1 < 3; v1++) {
-            MessageLoader_GetString(param0->unk_2C, 22 + v1, param0->slotsMinigameDTO);
-            Text_AddPrinterWithParams(v0, FONT_SYSTEM, param0->slotsMinigameDTO, 16, v1 * 16, TEXT_SPEED_NO_TRANSFER, NULL);
+            MessageLoader_GetString(param0->unk_2C, 22 + v1, param0->unk_0C);
+            Text_AddPrinterWithParams(v0, FONT_SYSTEM, param0->unk_0C, 16, v1 * 16, TEXT_SPEED_NO_TRANSFER, NULL);
         }
     }
 
     param0->unk_80 = 3;
     param0->unk_7C = v0;
-    param0->unk_81 = slotsMinigameDTO;
+    param0->unk_81 = param1;
 
     Window_FillRectWithColor(v0, 15, 0, 0, 16, v0->height * 8);
-    ColoredArrow_Print(param0->unk_78, param0->unk_7C, 0, slotsMinigameDTO * 16);
+    ColoredArrow_Print(param0->unk_78, param0->unk_7C, 0, param1 * 16);
     Window_DrawStandardFrame(param0->unk_7C, 0, 1, 11);
 }
 
@@ -963,7 +963,7 @@ static void sub_0205B0B4(UnkStruct_0205A0D8 *param0)
     Window_EraseStandardFrame(param0->unk_7C, 1);
 }
 
-void sub_0205B0C0(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_0205B0C0(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_0205A0D8 *v0 = sub_0205AC74(param3);
 
@@ -977,9 +977,9 @@ int sub_0205B0E4(void)
     return Pokemon_GetStructSize() * 3 + sizeof(UnkStruct_0205AD20);
 }
 
-u8 *sub_0205B0F4(int param0, void *slotsMinigameDTO, int param2)
+u8 *sub_0205B0F4(int param0, void *param1, int param2)
 {
-    UnkStruct_0205A0D8 *v0 = sub_0205AC74(slotsMinigameDTO);
+    UnkStruct_0205A0D8 *v0 = sub_0205AC74(param1);
 
     if (v0->unk_86 != param0) {
         return v0->unk_48;
@@ -988,7 +988,7 @@ u8 *sub_0205B0F4(int param0, void *slotsMinigameDTO, int param2)
     }
 }
 
-void sub_0205B110(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_0205B110(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_0205A0D8 *v0 = sub_0205AC74(param3);
 
@@ -1008,16 +1008,16 @@ static BOOL sub_0205B140(FieldTask *param0)
     case 0:
         v1->unk_18 = StringTemplate_Default(HEAP_ID_FIELD1);
         v1->unk_1C = MessageLoader_Init(MSG_LOADER_PRELOAD_ENTIRE_BANK, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_COMMUNICATION_CLUB, HEAP_ID_FIELD1);
-        v1->coins = String_Init(100 * 2, HEAP_ID_FIELD1);
-        v1->slotMachineVariant = String_Init(100 * 2, HEAP_ID_FIELD1);
+        v1->unk_00 = String_Init(100 * 2, HEAP_ID_FIELD1);
+        v1->unk_04 = String_Init(100 * 2, HEAP_ID_FIELD1);
 
-        MessageLoader_GetString(v1->unk_1C, 2 + v2->cardLevel, v1->coins);
+        MessageLoader_GetString(v1->unk_1C, 2 + v2->cardLevel, v1->unk_00);
         StringTemplate_SetPlayerName(v1->unk_18, 0, CommInfo_TrainerInfo(v1->unk_24));
-        StringTemplate_Format(v1->unk_18, v1->slotMachineVariant, v1->coins);
+        StringTemplate_Format(v1->unk_18, v1->unk_04, v1->unk_00);
         FieldMessage_AddWindow(fieldSystem->bgConfig, &v1->unk_08, 3);
         FieldMessage_DrawWindow(&v1->unk_08, SaveData_GetOptions(fieldSystem->saveData));
 
-        v1->unk_20 = FieldMessage_Print(&v1->unk_08, v1->slotMachineVariant, SaveData_GetOptions(fieldSystem->saveData), 1);
+        v1->unk_20 = FieldMessage_Print(&v1->unk_08, v1->unk_04, SaveData_GetOptions(fieldSystem->saveData), 1);
         v1->unk_28++;
         break;
     case 1:
@@ -1025,8 +1025,8 @@ static BOOL sub_0205B140(FieldTask *param0)
             if (gSystem.pressedKeys & PAD_BUTTON_A) {
                 MessageLoader_Free(v1->unk_1C);
                 StringTemplate_Free(v1->unk_18);
-                String_Free(v1->coins);
-                String_Free(v1->slotMachineVariant);
+                String_Free(v1->unk_00);
+                String_Free(v1->unk_04);
                 Window_EraseMessageBox(&v1->unk_08, 0);
                 Window_Remove(&v1->unk_08);
                 FieldMap_FadeScreen(FADE_TYPE_BRIGHTNESS_OUT);

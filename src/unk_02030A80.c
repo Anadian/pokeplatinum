@@ -56,7 +56,7 @@ void sub_02030AA0(UnkStruct_02030A80 *param0, SaveData *saveData)
 
     MiscSaveBlock_GetFavoriteMon(miscSaveBlock, &species, &form, &isEgg);
     MI_CpuClear8(param0, sizeof(UnkStruct_02030A80));
-    CharCode_Copy(param0->coins, TrainerInfo_Name(v0));
+    CharCode_Copy(param0->unk_00, TrainerInfo_Name(v0));
 
     param0->id = TrainerInfo_ID(v0);
     param0->gender = TrainerInfo_Gender(v0);
@@ -76,14 +76,14 @@ void sub_02030AA0(UnkStruct_02030A80 *param0, SaveData *saveData)
     param0->appearance = Appearance_GetData(TrainerInfo_Gender(v0), TrainerInfo_Appearance(v0), APPEARANCE_DATA_INDEX);
     param0->version = GAME_VERSION;
     param0->language = GAME_LANGUAGE;
-    param0->unk_7C.coins = SaveData_CalculateChecksum(saveData, param0, sizeof(UnkStruct_02030A80) - (sizeof(UnkStruct_0202F298_sub1)));
+    param0->unk_7C.unk_00 = SaveData_CalculateChecksum(saveData, param0, sizeof(UnkStruct_02030A80) - (sizeof(UnkStruct_0202F298_sub1)));
 }
 
 String *sub_02030B94(const UnkStruct_02030A80 *param0, enum HeapID heapID)
 {
     String *v0 = String_Init((7 * 2) + 1, heapID);
 
-    String_CopyNumChars(v0, param0->coins, (7 * 2) + 1);
+    String_CopyNumChars(v0, param0->unk_00, (7 * 2) + 1);
     return v0;
 }
 
@@ -146,30 +146,30 @@ int sub_02030C08(const UnkStruct_02030A80 *param0)
     return param0->region;
 }
 
-String *sub_02030C28(const UnkStruct_02030A80 *param0, EasyChatSentence *slotsMinigameDTO, enum HeapID heapID)
+String *sub_02030C28(const UnkStruct_02030A80 *param0, EasyChatSentence *param1, enum HeapID heapID)
 {
     int v0 = 0;
 
     if (param0->unk_1E == 0) {
-        *slotsMinigameDTO = param0->unk_20_val1;
+        *param1 = param0->unk_20_val1;
 
-        if (slotsMinigameDTO->type >= 5) {
+        if (param1->type >= 5) {
             v0++;
-        } else if (slotsMinigameDTO->id > 19) {
+        } else if (param1->id > 19) {
             v0++;
         } else {
             u32 v1, v2;
 
-            if (((slotsMinigameDTO->words[0] != WORD_NONE) && (EasyChatWord_GetLoaderIndexAndEntry(slotsMinigameDTO->words[0], &v1, &v2) == 0)) || ((slotsMinigameDTO->words[1] != WORD_NONE) && (EasyChatWord_GetLoaderIndexAndEntry(slotsMinigameDTO->words[1], &v1, &v2) == 0))) {
+            if (((param1->words[0] != WORD_NONE) && (EasyChatWord_GetLoaderIndexAndEntry(param1->words[0], &v1, &v2) == 0)) || ((param1->words[1] != WORD_NONE) && (EasyChatWord_GetLoaderIndexAndEntry(param1->words[1], &v1, &v2) == 0))) {
                 v0++;
             }
         }
 
         if (v0 > 0) {
-            EasyChatSentence_InitWithType(slotsMinigameDTO, EASY_CHAT_SENTENCE_TYPE_UNION_ROOM);
-            slotsMinigameDTO->id = UnionRoomSentences_Text_BlankHello;
-            slotsMinigameDTO->words[0] = EasyChatWord_FromBankAndEntry(TEXT_BANK_GREETINGS, Greetings_Text_Regards);
-            slotsMinigameDTO->words[1] = WORD_NONE;
+            EasyChatSentence_InitWithType(param1, EASY_CHAT_SENTENCE_TYPE_UNION_ROOM);
+            param1->id = UnionRoomSentences_Text_BlankHello;
+            param1->words[0] = EasyChatWord_FromBankAndEntry(TEXT_BANK_GREETINGS, Greetings_Text_Regards);
+            param1->words[1] = WORD_NONE;
         }
 
         return NULL;

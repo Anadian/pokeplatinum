@@ -9,7 +9,7 @@
 #include "easy3d_object.h"
 
 typedef struct {
-    Easy3DObject coins;
+    Easy3DObject unk_00;
     Easy3DModel unk_78;
     Easy3DAnim unk_88[10];
     UnkUnion_ov116_022671EC unk_150;

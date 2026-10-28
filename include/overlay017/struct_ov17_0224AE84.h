@@ -5,10 +5,10 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    SysTask *coins;
-    ManagedSprite *slotMachineVariant;
+    SysTask *unk_00;
+    ManagedSprite *unk_04;
     s32 unk_08;
-    s32 slotsMinigameDTO;
+    s32 unk_0C;
     s32 unk_10;
     s32 unk_14;
     u16 unk_18;

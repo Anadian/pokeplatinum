@@ -24,7 +24,7 @@ enum GraphicMemberType {
 };
 
 int sub_0208C098(int param0);
-u32 sub_0208C0A4(u32 param0, u32 slotsMinigameDTO);
+u32 sub_0208C0A4(u32 param0, u32 param1);
 
 /**
  * @brief Determine how many pixels are needed to represent a fractional value.
@@ -56,7 +56,7 @@ u8 App_BarColor(u32 cur, u32 max);
  */
 u8 HealthBar_Color(u16 curHP, u16 maxHP, u32 barSize);
 void App_StartScreenFade(u8 fadeOut, enum HeapID heapID);
-u8 sub_0208C15C(s16 *param0, u16 slotsMinigameDTO);
+u8 sub_0208C15C(s16 *param0, u16 param1);
 void App_LoadGraphicMember(BgConfig *bgConfig, enum HeapID heapID, NARC *narc, int unused, int memberIndex, int bgLayer, enum GraphicMemberType memberType, u16 memberSize, u16 offset);
 void *App_LoadScreenData(NARC *narc, enum NarcID unused, int memberIdx, NNSG2dScreenData **dst, enum HeapID heapID);
 

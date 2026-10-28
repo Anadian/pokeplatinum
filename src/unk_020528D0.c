@@ -36,17 +36,17 @@
 #include "text.h"
 
 typedef struct {
-    int coins;
+    int unk_00;
     FieldSystem *fieldSystem;
     BgConfig *unk_08;
-    Window slotsMinigameDTO;
+    Window unk_0C;
     MessageLoader *unk_1C;
     StringTemplate *unk_20;
 } UnkStruct_02052AA4;
 
 static void sub_02052914(FieldSystem *fieldSystem, FieldTask *task);
 static BOOL sub_020529C4(FieldTask *task);
-static void sub_02052AA4(UnkStruct_02052AA4 *param0, u16 slotsMinigameDTO, u8 param2, u8 param3);
+static void sub_02052AA4(UnkStruct_02052AA4 *param0, u16 param1, u8 param2, u8 param3);
 
 static const WindowTemplate Unk_020EC2F0 = {
     0x3,
@@ -109,7 +109,7 @@ static void sub_02052914(FieldSystem *fieldSystem, FieldTask *task)
 
     memset(v0, 0, sizeof(UnkStruct_02052AA4));
 
-    v0->coins = 0;
+    v0->unk_00 = 0;
     v0->fieldSystem = fieldSystem;
     v0->unk_08 = BgConfig_New(HEAP_ID_FIELD2);
 
@@ -118,7 +118,7 @@ static void sub_02052914(FieldSystem *fieldSystem, FieldTask *task)
     v0->unk_1C = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_BLACK_OUT_SCENE, HEAP_ID_FIELD2);
     v0->unk_20 = StringTemplate_Default(HEAP_ID_FIELD2);
 
-    Window_AddFromTemplate(v0->unk_08, &v0->slotsMinigameDTO, &Unk_020EC2F0);
+    Window_AddFromTemplate(v0->unk_08, &v0->unk_0C, &Unk_020EC2F0);
     StringTemplate_SetPlayerName(v0->unk_20, 0, SaveData_GetTrainerInfo(FieldSystem_GetSaveData(fieldSystem)));
 
     if (fieldSystem->location->mapHeaderID == MAP_HEADER_TWINLEAF_TOWN_PLAYER_HOUSE_1F) {
@@ -127,7 +127,7 @@ static void sub_02052914(FieldSystem *fieldSystem, FieldTask *task)
         sub_02052AA4(v0, 3, 0, 0);
     }
 
-    Window_CopyToVRAM(&v0->slotsMinigameDTO);
+    Window_CopyToVRAM(&v0->unk_0C);
     FieldTask_InitCall(task, sub_020529C4, v0);
 
     return;
@@ -137,31 +137,31 @@ static BOOL sub_020529C4(FieldTask *task)
 {
     UnkStruct_02052AA4 *v0 = FieldTask_GetEnv(task);
 
-    switch (v0->coins) {
+    switch (v0->unk_00) {
     case 0:
         StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_MAX, COLOR_BLACK, 8, 1, HEAP_ID_FIELD3);
-        v0->coins++;
+        v0->unk_00++;
         break;
     case 1:
         if (IsScreenFadeDone()) {
-            v0->coins++;
+            v0->unk_00++;
         }
         break;
     case 2:
         if ((gSystem.pressedKeys & PAD_BUTTON_A) || (gSystem.pressedKeys & PAD_BUTTON_B)) {
             StartScreenFade(FADE_BOTH_SCREENS, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 8, 1, HEAP_ID_FIELD3);
-            v0->coins++;
+            v0->unk_00++;
         }
         break;
     case 3:
         if (IsScreenFadeDone()) {
-            Window_FillTilemap(&v0->slotsMinigameDTO, 0);
-            v0->coins++;
+            Window_FillTilemap(&v0->unk_0C, 0);
+            v0->unk_00++;
         }
         break;
     case 4:
-        Window_EraseMessageBox(&v0->slotsMinigameDTO, 0);
-        Window_Remove(&v0->slotsMinigameDTO);
+        Window_EraseMessageBox(&v0->unk_0C, 0);
+        Window_Remove(&v0->unk_0C);
         StringTemplate_Free(v0->unk_20);
         MessageLoader_Free(v0->unk_1C);
         Bg_FreeTilemapBuffer(v0->unk_08, BG_LAYER_MAIN_3);
@@ -174,21 +174,21 @@ static BOOL sub_020529C4(FieldTask *task)
     return 0;
 }
 
-static void sub_02052AA4(UnkStruct_02052AA4 *param0, u16 slotsMinigameDTO, u8 param2, u8 param3)
+static void sub_02052AA4(UnkStruct_02052AA4 *param0, u16 param1, u8 param2, u8 param3)
 {
     String *v0 = String_Init(1024, HEAP_ID_FIELD2);
     String *v1 = String_Init(1024, HEAP_ID_FIELD2);
 
-    Window_FillTilemap(&param0->slotsMinigameDTO, 0);
-    MessageLoader_GetString(param0->unk_1C, slotsMinigameDTO, v0);
+    Window_FillTilemap(&param0->unk_0C, 0);
+    MessageLoader_GetString(param0->unk_1C, param1, v0);
     StringTemplate_Format(param0->unk_20, v1, v0);
 
     {
         u32 v2 = Font_CalcMaxLineWidth(FONT_SYSTEM, v1, 0);
-        param2 = (u8)(param0->slotsMinigameDTO.width * 8 - v2) / 2 - 4;
+        param2 = (u8)(param0->unk_0C.width * 8 - v2) / 2 - 4;
     }
 
-    Text_AddPrinterWithParamsAndColor(&param0->slotsMinigameDTO, FONT_SYSTEM, v1, param2, param3, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(15, 2, 0), NULL);
+    Text_AddPrinterWithParamsAndColor(&param0->unk_0C, FONT_SYSTEM, v1, param2, param3, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(15, 2, 0), NULL);
     String_Free(v0);
     String_Free(v1);
 

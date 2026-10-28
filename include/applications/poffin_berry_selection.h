@@ -41,7 +41,7 @@ typedef struct PoffinBerrySelectionContext {
 
 typedef struct PoffinBerrySelectionData {
     enum HeapID heapID;
-    u16 slotMachineVariant;
+    u16 unk_04;
     u16 isInGroup : 8; // yes, it needs to be as such to match
     u16 unused2 : 8;
     int item;

@@ -8,7 +8,7 @@
 
 typedef struct {
     Pokemon *mon;
-    PokemonSprite *slotMachineVariant;
+    PokemonSprite *unk_04;
     UnkStruct_ov17_0224B09C *unk_08;
     u8 contestantID;
     u8 unk_0D;

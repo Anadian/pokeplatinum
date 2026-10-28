@@ -7,7 +7,7 @@
 #include "struct_defs/struct_0208AF44.h"
 
 typedef struct {
-    UnkStruct_0208AF44 coins[16];
+    UnkStruct_0208AF44 unk_00[16];
     UnkStruct_0208AF44 unk_1C0[3];
     UnkStruct_0208AF44 unk_214[3];
     UnkStruct_0208AF44 unk_268[2];

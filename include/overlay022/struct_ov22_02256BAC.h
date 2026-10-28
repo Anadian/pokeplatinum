@@ -10,8 +10,8 @@
 #include "sprite_resource.h"
 
 typedef struct {
-    BgConfig *coins;
-    SpriteList *slotMachineVariant;
+    BgConfig *unk_00;
+    SpriteList *unk_04;
     SpriteResourceCollection **unk_08;
     const Options *options;
     int unk_10;

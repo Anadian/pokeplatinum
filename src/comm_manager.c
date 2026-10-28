@@ -33,7 +33,7 @@
 typedef void (*CommTaskFunc)(void);
 
 typedef struct {
-    void *coins;
+    void *unk_00;
     u8 party[6];
     MATHRandContext32 rand;
     CommTaskFunc task;
@@ -194,8 +194,8 @@ static void CommManager_Free(void)
 
     sub_020327E0();
 
-    if (sCommMan->coins) {
-        Heap_Free(sCommMan->coins);
+    if (sCommMan->unk_00) {
+        Heap_Free(sCommMan->unk_00);
     }
 
     if (CommManager_IsConnectedToWifi()) {
@@ -2182,8 +2182,8 @@ void CommManager_SetUnk34(int errorCode, int errorType, int error)
             correctedCode = -errorCode;
         }
 
-        sCommMan->unk_34.coins = correctedCode;
-        sCommMan->unk_34.slotMachineVariant = errorType;
+        sCommMan->unk_34.unk_00 = correctedCode;
+        sCommMan->unk_34.unk_04 = errorType;
         sCommMan->unk_34.unk_08 = error;
     }
 }
@@ -2736,7 +2736,7 @@ static void CommTask_StartWifiBattleServer(void)
  * @param saveData
  * @param size
  *
- * @return sCommMan->coins
+ * @return sCommMan->unk_00
  */
 void *CommManager_LoginWifiBattleServer(SaveData *saveData, int size)
 {
@@ -2749,24 +2749,24 @@ void *CommManager_LoginWifiBattleServer(SaveData *saveData, int size)
     ResetLock(RESET_LOCK_0x1);
     Heap_CreateAtEnd(HEAP_ID_APPLICATION, HEAP_ID_COMMUNICATION, 0x7080);
     CommManager_Initialize(saveData, COMM_TYPE_LOGIN_WIFI);
-    sCommMan->coins = Heap_Alloc(HEAP_ID_COMMUNICATION, size);
-    MI_CpuFill8(sCommMan->coins, 0, size);
+    sCommMan->unk_00 = Heap_Alloc(HEAP_ID_COMMUNICATION, size);
+    MI_CpuFill8(sCommMan->unk_00, 0, size);
 
     sCommMan->contestRegulation = 0;
     sCommMan->saveData = saveData;
 
     CommManager_SetTask(CommTask_StartWifiBattleServer, 0);
 
-    return sCommMan->coins;
+    return sCommMan->unk_00;
 }
 
 /**
  * @brief Initializes the Communication Manager for the Wifi Plaza
  *
  * @param saveData
- * @param slotsMinigameDTO
+ * @param param1
  */
-void CommManager_LoginWifiPlaza(SaveData *saveData, const void *slotsMinigameDTO)
+void CommManager_LoginWifiPlaza(SaveData *saveData, const void *param1)
 {
     TrainerInfo *trainerInfo = SaveData_GetTrainerInfo(saveData);
 
@@ -2778,8 +2778,8 @@ void CommManager_LoginWifiPlaza(SaveData *saveData, const void *slotsMinigameDTO
     Heap_CreateAtEnd(HEAP_ID_APPLICATION, HEAP_ID_COMMUNICATION, 0x7080);
     CommManager_Initialize(saveData, COMM_TYPE_WIFI_PLAZA);
 
-    sCommMan->coins = NULL;
-    sCommMan->unk_5C = slotsMinigameDTO;
+    sCommMan->unk_00 = NULL;
+    sCommMan->unk_5C = param1;
     sCommMan->plazaLoginSuccess = FALSE;
     sCommMan->contestRegulation = 0;
     sCommMan->saveData = saveData;
@@ -2884,13 +2884,13 @@ u32 CommManager_GetWifiP2PConnectState(void)
 }
 
 /**
- * @brief Gets coins
+ * @brief Gets unk_00
  *
- * @return sCommMan->coins
+ * @return sCommMan->unk_00
  */
 void *CommManager_GetUnk00(void)
 {
-    return sCommMan->coins;
+    return sCommMan->unk_00;
 }
 
 /**

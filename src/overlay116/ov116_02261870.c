@@ -27,15 +27,15 @@
 
 static inline void inline_ov116_02261940(UnkStruct_ov116_0226501C *param0);
 static inline void inline_ov116_02261940_1(void);
-static void ov116_02261CD8(SpriteTemplate *param0, s16 slotsMinigameDTO, s16 param2, int param3, int param4, int param5);
+static void ov116_02261CD8(SpriteTemplate *param0, s16 param1, s16 param2, int param3, int param4, int param5);
 void include_ov116_02261870(void);
 
-void ov116_02261870(Easy3DObject *param0, MtxFx43 *slotsMinigameDTO, VecFx32 *param2)
+void ov116_02261870(Easy3DObject *param0, MtxFx43 *param1, VecFx32 *param2)
 {
     if (param0->visible) {
         NNS_G3dGlbFlush();
         NNS_G3dGeTranslateVec(param2);
-        NNS_G3dGeMultMtx43(slotsMinigameDTO);
+        NNS_G3dGeMultMtx43(param1);
         NNS_G3dGlbSetBaseScale(&param0->scale);
         NNS_G3dDraw(&param0->renderObj);
     }
@@ -44,14 +44,14 @@ void ov116_02261870(Easy3DObject *param0, MtxFx43 *slotsMinigameDTO, VecFx32 *pa
 static inline void inline_ov116_02261940(UnkStruct_ov116_0226501C *param0)
 {
     NNS_G3dGePushMtx();
-    ov116_02261870(&param0->coins, &param0->unk_1B0, &param0->unk_1E0);
+    ov116_02261870(&param0->unk_00, &param0->unk_1B0, &param0->unk_1E0);
     NNS_G3dGePopMtx(1);
 }
 
 static inline void inline_ov116_02261940_2(UnkStruct_ov116_0226501C *wk, UnkStruct_ov116_0226501C *wk2)
 {
     NNS_G3dGePushMtx();
-    ov116_02261870(&wk2->coins, &wk->unk_1B0, &wk->unk_1E0);
+    ov116_02261870(&wk2->unk_00, &wk->unk_1B0, &wk->unk_1E0);
     NNS_G3dGePopMtx(1);
 }
 
@@ -67,23 +67,23 @@ static inline void inline_ov116_02261940_1(void)
     NNS_G3dGlbMaterialColorSpecEmi(GX_RGB(31, 31, 31), GX_RGB(31, 31, 31), 0);
 }
 
-void ov116_022618A8(UnkStruct_ov116_0226501C *param0, NARC *slotsMinigameDTO, int param2)
+void ov116_022618A8(UnkStruct_ov116_0226501C *param0, NARC *param1, int param2)
 {
-    Easy3DModel_LoadFrom(&param0->unk_78, slotsMinigameDTO, param2, HEAP_ID_106);
+    Easy3DModel_LoadFrom(&param0->unk_78, param1, param2, HEAP_ID_106);
 }
 
-void ov116_022618B4(UnkStruct_ov116_0226501C *param0, int slotsMinigameDTO)
+void ov116_022618B4(UnkStruct_ov116_0226501C *param0, int param1)
 {
-    Easy3DObject_Init(&param0->coins, &param0->unk_78);
-    Easy3DObject_SetPosition(&param0->coins, 0 * FX32_ONE, -20 * FX32_ONE, 0 * FX32_ONE );
+    Easy3DObject_Init(&param0->unk_00, &param0->unk_78);
+    Easy3DObject_SetPosition(&param0->unk_00, 0 * FX32_ONE, -20 * FX32_ONE, 0 * FX32_ONE );
 
-    if (slotsMinigameDTO == 0) {
-        Easy3DObject_SetScale(&param0->coins, FX32_CONST(1.00f), FX32_CONST(1.00f), FX32_CONST(1.00f));
+    if (param1 == 0) {
+        Easy3DObject_SetScale(&param0->unk_00, FX32_CONST(1.00f), FX32_CONST(1.00f), FX32_CONST(1.00f));
     } else {
-        Easy3DObject_SetScale(&param0->coins, FX32_CONST(1.50f), FX32_CONST(1.50f), FX32_CONST(1.50f));
+        Easy3DObject_SetScale(&param0->unk_00, FX32_CONST(1.50f), FX32_CONST(1.50f), FX32_CONST(1.50f));
     }
 
-    Easy3DObject_SetVisible(&param0->coins, 1);
+    Easy3DObject_SetVisible(&param0->unk_00, 1);
 
     param0->unk_1E0.x = (0 * FX32_ONE);
     param0->unk_1E0.y = (-20 * FX32_ONE);
@@ -111,73 +111,73 @@ void ov116_02261940(UnkStruct_ov116_0226139C *param0)
         int v0;
 
         for (v0 = 0; v0 < 8; v0++) {
-            inline_ov116_02261940(&param0->slotMachineVariant->unk_B38[v0]);
-            Easy3DAnim_UpdateLooped(&param0->slotMachineVariant->unk_B38[v0].unk_88[0], FX32_CONST(1));
+            inline_ov116_02261940(&param0->unk_04->unk_B38[v0]);
+            Easy3DAnim_UpdateLooped(&param0->unk_04->unk_B38[v0].unk_88[0], FX32_CONST(1));
         }
     }
 
-    switch (param0->slotMachineVariant->unk_F8) {
+    switch (param0->unk_04->unk_F8) {
     case 0:
-        Easy3DObject_SetVisible(&param0->slotMachineVariant->unk_308[0].coins, 1);
-        Easy3DObject_SetVisible(&param0->slotMachineVariant->unk_308[1].coins, 0);
-        Easy3DObject_SetVisible(&param0->slotMachineVariant->unk_308[2].coins, 0);
-        Easy3DAnim_UpdateLooped(&param0->slotMachineVariant->unk_308[0].unk_88[param0->slotMachineVariant->unk_308[0].unk_1F4], FX32_CONST(1));
+        Easy3DObject_SetVisible(&param0->unk_04->unk_308[0].unk_00, 1);
+        Easy3DObject_SetVisible(&param0->unk_04->unk_308[1].unk_00, 0);
+        Easy3DObject_SetVisible(&param0->unk_04->unk_308[2].unk_00, 0);
+        Easy3DAnim_UpdateLooped(&param0->unk_04->unk_308[0].unk_88[param0->unk_04->unk_308[0].unk_1F4], FX32_CONST(1));
         break;
     case 1:
-        Easy3DObject_SetVisible(&param0->slotMachineVariant->unk_308[0].coins, 0);
-        Easy3DObject_SetVisible(&param0->slotMachineVariant->unk_308[1].coins, 1);
-        Easy3DObject_SetVisible(&param0->slotMachineVariant->unk_308[2].coins, 0);
-        Easy3DAnim_Update(&param0->slotMachineVariant->unk_308[1].unk_88[0], FX32_CONST(1));
+        Easy3DObject_SetVisible(&param0->unk_04->unk_308[0].unk_00, 0);
+        Easy3DObject_SetVisible(&param0->unk_04->unk_308[1].unk_00, 1);
+        Easy3DObject_SetVisible(&param0->unk_04->unk_308[2].unk_00, 0);
+        Easy3DAnim_Update(&param0->unk_04->unk_308[1].unk_88[0], FX32_CONST(1));
         break;
     case 2:
-        Easy3DObject_SetVisible(&param0->slotMachineVariant->unk_308[0].coins, 0);
-        Easy3DObject_SetVisible(&param0->slotMachineVariant->unk_308[1].coins, 0);
-        Easy3DObject_SetVisible(&param0->slotMachineVariant->unk_308[2].coins, 1);
-        Easy3DAnim_Update(&param0->slotMachineVariant->unk_308[2].unk_88[0], FX32_CONST(1));
+        Easy3DObject_SetVisible(&param0->unk_04->unk_308[0].unk_00, 0);
+        Easy3DObject_SetVisible(&param0->unk_04->unk_308[1].unk_00, 0);
+        Easy3DObject_SetVisible(&param0->unk_04->unk_308[2].unk_00, 1);
+        Easy3DAnim_Update(&param0->unk_04->unk_308[2].unk_88[0], FX32_CONST(1));
         break;
     }
 
-    inline_ov116_02261940_2(&param0->slotMachineVariant->unk_308[0], &param0->slotMachineVariant->unk_308[param0->slotMachineVariant->unk_F8]);
-    inline_ov116_02261940(&param0->slotMachineVariant->unk_FC);
-    inline_ov116_02261940(&param0->slotMachineVariant->unk_92C);
+    inline_ov116_02261940_2(&param0->unk_04->unk_308[0], &param0->unk_04->unk_308[param0->unk_04->unk_F8]);
+    inline_ov116_02261940(&param0->unk_04->unk_FC);
+    inline_ov116_02261940(&param0->unk_04->unk_92C);
 
-    if (param0->slotMachineVariant->unk_1DA4.unk_1F0) {
-        inline_ov116_02261940(&param0->slotMachineVariant->unk_1DA4);
-        if (param0->slotMachineVariant->unk_1DA4.unk_1EC) {
+    if (param0->unk_04->unk_1DA4.unk_1F0) {
+        inline_ov116_02261940(&param0->unk_04->unk_1DA4);
+        if (param0->unk_04->unk_1DA4.unk_1EC) {
             BOOL v1[2];
 
-            v1[0] = Easy3DAnim_Update(&param0->slotMachineVariant->unk_1DA4.unk_88[0], FX32_CONST(1));
-            v1[1] = Easy3DAnim_Update(&param0->slotMachineVariant->unk_1DA4.unk_88[1], FX32_CONST(1));
+            v1[0] = Easy3DAnim_Update(&param0->unk_04->unk_1DA4.unk_88[0], FX32_CONST(1));
+            v1[1] = Easy3DAnim_Update(&param0->unk_04->unk_1DA4.unk_88[1], FX32_CONST(1));
 
             if (v1[0] && v1[1]) {
-                param0->slotMachineVariant->unk_1DA4.unk_1EC = 0;
+                param0->unk_04->unk_1DA4.unk_1EC = 0;
             }
         }
     }
-    if (param0->slotMachineVariant->unk_1B98.unk_1F0) {
-        inline_ov116_02261940(&param0->slotMachineVariant->unk_1B98);
+    if (param0->unk_04->unk_1B98.unk_1F0) {
+        inline_ov116_02261940(&param0->unk_04->unk_1B98);
 
-        if (param0->slotMachineVariant->unk_1B98.unk_1EC) {
-            Easy3DAnim_UpdateLooped(&param0->slotMachineVariant->unk_1B98.unk_88[1], FX32_CONST(1));
+        if (param0->unk_04->unk_1B98.unk_1EC) {
+            Easy3DAnim_UpdateLooped(&param0->unk_04->unk_1B98.unk_88[1], FX32_CONST(1));
         }
     }
 
     G3_RequestSwapBuffers(GX_SORTMODE_AUTO, GX_BUFFERMODE_W);
-    SpriteSystem_DrawSprites(param0->unk_48.slotsMinigameDTO);
+    SpriteSystem_DrawSprites(param0->unk_48.unk_0C);
 }
 
-void ov116_02261C48(UnkStruct_ov116_02262A8C *param0, int slotsMinigameDTO)
+void ov116_02261C48(UnkStruct_ov116_02262A8C *param0, int param1)
 {
     int v0 = param0->unk_308[0].unk_1F4;
-    int v1 = slotsMinigameDTO;
+    int v1 = param1;
 
     if (v1 == v0) {
         return;
     }
 
-    Easy3DObject_RemoveAnim(&param0->unk_308[0].coins, &param0->unk_308[0].unk_88[v0]);
-    param0->unk_308[0].unk_1F4 = slotsMinigameDTO;
-    Easy3DObject_AddAnim(&param0->unk_308[0].coins, &param0->unk_308[0].unk_88[v1]);
+    Easy3DObject_RemoveAnim(&param0->unk_308[0].unk_00, &param0->unk_308[0].unk_88[v0]);
+    param0->unk_308[0].unk_1F4 = param1;
+    Easy3DObject_AddAnim(&param0->unk_308[0].unk_00, &param0->unk_308[0].unk_88[v1]);
 }
 
 void ov116_02261C88(UnkStruct_ov116_0226139C *param0)
@@ -190,9 +190,9 @@ void ov116_02261C88(UnkStruct_ov116_0226139C *param0)
     Camera_SetAsActive(param0->unk_48.camera);
 }
 
-static void ov116_02261CD8(SpriteTemplate *param0, s16 slotsMinigameDTO, s16 param2, int param3, int param4, int param5)
+static void ov116_02261CD8(SpriteTemplate *param0, s16 param1, s16 param2, int param3, int param4, int param5)
 {
-    param0->x = slotsMinigameDTO;
+    param0->x = param1;
     param0->y = param2;
     param0->z = 0;
     param0->animIdx = 0;
@@ -220,7 +220,7 @@ void ov116_02261D08(UnkStruct_ov116_02262A8C *param0)
 {
     SpriteTemplate v0;
     SpriteSystem *v1 = param0->unk_14->unk_08;
-    SpriteManager *v2 = param0->unk_14->slotsMinigameDTO;
+    SpriteManager *v2 = param0->unk_14->unk_0C;
     PaletteData *v3 = param0->unk_14->unk_14;
     int v4;
 
@@ -238,7 +238,7 @@ void ov116_02261D70(UnkStruct_ov116_02262A8C *param0)
 {
     SpriteTemplate v0;
     SpriteSystem *v1 = param0->unk_14->unk_08;
-    SpriteManager *v2 = param0->unk_14->slotsMinigameDTO;
+    SpriteManager *v2 = param0->unk_14->unk_0C;
     PaletteData *v3 = param0->unk_14->unk_14;
     int v4;
     s16 v5[] = { 72, 180, 24, 232 };
@@ -264,12 +264,12 @@ void ov116_02261DF0(UnkStruct_ov116_02262A8C *param0)
     }
 }
 
-void ov116_02261E0C(UnkStruct_ov116_02262A8C *param0, BOOL slotsMinigameDTO, int param2)
+void ov116_02261E0C(UnkStruct_ov116_02262A8C *param0, BOOL param1, int param2)
 {
     int v0;
 
     for (v0 = 0; v0 < (3 * 12); v0++) {
-        ManagedSprite_SetDrawFlag(param0->unk_28[v0], slotsMinigameDTO);
+        ManagedSprite_SetDrawFlag(param0->unk_28[v0], param1);
     }
 }
 
@@ -303,7 +303,7 @@ void include_ov116_02261870(void)
     dummy[0];
 }
 
-void ov116_02261E58(UnkStruct_ov116_02262A8C *param0, int slotsMinigameDTO, int param2)
+void ov116_02261E58(UnkStruct_ov116_02262A8C *param0, int param1, int param2)
 {
     int v0[][2] = {
         { 0, 2 },
@@ -312,13 +312,13 @@ void ov116_02261E58(UnkStruct_ov116_02262A8C *param0, int slotsMinigameDTO, int 
         { 1, 2 },
     };
 
-    int v1 = param0->unk_DC[slotsMinigameDTO];
+    int v1 = param0->unk_DC[param1];
 
     ManagedSprite_SetAnim(param0->unk_1C[v1], v0[param2][0]);
     ManagedSprite_SetAnim(param0->unk_20[v1], v0[param2][1]);
 }
 
-int ov116_02261EA4(UnkStruct_ov116_02262A8C *param0, int slotsMinigameDTO)
+int ov116_02261EA4(UnkStruct_ov116_02262A8C *param0, int param1)
 {
     int v0[][2] = {
         { 0, 2 },
@@ -330,7 +330,7 @@ int ov116_02261EA4(UnkStruct_ov116_02262A8C *param0, int slotsMinigameDTO)
     int v1;
     int v2[2];
 
-    v1 = param0->unk_DC[slotsMinigameDTO];
+    v1 = param0->unk_DC[param1];
     v2[0] = ManagedSprite_GetActiveAnim(param0->unk_1C[v1]);
     v2[1] = ManagedSprite_GetActiveAnim(param0->unk_20[v1]);
 
@@ -354,8 +354,8 @@ void ov116_02261F08(UnkStruct_ov116_02262A8C *param0)
     int v0;
     int v1 = 0;
 
-    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
-        if (v0 == param0->coins) {
+    for (v0 = 0; v0 < param0->unk_04; v0++) {
+        if (v0 == param0->unk_00) {
             continue;
         }
 
@@ -372,8 +372,8 @@ void ov116_02261F3C(UnkStruct_ov116_02262A8C *param0)
     int v0;
     int v1 = 0;
 
-    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
-        if (v0 == param0->coins) {
+    for (v0 = 0; v0 < param0->unk_04; v0++) {
+        if (v0 == param0->unk_00) {
             continue;
         }
 
@@ -416,7 +416,7 @@ void ov116_02262004(UnkStruct_ov116_02262A8C *param0)
     }
 }
 
-void ov116_02262034(UnkStruct_ov116_0226139C *param0, int slotsMinigameDTO)
+void ov116_02262034(UnkStruct_ov116_0226139C *param0, int param1)
 {
     PaletteData *v0 = param0->unk_48.unk_14;
     static int v1[][4][4 + 1] = {
@@ -447,19 +447,19 @@ void ov116_02262034(UnkStruct_ov116_0226139C *param0, int slotsMinigameDTO)
     };
 
     for (int v2 = 0; v2 < 4; v2++) {
-        PaletteData_LoadBufferFromFile(v0, NARC_INDEX_ARC__MANENE, 73, HEAP_ID_106, PLTTBUF_SUB_BG, PALETTE_SIZE_BYTES, PLTT_DEST(v2 + 1), PLTT_DEST(v1[param0->slotMachineVariant->slotMachineVariant - 1][slotsMinigameDTO][v2 + 1]));
+        PaletteData_LoadBufferFromFile(v0, NARC_INDEX_ARC__MANENE, 73, HEAP_ID_106, PLTTBUF_SUB_BG, PALETTE_SIZE_BYTES, PLTT_DEST(v2 + 1), PLTT_DEST(v1[param0->unk_04->unk_04 - 1][param1][v2 + 1]));
     }
 }
 
-static int ov116_0226208C(Window *param0, String *slotsMinigameDTO)
+static int ov116_0226208C(Window *param0, String *param1)
 {
-    int v0 = Font_CalcStringWidth(FONT_SYSTEM, slotsMinigameDTO, 0);
+    int v0 = Font_CalcStringWidth(FONT_SYSTEM, param1, 0);
     int v1 = (Window_GetWidth(param0) * 8 - v0) / 2;
 
     return v1;
 }
 
-void ov116_022620AC(UnkStruct_ov116_0226139C *param0, UnkStruct_ov116_02262A8C *slotsMinigameDTO)
+void ov116_022620AC(UnkStruct_ov116_0226139C *param0, UnkStruct_ov116_02262A8C *param1)
 {
     int v0;
     int v1 = 0;
@@ -486,37 +486,37 @@ void ov116_022620AC(UnkStruct_ov116_0226139C *param0, UnkStruct_ov116_02262A8C *
     TrainerInfo *v9;
     BOOL v10;
 
-    switch (slotsMinigameDTO->slotMachineVariant) {
+    switch (param1->unk_04) {
     case 2:
-        Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO->unk_14->coins, 79, slotsMinigameDTO->unk_14->unk_10, 7, 0, 0, 0, HEAP_ID_106);
+        Graphics_LoadTilemapToBgLayerFromOpenNARC(param1->unk_14->unk_00, 79, param1->unk_14->unk_10, 7, 0, 0, 0, HEAP_ID_106);
         break;
     case 3:
-        Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO->unk_14->coins, 80, slotsMinigameDTO->unk_14->unk_10, 7, 0, 0, 0, HEAP_ID_106);
+        Graphics_LoadTilemapToBgLayerFromOpenNARC(param1->unk_14->unk_00, 80, param1->unk_14->unk_10, 7, 0, 0, 0, HEAP_ID_106);
         break;
     case 4:
-        Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO->unk_14->coins, 81, slotsMinigameDTO->unk_14->unk_10, 7, 0, 0, 0, HEAP_ID_106);
+        Graphics_LoadTilemapToBgLayerFromOpenNARC(param1->unk_14->unk_00, 81, param1->unk_14->unk_10, 7, 0, 0, 0, HEAP_ID_106);
         break;
     default:
         GF_ASSERT(FALSE);
     }
 
-    for (v0 = 0; v0 < slotsMinigameDTO->slotMachineVariant; v0++) {
-        if (v0 == slotsMinigameDTO->coins) {
+    for (v0 = 0; v0 < param1->unk_04; v0++) {
+        if (v0 == param1->unk_00) {
             continue;
         }
 
         v10 = ov114_0225C7A4(&param0->unk_84, v0);
-        v3 = &slotsMinigameDTO->unk_1FD8[v1];
+        v3 = &param1->unk_1FD8[v1];
         v9 = ov114_0225C7CC(&param0->unk_84, v0);
 
         Window_Init(v3);
 
-        v5 = v4[slotsMinigameDTO->slotMachineVariant - 2][v1][0];
-        v6 = v4[slotsMinigameDTO->slotMachineVariant - 2][v1][1];
-        v7 = v4[slotsMinigameDTO->slotMachineVariant - 2][v1][2];
-        v8 = v4[slotsMinigameDTO->slotMachineVariant - 2][v1][3];
+        v5 = v4[param1->unk_04 - 2][v1][0];
+        v6 = v4[param1->unk_04 - 2][v1][1];
+        v7 = v4[param1->unk_04 - 2][v1][2];
+        v8 = v4[param1->unk_04 - 2][v1][3];
 
-        Window_Add(slotsMinigameDTO->unk_14->unk_10, v3, 7, v5, v6, v7, v8, 14, v2);
+        Window_Add(param1->unk_14->unk_10, v3, 7, v5, v6, v7, v8, 14, v2);
         v2 += (v7 * v8);
         Window_FillTilemap(v3, 0xFF);
 
@@ -547,8 +547,8 @@ void ov116_02262264(UnkStruct_ov116_02262A8C *param0)
     int v1 = 0;
     Window *v2;
 
-    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
-        if (v0 == param0->coins) {
+    for (v0 = 0; v0 < param0->unk_04; v0++) {
+        if (v0 == param0->unk_00) {
             continue;
         }
 
@@ -561,16 +561,16 @@ void ov116_02262264(UnkStruct_ov116_02262A8C *param0)
         v1++;
     }
 
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_14->coins, 78, param0->unk_14->unk_10, 7, 0, 0, 0, HEAP_ID_106);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(param0->unk_14->unk_00, 78, param0->unk_14->unk_10, 7, 0, 0, 0, HEAP_ID_106);
 }
 
 void ov116_022622C8(UnkStruct_ov116_0226139C *param0)
 {
-    NARC *v0 = param0->unk_48.coins;
-    NARC *v1 = param0->unk_48.slotMachineVariant;
+    NARC *v0 = param0->unk_48.unk_00;
+    NARC *v1 = param0->unk_48.unk_04;
     BgConfig *v2 = param0->unk_48.unk_10;
     SpriteSystem *v3 = param0->unk_48.unk_08;
-    SpriteManager *v4 = param0->unk_48.slotsMinigameDTO;
+    SpriteManager *v4 = param0->unk_48.unk_0C;
     PaletteData *v5 = param0->unk_48.unk_14;
     NARC *v6;
     int v7;
@@ -671,55 +671,55 @@ void ov116_022622C8(UnkStruct_ov116_0226139C *param0)
     }
 }
 
-void ov116_022625A8(UnkStruct_ov116_0226139C *param0, UnkStruct_ov116_02262A8C *slotsMinigameDTO)
+void ov116_022625A8(UnkStruct_ov116_0226139C *param0, UnkStruct_ov116_02262A8C *param1)
 {
     SpriteTemplate v0;
-    SpriteSystem *v1 = slotsMinigameDTO->unk_14->unk_08;
-    SpriteManager *v2 = slotsMinigameDTO->unk_14->slotsMinigameDTO;
-    PaletteData *v3 = slotsMinigameDTO->unk_14->unk_14;
+    SpriteSystem *v1 = param1->unk_14->unk_08;
+    SpriteManager *v2 = param1->unk_14->unk_0C;
+    PaletteData *v3 = param1->unk_14->unk_14;
     int v4;
     int v5 = 0;
 
-    for (v4 = 0; v4 < slotsMinigameDTO->slotMachineVariant; v4++) {
-        slotsMinigameDTO->unk_DC[v4] = 0xFF;
-        if (v4 == slotsMinigameDTO->coins) {
+    for (v4 = 0; v4 < param1->unk_04; v4++) {
+        param1->unk_DC[v4] = 0xFF;
+        if (v4 == param1->unk_00) {
             continue;
         }
 
-        slotsMinigameDTO->unk_DC[v4] = v5;
-        ov116_02261CD8(&v0, Unk_ov116_02267A78[slotsMinigameDTO->slotMachineVariant - 1][v5] + 0, 176 + 64, 2, 0, 9000);
+        param1->unk_DC[v4] = v5;
+        ov116_02261CD8(&v0, Unk_ov116_02267A78[param1->unk_04 - 1][v5] + 0, 176 + 64, 2, 0, 9000);
         v0.priority = 1;
 
-        slotsMinigameDTO->unk_1C[v5] = SpriteSystem_NewSprite(v1, v2, &v0);
-        ov116_02261CD8(&v0, Unk_ov116_02267A78[slotsMinigameDTO->slotMachineVariant - 1][v5] + 0, (176 + 64) + 0, 2, 0, 9000);
+        param1->unk_1C[v5] = SpriteSystem_NewSprite(v1, v2, &v0);
+        ov116_02261CD8(&v0, Unk_ov116_02267A78[param1->unk_04 - 1][v5] + 0, (176 + 64) + 0, 2, 0, 9000);
         v0.priority = 2;
 
-        slotsMinigameDTO->unk_20[v5] = SpriteSystem_NewSprite(v1, v2, &v0);
-        ManagedSprite_SetExplicitPaletteOffset(slotsMinigameDTO->unk_20[v5], 0 + ov116_02264680(param0, v4));
-        ov116_02261CD8(&v0, Unk_ov116_02267A78[slotsMinigameDTO->slotMachineVariant - 1][v5] + 0, (176 + 64) + 0, 2, 0, 9000);
+        param1->unk_20[v5] = SpriteSystem_NewSprite(v1, v2, &v0);
+        ManagedSprite_SetExplicitPaletteOffset(param1->unk_20[v5], 0 + ov116_02264680(param0, v4));
+        ov116_02261CD8(&v0, Unk_ov116_02267A78[param1->unk_04 - 1][v5] + 0, (176 + 64) + 0, 2, 0, 9000);
         v0.priority = 3;
 
-        slotsMinigameDTO->unk_24[v5] = SpriteSystem_NewSprite(v1, v2, &v0);
-        ManagedSprite_SetExplicitPaletteOffset(slotsMinigameDTO->unk_24[v5], 0 + ov116_02264680(param0, v4));
-        ManagedSprite_SetAnim(slotsMinigameDTO->unk_24[v5], 5);
-        ManagedSprite_TickTwoFrames(slotsMinigameDTO->unk_1C[v5]);
-        ManagedSprite_TickTwoFrames(slotsMinigameDTO->unk_20[v5]);
-        ManagedSprite_TickTwoFrames(slotsMinigameDTO->unk_24[v5]);
-        ov116_02261E58(slotsMinigameDTO, v4, 0);
+        param1->unk_24[v5] = SpriteSystem_NewSprite(v1, v2, &v0);
+        ManagedSprite_SetExplicitPaletteOffset(param1->unk_24[v5], 0 + ov116_02264680(param0, v4));
+        ManagedSprite_SetAnim(param1->unk_24[v5], 5);
+        ManagedSprite_TickTwoFrames(param1->unk_1C[v5]);
+        ManagedSprite_TickTwoFrames(param1->unk_20[v5]);
+        ManagedSprite_TickTwoFrames(param1->unk_24[v5]);
+        ov116_02261E58(param1, v4, 0);
 
         v5++;
     }
 }
 
-ManagedSprite *ov116_022626E8(UnkStruct_ov116_02262A8C *param0, s16 slotsMinigameDTO, s16 param2)
+ManagedSprite *ov116_022626E8(UnkStruct_ov116_02262A8C *param0, s16 param1, s16 param2)
 {
     ManagedSprite *v0;
     SpriteTemplate v1;
     SpriteSystem *v2 = param0->unk_14->unk_08;
-    SpriteManager *v3 = param0->unk_14->slotsMinigameDTO;
+    SpriteManager *v3 = param0->unk_14->unk_0C;
     PaletteData *v4 = param0->unk_14->unk_14;
 
-    ov116_02261CD8(&v1, slotsMinigameDTO, param2, 1, 0, 9003);
+    ov116_02261CD8(&v1, param1, param2, 1, 0, 9003);
 
     v1.bgPriority = 0;
     v1.priority = 0;
@@ -736,7 +736,7 @@ void ov116_02262724(UnkStruct_ov116_02262A8C *param0)
     ManagedSprite *v1;
     SpriteTemplate v2;
     SpriteSystem *v3 = param0->unk_14->unk_08;
-    SpriteManager *v4 = param0->unk_14->slotsMinigameDTO;
+    SpriteManager *v4 = param0->unk_14->unk_0C;
     PaletteData *v5 = param0->unk_14->unk_14;
 
     for (v0 = 0; v0 < 2; v0++) {
@@ -782,7 +782,7 @@ void ov116_02262840(UnkStruct_ov116_02262A8C *param0)
     ManagedSprite *v1;
     SpriteTemplate v2;
     SpriteSystem *v3 = param0->unk_14->unk_08;
-    SpriteManager *v4 = param0->unk_14->slotsMinigameDTO;
+    SpriteManager *v4 = param0->unk_14->unk_0C;
     PaletteData *v5 = param0->unk_14->unk_14;
 
     ov116_02261CD8(&v2, 128, 128, 1, 7, 9007);
@@ -804,11 +804,11 @@ void ov116_022628AC(UnkStruct_ov116_02262A8C *param0)
 
 void ov116_022628B8(UnkStruct_ov116_0226139C *param0)
 {
-    NARC *v0 = param0->unk_48.coins;
-    NARC *v1 = param0->unk_48.slotMachineVariant;
+    NARC *v0 = param0->unk_48.unk_00;
+    NARC *v1 = param0->unk_48.unk_04;
     BgConfig *v2 = param0->unk_48.unk_10;
     SpriteSystem *v3 = param0->unk_48.unk_08;
-    SpriteManager *v4 = param0->unk_48.slotsMinigameDTO;
+    SpriteManager *v4 = param0->unk_48.unk_0C;
     PaletteData *v5 = param0->unk_48.unk_14;
 
     Graphics_LoadTilesToBgLayerFromOpenNARC(v0, 72, v2, 4, 0, 0, 0, HEAP_ID_106);

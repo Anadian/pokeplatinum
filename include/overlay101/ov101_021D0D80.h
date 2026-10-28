@@ -6,14 +6,14 @@
 #include "enums.h"
 #include "overlay_manager.h"
 
-int SlotsMinigame_Init(ApplicationManager *appMan, int *slotsMinigameDTO);
-int SlotsMinigame_Main(ApplicationManager *appMan, int *slotsMinigameDTO);
-int SlotsMinigame_Exit(ApplicationManager *appMan, int *slotsMinigameDTO);
-void SlotsMinigame_LoadWindow(Overlay101State *param0);
-void SlotsMinigame_DrawMessageBox(Overlay101State *param0, u32 slotsMinigameDTO);
-void SlotsMinigame_FreeMessageBox(Overlay101State *param0);
-void SlotsMinigame_SoundSequence_StartChange(Overlay101State *param0, SlotsMinigame_SoundSequenceID slotsMinigameDTO);
-void *SlotsMinigame_AllocateMemory(u32 param0);
-void *SlotsMinigame_CopyArchive(Overlay101State *param0, u32 slotsMinigameDTO, int param2);
+int ov101_021D0D80(ApplicationManager *appMan, int *param1);
+int ov101_021D0E40(ApplicationManager *appMan, int *param1);
+int ov101_021D0EE4(ApplicationManager *appMan, int *param1);
+void ov101_021D13C8(UnkStruct_ov101_021D13C8 *param0);
+void ov101_021D148C(UnkStruct_ov101_021D13C8 *param0, u32 param1);
+void ov101_021D14E4(UnkStruct_ov101_021D13C8 *param0);
+void ov101_021D1894(UnkStruct_ov101_021D13C8 *param0, UnkEnum_ov101_021D1894 param1);
+void *ov101_021D1998(u32 param0);
+void *ov101_021D19E4(UnkStruct_ov101_021D13C8 *param0, u32 param1, int param2);
 
 #endif // POKEPLATINUM_OV101_021D0D80_H

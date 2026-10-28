@@ -13,10 +13,10 @@
 #include "touch_screen_actions.h"
 
 typedef struct {
-    NARC *coins;
-    SpriteSystem *slotMachineVariant;
+    NARC *unk_00;
+    SpriteSystem *unk_04;
     SpriteManager *unk_08;
-    BgConfig *slotsMinigameDTO;
+    BgConfig *unk_0C;
     PaletteData *unk_10;
     TouchScreenActions *unk_14;
     TouchScreenRect unk_18[28];

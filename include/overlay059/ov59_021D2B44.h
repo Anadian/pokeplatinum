@@ -15,8 +15,8 @@ TVWifiEpisode *ov59_021D2CB4(SaveData *saveData, enum HeapID heapID, u32 param2)
 TVWifiEpisode *ov59_021D2CF8(SaveData *saveData, enum HeapID heapID, u32 param2);
 TVWifiEpisode *ov59_021D2D3C(SaveData *saveData, enum HeapID heapID, u32 param2);
 TVWifiEpisode *ov59_021D2D80(SaveData *saveData, enum HeapID heapID, u32 param2);
-void ov59_021D2F10(TVBroadcast *broadcast, int slotsMinigameDTO, int param2, const void **param3, const void **param4);
-void ov59_021D2F38(TVBroadcast *broadcast, int slotsMinigameDTO, int param2, const void **param3, const void **param4);
-void ov59_021D2F60(TVBroadcast *broadcast, int slotsMinigameDTO, int param2, const void **param3, const void **param4);
+void ov59_021D2F10(TVBroadcast *broadcast, int param1, int param2, const void **param3, const void **param4);
+void ov59_021D2F38(TVBroadcast *broadcast, int param1, int param2, const void **param3, const void **param4);
+void ov59_021D2F60(TVBroadcast *broadcast, int param1, int param2, const void **param3, const void **param4);
 
 #endif // POKEPLATINUM_OV59_021D2B44_H

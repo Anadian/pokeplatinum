@@ -7,7 +7,7 @@
 #include "overlay117/struct_ov117_02264E84.h"
 
 typedef struct {
-    int coins;
+    int unk_00;
     union {
         UnkStruct_ov117_022621D4_sub1 unk_04_val1;
         UnkStruct_ov117_022621D4_sub1 unk_04_val2;

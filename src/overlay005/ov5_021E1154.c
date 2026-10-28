@@ -19,8 +19,8 @@
 #include "unk_020655F4.h"
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     int unk_08;
     FieldSystem *fieldSystem;
     PlayerAvatar *playerAvatar;
@@ -60,7 +60,7 @@ static void ov5_021E11B0(FieldSystem *fieldSystem, PlayerAvatar *playerAvatar, i
 
     v0->fieldSystem = fieldSystem;
     v0->playerAvatar = playerAvatar;
-    v0->coins = param2;
+    v0->unk_00 = param2;
 
     Sound_PlayEffect(SEQ_SE_DP_F209_sseq);
     FieldSystem_CreateTask(fieldSystem, ov5_021E120C, v0);
@@ -97,49 +97,49 @@ static BOOL ov5_021E120C(FieldTask *param0)
         if (PlayerAvatar_IsMapObjectAnimationSet(v0->playerAvatar)) {
             int v3 = 0xc;
 
-            v3 = MovementAction_TurnActionTowardsDir(v0->coins, v3);
+            v3 = MovementAction_TurnActionTowardsDir(v0->unk_00, v3);
             PlayerAvatar_SetMapObjMovement(v0->playerAvatar, v3, 1);
-            PlayerAvatar_TryFace(v0->playerAvatar, v0->coins);
+            PlayerAvatar_TryFace(v0->playerAvatar, v0->unk_00);
             v0->unk_08++;
-            v0->slotMachineVariant = 7;
+            v0->unk_04 = 7;
         }
         break;
     case 2:
-        switch (v0->slotMachineVariant) {
+        switch (v0->unk_04) {
         case 6:
         case 4:
         case 2:
-            v0->coins = ov5_021E11E0(v0->coins);
-            PlayerAvatar_TryFace(v0->playerAvatar, v0->coins);
+            v0->unk_00 = ov5_021E11E0(v0->unk_00);
+            PlayerAvatar_TryFace(v0->playerAvatar, v0->unk_00);
             break;
         default:
             break;
         }
 
-        v0->slotMachineVariant--;
+        v0->unk_04--;
 
-        if (v0->slotMachineVariant == 0) {
+        if (v0->unk_04 == 0) {
             if (TileBehavior_IsSlideEastward(v2) == 1) {
-                v0->coins = 3;
+                v0->unk_00 = 3;
             } else if (TileBehavior_IsSlideWestward(v2) == 1) {
-                v0->coins = 2;
+                v0->unk_00 = 2;
             } else if (TileBehavior_IsSlideNorthward(v2) == 1) {
-                v0->coins = 0;
+                v0->unk_00 = 0;
             } else if (TileBehavior_IsSlideSouthward(v2) == 1) {
-                v0->coins = 1;
+                v0->unk_00 = 1;
             } else {
-                v0->coins = ov5_021E11E0(v0->coins);
+                v0->unk_00 = ov5_021E11E0(v0->unk_00);
             }
 
             {
-                u32 collision = PlayerAvatar_CheckCollision(v0->playerAvatar, v1, v0->coins);
+                u32 collision = PlayerAvatar_CheckCollision(v0->playerAvatar, v1, v0->unk_00);
 
                 if (collision == PLAYER_COLLISION_NONE) {
                     v0->unk_08 = 1;
                 } else {
                     MapObject_SetStatusFlagOff(v1, MAP_OBJ_STATUS_LOCK_DIR);
                     MapObject_SetStatusFlagOff(v1, MAP_OBJ_STATUS_PAUSE_ANIMATION);
-                    PlayerAvatar_TryFace(v0->playerAvatar, v0->coins);
+                    PlayerAvatar_TryFace(v0->playerAvatar, v0->unk_00);
                     ov5_021E1350(v0);
                     Sound_StopEffect(1624, 0);
                     return 1;

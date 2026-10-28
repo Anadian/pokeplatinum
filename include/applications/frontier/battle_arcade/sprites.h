@@ -4,8 +4,8 @@
 #include "applications/frontier/battle_arcade/sprite_manager.h"
 
 typedef struct BattleArcadeAppSprite {
-    u32 coins;
-    u32 slotMachineVariant;
+    u32 unk_00;
+    u32 unk_04;
     u16 unk_08;
     u8 unk_0A;
     u8 onSubScreen;

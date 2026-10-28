@@ -27,7 +27,7 @@
 #include "text.h"
 
 static const struct {
-    u8 coins;
+    u8 unk_00;
     u8 unk_01;
     u8 unk_02;
 } Unk_ov19_021E0178[] = {
@@ -66,58 +66,58 @@ static const struct {
 };
 
 typedef struct {
-    UnkStruct_ov19_021D8318 *coins;
-    s16 slotMachineVariant;
+    UnkStruct_ov19_021D8318 *unk_00;
+    s16 unk_04;
     s16 unk_06;
     s16 unk_08;
     s16 unk_0A;
-    u32 slotsMinigameDTO;
+    u32 unk_0C;
 } UnkStruct_ov19_021D81B8;
 
-static void ov19_021D7AF4(const UnkStruct_ov19_021D8318 *param0, int slotsMinigameDTO, u32 *param2, u32 *param3, u32 *param4);
+static void ov19_021D7AF4(const UnkStruct_ov19_021D8318 *param0, int param1, u32 *param2, u32 *param3, u32 *param4);
 static void ov19_021D7BC0(UnkStruct_ov19_021D8318 *param0, const BoxCustomization *customization, int param2, BOOL param3);
 static void ov19_021D7C58(UnkStruct_ov19_021D8318 *param0, const BoxCustomization *customization, int param2);
 static void ov19_021D7D00(UnkStruct_ov19_021D8318 *param0, const BoxCustomization *customization, u32 param2, u32 param3, u32 param4);
-static void ov19_021D7E24(SysTask *param0, void *slotsMinigameDTO);
-static void ov19_021D7E6C(SysTask *param0, void *slotsMinigameDTO);
-static void ov19_021D7F14(UnkStruct_ov19_021D8318 *param0, fx32 slotsMinigameDTO, s32 param2);
-static void ov19_021D7F9C(UnkStruct_ov19_021D8318 *param0, fx32 slotsMinigameDTO);
-static void ov19_021D803C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO, int param2, int param3);
-static void ov19_021D8114(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO, int param2);
+static void ov19_021D7E24(SysTask *param0, void *param1);
+static void ov19_021D7E6C(SysTask *param0, void *param1);
+static void ov19_021D7F14(UnkStruct_ov19_021D8318 *param0, fx32 param1, s32 param2);
+static void ov19_021D7F9C(UnkStruct_ov19_021D8318 *param0, fx32 param1);
+static void ov19_021D803C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1, int param2, int param3);
+static void ov19_021D8114(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1, int param2);
 static void ov19_021D813C(UnkStruct_ov19_021D8318 *param0, u32 boxID);
-static void ov19_021D81B8(UnkStruct_ov19_021D8318 *param0, int slotsMinigameDTO, int param2, u32 param3);
-static void ov19_021D8210(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D81B8(UnkStruct_ov19_021D8318 *param0, int param1, int param2, u32 param3);
+static void ov19_021D8210(SysTask *param0, void *param1);
 static void ov19_021D826C(void *param0);
-static void ov19_021D8274(SysTask *param0, void *slotsMinigameDTO);
+static void ov19_021D8274(SysTask *param0, void *param1);
 static void ov19_021D8318(UnkStruct_ov19_021D8318 *param0);
 static u32 ov19_021D85B4(u32 param0);
-static void ov19_021D85C4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DA384 *slotsMinigameDTO, u32 param2, u32 param3, s32 param4, UnkStruct_ov19_021DCD18 *param5);
-static void ov19_021D865C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO, u32 param2);
-static void ov19_021D86B4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO, u32 param2);
-static void ov19_021D870C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO);
-static void ov19_021D8764(u16 *param0, const u16 *slotsMinigameDTO, u32 param2, u32 param3, u32 param4);
+static void ov19_021D85C4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DA384 *param1, u32 param2, u32 param3, s32 param4, UnkStruct_ov19_021DCD18 *param5);
+static void ov19_021D865C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1, u32 param2);
+static void ov19_021D86B4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1, u32 param2);
+static void ov19_021D870C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1);
+static void ov19_021D8764(u16 *param0, const u16 *param1, u32 param2, u32 param3, u32 param4);
 
 static const u16 Unk_ov19_021E0138[] = {
     9,
     10,
 };
 
-BOOL ov19_021D79F8(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021D61B0 *slotsMinigameDTO, const BoxApplication *param2, BgConfig *param3, SpriteList *param4)
+BOOL ov19_021D79F8(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021D61B0 *param1, const BoxApplication *param2, BgConfig *param3, SpriteList *param4)
 {
     param0->boxID = param2->customization.boxID;
     param0->unk_01 = 11;
     param0->unk_02 = 0;
-    param0->unk_585C = ov19_021D7820(slotsMinigameDTO);
+    param0->unk_585C = ov19_021D7820(param1);
     param0->unk_5854 = 72 + param0->unk_585C;
     param0->unk_5858 = (256 + 16) + param0->unk_585C;
-    param0->unk_58F0 = ov19_021D77D8(slotsMinigameDTO);
+    param0->unk_58F0 = ov19_021D77D8(param1);
 
     ov19_021DA3CC(param0->unk_58F0, param0->unk_A8[0], (5 * 6));
     ov19_021DA3CC(param0->unk_58F0, param0->unk_A8[1], (5 * 6));
 
     param0->unk_58F4 = param3;
     param0->unk_58F8 = param2;
-    param0->unk_58FC = slotsMinigameDTO;
+    param0->unk_58FC = param1;
 
     return 1;
 }
@@ -130,19 +130,19 @@ void ov19_021D7A74(UnkStruct_ov19_021D8318 *param0)
 
 void ov19_021D7A9C(UnkStruct_ov19_021D8318 *param0)
 {
-    param0->slotsMinigameDTO = Bg_GetXOffset(param0->unk_58F4, 3);
-    param0->slotsMinigameDTO -= param0->unk_585C;
-    param0->slotsMinigameDTO &= (REG_G2_BG3HOFS_OFFSET_MASK);
+    param0->unk_0C = Bg_GetXOffset(param0->unk_58F4, 3);
+    param0->unk_0C -= param0->unk_585C;
+    param0->unk_0C &= (REG_G2_BG3HOFS_OFFSET_MASK);
 
-    Bg_SetOffset(param0->unk_58F4, BG_LAYER_MAIN_3, 0, param0->slotsMinigameDTO);
+    Bg_SetOffset(param0->unk_58F4, BG_LAYER_MAIN_3, 0, param0->unk_0C);
     Bg_FillTilemapRect(param0->unk_58F4, 3, 0x18, 0, 0, 64, 32, 9);
 }
 
-static void ov19_021D7AF4(const UnkStruct_ov19_021D8318 *param0, int slotsMinigameDTO, u32 *param2, u32 *param3, u32 *param4)
+static void ov19_021D7AF4(const UnkStruct_ov19_021D8318 *param0, int param1, u32 *param2, u32 *param3, u32 *param4)
 {
-    if (slotsMinigameDTO != 0) {
+    if (param1 != 0) {
         *param2 = (param0->unk_02 ^ 1) * (21 * 20);
-        *param3 = (param0->unk_01 + (slotsMinigameDTO * (21 + 2))) & 63;
+        *param3 = (param0->unk_01 + (param1 * (21 + 2))) & 63;
         *param4 = Unk_ov19_021E0138[param0->unk_02 ^ 1];
     } else {
         *param2 = param0->unk_02 * (21 * 20);
@@ -228,7 +228,7 @@ static void ov19_021D7C58(UnkStruct_ov19_021D8318 *param0, const BoxCustomizatio
 
 static void ov19_021D7D00(UnkStruct_ov19_021D8318 *param0, const BoxCustomization *customization, u32 param2, u32 param3, u32 param4)
 {
-    void *v0 = LoadMemberFromNARC(NARC_INDEX_GRAPHIC__BOX, Unk_ov19_021E0178[customization->wallpaper].coins, TRUE, HEAP_ID_BOX_GRAPHICS, TRUE);
+    void *v0 = LoadMemberFromNARC(NARC_INDEX_GRAPHIC__BOX, Unk_ov19_021E0178[customization->wallpaper].unk_00, TRUE, HEAP_ID_BOX_GRAPHICS, TRUE);
 
     if (v0) {
         u16 *v1;
@@ -253,7 +253,7 @@ void ov19_021D7D70(UnkStruct_ov19_021D8318 *param0, const BoxCustomization *cust
     param0->unk_10 = (param0->unk_14 - param0->unk_08) / (15 * 2);
     param0->unk_14 >>= FX32_SHIFT;
     param0->unk_14 &= (REG_G2_BG3HOFS_OFFSET_MASK);
-    param0->slotMachineVariant = (15 * 2);
+    param0->unk_04 = (15 * 2);
     param0->unk_03 = param0->unk_02;
     param0->unk_01 += ((21 + 2) * boxChangeDirection);
     param0->unk_01 &= 63;
@@ -279,11 +279,11 @@ BOOL ov19_021D7E1C(UnkStruct_ov19_021D8318 *param0)
     return param0->unk_9C;
 }
 
-static void ov19_021D7E24(SysTask *param0, void *slotsMinigameDTO)
+static void ov19_021D7E24(SysTask *param0, void *param1)
 {
-    UnkStruct_ov19_021D8318 *v0 = (UnkStruct_ov19_021D8318 *)slotsMinigameDTO;
+    UnkStruct_ov19_021D8318 *v0 = (UnkStruct_ov19_021D8318 *)param1;
 
-    if (v0->slotMachineVariant) {
+    if (v0->unk_04) {
         if (v0->unk_98 == 2) {
             ov19_021D7F9C(v0, v0->unk_10);
             v0->unk_98 = 0;
@@ -292,28 +292,28 @@ static void ov19_021D7E24(SysTask *param0, void *slotsMinigameDTO)
         return;
     }
 
-    v0->slotsMinigameDTO = v0->unk_14;
+    v0->unk_0C = v0->unk_14;
     v0->boxID = BoxApp_GetCurrentBox(v0->unk_58F8);
     SysTask_Done(param0);
     v0->unk_9C = 1;
 }
 
-static void ov19_021D7E6C(SysTask *param0, void *slotsMinigameDTO)
+static void ov19_021D7E6C(SysTask *param0, void *param1)
 {
-    UnkStruct_ov19_021D8318 *v0 = (UnkStruct_ov19_021D8318 *)slotsMinigameDTO;
+    UnkStruct_ov19_021D8318 *v0 = (UnkStruct_ov19_021D8318 *)param1;
     u32 v1 = v0->unk_03;
     u32 v2 = v1 ^ 1;
 
-    if (v0->slotMachineVariant) {
+    if (v0->unk_04) {
         if (v0->unk_98 < 2) {
             ov19_021D865C(v0, v0->unk_A8[v1], v0->unk_98);
             ov19_021D86B4(v0, v0->unk_A8[v2], v0->unk_98);
 
             v0->unk_98++;
-            v0->slotsMinigameDTO = (v0->unk_08 >> FX32_SHIFT) & (REG_G2_BG3HOFS_OFFSET_MASK);
+            v0->unk_0C = (v0->unk_08 >> FX32_SHIFT) & (REG_G2_BG3HOFS_OFFSET_MASK);
             v0->unk_08 += v0->unk_10;
-            Bg_SetOffset(v0->unk_58F4, BG_LAYER_MAIN_3, 0, v0->slotsMinigameDTO);
-            v0->slotMachineVariant--;
+            Bg_SetOffset(v0->unk_58F4, BG_LAYER_MAIN_3, 0, v0->unk_0C);
+            v0->unk_04--;
         }
     } else {
         Bg_SetOffset(v0->unk_58F4, BG_LAYER_MAIN_3, 0, v0->unk_14);
@@ -322,15 +322,15 @@ static void ov19_021D7E6C(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov19_021D7F14(UnkStruct_ov19_021D8318 *param0, fx32 slotsMinigameDTO, s32 param2)
+static void ov19_021D7F14(UnkStruct_ov19_021D8318 *param0, fx32 param1, s32 param2)
 {
     int v0, v1;
 
     for (v0 = 0; v0 < 6; v0++) {
         param0->unk_68[0][v0] = (112 + param0->unk_585C + 24 * v0) * FX32_ONE;
-        param0->unk_68[1][v0] = param0->unk_68[0][v0] - slotsMinigameDTO;
+        param0->unk_68[1][v0] = param0->unk_68[0][v0] - param1;
         param0->unk_38[0][v0] = (112 + param0->unk_585C + 24 * v0 + param2) * FX32_ONE;
-        param0->unk_38[1][v0] = param0->unk_38[0][v0] - slotsMinigameDTO;
+        param0->unk_38[1][v0] = param0->unk_38[0][v0] - param1;
 
         v1 = param0->unk_38[1][v0] >> FX32_SHIFT;
 
@@ -341,7 +341,7 @@ static void ov19_021D7F14(UnkStruct_ov19_021D8318 *param0, fx32 slotsMinigameDTO
     }
 }
 
-static void ov19_021D7F9C(UnkStruct_ov19_021D8318 *param0, fx32 slotsMinigameDTO)
+static void ov19_021D7F9C(UnkStruct_ov19_021D8318 *param0, fx32 param1)
 {
     int v0, v1, v2, v3;
 
@@ -355,10 +355,10 @@ static void ov19_021D7F9C(UnkStruct_ov19_021D8318 *param0, fx32 slotsMinigameDTO
             ov19_021D8114(param0, param0->unk_A8[v3], v0);
         }
 
-        param0->unk_68[0][v0] = param0->unk_68[1][v0] - slotsMinigameDTO;
-        param0->unk_68[1][v0] = param0->unk_68[0][v0] - slotsMinigameDTO;
-        param0->unk_38[0][v0] = param0->unk_38[1][v0] - slotsMinigameDTO;
-        param0->unk_38[1][v0] = param0->unk_38[0][v0] - slotsMinigameDTO;
+        param0->unk_68[0][v0] = param0->unk_68[1][v0] - param1;
+        param0->unk_68[1][v0] = param0->unk_68[0][v0] - param1;
+        param0->unk_38[0][v0] = param0->unk_38[1][v0] - param1;
+        param0->unk_38[1][v0] = param0->unk_38[0][v0] - param1;
 
         v1 = param0->unk_38[1][v0] >> FX32_SHIFT;
 
@@ -368,7 +368,7 @@ static void ov19_021D7F9C(UnkStruct_ov19_021D8318 *param0, fx32 slotsMinigameDTO
     }
 }
 
-static void ov19_021D803C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO, int param2, int param3)
+static void ov19_021D803C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1, int param2, int param3)
 {
     const PCBoxes *pcBoxes;
     BoxPokemon *v1;
@@ -377,37 +377,37 @@ static void ov19_021D803C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD
 
     pcBoxes = BoxApp_GetPCBoxes(param0->unk_58F8);
     v4 = (88 + (param0->unk_34 * 480)) + param3 * (4 * 4);
-    slotsMinigameDTO += param3;
+    param1 += param3;
     v3 = param3;
 
     for (v2 = 0; v2 < 5; v2++) {
-        if (slotsMinigameDTO->coins == NULL) {
+        if (param1->unk_00 == NULL) {
             v1 = PCBoxes_GetBoxMonAt(pcBoxes, param0->unk_30, v3);
 
             if (BoxPokemon_GetValue(v1, MON_DATA_SPECIES_EXISTS, NULL)) {
-                ov19_021DA548(param0->unk_58F0, v1, param0->unk_5814[v3], param0->unk_57D8[v3], param0->unk_CD8[v3], param2, 40 + 24 * v2, 2, ov19_021D85B4(v3), v4, slotsMinigameDTO);
+                ov19_021DA548(param0->unk_58F0, v1, param0->unk_5814[v3], param0->unk_57D8[v3], param0->unk_CD8[v3], param2, 40 + 24 * v2, 2, ov19_021D85B4(v3), v4, param1);
             }
         }
 
         v4 += (6 * (4 * 4));
-        slotsMinigameDTO += 6;
+        param1 += 6;
         v3 += 6;
     }
 }
 
-static void ov19_021D8114(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO, int param2)
+static void ov19_021D8114(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1, int param2)
 {
     int v0;
 
-    slotsMinigameDTO += param2;
+    param1 += param2;
 
     for (v0 = 0; v0 < 5; v0++) {
-        if (slotsMinigameDTO->coins != NULL) {
-            Sprite_Delete(slotsMinigameDTO->coins);
-            slotsMinigameDTO->coins = NULL;
+        if (param1->unk_00 != NULL) {
+            Sprite_Delete(param1->unk_00);
+            param1->unk_00 = NULL;
         }
 
-        slotsMinigameDTO += 6;
+        param1 += 6;
     }
 }
 
@@ -431,7 +431,7 @@ static void ov19_021D813C(UnkStruct_ov19_021D8318 *param0, u32 boxID)
     }
 }
 
-static void ov19_021D81B8(UnkStruct_ov19_021D8318 *param0, int slotsMinigameDTO, int param2, u32 param3)
+static void ov19_021D81B8(UnkStruct_ov19_021D8318 *param0, int param1, int param2, u32 param3)
 {
     UnkStruct_ov19_021D81B8 *v0;
 
@@ -439,12 +439,12 @@ static void ov19_021D81B8(UnkStruct_ov19_021D8318 *param0, int slotsMinigameDTO,
     v0 = Heap_Alloc(HEAP_ID_BOX_GRAPHICS, sizeof(UnkStruct_ov19_021D81B8));
 
     if (v0) {
-        v0->coins = param0;
-        v0->slotMachineVariant = slotsMinigameDTO;
+        v0->unk_00 = param0;
+        v0->unk_04 = param1;
         v0->unk_06 = param2;
-        v0->slotsMinigameDTO = param3;
+        v0->unk_0C = param3;
         v0->unk_0A = 2;
-        v0->unk_08 = (param2 > slotsMinigameDTO) ? 1 : -1;
+        v0->unk_08 = (param2 > param1) ? 1 : -1;
 
         if (ov19_021D77C8(ov19_021D8210, v0, 0) != NULL) {
             param0->unk_A3 = 1;
@@ -454,19 +454,19 @@ static void ov19_021D81B8(UnkStruct_ov19_021D8318 *param0, int slotsMinigameDTO,
     }
 }
 
-static void ov19_021D8210(SysTask *param0, void *slotsMinigameDTO)
+static void ov19_021D8210(SysTask *param0, void *param1)
 {
-    UnkStruct_ov19_021D81B8 *v0 = slotsMinigameDTO;
+    UnkStruct_ov19_021D81B8 *v0 = param1;
 
     if (v0->unk_0A) {
         v0->unk_0A--;
     } else {
-        if (v0->slotMachineVariant != v0->unk_06) {
-            v0->slotMachineVariant += v0->unk_08;
-            GX_LoadBGPltt(v0->coins->unk_5860[v0->slotMachineVariant], v0->slotsMinigameDTO, 0x20);
+        if (v0->unk_04 != v0->unk_06) {
+            v0->unk_04 += v0->unk_08;
+            GX_LoadBGPltt(v0->unk_00->unk_5860[v0->unk_04], v0->unk_0C, 0x20);
             v0->unk_0A = 2;
         } else {
-            ov19_021D79B8(v0, ov19_021D826C, v0->coins);
+            ov19_021D79B8(v0, ov19_021D826C, v0->unk_00);
             SysTask_Done(param0);
         }
     }
@@ -480,11 +480,11 @@ static void ov19_021D826C(void *param0)
 
 static int Unk_ov19_021E077C = 0;
 
-static void ov19_021D8274(SysTask *param0, void *slotsMinigameDTO)
+static void ov19_021D8274(SysTask *param0, void *param1)
 {
     static u32 v0 = 0, v1 = 0, v2 = 0;
     static const BoxCustomization *customization;
-    UnkStruct_ov19_021D8318 *v4 = slotsMinigameDTO;
+    UnkStruct_ov19_021D8318 *v4 = param1;
 
     switch (Unk_ov19_021E077C) {
     case 0:
@@ -552,26 +552,26 @@ BOOL ov19_021D8370(UnkStruct_ov19_021D8318 *param0)
     return 0;
 }
 
-void ov19_021D8408(UnkStruct_ov19_021D8318 *param0, u32 slotsMinigameDTO, s32 param2, UnkStruct_ov19_021DCD18 *param3)
+void ov19_021D8408(UnkStruct_ov19_021D8318 *param0, u32 param1, s32 param2, UnkStruct_ov19_021DCD18 *param3)
 {
-    ov19_021DA418(&param0->unk_A8[param0->unk_02][slotsMinigameDTO], param3, 1);
+    ov19_021DA418(&param0->unk_A8[param0->unk_02][param1], param3, 1);
     ov19_021DA754(param0->unk_58F0, param3, param2);
-    ov19_021DA3CC(param0->unk_58F0, &param0->unk_A8[param0->unk_02][slotsMinigameDTO], 1);
+    ov19_021DA3CC(param0->unk_58F0, &param0->unk_A8[param0->unk_02][param1], 1);
 }
 
-void ov19_021D845C(UnkStruct_ov19_021D8318 *param0, u32 slotsMinigameDTO, const UnkStruct_ov19_021DCD18 *param2)
+void ov19_021D845C(UnkStruct_ov19_021D8318 *param0, u32 param1, const UnkStruct_ov19_021DCD18 *param2)
 {
     u32 v0;
     UnkStruct_ov19_021DCD18 *v1;
 
-    v0 = 88 + (param0->unk_02 * 480) + ((4 * 4) * slotsMinigameDTO);
-    v1 = &param0->unk_A8[param0->unk_02][slotsMinigameDTO];
+    v0 = 88 + (param0->unk_02 * 480) + ((4 * 4) * param1);
+    v1 = &param0->unk_A8[param0->unk_02][param1];
     ov19_021DA418(param2, v1, 1);
     BoxGraphics_ApplyMonInMultiSelectShading(param0->unk_58F0, v1, FALSE);
     ov19_021DA754(param0->unk_58F0, v1, v0);
-    BoxGraphics_SetSpritePriority(v1->coins, ov19_021D85B4(slotsMinigameDTO));
+    BoxGraphics_SetSpritePriority(v1->unk_00, ov19_021D85B4(param1));
 
-    ov19_021D89F4(param0, slotsMinigameDTO);
+    ov19_021D89F4(param0, param1);
 }
 
 UnkStruct_ov19_021DCD18 *ov19_021D84C8(UnkStruct_ov19_021D8318 *param0, u32 posInBox)
@@ -590,7 +590,7 @@ void ov19_021D84E0(UnkStruct_ov19_021D8318 *param0)
         boxMon = PCBoxes_GetBoxMonAt(param0->unk_58F8->pcBoxes, boxID, i);
 
         if (BoxPokemon_GetValue(boxMon, MON_DATA_SPECIES_EXISTS, NULL)) {
-            if (param0->unk_A8[param0->unk_02][i].coins == NULL) {
+            if (param0->unk_A8[param0->unk_02][i].unk_00 == NULL) {
                 int boxCol, boxRow, v5;
 
                 boxRow = i / MAX_PC_COLS;
@@ -641,7 +641,7 @@ static u32 ov19_021D85B4(u32 param0)
     return 11 + v0[param0];
 }
 
-static void ov19_021D85C4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DA384 *slotsMinigameDTO, u32 param2, u32 param3, s32 param4, UnkStruct_ov19_021DCD18 *param5)
+static void ov19_021D85C4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DA384 *param1, u32 param2, u32 param3, s32 param4, UnkStruct_ov19_021DCD18 *param5)
 {
     BoxPokemon *v0;
     u32 v1, v2, v3, v4, v5;
@@ -652,11 +652,11 @@ static void ov19_021D85C4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DA3
 
     for (v3 = 0; v3 < 5; v3++) {
         for (v2 = 0; v2 < 6; v2++) {
-            v0 = PCBoxes_GetBoxMonAt(slotsMinigameDTO->unk_40->pcBoxes, param2, v4);
+            v0 = PCBoxes_GetBoxMonAt(param1->unk_40->pcBoxes, param2, v4);
             v1 = BoxPokemon_GetValue((BoxPokemon *)v0, MON_DATA_SPECIES, NULL);
 
             if (v1 != 0) {
-                ov19_021DA428(slotsMinigameDTO, v0, 112 + param0->unk_585C + 24 * v2 + param4, 40 + 24 * v3, 2, ov19_021D85B4(v4), v5, param5);
+                ov19_021DA428(param1, v0, 112 + param0->unk_585C + 24 * v2 + param4, 40 + 24 * v3, 2, ov19_021D85B4(v4), v5, param5);
             }
 
             param5++;
@@ -666,43 +666,43 @@ static void ov19_021D85C4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DA3
     }
 }
 
-static void ov19_021D865C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO, u32 param2)
+static void ov19_021D865C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1, u32 param2)
 {
     VecFx32 v0;
     int v1, v2;
 
     for (v2 = 0; v2 < 5; v2++) {
         for (v1 = 0; v1 < 6; v1++) {
-            if (slotsMinigameDTO->coins != NULL) {
-                v0 = *(Sprite_GetPosition(slotsMinigameDTO->coins));
+            if (param1->unk_00 != NULL) {
+                v0 = *(Sprite_GetPosition(param1->unk_00));
                 v0.x = param0->unk_68[param2][v1];
-                Sprite_SetPosition(slotsMinigameDTO->coins, &v0);
+                Sprite_SetPosition(param1->unk_00, &v0);
             }
 
-            slotsMinigameDTO++;
+            param1++;
         }
     }
 }
 
-static void ov19_021D86B4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO, u32 param2)
+static void ov19_021D86B4(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1, u32 param2)
 {
     VecFx32 v0;
     int v1, v2;
 
     for (v2 = 0; v2 < 5; v2++) {
         for (v1 = 0; v1 < 6; v1++) {
-            if (slotsMinigameDTO->coins != NULL) {
-                v0 = *(Sprite_GetPosition(slotsMinigameDTO->coins));
+            if (param1->unk_00 != NULL) {
+                v0 = *(Sprite_GetPosition(param1->unk_00));
                 v0.x = param0->unk_38[param2][v1];
-                Sprite_SetPosition(slotsMinigameDTO->coins, &v0);
+                Sprite_SetPosition(param1->unk_00, &v0);
             }
 
-            slotsMinigameDTO++;
+            param1++;
         }
     }
 }
 
-static void ov19_021D870C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *slotsMinigameDTO)
+static void ov19_021D870C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD18 *param1)
 {
     VecFx32 v0;
     int v1, v2, v3;
@@ -715,16 +715,16 @@ static void ov19_021D870C(UnkStruct_ov19_021D8318 *param0, UnkStruct_ov19_021DCD
         for (v1 = 0; v1 < 6; v1++) {
             v0.x = (112 + param0->unk_585C + v1 * 24) * FX32_ONE;
 
-            if (slotsMinigameDTO->coins != NULL) {
-                Sprite_SetPosition(slotsMinigameDTO->coins, &v0);
+            if (param1->unk_00 != NULL) {
+                Sprite_SetPosition(param1->unk_00, &v0);
             }
 
-            slotsMinigameDTO++;
+            param1++;
         }
     }
 }
 
-static void ov19_021D8764(u16 *param0, const u16 *slotsMinigameDTO, u32 param2, u32 param3, u32 param4)
+static void ov19_021D8764(u16 *param0, const u16 *param1, u32 param2, u32 param3, u32 param4)
 {
     u32 v0, v1;
     u16 *v2;
@@ -738,7 +738,7 @@ static void ov19_021D8764(u16 *param0, const u16 *slotsMinigameDTO, u32 param2, 
         v2 = param0 + ((32 * 0) + (param2 & 31));
 
         for (v1 = 0; v1 < 20; v1++) {
-            v3 = slotsMinigameDTO[v1 * 21 + v0];
+            v3 = param1[v1 * 21 + v0];
             v3 = ((GX_SCRFMT_TEXT_CHARNAME_MASK & v3) + param3) | ((GX_SCRFMT_TEXT_HF_MASK | GX_SCRFMT_TEXT_VF_MASK) & v3) | (param4 << GX_SCRFMT_TEXT_COLORPLTT_SHIFT);
             *v2 = v3;
             v2 += 32;
@@ -828,7 +828,7 @@ void ov19_021D8938(UnkStruct_ov19_021D8318 *param0)
     v0 = BoxApp_GetMonSpriteTransparencyMask(param0->unk_58F8);
 
     for (monPosInBox = 0; monPosInBox < MAX_MONS_PER_BOX; monPosInBox++) {
-        if (param0->unk_A8[param0->unk_02][monPosInBox].coins != NULL) {
+        if (param0->unk_A8[param0->unk_02][monPosInBox].unk_00 != NULL) {
             ov19_021DA63C(param0->unk_58F0, &(param0->unk_A8[param0->unk_02][monPosInBox]), v0);
         }
     }
@@ -836,17 +836,17 @@ void ov19_021D8938(UnkStruct_ov19_021D8318 *param0)
 
 void ov19_021D8988(UnkStruct_ov19_021D8318 *param0, u32 posInBox, u32 item)
 {
-    if (param0->unk_A8[param0->unk_02][posInBox].coins != NULL) {
+    if (param0->unk_A8[param0->unk_02][posInBox].unk_00 != NULL) {
         ov19_021DA690(param0->unk_58F0, &(param0->unk_A8[param0->unk_02][posInBox]), item);
         ov19_021DA63C(param0->unk_58F0, &(param0->unk_A8[param0->unk_02][posInBox]), BoxApp_GetMonSpriteTransparencyMask(param0->unk_58F8));
         ov19_021DA694(param0->unk_58F0, &(param0->unk_A8[param0->unk_02][posInBox]), 1);
     }
 }
 
-void ov19_021D89F4(UnkStruct_ov19_021D8318 *param0, u32 slotsMinigameDTO)
+void ov19_021D89F4(UnkStruct_ov19_021D8318 *param0, u32 param1)
 {
-    if (param0->unk_A8[param0->unk_02][slotsMinigameDTO].coins != NULL) {
-        ov19_021DA694(param0->unk_58F0, &(param0->unk_A8[param0->unk_02][slotsMinigameDTO]), 1);
+    if (param0->unk_A8[param0->unk_02][param1].unk_00 != NULL) {
+        ov19_021DA694(param0->unk_58F0, &(param0->unk_A8[param0->unk_02][param1]), 1);
     }
 }
 
@@ -855,7 +855,7 @@ void ov19_021D8A24(UnkStruct_ov19_021D8318 *param0)
     u32 posInBox = BoxApp_GetCursorBoxPosition(param0->unk_58F8);
     u32 monMarkings = BoxApp_GetPreviewedMonMarkings(param0->unk_58F8);
 
-    if (param0->unk_A8[param0->unk_02][posInBox].coins != NULL) {
+    if (param0->unk_A8[param0->unk_02][posInBox].unk_00 != NULL) {
         ov19_021DA68C(param0->unk_58F0, &(param0->unk_A8[param0->unk_02][posInBox]), monMarkings);
     }
 }
@@ -870,7 +870,7 @@ void BoxGraphics_ApplyMultiSelectMonShading(UnkStruct_ov19_021D8318 *param0)
 
     for (row = 0; row < MAX_PC_ROWS; row++) {
         for (col = 0; col < MAX_PC_COLS; col++) {
-            if (param0->unk_A8[param0->unk_02][posInBox].coins != NULL) {
+            if (param0->unk_A8[param0->unk_02][posInBox].unk_00 != NULL) {
                 if (((u32)(col - leftCol) <= (u32)(rightCol - leftCol)) & ((u32)(row - topRow) <= (u32)(bottomRow - topRow))) {
                     BoxGraphics_ApplyMonInMultiSelectShading(param0->unk_58F0, &(param0->unk_A8[param0->unk_02][posInBox]), TRUE);
                 } else {
@@ -886,7 +886,7 @@ void BoxGraphics_ApplyMultiSelectMonShading(UnkStruct_ov19_021D8318 *param0)
 void ov19_021D8B14(UnkStruct_ov19_021D8318 *param0)
 {
     for (int i = 0; i < MAX_MONS_PER_BOX; i++) {
-        if (param0->unk_A8[param0->unk_02][i].coins != NULL) {
+        if (param0->unk_A8[param0->unk_02][i].unk_00 != NULL) {
             BoxGraphics_ApplyMonInMultiSelectShading(param0->unk_58F0, &(param0->unk_A8[param0->unk_02][i]), FALSE);
         }
     }

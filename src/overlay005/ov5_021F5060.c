@@ -10,8 +10,8 @@
 #include "res/graphics/field_effects/field_effects.naix"
 
 typedef struct {
-    FieldEffectManager *coins;
-    Simple3DModel slotMachineVariant;
+    FieldEffectManager *unk_00;
+    Simple3DModel unk_04;
     Simple3DRenderObj unk_18;
 } UnkStruct_021F508C;
 
@@ -21,7 +21,7 @@ static void ov5_021F50B0(UnkStruct_021F508C *param0);
 void *ov5_021F5060(FieldEffectManager *param0)
 {
     UnkStruct_021F508C *v0 = FieldEffectManager_HeapAllocInit(param0, (sizeof(UnkStruct_021F508C)), 0, 0);
-    v0->coins = param0;
+    v0->unk_00 = param0;
 
     ov5_021F508C(v0);
 
@@ -38,11 +38,11 @@ void ov5_021F507C(void *param0)
 
 static void ov5_021F508C(UnkStruct_021F508C *param0)
 {
-    FieldEffectManager_LoadModel(param0->coins, &param0->slotMachineVariant, 0, arrow_tile_nsbmd, 0);
-    Simple3D_CreateRenderObject(&param0->unk_18, &param0->slotMachineVariant);
+    FieldEffectManager_LoadModel(param0->unk_00, &param0->unk_04, 0, arrow_tile_nsbmd, 0);
+    Simple3D_CreateRenderObject(&param0->unk_18, &param0->unk_04);
 }
 
 static void ov5_021F50B0(UnkStruct_021F508C *param0)
 {
-    Simple3D_FreeModel(&param0->slotMachineVariant);
+    Simple3D_FreeModel(&param0->unk_04);
 }

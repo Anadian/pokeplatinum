@@ -44,7 +44,7 @@ typedef struct MapObjectManager {
 
 typedef struct MapObject {
     u32 status;
-    u32 slotMachineVariant;
+    u32 unk_04;
     u32 localID;
     enum MapHeaderID mapHeaderID;
     u32 graphicsID;
@@ -95,8 +95,8 @@ typedef struct MapObject {
 } MapObject;
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     int unk_08;
     const MapObjectManager *mapObjMan;
     ObjectEvent *objectEvent;
@@ -110,7 +110,7 @@ static void sub_02061FF0(MapObject *mapObj);
 static void sub_02062010(MapObject *mapObj);
 static void sub_020620C4(UnkStruct_020620C4 *param0);
 static MapObject *sub_02062120(const MapObjectManager *mapObjMan);
-static MapObject *sub_02062154(const MapObjectManager *mapObjMan, int slotsMinigameDTO, int param2);
+static MapObject *sub_02062154(const MapObjectManager *mapObjMan, int param1, int param2);
 static void MapObjectMan_AddMoveTask(const MapObjectManager *mapObjMan, MapObject *mapObj);
 static void sub_020621E8(MapObject *mapObj, const ObjectEvent *objectEvent, FieldSystem *fieldSystem);
 static void sub_020622B8(MapObject *mapObj, const ObjectEvent *objectEvent);
@@ -118,25 +118,25 @@ static void sub_0206234C(MapObject *mapObj, const MapObjectManager *mapObjMan);
 static void sub_0206239C(MapObject *mapObj);
 static void sub_020623D4(MapObject *mapObj);
 static void sub_0206243C(MapObject *mapObj);
-static int sub_0206244C(const MapObject *mapObj, int slotsMinigameDTO, int objEventCount, const ObjectEvent *objectEvent);
+static int sub_0206244C(const MapObject *mapObj, int param1, int objEventCount, const ObjectEvent *objectEvent);
 static MapObject *sub_020624CC(const MapObjectManager *mapObjMan, int localID, int flag);
 static void sub_02062604(MapObject *mapObj);
 static void sub_02062618(MapObject *mapObj);
 static void sub_02062628(MapObject *mapObj);
-static int MapObject_GetFieldSystemGraphicsID(FieldSystem *fieldSystem, int slotsMinigameDTO);
+static int MapObject_GetFieldSystemGraphicsID(FieldSystem *fieldSystem, int param1);
 static void sub_02062648(MapObject *mapObj);
 static void sub_02062660(MapObject *mapObj);
 static void sub_02062670(MapObject *mapObj);
 static void sub_020626D0(MapObject *mapObj, const ObjectEvent *objectEvent, enum MapHeaderID mapHeaderID);
 static void sub_02062714(MapObject *mapObj, enum MapHeaderID mapHeaderID, const ObjectEvent *objectEvent);
-static void MapObjectTask_Move(SysTask *task, void *slotsMinigameDTO);
+static void MapObjectTask_Move(SysTask *task, void *param1);
 static void MapObjectTask_Draw(MapObject *mapObj);
 static MapObjectManager *MapObjectMan_Deconst(const MapObjectManager *mapObjMan);
 static void MapObjectMan_IncObjectCount(MapObjectManager *mapObjMan);
 static void MapObjectMan_DecObjectCount(MapObjectManager *mapObjMan);
 static MapObject *MapObjectMan_GetMapObjectStatic(const MapObjectManager *mapObjMan);
 static MapObjectManager *sub_02062A48(const MapObject *mapObj);
-static const ObjectEvent *sub_020631A4(int param0, int slotsMinigameDTO, const ObjectEvent *objectEvent);
+static const ObjectEvent *sub_020631A4(int param0, int param1, const ObjectEvent *objectEvent);
 static int ObjectEvent_HasNoScript(const ObjectEvent *objectEvent);
 static int ObjectEvent_GetHiddenFlagNoScript(const ObjectEvent *objectEvent);
 
@@ -311,13 +311,13 @@ void sub_02061AB4(MapObject *mapObj, int graphicsID)
     sub_02062670(mapObj);
 }
 
-void sub_02061AD4(MapObject *mapObj, int slotsMinigameDTO)
+void sub_02061AD4(MapObject *mapObj, int param1)
 {
     if (sub_02062DFC(mapObj) == TRUE) {
         sub_02061B48(mapObj);
     }
 
-    sub_02061AB4(mapObj, slotsMinigameDTO);
+    sub_02061AB4(mapObj, param1);
 }
 
 void MapObject_Delete(MapObject *mapObj)
@@ -460,7 +460,7 @@ void MapObjectMan_LoadAllObjects(const MapObjectManager *mapObjMan, MapObjectSav
 static void MapObject_Save(FieldSystem *fieldSystem, MapObject *mapObj, MapObjectSave *mapObjSave)
 {
     mapObjSave->status = MapObject_GetStatus(mapObj);
-    mapObjSave->slotMachineVariant = sub_020628EC(mapObj);
+    mapObjSave->unk_04 = sub_020628EC(mapObj);
     mapObjSave->localID = MapObject_GetLocalID(mapObj);
     mapObjSave->mapID = MapObject_GetMapHeaderID(mapObj);
     mapObjSave->graphicsID = MapObject_GetGraphicsID(mapObj);
@@ -509,7 +509,7 @@ static void MapObject_Save(FieldSystem *fieldSystem, MapObject *mapObj, MapObjec
 static void MapObject_LoadSave(MapObject *mapObj, MapObjectSave *mapObjSave)
 {
     MapObject_SetStatus(mapObj, mapObjSave->status);
-    sub_020628E8(mapObj, mapObjSave->slotMachineVariant);
+    sub_020628E8(mapObj, mapObjSave->unk_04);
     MapObject_SetLocalID(mapObj, mapObjSave->localID);
     MapObject_SetMapHeaderID(mapObj, mapObjSave->mapID);
     MapObject_SetGraphicsID(mapObj, mapObjSave->graphicsID);
@@ -595,8 +595,8 @@ void sub_02062068(const MapObjectManager *mapObjMan, enum MapHeaderID mapHeaderI
     UnkStruct_020620C4 *v2 = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(UnkStruct_020620C4));
     GF_ASSERT(v2 != NULL);
 
-    v2->coins = mapHeaderID;
-    v2->slotMachineVariant = numObjectEvents;
+    v2->unk_00 = mapHeaderID;
+    v2->unk_04 = numObjectEvents;
     v2->unk_08 = 0;
     v2->mapObjMan = mapObjMan;
     v2->objectEvent = v1;
@@ -615,13 +615,13 @@ static void sub_020620C4(UnkStruct_020620C4 *param0)
 
     do {
         if (ObjectEvent_HasNoScript(objectEvent) == TRUE || FieldSystem_CheckFlag(fieldSystem, objectEvent->hiddenFlag) == FALSE) {
-            mapObj = MapObjectMan_AddMapObjectFromHeader(param0->mapObjMan, objectEvent, param0->coins);
+            mapObj = MapObjectMan_AddMapObjectFromHeader(param0->mapObjMan, objectEvent, param0->unk_00);
             GF_ASSERT(mapObj != NULL);
         }
 
         objectEvent++;
         param0->unk_08++;
-    } while (param0->unk_08 < param0->slotMachineVariant);
+    } while (param0->unk_08 < param0->unk_04);
 
     Heap_FreeExplicit(HEAP_ID_FIELD2, param0->objectEvent);
     Heap_FreeExplicit(HEAP_ID_FIELD2, param0);
@@ -645,14 +645,14 @@ static MapObject *sub_02062120(const MapObjectManager *mapObjMan)
     return NULL;
 }
 
-static MapObject *sub_02062154(const MapObjectManager *mapObjMan, int slotsMinigameDTO, int param2)
+static MapObject *sub_02062154(const MapObjectManager *mapObjMan, int param1, int param2)
 {
     int v0 = 0;
     MapObject *mapObj;
 
     while (MapObjectMan_FindObjectWithStatus(mapObjMan, &mapObj, &v0, MAP_OBJ_STATUS_0) == TRUE) {
         if (sub_02062E94(mapObj) == TRUE
-            && MapObject_GetLocalID(mapObj) == slotsMinigameDTO
+            && MapObject_GetLocalID(mapObj) == param1
             && sub_02062C18(mapObj) == param2) {
             return mapObj;
         }
@@ -769,7 +769,7 @@ static void sub_0206243C(MapObject *mapObj)
     memset(mapObj, 0, sizeof(MapObject));
 }
 
-static int sub_0206244C(const MapObject *mapObj, int slotsMinigameDTO, int objEventCount, const ObjectEvent *objectEvent)
+static int sub_0206244C(const MapObject *mapObj, int param1, int objEventCount, const ObjectEvent *objectEvent)
 {
     int localID;
     int flag;
@@ -788,7 +788,7 @@ static int sub_0206244C(const MapObject *mapObj, int slotsMinigameDTO, int objEv
                 } else if (MapObject_GetMapHeaderID(mapObj) == flag) {
                     return 2;
                 }
-            } else if (sub_02062E94(mapObj) == TRUE && sub_02062C18(mapObj) == slotsMinigameDTO) {
+            } else if (sub_02062E94(mapObj) == TRUE && sub_02062C18(mapObj) == param1) {
                 return 2;
             }
         }
@@ -977,13 +977,13 @@ int MapObject_CalculateTaskPriority(const MapObject *mapObj, int priority)
     return result;
 }
 
-int sub_02062764(const MapObject *mapObj, int slotsMinigameDTO, enum MapHeaderID param2)
+int sub_02062764(const MapObject *mapObj, int param1, enum MapHeaderID param2)
 {
     if (!MapObject_CheckStatusFlag(mapObj, MAP_OBJ_STATUS_0)) {
         return FALSE;
     }
 
-    if (MapObject_GetLocalID(mapObj) != slotsMinigameDTO) {
+    if (MapObject_GetLocalID(mapObj) != param1) {
         return FALSE;
     }
 
@@ -1000,7 +1000,7 @@ int sub_02062764(const MapObject *mapObj, int slotsMinigameDTO, enum MapHeaderID
     return TRUE;
 }
 
-int sub_020627B4(const MapObject *mapObj, int slotsMinigameDTO, int param2, enum MapHeaderID param3)
+int sub_020627B4(const MapObject *mapObj, int param1, int param2, enum MapHeaderID param3)
 {
     if (!MapObject_CheckStatusFlag(mapObj, MAP_OBJ_STATUS_0)) {
         return 0;
@@ -1008,7 +1008,7 @@ int sub_020627B4(const MapObject *mapObj, int slotsMinigameDTO, int param2, enum
 
     int v0 = MapObject_GetEffectiveGraphicsID(mapObj);
 
-    if (v0 != slotsMinigameDTO) {
+    if (v0 != param1) {
         return 0;
     }
 
@@ -1170,29 +1170,29 @@ BOOL MapObject_CheckStatusFlag(const MapObject *mapObj, u32 flag)
         : FALSE;
 }
 
-void sub_020628E8(MapObject *mapObj, u32 slotsMinigameDTO)
+void sub_020628E8(MapObject *mapObj, u32 param1)
 {
-    mapObj->slotMachineVariant = slotsMinigameDTO;
+    mapObj->unk_04 = param1;
 }
 
 u32 sub_020628EC(const MapObject *mapObj)
 {
-    return mapObj->slotMachineVariant;
+    return mapObj->unk_04;
 }
 
-void sub_020628F0(MapObject *mapObj, u32 slotsMinigameDTO)
+void sub_020628F0(MapObject *mapObj, u32 param1)
 {
-    mapObj->slotMachineVariant |= slotsMinigameDTO;
+    mapObj->unk_04 |= param1;
 }
 
-void sub_020628F8(MapObject *mapObj, u32 slotsMinigameDTO)
+void sub_020628F8(MapObject *mapObj, u32 param1)
 {
-    mapObj->slotMachineVariant &= ~slotsMinigameDTO;
+    mapObj->unk_04 &= ~param1;
 }
 
-u32 sub_02062904(const MapObject *mapObj, u32 slotsMinigameDTO)
+u32 sub_02062904(const MapObject *mapObj, u32 param1)
 {
-    return mapObj->slotMachineVariant & slotsMinigameDTO;
+    return mapObj->unk_04 & param1;
 }
 
 void MapObject_SetLocalID(MapObject *mapObj, u32 localID)
@@ -1379,9 +1379,9 @@ int MapObject_GetMovementRangeZ(const MapObject *mapObj)
     return mapObj->movementRangeZ;
 }
 
-void sub_02062A0C(MapObject *mapObj, u32 slotsMinigameDTO)
+void sub_02062A0C(MapObject *mapObj, u32 param1)
 {
-    mapObj->unk_A0 = slotsMinigameDTO;
+    mapObj->unk_A0 = param1;
 }
 
 u32 sub_02062A14(const MapObject *mapObj)
@@ -1485,9 +1485,9 @@ void *sub_02062AF0(MapObject *mapObj)
     return mapObj->unk_108;
 }
 
-void sub_02062AF8(MapObject *mapObj, UnkFuncPtr_020EDF0C slotsMinigameDTO)
+void sub_02062AF8(MapObject *mapObj, UnkFuncPtr_020EDF0C param1)
 {
-    mapObj->unk_B8 = slotsMinigameDTO;
+    mapObj->unk_B8 = param1;
 }
 
 void sub_02062B00(MapObject *mapObj)
@@ -1495,9 +1495,9 @@ void sub_02062B00(MapObject *mapObj)
     mapObj->unk_B8(mapObj);
 }
 
-void sub_02062B0C(MapObject *mapObj, UnkFuncPtr_020EDF0C_1 slotsMinigameDTO)
+void sub_02062B0C(MapObject *mapObj, UnkFuncPtr_020EDF0C_1 param1)
 {
-    mapObj->unk_BC = slotsMinigameDTO;
+    mapObj->unk_BC = param1;
 }
 
 void sub_02062B14(MapObject *mapObj)
@@ -1505,9 +1505,9 @@ void sub_02062B14(MapObject *mapObj)
     mapObj->unk_BC(mapObj);
 }
 
-void sub_02062B20(MapObject *mapObj, UnkFuncPtr_020EDF0C_2 slotsMinigameDTO)
+void sub_02062B20(MapObject *mapObj, UnkFuncPtr_020EDF0C_2 param1)
 {
-    mapObj->unk_C0 = slotsMinigameDTO;
+    mapObj->unk_C0 = param1;
 }
 
 void sub_02062B28(MapObject *mapObj)
@@ -1521,9 +1521,9 @@ void sub_02062B34(MapObject *mapObj)
     v0->unk_10(mapObj);
 }
 
-void sub_02062B4C(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0 slotsMinigameDTO)
+void sub_02062B4C(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0 param1)
 {
-    mapObj->unk_C4 = slotsMinigameDTO;
+    mapObj->unk_C4 = param1;
 }
 
 void sub_02062B54(MapObject *mapObj)
@@ -1531,9 +1531,9 @@ void sub_02062B54(MapObject *mapObj)
     mapObj->unk_C4(mapObj);
 }
 
-void sub_02062B60(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0_1 slotsMinigameDTO)
+void sub_02062B60(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0_1 param1)
 {
-    mapObj->unk_C8 = slotsMinigameDTO;
+    mapObj->unk_C8 = param1;
 }
 
 void sub_02062B68(MapObject *mapObj)
@@ -1541,9 +1541,9 @@ void sub_02062B68(MapObject *mapObj)
     mapObj->unk_C8(mapObj);
 }
 
-void sub_02062B74(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0_2 slotsMinigameDTO)
+void sub_02062B74(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0_2 param1)
 {
-    mapObj->unk_CC = slotsMinigameDTO;
+    mapObj->unk_CC = param1;
 }
 
 void sub_02062B7C(MapObject *mapObj)
@@ -1551,9 +1551,9 @@ void sub_02062B7C(MapObject *mapObj)
     mapObj->unk_CC(mapObj);
 }
 
-void sub_02062B88(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0_3 slotsMinigameDTO)
+void sub_02062B88(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0_3 param1)
 {
-    mapObj->unk_D0 = slotsMinigameDTO;
+    mapObj->unk_D0 = param1;
 }
 
 void sub_02062B90(MapObject *mapObj)
@@ -1561,9 +1561,9 @@ void sub_02062B90(MapObject *mapObj)
     mapObj->unk_D0(mapObj);
 }
 
-void sub_02062B9C(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0_4 slotsMinigameDTO)
+void sub_02062B9C(MapObject *mapObj, UnkFuncPtr_ov5_021FB0F0_4 param1)
 {
-    mapObj->unk_D4 = slotsMinigameDTO;
+    mapObj->unk_D4 = param1;
 }
 
 void sub_02062BA4(MapObject *mapObj)
@@ -1689,9 +1689,9 @@ u32 MapObject_CheckManagerStatus(const MapObject *mapObj, u32 flag)
     return MapObjectMan_CheckStatus(mapObjMan, flag);
 }
 
-void MapObjectMan_SetEndMovement(MapObjectManager *mapObjMan, int slotsMinigameDTO)
+void MapObjectMan_SetEndMovement(MapObjectManager *mapObjMan, int param1)
 {
-    if (slotsMinigameDTO == FALSE) {
+    if (param1 == FALSE) {
         MapObjectMan_SetStatusFlagOn(mapObjMan, MAP_OBJ_STATUS_END_MOVEMENT);
     } else {
         MapObjectMan_SetStatusFlagOff(mapObjMan, MAP_OBJ_STATUS_END_MOVEMENT);
@@ -1761,9 +1761,9 @@ void MapObject_SetHidden(MapObject *mapObj, int hidden)
     }
 }
 
-void sub_02062D80(MapObject *mapObj, int slotsMinigameDTO)
+void sub_02062D80(MapObject *mapObj, int param1)
 {
-    if (slotsMinigameDTO == TRUE) {
+    if (param1 == TRUE) {
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_18);
     } else {
         MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_18);
@@ -1779,9 +1779,9 @@ int sub_02062D9C(MapObject *mapObj)
     return TRUE;
 }
 
-void sub_02062DB4(MapObject *mapObj, int slotsMinigameDTO)
+void sub_02062DB4(MapObject *mapObj, int param1)
 {
-    if (slotsMinigameDTO == TRUE) {
+    if (param1 == TRUE) {
         MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_19);
     } else {
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_19);
@@ -1849,9 +1849,9 @@ void MapObject_SetFlagIsPersistent(MapObject *mapObj, BOOL flag)
     }
 }
 
-void sub_02062E78(MapObject *mapObj, int slotsMinigameDTO)
+void sub_02062E78(MapObject *mapObj, int param1)
 {
-    if (slotsMinigameDTO == TRUE) {
+    if (param1 == TRUE) {
         MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_25);
     } else {
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_25);
@@ -1867,9 +1867,9 @@ int sub_02062E94(const MapObject *mapObj)
     return FALSE;
 }
 
-void sub_02062EAC(MapObject *mapObj, int slotsMinigameDTO)
+void sub_02062EAC(MapObject *mapObj, int param1)
 {
-    if (slotsMinigameDTO == TRUE) {
+    if (param1 == TRUE) {
         MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_26);
     } else {
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_26);
@@ -1921,9 +1921,9 @@ int MapObject_IsStatusOnElevatedBridge(const MapObject *mapObj)
     return FALSE;
 }
 
-void sub_02062F48(MapObject *mapObj, int slotsMinigameDTO)
+void sub_02062F48(MapObject *mapObj, int param1)
 {
-    if (slotsMinigameDTO == TRUE) {
+    if (param1 == TRUE) {
         MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_24);
     } else {
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_24);
@@ -1966,9 +1966,9 @@ int MapObject_IsDynamicHeightCalculationEnabled(const MapObject *mapObj)
     return FALSE;
 }
 
-void sub_02062FC4(MapObject *mapObj, int slotsMinigameDTO)
+void sub_02062FC4(MapObject *mapObj, int param1)
 {
-    if (slotsMinigameDTO == TRUE) {
+    if (param1 == TRUE) {
         sub_020628F0(mapObj, 1 << 2);
     } else {
         sub_020628F8(mapObj, 1 << 2);
@@ -2344,7 +2344,7 @@ static const UnkStruct_020EDF0C *sub_0206320C(u32 param0)
 
 static UnkFuncPtr_020EDF0C sub_02063224(const UnkStruct_020EDF0C *param0)
 {
-    return param0->slotMachineVariant;
+    return param0->unk_04;
 }
 
 static UnkFuncPtr_020EDF0C_1 sub_02063228(const UnkStruct_020EDF0C *param0)
@@ -2354,17 +2354,17 @@ static UnkFuncPtr_020EDF0C_1 sub_02063228(const UnkStruct_020EDF0C *param0)
 
 static UnkFuncPtr_020EDF0C_2 sub_0206322C(const UnkStruct_020EDF0C *param0)
 {
-    return param0->slotsMinigameDTO;
+    return param0->unk_0C;
 }
 
 static UnkFuncPtr_ov5_021FB0F0 sub_02063230(const UnkStruct_ov5_021FB0F0 *param0)
 {
-    return param0->coins;
+    return param0->unk_00;
 }
 
 static UnkFuncPtr_ov5_021FB0F0_1 sub_02063234(const UnkStruct_ov5_021FB0F0 *param0)
 {
-    return param0->slotMachineVariant;
+    return param0->unk_04;
 }
 
 static UnkFuncPtr_ov5_021FB0F0_2 sub_02063238(const UnkStruct_ov5_021FB0F0 *param0)
@@ -2374,7 +2374,7 @@ static UnkFuncPtr_ov5_021FB0F0_2 sub_02063238(const UnkStruct_ov5_021FB0F0 *para
 
 static UnkFuncPtr_ov5_021FB0F0_3 sub_0206323C(const UnkStruct_ov5_021FB0F0 *param0)
 {
-    return param0->slotsMinigameDTO;
+    return param0->unk_0C;
 }
 
 static UnkFuncPtr_ov5_021FB0F0_4 sub_02063240(const UnkStruct_ov5_021FB0F0 *param0)

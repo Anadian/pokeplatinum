@@ -17,8 +17,8 @@
 #include "script_manager.h"
 #include "terrain_collision_manager.h"
 
-static u8 BgEvent_CheckPlayerFacingDirection(FieldSystem *fieldSystem, const BgEvent *slotsMinigameDTO);
-static u8 BgEvent_IsHiddenItemAvailable(FieldSystem *fieldSystem, const BgEvent *slotsMinigameDTO);
+static u8 BgEvent_CheckPlayerFacingDirection(FieldSystem *fieldSystem, const BgEvent *param1);
+static u8 BgEvent_IsHiddenItemAvailable(FieldSystem *fieldSystem, const BgEvent *param1);
 
 static int BgEvent_GetPlayerFacingPosition(FieldSystem *fieldSystem, int *x, int *z)
 {
@@ -45,18 +45,18 @@ static int BgEvent_GetPlayerFacingPosition(FieldSystem *fieldSystem, int *x, int
     return facingDir;
 }
 
-static u8 sub_0203C9B0(PlayerAvatar *playerAvatar, MapObject *slotsMinigameDTO)
+static u8 sub_0203C9B0(PlayerAvatar *playerAvatar, MapObject *param1)
 {
     MapObject *v0 = PlayerAvatar_GetMapObject(playerAvatar);
 
-    if (sub_020630DC(v0) == sub_020630DC(slotsMinigameDTO)) {
+    if (sub_020630DC(v0) == sub_020630DC(param1)) {
         return 1;
     }
 
     return 0;
 }
 
-void sub_0203C9D4(FieldSystem *fieldSystem, MapObject **slotsMinigameDTO)
+void sub_0203C9D4(FieldSystem *fieldSystem, MapObject **param1)
 {
     int v0, v1;
     int v2;
@@ -82,15 +82,15 @@ void sub_0203C9D4(FieldSystem *fieldSystem, MapObject **slotsMinigameDTO)
         }
     }
 
-    *slotsMinigameDTO = sub_0206326C(fieldSystem->mapObjMan, v0, v1, 0);
+    *param1 = sub_0206326C(fieldSystem->mapObjMan, v0, v1, 0);
 }
 
-u8 sub_0203CA40(FieldSystem *fieldSystem, MapObject **slotsMinigameDTO)
+u8 sub_0203CA40(FieldSystem *fieldSystem, MapObject **param1)
 {
-    sub_0203C9D4(fieldSystem, slotsMinigameDTO);
+    sub_0203C9D4(fieldSystem, param1);
 
-    if (*slotsMinigameDTO != NULL) {
-        if ((sub_02062D9C(*slotsMinigameDTO) == 1) && (sub_0203C9B0(fieldSystem->playerAvatar, *slotsMinigameDTO) == 1)) {
+    if (*param1 != NULL) {
+        if ((sub_02062D9C(*param1) == 1) && (sub_0203C9B0(fieldSystem->playerAvatar, *param1) == 1)) {
             return 1;
         }
     }
@@ -189,14 +189,14 @@ u16 FieldEvent_GetInteractedWallSignScript(FieldSystem *fieldSystem, const BgEve
     return 0xffff;
 }
 
-u8 sub_0203CBE0(FieldSystem *fieldSystem, MapObject **slotsMinigameDTO)
+u8 sub_0203CBE0(FieldSystem *fieldSystem, MapObject **param1)
 {
     if (PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar) != DIR_NORTH) {
         return 0;
     }
 
-    if (sub_0203CA40(fieldSystem, slotsMinigameDTO) == 1) {
-        u32 v0 = MapObject_GetGraphicsID(*slotsMinigameDTO);
+    if (sub_0203CA40(fieldSystem, param1) == 1) {
+        u32 v0 = MapObject_GetGraphicsID(*param1);
 
         if ((v0 == 0x5b) || (v0 == 0x5c) || (v0 == 0x5d) || (v0 == 0x5e) || (v0 == 0x5f) || (v0 == 0x60)) {
             return 1;
@@ -206,11 +206,11 @@ u8 sub_0203CBE0(FieldSystem *fieldSystem, MapObject **slotsMinigameDTO)
     return 0;
 }
 
-u16 sub_0203CC14(FieldSystem *fieldSystem, void *slotsMinigameDTO, int param2)
+u16 sub_0203CC14(FieldSystem *fieldSystem, void *param1, int param2)
 {
     int v3;
 
-    const CoordEvent *v0 = slotsMinigameDTO;
+    const CoordEvent *v0 = param1;
     int v1 = PlayerAvatar_GetXPos(fieldSystem->playerAvatar);
     int v2 = PlayerAvatar_GetZPos(fieldSystem->playerAvatar);
 

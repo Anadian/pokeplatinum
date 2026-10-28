@@ -17,15 +17,15 @@
 
 typedef struct {
     const CommCmdTable *cmdTable;
-    int slotMachineVariant;
+    int unk_04;
     void *unk_08;
-    u8 slotsMinigameDTO[8];
+    u8 unk_0C[8];
     u8 unk_14;
 } CommCmdManager;
 
-static void sub_02032958(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0203299C(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_020329C4(int param0, int slotsMinigameDTO, void *param2, void *param3);
+static void sub_02032958(int param0, int param1, void *param2, void *param3);
+static void sub_0203299C(int param0, int param1, void *param2, void *param3);
+static void sub_020329C4(int param0, int param1, void *param2, void *param3);
 static int sub_02032954(void);
 
 static const CommCmdTable Unk_020E5D64[] = {
@@ -55,7 +55,7 @@ static const CommCmdTable Unk_020E5D64[] = {
 
 static CommCmdManager *sCommCmdManager = NULL;
 
-void CommCmd_Init(const CommCmdTable *cmdTable, int slotsMinigameDTO, void *param2)
+void CommCmd_Init(const CommCmdTable *cmdTable, int param1, void *param2)
 {
     int v0;
 
@@ -64,11 +64,11 @@ void CommCmd_Init(const CommCmdTable *cmdTable, int slotsMinigameDTO, void *para
     }
 
     sCommCmdManager->cmdTable = cmdTable;
-    sCommCmdManager->slotMachineVariant = slotsMinigameDTO;
+    sCommCmdManager->unk_04 = param1;
     sCommCmdManager->unk_08 = param2;
 
     for (v0 = 0; v0 < (7 + 1); v0++) {
-        sCommCmdManager->slotsMinigameDTO[v0] = 0;
+        sCommCmdManager->unk_0C[v0] = 0;
     }
 
     sCommCmdManager->unk_14 = 0;
@@ -87,16 +87,16 @@ void CommCmd_Callback(int param0, int cmd, int param2, void *param3)
     UnkFuncPtr_020F8E60 v0;
 
     if (cmd < 22) {
-        v0 = Unk_020E5D64[cmd].coins;
+        v0 = Unk_020E5D64[cmd].unk_00;
     } else {
         GF_ASSERT(sCommCmdManager);
 
-        if (cmd > (sCommCmdManager->slotMachineVariant + 22)) {
+        if (cmd > (sCommCmdManager->unk_04 + 22)) {
             sub_020363BC();
             return;
         }
 
-        v0 = sCommCmdManager->cmdTable[cmd - 22].coins;
+        v0 = sCommCmdManager->cmdTable[cmd - 22].unk_00;
     }
 
     if (v0 != NULL) {
@@ -114,7 +114,7 @@ int CommCmd_PacketSizeOf(int cmd)
     UnkFuncPtr_02032868 v1;
 
     if (cmd < 22) {
-        v1 = Unk_020E5D64[cmd].slotMachineVariant;
+        v1 = Unk_020E5D64[cmd].unk_04;
     } else {
         GF_ASSERT(sCommCmdManager);
 
@@ -123,13 +123,13 @@ int CommCmd_PacketSizeOf(int cmd)
             return v0;
         }
 
-        if (cmd > (sCommCmdManager->slotMachineVariant + 22)) {
+        if (cmd > (sCommCmdManager->unk_04 + 22)) {
             GF_ASSERT(FALSE);
             sub_020363BC();
             return v0;
         }
 
-        v1 = sCommCmdManager->cmdTable[cmd - 22].slotMachineVariant;
+        v1 = sCommCmdManager->cmdTable[cmd - 22].unk_04;
     }
 
     if (v1 != NULL) {
@@ -183,7 +183,7 @@ static int sub_02032954(void)
     return 2;
 }
 
-static void sub_02032958(int param0, int slotsMinigameDTO, void *param2, void *param3)
+static void sub_02032958(int param0, int param1, void *param2, void *param3)
 {
     u8 *v0 = param2;
     int v1;
@@ -192,14 +192,14 @@ static void sub_02032958(int param0, int slotsMinigameDTO, void *param2, void *p
         return;
     }
 
-    sCommCmdManager->slotsMinigameDTO[param0] = 1;
+    sCommCmdManager->unk_0C[param0] = 1;
 
     for (v1 = 0; v1 < (7 + 1); v1++) {
         if (!CommSys_IsPlayerConnected(v1)) {
             continue;
         }
 
-        if (!sCommCmdManager->slotsMinigameDTO[v1]) {
+        if (!sCommCmdManager->unk_0C[v1]) {
             return;
         }
     }
@@ -207,20 +207,20 @@ static void sub_02032958(int param0, int slotsMinigameDTO, void *param2, void *p
     CommSys_SendDataServer(14, NULL, 0);
 }
 
-static void sub_0203299C(int param0, int slotsMinigameDTO, void *param2, void *param3)
+static void sub_0203299C(int param0, int param1, void *param2, void *param3)
 {
     u8 *v0 = param2;
     int v1;
 
     sCommCmdManager->cmdTable = NULL;
-    sCommCmdManager->slotMachineVariant = 0;
+    sCommCmdManager->unk_04 = 0;
     sCommCmdManager->unk_08 = NULL;
     sCommCmdManager->unk_14 = 1;
 
     CommSys_SendDataFixedSize(15, param2);
 }
 
-static void sub_020329C4(int param0, int slotsMinigameDTO, void *param2, void *param3)
+static void sub_020329C4(int param0, int param1, void *param2, void *param3)
 {
     u8 *v0 = param2;
     int v1;
@@ -229,5 +229,5 @@ static void sub_020329C4(int param0, int slotsMinigameDTO, void *param2, void *p
         return;
     }
 
-    sCommCmdManager->slotsMinigameDTO[param0] = 0;
+    sCommCmdManager->unk_0C[param0] = 0;
 }

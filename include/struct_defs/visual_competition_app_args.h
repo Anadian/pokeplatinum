@@ -14,7 +14,7 @@
 
 typedef struct VisualCompetitionAppArgs {
     Pokemon *mon;
-    UnkStruct_02029C88 *slotMachineVariant;
+    UnkStruct_02029C88 *unk_04;
     int unk_08;
     enum PokemonContestRank contestRank;
     int competitionType;

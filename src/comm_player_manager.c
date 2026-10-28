@@ -45,9 +45,9 @@
 #include "underground.h"
 #include "unk_020655F4.h"
 
-static int CommPlayerMan_GetSlideMovementSpeed(int param0, int slotsMinigameDTO);
-static BOOL CommPlayer_MoveSlide(int netId, int slotsMinigameDTO);
-static BOOL CommPlayer_SlideAnimation(int netId, int slotsMinigameDTO, int unused, int animSpeed);
+static int CommPlayerMan_GetSlideMovementSpeed(int param0, int param1);
+static BOOL CommPlayer_MoveSlide(int netId, int param1);
+static BOOL CommPlayer_SlideAnimation(int netId, int param1, int unused, int animSpeed);
 static void CommPlayer_SendDataTask(void *data);
 static void sub_02057C2C(void *data);
 static void CommPlayer_Add(u8 netId);
@@ -423,7 +423,7 @@ static void CommPlayer_Add(u8 netId)
     }
 }
 
-void CommPlayer_Destroy(u8 netId, BOOL slotsMinigameDTO, BOOL param2)
+void CommPlayer_Destroy(u8 netId, BOOL param1, BOOL param2)
 {
     if (sCommPlayerManager == NULL) {
         return;
@@ -447,13 +447,13 @@ void CommPlayer_Destroy(u8 netId, BOOL slotsMinigameDTO, BOOL param2)
         sCommPlayerManager->playerAvatar[netId] = NULL;
     }
 
-    if ((sCommPlayerManager->isActive[netId]) && (!slotsMinigameDTO)) {
+    if ((sCommPlayerManager->isActive[netId]) && (!param1)) {
         sCommPlayerManager->isActive[netId] = 0;
     }
 
     sCommPlayerManager->movementChanged[netId] = 1;
 
-    if (!slotsMinigameDTO) {
+    if (!param1) {
         sCommPlayerManager->emote[netId] = 0;
 
         if (sCommPlayerManager->isUnderground) {
@@ -562,12 +562,12 @@ static void sub_02057FF0(BOOL param0)
     }
 }
 
-void sub_02058018(int netId, int slotsMinigameDTO, void *param2, void *unused)
+void sub_02058018(int netId, int param1, void *param2, void *unused)
 {
     u8 *buffer = (u8 *)param2;
 
     if (sCommPlayerManager) {
-        GF_ASSERT(slotsMinigameDTO == 1);
+        GF_ASSERT(param1 == 1);
         GF_ASSERT(netId < MAX_CONNECTED_PLAYERS);
         GF_ASSERT((buffer[0] == 1) || (buffer[0] == 0));
 
@@ -575,15 +575,15 @@ void sub_02058018(int netId, int slotsMinigameDTO, void *param2, void *unused)
     }
 }
 
-void sub_0205805C(FieldSystem *fieldSystem, BOOL slotsMinigameDTO)
+void sub_0205805C(FieldSystem *fieldSystem, BOOL param1)
 {
     if (sCommPlayerManager == NULL) {
         return;
     }
 
     if (!sCommPlayerManager->isUnderground) {
-        sub_02057FF0(slotsMinigameDTO);
-        sCommPlayerManager->unk_2C1 = slotsMinigameDTO;
+        sub_02057FF0(param1);
+        sCommPlayerManager->unk_2C1 = param1;
     }
 
     if (fieldSystem->playerAvatar) {
@@ -925,7 +925,7 @@ static void sub_02058644(int netId)
     }
 }
 
-static BOOL CommPlayer_SlideAnimation(int netId, int slotsMinigameDTO, int unused, int animSpeed)
+static BOOL CommPlayer_SlideAnimation(int netId, int param1, int unused, int animSpeed)
 {
     u8 walkAnimationCode[] = {
         MOVEMENT_ACTION_WALK_FASTER_NORTH, MOVEMENT_ACTION_WALK_FASTER_SOUTH, MOVEMENT_ACTION_WALK_FASTER_WEST, MOVEMENT_ACTION_WALK_FASTER_EAST, MOVEMENT_ACTION_WALK_FAST_NORTH, MOVEMENT_ACTION_WALK_FAST_SOUTH, MOVEMENT_ACTION_WALK_FAST_WEST, MOVEMENT_ACTION_WALK_FAST_EAST, MOVEMENT_ACTION_WALK_NORMAL_NORTH, MOVEMENT_ACTION_WALK_NORMAL_SOUTH, MOVEMENT_ACTION_WALK_NORMAL_WEST, MOVEMENT_ACTION_WALK_NORMAL_EAST
@@ -935,7 +935,7 @@ static BOOL CommPlayer_SlideAnimation(int netId, int slotsMinigameDTO, int unuse
         return FALSE;
     }
 
-    if (slotsMinigameDTO == 0) {
+    if (param1 == 0) {
         return TRUE;
     }
 
@@ -1474,7 +1474,7 @@ BOOL sub_020590C4(void)
 
     for (netId = 0; netId < connectedPlayers; netId++) {
         for (netJd = 0; netJd < connectedPlayers; netJd++) {
-            if ((CommPlayer_GetXIfActive(netJd) == v9[netId].coins) && (CommPlayer_GetZIfActive(netJd) == v9[netId].unk_02)) {
+            if ((CommPlayer_GetXIfActive(netJd) == v9[netId].unk_00) && (CommPlayer_GetZIfActive(netJd) == v9[netId].unk_02)) {
                 playerCnt++;
                 v6[netJd] = netId;
 
@@ -1537,7 +1537,7 @@ static void sub_020591A8(void)
         }
 
         for (netJd = 0; netJd < connectedPlayers; netJd++) {
-            if ((CommPlayer_GetXServerIfActive(netId) == v6[netJd].coins) && (CommPlayer_GetZServerIfActive(netId) == v6[netJd].unk_02)) {
+            if ((CommPlayer_GetXServerIfActive(netId) == v6[netJd].unk_00) && (CommPlayer_GetZServerIfActive(netId) == v6[netJd].unk_02)) {
                 sCommPlayerManager->unk_F2[netId] = 1;
                 CommSys_SendDataFixedSizeServer(95, &netId);
             }

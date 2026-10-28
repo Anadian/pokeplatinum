@@ -14,10 +14,10 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    UnkStruct_ov19_021D61B0 *coins;
-    BgConfig *slotMachineVariant;
+    UnkStruct_ov19_021D61B0 *unk_00;
+    BgConfig *unk_04;
     SpriteList *unk_08;
-    const BoxApplication *slotsMinigameDTO;
+    const BoxApplication *unk_0C;
     Window *unk_10;
     void *unk_14;
     NNSG2dCharacterData *unk_18;

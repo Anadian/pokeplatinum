@@ -6,8 +6,8 @@
 #include "char_transfer.h"
 
 typedef struct {
-    FontOAM *coins;
-    CharTransferAllocation slotMachineVariant;
+    FontOAM *unk_00;
+    CharTransferAllocation unk_04;
     u16 unk_10;
 } UnkStruct_ov17_0223F2E4;
 

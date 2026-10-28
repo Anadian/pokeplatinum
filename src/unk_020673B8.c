@@ -12,11 +12,11 @@
 #include "unk_020655F4.h"
 
 typedef struct {
-    u8 coins;
+    u8 unk_00;
     u8 unk_01;
     s8 unk_02;
     s8 unk_03;
-    s8 slotMachineVariant;
+    s8 unk_04;
     s8 unk_05;
     s8 unk_06;
     s8 unk_07;
@@ -24,11 +24,11 @@ typedef struct {
 } UnkStruct_020674AC;
 
 typedef struct {
-    u8 coins;
+    u8 unk_00;
     u8 unk_01;
     s8 unk_02;
     s8 unk_03;
-    s8 slotMachineVariant;
+    s8 unk_04;
     s8 unk_05;
     s8 unk_06;
     s8 unk_07;
@@ -154,10 +154,10 @@ static int sub_020674C4(MapObject *param0)
 {
     UnkStruct_020674AC *v0 = sub_02062AA0(param0);
 
-    switch (v0->coins) {
+    switch (v0->unk_00) {
     case 0:
         if (sub_02067438(param0) == 1) {
-            v0->coins++;
+            v0->unk_00++;
         }
         break;
     case 1:
@@ -168,17 +168,17 @@ static int sub_020674C4(MapObject *param0)
         v0->unk_02++;
 
         if (v0->unk_02 < v0->unk_03) {
-            v0->coins = 0;
+            v0->unk_00 = 0;
             break;
         }
 
-        v0->coins++;
+        v0->unk_00++;
     case 2:
         if (MapObject_IsMoving(param0) == 1) {
             break;
         }
 
-        v0->coins++;
+        v0->unk_00++;
         v0->unk_02 = 0;
         v0->unk_01 = 0;
     case 3:
@@ -197,7 +197,7 @@ static int sub_02067540(MapObject *param0)
         int v1[4] = { 0, 0, 1, 1 };
         int v2 = MapObject_GetFacingDir(param0);
 
-        v0->slotMachineVariant = v2;
+        v0->unk_04 = v2;
         v0->unk_05 = v1[v2];
         v0->unk_01++;
     }
@@ -235,11 +235,11 @@ static int sub_02067540(MapObject *param0)
             return 1;
         }
 
-        MapObject_TryFace(param0, v0->slotMachineVariant);
+        MapObject_TryFace(param0, v0->unk_04);
 
         v0->unk_01++;
         v0->unk_07 = 0;
-        v0->coins = 0;
+        v0->unk_00 = 0;
     }
     }
 
@@ -267,10 +267,10 @@ static int sub_02067658(MapObject *param0)
 {
     UnkStruct_0206762C *v0 = sub_02062AA0(param0);
 
-    switch (v0->coins) {
+    switch (v0->unk_00) {
     case 0:
         if (sub_02067438(param0) == 1) {
-            v0->coins++;
+            v0->unk_00++;
         }
 
         break;
@@ -282,17 +282,17 @@ static int sub_02067658(MapObject *param0)
         v0->unk_02++;
 
         if (v0->unk_02 < v0->unk_03) {
-            v0->coins = 0;
+            v0->unk_00 = 0;
             break;
         }
 
-        v0->coins++;
+        v0->unk_00++;
     case 2:
         if (MapObject_IsMoving(param0) == 1) {
             break;
         }
 
-        v0->coins++;
+        v0->unk_00++;
         v0->unk_02 = 0;
         v0->unk_01 = 0;
     case 3:
@@ -322,7 +322,7 @@ static int sub_020676D4(MapObject *param0)
 
         GF_ASSERT(v2 < 4);
 
-        v0->slotMachineVariant = v3;
+        v0->unk_04 = v3;
         v0->unk_06 = (v2 + 1) % 4;
         v0->unk_01++;
     }
@@ -356,10 +356,10 @@ static int sub_020676D4(MapObject *param0)
             return 1;
         }
 
-        MapObject_TryFace(param0, v0->slotMachineVariant);
+        MapObject_TryFace(param0, v0->unk_04);
         v0->unk_01++;
         v0->unk_07 = 0;
-        v0->coins = 0;
+        v0->unk_00 = 0;
     }
     }
 

@@ -6,8 +6,8 @@
 #include "main_menu/struct_ov97_022335C8.h"
 
 typedef struct {
-    UnkStruct_ov97_022335A8 coins;
-    UnkStruct_ov97_02233268_sub2_sub1 slotMachineVariant;
+    UnkStruct_ov97_022335A8 unk_00;
+    UnkStruct_ov97_02233268_sub2_sub1 unk_04;
     UnkStruct_ov97_02233268_sub2_sub1 unk_1C;
     UnkStruct_ov97_022335C8 unk_34;
     u8 unk_36;

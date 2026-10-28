@@ -9,9 +9,9 @@
 #include "narc.h"
 #include "sprite.h"
 
-BOOL ov19_021DCF88(UnkStruct_ov19_021DCF88 **param0, UnkStruct_ov19_021D61B0 *slotsMinigameDTO, const BoxApplication *param2, BgConfig *param3, SpriteList *param4);
+BOOL ov19_021DCF88(UnkStruct_ov19_021DCF88 **param0, UnkStruct_ov19_021D61B0 *param1, const BoxApplication *param2, BgConfig *param3, SpriteList *param4);
 void ov19_021DD078(UnkStruct_ov19_021DCF88 *param0);
-void ov19_021DD114(UnkStruct_ov19_021DCF88 *param0, NARC *slotsMinigameDTO);
+void ov19_021DD114(UnkStruct_ov19_021DCF88 *param0, NARC *param1);
 void ov19_021DD378(UnkStruct_ov19_021DCF88 *param0);
 BOOL ov19_021DD45C(UnkStruct_ov19_021DCF88 *param0);
 void ov19_021DD714(UnkStruct_ov19_021DCF88 *param0);

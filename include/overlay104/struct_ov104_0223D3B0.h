@@ -4,7 +4,7 @@
 #include "overlay104/struct_ov104_0223D3B0_sub1.h"
 
 typedef struct {
-    u16 coins[8];
+    u16 unk_00[8];
     UnkStruct_ov104_0223D3B0_sub1 unk_10[8];
 } UnkStruct_ov104_0223D3B0;
 

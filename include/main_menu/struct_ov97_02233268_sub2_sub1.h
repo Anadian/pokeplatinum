@@ -2,7 +2,7 @@
 #define POKEPLATINUM_STRUCT_MAIN_MENU_02233268_SUB2_SUB1_H
 
 typedef struct {
-    u16 coins[12];
+    u16 unk_00[12];
 } UnkStruct_ov97_02233268_sub2_sub1;
 
 #endif // POKEPLATINUM_STRUCT_MAIN_MENU_02233268_SUB2_SUB1_H

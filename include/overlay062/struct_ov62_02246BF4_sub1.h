@@ -7,10 +7,10 @@
 #include "touch_screen.h"
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     BOOL unk_08;
-    ManagedSprite *slotsMinigameDTO;
+    ManagedSprite *unk_0C;
     TouchScreenRect *unk_10;
     UnkStruct_ov62_02246BF4_sub1_sub1 unk_14;
     u8 padding_1A[2];

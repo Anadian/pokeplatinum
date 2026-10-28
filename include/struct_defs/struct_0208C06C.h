@@ -20,10 +20,10 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
     int *unk_10;
     UnkStruct_ov62_0223118C unk_14;
     UnkStruct_ov62_02233750 unk_52C;

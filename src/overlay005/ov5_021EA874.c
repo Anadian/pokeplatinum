@@ -33,10 +33,10 @@
 #include "wifi_list.h"
 
 typedef struct {
-    StringList *coins;
-    ListMenu *slotMachineVariant;
+    StringList *unk_00;
+    ListMenu *unk_04;
     String *unk_08;
-    String *slotsMinigameDTO;
+    String *unk_0C;
     Window unk_10;
     Window unk_20;
     FieldSystem *fieldSystem;
@@ -52,9 +52,9 @@ typedef struct {
     int unk_90;
 } UnkStruct_ov5_021EAE78;
 
-static void ov5_021EAE78(UnkStruct_ov5_021EAE78 *param0, int slotsMinigameDTO);
+static void ov5_021EAE78(UnkStruct_ov5_021EAE78 *param0, int param1);
 static void ov5_021EAF1C(UnkStruct_ov5_021EAE78 *param0);
-static void ov5_021EAF90(ListMenu *param0, u32 slotsMinigameDTO, u8 param2);
+static void ov5_021EAF90(ListMenu *param0, u32 param1, u8 param2);
 
 static BOOL ov5_021EA874(UnkStruct_ov5_021EAE78 *param0)
 {
@@ -257,7 +257,7 @@ static BOOL ov5_021EAB58(UnkStruct_ov5_021EAE78 *param0)
     int v2 = WiFiList_GetValidFriendsCount(v0);
     int v3 = 5;
 
-    param0->coins = StringList_New(v2 + 1, HEAP_ID_FIELD1);
+    param0->unk_00 = StringList_New(v2 + 1, HEAP_ID_FIELD1);
 
     Window_Add(param0->fieldSystem->bgConfig, &param0->unk_20, 3, 19, 1, 12, v3 * 2, 13, (((1024 - (18 + 12) - 9 - (32 * 8)) - (18 + 12 + 24)) - (27 * 4)) - (10 * (v3 + 2) * 2));
     Window_DrawStandardFrame(&param0->unk_20, 1, 1024 - (18 + 12) - 9, 11);
@@ -269,23 +269,23 @@ static BOOL ov5_021EAB58(UnkStruct_ov5_021EAE78 *param0)
         for (v5 = 0; v5 < 32; v5++) {
             if (WiFiList_IsValidFriendData(v0, v5)) {
                 String_CopyChars(param0->unk_08, sub_0202AEF0(v0, v5));
-                StringList_AddFromString(param0->coins, param0->unk_08, v5);
+                StringList_AddFromString(param0->unk_00, param0->unk_08, v5);
             }
         }
 
-        StringList_AddFromMessageBank(param0->coins, param0->unk_3C, 11, 0xfffffffe);
+        StringList_AddFromMessageBank(param0->unk_00, param0->unk_3C, 11, 0xfffffffe);
     }
 
     v1 = Unk_ov5_021FAF08;
 
     v1.count = v2 + 1;
     v1.maxDisplay = v3;
-    v1.choices = param0->coins;
+    v1.choices = param0->unk_00;
     v1.window = &param0->unk_20;
     v1.cursorCallback = ov5_021EAF90;
     v1.parent = param0;
 
-    param0->slotMachineVariant = ListMenu_New(&v1, 0, 0, HEAP_ID_FIELD1);
+    param0->unk_04 = ListMenu_New(&v1, 0, 0, HEAP_ID_FIELD1);
     Window_CopyToVRAM(&param0->unk_20);
     param0->unk_48 = 9;
 
@@ -295,7 +295,7 @@ static BOOL ov5_021EAB58(UnkStruct_ov5_021EAE78 *param0)
 static BOOL ov5_021EAC44(UnkStruct_ov5_021EAE78 *param0)
 {
     TrainerInfo *v0;
-    int v1 = ListMenu_ProcessInput(param0->slotMachineVariant);
+    int v1 = ListMenu_ProcessInput(param0->unk_04);
 
     switch (v1) {
     case 0xffffffff:
@@ -325,8 +325,8 @@ static BOOL ov5_021EAC44(UnkStruct_ov5_021EAE78 *param0)
 
     Window_EraseStandardFrame(&param0->unk_20, 0);
     Window_Remove(&param0->unk_20);
-    ListMenu_Free(param0->slotMachineVariant, NULL, NULL);
-    StringList_Free(param0->coins);
+    ListMenu_Free(param0->unk_04, NULL, NULL);
+    StringList_Free(param0->unk_00);
 
     return 0;
 }
@@ -422,18 +422,18 @@ static BOOL ov5_021EADB4(FieldTask *param0)
     return 0;
 }
 
-static void ov5_021EAE78(UnkStruct_ov5_021EAE78 *param0, int slotsMinigameDTO)
+static void ov5_021EAE78(UnkStruct_ov5_021EAE78 *param0, int param1)
 {
     if (Window_IsInUse(&param0->unk_10)) {
         Window_Remove(&param0->unk_10);
     }
 
-    MessageLoader_GetString(param0->unk_3C, slotsMinigameDTO, param0->unk_08);
-    StringTemplate_Format(param0->unk_38, param0->slotsMinigameDTO, param0->unk_08);
+    MessageLoader_GetString(param0->unk_3C, param1, param0->unk_08);
+    StringTemplate_Format(param0->unk_38, param0->unk_0C, param0->unk_08);
     FieldMessage_AddWindow(param0->fieldSystem->bgConfig, &param0->unk_10, 3);
     FieldMessage_DrawWindow(&param0->unk_10, SaveData_GetOptions(param0->fieldSystem->saveData));
 
-    param0->unk_40 = FieldMessage_Print(&param0->unk_10, param0->slotsMinigameDTO, SaveData_GetOptions(param0->fieldSystem->saveData), 1);
+    param0->unk_40 = FieldMessage_Print(&param0->unk_10, param0->unk_0C, SaveData_GetOptions(param0->fieldSystem->saveData), 1);
 }
 
 static void ov5_021EAEE0(UnkStruct_ov5_021EAE78 *param0)
@@ -442,7 +442,7 @@ static void ov5_021EAEE0(UnkStruct_ov5_021EAE78 *param0)
 
     param0->unk_38 = StringTemplate_Default(HEAP_ID_FIELD1);
     param0->unk_3C = MessageLoader_Init(MSG_LOADER_PRELOAD_ENTIRE_BANK, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_PAL_PAD, HEAP_ID_FIELD1);
-    param0->slotsMinigameDTO = String_Init(110, HEAP_ID_FIELD1);
+    param0->unk_0C = String_Init(110, HEAP_ID_FIELD1);
     param0->unk_08 = String_Init(110, HEAP_ID_FIELD1);
 }
 
@@ -450,7 +450,7 @@ static void ov5_021EAF1C(UnkStruct_ov5_021EAE78 *param0)
 {
     MessageLoader_Free(param0->unk_3C);
     StringTemplate_Free(param0->unk_38);
-    String_Free(param0->slotsMinigameDTO);
+    String_Free(param0->unk_0C);
     String_Free(param0->unk_08);
 
     if (Window_IsInUse(&param0->unk_10)) {
@@ -477,7 +477,7 @@ void ov5_021EAF50(FieldSystem *fieldSystem)
     }
 }
 
-static void ov5_021EAF90(ListMenu *param0, u32 slotsMinigameDTO, u8 param2)
+static void ov5_021EAF90(ListMenu *param0, u32 param1, u8 param2)
 {
     if (param2 == 0) {
         Sound_PlayEffect(SE_CONFIRM_sseq_3);

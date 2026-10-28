@@ -492,10 +492,10 @@ static void RowanIntro_InitGraphics(RowanIntro *manager)
 {
     {
         GXBanks banks = {
-            .coins = GX_VRAM_BG_128_B,
-            .slotMachineVariant = GX_VRAM_BGEXTPLTT_NONE,
+            .unk_00 = GX_VRAM_BG_128_B,
+            .unk_04 = GX_VRAM_BGEXTPLTT_NONE,
             .unk_08 = GX_VRAM_SUB_BG_128_C,
-            .slotsMinigameDTO = GX_VRAM_SUB_BGEXTPLTT_NONE,
+            .unk_0C = GX_VRAM_SUB_BGEXTPLTT_NONE,
             .unk_10 = GX_VRAM_OBJ_NONE,
             .unk_14 = GX_VRAM_OBJEXTPLTT_NONE,
             .unk_18 = GX_VRAM_SUB_OBJ_NONE,

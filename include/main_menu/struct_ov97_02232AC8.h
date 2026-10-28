@@ -2,10 +2,10 @@
 #define POKEPLATINUM_STRUCT_MAIN_MENU_02232AC8_H
 
 typedef struct {
-    void *coins;
-    void *slotMachineVariant;
+    void *unk_00;
+    void *unk_04;
     void *unk_08;
-    void *slotsMinigameDTO;
+    void *unk_0C;
     u32 unk_10;
     u32 unk_14;
     vu8 unk_18;

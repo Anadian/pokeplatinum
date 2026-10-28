@@ -7,8 +7,8 @@
 #include "sprite.h"
 
 typedef struct {
-    BOOL coins;
-    BOOL slotMachineVariant;
+    BOOL unk_00;
+    BOOL unk_04;
     Sprite *unk_08[4];
     Sprite *unk_18[4];
     UnkStruct_ov83_0223D95C unk_28[4];

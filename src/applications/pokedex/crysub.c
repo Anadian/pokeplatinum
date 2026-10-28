@@ -119,7 +119,7 @@ enum PlayButtonState {
 };
 
 typedef struct PokedexCrySubData {
-    int *coins;
+    int *unk_00;
     PokedexSortData *sortData;
     PokedexScreenManager *screenMan;
     int pitch;
@@ -295,7 +295,7 @@ static PokedexCrySubData *LoadAppData(enum HeapID heapID, PokedexApp *pokedexApp
     GF_ASSERT(pokedexCrySubData);
     memset(pokedexCrySubData, 0, sizeof(PokedexCrySubData));
 
-    pokedexCrySubData->coins = ov21_021D13A0(pokedexApp);
+    pokedexCrySubData->unk_00 = ov21_021D13A0(pokedexApp);
     pokedexCrySubData->sortData = PokedexMain_GetSortData(pokedexApp);
     pokedexCrySubData->screenMan = ov21_021D1430(pokedexApp, 3);
 

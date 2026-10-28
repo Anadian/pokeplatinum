@@ -66,7 +66,7 @@ static void ListMenuSysTaskCallback(SysTask *sysTask, void *param);
 static void FieldMenuManager_DeleteWithListMenu(FieldMenuManager *menuManager);
 static void FieldMenuManager_PrintListMenuAltText(FieldMenuManager *menuManager, u16 entryID, u32 printerDelay);
 static void FieldMenuManager_UpdateListMenuAltText(FieldMenuManager *menuManager);
-static void CurrentFloorWindowSystaskCallback(SysTask *param0, void *slotsMinigameDTO);
+static void CurrentFloorWindowSystaskCallback(SysTask *param0, void *param1);
 static void FieldMenuManager_PrintString(FieldMenuManager *menuManager, u16 entryID, u8 xOffset, u8 yOffset);
 
 static inline u32 PixelToTiles(u32 length)

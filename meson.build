@@ -46,16 +46,6 @@ else
     ]
 endif
 
-if get_option('debug_slots_minigame') == '0'
-    shared_args += [
-        '-DDEBUG_SLOTS_MINIGAME=0'
-    ]
-else
-    shared_args += [
-        '-DDEBUG_SLOTS_MINIGAME=1'
-    ]
-endif
-
 if get_option('gdb_debugging')
     shared_args += [
         '-O1,p',

@@ -2,10 +2,10 @@
 #define POKEPLATINUM_STRUCT_OV22_02258A48_H
 
 typedef struct UnkStruct_ov22_02258A48_t {
-    void *coins;
-    void (*slotMachineVariant)(struct UnkStruct_ov22_02258A48_t *param0);
+    void *unk_00;
+    void (*unk_04)(struct UnkStruct_ov22_02258A48_t *param0);
     void (*unk_08)(struct UnkStruct_ov22_02258A48_t *param0);
-    void (*slotsMinigameDTO)(struct UnkStruct_ov22_02258A48_t *param0);
+    void (*unk_0C)(struct UnkStruct_ov22_02258A48_t *param0);
     void (*unk_10)(struct UnkStruct_ov22_02258A48_t *param0);
     s16 unk_14;
     s16 unk_16;

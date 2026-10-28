@@ -51,7 +51,7 @@ static void RunApplication(void);
 static void WaitFrame(void);
 static void TrySystemReset(enum OSResetParameter resetParam);
 static void SoftReset(enum OSResetParameter resetParam);
-static void HeapCanaryFailed(int resetParam, int slotsMinigameDTO);
+static void HeapCanaryFailed(int resetParam, int param1);
 static void CheckHeapCanary(void);
 
 static Application sApplication;
@@ -78,7 +78,7 @@ void NitroMain(void)
     Font_InitManager(FONT_MESSAGE, HEAP_ID_APPLICATION);
     Font_InitManager(FONT_UNOWN, HEAP_ID_APPLICATION);
 
-    sApplication.args.coins = -1;
+    sApplication.args.unk_00 = -1;
     sApplication.args.saveData = SaveData_Init();
 
     SoundSystem_Init(SaveData_GetChatotCry(sApplication.args.saveData), SaveData_GetOptions(sApplication.args.saveData));
@@ -259,11 +259,11 @@ static void SoftReset(enum OSResetParameter resetParam)
     }
 }
 
-static void HeapCanaryFailed(int resetParam, int slotsMinigameDTO)
+static void HeapCanaryFailed(int resetParam, int param1)
 {
     int elapsed;
 
-    if (slotsMinigameDTO == 3) {
+    if (param1 == 3) {
         NetworkError_DisplayNetworkError(HEAP_ID_SYSTEM, 3, 0);
     } else if (resetParam == RESET_CLEAN) {
         if (CommManager_IsConnectedToWifi() == TRUE) {

@@ -6,7 +6,7 @@
 #include "overlay017/struct_ov17_02246540.h"
 
 typedef struct {
-    u8 coins;
+    u8 unk_00;
     u8 unk_01[4];
     u8 unk_05;
     u16 moveIDs[CONTEST_NUM_PARTICIPANTS];

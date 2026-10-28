@@ -2,7 +2,7 @@
 #define POKEPLATINUM_STRUCT_OV63_0222D160_H
 
 typedef struct {
-    s16 coins;
+    s16 unk_00;
     s16 unk_02;
 } UnkStruct_ov63_0222D160;
 

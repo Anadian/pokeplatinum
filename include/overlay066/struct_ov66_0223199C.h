@@ -5,10 +5,10 @@
 #include "trainer_info.h"
 
 typedef struct {
-    enum PlazaMinigame coins;
-    u32 slotMachineVariant;
+    enum PlazaMinigame unk_00;
+    u32 unk_04;
     const TrainerInfo *unk_08;
-    u16 slotsMinigameDTO;
+    u16 unk_0C;
 } UnkStruct_ov66_0223199C;
 
 #endif // POKEPLATINUM_STRUCT_OV66_0223199C_H

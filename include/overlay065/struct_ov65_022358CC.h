@@ -8,8 +8,8 @@
 #include "sprite_util.h"
 
 typedef struct {
-    SpriteList *coins;
-    G2dRenderer slotMachineVariant;
+    SpriteList *unk_00;
+    G2dRenderer unk_04;
     SpriteResourceCollection *unk_190[4];
     UnkStruct_ov65_022358CC_sub1 unk_1A0;
 } UnkStruct_ov65_022358CC;

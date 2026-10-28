@@ -6,8 +6,8 @@
 #include "applications/pokedex/struct_ov21_021E68F4.h"
 
 typedef struct {
-    PokedexScreenManager *coins;
-    PokedexUpdater *slotMachineVariant;
+    PokedexScreenManager *unk_00;
+    PokedexUpdater *unk_04;
     UnkStruct_ov21_021D423C *unk_08;
 } UnkStruct_ov21_021D4340;
 

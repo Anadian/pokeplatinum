@@ -30,9 +30,9 @@
 
 static void sub_0208945C(BgConfig *param0);
 static void sub_020895CC(void *param0);
-static int sub_020890F4(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208924C(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208927C(ApplicationManager *appMan, int *slotsMinigameDTO);
+static int sub_020890F4(ApplicationManager *appMan, int *param1);
+static int sub_0208924C(ApplicationManager *appMan, int *param1);
+static int sub_0208927C(ApplicationManager *appMan, int *param1);
 
 const ApplicationManagerTemplate Unk_020F2DBC = {
     sub_020890F4,
@@ -41,7 +41,7 @@ const ApplicationManagerTemplate Unk_020F2DBC = {
     0xffffffff,
 };
 
-static int sub_020890F4(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_020890F4(ApplicationManager *appMan, int *param1)
 {
     UnkStruct_02089688 *v0;
 
@@ -59,8 +59,8 @@ static int sub_020890F4(ApplicationManager *appMan, int *slotsMinigameDTO)
     GX_SetVisiblePlane(0);
     GXS_SetVisiblePlane(0);
 
-    v0->unk_2EC.coins = NARC_ctor(NARC_INDEX_ARC__CODEIN_GRA, HEAP_ID_101);
-    v0->unk_2EC.slotsMinigameDTO = BgConfig_New(HEAP_ID_101);
+    v0->unk_2EC.unk_00 = NARC_ctor(NARC_INDEX_ARC__CODEIN_GRA, HEAP_ID_101);
+    v0->unk_2EC.unk_0C = BgConfig_New(HEAP_ID_101);
     v0->unk_2EC.unk_10 = PaletteData_New(HEAP_ID_101);
 
     PaletteData_SetAutoTransparent(v0->unk_2EC.unk_10, TRUE);
@@ -68,7 +68,7 @@ static int sub_020890F4(ApplicationManager *appMan, int *slotsMinigameDTO)
     PaletteData_AllocBuffer(v0->unk_2EC.unk_10, PLTTBUF_SUB_BG, PALETTE_SIZE_BYTES * 16, HEAP_ID_101);
     PaletteData_AllocBuffer(v0->unk_2EC.unk_10, PLTTBUF_MAIN_OBJ, PALETTE_SIZE_BYTES * 16, HEAP_ID_101);
     PaletteData_AllocBuffer(v0->unk_2EC.unk_10, PLTTBUF_SUB_OBJ, PALETTE_SIZE_BYTES * 16, HEAP_ID_101);
-    sub_0208945C(v0->unk_2EC.slotsMinigameDTO);
+    sub_0208945C(v0->unk_2EC.unk_0C);
     sub_0208A3F4(v0);
     sub_02089688(v0);
 
@@ -91,7 +91,7 @@ static int sub_020890F4(ApplicationManager *appMan, int *slotsMinigameDTO)
     return 1;
 }
 
-static int sub_0208924C(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208924C(ApplicationManager *appMan, int *param1)
 {
     BOOL v0;
     UnkStruct_02089688 *v1 = ApplicationManager_Data(appMan);
@@ -104,7 +104,7 @@ static int sub_0208924C(ApplicationManager *appMan, int *slotsMinigameDTO)
     return v0 ? 1 : 0;
 }
 
-static int sub_0208927C(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208927C(ApplicationManager *appMan, int *param1)
 {
     UnkStruct_02089688 *v0 = ApplicationManager_Data(appMan);
 
@@ -121,28 +121,28 @@ static int sub_0208927C(ApplicationManager *appMan, int *slotsMinigameDTO)
     GXLayers_EngineBToggleLayers(GX_PLANEMASK_BG1, 0);
     GXLayers_EngineBToggleLayers(GX_PLANEMASK_BG2, 0);
     GXLayers_EngineBToggleLayers(GX_PLANEMASK_BG3, 0);
-    Bg_FreeTilemapBuffer(v0->unk_2EC.slotsMinigameDTO, 1);
-    Bg_FreeTilemapBuffer(v0->unk_2EC.slotsMinigameDTO, 2);
-    Bg_FreeTilemapBuffer(v0->unk_2EC.slotsMinigameDTO, 3);
-    Bg_FreeTilemapBuffer(v0->unk_2EC.slotsMinigameDTO, 4);
-    Bg_FreeTilemapBuffer(v0->unk_2EC.slotsMinigameDTO, 5);
-    Bg_FreeTilemapBuffer(v0->unk_2EC.slotsMinigameDTO, 6);
-    Bg_FreeTilemapBuffer(v0->unk_2EC.slotsMinigameDTO, 7);
-    Heap_Free(v0->unk_2EC.slotsMinigameDTO);
+    Bg_FreeTilemapBuffer(v0->unk_2EC.unk_0C, 1);
+    Bg_FreeTilemapBuffer(v0->unk_2EC.unk_0C, 2);
+    Bg_FreeTilemapBuffer(v0->unk_2EC.unk_0C, 3);
+    Bg_FreeTilemapBuffer(v0->unk_2EC.unk_0C, 4);
+    Bg_FreeTilemapBuffer(v0->unk_2EC.unk_0C, 5);
+    Bg_FreeTilemapBuffer(v0->unk_2EC.unk_0C, 6);
+    Bg_FreeTilemapBuffer(v0->unk_2EC.unk_0C, 7);
+    Heap_Free(v0->unk_2EC.unk_0C);
     PaletteData_FreeBuffer(v0->unk_2EC.unk_10, PLTTBUF_MAIN_BG);
     PaletteData_FreeBuffer(v0->unk_2EC.unk_10, PLTTBUF_SUB_BG);
     PaletteData_FreeBuffer(v0->unk_2EC.unk_10, PLTTBUF_MAIN_OBJ);
     PaletteData_FreeBuffer(v0->unk_2EC.unk_10, PLTTBUF_SUB_OBJ);
     PaletteData_Free(v0->unk_2EC.unk_10);
-    NARC_dtor(v0->unk_2EC.coins);
+    NARC_dtor(v0->unk_2EC.unk_00);
 
     {
         u32 v1;
         v1 = DisableTouchPad();
     }
 
-    SpriteSystem_FreeResourcesAndManager(v0->unk_2EC.slotMachineVariant, v0->unk_2EC.unk_08);
-    SpriteSystem_Free(v0->unk_2EC.slotMachineVariant);
+    SpriteSystem_FreeResourcesAndManager(v0->unk_2EC.unk_04, v0->unk_2EC.unk_08);
+    SpriteSystem_Free(v0->unk_2EC.unk_04);
     TouchScreenActions_Free(v0->unk_2EC.unk_14);
     ApplicationManager_FreeData(appMan);
     Heap_Destroy(HEAP_ID_101);
@@ -150,40 +150,40 @@ static int sub_0208927C(ApplicationManager *appMan, int *slotsMinigameDTO)
     return 1;
 }
 
-static UnkStruct_02089438 *sub_020893B4(enum HeapID heapID, int slotsMinigameDTO, int param2[], Options *options, u32 param4, u32 param5)
+static UnkStruct_02089438 *sub_020893B4(enum HeapID heapID, int param1, int param2[], Options *options, u32 param4, u32 param5)
 {
     int i;
     UnkStruct_02089438 *v1 = NULL;
 
     v1 = Heap_Alloc(heapID, sizeof(UnkStruct_02089438));
 
-    v1->coins = slotsMinigameDTO;
-    v1->unk_1C = String_Init(slotsMinigameDTO + 1, heapID);
+    v1->unk_00 = param1;
+    v1->unk_1C = String_Init(param1 + 1, heapID);
     v1->options = options;
 
     for (i = 0; i < 4; i++) {
-        v1->slotMachineVariant[i] = param2[i];
+        v1->unk_04[i] = param2[i];
     }
 
-    v1->slotMachineVariant[i] = param2[i - 1];
+    v1->unk_04[i] = param2[i - 1];
     v1->unk_2C = param4;
     v1->unk_30 = param5;
 
     return v1;
 }
 
-UnkStruct_02089438 *sub_02089400(enum HeapID heapID, int slotsMinigameDTO, int param2[], Options *options, u32 param4, u32 param5)
+UnkStruct_02089438 *sub_02089400(enum HeapID heapID, int param1, int param2[], Options *options, u32 param4, u32 param5)
 {
-    UnkStruct_02089438 *v0 = sub_020893B4(heapID, slotsMinigameDTO, param2, options, param4, param5);
+    UnkStruct_02089438 *v0 = sub_020893B4(heapID, param1, param2, options, param4, param5);
 
     v0->unk_24 = 0;
     v0->unk_28 = 0;
     return v0;
 }
 
-UnkStruct_02089438 *sub_0208941C(enum HeapID heapID, int slotsMinigameDTO, int param2[], Options *options, u32 param4, u32 param5, u32 param6, u32 param7)
+UnkStruct_02089438 *sub_0208941C(enum HeapID heapID, int param1, int param2[], Options *options, u32 param4, u32 param5, u32 param6, u32 param7)
 {
-    UnkStruct_02089438 *v0 = sub_020893B4(heapID, slotsMinigameDTO, param2, options, param4, param5);
+    UnkStruct_02089438 *v0 = sub_020893B4(heapID, param1, param2, options, param4, param5);
 
     v0->unk_24 = param6;
     v0->unk_28 = param7;
@@ -345,7 +345,7 @@ static void sub_020895CC(void *param0)
     VramTransfer_Process();
     SpriteSystem_TransferOam();
     PaletteData_CommitFadedBuffers(v0->unk_2EC.unk_10);
-    Bg_RunScheduledUpdates(v0->unk_2EC.slotsMinigameDTO);
+    Bg_RunScheduledUpdates(v0->unk_2EC.unk_0C);
 
     OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }

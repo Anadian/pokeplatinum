@@ -6,7 +6,7 @@
 #include "easy_chat_sentence.h"
 
 typedef struct {
-    u16 coins[8];
+    u16 unk_00[8];
     u32 unk_10;
     u8 unk_14;
     u8 unk_15;

@@ -4,9 +4,9 @@
 #include "overlay017/struct_ov17_0224DD90.h"
 
 typedef struct {
-    u16 coins;
+    u16 unk_00;
     u16 unk_02;
-    u8 slotMachineVariant;
+    u8 unk_04;
     u8 unk_05;
     u8 unk_06;
     u8 unk_07;

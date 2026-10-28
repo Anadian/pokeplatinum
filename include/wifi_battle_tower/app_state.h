@@ -85,7 +85,7 @@ typedef struct WifiBattleTowerAppState {
     UnkStruct_0206BC70 *args;
     BgConfig *bgConfig;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
     int screenMode;
     int exitMode;
     int unused_18;

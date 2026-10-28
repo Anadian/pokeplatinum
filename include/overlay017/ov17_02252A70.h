@@ -3,7 +3,7 @@
 
 #include "struct_defs/struct_02029C88.h"
 
-u32 ov17_02252A70(const UnkStruct_02029C88 *param0, const u8 *slotsMinigameDTO);
-u8 *ov17_02252A9C(u32 param0, u32 slotsMinigameDTO);
+u32 ov17_02252A70(const UnkStruct_02029C88 *param0, const u8 *param1);
+u8 *ov17_02252A9C(u32 param0, u32 param1);
 
 #endif // POKEPLATINUM_OV17_02252A70_H

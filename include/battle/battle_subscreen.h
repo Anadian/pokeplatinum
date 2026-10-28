@@ -28,18 +28,18 @@ typedef struct SubscreenTilemapRect {
 } SubscreenTilemapRect;
 
 typedef struct {
-    u16 coins;
+    u16 unk_00;
     u16 unk_02;
-    u16 slotMachineVariant;
+    u16 unk_04;
     u16 unk_06;
     u16 unk_08;
 } UnusedStruct_ov16_0226A3F4;
 
 typedef struct {
-    SysTask *coins;
-    u8 *slotMachineVariant;
+    SysTask *unk_00;
+    u8 *unk_04;
     void *unk_08;
-    u8 *slotsMinigameDTO;
+    u8 *unk_0C;
     UnusedStruct_ov16_0226A3F4 unk_10;
     u16 unk_1C;
 } UnusedStruct_ov16_02268A14_sub3_sub1;
@@ -70,16 +70,16 @@ typedef struct MenuButtonPressAnimState {
 } MenuButtonPressAnimState;
 
 typedef struct {
-    int coins;
-    s16 slotMachineVariant;
+    int unk_00;
+    s16 unk_04;
     s16 unk_06;
     u8 unk_08;
     u8 unk_09;
 } UnusedStruct_ov16_02268A14_sub4;
 
 typedef struct {
-    const SubscreenTilemapRect *coins;
-    u8 slotMachineVariant;
+    const SubscreenTilemapRect *unk_00;
+    u8 unk_04;
     s8 unk_05;
 } UnusedStruct_ov16_02268A14_sub1;
 
@@ -248,10 +248,10 @@ typedef struct BattleMenuConfig {
     const TouchScreenRect *touchScreenRects;
     const int *buttonResults;
     const u8 *buttonSlots;
-    int (*handleCursorInput)(BattleSubscreen *btlSubscreen, int slotsMinigameDTO);
-    void (*saveCursorPos)(BattleSubscreen *btlSubscreen, int slotsMinigameDTO);
-    void (*drawMenu)(BattleSubscreen *btlSubscreen, int slotsMinigameDTO, int param2);
-    int (*processInput)(BattleSubscreen *btlSubscreen, int slotsMinigameDTO, int param2);
+    int (*handleCursorInput)(BattleSubscreen *btlSubscreen, int param1);
+    void (*saveCursorPos)(BattleSubscreen *btlSubscreen, int param1);
+    void (*drawMenu)(BattleSubscreen *btlSubscreen, int param1, int param2);
+    int (*processInput)(BattleSubscreen *btlSubscreen, int param1, int param2);
 } BattleMenuConfig;
 
 void BattleSubscreenBg_Init(BgConfig *bgConfig);
@@ -272,7 +272,7 @@ int GetTargetSelectLayout(int range, int battlerType);
 void BattleSubscreen_UpdateSlideWindow(BattleSubscreen *btlSubscreen);
 void BattleSubscreen_StartPanelSlide(BattleSubscreen *btlSubscreen, int slideSpeed, int targetOffset);
 void BattleSubscreen_UpdateMoveDisplay(BattleSubscreen *btlSubscreen, int battlerSlot, const MoveDisplayInfo *moveDisplayInfo);
-void ov16_Dummy3(BattleSubscreen *btlSubscreen, int slotsMinigameDTO);
+void ov16_Dummy3(BattleSubscreen *btlSubscreen, int param1);
 BOOL useless_0226BCD0(BattleSubscreen *btlSubscreen);
 int BattleSubscreen_GetSuppressActivationSFX(BattleSubscreen *btlSubscreen);
 void BattleSubscreen_SetSuppressActivationSFX(BattleSubscreen *btlSubscreen, int isCursorEnabled);

@@ -2,10 +2,10 @@
 #define POKEPLATINUM_STRUCT_OV117_02263DAC_H
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     s32 unk_08;
-    s32 slotsMinigameDTO;
+    s32 unk_0C;
     s32 unk_10;
     s32 unk_14;
     s32 unk_18[4];

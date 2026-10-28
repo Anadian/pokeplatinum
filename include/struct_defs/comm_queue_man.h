@@ -7,7 +7,7 @@
 #include "comm_ring.h"
 
 typedef struct CommQueueMan {
-    UnkStruct_02032318 coins;
+    UnkStruct_02032318 unk_00;
     UnkStruct_02032318 unk_08;
     UnkStruct_020322D8 *unk_10;
     CommRing *unk_14;

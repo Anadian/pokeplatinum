@@ -28,15 +28,15 @@
 #define TREE_GROUP_B            2
 #define TREE_GROUP_C            3
 
-static void GetTreeEncounterGroup(const BOOL isMunchlaxTree, u8 *slotsMinigameDTO);
+static void GetTreeEncounterGroup(const BOOL isMunchlaxTree, u8 *param1);
 static void GetTreeEncounterSlot(u8 *slot);
-static void DoTreeShakingAnimation(FieldSystem *fieldSystem, MapPropManager *slotsMinigameDTO, const int param2);
+static void DoTreeShakingAnimation(FieldSystem *fieldSystem, MapPropManager *param1, const int param2);
 static u8 GetTreeIDFromMapHeaderID(const enum MapHeaderID mapHeaderID);
 static const int GetEncounterTableFromGroup(const u8 param0);
 static const int GetShakesFromGroup(const u8 param0);
 static const BOOL GetShakingValue(const int numShakes, u8 *value);
 static const BOOL SixHoursSinceSlathered(const int param0);
-static BOOL IsMunchlaxTree(const u32 param0, const u8 slotsMinigameDTO);
+static BOOL IsMunchlaxTree(const u32 param0, const u8 param1);
 
 static const int sHoneyTreeMapHeaderIDs[NUM_HONEY_TREES] = {
     MAP_HEADER_ROUTE_205_SOUTH,
@@ -327,7 +327,7 @@ static const BOOL GetShakingValue(const int numShakes, u8 *value)
     return isShaking;
 }
 
-static void DoTreeShakingAnimation(FieldSystem *fieldSystem, MapPropManager *slotsMinigameDTO, const int param2)
+static void DoTreeShakingAnimation(FieldSystem *fieldSystem, MapPropManager *param1, const int param2)
 {
     u16 mapId = MapMatrix_GetMapHeaderIDAtIndex(fieldSystem->mapMatrix, param2);
     u8 treeId = GetTreeIDFromMapHeaderID(mapId);
@@ -343,7 +343,7 @@ static void DoTreeShakingAnimation(FieldSystem *fieldSystem, MapPropManager *slo
                 return;
             }
 
-            MapProp *v4 = MapPropManager_FindLoadedPropByModelID(slotsMinigameDTO, honey_tree_nsbmd);
+            MapProp *v4 = MapPropManager_FindLoadedPropByModelID(param1, honey_tree_nsbmd);
 
             if (v4 != NULL) {
                 NNSG3dRenderObj *v7 = MapProp_GetRenderObj(v4);
@@ -439,14 +439,14 @@ int HoneyTree_GetSpecies(FieldSystem *fieldSystem)
     return species;
 }
 
-void ov5_021F0030(void *param0, const int slotsMinigameDTO, MapPropManager *const mapPropManager)
+void ov5_021F0030(void *param0, const int param1, MapPropManager *const mapPropManager)
 {
-    if (slotsMinigameDTO < 0) {
+    if (param1 < 0) {
         return;
     }
 
     FieldSystem *fieldSystem = (FieldSystem *)param0;
-    DoTreeShakingAnimation(fieldSystem, mapPropManager, slotsMinigameDTO);
+    DoTreeShakingAnimation(fieldSystem, mapPropManager, param1);
 }
 
 void HoneyTree_Unslather(FieldSystem *fieldSystem)

@@ -11,25 +11,25 @@
 #include "sys_task.h"
 #include "sys_task_manager.h"
 
-static void ov20_021D4ED8(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D4F74(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D5018(SysTask *param0, void *slotsMinigameDTO);
+static void ov20_021D4ED8(SysTask *param0, void *param1);
+static void ov20_021D4F74(SysTask *param0, void *param1);
+static void ov20_021D5018(SysTask *param0, void *param1);
 
-void ov20_021D4E38(UnkStruct_ov20_021D4E8C *param0, BgConfig *slotsMinigameDTO, u32 param2, int param3, int param4, int param5)
+void ov20_021D4E38(UnkStruct_ov20_021D4E8C *param0, BgConfig *param1, u32 param2, int param3, int param4, int param5)
 {
-    param0->coins = slotsMinigameDTO;
-    param0->slotMachineVariant = param2;
+    param0->unk_00 = param1;
+    param0->unk_04 = param2;
 
     if (param3 == 0) {
-        param0->slotsMinigameDTO = Bg_GetXOffset(slotsMinigameDTO, param2);
+        param0->unk_0C = Bg_GetXOffset(param1, param2);
         param0->unk_08 = 0;
     } else {
-        param0->slotsMinigameDTO = Bg_GetYOffset(slotsMinigameDTO, param2);
+        param0->unk_0C = Bg_GetYOffset(param1, param2);
         param0->unk_08 = 3;
     }
 
-    param0->unk_10 = (param0->slotsMinigameDTO + param4) & 0x1ff;
-    param0->slotsMinigameDTO *= FX32_ONE;
+    param0->unk_10 = (param0->unk_0C + param4) & 0x1ff;
+    param0->unk_0C *= FX32_ONE;
     param0->unk_14 = (param4 * FX32_ONE) / param5;
     param0->unk_18 = param5;
     param0->unk_1A = 0;
@@ -56,27 +56,27 @@ BOOL ov20_021D4E8C(UnkStruct_ov20_021D4E8C *param0)
     return 0;
 }
 
-static void ov20_021D4ED8(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D4ED8(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D4E8C *v0 = slotsMinigameDTO;
+    UnkStruct_ov20_021D4E8C *v0 = param1;
 
     if (v0->unk_18) {
-        v0->slotsMinigameDTO += v0->unk_14;
-        Bg_SetOffset(v0->coins, v0->slotMachineVariant, v0->unk_08, (v0->slotsMinigameDTO >> FX32_SHIFT));
+        v0->unk_0C += v0->unk_14;
+        Bg_SetOffset(v0->unk_00, v0->unk_04, v0->unk_08, (v0->unk_0C >> FX32_SHIFT));
         v0->unk_18--;
     } else {
-        Bg_SetOffset(v0->coins, v0->slotMachineVariant, v0->unk_08, v0->unk_10);
+        Bg_SetOffset(v0->unk_00, v0->unk_04, v0->unk_08, v0->unk_10);
     }
 }
 
-void ov20_021D4F1C(UnkStruct_ov20_021D4FF0 *param0, int slotsMinigameDTO, int param2, int param3, int param4, int param5)
+void ov20_021D4F1C(UnkStruct_ov20_021D4FF0 *param0, int param1, int param2, int param3, int param4, int param5)
 {
-    param0->coins = slotsMinigameDTO;
-    param0->slotMachineVariant = param2;
+    param0->unk_00 = param1;
+    param0->unk_04 = param2;
     param0->unk_14 = param5;
     param0->unk_08 = param3;
     param0->unk_10 = (fx32)(param4 - param3) / param5;
-    param0->slotsMinigameDTO = param4;
+    param0->unk_0C = param4;
     param0->unk_18 = 0;
     param0->unk_1C = ov20_021D2170(ov20_021D4F74, param0, 0);
 }
@@ -98,9 +98,9 @@ BOOL ov20_021D4F4C(UnkStruct_ov20_021D4FF0 *param0)
     return 0;
 }
 
-static void ov20_021D4F74(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D4F74(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D4FF0 *v0 = slotsMinigameDTO;
+    UnkStruct_ov20_021D4FF0 *v0 = param1;
     int v1, v2;
 
     if (v0->unk_14) {
@@ -108,7 +108,7 @@ static void ov20_021D4F74(SysTask *param0, void *slotsMinigameDTO)
         v1 = v0->unk_08 >> 3;
         v0->unk_14--;
     } else {
-        v1 = v0->slotsMinigameDTO >> 3;
+        v1 = v0->unk_0C >> 3;
     }
 
     if (v1 > 16) {
@@ -117,18 +117,18 @@ static void ov20_021D4F74(SysTask *param0, void *slotsMinigameDTO)
 
     v2 = 16 - v1;
 
-    G2_SetBlendAlpha(v0->coins, v0->slotMachineVariant, v1, v2);
+    G2_SetBlendAlpha(v0->unk_00, v0->unk_04, v1, v2);
 }
 
-void ov20_021D4FB0(UnkStruct_ov20_021D4FF0 *param0, int slotsMinigameDTO, int param2, int param3, int param4)
+void ov20_021D4FB0(UnkStruct_ov20_021D4FF0 *param0, int param1, int param2, int param3, int param4)
 {
-    G2_SetBlendBrightness(slotsMinigameDTO, param2);
+    G2_SetBlendBrightness(param1, param2);
 
-    param0->coins = slotsMinigameDTO;
+    param0->unk_00 = param1;
     param0->unk_14 = param4;
     param0->unk_08 = param2 * FX32_ONE;
-    param0->slotsMinigameDTO = param3 * FX32_ONE;
-    param0->unk_10 = (fx32)(param0->slotsMinigameDTO - param0->unk_08) / param4;
+    param0->unk_0C = param3 * FX32_ONE;
+    param0->unk_10 = (fx32)(param0->unk_0C - param0->unk_08) / param4;
     param0->unk_18 = 0;
     param0->unk_1C = ov20_021D2170(ov20_021D5018, param0, 0);
 }
@@ -150,9 +150,9 @@ BOOL ov20_021D4FF0(UnkStruct_ov20_021D4FF0 *param0)
     return 0;
 }
 
-static void ov20_021D5018(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D5018(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D4FF0 *v0 = slotsMinigameDTO;
+    UnkStruct_ov20_021D4FF0 *v0 = param1;
     int v1;
 
     if (v0->unk_14) {
@@ -160,8 +160,8 @@ static void ov20_021D5018(SysTask *param0, void *slotsMinigameDTO)
         v1 = v0->unk_08 >> FX32_SHIFT;
         v0->unk_14--;
     } else {
-        v1 = v0->slotsMinigameDTO >> FX32_SHIFT;
+        v1 = v0->unk_0C >> FX32_SHIFT;
     }
 
-    G2_SetBlendBrightness(v0->coins, v1);
+    G2_SetBlendBrightness(v0->unk_00, v1);
 }

@@ -18,7 +18,7 @@ static void ov5_021ECCA4(MapObjectManager *param0);
 static void ov5_021ECCBC(MapObjectManager *param0);
 static const ObjectEventGfxRenderDetailsEntry *ov5_021ECD10(int param0);
 
-void ov5_021ECC20(MapObjectManager *param0, int slotsMinigameDTO, int param2, const int *param3, int param4)
+void ov5_021ECC20(MapObjectManager *param0, int param1, int param2, const int *param3, int param4)
 {
     int v0, v1;
     UnkStruct_ov5_021ED0A4 *v2;
@@ -31,7 +31,7 @@ void ov5_021ECC20(MapObjectManager *param0, int slotsMinigameDTO, int param2, co
     v1 = MapObjectMan_GetTaskBasePriority(param0) - 1;
     v2 = sub_0206285C(param0);
 
-    ov5_021ECE40(v2, param0, v0, v1, slotsMinigameDTO, param2, param3, param4);
+    ov5_021ECE40(v2, param0, v0, v1, param1, param2, param3, param4);
     MapObjectMan_SetStatusFlagOn(param0, (1 << 0));
 }
 
@@ -114,11 +114,11 @@ int ov5_021ECD38(const MapObject *param0)
     return 0;
 }
 
-void *ov5_021ECD68(const MapObjectManager *param0, u32 slotsMinigameDTO, int param2)
+void *ov5_021ECD68(const MapObjectManager *param0, u32 param1, int param2)
 {
     void *v0;
     NARC *v1 = MapObjectMan_GetNARC(param0);
-    u32 v2 = NARC_GetMemberSize(v1, slotsMinigameDTO);
+    u32 v2 = NARC_GetMemberSize(v1, param1);
 
     if (param2 == 1) {
         v0 = Heap_Alloc(HEAP_ID_FIELD1, v2);
@@ -126,7 +126,7 @@ void *ov5_021ECD68(const MapObjectManager *param0, u32 slotsMinigameDTO, int par
         v0 = Heap_AllocAtEnd(HEAP_ID_FIELD1, v2);
     }
 
-    NARC_ReadWholeMember(v1, slotsMinigameDTO, v0);
+    NARC_ReadWholeMember(v1, param1, v0);
 
     return v0;
 }

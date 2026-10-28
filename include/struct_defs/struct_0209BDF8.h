@@ -4,8 +4,8 @@
 #include "struct_decls/struct_0209C194_decl.h"
 
 typedef struct {
-    UnkStruct_0209C194 *coins;
-    u8 slotMachineVariant[24];
+    UnkStruct_0209C194 *unk_00;
+    u8 unk_04[24];
     int unk_1C;
     int unk_20;
     int unk_24;

@@ -8,8 +8,8 @@
 #include "sprite.h"
 
 typedef struct {
-    BOOL coins;
-    BOOL slotMachineVariant;
+    BOOL unk_00;
+    BOOL unk_04;
     VecFx32 unk_08;
     UnkStruct_ov83_0223DA94 unk_14;
     UnkStruct_ov83_0223DA94 unk_2C;

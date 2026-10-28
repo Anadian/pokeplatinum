@@ -36,7 +36,7 @@ typedef struct ItemUseContext {
 
 typedef struct ItemFieldUseContext {
     FieldSystem *fieldSystem;
-    ItemUseContext slotMachineVariant;
+    ItemUseContext unk_04;
     FieldApplicationWorkCtor unk_20;
     void *unk_24;
     u16 unk_28;
@@ -55,22 +55,22 @@ typedef void (*ItemMenuUseFunc)(ItemMenuUseContext *, const ItemUseContext *);
 typedef enum ItemUseCheckResult (*ItemCheckUseFunc)(const ItemUseContext *);
 
 typedef struct UnkStruct_0206851C {
-    u32 coins;
-    u16 slotMachineVariant;
+    u32 unk_00;
+    u16 unk_04;
     u16 unk_06;
     u16 unk_08;
     u16 unk_0A;
 } UnkStruct_0206851C;
 
 typedef struct UnkStruct_02068EFC {
-    Window coins;
+    Window unk_00;
     String *unk_10;
     u16 unk_14;
     u16 unk_16;
 } UnkStruct_02068EFC;
 
 u32 ItemUseFunction_Get(u16 funcType, u16 functionIdx);
-void ItemUseContext_Init(FieldSystem *fieldSystem, ItemUseContext *slotsMinigameDTO);
+void ItemUseContext_Init(FieldSystem *fieldSystem, ItemUseContext *param1);
 BOOL BerryPatch_IsEmpty(const ItemUseContext *usageContext);
 BOOL sub_02069238(FieldSystem *fieldSystem);
 

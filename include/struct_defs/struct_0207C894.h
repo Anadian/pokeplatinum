@@ -5,7 +5,7 @@
 
 typedef struct {
     enum HeapID heapID;
-    int slotMachineVariant;
+    int unk_04;
 } UnkStruct_0207C894;
 
 #endif // POKEPLATINUM_STRUCT_0207C894_H

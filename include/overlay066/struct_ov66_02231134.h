@@ -6,7 +6,7 @@
 #include "savedata.h"
 
 typedef struct {
-    UnkStruct_ov66_02230DBC coins;
+    UnkStruct_ov66_02230DBC unk_00;
     SaveData *saveData;
     BOOL unk_38;
     u32 unk_3C;

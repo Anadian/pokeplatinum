@@ -9,7 +9,7 @@
 #include "overlay_manager.h"
 
 typedef struct {
-    UnkStruct_0203E6C0 *coins;
+    UnkStruct_0203E6C0 *unk_00;
     BOOL unk_10;
     ApplicationManager *appMan;
     void *unk_18;

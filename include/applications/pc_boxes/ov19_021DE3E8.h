@@ -10,7 +10,7 @@
 #include "bg_window.h"
 #include "sprite.h"
 
-BOOL ov19_021DE3E8(UnkStruct_ov19_021DE3E8 **param0, UnkStruct_ov19_021D61B0 *slotsMinigameDTO, const BoxApplication *param2, BgConfig *param3, SpriteList *param4);
+BOOL ov19_021DE3E8(UnkStruct_ov19_021DE3E8 **param0, UnkStruct_ov19_021D61B0 *param1, const BoxApplication *param2, BgConfig *param3, SpriteList *param4);
 void ov19_021DE440(UnkStruct_ov19_021DE3E8 *param0);
 void ov19_021DE584(UnkStruct_ov19_021DE3E8 *param0);
 void ov19_021DE7A0(UnkStruct_ov19_021DE3E8 *param0);
@@ -25,7 +25,7 @@ void ov19_021DEA74(UnkStruct_ov19_021DE3E8 *param0);
 BOOL ov19_021DEB08(UnkStruct_ov19_021DE3E8 *param0);
 void ov19_021DEB18(UnkStruct_ov19_021DE3E8 *param0);
 BOOL ov19_021DEB60(UnkStruct_ov19_021DE3E8 *param0);
-void ov19_021DEB9C(UnkStruct_ov19_021DE3E8 *param0, const VecFx32 *slotsMinigameDTO);
-void ov19_021DEBDC(UnkStruct_ov19_021DE3E8 *param0, u32 slotsMinigameDTO);
+void ov19_021DEB9C(UnkStruct_ov19_021DE3E8 *param0, const VecFx32 *param1);
+void ov19_021DEBDC(UnkStruct_ov19_021DE3E8 *param0, u32 param1);
 
 #endif // POKEPLATINUM_OV19_021DE3E8_H

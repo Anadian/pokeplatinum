@@ -2,11 +2,11 @@
 #define POKEPLATINUM_STRUCT_OV12_02236690_H
 
 typedef struct {
-    s16 coins;
+    s16 unk_00;
     s16 unk_02;
-    int slotMachineVariant;
+    int unk_04;
     enum HeapID heapID;
-    int slotsMinigameDTO;
+    int unk_0C;
     int unk_10;
 } UnkStruct_ov12_02236690;
 

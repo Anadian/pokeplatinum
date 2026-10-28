@@ -9,10 +9,10 @@
 struct UnkStruct_ov17_0224DF54_t;
 
 typedef struct {
-    struct UnkStruct_ov17_0224DF54_t *coins;
-    SysTask *slotMachineVariant;
+    struct UnkStruct_ov17_0224DF54_t *unk_00;
+    SysTask *unk_04;
     PokemonSprite *unk_08;
-    UnkStruct_ov17_0224B09C *slotsMinigameDTO;
+    UnkStruct_ov17_0224B09C *unk_0C;
     s32 unk_10;
     s32 unk_14;
     u8 unk_18;

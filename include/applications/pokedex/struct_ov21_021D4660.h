@@ -4,10 +4,10 @@
 #include "applications/pokedex/struct_ov21_021D4340_1.h"
 
 typedef struct {
-    int coins;
+    int unk_00;
 
     // clang-format off
-    BOOL (* slotMachineVariant)(UnkStruct_ov21_021D4340_1 * param0);
+    BOOL (* unk_04)(UnkStruct_ov21_021D4340_1 * param0);
     // clang-format on
 
     UnkStruct_ov21_021D4340_1 unk_08;

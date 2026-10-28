@@ -9,9 +9,9 @@
 #include "touch_screen.h"
 
 typedef struct {
-    ManagedSprite *coins;
+    ManagedSprite *unk_00;
     u8 padding_04[8];
-    BOOL slotsMinigameDTO;
+    BOOL unk_0C;
     TouchScreenRect *unk_10;
     FontOAM *unk_14;
     UnkStruct_02012B20 *unk_18;

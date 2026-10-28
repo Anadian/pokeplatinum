@@ -44,7 +44,7 @@
 #include "wifi_battle_tower_save.h"
 
 typedef struct {
-    u16 coins;
+    u16 unk_00;
     u16 unk_02;
 } UnkStruct_02049D38;
 
@@ -70,12 +70,12 @@ u16 BattleTower_GetPartySizeForChallengeMode(u16 challengeMode)
     return 0;
 }
 
-static BOOL sub_02049D38(UnkStruct_02049D38 *param0, u16 slotsMinigameDTO, u16 param2, int param3)
+static BOOL sub_02049D38(UnkStruct_02049D38 *param0, u16 param1, u16 param2, int param3)
 {
     int v0;
 
     for (v0 = 0; v0 < param3; v0++) {
-        if (param0[v0].coins == slotsMinigameDTO) {
+        if (param0[v0].unk_00 == param1) {
             if (param2 == 0) {
                 continue;
             }
@@ -89,13 +89,13 @@ static BOOL sub_02049D38(UnkStruct_02049D38 *param0, u16 slotsMinigameDTO, u16 p
     return 0;
 }
 
-static BOOL sub_02049D64(UnkStruct_02049D38 *param0, int slotsMinigameDTO)
+static BOOL sub_02049D64(UnkStruct_02049D38 *param0, int param1)
 {
     int v0, v1;
 
-    for (v0 = 0; v0 < slotsMinigameDTO - 1; v0++) {
-        for (v1 = v0 + 1; v1 < slotsMinigameDTO; v1++) {
-            if (param0[v0].coins == param0[v1].coins) {
+    for (v0 = 0; v0 < param1 - 1; v0++) {
+        for (v1 = v0 + 1; v1 < param1; v1++) {
+            if (param0[v0].unk_00 == param0[v1].unk_00) {
                 return 0;
             }
 
@@ -112,7 +112,7 @@ static BOOL sub_02049D64(UnkStruct_02049D38 *param0, int slotsMinigameDTO)
     return 1;
 }
 
-static BOOL sub_02049DB4(UnkStruct_02049D38 *param0, int slotsMinigameDTO, int param2, int param3)
+static BOOL sub_02049DB4(UnkStruct_02049D38 *param0, int param1, int param2, int param3)
 {
     int v0, v1, v2, v3;
     UnkStruct_02049D38 v4[4];
@@ -125,8 +125,8 @@ static BOOL sub_02049DB4(UnkStruct_02049D38 *param0, int slotsMinigameDTO, int p
         for (v1 = v0 + 1; v1 < param2; v1++) {
             v4[1] = param0[v1];
 
-            if (slotsMinigameDTO == 2) {
-                if (sub_02049D64(v4, slotsMinigameDTO)) {
+            if (param1 == 2) {
+                if (sub_02049D64(v4, param1)) {
                     return 1;
                 }
 
@@ -136,8 +136,8 @@ static BOOL sub_02049DB4(UnkStruct_02049D38 *param0, int slotsMinigameDTO, int p
             for (v2 = v1 + 1; v2 < param2; v2++) {
                 v4[2] = param0[v2];
 
-                if (slotsMinigameDTO == 3) {
-                    if (sub_02049D64(v4, slotsMinigameDTO)) {
+                if (param1 == 3) {
+                    if (sub_02049D64(v4, param1)) {
                         return 1;
                     }
 
@@ -147,7 +147,7 @@ static BOOL sub_02049DB4(UnkStruct_02049D38 *param0, int slotsMinigameDTO, int p
                 for (v3 = v2 + 1; v3 < param2; v3++) {
                     v4[3] = param0[v3];
 
-                    if (sub_02049D64(v4, slotsMinigameDTO)) {
+                    if (sub_02049D64(v4, param1)) {
                         return 1;
                     }
                 }
@@ -196,7 +196,7 @@ BOOL sub_02049EC4(u16 param0, SaveData *saveData, u8 param2)
             }
         }
 
-        v8[v2].coins = v4;
+        v8[v2].unk_00 = v4;
         v8[v2].unk_02 = v5;
         v2++;
     }
@@ -238,29 +238,29 @@ void BattleTower_ClearCommunicationClubAccessible(FieldSystem *fieldSystem)
     SystemFlag_ClearCommunicationClubAccessible(SaveData_GetVarsFlags(fieldSystem->saveData));
 }
 
-u16 sub_02049FF8(SaveData *saveData, u16 slotsMinigameDTO)
+u16 sub_02049FF8(SaveData *saveData, u16 param1)
 {
     u16 v0;
 
-    if (slotsMinigameDTO == 5) {
+    if (param1 == 5) {
         return 0;
     }
 
-    if (slotsMinigameDTO == 6) {
+    if (param1 == 6) {
         v0 = BattleFrontierSave_GetStatAutoHostIdx(SaveData_GetBattleFrontier(saveData), STAT_TOWER_LATEST_STREAK_MODE_6);
         return v0;
     }
 
-    v0 = BattleFrontierSave_GetStat(SaveData_GetBattleFrontier(saveData), 1 + slotsMinigameDTO * 2, 0xff);
+    v0 = BattleFrontierSave_GetStat(SaveData_GetBattleFrontier(saveData), 1 + param1 * 2, 0xff);
 
     return v0;
 }
 
-void sub_0204A030(SaveData *saveData, u8 slotsMinigameDTO)
+void sub_0204A030(SaveData *saveData, u8 param1)
 {
     WifiBattleTowerRecord *record = SaveData_GetWifiBattleTowerRecord(saveData);
 
-    if (slotsMinigameDTO == 0) {
+    if (param1 == 0) {
         WifiBattleTowerRecord_UpdateBitFlag(record, 5, 2);
     } else {
         WifiBattleTowerRecord_UpdateBitFlag(record, 5, 1);
@@ -313,7 +313,7 @@ void BattleTower_SetNull(BattleTower **battleTower)
     *battleTower = NULL;
 }
 
-BattleTower *BattleTower_Init(SaveData *saveData, u16 slotsMinigameDTO, u16 challengeMode)
+BattleTower *BattleTower_Init(SaveData *saveData, u16 param1, u16 challengeMode)
 {
     u8 v0;
     u16 v1, v2;
@@ -327,11 +327,11 @@ BattleTower *BattleTower_Init(SaveData *saveData, u16 slotsMinigameDTO, u16 chal
     battleTower->heapID = HEAP_ID_FIELD2;
     battleTower->wifiBattleTowerSave = SaveData_GetWifiBattleTowerSave(saveData);
     battleTower->unk_74 = SaveData_GetWifiBattleTowerRecord(saveData);
-    battleTower->coins = 0x12345678;
+    battleTower->unk_00 = 0x12345678;
 
     WifiBattleTowerSave_SetIsInProgress(battleTower->wifiBattleTowerSave, 0);
 
-    if (slotsMinigameDTO == 0) {
+    if (param1 == 0) {
         battleTower->challengeMode = challengeMode;
         battleTower->partySize = (u8)BattleTower_GetPartySizeForChallengeMode(battleTower->challengeMode);
         battleTower->nextOpponentNum = 1;
@@ -406,7 +406,7 @@ void BattleTower_Free(BattleTower *battleTower)
         return;
     }
 
-    GF_ASSERT(battleTower->coins == 0x12345678);
+    GF_ASSERT(battleTower->unk_00 == 0x12345678);
 
     MI_CpuClear8(battleTower, sizeof(BattleTower));
     Heap_Free(battleTower);
@@ -414,21 +414,21 @@ void BattleTower_Free(BattleTower *battleTower)
     battleTower = NULL;
 }
 
-void sub_0204A358(BattleTower *battleTower, FieldTask *slotsMinigameDTO, void **param2)
+void sub_0204A358(BattleTower *battleTower, FieldTask *param1, void **param2)
 {
-    sub_0206BBFC(slotsMinigameDTO, param2, 17, 0, battleTower->partySize, battleTower->partySize, 100, 0);
+    sub_0206BBFC(param1, param2, 17, 0, battleTower->partySize, battleTower->partySize, 100, 0);
 }
 
-BOOL sub_0204A378(BattleTower *battleTower, void **slotsMinigameDTO, SaveData *saveData)
+BOOL sub_0204A378(BattleTower *battleTower, void **param1, SaveData *saveData)
 {
     u16 v0 = 0;
-    PartyMenu *partyMenu = *slotsMinigameDTO;
+    PartyMenu *partyMenu = *param1;
     Party *v2;
     Pokemon *v3;
 
     if ((partyMenu->menuSelectionResult != 0) || (partyMenu->selectedMonSlot == 7)) {
-        Heap_Free(*slotsMinigameDTO);
-        *slotsMinigameDTO = NULL;
+        Heap_Free(*param1);
+        *param1 = NULL;
         return 0;
     }
 
@@ -441,8 +441,8 @@ BOOL sub_0204A378(BattleTower *battleTower, void **slotsMinigameDTO, SaveData *s
         battleTower->unk_36[v0] = Pokemon_GetValue(v3, MON_DATA_HELD_ITEM, NULL);
     }
 
-    Heap_Free(*slotsMinigameDTO);
-    *slotsMinigameDTO = NULL;
+    Heap_Free(*param1);
+    *param1 = NULL;
     return 1;
 }
 

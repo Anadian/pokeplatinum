@@ -2,11 +2,11 @@
 #define POKEPLATINUM_STRUCT_OV83_0223FCE8_H
 
 typedef struct {
-    u8 coins[4];
-    u8 slotMachineVariant[4];
+    u8 unk_00[4];
+    u8 unk_04[4];
     u16 unk_08;
     u16 unk_0A;
-    u8 slotsMinigameDTO;
+    u8 unk_0C;
     u8 unk_0D;
     u8 unk_0E;
     u8 unk_0F;

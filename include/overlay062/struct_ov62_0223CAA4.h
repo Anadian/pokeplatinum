@@ -2,10 +2,10 @@
 #define POKEPLATINUM_STRUCT_OV62_0223CAA4_H
 
 typedef struct {
-    BOOL coins;
-    int slotMachineVariant;
+    BOOL unk_00;
+    int unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
 } UnkStruct_ov62_0223CAA4;
 
 #endif // POKEPLATINUM_STRUCT_OV62_0223CAA4_H

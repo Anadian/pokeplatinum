@@ -4,8 +4,8 @@
 #include "struct_defs/trainer.h"
 
 typedef struct {
-    u32 coins;
-    int slotMachineVariant;
+    u32 unk_00;
+    int unk_04;
     int unk_08[4];
     Trainer unk_18[4];
     int unk_E8;

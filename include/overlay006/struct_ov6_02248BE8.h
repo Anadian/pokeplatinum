@@ -4,11 +4,11 @@
 #include "constants/moves.h"
 
 typedef struct {
-    u32 coins;
-    u32 slotMachineVariant;
+    u32 unk_00;
+    u32 unk_04;
     u16 unk_08;
     u16 unk_0A;
-    u16 slotsMinigameDTO[LEARNED_MOVES_MAX];
+    u16 unk_0C[LEARNED_MOVES_MAX];
     u16 unk_14;
     u16 unk_16;
     u16 unk_18;

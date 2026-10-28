@@ -4,7 +4,7 @@
 #include "struct_defs/struct_02095B28.h"
 
 typedef struct {
-    UnkStruct_02095B28 coins;
+    UnkStruct_02095B28 unk_00;
     UnkStruct_02095B28 unk_08;
     u8 unk_10[4];
     u8 unk_14;

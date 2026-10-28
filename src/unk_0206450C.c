@@ -18,96 +18,96 @@
 #include "unk_020655F4.h"
 
 typedef struct {
-    int coins;
-    const int *slotMachineVariant;
+    int unk_00;
+    const int *unk_04;
 } UnkStruct_020EEB08;
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
 } UnkStruct_020647A0;
 
 typedef struct {
-    s8 coins;
+    s8 unk_00;
     s8 unk_01;
     u8 unk_02;
     u8 unk_03;
 } UnkStruct_02065550;
 
 typedef struct {
-    u16 coins;
+    u16 unk_00;
     s16 unk_02;
-    int slotMachineVariant;
+    int unk_04;
 } UnkStruct_0206450C;
 
 typedef struct {
-    s16 coins;
+    s16 unk_00;
     s16 unk_02;
-    int slotMachineVariant;
+    int unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
 } UnkStruct_02064668;
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
 } UnkStruct_020648F4;
 
 typedef struct {
-    s8 coins;
+    s8 unk_00;
     s8 unk_01;
     s8 unk_02;
     s8 unk_03;
-    int slotMachineVariant;
+    int unk_04;
 } UnkStruct_0206496C;
 
 typedef struct {
-    s16 coins;
+    s16 unk_00;
     s16 unk_02;
-    UnkStruct_02065550 slotMachineVariant;
+    UnkStruct_02065550 unk_04;
 } UnkStruct_02064C28;
 
 typedef struct {
-    u8 coins;
+    u8 unk_00;
     u8 unk_01;
     u8 unk_02;
     u8 unk_03;
-    int slotMachineVariant;
+    int unk_04;
     UnkStruct_02065550 unk_08;
 } UnkStruct_02064D98;
 
 typedef struct {
-    u8 coins;
+    u8 unk_00;
     s8 unk_01;
     u8 unk_02;
     u8 unk_03;
-    u8 slotMachineVariant;
+    u8 unk_04;
     u8 unk_05;
     u8 unk_06;
     u8 unk_07;
     UnkStruct_02065550 unk_08;
 } UnkStruct_0206502C;
 
-static void sub_0206450C(MapObject *mapObj, int slotsMinigameDTO);
-static void sub_02064668(MapObject *mapObj, int slotsMinigameDTO, int param2, int param3);
-static int sub_020652EC(const int *param0, int slotsMinigameDTO);
-static int sub_0206530C(const int *param0, int slotsMinigameDTO);
-static int sub_02065330(int param0, int slotsMinigameDTO);
+static void sub_0206450C(MapObject *mapObj, int param1);
+static void sub_02064668(MapObject *mapObj, int param1, int param2, int param3);
+static int sub_020652EC(const int *param0, int param1);
+static int sub_0206530C(const int *param0, int param1);
+static int sub_02065330(int param0, int param1);
 static const int *sub_02065358(int param0);
 static int sub_0206537C(MapObject *mapObj);
-static int sub_02065448(MapObject *mapObj, int slotsMinigameDTO, int param2);
-static void sub_020647A0(MapObject *mapObj, UnkStruct_020647A0 *slotsMinigameDTO);
-static int sub_0206489C(MapObject *mapObj, int slotsMinigameDTO);
-static void sub_020648F4(MapObject *mapObj, int slotsMinigameDTO);
-static void sub_0206496C(MapObject *mapObj, int slotsMinigameDTO);
-static void sub_02064D98(MapObject *mapObj, int slotsMinigameDTO, int param2, int param3);
-static void sub_0206502C(MapObject *mapObj, int slotsMinigameDTO, int param2, int param3);
+static int sub_02065448(MapObject *mapObj, int param1, int param2);
+static void sub_020647A0(MapObject *mapObj, UnkStruct_020647A0 *param1);
+static int sub_0206489C(MapObject *mapObj, int param1);
+static void sub_020648F4(MapObject *mapObj, int param1);
+static void sub_0206496C(MapObject *mapObj, int param1);
+static void sub_02064D98(MapObject *mapObj, int param1, int param2, int param3);
+static void sub_0206502C(MapObject *mapObj, int param1, int param2, int param3);
 static int sub_0206553C(MapObject *mapObj);
-static void sub_02065550(MapObject *mapObj, UnkStruct_02065550 *slotsMinigameDTO);
-static void sub_02065568(MapObject *mapObj, UnkStruct_02065550 *slotsMinigameDTO);
-static void sub_020655E4(MapObject *mapObj, UnkStruct_02065550 *slotsMinigameDTO);
+static void sub_02065550(MapObject *mapObj, UnkStruct_02065550 *param1);
+static void sub_02065568(MapObject *mapObj, UnkStruct_02065550 *param1);
+static void sub_020655E4(MapObject *mapObj, UnkStruct_02065550 *param1);
 
 int (*const Unk_020EE900[])(MapObject *, UnkStruct_0206496C *);
 int (*const Unk_020EE870[])(MapObject *, UnkStruct_0206496C *);
@@ -157,11 +157,11 @@ const int Unk_020EE9D0[];
 static const UnkStruct_020EEB08 Unk_020EEB08[40];
 const int Unk_020EEAD0[];
 
-static void sub_0206450C(MapObject *mapObj, int slotsMinigameDTO)
+static void sub_0206450C(MapObject *mapObj, int param1)
 {
     UnkStruct_0206450C *v0 = sub_02062A54(mapObj, (sizeof(UnkStruct_0206450C)));
     v0->unk_02 = sub_0206530C(Unk_020EEA88, -1);
-    v0->slotMachineVariant = slotsMinigameDTO;
+    v0->unk_04 = param1;
 
     sub_02062A0C(mapObj, 0x0);
     sub_02062D10(mapObj);
@@ -225,18 +225,18 @@ void sub_020645B4(MapObject *mapObj)
 void sub_020645C0(MapObject *mapObj)
 {
     UnkStruct_0206450C *v0 = sub_02062A78(mapObj);
-    int v1 = sub_02065448(mapObj, v0->slotMachineVariant, -1);
+    int v1 = sub_02065448(mapObj, v0->unk_04, -1);
 
     if (v1 != -1) {
         MapObject_TryFace(mapObj, v1);
     } else {
-        switch (v0->coins) {
+        switch (v0->unk_00) {
         case 0:
             v0->unk_02--;
 
             if (v0->unk_02 <= 0) {
                 v0->unk_02 = sub_0206530C(Unk_020EEA88, -1);
-                MapObject_TryFace(mapObj, sub_02065330(v0->slotMachineVariant, -1));
+                MapObject_TryFace(mapObj, sub_02065330(v0->unk_04, -1));
             }
         }
     }
@@ -269,13 +269,13 @@ void sub_02064658(MapObject *mapObj)
     sub_02064668(mapObj, 0xc, 13, 2);
 }
 
-static void sub_02064668(MapObject *mapObj, int slotsMinigameDTO, int param2, int param3)
+static void sub_02064668(MapObject *mapObj, int param1, int param2, int param3)
 {
     UnkStruct_02064668 *v0 = sub_02062A54(mapObj, (sizeof(UnkStruct_02064668)));
 
-    v0->slotMachineVariant = param3;
-    v0->unk_08 = slotsMinigameDTO;
-    v0->slotsMinigameDTO = param2;
+    v0->unk_04 = param3;
+    v0->unk_08 = param1;
+    v0->unk_0C = param2;
 
     sub_02062A0C(mapObj, 0x0);
     sub_02062D10(mapObj);
@@ -286,7 +286,7 @@ void sub_02064690(MapObject *mapObj)
     int v0;
     UnkStruct_02064668 *v1 = sub_02062A78(mapObj);
 
-    switch (v1->coins) {
+    switch (v1->unk_00) {
     case 0:
         sub_02062D10(mapObj);
         MapObject_SetEndMovementOff(mapObj);
@@ -296,7 +296,7 @@ void sub_02064690(MapObject *mapObj)
 
         sub_02065668(mapObj, v0);
 
-        v1->coins++;
+        v1->unk_00++;
         break;
     case 1:
         if (sub_020658DC(mapObj) == 0) {
@@ -304,7 +304,7 @@ void sub_02064690(MapObject *mapObj)
         }
 
         v1->unk_02 = sub_0206530C(Unk_020EEA88, -1);
-        v1->coins++;
+        v1->unk_00++;
     case 2:
         v1->unk_02--;
 
@@ -312,14 +312,14 @@ void sub_02064690(MapObject *mapObj)
             break;
         }
 
-        v1->coins++;
+        v1->unk_00++;
     case 3:
-        v0 = sub_02065330(v1->slotsMinigameDTO, -1);
+        v0 = sub_02065330(v1->unk_0C, -1);
         MapObject_TryFaceAndTurn(mapObj, v0);
 
-        if (v1->slotMachineVariant == 1) {
+        if (v1->unk_04 == 1) {
             if (sub_0206489C(mapObj, v0) == 0) {
-                v1->coins = 0;
+                v1->unk_00 = 0;
                 break;
             }
         }
@@ -328,13 +328,13 @@ void sub_02064690(MapObject *mapObj)
             u32 v2 = sub_02063EBC(mapObj, v0);
 
             if (v2 != 0) {
-                if (v1->slotMachineVariant == 2) {
+                if (v1->unk_04 == 2) {
                     if (v2 & (1 << 0)) {
-                        v1->coins = 0;
+                        v1->unk_00 = 0;
                         break;
                     }
                 } else {
-                    v1->coins = 0;
+                    v1->unk_00 = 0;
                     break;
                 }
             }
@@ -345,18 +345,18 @@ void sub_02064690(MapObject *mapObj)
         sub_02065668(mapObj, v0);
         sub_02062D04(mapObj);
 
-        v1->coins++;
+        v1->unk_00++;
     case 4:
         if (sub_020658DC(mapObj) == 0) {
             break;
         }
 
         sub_02062D10(mapObj);
-        v1->coins = 0;
+        v1->unk_00 = 0;
     }
 }
 
-static void sub_020647A0(MapObject *mapObj, UnkStruct_020647A0 *slotsMinigameDTO)
+static void sub_020647A0(MapObject *mapObj, UnkStruct_020647A0 *param1)
 {
     int v0, v1, v2, v3, v4;
 
@@ -368,83 +368,83 @@ static void sub_020647A0(MapObject *mapObj, UnkStruct_020647A0 *slotsMinigameDTO
 
     switch (v0) {
     case 0x6:
-        slotsMinigameDTO->coins = v1 - v3;
-        slotsMinigameDTO->unk_08 = v1;
-        slotsMinigameDTO->slotMachineVariant = v2 - v4;
-        slotsMinigameDTO->slotsMinigameDTO = v2;
+        param1->unk_00 = v1 - v3;
+        param1->unk_08 = v1;
+        param1->unk_04 = v2 - v4;
+        param1->unk_0C = v2;
         break;
     case 0x7:
-        slotsMinigameDTO->coins = v1;
-        slotsMinigameDTO->unk_08 = v1 + v3;
-        slotsMinigameDTO->slotMachineVariant = v2 - v4;
-        slotsMinigameDTO->slotsMinigameDTO = v2;
+        param1->unk_00 = v1;
+        param1->unk_08 = v1 + v3;
+        param1->unk_04 = v2 - v4;
+        param1->unk_0C = v2;
         break;
     case 0x8:
-        slotsMinigameDTO->coins = v1 - v3;
-        slotsMinigameDTO->unk_08 = v1;
-        slotsMinigameDTO->slotMachineVariant = v2;
-        slotsMinigameDTO->slotsMinigameDTO = v2 + v4;
+        param1->unk_00 = v1 - v3;
+        param1->unk_08 = v1;
+        param1->unk_04 = v2;
+        param1->unk_0C = v2 + v4;
         break;
     case 0x9:
-        slotsMinigameDTO->coins = v1;
-        slotsMinigameDTO->unk_08 = v1 + v3;
-        slotsMinigameDTO->slotMachineVariant = v2;
-        slotsMinigameDTO->slotsMinigameDTO = v2 + v4;
+        param1->unk_00 = v1;
+        param1->unk_08 = v1 + v3;
+        param1->unk_04 = v2;
+        param1->unk_0C = v2 + v4;
         break;
     case 0xa:
-        slotsMinigameDTO->coins = v1 - v3;
-        slotsMinigameDTO->unk_08 = v1;
-        slotsMinigameDTO->slotMachineVariant = v2 - v4;
-        slotsMinigameDTO->slotsMinigameDTO = v2 + v4;
+        param1->unk_00 = v1 - v3;
+        param1->unk_08 = v1;
+        param1->unk_04 = v2 - v4;
+        param1->unk_0C = v2 + v4;
         break;
     case 0xb:
-        slotsMinigameDTO->coins = v1;
-        slotsMinigameDTO->unk_08 = v1 + v3;
-        slotsMinigameDTO->slotMachineVariant = v2 - v4;
-        slotsMinigameDTO->slotsMinigameDTO = v2 + v4;
+        param1->unk_00 = v1;
+        param1->unk_08 = v1 + v3;
+        param1->unk_04 = v2 - v4;
+        param1->unk_0C = v2 + v4;
         break;
     case 0xc:
-        slotsMinigameDTO->coins = v1 - v3;
-        slotsMinigameDTO->unk_08 = v1 + v3;
-        slotsMinigameDTO->slotMachineVariant = v2 - v4;
-        slotsMinigameDTO->slotsMinigameDTO = v2;
+        param1->unk_00 = v1 - v3;
+        param1->unk_08 = v1 + v3;
+        param1->unk_04 = v2 - v4;
+        param1->unk_0C = v2;
         break;
     case 0xd:
-        slotsMinigameDTO->coins = v1 - v3;
-        slotsMinigameDTO->unk_08 = v1 + v3;
-        slotsMinigameDTO->slotMachineVariant = v2;
-        slotsMinigameDTO->slotsMinigameDTO = v2 + v4;
+        param1->unk_00 = v1 - v3;
+        param1->unk_08 = v1 + v3;
+        param1->unk_04 = v2;
+        param1->unk_0C = v2 + v4;
         break;
     default:
         GF_ASSERT(FALSE);
     }
 }
 
-static int sub_0206489C(MapObject *mapObj, int slotsMinigameDTO)
+static int sub_0206489C(MapObject *mapObj, int param1)
 {
     int v0, v1;
     UnkStruct_020647A0 v2;
 
     sub_020647A0(mapObj, &v2);
 
-    v0 = MapObject_GetX(mapObj) + MapObject_GetDxFromDir(slotsMinigameDTO);
-    v1 = MapObject_GetZ(mapObj) + MapObject_GetDzFromDir(slotsMinigameDTO);
+    v0 = MapObject_GetX(mapObj) + MapObject_GetDxFromDir(param1);
+    v1 = MapObject_GetZ(mapObj) + MapObject_GetDzFromDir(param1);
 
-    if ((v2.coins > v0) || (v2.unk_08 < v0)) {
+    if ((v2.unk_00 > v0) || (v2.unk_08 < v0)) {
         return 0;
     }
 
-    if ((v2.slotMachineVariant > v1) || (v2.slotsMinigameDTO < v1)) {
+    if ((v2.unk_04 > v1) || (v2.unk_0C < v1)) {
         return 0;
     }
 
     return 1;
 }
 
-static void sub_020648F4(MapObject *mapObj, int slotsMinigameDTO)
+static void sub_020648F4(MapObject *mapObj, int param1)
 {
     UnkStruct_020648F4 *v0 = sub_02062A54(mapObj, (sizeof(UnkStruct_020648F4)));
-    v0->coins = slotsMinigameDTO;
+    v0->unk_00 = param1;
 
     sub_02062A0C(mapObj, 0x0);
     sub_02062D10(mapObj);
@@ -455,10 +455,10 @@ void sub_02064918(MapObject *mapObj)
 {
     UnkStruct_020648F4 *v0 = sub_02062A78(mapObj);
 
-    switch (v0->slotMachineVariant) {
+    switch (v0->unk_04) {
     case 0:
-        MapObject_TryFace(mapObj, v0->coins);
-        v0->slotMachineVariant++;
+        MapObject_TryFace(mapObj, v0->unk_00);
+        v0->unk_04++;
         break;
     case 1:
         break;
@@ -485,10 +485,10 @@ void sub_02064960(MapObject *mapObj)
     sub_020648F4(mapObj, 3);
 }
 
-static void sub_0206496C(MapObject *mapObj, int slotsMinigameDTO)
+static void sub_0206496C(MapObject *mapObj, int param1)
 {
     UnkStruct_0206496C *v0 = sub_02062A54(mapObj, (sizeof(UnkStruct_0206496C)));
-    v0->coins = slotsMinigameDTO;
+    v0->unk_00 = param1;
 
     sub_02062A0C(mapObj, 0x0);
     sub_02062D10(mapObj);
@@ -514,7 +514,7 @@ void sub_020649A8(MapObject *mapObj)
     }
 }
 
-static int sub_020649CC(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
+static int sub_020649CC(MapObject *mapObj, UnkStruct_0206496C *param1)
 {
     int v0 = sub_02065448(mapObj, 38, -1);
 
@@ -524,49 +524,49 @@ static int sub_020649CC(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
 
     v0 = MovementAction_TurnActionTowardsDir(v0, MOVEMENT_ACTION_FACE_NORTH);
     sub_02065668(mapObj, v0);
-    slotsMinigameDTO->unk_02 = 1;
+    param1->unk_02 = 1;
 
     return 1;
 }
 
-static int sub_02064A00(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
+static int sub_02064A00(MapObject *mapObj, UnkStruct_0206496C *param1)
 {
     if (sub_020658DC(mapObj) == 0) {
         return 0;
     }
 
-    slotsMinigameDTO->slotMachineVariant = 0;
-    slotsMinigameDTO->unk_02 = 2;
+    param1->unk_04 = 0;
+    param1->unk_02 = 2;
 
     return 1;
 }
 
-static int sub_02064A1C(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
+static int sub_02064A1C(MapObject *mapObj, UnkStruct_0206496C *param1)
 {
-    if (slotsMinigameDTO->slotMachineVariant) {
+    if (param1->unk_04) {
         if (sub_02065448(mapObj, 38, -1) != -1) {
-            slotsMinigameDTO->unk_02 = 0;
+            param1->unk_02 = 0;
             return 1;
         }
     }
 
-    slotsMinigameDTO->slotMachineVariant++;
+    param1->unk_04++;
 
-    if (slotsMinigameDTO->slotMachineVariant < 24) {
+    if (param1->unk_04 < 24) {
         return 0;
     }
 
-    slotsMinigameDTO->unk_02 = 3;
+    param1->unk_02 = 3;
     return 1;
 }
 
-static int sub_02064A58(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
+static int sub_02064A58(MapObject *mapObj, UnkStruct_0206496C *param1)
 {
     int v0, v1, *v2;
     int v3[5] = { 0, 2, 1, 3, -1 };
     int v4[5] = { 0, 3, 1, 2, -1 };
 
-    if (slotsMinigameDTO->coins == 2) {
+    if (param1->unk_00 == 2) {
         v2 = v3;
     } else {
         v2 = v4;
@@ -592,7 +592,7 @@ static int sub_02064A58(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
 
     MapObject_TryFace(mapObj, v1);
 
-    slotsMinigameDTO->unk_02 = 0;
+    param1->unk_02 = 0;
     return 1;
 }
 
@@ -617,48 +617,48 @@ void sub_02064AFC(MapObject *mapObj)
     }
 }
 
-static int sub_02064B20(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
+static int sub_02064B20(MapObject *mapObj, UnkStruct_0206496C *param1)
 {
     int v0 = MapObject_GetFacingDir(mapObj);
 
     v0 = MovementAction_TurnActionTowardsDir(v0, MOVEMENT_ACTION_FACE_NORTH);
     sub_02065668(mapObj, v0);
-    slotsMinigameDTO->unk_02 = 1;
+    param1->unk_02 = 1;
 
     return 1;
 }
 
-static int sub_02064B40(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
+static int sub_02064B40(MapObject *mapObj, UnkStruct_0206496C *param1)
 {
     if (sub_020658DC(mapObj) == 0) {
         return 0;
     }
 
-    slotsMinigameDTO->slotMachineVariant = 0;
-    slotsMinigameDTO->unk_02 = 2;
+    param1->unk_04 = 0;
+    param1->unk_02 = 2;
 
     return 1;
 }
 
-static int sub_02064B5C(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
+static int sub_02064B5C(MapObject *mapObj, UnkStruct_0206496C *param1)
 {
-    slotsMinigameDTO->slotMachineVariant++;
+    param1->unk_04++;
 
-    if (slotsMinigameDTO->slotMachineVariant < 24) {
+    if (param1->unk_04 < 24) {
         return 0;
     }
 
-    slotsMinigameDTO->unk_02 = 3;
+    param1->unk_02 = 3;
     return 1;
 }
 
-static int sub_02064B74(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
+static int sub_02064B74(MapObject *mapObj, UnkStruct_0206496C *param1)
 {
     int v0, v1, *v2;
     int v3[5] = { 0, 2, 1, 3, -1 };
     int v4[5] = { 0, 3, 1, 2, -1 };
 
-    if (slotsMinigameDTO->coins == 2) {
+    if (param1->unk_00 == 2) {
         v2 = v3;
     } else {
         v2 = v4;
@@ -689,11 +689,11 @@ static int sub_02064B74(MapObject *mapObj, UnkStruct_0206496C *slotsMinigameDTO)
         int v6 = MapObject_GetInitialDir(mapObj);
 
         if (v5 == v6) {
-            slotsMinigameDTO->coins = Direction_GetOpposite(slotsMinigameDTO->coins);
+            param1->unk_00 = Direction_GetOpposite(param1->unk_00);
         }
     }
 
-    slotsMinigameDTO->unk_02 = 0;
+    param1->unk_02 = 0;
     return 1;
 }
 
@@ -709,7 +709,7 @@ void sub_02064C28(MapObject *mapObj)
     UnkStruct_02064C28 *v0 = sub_02062A54(mapObj, (sizeof(UnkStruct_02064C28)));
 
     if (sub_0206553C(mapObj) == 1) {
-        sub_02065550(mapObj, &v0->slotMachineVariant);
+        sub_02065550(mapObj, &v0->unk_04);
     }
 }
 
@@ -717,16 +717,16 @@ void sub_02064C48(MapObject *mapObj)
 {
     UnkStruct_02064C28 *v0 = sub_02062A78(mapObj);
 
-    while (Unk_020EE814[v0->coins](mapObj, v0) == 1) {
+    while (Unk_020EE814[v0->unk_00](mapObj, v0) == 1) {
         (void)0;
     }
 }
 
-static int sub_02064C6C(MapObject *mapObj, UnkStruct_02064C28 *slotsMinigameDTO)
+static int sub_02064C6C(MapObject *mapObj, UnkStruct_02064C28 *param1)
 {
     int v0 = MapObject_GetInitialDir(mapObj);
 
-    if (slotsMinigameDTO->unk_02 == 1) {
+    if (param1->unk_02 == 1) {
         v0 = Direction_GetOpposite(v0);
     }
 
@@ -736,13 +736,13 @@ static int sub_02064C6C(MapObject *mapObj, UnkStruct_02064C28 *slotsMinigameDTO)
         MapObject_TryFace(mapObj, v0);
     }
 
-    slotsMinigameDTO->coins = 1;
+    param1->unk_00 = 1;
     return 1;
 }
 
-static int sub_02064CA8(MapObject *mapObj, UnkStruct_02064C28 *slotsMinigameDTO)
+static int sub_02064CA8(MapObject *mapObj, UnkStruct_02064C28 *param1)
 {
-    if (slotsMinigameDTO->unk_02) {
+    if (param1->unk_02) {
         int v0, v1, v2, v3;
 
         v0 = MapObject_GetXInitial(mapObj);
@@ -759,7 +759,7 @@ static int sub_02064CA8(MapObject *mapObj, UnkStruct_02064C28 *slotsMinigameDTO)
                 MapObject_TryFace(mapObj, v4);
             }
 
-            slotsMinigameDTO->unk_02 = 0;
+            param1->unk_02 = 0;
         }
     }
 
@@ -771,7 +771,7 @@ static int sub_02064CA8(MapObject *mapObj, UnkStruct_02064C28 *slotsMinigameDTO)
         v7 = sub_02063EBC(mapObj, v5);
 
         if (v7 & (1 << 0)) {
-            slotsMinigameDTO->unk_02 = 1;
+            param1->unk_02 = 1;
             v5 = Direction_GetOpposite(v5);
             v7 = sub_02063EBC(mapObj, v5);
         }
@@ -786,26 +786,26 @@ static int sub_02064CA8(MapObject *mapObj, UnkStruct_02064C28 *slotsMinigameDTO)
         sub_02065668(mapObj, v6);
 
         if (sub_0206553C(mapObj) == 1) {
-            sub_02065568(mapObj, &slotsMinigameDTO->slotMachineVariant);
+            sub_02065568(mapObj, &param1->unk_04);
         }
     }
 
     sub_02062D04(mapObj);
-    slotsMinigameDTO->coins = 2;
+    param1->unk_00 = 2;
 
     return 1;
 }
 
-static int sub_02064D68(MapObject *mapObj, UnkStruct_02064C28 *slotsMinigameDTO)
+static int sub_02064D68(MapObject *mapObj, UnkStruct_02064C28 *param1)
 {
     if (sub_020658DC(mapObj) == 1) {
         sub_02062D10(mapObj);
 
         if (sub_0206553C(mapObj) == 1) {
-            sub_020655E4(mapObj, &slotsMinigameDTO->slotMachineVariant);
+            sub_020655E4(mapObj, &param1->unk_04);
         }
 
-        slotsMinigameDTO->coins = 0;
+        param1->unk_00 = 0;
     }
 
     return 0;
@@ -817,12 +817,12 @@ static int (*const Unk_020EE814[])(MapObject *, UnkStruct_02064C28 *) = {
     sub_02064D68
 };
 
-static void sub_02064D98(MapObject *mapObj, int slotsMinigameDTO, int param2, int param3)
+static void sub_02064D98(MapObject *mapObj, int param1, int param2, int param3)
 {
     UnkStruct_02064D98 *v0 = sub_02062A54(mapObj, (sizeof(UnkStruct_02064D98)));
-    v0->unk_02 = slotsMinigameDTO;
+    v0->unk_02 = param1;
     v0->unk_03 = param2;
-    v0->slotMachineVariant = param3;
+    v0->unk_04 = param3;
 
     if (sub_0206553C(mapObj) == 1) {
         sub_02065550(mapObj, &v0->unk_08);
@@ -913,39 +913,39 @@ void sub_02064EC8(MapObject *mapObj)
 {
     UnkStruct_02064D98 *v0 = sub_02062A78(mapObj);
 
-    while (Unk_020EE7AC[v0->coins](mapObj, v0) == 1) {
+    while (Unk_020EE7AC[v0->unk_00](mapObj, v0) == 1) {
         (void)0;
     }
 }
 
-static int sub_02064EEC(MapObject *mapObj, UnkStruct_02064D98 *slotsMinigameDTO)
+static int sub_02064EEC(MapObject *mapObj, UnkStruct_02064D98 *param1)
 {
-    if (slotsMinigameDTO->unk_01 == slotsMinigameDTO->unk_02) {
-        if (slotsMinigameDTO->unk_03 == 0) {
+    if (param1->unk_01 == param1->unk_02) {
+        if (param1->unk_03 == 0) {
             int v0 = MapObject_GetXInitial(mapObj);
             int v1 = MapObject_GetX(mapObj);
 
             if (v0 == v1) {
-                slotsMinigameDTO->unk_01++;
+                param1->unk_01++;
             }
         } else {
             int v2 = MapObject_GetZInitial(mapObj);
             int v3 = MapObject_GetZ(mapObj);
 
             if (v2 == v3) {
-                slotsMinigameDTO->unk_01++;
+                param1->unk_01++;
             }
         }
     }
 
-    if (slotsMinigameDTO->unk_01 == 3) {
+    if (param1->unk_01 == 3) {
         int v4 = MapObject_GetXInitial(mapObj);
         int v5 = MapObject_GetZInitial(mapObj);
         int v6 = MapObject_GetX(mapObj);
         int v7 = MapObject_GetZ(mapObj);
 
         if ((v4 == v6) && (v5 == v7)) {
-            slotsMinigameDTO->unk_01 = 0;
+            param1->unk_01 = 0;
         }
     }
 
@@ -954,8 +954,8 @@ static int sub_02064EEC(MapObject *mapObj, UnkStruct_02064D98 *slotsMinigameDTO)
         int v9, v10;
         u32 v11;
 
-        v8 = sub_02065358(slotsMinigameDTO->slotMachineVariant);
-        v9 = v8[slotsMinigameDTO->unk_01];
+        v8 = sub_02065358(param1->unk_04);
+        v9 = v8[param1->unk_01];
 
         MapObject_Turn(mapObj, v9);
 
@@ -966,8 +966,8 @@ static int sub_02064EEC(MapObject *mapObj, UnkStruct_02064D98 *slotsMinigameDTO)
         v11 = sub_02063EBC(mapObj, v9);
 
         if (v11 & (1 << 0)) {
-            slotsMinigameDTO->unk_01++;
-            v9 = v8[slotsMinigameDTO->unk_01];
+            param1->unk_01++;
+            v9 = v8[param1->unk_01];
 
             MapObject_Turn(mapObj, v9);
 
@@ -988,26 +988,26 @@ static int sub_02064EEC(MapObject *mapObj, UnkStruct_02064D98 *slotsMinigameDTO)
         sub_02065668(mapObj, v10);
 
         if (sub_0206553C(mapObj) == 1) {
-            sub_02065568(mapObj, &slotsMinigameDTO->unk_08);
+            sub_02065568(mapObj, &param1->unk_08);
         }
     }
 
     sub_02062D04(mapObj);
-    slotsMinigameDTO->coins = 1;
+    param1->unk_00 = 1;
 
     return 1;
 }
 
-static int sub_02064FFC(MapObject *mapObj, UnkStruct_02064D98 *slotsMinigameDTO)
+static int sub_02064FFC(MapObject *mapObj, UnkStruct_02064D98 *param1)
 {
     if (sub_020658DC(mapObj) == 1) {
         sub_02062D10(mapObj);
 
         if (sub_0206553C(mapObj) == 1) {
-            sub_020655E4(mapObj, &slotsMinigameDTO->unk_08);
+            sub_020655E4(mapObj, &param1->unk_08);
         }
 
-        slotsMinigameDTO->coins = 0;
+        param1->unk_00 = 0;
     }
 
     return 0;
@@ -1018,13 +1018,13 @@ static int (*const Unk_020EE7AC[])(MapObject *, UnkStruct_02064D98 *) = {
     sub_02064FFC
 };
 
-static void sub_0206502C(MapObject *mapObj, int slotsMinigameDTO, int param2, int param3)
+static void sub_0206502C(MapObject *mapObj, int param1, int param2, int param3)
 {
     UnkStruct_0206502C *v0 = sub_02062A54(mapObj, (sizeof(UnkStruct_0206502C)));
 
-    v0->unk_02 = slotsMinigameDTO;
+    v0->unk_02 = param1;
     v0->unk_03 = param2;
-    v0->slotMachineVariant = param3;
+    v0->unk_04 = param3;
 
     if (sub_0206553C(mapObj) == 1) {
         sub_02065550(mapObj, &v0->unk_08);
@@ -1075,7 +1075,7 @@ void sub_020650DC(MapObject *mapObj)
 {
     UnkStruct_0206502C *v0 = sub_02062A78(mapObj);
 
-    while (Unk_020EE820[v0->coins](mapObj, v0) == 1) {
+    while (Unk_020EE820[v0->unk_00](mapObj, v0) == 1) {
         (void)0;
     }
 }
@@ -1093,7 +1093,7 @@ static void sub_02065100(UnkStruct_0206502C *param0)
     }
 }
 
-static int sub_02065124(MapObject *mapObj, UnkStruct_0206502C *slotsMinigameDTO)
+static int sub_02065124(MapObject *mapObj, UnkStruct_0206502C *param1)
 {
     if (MapObject_GetTrainerType(mapObj) == 0xa) {
         FieldSystem *fieldSystem = MapObject_FieldSystem(mapObj);
@@ -1107,54 +1107,54 @@ static int sub_02065124(MapObject *mapObj, UnkStruct_0206502C *slotsMinigameDTO)
 
             sub_02065668(mapObj, v4);
             sub_02062D04(mapObj);
-            slotsMinigameDTO->coins = 1;
+            param1->unk_00 = 1;
             return 1;
         }
     }
 
-    slotsMinigameDTO->coins = 2;
+    param1->unk_00 = 2;
 
     return 1;
 }
 
-static int sub_02065188(MapObject *mapObj, UnkStruct_0206502C *slotsMinigameDTO)
+static int sub_02065188(MapObject *mapObj, UnkStruct_0206502C *param1)
 {
     if (sub_020658DC(mapObj) == 1) {
         sub_02062D10(mapObj);
-        slotsMinigameDTO->coins = 2;
+        param1->unk_00 = 2;
     }
 
     return 0;
 }
 
-static int sub_020651A4(MapObject *mapObj, UnkStruct_0206502C *slotsMinigameDTO)
+static int sub_020651A4(MapObject *mapObj, UnkStruct_0206502C *param1)
 {
-    if (slotsMinigameDTO->unk_01 == slotsMinigameDTO->unk_02) {
-        if (slotsMinigameDTO->unk_03 == 0) {
+    if (param1->unk_01 == param1->unk_02) {
+        if (param1->unk_03 == 0) {
             int v0 = MapObject_GetXInitial(mapObj);
             int v1 = MapObject_GetX(mapObj);
 
             if (v0 == v1) {
-                sub_02065100(slotsMinigameDTO);
+                sub_02065100(param1);
             }
         } else {
             int v2 = MapObject_GetZInitial(mapObj);
             int v3 = MapObject_GetZ(mapObj);
 
             if (v2 == v3) {
-                sub_02065100(slotsMinigameDTO);
+                sub_02065100(param1);
             }
         }
     }
 
-    if (slotsMinigameDTO->unk_01 == 3) {
+    if (param1->unk_01 == 3) {
         int v4 = MapObject_GetXInitial(mapObj);
         int v5 = MapObject_GetZInitial(mapObj);
         int v6 = MapObject_GetX(mapObj);
         int v7 = MapObject_GetZ(mapObj);
 
         if ((v4 == v6) && (v5 == v7)) {
-            slotsMinigameDTO->unk_01 = 0;
+            param1->unk_01 = 0;
         }
     }
 
@@ -1163,8 +1163,8 @@ static int sub_020651A4(MapObject *mapObj, UnkStruct_0206502C *slotsMinigameDTO)
         int v9, v10;
         u32 v11;
 
-        v8 = sub_02065358(slotsMinigameDTO->slotMachineVariant);
-        v9 = v8[slotsMinigameDTO->unk_01];
+        v8 = sub_02065358(param1->unk_04);
+        v9 = v8[param1->unk_01];
 
         MapObject_Turn(mapObj, v9);
 
@@ -1175,8 +1175,8 @@ static int sub_020651A4(MapObject *mapObj, UnkStruct_0206502C *slotsMinigameDTO)
         v11 = sub_02063EBC(mapObj, v9);
 
         if (v11 & (1 << 0)) {
-            sub_02065100(slotsMinigameDTO);
-            v9 = v8[slotsMinigameDTO->unk_01];
+            sub_02065100(param1);
+            v9 = v8[param1->unk_01];
 
             MapObject_Turn(mapObj, v9);
 
@@ -1197,26 +1197,26 @@ static int sub_020651A4(MapObject *mapObj, UnkStruct_0206502C *slotsMinigameDTO)
         sub_02065668(mapObj, v10);
 
         if (sub_0206553C(mapObj) == 1) {
-            sub_02065568(mapObj, &slotsMinigameDTO->unk_08);
+            sub_02065568(mapObj, &param1->unk_08);
         }
     }
 
     sub_02062D04(mapObj);
-    slotsMinigameDTO->coins = 3;
+    param1->unk_00 = 3;
 
     return 1;
 }
 
-static int sub_020652BC(MapObject *mapObj, UnkStruct_0206502C *slotsMinigameDTO)
+static int sub_020652BC(MapObject *mapObj, UnkStruct_0206502C *param1)
 {
     if (sub_020658DC(mapObj) == 1) {
         sub_02062D10(mapObj);
 
         if (sub_0206553C(mapObj) == 1) {
-            sub_020655E4(mapObj, &slotsMinigameDTO->unk_08);
+            sub_020655E4(mapObj, &param1->unk_08);
         }
 
-        slotsMinigameDTO->coins = 0;
+        param1->unk_00 = 0;
     }
 
     return 0;
@@ -1229,11 +1229,11 @@ static int (*const Unk_020EE820[])(MapObject *, UnkStruct_0206502C *) = {
     sub_020652BC
 };
 
-static int sub_020652EC(const int *param0, int slotsMinigameDTO)
+static int sub_020652EC(const int *param0, int param1)
 {
     int i = 0;
 
-    while (param0[i] != slotsMinigameDTO) {
+    while (param0[i] != param1) {
         i++;
     }
 
@@ -1241,24 +1241,24 @@ static int sub_020652EC(const int *param0, int slotsMinigameDTO)
     return i;
 }
 
-static int sub_0206530C(const int *param0, int slotsMinigameDTO)
+static int sub_0206530C(const int *param0, int param1)
 {
-    return param0[LCRNG_Next() % sub_020652EC(param0, slotsMinigameDTO)];
+    return param0[LCRNG_Next() % sub_020652EC(param0, param1)];
 }
 
-static int sub_02065330(int param0, int slotsMinigameDTO)
+static int sub_02065330(int param0, int param1)
 {
     const int *v0 = sub_02065358(param0);
-    return v0[LCRNG_Next() % sub_020652EC(v0, slotsMinigameDTO)];
+    return v0[LCRNG_Next() % sub_020652EC(v0, param1)];
 }
 
 static const int *sub_02065358(int param0)
 {
     const UnkStruct_020EEB08 *v0 = Unk_020EEB08;
 
-    while (v0->coins != 39) {
-        if (v0->coins == param0) {
-            return v0->slotMachineVariant;
+    while (v0->unk_00 != 39) {
+        if (v0->unk_00 == param0) {
+            return v0->unk_04;
         }
 
         v0++;
@@ -1334,9 +1334,9 @@ static int sub_0206537C(MapObject *mapObj)
     return -1;
 }
 
-static int sub_02065448(MapObject *mapObj, int slotsMinigameDTO, int param2)
+static int sub_02065448(MapObject *mapObj, int param1, int param2)
 {
-    const int *v0 = sub_02065358(slotsMinigameDTO);
+    const int *v0 = sub_02065358(param1);
     int v1 = sub_020652EC(v0, param2);
 
     if (v1 == 1) {
@@ -1438,43 +1438,43 @@ static int sub_0206553C(MapObject *mapObj)
     return 0;
 }
 
-static void sub_02065550(MapObject *mapObj, UnkStruct_02065550 *slotsMinigameDTO)
+static void sub_02065550(MapObject *mapObj, UnkStruct_02065550 *param1)
 {
     if (MapObject_GetTrainerType(mapObj) == 0x7) {
-        slotsMinigameDTO->unk_01 = 0;
+        param1->unk_01 = 0;
     } else {
-        slotsMinigameDTO->unk_01 = 1;
+        param1->unk_01 = 1;
     }
 }
 
-static void sub_02065568(MapObject *mapObj, UnkStruct_02065550 *slotsMinigameDTO)
+static void sub_02065568(MapObject *mapObj, UnkStruct_02065550 *param1)
 {
     int v0, v1 = MapObject_GetFacingDir(mapObj);
 
-    for (v0 = 0; (v0 < 4 && v1 != Unk_020EEAB0[slotsMinigameDTO->unk_01][v0]); v0++) {
+    for (v0 = 0; (v0 < 4 && v1 != Unk_020EEAB0[param1->unk_01][v0]); v0++) {
         (void)0;
     }
 
     GF_ASSERT(v0 < 4);
 
-    slotsMinigameDTO->coins = v1;
+    param1->unk_00 = v1;
 
     v0 = (v0 + 1) % 4;
-    v1 = Unk_020EEAB0[slotsMinigameDTO->unk_01][v0];
+    v1 = Unk_020EEAB0[param1->unk_01][v0];
 
     if (MapObject_CheckStatus(mapObj, MAP_OBJ_STATUS_LOCK_DIR)) {
-        slotsMinigameDTO->unk_02 = 1;
+        param1->unk_02 = 1;
     } else {
-        slotsMinigameDTO->unk_02 = 0;
+        param1->unk_02 = 0;
     }
 
     MapObject_TryFace(mapObj, v1);
     MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_LOCK_DIR);
 }
 
-static void sub_020655E4(MapObject *mapObj, UnkStruct_02065550 *slotsMinigameDTO)
+static void sub_020655E4(MapObject *mapObj, UnkStruct_02065550 *param1)
 {
-    if (slotsMinigameDTO->unk_02 == 0) {
+    if (param1->unk_02 == 0) {
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_LOCK_DIR);
     }
 }

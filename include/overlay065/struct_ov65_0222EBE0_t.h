@@ -25,10 +25,10 @@
 #include "trainer_info.h"
 
 struct UnkStruct_ov65_0222EBE0_t {
-    WiFiList *coins;
-    UnkStruct_0207DFAC *slotMachineVariant;
+    WiFiList *unk_00;
+    UnkStruct_0207DFAC *unk_04;
     int unk_08;
-    u8 slotsMinigameDTO[32];
+    u8 unk_0C[32];
     u8 unk_2C[32];
     int unk_4C[32];
     int unk_CC[32];

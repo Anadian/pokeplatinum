@@ -217,21 +217,21 @@ const UnkStruct_020F3DCC *sub_0208C010(int param0)
     return Unk_020F3F34[param0].unk_20;
 }
 
-const UnkStruct_020F3DCC *sub_0208C034(UnkStruct_0208C06C *param0, int slotsMinigameDTO)
+const UnkStruct_020F3DCC *sub_0208C034(UnkStruct_0208C06C *param0, int param1)
 {
-    if (slotsMinigameDTO == 0) {
+    if (param1 == 0) {
         if (sub_0208BE68(param0) == 0) {
             return &Unk_020F3D18[0];
         }
     }
 
-    if (slotsMinigameDTO == 3) {
+    if (param1 == 3) {
         if (sub_0208BE68(param0) == 0) {
             return &Unk_020F355C[0];
         }
     }
 
-    return sub_0208C010(slotsMinigameDTO);
+    return sub_0208C010(param1);
 }
 
 void sub_0208C06C(UnkStruct_0208C06C *param0)
@@ -241,7 +241,7 @@ void sub_0208C06C(UnkStruct_0208C06C *param0)
     param0->unk_534.unk_1AC = 0;
 
     for (v0 = 0; v0 < 5; v0++) {
-        if (v1[v0].coins == 0) {
+        if (v1[v0].unk_00 == 0) {
             continue;
         }
 

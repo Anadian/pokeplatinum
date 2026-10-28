@@ -33,20 +33,20 @@ void ov17_02250D28(UnkStruct_ov17_0224FCA0 *param0);
 void ov17_02250D8C(UnkStruct_ov17_0224FCA0 *param0);
 void ov17_02250DB0(UnkStruct_ov17_0224FCA0 *param0);
 void ov17_02250EFC(UnkStruct_ov17_0224FCA0 *param0);
-void ov17_02250F68(UnkStruct_ov17_0224FCA0 *param0, NARC *slotsMinigameDTO);
+void ov17_02250F68(UnkStruct_ov17_0224FCA0 *param0, NARC *param1);
 void ov17_02250FBC(UnkStruct_ov17_0224FCA0 *param0);
 void ov17_02250FE4(UnkStruct_ov17_0224FCA0 *param0);
 void ov17_02251020(UnkStruct_ov17_0224FCA0 *param0);
-void ov17_0225122C(UnkStruct_ov17_0224FCA0 *param0, NARC *slotsMinigameDTO);
+void ov17_0225122C(UnkStruct_ov17_0224FCA0 *param0, NARC *param1);
 void ov17_022512E0(UnkStruct_ov17_0224FCA0 *param0);
-void ov17_0225131C(UnkStruct_ov17_0224FCA0 *param0, int slotsMinigameDTO, int param2);
-void ov17_02251344(UnkStruct_ov17_0224FCA0 *param0, NARC *slotsMinigameDTO);
+void ov17_0225131C(UnkStruct_ov17_0224FCA0 *param0, int param1, int param2);
+void ov17_02251344(UnkStruct_ov17_0224FCA0 *param0, NARC *param1);
 void ov17_022513C0(UnkStruct_ov17_0224FCA0 *param0);
-void ov17_022513F4(UnkStruct_ov17_0224FCA0 *param0, int slotsMinigameDTO, int param2, int param3, int param4);
+void ov17_022513F4(UnkStruct_ov17_0224FCA0 *param0, int param1, int param2, int param3, int param4);
 void ov17_02251544(UnkStruct_ov17_0224FCA0 *param0);
-void ov17_02251598(UnkStruct_ov17_0224FCA0 *param0, int slotsMinigameDTO, u8 *param2);
+void ov17_02251598(UnkStruct_ov17_0224FCA0 *param0, int param1, u8 *param2);
 void ov17_02251718(UnkStruct_ov17_0224FCA0 *param0, int contestantID, int param2, u8 *param3);
-void ov17_02251930(Contest *param0, int slotsMinigameDTO, s16 param2[]);
+void ov17_02251930(Contest *param0, int param1, s16 param2[]);
 void ov17_02251A1C(UnkStruct_ov17_0224FCA0 *param0);
 
 #endif // POKEPLATINUM_OV17_02250744_H

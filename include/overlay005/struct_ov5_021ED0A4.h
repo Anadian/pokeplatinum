@@ -10,10 +10,10 @@
 #include "resource_collection.h"
 
 typedef struct UnkStruct_ov5_021ED0A4_t {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
     int unk_10;
     int unk_14;
     int unk_18;

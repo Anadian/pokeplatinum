@@ -25,9 +25,9 @@
 
 typedef struct {
     enum HeapID heapID;
-    BOOL slotMachineVariant;
+    BOOL unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
     int unk_10;
     BOOL unk_14;
     u8 unk_18;

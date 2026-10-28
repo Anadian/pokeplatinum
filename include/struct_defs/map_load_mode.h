@@ -9,7 +9,7 @@ typedef struct MapLoadMode {
     u32 useSeparateTerrainAttributes : 4;
     u32 loadExtOverlay : 4;
     u32 separateTerrainAttributesBlockCount : 8;
-    u32 slotMachineVariant;
+    u32 unk_04;
 } MapLoadMode;
 
 #endif // POKEPLATINUM_STRUCT_MAP_LOAD_MODE_H

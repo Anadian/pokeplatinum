@@ -61,12 +61,12 @@ typedef struct UnkStruct_ov10_0221FB28_t UnkStruct_ov10_0221FB28;
 typedef u8 (*UnkFuncPtr_ov10_02222AD0)(UnkStruct_ov10_0221FB28 *);
 
 typedef struct {
-    u32 coins;
-    u16 slotMachineVariant;
+    u32 unk_00;
+    u16 unk_04;
     u16 unk_06;
     u16 unk_08;
     u16 unk_0A;
-    u8 slotsMinigameDTO;
+    u8 unk_0C;
     u8 unk_0D;
     u8 unk_0E;
     u8 unk_0F;
@@ -77,9 +77,9 @@ typedef struct {
 
 typedef struct UnkStruct_ov10_0221FB28_t {
     TrainerIntroData *trainerIntroData;
-    const UnkFuncPtr_ov10_02222AD0 *slotMachineVariant;
+    const UnkFuncPtr_ov10_02222AD0 *unk_04;
     PaletteData *unk_08;
-    BgConfig *slotsMinigameDTO;
+    BgConfig *unk_0C;
     Window unk_10[24];
     SpriteSystem *unk_190;
     SpriteManager *unk_194;
@@ -127,7 +127,7 @@ typedef struct UnkStruct_ov10_0221FB28_t {
     BOOL unk_BC4;
 };
 
-static void ov10_0221F870(SysTask *param0, void *slotsMinigameDTO);
+static void ov10_0221F870(SysTask *param0, void *param1);
 static void ov10_0221F900(void);
 static u8 ov10_0221FB28(UnkStruct_ov10_0221FB28 *param0);
 static u8 ov10_0221FE10(UnkStruct_ov10_0221FB28 *param0);
@@ -140,7 +140,7 @@ static u8 ov10_022203A0(UnkStruct_ov10_0221FB28 *param0);
 static u8 ov10_022203BC(UnkStruct_ov10_0221FB28 *param0);
 static u8 ov10_022204C0(UnkStruct_ov10_0221FB28 *param0);
 static u8 ov10_02220A34(UnkStruct_ov10_0221FB28 *param0);
-static u8 ov10_02220A50(SysTask *param0, UnkStruct_ov10_0221FB28 *slotsMinigameDTO);
+static u8 ov10_02220A50(SysTask *param0, UnkStruct_ov10_0221FB28 *param1);
 static u8 ov10_022205F4(UnkStruct_ov10_0221FB28 *param0);
 static u8 ov10_02220604(UnkStruct_ov10_0221FB28 *param0);
 static u8 ov10_02220698(UnkStruct_ov10_0221FB28 *param0);
@@ -151,22 +151,22 @@ static u8 ov10_0221FD00(UnkStruct_ov10_0221FB28 *param0);
 static u8 ov10_0221FBFC(UnkStruct_ov10_0221FB28 *param0);
 static u8 ov10_022209E0(UnkStruct_ov10_0221FB28 *param0);
 static BOOL ov10_02220AD0(void);
-static void ov10_02220B00(UnkStruct_ov10_0221FB28 *param0, SpriteResourceCapacities *slotsMinigameDTO, int param2);
-static ManagedSprite *ov10_02220BA0(UnkStruct_ov10_0221FB28 *param0, const u32 *slotsMinigameDTO);
+static void ov10_02220B00(UnkStruct_ov10_0221FB28 *param0, SpriteResourceCapacities *param1, int param2);
+static ManagedSprite *ov10_02220BA0(UnkStruct_ov10_0221FB28 *param0, const u32 *param1);
 static void ov10_02220BE8(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_02220C2C(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_02220C64(void *param0);
-static void ov10_02220C94(UnkStruct_ov10_0221FB28 *param0, GXBG0As slotsMinigameDTO, int param2);
+static void ov10_02220C94(UnkStruct_ov10_0221FB28 *param0, GXBG0As param1, int param2);
 static void ov10_02220E30(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_02220E70(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_02221004(void);
 static void ov10_0222101C(UnkStruct_ov10_0221FB28 *param0);
-static void ov10_022214A0(UnkStruct_ov10_0221FB28 *param0, int slotsMinigameDTO, int param2);
+static void ov10_022214A0(UnkStruct_ov10_0221FB28 *param0, int param1, int param2);
 static void ov10_022210F4(UnkStruct_ov10_0221FB28 *param0);
-static void ov10_02221188(UnkStruct_ov10_0221FB28 *param0, u8 slotsMinigameDTO, s16 param2, s16 param3);
+static void ov10_02221188(UnkStruct_ov10_0221FB28 *param0, u8 param1, s16 param2, s16 param3);
 static void ov10_022212AC(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_022213B8(UnkStruct_ov10_0221FB28 *param0);
-static void ov10_02221440(UnkStruct_ov10_0221FB28 *param0, u32 slotsMinigameDTO, s16 param2, s16 param3);
+static void ov10_02221440(UnkStruct_ov10_0221FB28 *param0, u32 param1, s16 param2, s16 param3);
 static void ov10_0222146C(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_022217CC(UnkStruct_ov10_0221FB28 *param0);
 static int ov10_022218BC(UnkStruct_ov10_0221FB28 *param0);
@@ -181,7 +181,7 @@ static void ov10_02222050(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_02221E58(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_02221AE4(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_02221C14(UnkStruct_ov10_0221FB28 *param0);
-static void ov10_02221C48(UnkStruct_ov10_0221FB28 *param0, u8 slotsMinigameDTO);
+static void ov10_02221C48(UnkStruct_ov10_0221FB28 *param0, u8 param1);
 static void ov10_022223C0(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_022223E8(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_02222720(UnkStruct_ov10_0221FB28 *param0);
@@ -189,9 +189,9 @@ static void ov10_022220B4(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_0222216C(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_02222208(UnkStruct_ov10_0221FB28 *param0);
 static void ov10_022222A4(UnkStruct_ov10_0221FB28 *param0);
-static void ov10_02222340(UnkStruct_ov10_0221FB28 *param0, s16 slotsMinigameDTO);
-static u32 ov10_02221928(u32 param0, BOOL slotsMinigameDTO);
-static u32 ov10_0222194C(u32 param0, BOOL slotsMinigameDTO);
+static void ov10_02222340(UnkStruct_ov10_0221FB28 *param0, s16 param1);
+static u32 ov10_02221928(u32 param0, BOOL param1);
+static u32 ov10_0222194C(u32 param0, BOOL param1);
 static void ov10_022227A4(TrainerIntroData *trainerIntroData);
 static u8 ov10_02220700(UnkStruct_ov10_0221FB28 *param0);
 static u8 ov10_022208B0(UnkStruct_ov10_0221FB28 *param0);
@@ -388,9 +388,9 @@ void ov10_0221F800(TrainerIntroData *trainerIntroData)
     }
 }
 
-static void ov10_0221F870(SysTask *param0, void *slotsMinigameDTO)
+static void ov10_0221F870(SysTask *param0, void *param1)
 {
-    UnkStruct_ov10_0221FB28 *v0 = slotsMinigameDTO;
+    UnkStruct_ov10_0221FB28 *v0 = param1;
 
     switch (v0->unk_B73) {
     case 0:
@@ -398,7 +398,7 @@ static void ov10_0221F870(SysTask *param0, void *slotsMinigameDTO)
         break;
     case 1:
         while (TRUE) {
-            u8 v1 = v0->slotMachineVariant[v0->unk_B74](v0);
+            u8 v1 = v0->unk_04[v0->unk_B74](v0);
 
             if (v1 != 0) {
                 v0->unk_B74++;
@@ -461,7 +461,7 @@ static void ov10_0221F930(UnkStruct_ov10_0221FB28 *param0)
         ov10_022229D4(param0);
         MessageLoader_GetString(param0->unk_BA0, 0, param0->unk_BA8);
         param0->unk_BAC = Text_AddPrinterWithParams(&param0->unk_B7C, FONT_MESSAGE, param0->unk_BA8, 0, 0, TEXT_SPEED_INSTANT, NULL);
-        Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 0);
+        Bg_ScheduleTilemapTransfer(param0->unk_0C, 0);
         param0->unk_BB0 = 2;
         break;
     case 2:
@@ -482,9 +482,9 @@ static void ov10_0221F930(UnkStruct_ov10_0221FB28 *param0)
         Window_DrawMessageBoxWithScrollCursor(&param0->unk_B8C, 0, 1, 15);
 
         param0->unk_BAC = Text_AddPrinterWithParams(&param0->unk_B8C, FONT_MESSAGE, param0->unk_BA8, 0, 0, TEXT_SPEED_INSTANT, NULL);
-        param0->unk_BB4 = Menu_MakeYesNoChoiceWithCursorAt(param0->slotsMinigameDTO, &Unk_ov10_02222A68, 1 + (18 + 12), 14, 1, param0->trainerIntroData->heapID);
+        param0->unk_BB4 = Menu_MakeYesNoChoiceWithCursorAt(param0->unk_0C, &Unk_ov10_02222A68, 1 + (18 + 12), 14, 1, param0->trainerIntroData->heapID);
 
-        Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 0);
+        Bg_ScheduleTilemapTransfer(param0->unk_0C, 0);
         param0->unk_BB0 = 4;
         break;
     case 4: {
@@ -505,7 +505,7 @@ static void ov10_0221F930(UnkStruct_ov10_0221FB28 *param0)
         ov10_022229D4(param0);
         MessageLoader_GetString(param0->unk_BA0, 5, param0->unk_BA8);
         param0->unk_BAC = Text_AddPrinterWithParams(&param0->unk_B7C, FONT_MESSAGE, param0->unk_BA8, 0, 0, TEXT_SPEED_INSTANT, NULL);
-        Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 0);
+        Bg_ScheduleTilemapTransfer(param0->unk_0C, 0);
         param0->unk_BB0 = 6;
         break;
     case 6:
@@ -517,7 +517,7 @@ static void ov10_0221F930(UnkStruct_ov10_0221FB28 *param0)
         }
 
         Window_EraseMessageBox(&param0->unk_B7C, 0);
-        Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 0);
+        Bg_ScheduleTilemapTransfer(param0->unk_0C, 0);
         param0->unk_BB0 = 8;
         break;
     case 8:
@@ -541,7 +541,7 @@ static u8 ov10_0221FB28(UnkStruct_ov10_0221FB28 *param0)
 
     ov10_0221F900();
 
-    param0->slotsMinigameDTO = BgConfig_New(param0->trainerIntroData->heapID);
+    param0->unk_0C = BgConfig_New(param0->trainerIntroData->heapID);
     param0->unk_08 = PaletteData_New(param0->trainerIntroData->heapID);
 
     PaletteData_AllocBuffer(param0->unk_08, PLTTBUF_MAIN_BG, PALETTE_SIZE_BYTES * 16, param0->trainerIntroData->heapID);
@@ -553,16 +553,16 @@ static u8 ov10_0221FB28(UnkStruct_ov10_0221FB28 *param0)
 
     switch (param0->trainerIntroData->mode) {
     case 0:
-        param0->slotMachineVariant = Unk_ov10_02222AD0;
+        param0->unk_04 = Unk_ov10_02222AD0;
         break;
     case 1:
-        param0->slotMachineVariant = Unk_ov10_02222AA8;
+        param0->unk_04 = Unk_ov10_02222AA8;
         break;
     case 2:
         if (param0->trainerIntroData->battleResult == 3) {
-            param0->slotMachineVariant = Unk_ov10_02222C38;
+            param0->unk_04 = Unk_ov10_02222C38;
         } else {
-            param0->slotMachineVariant = Unk_ov10_02222CA8;
+            param0->unk_04 = Unk_ov10_02222CA8;
         }
 
         ov10_022227A4(param0->trainerIntroData);
@@ -702,13 +702,13 @@ static u8 ov10_0221FE10(UnkStruct_ov10_0221FB28 *param0)
 
 static u8 ov10_0221FE48(UnkStruct_ov10_0221FB28 *param0)
 {
-    if (Bg_GetXOffset(param0->slotsMinigameDTO, 3) <= 24) {
+    if (Bg_GetXOffset(param0->unk_0C, 3) <= 24) {
         param0->unk_B76 = 0;
         param0->unk_B6C = 0;
         param0->unk_B6E = 0;
 
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 0, 24);
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 0, -24);
+        Bg_ScheduleScroll(param0->unk_0C, 3, 0, 24);
+        Bg_ScheduleScroll(param0->unk_0C, 2, 0, -24);
 
         ov10_02221188(param0, 0, 0, 0);
         ov10_02221188(param0, 1, 0, 0);
@@ -722,8 +722,8 @@ static u8 ov10_0221FE48(UnkStruct_ov10_0221FB28 *param0)
         return 1;
     }
 
-    Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 2, param0->unk_B68);
-    Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 1, param0->unk_B68);
+    Bg_ScheduleScroll(param0->unk_0C, 3, 2, param0->unk_B68);
+    Bg_ScheduleScroll(param0->unk_0C, 2, 1, param0->unk_B68);
 
     param0->unk_B76++;
 
@@ -757,10 +757,10 @@ static u8 ov10_02220014(UnkStruct_ov10_0221FB28 *param0)
     }
 
     if (param0->unk_B76 == 24) {
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 0, 24);
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 0, -24);
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 3, 0);
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 3, 0);
+        Bg_ScheduleScroll(param0->unk_0C, 3, 0, 24);
+        Bg_ScheduleScroll(param0->unk_0C, 2, 0, -24);
+        Bg_ScheduleScroll(param0->unk_0C, 3, 3, 0);
+        Bg_ScheduleScroll(param0->unk_0C, 2, 3, 0);
 
         ov10_02221188(param0, 0, 0, 0);
         ov10_02221188(param0, 1, 0, 0);
@@ -783,10 +783,10 @@ static u8 ov10_02220014(UnkStruct_ov10_0221FB28 *param0)
             v1 *= -1;
         }
 
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 0, 24 + v0);
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 0, -24 + v0);
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 3, v1);
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 3, v1);
+        Bg_ScheduleScroll(param0->unk_0C, 3, 0, 24 + v0);
+        Bg_ScheduleScroll(param0->unk_0C, 2, 0, -24 + v0);
+        Bg_ScheduleScroll(param0->unk_0C, 3, 3, v1);
+        Bg_ScheduleScroll(param0->unk_0C, 2, 3, v1);
 
         ov10_02221188(param0, 0, v0, v1);
         ov10_02221188(param0, 1, v0, v1);
@@ -822,8 +822,8 @@ static u8 ov10_02220228(UnkStruct_ov10_0221FB28 *param0)
         Sound_PlayEffect(SEQ_SE_DP_VSDEMO05_sseq);
     }
 
-    Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 1, 16);
-    Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 2, 16);
+    Bg_ScheduleScroll(param0->unk_0C, 3, 1, 16);
+    Bg_ScheduleScroll(param0->unk_0C, 2, 2, 16);
 
     param0->unk_B76++;
 
@@ -876,8 +876,8 @@ static u8 ov10_022203A0(UnkStruct_ov10_0221FB28 *param0)
 
 static u8 ov10_022203BC(UnkStruct_ov10_0221FB28 *param0)
 {
-    Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 2, Unk_ov10_02222A7C[param0->unk_B76][0]);
-    Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 2, Unk_ov10_02222A7C[param0->unk_B76][0]);
+    Bg_ScheduleScroll(param0->unk_0C, 2, 2, Unk_ov10_02222A7C[param0->unk_B76][0]);
+    Bg_ScheduleScroll(param0->unk_0C, 3, 2, Unk_ov10_02222A7C[param0->unk_B76][0]);
     ov10_02221188(param0, 0, Unk_ov10_02222A7C[param0->unk_B76][1], 0);
     ov10_02221188(param0, 1, Unk_ov10_02222A7C[param0->unk_B76][1], 0);
     ov10_02221188(param0, 2, Unk_ov10_02222A7C[param0->unk_B76][1], 0);
@@ -903,8 +903,8 @@ static u8 ov10_022203BC(UnkStruct_ov10_0221FB28 *param0)
 
 static u8 ov10_022204C0(UnkStruct_ov10_0221FB28 *param0)
 {
-    Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 1, Unk_ov10_02222A7C[param0->unk_B76][0]);
-    Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 1, Unk_ov10_02222A7C[param0->unk_B76][0]);
+    Bg_ScheduleScroll(param0->unk_0C, 2, 1, Unk_ov10_02222A7C[param0->unk_B76][0]);
+    Bg_ScheduleScroll(param0->unk_0C, 3, 1, Unk_ov10_02222A7C[param0->unk_B76][0]);
 
     ov10_02221188(param0, 0, -Unk_ov10_02222A7C[param0->unk_B76][1], 0);
     ov10_02221188(param0, 1, -Unk_ov10_02222A7C[param0->unk_B76][1], 0);
@@ -1037,13 +1037,13 @@ static u8 ov10_02220700(UnkStruct_ov10_0221FB28 *param0)
         break;
     default:
         Window_EraseMessageBox(&param0->unk_B7C, 0);
-        Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 0);
+        Bg_ScheduleTilemapTransfer(param0->unk_0C, 0);
         param0->unk_B76 = 0;
         param0->unk_B75 = 64 / 3;
         return 1;
     }
 
-    Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 0);
+    Bg_ScheduleTilemapTransfer(param0->unk_0C, 0);
     return 0;
 }
 
@@ -1073,7 +1073,7 @@ static u8 ov10_022208B0(UnkStruct_ov10_0221FB28 *param0)
         break;
     }
 
-    Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 0);
+    Bg_ScheduleTilemapTransfer(param0->unk_0C, 0);
     return 0;
 }
 
@@ -1126,33 +1126,33 @@ static u8 ov10_02220A34(UnkStruct_ov10_0221FB28 *param0)
     return 1;
 }
 
-static u8 ov10_02220A50(SysTask *param0, UnkStruct_ov10_0221FB28 *slotsMinigameDTO)
+static u8 ov10_02220A50(SysTask *param0, UnkStruct_ov10_0221FB28 *param1)
 {
     if (IsScreenFadeDone() == FALSE) {
         return 0;
     }
 
     SetVBlankCallback(NULL, NULL);
-    ov10_02222A48(slotsMinigameDTO);
+    ov10_02222A48(param1);
 
-    if (slotsMinigameDTO->trainerIntroData->mode != 0) {
-        ov10_02220DCC(slotsMinigameDTO);
-        ov10_02220DFC(slotsMinigameDTO);
-        ov10_02220E30(slotsMinigameDTO);
-        ov10_022218F4(slotsMinigameDTO);
-        ov10_0222146C(slotsMinigameDTO);
+    if (param1->trainerIntroData->mode != 0) {
+        ov10_02220DCC(param1);
+        ov10_02220DFC(param1);
+        ov10_02220E30(param1);
+        ov10_022218F4(param1);
+        ov10_0222146C(param1);
     } else {
-        ov10_02221A10(slotsMinigameDTO);
-        ov10_022223E8(slotsMinigameDTO);
+        ov10_02221A10(param1);
+        ov10_022223E8(param1);
     }
 
-    ov10_02220BE8(slotsMinigameDTO);
+    ov10_02220BE8(param1);
 
     VramTransfer_Free();
-    PaletteData_FreeBuffer(slotsMinigameDTO->unk_08, PLTTBUF_MAIN_BG);
-    PaletteData_Free(slotsMinigameDTO->unk_08);
+    PaletteData_FreeBuffer(param1->unk_08, PLTTBUF_MAIN_BG);
+    PaletteData_Free(param1->unk_08);
 
-    slotsMinigameDTO->trainerIntroData->isDone = 1;
+    param1->trainerIntroData->isDone = 1;
     SysTask_FinishAndFreeParam(param0);
 
     return 1;
@@ -1172,7 +1172,7 @@ static BOOL ov10_02220AD0(void)
     return 0;
 }
 
-static void ov10_02220B00(UnkStruct_ov10_0221FB28 *param0, SpriteResourceCapacities *slotsMinigameDTO, int param2)
+static void ov10_02220B00(UnkStruct_ov10_0221FB28 *param0, SpriteResourceCapacities *param1, int param2)
 {
     VramTransfer_New(64, param0->trainerIntroData->heapID);
 
@@ -1198,11 +1198,11 @@ static void ov10_02220B00(UnkStruct_ov10_0221FB28 *param0, SpriteResourceCapacit
     }
 
     SpriteSystem_InitSprites(param0->unk_190, param0->unk_194, param2);
-    SpriteSystem_InitManagerWithCapacities(param0->unk_190, param0->unk_194, slotsMinigameDTO);
+    SpriteSystem_InitManagerWithCapacities(param0->unk_190, param0->unk_194, param1);
     GXLayers_EngineAToggleLayers(GX_PLANEMASK_OBJ, 1);
 }
 
-static ManagedSprite *ov10_02220BA0(UnkStruct_ov10_0221FB28 *param0, const u32 *slotsMinigameDTO)
+static ManagedSprite *ov10_02220BA0(UnkStruct_ov10_0221FB28 *param0, const u32 *param1)
 {
     SpriteTemplate v0;
 
@@ -1210,14 +1210,14 @@ static ManagedSprite *ov10_02220BA0(UnkStruct_ov10_0221FB28 *param0, const u32 *
     v0.y = 0;
     v0.z = 0;
     v0.animIdx = 0;
-    v0.priority = slotsMinigameDTO[5];
-    v0.plttIdx = slotsMinigameDTO[6];
+    v0.priority = param1[5];
+    v0.plttIdx = param1[6];
     v0.vramType = NNS_G2D_VRAM_TYPE_2DMAIN;
-    v0.resources[0] = slotsMinigameDTO[0];
-    v0.resources[1] = slotsMinigameDTO[1];
-    v0.resources[2] = slotsMinigameDTO[2];
-    v0.resources[3] = slotsMinigameDTO[3];
-    v0.bgPriority = slotsMinigameDTO[4];
+    v0.resources[0] = param1[0];
+    v0.resources[1] = param1[1];
+    v0.resources[2] = param1[2];
+    v0.resources[3] = param1[3];
+    v0.bgPriority = param1[4];
     v0.vramTransfer = FALSE;
 
     return SpriteSystem_NewSprite(param0->unk_190, param0->unk_194, &v0);
@@ -1248,7 +1248,7 @@ static void ov10_02220C64(void *param0)
 {
     UnkStruct_ov10_0221FB28 *v0 = param0;
 
-    Bg_RunScheduledUpdates(v0->slotsMinigameDTO);
+    Bg_RunScheduledUpdates(v0->unk_0C);
     PaletteData_CommitFadedBuffers(v0->unk_08);
     VramTransfer_Process();
     SpriteSystem_TransferOam();
@@ -1256,9 +1256,9 @@ static void ov10_02220C64(void *param0)
     OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
-static void ov10_02220C94(UnkStruct_ov10_0221FB28 *param0, GXBG0As slotsMinigameDTO, int param2)
+static void ov10_02220C94(UnkStruct_ov10_0221FB28 *param0, GXBG0As param1, int param2)
 {
-    param0->unk_B9C = slotsMinigameDTO;
+    param0->unk_B9C = param1;
 
     {
         GraphicsModes v0 = {
@@ -1268,7 +1268,7 @@ static void ov10_02220C94(UnkStruct_ov10_0221FB28 *param0, GXBG0As slotsMinigame
             GX_BG0_AS_3D,
         };
 
-        v0.bg0As2DOr3D = slotsMinigameDTO;
+        v0.bg0As2DOr3D = param1;
         SetAllGraphicsModes(&v0);
     }
 
@@ -1288,9 +1288,9 @@ static void ov10_02220C94(UnkStruct_ov10_0221FB28 *param0, GXBG0As slotsMinigame
             .mosaic = FALSE,
         };
 
-        Bg_InitFromTemplate(param0->slotsMinigameDTO, BG_LAYER_MAIN_3, &v1, 0);
-        Bg_ClearTilemap(param0->slotsMinigameDTO, BG_LAYER_MAIN_3);
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 3, 0, 256);
+        Bg_InitFromTemplate(param0->unk_0C, BG_LAYER_MAIN_3, &v1, 0);
+        Bg_ClearTilemap(param0->unk_0C, BG_LAYER_MAIN_3);
+        Bg_ScheduleScroll(param0->unk_0C, 3, 0, 256);
     }
 
     {
@@ -1309,9 +1309,9 @@ static void ov10_02220C94(UnkStruct_ov10_0221FB28 *param0, GXBG0As slotsMinigame
             .mosaic = FALSE,
         };
 
-        Bg_InitFromTemplate(param0->slotsMinigameDTO, BG_LAYER_MAIN_2, &v2, 0);
-        Bg_ClearTilemap(param0->slotsMinigameDTO, BG_LAYER_MAIN_2);
-        Bg_ScheduleScroll(param0->slotsMinigameDTO, 2, 0, -256);
+        Bg_InitFromTemplate(param0->unk_0C, BG_LAYER_MAIN_2, &v2, 0);
+        Bg_ClearTilemap(param0->unk_0C, BG_LAYER_MAIN_2);
+        Bg_ScheduleScroll(param0->unk_0C, 2, 0, -256);
     }
 
     {
@@ -1330,16 +1330,16 @@ static void ov10_02220C94(UnkStruct_ov10_0221FB28 *param0, GXBG0As slotsMinigame
             .mosaic = FALSE,
         };
 
-        Bg_InitFromTemplate(param0->slotsMinigameDTO, BG_LAYER_MAIN_1, &v3, 0);
-        Bg_ClearTilemap(param0->slotsMinigameDTO, BG_LAYER_MAIN_1);
+        Bg_InitFromTemplate(param0->unk_0C, BG_LAYER_MAIN_1, &v3, 0);
+        Bg_ClearTilemap(param0->unk_0C, BG_LAYER_MAIN_1);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG1, 0);
 
         if (param2 == 1) {
-            Bg_SetOffset(param0->slotsMinigameDTO, BG_LAYER_MAIN_1, 3, 24);
+            Bg_SetOffset(param0->unk_0C, BG_LAYER_MAIN_1, 3, 24);
         }
     }
 
-    if (slotsMinigameDTO == GX_BG0_AS_2D) {
+    if (param1 == GX_BG0_AS_2D) {
         BgTemplate v4 = {
             .x = 0,
             .y = 0,
@@ -1355,8 +1355,8 @@ static void ov10_02220C94(UnkStruct_ov10_0221FB28 *param0, GXBG0As slotsMinigame
             .mosaic = FALSE,
         };
 
-        Bg_InitFromTemplate(param0->slotsMinigameDTO, BG_LAYER_MAIN_0, &v4, 0);
-        Bg_ClearTilemap(param0->slotsMinigameDTO, BG_LAYER_MAIN_0);
+        Bg_InitFromTemplate(param0->unk_0C, BG_LAYER_MAIN_0, &v4, 0);
+        Bg_ClearTilemap(param0->unk_0C, BG_LAYER_MAIN_0);
 
         if (param0->unk_BBC == 1) {
             GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG0, 1);
@@ -1395,25 +1395,25 @@ static void ov10_02220DFC(UnkStruct_ov10_0221FB28 *param0)
 static void ov10_02220E30(UnkStruct_ov10_0221FB28 *param0)
 {
     GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG0 | GX_PLANEMASK_BG1 | GX_PLANEMASK_BG2 | GX_PLANEMASK_BG3 | GX_PLANEMASK_OBJ, 0);
-    Bg_FreeTilemapBuffer(param0->slotsMinigameDTO, BG_LAYER_MAIN_3);
-    Bg_FreeTilemapBuffer(param0->slotsMinigameDTO, BG_LAYER_MAIN_2);
-    Bg_FreeTilemapBuffer(param0->slotsMinigameDTO, BG_LAYER_MAIN_1);
+    Bg_FreeTilemapBuffer(param0->unk_0C, BG_LAYER_MAIN_3);
+    Bg_FreeTilemapBuffer(param0->unk_0C, BG_LAYER_MAIN_2);
+    Bg_FreeTilemapBuffer(param0->unk_0C, BG_LAYER_MAIN_1);
 
     if (param0->unk_B9C == GX_BG0_AS_2D) {
-        Bg_FreeTilemapBuffer(param0->slotsMinigameDTO, BG_LAYER_MAIN_0);
+        Bg_FreeTilemapBuffer(param0->unk_0C, BG_LAYER_MAIN_0);
     }
 
-    Heap_Free(param0->slotsMinigameDTO);
+    Heap_Free(param0->unk_0C);
 }
 
 static void ov10_02220E70(UnkStruct_ov10_0221FB28 *param0)
 {
     NARC *v0 = NARC_ctor(NARC_INDEX_BATTLE__GRAPHIC__VS_DEMO_GRA, param0->trainerIntroData->heapID);
 
-    Graphics_LoadTilesToBgLayerFromOpenNARC(v0, 0, param0->slotsMinigameDTO, 1, 0, 0, 0, param0->trainerIntroData->heapID);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(v0, 4, param0->slotsMinigameDTO, 1, 0, 0, 0, param0->trainerIntroData->heapID);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(v0, 2, param0->slotsMinigameDTO, 2, 0, 0, 0, param0->trainerIntroData->heapID);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(v0, 3, param0->slotsMinigameDTO, 3, 0, 0, 0, param0->trainerIntroData->heapID);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(v0, 0, param0->unk_0C, 1, 0, 0, 0, param0->trainerIntroData->heapID);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(v0, 4, param0->unk_0C, 1, 0, 0, 0, param0->trainerIntroData->heapID);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(v0, 2, param0->unk_0C, 2, 0, 0, 0, param0->trainerIntroData->heapID);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(v0, 3, param0->unk_0C, 3, 0, 0, 0, param0->trainerIntroData->heapID);
     Graphics_LoadPaletteFromOpenNARC(v0, 1, 0, 0, 0, param0->trainerIntroData->heapID);
     PaletteData_LoadBufferFromHardware(param0->unk_08, PLTTBUF_MAIN_BG, 0, PALETTE_SIZE_BYTES * 5);
     Bg_MaskPalette(BG_LAYER_MAIN_1, 0x18c6);
@@ -1427,14 +1427,14 @@ static void ov10_02220F1C(UnkStruct_ov10_0221FB28 *param0)
     GF_ASSERT(param0->unk_B9C == GX_BG0_AS_2D && param0->trainerIntroData != NULL && param0->trainerIntroData->dto != NULL && param0->trainerIntroData->dto->options != NULL);
     v0 = Options_Frame(param0->trainerIntroData->dto->options);
 
-    LoadMessageBoxGraphics(param0->slotsMinigameDTO, BG_LAYER_MAIN_0, 1, 15, v0, param0->trainerIntroData->heapID);
+    LoadMessageBoxGraphics(param0->unk_0C, BG_LAYER_MAIN_0, 1, 15, v0, param0->trainerIntroData->heapID);
     PaletteData_LoadBufferFromHardware(param0->unk_08, PLTTBUF_MAIN_BG, PLTT_DEST(15), PALETTE_SIZE_BYTES * 1);
-    LoadStandardWindowGraphics(param0->slotsMinigameDTO, BG_LAYER_MAIN_0, 1 + (18 + 12), 14, 0, param0->trainerIntroData->heapID);
+    LoadStandardWindowGraphics(param0->unk_0C, BG_LAYER_MAIN_0, 1 + (18 + 12), 14, 0, param0->trainerIntroData->heapID);
     PaletteData_LoadBufferFromHardware(param0->unk_08, PLTTBUF_MAIN_BG, PLTT_DEST(14), PALETTE_SIZE_BYTES * 1);
     Font_LoadTextPalette(PAL_LOAD_MAIN_BG, PLTT_OFFSET(13), param0->trainerIntroData->heapID);
     PaletteData_LoadBufferFromHardware(param0->unk_08, PLTTBUF_MAIN_BG, PLTT_DEST(13), PALETTE_SIZE_BYTES * 1);
-    Window_Add(param0->slotsMinigameDTO, &param0->unk_B7C, 0, 0x2, 0x13, 27, 4, 13, (1 + (18 + 12)) + 9);
-    Window_Add(param0->slotsMinigameDTO, &param0->unk_B8C, 0, 0x2, 0x13, 27, 4, 13, (1 + (18 + 12)) + 9);
+    Window_Add(param0->unk_0C, &param0->unk_B7C, 0, 0x2, 0x13, 27, 4, 13, (1 + (18 + 12)) + 9);
+    Window_Add(param0->unk_0C, &param0->unk_B8C, 0, 0x2, 0x13, 27, 4, 13, (1 + (18 + 12)) + 9);
 }
 
 static void ov10_02221004(void)
@@ -1482,30 +1482,30 @@ static void ov10_022210F4(UnkStruct_ov10_0221FB28 *param0)
     NARC_dtor(v0);
 }
 
-static void ov10_02221188(UnkStruct_ov10_0221FB28 *param0, u8 slotsMinigameDTO, s16 param2, s16 param3)
+static void ov10_02221188(UnkStruct_ov10_0221FB28 *param0, u8 param1, s16 param2, s16 param3)
 {
     u32 v0;
     u8 v1[] = { 0, 3, 6, 9 };
 
     for (v0 = 0; v0 < 3; v0++) {
-        ManagedSprite_SetPositionXY(param0->unk_198[v1[slotsMinigameDTO] + v0], param0->unk_B58[slotsMinigameDTO] + v0 * 19 + param2, param0->unk_B5C[slotsMinigameDTO] + param3);
+        ManagedSprite_SetPositionXY(param0->unk_198[v1[param1] + v0], param0->unk_B58[param1] + v0 * 19 + param2, param0->unk_B5C[param1] + param3);
     }
 }
 
-static void ov10_022211F0(UnkStruct_ov10_0221FB28 *param0, Party *slotsMinigameDTO, u16 param2, u16 param3)
+static void ov10_022211F0(UnkStruct_ov10_0221FB28 *param0, Party *param1, u16 param2, u16 param3)
 {
     Pokemon *v0;
     u8 v1;
     u8 v2, v3, v4;
 
-    v3 = (u8)Party_GetCurrentCount(slotsMinigameDTO);
+    v3 = (u8)Party_GetCurrentCount(param1);
     v4 = 0;
 
     for (v1 = 0; v1 < param2; v1++) {
         ManagedSprite_SetAnim(param0->unk_198[v1 + param3], 0);
 
         if (v3 > v1) {
-            v0 = Party_GetPokemonBySlotIndex(slotsMinigameDTO, v1);
+            v0 = Party_GetPokemonBySlotIndex(param1, v1);
 
             if ((Pokemon_GetValue(v0, MON_DATA_SPECIES, NULL) == 0) || (Pokemon_GetValue(v0, MON_DATA_IS_EGG, NULL) != 0)) {
                 continue;
@@ -1539,22 +1539,22 @@ static void ov10_022212AC(UnkStruct_ov10_0221FB28 *param0)
     }
 }
 
-static void ov10_0222130C(UnkStruct_ov10_0221FB28 *param0, u32 slotsMinigameDTO, String *param2)
+static void ov10_0222130C(UnkStruct_ov10_0221FB28 *param0, u32 param1, String *param2)
 {
     Window *v0;
     UnkStruct_020127E8 v1;
 
     v0 = &param0->unk_10[0];
 
-    Window_AddToTopLeftCorner(param0->slotsMinigameDTO, v0, 8, 2, 0, 0);
+    Window_AddToTopLeftCorner(param0->unk_0C, v0, 8, 2, 0, 0);
     Text_AddPrinterWithParamsAndColor(v0, FONT_SYSTEM, param2, 0, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(3, 4, 0), NULL);
 
-    v1.coins = param0->unk_B38;
-    v1.slotMachineVariant = v0;
+    v1.unk_00 = param0->unk_B38;
+    v1.unk_04 = v0;
     v1.unk_08 = SpriteManager_GetSpriteList(param0->unk_194);
-    v1.slotsMinigameDTO = SpriteManager_FindPlttResourceProxy(param0->unk_194, 47111);
+    v1.unk_0C = SpriteManager_FindPlttResourceProxy(param0->unk_194, 47111);
     v1.unk_10 = NULL;
-    v1.unk_14 = ((1024 - (8 * 2) - (4 * 4)) - (8 * 2) * slotsMinigameDTO) * 0x20;
+    v1.unk_14 = ((1024 - (8 * 2) - (4 * 4)) - (8 * 2) * param1) * 0x20;
     v1.unk_18 = 0;
     v1.unk_1C = 0;
     v1.unk_20 = 2;
@@ -1562,9 +1562,9 @@ static void ov10_0222130C(UnkStruct_ov10_0221FB28 *param0, u32 slotsMinigameDTO,
     v1.unk_28 = NNS_G2D_VRAM_TYPE_2DMAIN;
     v1.heapID = param0->trainerIntroData->heapID;
 
-    param0->unk_B3C[slotsMinigameDTO] = sub_020127E8(&v1);
+    param0->unk_B3C[param1] = sub_020127E8(&v1);
 
-    sub_02012A60(param0->unk_B3C[slotsMinigameDTO], 0);
+    sub_02012A60(param0->unk_B3C[param1], 0);
     Window_Remove(v0);
 }
 
@@ -1587,9 +1587,9 @@ static void ov10_022213B8(UnkStruct_ov10_0221FB28 *param0)
     }
 }
 
-static void ov10_02221440(UnkStruct_ov10_0221FB28 *param0, u32 slotsMinigameDTO, s16 param2, s16 param3)
+static void ov10_02221440(UnkStruct_ov10_0221FB28 *param0, u32 param1, s16 param2, s16 param3)
 {
-    FontOAM_SetXY(param0->unk_B3C[slotsMinigameDTO], param0->unk_B60[slotsMinigameDTO] + param2, param0->unk_B64[slotsMinigameDTO] + param3);
+    FontOAM_SetXY(param0->unk_B3C[param1], param0->unk_B60[param1] + param2, param0->unk_B64[param1] + param3);
 }
 
 static void ov10_0222146C(UnkStruct_ov10_0221FB28 *param0)
@@ -1607,36 +1607,36 @@ static void ov10_0222146C(UnkStruct_ov10_0221FB28 *param0)
     sub_020127BC(param0->unk_B38);
 }
 
-static void ov10_022214A0(UnkStruct_ov10_0221FB28 *param0, int slotsMinigameDTO, int param2)
+static void ov10_022214A0(UnkStruct_ov10_0221FB28 *param0, int param1, int param2)
 {
     if (param0->trainerIntroData->playerSide == 1) {
         param0->unk_B58[0] = (24 - 4);
-        param0->unk_B5C[0] = (140 + 6) + slotsMinigameDTO;
+        param0->unk_B5C[0] = (140 + 6) + param1;
         param0->unk_B58[1] = ((24 - 4) + 19 * 3 + 4);
-        param0->unk_B5C[1] = ((140 + 6) + 16) + slotsMinigameDTO;
+        param0->unk_B5C[1] = ((140 + 6) + 16) + param1;
         param0->unk_B58[2] = (136 - 4 - 4);
         param0->unk_B5C[2] = 44 + param2;
         param0->unk_B58[3] = ((136 - 4 - 4) + 19 * 3 + 4);
         param0->unk_B5C[3] = (44 + 16) + param2;
         param0->unk_B60[0] = (15 - 4);
-        param0->unk_B64[0] = (114 + 6) + slotsMinigameDTO;
+        param0->unk_B64[0] = (114 + 6) + param1;
         param0->unk_B60[1] = 76;
-        param0->unk_B64[1] = (130 + 6) + slotsMinigameDTO;
+        param0->unk_B64[1] = (130 + 6) + param1;
         param0->unk_B60[2] = (123 - 4);
         param0->unk_B64[2] = 18 + param2;
         param0->unk_B60[3] = 184;
         param0->unk_B64[3] = 34 + param2;
     } else {
         param0->unk_B58[0] = 24;
-        param0->unk_B5C[0] = 160 + slotsMinigameDTO;
+        param0->unk_B5C[0] = 160 + param1;
         param0->unk_B58[1] = (24 + 19 * 3);
-        param0->unk_B5C[1] = 160 + slotsMinigameDTO;
+        param0->unk_B5C[1] = 160 + param1;
         param0->unk_B58[2] = 136;
         param0->unk_B5C[2] = 48 + param2;
         param0->unk_B58[3] = (136 + 19 * 3);
         param0->unk_B5C[3] = 48 + param2;
         param0->unk_B60[0] = 15;
-        param0->unk_B64[0] = 134 + slotsMinigameDTO;
+        param0->unk_B64[0] = 134 + param1;
         param0->unk_B60[2] = 128;
         param0->unk_B64[2] = 22 + param2;
     }
@@ -1773,12 +1773,12 @@ static void ov10_022218F4(UnkStruct_ov10_0221FB28 *param0)
     G3DPipelineBuffers_Free(param0->unk_B4C);
 }
 
-static u32 ov10_02221928(u32 param0, BOOL slotsMinigameDTO)
+static u32 ov10_02221928(u32 param0, BOOL param1)
 {
     u32 v0;
     NNSGfdTexKey v1;
 
-    v1 = NNS_GfdAllocTexVram(param0, slotsMinigameDTO, 0);
+    v1 = NNS_GfdAllocTexVram(param0, param1, 0);
     ParticleSystem_RegisterTextureKey(v1);
 
     GF_ASSERT(v1 != NNS_GFD_ALLOC_ERROR_TEXKEY);
@@ -1787,12 +1787,12 @@ static u32 ov10_02221928(u32 param0, BOOL slotsMinigameDTO)
     return v0;
 }
 
-static u32 ov10_0222194C(u32 param0, BOOL slotsMinigameDTO)
+static u32 ov10_0222194C(u32 param0, BOOL param1)
 {
     NNSGfdPlttKey v0;
     u32 v1;
 
-    v0 = NNS_GfdAllocPlttVram(param0, slotsMinigameDTO, NNS_GFD_ALLOC_FROM_LOW);
+    v0 = NNS_GfdAllocPlttVram(param0, param1, NNS_GFD_ALLOC_FROM_LOW);
     ParticleSystem_RegisterPaletteKey(v0);
 
     if (v0 == NNS_GFD_ALLOC_ERROR_PLTTKEY) {
@@ -1833,8 +1833,8 @@ static void ov10_02221970(UnkStruct_ov10_0221FB28 *param0)
             .mosaic = FALSE,
         };
 
-        Bg_InitFromTemplate(param0->slotsMinigameDTO, BG_LAYER_MAIN_1, &v1, 0);
-        Bg_ClearTilemap(param0->slotsMinigameDTO, BG_LAYER_MAIN_1);
+        Bg_InitFromTemplate(param0->unk_0C, BG_LAYER_MAIN_1, &v1, 0);
+        Bg_ClearTilemap(param0->unk_0C, BG_LAYER_MAIN_1);
     }
 
     {
@@ -1853,8 +1853,8 @@ static void ov10_02221970(UnkStruct_ov10_0221FB28 *param0)
             .mosaic = FALSE,
         };
 
-        Bg_InitFromTemplate(param0->slotsMinigameDTO, BG_LAYER_MAIN_2, &v2, 0);
-        Bg_ClearTilemap(param0->slotsMinigameDTO, BG_LAYER_MAIN_2);
+        Bg_InitFromTemplate(param0->unk_0C, BG_LAYER_MAIN_2, &v2, 0);
+        Bg_ClearTilemap(param0->unk_0C, BG_LAYER_MAIN_2);
     }
 
     {
@@ -1873,25 +1873,25 @@ static void ov10_02221970(UnkStruct_ov10_0221FB28 *param0)
             .mosaic = FALSE,
         };
 
-        Bg_InitFromTemplate(param0->slotsMinigameDTO, BG_LAYER_MAIN_3, &v3, 0);
+        Bg_InitFromTemplate(param0->unk_0C, BG_LAYER_MAIN_3, &v3, 0);
     }
 }
 
 static void ov10_02221A10(UnkStruct_ov10_0221FB28 *param0)
 {
     GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG1 | GX_PLANEMASK_BG2 | GX_PLANEMASK_BG3 | GX_PLANEMASK_OBJ, 0);
-    Bg_FreeTilemapBuffer(param0->slotsMinigameDTO, BG_LAYER_MAIN_3);
-    Bg_FreeTilemapBuffer(param0->slotsMinigameDTO, BG_LAYER_MAIN_2);
-    Bg_FreeTilemapBuffer(param0->slotsMinigameDTO, BG_LAYER_MAIN_1);
-    Heap_Free(param0->slotsMinigameDTO);
+    Bg_FreeTilemapBuffer(param0->unk_0C, BG_LAYER_MAIN_3);
+    Bg_FreeTilemapBuffer(param0->unk_0C, BG_LAYER_MAIN_2);
+    Bg_FreeTilemapBuffer(param0->unk_0C, BG_LAYER_MAIN_1);
+    Heap_Free(param0->unk_0C);
 }
 
 static void ov10_02221A3C(UnkStruct_ov10_0221FB28 *param0)
 {
     NARC *v0 = NARC_ctor(NARC_INDEX_GRAPHIC__PL_PLIST_GRA, param0->trainerIntroData->heapID);
 
-    Graphics_LoadTilesToBgLayerFromOpenNARC(v0, 15, param0->slotsMinigameDTO, 3, 0, 0, 0, param0->trainerIntroData->heapID);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(v0, 17, param0->slotsMinigameDTO, 3, 0, 0, 0, param0->trainerIntroData->heapID);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(v0, 15, param0->unk_0C, 3, 0, 0, 0, param0->trainerIntroData->heapID);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(v0, 17, param0->unk_0C, 3, 0, 0, 0, param0->trainerIntroData->heapID);
 
     {
         NNSG2dPaletteData *v1;
@@ -1919,17 +1919,17 @@ static void ov10_02221AE4(UnkStruct_ov10_0221FB28 *param0)
     for (v1 = 0; v1 < 6; v1++) {
         if ((v1 == 0) || (v1 == 3)) {
             v0 = param0->unk_298;
-        } else if (param0->unk_214[v1].slotMachineVariant == 0) {
+        } else if (param0->unk_214[v1].unk_04 == 0) {
             v0 = param0->unk_418;
         } else {
             v0 = param0->unk_358;
         }
 
-        Bg_CopyToTilemapRect(param0->slotsMinigameDTO, 2, Unk_ov10_02222A70[v1][0], Unk_ov10_02222A70[v1][1], 16, 6, (const void *)v0, 0, 0, 16, 6);
+        Bg_CopyToTilemapRect(param0->unk_0C, 2, Unk_ov10_02222A70[v1][0], Unk_ov10_02222A70[v1][1], 16, 6, (const void *)v0, 0, 0, 16, 6);
 
-        if (param0->unk_214[v1].slotMachineVariant != 0) {
+        if (param0->unk_214[v1].unk_04 != 0) {
             Bg_ChangeTilemapRectPalette(
-                param0->slotsMinigameDTO, 2, Unk_ov10_02222A70[v1][0], Unk_ov10_02222A70[v1][1], 16, 6, 3 + v1);
+                param0->unk_0C, 2, Unk_ov10_02222A70[v1][0], Unk_ov10_02222A70[v1][1], 16, 6, 3 + v1);
 
             if (((v1 < 3) && (param0->trainerIntroData->playerSide == 1)) || ((v1 >= 3) && (param0->trainerIntroData->playerSide == 0))) {
                 Bg_LoadPalette(BG_LAYER_MAIN_2, (void *)&param0->unk_4D8[16 * 1], PALETTE_SIZE_BYTES, PLTT_OFFSET(3 + v1));
@@ -1939,15 +1939,15 @@ static void ov10_02221AE4(UnkStruct_ov10_0221FB28 *param0)
         }
     }
 
-    Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 2);
+    Bg_ScheduleTilemapTransfer(param0->unk_0C, 2);
 }
 
-static void ov10_02221BC8(UnkStruct_ov10_0221FB28 *param0, u16 *slotsMinigameDTO, u8 param2)
+static void ov10_02221BC8(UnkStruct_ov10_0221FB28 *param0, u16 *param1, u8 param2)
 {
     u16 *v0;
     u16 v1, v2;
 
-    v0 = Bg_GetTilemapBuffer(param0->slotsMinigameDTO, param2);
+    v0 = Bg_GetTilemapBuffer(param0->unk_0C, param2);
 
     if (param0->trainerIntroData->playerSide == 0) {
         v1 = 16;
@@ -1956,7 +1956,7 @@ static void ov10_02221BC8(UnkStruct_ov10_0221FB28 *param0, u16 *slotsMinigameDTO
     }
 
     for (v2 = 0; v2 < 24; v2++) {
-        memcpy(&slotsMinigameDTO[v2 * 16], &v0[v2 * 32 + v1], 16 * 2);
+        memcpy(&param1[v2 * 16], &v0[v2 * 32 + v1], 16 * 2);
         memset(&v0[v2 * 32 + v1], 0, 16 * 2);
     }
 }
@@ -1966,49 +1966,49 @@ static void ov10_02221C14(UnkStruct_ov10_0221FB28 *param0)
     ov10_02221BC8(param0, &param0->unk_538[0][0], 1);
     ov10_02221BC8(param0, &param0->unk_538[1][0], 2);
 
-    Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 1);
-    Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 2);
+    Bg_ScheduleTilemapTransfer(param0->unk_0C, 1);
+    Bg_ScheduleTilemapTransfer(param0->unk_0C, 2);
 }
 
-static void ov10_02221C48(UnkStruct_ov10_0221FB28 *param0, u8 slotsMinigameDTO)
+static void ov10_02221C48(UnkStruct_ov10_0221FB28 *param0, u8 param1)
 {
     if (param0->trainerIntroData->playerSide == 0) {
-        Bg_CopyToTilemapRect(param0->slotsMinigameDTO, 1, 16 + 16 - slotsMinigameDTO, 0, slotsMinigameDTO, 24, (const void *)&param0->unk_538[0][0], 0, 0, 16, 24);
-        Bg_CopyToTilemapRect(param0->slotsMinigameDTO, 2, 16 + 16 - slotsMinigameDTO, 0, slotsMinigameDTO, 24, (const void *)&param0->unk_538[1][0], 0, 0, 16, 24);
+        Bg_CopyToTilemapRect(param0->unk_0C, 1, 16 + 16 - param1, 0, param1, 24, (const void *)&param0->unk_538[0][0], 0, 0, 16, 24);
+        Bg_CopyToTilemapRect(param0->unk_0C, 2, 16 + 16 - param1, 0, param1, 24, (const void *)&param0->unk_538[1][0], 0, 0, 16, 24);
     } else {
-        Bg_CopyToTilemapRect(param0->slotsMinigameDTO, 1, 0, 0, slotsMinigameDTO, 24, (const void *)&param0->unk_538[0][0], 16 - slotsMinigameDTO, 0, 16, 24);
-        Bg_CopyToTilemapRect(param0->slotsMinigameDTO, 2, 0, 0, slotsMinigameDTO, 24, (const void *)&param0->unk_538[1][0], 16 - slotsMinigameDTO, 0, 16, 24);
+        Bg_CopyToTilemapRect(param0->unk_0C, 1, 0, 0, param1, 24, (const void *)&param0->unk_538[0][0], 16 - param1, 0, 16, 24);
+        Bg_CopyToTilemapRect(param0->unk_0C, 2, 0, 0, param1, 24, (const void *)&param0->unk_538[1][0], 16 - param1, 0, 16, 24);
     }
 
-    Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 1);
-    Bg_ScheduleTilemapTransfer(param0->slotsMinigameDTO, 2);
+    Bg_ScheduleTilemapTransfer(param0->unk_0C, 1);
+    Bg_ScheduleTilemapTransfer(param0->unk_0C, 2);
 }
 
-static void ov10_02221D14(UnkStruct_ov10_0221FB28 *param0, Party *slotsMinigameDTO, u8 param2)
+static void ov10_02221D14(UnkStruct_ov10_0221FB28 *param0, Party *param1, u8 param2)
 {
     Pokemon *v0;
     u16 v1;
-    u16 v2 = (u16)Party_GetCurrentCount(slotsMinigameDTO);
+    u16 v2 = (u16)Party_GetCurrentCount(param1);
 
     for (v1 = 0; v1 < 3; v1++) {
         if (v2 <= v1) {
-            param0->unk_214[v1 + param2].coins = PokeIconSpriteIndex(0, 0, 0);
+            param0->unk_214[v1 + param2].unk_00 = PokeIconSpriteIndex(0, 0, 0);
             continue;
         }
 
-        v0 = Party_GetPokemonBySlotIndex(slotsMinigameDTO, v1);
+        v0 = Party_GetPokemonBySlotIndex(param1, v1);
 
-        param0->unk_214[v1 + param2].coins = Pokemon_IconSpriteIndex(v0);
-        param0->unk_214[v1 + param2].slotMachineVariant = (u16)Pokemon_GetValue(v0, MON_DATA_SPECIES, NULL);
+        param0->unk_214[v1 + param2].unk_00 = Pokemon_IconSpriteIndex(v0);
+        param0->unk_214[v1 + param2].unk_04 = (u16)Pokemon_GetValue(v0, MON_DATA_SPECIES, NULL);
 
-        if (param0->unk_214[v1 + param2].slotMachineVariant == 0) {
+        if (param0->unk_214[v1 + param2].unk_04 == 0) {
             continue;
         }
 
         param0->unk_214[v1 + param2].unk_0F = (u16)Pokemon_GetValue(v0, MON_DATA_IS_EGG, NULL);
         param0->unk_214[v1 + param2].unk_06 = (u16)Pokemon_GetValue(v0, MON_DATA_HP, NULL);
         param0->unk_214[v1 + param2].unk_08 = (u16)Pokemon_GetValue(v0, MON_DATA_MAX_HP, NULL);
-        param0->unk_214[v1 + param2].slotsMinigameDTO = (u16)Pokemon_GetValue(v0, MON_DATA_LEVEL, NULL);
+        param0->unk_214[v1 + param2].unk_0C = (u16)Pokemon_GetValue(v0, MON_DATA_LEVEL, NULL);
         param0->unk_214[v1 + param2].unk_0A = (u16)Pokemon_GetValue(v0, MON_DATA_HELD_ITEM, NULL);
         param0->unk_214[v1 + param2].unk_10 = (u8)Pokemon_GetValue(v0, MON_DATA_BALL_CAPSULE_ID, NULL);
         param0->unk_214[v1 + param2].unk_11 = (u8)Pokemon_GetValue(v0, MON_DATA_FORM, NULL);
@@ -2032,17 +2032,17 @@ static void ov10_02221E58(UnkStruct_ov10_0221FB28 *param0)
     ov10_02221D14(param0, param0->trainerIntroData->party[2], 3);
 }
 
-static u8 ov10_02221E84(UnkStruct_ov10_0221FB28 *param0, u32 slotsMinigameDTO)
+static u8 ov10_02221E84(UnkStruct_ov10_0221FB28 *param0, u32 param1)
 {
-    if (param0->unk_214[slotsMinigameDTO].unk_06 == 0) {
+    if (param0->unk_214[param1].unk_06 == 0) {
         return 0;
     }
 
-    if ((param0->unk_214[slotsMinigameDTO].unk_14 != 7) && (param0->unk_214[slotsMinigameDTO].unk_14 != 0)) {
+    if ((param0->unk_214[param1].unk_14 != 7) && (param0->unk_214[param1].unk_14 != 0)) {
         return 5;
     }
 
-    switch (HealthBar_Color(param0->unk_214[slotsMinigameDTO].unk_06, param0->unk_214[slotsMinigameDTO].unk_08, 48)) {
+    switch (HealthBar_Color(param0->unk_214[param1].unk_06, param0->unk_214[param1].unk_08, 48)) {
     case 4:
         return 1;
     case 3:
@@ -2056,41 +2056,41 @@ static u8 ov10_02221E84(UnkStruct_ov10_0221FB28 *param0, u32 slotsMinigameDTO)
     return 0;
 }
 
-static void ov10_02221EEC(UnkStruct_ov10_0221FB28 *param0, u32 slotsMinigameDTO)
+static void ov10_02221EEC(UnkStruct_ov10_0221FB28 *param0, u32 param1)
 {
     u32 v0;
 
     for (v0 = 0; v0 < 5; v0++) {
-        param0->unk_198[slotsMinigameDTO * 5 + v0] = ov10_02220BA0(param0, &Unk_ov10_02222F3C[slotsMinigameDTO * 5 + v0][0]);
-        ManagedSprite_SetPositionXY(param0->unk_198[slotsMinigameDTO * 5 + v0], Unk_ov10_02222C6C[slotsMinigameDTO][v0 * 2], Unk_ov10_02222C6C[slotsMinigameDTO][v0 * 2 + 1]);
+        param0->unk_198[param1 * 5 + v0] = ov10_02220BA0(param0, &Unk_ov10_02222F3C[param1 * 5 + v0][0]);
+        ManagedSprite_SetPositionXY(param0->unk_198[param1 * 5 + v0], Unk_ov10_02222C6C[param1][v0 * 2], Unk_ov10_02222C6C[param1][v0 * 2 + 1]);
     }
 
-    if (param0->unk_214[slotsMinigameDTO].slotMachineVariant == 0) {
+    if (param0->unk_214[param1].unk_04 == 0) {
         for (v0 = 0; v0 < 5; v0++) {
-            ManagedSprite_SetDrawFlag(param0->unk_198[slotsMinigameDTO * 5 + v0], 0);
+            ManagedSprite_SetDrawFlag(param0->unk_198[param1 * 5 + v0], 0);
         }
     } else {
-        ManagedSprite_SetExplicitPalette(param0->unk_198[slotsMinigameDTO * 5 + 0], PokeIconPaletteIndex(param0->unk_214[slotsMinigameDTO].slotMachineVariant, param0->unk_214[slotsMinigameDTO].unk_11, param0->unk_214[slotsMinigameDTO].unk_0F));
-        ManagedSprite_SetAnim(param0->unk_198[slotsMinigameDTO * 5 + 0], ov10_02221E84(param0, slotsMinigameDTO));
+        ManagedSprite_SetExplicitPalette(param0->unk_198[param1 * 5 + 0], PokeIconPaletteIndex(param0->unk_214[param1].unk_04, param0->unk_214[param1].unk_11, param0->unk_214[param1].unk_0F));
+        ManagedSprite_SetAnim(param0->unk_198[param1 * 5 + 0], ov10_02221E84(param0, param1));
 
-        if (param0->unk_214[slotsMinigameDTO].unk_0A == 0) {
-            ManagedSprite_SetDrawFlag(param0->unk_198[slotsMinigameDTO * 5 + 1], 0);
-        } else if (Item_IsMail(param0->unk_214[slotsMinigameDTO].unk_0A) == 1) {
-            ManagedSprite_SetAnim(param0->unk_198[slotsMinigameDTO * 5 + 1], 1);
+        if (param0->unk_214[param1].unk_0A == 0) {
+            ManagedSprite_SetDrawFlag(param0->unk_198[param1 * 5 + 1], 0);
+        } else if (Item_IsMail(param0->unk_214[param1].unk_0A) == 1) {
+            ManagedSprite_SetAnim(param0->unk_198[param1 * 5 + 1], 1);
         } else {
-            ManagedSprite_SetAnim(param0->unk_198[slotsMinigameDTO * 5 + 1], 0);
+            ManagedSprite_SetAnim(param0->unk_198[param1 * 5 + 1], 0);
         }
 
-        if (param0->unk_214[slotsMinigameDTO].unk_10 == 0) {
-            ManagedSprite_SetDrawFlag(param0->unk_198[slotsMinigameDTO * 5 + 2], 0);
+        if (param0->unk_214[param1].unk_10 == 0) {
+            ManagedSprite_SetDrawFlag(param0->unk_198[param1 * 5 + 2], 0);
         } else {
-            ManagedSprite_SetAnim(param0->unk_198[slotsMinigameDTO * 5 + 2], 2);
+            ManagedSprite_SetAnim(param0->unk_198[param1 * 5 + 2], 2);
         }
 
-        if (param0->unk_214[slotsMinigameDTO].unk_14 == 7) {
-            ManagedSprite_SetDrawFlag(param0->unk_198[slotsMinigameDTO * 5 + 3], 0);
+        if (param0->unk_214[param1].unk_14 == 7) {
+            ManagedSprite_SetDrawFlag(param0->unk_198[param1 * 5 + 3], 0);
         } else {
-            ManagedSprite_SetAnim(param0->unk_198[slotsMinigameDTO * 5 + 3], param0->unk_214[v0].unk_14);
+            ManagedSprite_SetAnim(param0->unk_198[param1 * 5 + 3], param0->unk_214[v0].unk_14);
         }
     }
 }
@@ -2127,7 +2127,7 @@ static void ov10_022220B4(UnkStruct_ov10_0221FB28 *param0)
     SpriteSystem_LoadAnimResObjFromOpenNarc(param0->unk_190, param0->unk_194, v1, PokeIcon32KAnimationFileIndex(), FALSE, 47113);
 
     for (v0 = 0; v0 < 6; v0++) {
-        SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_190, param0->unk_194, v1, param0->unk_214[v0].coins, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 47113 + v0);
+        SpriteSystem_LoadCharResObjFromOpenNarc(param0->unk_190, param0->unk_194, v1, param0->unk_214[v0].unk_00, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, 47113 + v0);
     }
 
     NARC_dtor(v1);
@@ -2166,22 +2166,22 @@ static void ov10_022222A4(UnkStruct_ov10_0221FB28 *param0)
     NARC_dtor(v0);
 }
 
-static void ov10_02222340(UnkStruct_ov10_0221FB28 *param0, s16 slotsMinigameDTO)
+static void ov10_02222340(UnkStruct_ov10_0221FB28 *param0, s16 param1)
 {
     s32 v0, v1, v2;
 
     if (param0->trainerIntroData->playerSide == 0) {
         v2 = 3;
-        slotsMinigameDTO *= 8;
+        param1 *= 8;
     } else {
         v2 = 0;
-        slotsMinigameDTO *= -8;
+        param1 *= -8;
     }
 
     for (v0 = 0; v0 < 3; v0++) {
         for (v1 = 0; v1 < 5; v1++) {
             ManagedSprite_SetPositionXY(
-                param0->unk_198[(v2 + v0) * 5 + v1], Unk_ov10_02222C6C[v2 + v0][v1 * 2] + slotsMinigameDTO, Unk_ov10_02222C6C[v2 + v0][v1 * 2 + 1]);
+                param0->unk_198[(v2 + v0) * 5 + v1], Unk_ov10_02222C6C[v2 + v0][v1 * 2] + param1, Unk_ov10_02222C6C[v2 + v0][v1 * 2 + 1]);
         }
     }
 }
@@ -2191,7 +2191,7 @@ static void ov10_022223C0(UnkStruct_ov10_0221FB28 *param0)
     u32 v0;
 
     for (v0 = 0; v0 < 24; v0++) {
-        Window_AddFromTemplate(param0->slotsMinigameDTO, &param0->unk_10[v0], &Unk_ov10_02222CF4[v0]);
+        Window_AddFromTemplate(param0->unk_0C, &param0->unk_10[v0], &Unk_ov10_02222CF4[v0]);
     }
 }
 
@@ -2204,7 +2204,7 @@ static void ov10_022223E8(UnkStruct_ov10_0221FB28 *param0)
     }
 }
 
-static void ov10_02222400(UnkStruct_ov10_0221FB28 *param0, MessageLoader *slotsMinigameDTO, FontSpecialCharsContext *param2, StringTemplate *param3, String *param4, u32 param5)
+static void ov10_02222400(UnkStruct_ov10_0221FB28 *param0, MessageLoader *param1, FontSpecialCharsContext *param2, StringTemplate *param3, String *param4, u32 param5)
 {
     Pokemon *v0;
     Window *v1;
@@ -2218,7 +2218,7 @@ static void ov10_02222400(UnkStruct_ov10_0221FB28 *param0, MessageLoader *slotsM
         v0 = Party_GetPokemonBySlotIndex(param0->trainerIntroData->party[2], param5 - 3);
     }
 
-    v2 = MessageLoader_GetNewString(slotsMinigameDTO, 8 + param5);
+    v2 = MessageLoader_GetNewString(param1, 8 + param5);
 
     StringTemplate_SetNickname(param3, 0, Pokemon_GetBoxPokemon(v0));
     StringTemplate_Format(param3, param4, v2);
@@ -2227,26 +2227,26 @@ static void ov10_02222400(UnkStruct_ov10_0221FB28 *param0, MessageLoader *slotsM
 
     if (param0->unk_214[param5].unk_0E == 0) {
         if (param0->unk_214[param5].unk_0D == 0) {
-            MessageLoader_GetString(slotsMinigameDTO, 27, param4);
+            MessageLoader_GetString(param1, 27, param4);
             Text_AddPrinterWithParamsAndColor(v1, FONT_SYSTEM, param4, 64, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(3, 4, 0), NULL);
         } else if (param0->unk_214[param5].unk_0D == 1) {
-            MessageLoader_GetString(slotsMinigameDTO, 28, param4);
+            MessageLoader_GetString(param1, 28, param4);
             Text_AddPrinterWithParamsAndColor(v1, FONT_SYSTEM, param4, 64, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(5, 6, 0), NULL);
         }
     }
 }
 
-static void ov10_022224F0(UnkStruct_ov10_0221FB28 *param0, MessageLoader *slotsMinigameDTO, FontSpecialCharsContext *param2, StringTemplate *param3, String *param4, u32 param5)
+static void ov10_022224F0(UnkStruct_ov10_0221FB28 *param0, MessageLoader *param1, FontSpecialCharsContext *param2, StringTemplate *param3, String *param4, u32 param5)
 {
     Window *v0;
     String *v1;
 
     v0 = &param0->unk_10[param5 * 4 + 1];
 
-    FontSpecialChars_DrawPartyScreenText(param2, 1, param0->unk_214[param5].slotsMinigameDTO, 3, 0, v0, 0, 5 - 3);
+    FontSpecialChars_DrawPartyScreenText(param2, 1, param0->unk_214[param5].unk_0C, 3, 0, v0, 0, 5 - 3);
 }
 
-static void ov10_02222528(UnkStruct_ov10_0221FB28 *param0, MessageLoader *slotsMinigameDTO, FontSpecialCharsContext *param2, StringTemplate *param3, String *param4, u32 param5)
+static void ov10_02222528(UnkStruct_ov10_0221FB28 *param0, MessageLoader *param1, FontSpecialCharsContext *param2, StringTemplate *param3, String *param4, u32 param5)
 {
     Window *v0;
     String *v1;
@@ -2260,13 +2260,13 @@ static void ov10_02222528(UnkStruct_ov10_0221FB28 *param0, MessageLoader *slotsM
     FontSpecialChars_DrawPartyScreenHPText(param2, param0->unk_214[param5].unk_08, 3, 0, v0, v3 + (8 * 3) + 8, v4);
 }
 
-static void ov10_02222594(UnkStruct_ov10_0221FB28 *param0, u32 slotsMinigameDTO)
+static void ov10_02222594(UnkStruct_ov10_0221FB28 *param0, u32 param1)
 {
     Window *v0;
     u32 v1;
 
-    v0 = &param0->unk_10[slotsMinigameDTO * 4 + 3];
-    v1 = HealthBar_Color(param0->unk_214[slotsMinigameDTO].unk_06, param0->unk_214[slotsMinigameDTO].unk_08, 48);
+    v0 = &param0->unk_10[param1 * 4 + 3];
+    v1 = HealthBar_Color(param0->unk_214[param1].unk_06, param0->unk_214[param1].unk_08, 48);
 
     switch (v1) {
     case 0:
@@ -2283,14 +2283,14 @@ static void ov10_02222594(UnkStruct_ov10_0221FB28 *param0, u32 slotsMinigameDTO)
         break;
     }
 
-    v1 = App_PixelCount(param0->unk_214[slotsMinigameDTO].unk_06, param0->unk_214[slotsMinigameDTO].unk_08, 48);
+    v1 = App_PixelCount(param0->unk_214[param1].unk_06, param0->unk_214[param1].unk_08, 48);
 
     Window_FillRectWithColor(v0, 10, 0, 2, v1, 1);
     Window_FillRectWithColor(v0, 9, 0, 3, v1, 2);
     Window_FillRectWithColor(v0, 10, 0, 5, v1, 1);
 }
 
-static void ov10_02222684(UnkStruct_ov10_0221FB28 *param0, MessageLoader *slotsMinigameDTO, FontSpecialCharsContext *param2, StringTemplate *param3, String *param4, u32 param5)
+static void ov10_02222684(UnkStruct_ov10_0221FB28 *param0, MessageLoader *param1, FontSpecialCharsContext *param2, StringTemplate *param3, String *param4, u32 param5)
 {
     Pokemon *v0;
     Window *v1;
@@ -2304,9 +2304,9 @@ static void ov10_02222684(UnkStruct_ov10_0221FB28 *param0, MessageLoader *slotsM
     Window_FillTilemap(&v1[2], 0);
     Window_FillTilemap(&v1[3], 0);
 
-    ov10_02222400(param0, slotsMinigameDTO, param2, param3, param4, param5);
-    ov10_022224F0(param0, slotsMinigameDTO, param2, param3, param4, param5);
-    ov10_02222528(param0, slotsMinigameDTO, param2, param3, param4, param5);
+    ov10_02222400(param0, param1, param2, param3, param4, param5);
+    ov10_022224F0(param0, param1, param2, param3, param4, param5);
+    ov10_02222528(param0, param1, param2, param3, param4, param5);
     ov10_02222594(param0, param5);
 
     Window_ScheduleCopyToVRAM(&v1[0]);
@@ -2329,7 +2329,7 @@ static void ov10_02222720(UnkStruct_ov10_0221FB28 *param0)
     v3 = String_Init(32, param0->trainerIntroData->heapID);
 
     for (v4 = 0; v4 < 6; v4++) {
-        if (param0->unk_214[v4].slotMachineVariant == 0) {
+        if (param0->unk_214[v4].unk_04 == 0) {
             continue;
         }
 

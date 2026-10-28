@@ -36,17 +36,17 @@
 #include "res/text/bank/pokedex.h"
 
 typedef struct {
-    Sprite *coins;
-    SpriteResource *slotMachineVariant[4];
+    Sprite *unk_00;
+    SpriteResource *unk_04[4];
 } UnkStruct_ov21_021E94F8;
 
 typedef struct {
-    Sprite *coins;
-    PokedexTextData *slotMachineVariant;
+    Sprite *unk_00;
+    PokedexTextData *unk_04;
 } UnkStruct_ov21_021E95B0;
 
 typedef struct {
-    Sprite *coins[2];
+    Sprite *unk_00[2];
     SpriteResource *unk_08[4];
 } UnkStruct_ov21_021E968C;
 
@@ -59,10 +59,10 @@ typedef struct {
 } UnkStruct_ov21_021E9A9C;
 
 typedef struct UnkStruct_ov21_021E8D48_t {
-    BgConfig *coins;
-    Window *slotMachineVariant;
+    BgConfig *unk_00;
+    Window *unk_04;
     PaletteData *unk_08;
-    PokemonSprite *slotsMinigameDTO;
+    PokemonSprite *unk_0C;
     G2dRenderer unk_10;
     SpriteList *unk_19C;
     SpriteResourceCollection *unk_1A0[4];
@@ -79,10 +79,10 @@ typedef struct UnkStruct_ov21_021E8D48_t {
     BOOL unk_248;
 } UnkStruct_ov21_021E8D48;
 
-static void ov21_021E9828(SysTask *param0, void *slotsMinigameDTO);
-static void ov21_021E98D8(PaletteData *param0, PokemonSprite *slotsMinigameDTO);
-static void ov21_021E98F8(PaletteData *param0, PokemonSprite *slotsMinigameDTO, int param2, int param3, int param4, int param5, int param6);
-static BOOL ov21_021E9948(PaletteData *param0, PokemonSprite *slotsMinigameDTO);
+static void ov21_021E9828(SysTask *param0, void *param1);
+static void ov21_021E98D8(PaletteData *param0, PokemonSprite *param1);
+static void ov21_021E98F8(PaletteData *param0, PokemonSprite *param1, int param2, int param3, int param4, int param5, int param6);
+static BOOL ov21_021E9948(PaletteData *param0, PokemonSprite *param1);
 static void ov21_021E8E0C(UnkStruct_ov21_021E8D48 *param0, const PokedexEntryScreenParams *dexEntryScreenParams);
 static void ov21_021E900C(UnkStruct_ov21_021E8D48 *param0);
 static void ov21_021E90B0(BgConfig *param0, enum HeapID heapID);
@@ -93,34 +93,34 @@ static void ov21_021E9208(SpriteResourceCollection **param0, enum HeapID heapID)
 static void ov21_021E9228(SpriteResourceCollection **param0);
 static void ov21_021E9240(PokedexSpeciesLabel *pokedexSpeciesLabel, PokedexTextManager *textMan, enum HeapID heapID, int species, int isNatDex);
 static void ov21_021E92B0(PokedexSpeciesLabel *param0);
-static PokemonSprite *ov21_021E99E0(PokemonSpriteManager *param0, Pokemon *slotsMinigameDTO, int param2, int param3, int param4);
-static void ov21_021E92C4(SpriteResource **param0, SpriteResourceCollection **slotsMinigameDTO, int param2, int param3, int param4, int param5, int param6, int param7, int param8, int param9);
-static void ov21_021E9344(SpriteResource **param0, SpriteResourceCollection **slotsMinigameDTO, int param2, NARC *param3, int param4, int param5, int param6, int param7, int param8, int param9);
-static void ov21_021E93C4(SpriteResource **param0, SpriteResourceCollection **slotsMinigameDTO);
-static void ov21_021E93F8(SpriteResource **param0, SpriteResourceCollection **slotsMinigameDTO, SpriteResourcesHeader *param2, int param3);
-static void ov21_021E9458(UnkStruct_ov21_021E94F8 *param0, SpriteResourceCollection **slotsMinigameDTO, int param2, int param3);
-static void ov21_021E94A4(UnkStruct_ov21_021E94F8 *param0, SpriteResourceCollection **slotsMinigameDTO);
-static void ov21_021E94B0(UnkStruct_ov21_021E94F8 *param0, SpriteList *slotsMinigameDTO, SpriteResourceCollection **param2, int param3);
+static PokemonSprite *ov21_021E99E0(PokemonSpriteManager *param0, Pokemon *param1, int param2, int param3, int param4);
+static void ov21_021E92C4(SpriteResource **param0, SpriteResourceCollection **param1, int param2, int param3, int param4, int param5, int param6, int param7, int param8, int param9);
+static void ov21_021E9344(SpriteResource **param0, SpriteResourceCollection **param1, int param2, NARC *param3, int param4, int param5, int param6, int param7, int param8, int param9);
+static void ov21_021E93C4(SpriteResource **param0, SpriteResourceCollection **param1);
+static void ov21_021E93F8(SpriteResource **param0, SpriteResourceCollection **param1, SpriteResourcesHeader *param2, int param3);
+static void ov21_021E9458(UnkStruct_ov21_021E94F8 *param0, SpriteResourceCollection **param1, int param2, int param3);
+static void ov21_021E94A4(UnkStruct_ov21_021E94F8 *param0, SpriteResourceCollection **param1);
+static void ov21_021E94B0(UnkStruct_ov21_021E94F8 *param0, SpriteList *param1, SpriteResourceCollection **param2, int param3);
 static void ov21_021E94F8(UnkStruct_ov21_021E94F8 *param0);
-static void ov21_021E9504(UnkStruct_ov21_021E95B0 *param0, SpriteList *slotsMinigameDTO, SpriteResourceCollection **param2, int param3, SpriteResource **param4);
+static void ov21_021E9504(UnkStruct_ov21_021E95B0 *param0, SpriteList *param1, SpriteResourceCollection **param2, int param3, SpriteResource **param4);
 static void ov21_021E9554(UnkStruct_ov21_021E95B0 *param0);
 static void ov21_021E9560(UnkStruct_ov21_021E95B0 *param0, PokedexTextManager *textMan, int param2, int param3, SpriteResource *param4);
 static void ov21_021E95B0(UnkStruct_ov21_021E95B0 *param0);
-static void ov21_021E95BC(UnkStruct_ov21_021E968C *param0, SpriteResourceCollection **slotsMinigameDTO, int param2, int param3, NARC *param4);
-static void ov21_021E95EC(UnkStruct_ov21_021E968C *param0, SpriteResourceCollection **slotsMinigameDTO);
-static void ov21_021E95F8(UnkStruct_ov21_021E968C *param0, SpriteList *slotsMinigameDTO, SpriteResourceCollection **param2, int param3, int param4);
+static void ov21_021E95BC(UnkStruct_ov21_021E968C *param0, SpriteResourceCollection **param1, int param2, int param3, NARC *param4);
+static void ov21_021E95EC(UnkStruct_ov21_021E968C *param0, SpriteResourceCollection **param1);
+static void ov21_021E95F8(UnkStruct_ov21_021E968C *param0, SpriteList *param1, SpriteResourceCollection **param2, int param3, int param4);
 static void ov21_021E968C(UnkStruct_ov21_021E968C *param0);
-static void ov21_021E96A8(BgConfig *param0, int slotsMinigameDTO, NARC *param2);
-static void ov21_021E97C4(BgConfig *param0, int slotsMinigameDTO, NARC *param2);
-static void ov21_021E9968(Window *param0, int slotsMinigameDTO, int param2);
+static void ov21_021E96A8(BgConfig *param0, int param1, NARC *param2);
+static void ov21_021E97C4(BgConfig *param0, int param1, NARC *param2);
+static void ov21_021E9968(Window *param0, int param1, int param2);
 static void ov21_021E998C(Window *param0, enum HeapID heapID);
 static void ov21_021E9A0C(int param0);
 static void ov21_021E9A38(void);
 static void ov21_021E9A40(UnkStruct_ov21_021E9A9C *param0, enum HeapID heapID, int param2, NARC *param3);
 static void ov21_021E9A9C(UnkStruct_ov21_021E9A9C *param0);
 static void ov21_021E9AC8(UnkStruct_ov21_021E9A9C *param0);
-static void ov21_021E9AE8(UnkStruct_ov21_021E9A9C *param0, int slotsMinigameDTO);
-static void ov21_021E9B08(UnkStruct_ov21_021E9A9C *param0, int slotsMinigameDTO);
+static void ov21_021E9AE8(UnkStruct_ov21_021E9A9C *param0, int param1);
+static void ov21_021E9B08(UnkStruct_ov21_021E9A9C *param0, int param1);
 
 UnkStruct_ov21_021E8D48 *ov21_021E8D48(const PokedexEntryScreenParams *dexEntryScreenParams)
 {
@@ -143,8 +143,8 @@ UnkStruct_ov21_021E8D48 *ov21_021E8D48(const PokedexEntryScreenParams *dexEntryS
     }
 
     ov21_021E8E0C(v0, dexEntryScreenParams);
-    ov21_021E98D8(v0->unk_08, v0->slotsMinigameDTO);
-    ov21_021E98F8(v0->unk_08, v0->slotsMinigameDTO, 10, 15, 0, 0, 0x0);
+    ov21_021E98D8(v0->unk_08, v0->unk_0C);
+    ov21_021E98F8(v0->unk_08, v0->unk_0C, 10, 15, 0, 0, 0x0);
 
     v0->unk_224 = SysTask_Start(ov21_021E9828, v0, 0);
 
@@ -170,12 +170,12 @@ BOOL ov21_021E8DEC(const UnkStruct_ov21_021E8D48 *param0)
 
 PokemonSprite *ov21_021E8E00(UnkStruct_ov21_021E8D48 *param0)
 {
-    return param0->slotsMinigameDTO;
+    return param0->unk_0C;
 }
 
-void ov21_021E8E04(UnkStruct_ov21_021E8D48 *param0, BOOL slotsMinigameDTO)
+void ov21_021E8E04(UnkStruct_ov21_021E8D48 *param0, BOOL param1)
 {
-    param0->unk_248 = slotsMinigameDTO;
+    param0->unk_248 = param1;
 }
 
 static void ov21_021E8E0C(UnkStruct_ov21_021E8D48 *param0, const PokedexEntryScreenParams *dexEntryScreenParams)
@@ -187,26 +187,26 @@ static void ov21_021E8E0C(UnkStruct_ov21_021E8D48 *param0, const PokedexEntryScr
     param0->unk_220 = Pokemon_GetValue(dexEntryScreenParams->mon, MON_DATA_SPECIES, NULL);
     v2 = Pokemon_GetValue(dexEntryScreenParams->mon, MON_DATA_FORM, NULL);
 
-    param0->coins = dexEntryScreenParams->bgConfig;
+    param0->unk_00 = dexEntryScreenParams->bgConfig;
     param0->unk_19C = SpriteList_InitRendering(32, &param0->unk_10, dexEntryScreenParams->heapID);
 
     Utility_Clear2DMainOAM(dexEntryScreenParams->heapID);
     ov21_021E9A0C(dexEntryScreenParams->heapID);
 
-    param0->slotsMinigameDTO = ov21_021E99E0(dexEntryScreenParams->monSpriteMan, dexEntryScreenParams->mon, 48, 72, dexEntryScreenParams->heapID);
+    param0->unk_0C = ov21_021E99E0(dexEntryScreenParams->monSpriteMan, dexEntryScreenParams->mon, 48, 72, dexEntryScreenParams->heapID);
     param0->unk_08 = dexEntryScreenParams->plttData;
 
     textManTemplate.spriteList = param0->unk_19C;
-    textManTemplate.bgConfig = param0->coins;
+    textManTemplate.bgConfig = param0->unk_00;
     textManTemplate.numTextData = 3;
     textManTemplate.heapID = dexEntryScreenParams->heapID;
 
     param0->unk_1B0 = PokedexTextManager_New(&textManTemplate);
 
-    ov21_021E90B0(param0->coins, dexEntryScreenParams->heapID);
+    ov21_021E90B0(param0->unk_00, dexEntryScreenParams->heapID);
     G2_SetBlendBrightness(GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3 | GX_BLEND_PLANEMASK_OBJ | GX_BLEND_PLANEMASK_BD, -16);
 
-    param0->slotMachineVariant = ov21_021E91B0(param0->coins, dexEntryScreenParams->heapID);
+    param0->unk_04 = ov21_021E91B0(param0->unk_00, dexEntryScreenParams->heapID);
 
     ov21_021E9208(param0->unk_1A0, dexEntryScreenParams->heapID);
     PokedexGraphics_InitSpeciesLabelGraphics(&param0->unk_1B4, param0->unk_1A0, dexEntryScreenParams->heapID, v1);
@@ -232,9 +232,9 @@ static void ov21_021E8E0C(UnkStruct_ov21_021E8D48 *param0, const PokedexEntryScr
     ov21_021E95F8(&param0->unk_200, param0->unk_19C, param0->unk_1A0, dexEntryScreenParams->heapID, param0->unk_220);
     ov21_021E9504(&param0->unk_1F8, param0->unk_19C, param0->unk_1A0, dexEntryScreenParams->heapID, param0->unk_200.unk_08);
     ov21_021E9560(&param0->unk_1F8, param0->unk_1B0, dexEntryScreenParams->heapID, param0->unk_220, param0->unk_1B4.spriteResource[1]);
-    ov21_021E96A8(param0->coins, dexEntryScreenParams->heapID, v1);
-    ov21_021E97C4(param0->coins, dexEntryScreenParams->heapID, v1);
-    ov21_021E9968(param0->slotMachineVariant, dexEntryScreenParams->heapID, param0->unk_220);
+    ov21_021E96A8(param0->unk_00, dexEntryScreenParams->heapID, v1);
+    ov21_021E97C4(param0->unk_00, dexEntryScreenParams->heapID, v1);
+    ov21_021E9968(param0->unk_04, dexEntryScreenParams->heapID, param0->unk_220);
     ov21_021E9A40(&param0->unk_228, dexEntryScreenParams->heapID, dexEntryScreenParams->hasNationalDex, v1);
 
     param0->unk_248 = 1;
@@ -258,8 +258,8 @@ static void ov21_021E900C(UnkStruct_ov21_021E8D48 *param0)
 
     SpriteList_Delete(param0->unk_19C);
 
-    ov21_021E91F0(param0->slotMachineVariant);
-    ov21_021E9194(param0->coins);
+    ov21_021E91F0(param0->unk_04);
+    ov21_021E9194(param0->unk_00);
     PokedexTextManager_Free(param0->unk_1B0);
     ov21_021E9A38();
 }
@@ -417,55 +417,55 @@ static void ov21_021E92B0(PokedexSpeciesLabel *pokedexSpeciesLabel)
     }
 }
 
-static void ov21_021E92C4(SpriteResource **param0, SpriteResourceCollection **slotsMinigameDTO, int param2, int param3, int param4, int param5, int param6, int param7, int param8, int param9)
+static void ov21_021E92C4(SpriteResource **param0, SpriteResourceCollection **param1, int param2, int param3, int param4, int param5, int param6, int param7, int param8, int param9)
 {
-    param0[0] = SpriteResourceCollection_AddTiles(slotsMinigameDTO[0], param3, param4, TRUE, param9, NNS_G2D_VRAM_TYPE_2DMAIN, param2);
+    param0[0] = SpriteResourceCollection_AddTiles(param1[0], param3, param4, TRUE, param9, NNS_G2D_VRAM_TYPE_2DMAIN, param2);
 
     SpriteTransfer_RequestCharAtEnd(param0[0]);
     SpriteResource_ReleaseData(param0[0]);
 
-    param0[1] = SpriteResourceCollection_AddPalette(slotsMinigameDTO[1], param3, param5, FALSE, param9, NNS_G2D_VRAM_TYPE_2DMAIN, param8, param2);
+    param0[1] = SpriteResourceCollection_AddPalette(param1[1], param3, param5, FALSE, param9, NNS_G2D_VRAM_TYPE_2DMAIN, param8, param2);
 
     SpriteTransfer_RequestPlttFreeSpace(param0[1]);
     SpriteResource_ReleaseData(param0[1]);
 
-    param0[2] = SpriteResourceCollection_Add(slotsMinigameDTO[2], param3, param6, TRUE, param9, 2, param2);
-    param0[3] = SpriteResourceCollection_Add(slotsMinigameDTO[3], param3, param7, TRUE, param9, 3, param2);
+    param0[2] = SpriteResourceCollection_Add(param1[2], param3, param6, TRUE, param9, 2, param2);
+    param0[3] = SpriteResourceCollection_Add(param1[3], param3, param7, TRUE, param9, 3, param2);
 }
 
-static void ov21_021E9344(SpriteResource **param0, SpriteResourceCollection **slotsMinigameDTO, int param2, NARC *param3, int param4, int param5, int param6, int param7, int param8, int param9)
+static void ov21_021E9344(SpriteResource **param0, SpriteResourceCollection **param1, int param2, NARC *param3, int param4, int param5, int param6, int param7, int param8, int param9)
 {
-    param0[0] = SpriteResourceCollection_AddTilesFrom(slotsMinigameDTO[0], param3, param4, TRUE, param9, NNS_G2D_VRAM_TYPE_2DMAIN, param2);
+    param0[0] = SpriteResourceCollection_AddTilesFrom(param1[0], param3, param4, TRUE, param9, NNS_G2D_VRAM_TYPE_2DMAIN, param2);
 
     SpriteTransfer_RequestCharAtEnd(param0[0]);
     SpriteResource_ReleaseData(param0[0]);
 
-    param0[1] = SpriteResourceCollection_AddPaletteFrom(slotsMinigameDTO[1], param3, param5, FALSE, param9, NNS_G2D_VRAM_TYPE_2DMAIN, param8, param2);
+    param0[1] = SpriteResourceCollection_AddPaletteFrom(param1[1], param3, param5, FALSE, param9, NNS_G2D_VRAM_TYPE_2DMAIN, param8, param2);
 
     SpriteTransfer_RequestPlttFreeSpace(param0[1]);
     SpriteResource_ReleaseData(param0[1]);
 
-    param0[2] = SpriteResourceCollection_AddFrom(slotsMinigameDTO[2], param3, param6, TRUE, param9, 2, param2);
-    param0[3] = SpriteResourceCollection_AddFrom(slotsMinigameDTO[3], param3, param7, TRUE, param9, 3, param2);
+    param0[2] = SpriteResourceCollection_AddFrom(param1[2], param3, param6, TRUE, param9, 2, param2);
+    param0[3] = SpriteResourceCollection_AddFrom(param1[3], param3, param7, TRUE, param9, 3, param2);
 }
 
-static void ov21_021E93C4(SpriteResource **param0, SpriteResourceCollection **slotsMinigameDTO)
+static void ov21_021E93C4(SpriteResource **param0, SpriteResourceCollection **param1)
 {
     SpriteTransfer_ResetCharTransfer(param0[0]);
     SpriteTransfer_ResetPlttTransfer(param0[1]);
 
-    SpriteResourceCollection_Remove(slotsMinigameDTO[0], param0[0]);
-    SpriteResourceCollection_Remove(slotsMinigameDTO[1], param0[1]);
-    SpriteResourceCollection_Remove(slotsMinigameDTO[2], param0[2]);
-    SpriteResourceCollection_Remove(slotsMinigameDTO[3], param0[3]);
+    SpriteResourceCollection_Remove(param1[0], param0[0]);
+    SpriteResourceCollection_Remove(param1[1], param0[1]);
+    SpriteResourceCollection_Remove(param1[2], param0[2]);
+    SpriteResourceCollection_Remove(param1[3], param0[3]);
 }
 
-static void ov21_021E93F8(SpriteResource **param0, SpriteResourceCollection **slotsMinigameDTO, SpriteResourcesHeader *param2, int param3)
+static void ov21_021E93F8(SpriteResource **param0, SpriteResourceCollection **param1, SpriteResourcesHeader *param2, int param3)
 {
-    SpriteResourcesHeader_Init(param2, SpriteResource_GetID(param0[0]), SpriteResource_GetID(param0[1]), SpriteResource_GetID(param0[2]), SpriteResource_GetID(param0[3]), 0xffffffff, 0xffffffff, FALSE, param3, slotsMinigameDTO[0], slotsMinigameDTO[1], slotsMinigameDTO[2], slotsMinigameDTO[3], NULL, NULL);
+    SpriteResourcesHeader_Init(param2, SpriteResource_GetID(param0[0]), SpriteResource_GetID(param0[1]), SpriteResource_GetID(param0[2]), SpriteResource_GetID(param0[3]), 0xffffffff, 0xffffffff, FALSE, param3, param1[0], param1[1], param1[2], param1[3], NULL, NULL);
 }
 
-static void ov21_021E9458(UnkStruct_ov21_021E94F8 *param0, SpriteResourceCollection **slotsMinigameDTO, int param2, int param3)
+static void ov21_021E9458(UnkStruct_ov21_021E94F8 *param0, SpriteResourceCollection **param1, int param2, int param3)
 {
     int v0 = GetPokedexFootprintsNarcID();
     int v1 = GetSpeciesFootprintTiles(param2);
@@ -473,22 +473,22 @@ static void ov21_021E9458(UnkStruct_ov21_021E94F8 *param0, SpriteResourceCollect
     int v3 = GetSharedFootprintCells();
     int v4 = GetSharedFootprintAnims();
 
-    ov21_021E92C4(param0->slotMachineVariant, slotsMinigameDTO, param3, v0, v1, v2, v3, v4, 1, 4000);
+    ov21_021E92C4(param0->unk_04, param1, param3, v0, v1, v2, v3, v4, 1, 4000);
 }
 
-static void ov21_021E94A4(UnkStruct_ov21_021E94F8 *param0, SpriteResourceCollection **slotsMinigameDTO)
+static void ov21_021E94A4(UnkStruct_ov21_021E94F8 *param0, SpriteResourceCollection **param1)
 {
-    ov21_021E93C4(param0->slotMachineVariant, slotsMinigameDTO);
+    ov21_021E93C4(param0->unk_04, param1);
 }
 
-static void ov21_021E94B0(UnkStruct_ov21_021E94F8 *param0, SpriteList *slotsMinigameDTO, SpriteResourceCollection **param2, int param3)
+static void ov21_021E94B0(UnkStruct_ov21_021E94F8 *param0, SpriteList *param1, SpriteResourceCollection **param2, int param3)
 {
     SpriteListTemplate v0;
     SpriteResourcesHeader v1;
 
-    ov21_021E93F8(param0->slotMachineVariant, param2, &v1, 2);
+    ov21_021E93F8(param0->unk_04, param2, &v1, 2);
 
-    v0.list = slotsMinigameDTO;
+    v0.list = param1;
     v0.resourceData = &v1;
     v0.vramType = NNS_G2D_VRAM_TYPE_2DMAIN;
     v0.priority = 32;
@@ -496,23 +496,23 @@ static void ov21_021E94B0(UnkStruct_ov21_021E94F8 *param0, SpriteList *slotsMini
     v0.position.x = (120 * FX32_ONE);
     v0.position.y = (88 * FX32_ONE);
 
-    param0->coins = SpriteList_Add(&v0);
-    GF_ASSERT(param0->coins);
+    param0->unk_00 = SpriteList_Add(&v0);
+    GF_ASSERT(param0->unk_00);
 }
 
 static void ov21_021E94F8(UnkStruct_ov21_021E94F8 *param0)
 {
-    Sprite_Delete(param0->coins);
+    Sprite_Delete(param0->unk_00);
 }
 
-static void ov21_021E9504(UnkStruct_ov21_021E95B0 *param0, SpriteList *slotsMinigameDTO, SpriteResourceCollection **param2, int param3, SpriteResource **param4)
+static void ov21_021E9504(UnkStruct_ov21_021E95B0 *param0, SpriteList *param1, SpriteResourceCollection **param2, int param3, SpriteResource **param4)
 {
     SpriteListTemplate v0;
     SpriteResourcesHeader v1;
 
     ov21_021E93F8(param4, param2, &v1, 2);
 
-    v0.list = slotsMinigameDTO;
+    v0.list = param1;
     v0.resourceData = &v1;
     v0.vramType = NNS_G2D_VRAM_TYPE_2DMAIN;
     v0.priority = 32;
@@ -520,15 +520,15 @@ static void ov21_021E9504(UnkStruct_ov21_021E95B0 *param0, SpriteList *slotsMini
     v0.position.x = (192 * FX32_ONE);
     v0.position.y = (52 * FX32_ONE);
 
-    param0->coins = SpriteList_Add(&v0);
+    param0->unk_00 = SpriteList_Add(&v0);
 
-    GF_ASSERT(param0->coins);
-    Sprite_SetAnim(param0->coins, 0x11);
+    GF_ASSERT(param0->unk_00);
+    Sprite_SetAnim(param0->unk_00, 0x11);
 }
 
 static void ov21_021E9554(UnkStruct_ov21_021E95B0 *param0)
 {
-    Sprite_Delete(param0->coins);
+    Sprite_Delete(param0->unk_00);
 }
 
 static void ov21_021E9560(UnkStruct_ov21_021E95B0 *param0, PokedexTextManager *textMan, int param2, int param3, SpriteResource *param4)
@@ -540,7 +540,7 @@ static void ov21_021E9560(UnkStruct_ov21_021E95B0 *param0, PokedexTextManager *t
 
     displayBox.textMan = textMan;
     displayBox.paletteProxy = SpriteTransfer_GetPaletteProxy(param4, NULL);
-    displayBox.sprite = param0->coins;
+    displayBox.sprite = param0->unk_00;
     displayBox.x = -78;
     displayBox.y = -8;
     displayBox.spriteResourcePriority = 2;
@@ -549,27 +549,27 @@ static void ov21_021E9560(UnkStruct_ov21_021E95B0 *param0, PokedexTextManager *t
     displayBox.heapID = param2;
     displayBox.window = v0;
 
-    param0->slotMachineVariant = PokedexTextManager_NextTextData(&displayBox);
+    param0->unk_04 = PokedexTextManager_NextTextData(&displayBox);
 
     PokedexTextManager_FreeWindow(v0);
 }
 
 static void ov21_021E95B0(UnkStruct_ov21_021E95B0 *param0)
 {
-    PokedexTextManager_FreeTextData(param0->slotMachineVariant);
+    PokedexTextManager_FreeTextData(param0->unk_04);
 }
 
-static void ov21_021E95BC(UnkStruct_ov21_021E968C *param0, SpriteResourceCollection **slotsMinigameDTO, int param2, int param3, NARC *param4)
+static void ov21_021E95BC(UnkStruct_ov21_021E968C *param0, SpriteResourceCollection **param1, int param2, int param3, NARC *param4)
 {
-    ov21_021E9344(param0->unk_08, slotsMinigameDTO, param3, param4, type_icons_NCGR_lz, type_icons_NCLR, type_icons_cell_NCER_lz, type_icons_anim_NANR_lz, 5, 17000);
+    ov21_021E9344(param0->unk_08, param1, param3, param4, type_icons_NCGR_lz, type_icons_NCLR, type_icons_cell_NCER_lz, type_icons_anim_NANR_lz, 5, 17000);
 }
 
-static void ov21_021E95EC(UnkStruct_ov21_021E968C *param0, SpriteResourceCollection **slotsMinigameDTO)
+static void ov21_021E95EC(UnkStruct_ov21_021E968C *param0, SpriteResourceCollection **param1)
 {
-    ov21_021E93C4(param0->unk_08, slotsMinigameDTO);
+    ov21_021E93C4(param0->unk_08, param1);
 }
 
-static void ov21_021E95F8(UnkStruct_ov21_021E968C *param0, SpriteList *slotsMinigameDTO, SpriteResourceCollection **param2, int param3, int param4)
+static void ov21_021E95F8(UnkStruct_ov21_021E968C *param0, SpriteList *param1, SpriteResourceCollection **param2, int param3, int param4)
 {
     SpriteListTemplate v0;
     SpriteResourcesHeader v1;
@@ -580,7 +580,7 @@ static void ov21_021E95F8(UnkStruct_ov21_021E968C *param0, SpriteList *slotsMini
 
     ov21_021E93F8(param0->unk_08, param2, &v1, 2);
 
-    v0.list = slotsMinigameDTO;
+    v0.list = param1;
     v0.resourceData = &v1;
     v0.vramType = NNS_G2D_VRAM_TYPE_2DMAIN;
     v0.priority = 32;
@@ -588,78 +588,78 @@ static void ov21_021E95F8(UnkStruct_ov21_021E968C *param0, SpriteList *slotsMini
     v0.position.x = (170 * FX32_ONE);
     v0.position.y = (72 * FX32_ONE);
 
-    param0->coins[0] = SpriteList_Add(&v0);
+    param0->unk_00[0] = SpriteList_Add(&v0);
 
-    Sprite_SetAnim(param0->coins[0], 0 + type1);
+    Sprite_SetAnim(param0->unk_00[0], 0 + type1);
 
     if (type1 != type2) {
         v0.position.x = (220 * FX32_ONE);
         v0.position.y = (72 * FX32_ONE);
-        param0->coins[1] = SpriteList_Add(&v0);
-        Sprite_SetAnim(param0->coins[1], 0 + type2);
+        param0->unk_00[1] = SpriteList_Add(&v0);
+        Sprite_SetAnim(param0->unk_00[1], 0 + type2);
     } else {
-        param0->coins[1] = NULL;
+        param0->unk_00[1] = NULL;
     }
 }
 
 static void ov21_021E968C(UnkStruct_ov21_021E968C *param0)
 {
-    if (param0->coins[0]) {
-        Sprite_Delete(param0->coins[0]);
+    if (param0->unk_00[0]) {
+        Sprite_Delete(param0->unk_00[0]);
     }
 
-    if (param0->coins[1]) {
-        Sprite_Delete(param0->coins[1]);
+    if (param0->unk_00[1]) {
+        Sprite_Delete(param0->unk_00[1]);
     }
 }
 
-static void ov21_021E96A8(BgConfig *param0, int slotsMinigameDTO, NARC *param2)
+static void ov21_021E96A8(BgConfig *param0, int param1, NARC *param2)
 {
     void *v0;
     NNSG2dScreenData *v1;
 
-    Graphics_LoadPaletteFromOpenNARC(param2, banner_sinnoh_NCLR, 0, 0, 0, slotsMinigameDTO);
-    Graphics_LoadTilesToBgLayerFromOpenNARC(param2, entry_main_NCGR_lz, param0, 3, 0, 0, 1, slotsMinigameDTO);
+    Graphics_LoadPaletteFromOpenNARC(param2, banner_sinnoh_NCLR, 0, 0, 0, param1);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(param2, entry_main_NCGR_lz, param0, 3, 0, 0, 1, param1);
 
-    v0 = Graphics_GetScrnDataFromOpenNARC(param2, info_main_NSCR_lz, 1, &v1, slotsMinigameDTO);
+    v0 = Graphics_GetScrnDataFromOpenNARC(param2, info_main_NSCR_lz, 1, &v1, param1);
 
     Bg_LoadToTilemapRect(param0, 3, v1->rawData, 0, 0, v1->screenWidth / 8, v1->screenHeight / 8);
     Heap_Free(v0);
 
-    v0 = Graphics_GetScrnDataFromOpenNARC(param2, info_species_window_NSCR_lz, 1, &v1, slotsMinigameDTO);
+    v0 = Graphics_GetScrnDataFromOpenNARC(param2, info_species_window_NSCR_lz, 1, &v1, param1);
 
     Bg_LoadToTilemapRect(param0, 3, v1->rawData, 0, 3, v1->screenWidth / 8, v1->screenHeight / 8);
     Heap_Free(v0);
 
-    v0 = Graphics_GetScrnDataFromOpenNARC(param2, info_footprint_window_NSCR_lz, 1, &v1, slotsMinigameDTO);
+    v0 = Graphics_GetScrnDataFromOpenNARC(param2, info_footprint_window_NSCR_lz, 1, &v1, param1);
 
     Bg_LoadToTilemapRect(param0, 3, v1->rawData, 12, 8, v1->screenWidth / 8, v1->screenHeight / 8);
     Heap_Free(v0);
 
-    v0 = Graphics_GetScrnDataFromOpenNARC(param2, info_entry_window_NSCR_lz, 1, &v1, slotsMinigameDTO);
+    v0 = Graphics_GetScrnDataFromOpenNARC(param2, info_entry_window_NSCR_lz, 1, &v1, param1);
 
     Bg_LoadToTilemapRect(param0, 3, v1->rawData, 0, 16, v1->screenWidth / 8, v1->screenHeight / 8);
     Heap_Free(v0);
     Bg_ScheduleTilemapTransfer(param0, 3);
 }
 
-static void ov21_021E97C4(BgConfig *param0, int slotsMinigameDTO, NARC *param2)
+static void ov21_021E97C4(BgConfig *param0, int param1, NARC *param2)
 {
     void *v0;
     NNSG2dScreenData *v1;
 
-    Graphics_LoadTilesToBgLayerFromOpenNARC(param2, entry_main_NCGR_lz, param0, 2, 0, 0, 1, slotsMinigameDTO);
+    Graphics_LoadTilesToBgLayerFromOpenNARC(param2, entry_main_NCGR_lz, param0, 2, 0, 0, 1, param1);
 
-    v0 = Graphics_GetScrnDataFromOpenNARC(param2, banner_sinnoh_NSCR_lz, 1, &v1, slotsMinigameDTO);
+    v0 = Graphics_GetScrnDataFromOpenNARC(param2, banner_sinnoh_NSCR_lz, 1, &v1, param1);
 
     Bg_LoadToTilemapRect(param0, 2, v1->rawData, 0, 0, v1->screenWidth / 8, v1->screenHeight / 8);
     Heap_Free(v0);
     Bg_ScheduleTilemapTransfer(param0, 2);
 }
 
-static void ov21_021E9828(SysTask *param0, void *slotsMinigameDTO)
+static void ov21_021E9828(SysTask *param0, void *param1)
 {
-    UnkStruct_ov21_021E8D48 *v0 = slotsMinigameDTO;
+    UnkStruct_ov21_021E8D48 *v0 = param1;
     BOOL v1;
 
     switch (v0->unk_21C) {
@@ -668,7 +668,7 @@ static void ov21_021E9828(SysTask *param0, void *slotsMinigameDTO)
         v0->unk_21C++;
         break;
     case 1:
-        if (ov21_021E9948(v0->unk_08, v0->slotsMinigameDTO)) {
+        if (ov21_021E9948(v0->unk_08, v0->unk_0C)) {
             v0->unk_21C++;
         }
         break;
@@ -695,25 +695,25 @@ static void ov21_021E9828(SysTask *param0, void *slotsMinigameDTO)
     SpriteList_Update(v0->unk_19C);
 }
 
-static void ov21_021E98D8(PaletteData *param0, PokemonSprite *slotsMinigameDTO)
+static void ov21_021E98D8(PaletteData *param0, PokemonSprite *param1)
 {
     PaletteData_LoadBufferFromHardware(param0, PLTTBUF_MAIN_BG, 0, PALETTE_SIZE_BYTES * 16);
     PaletteData_LoadBufferFromHardware(param0, PLTTBUF_MAIN_OBJ, 0, PALETTE_SIZE_BYTES * 14);
 }
 
-static void ov21_021E98F8(PaletteData *param0, PokemonSprite *slotsMinigameDTO, int param2, int param3, int param4, int param5, int param6)
+static void ov21_021E98F8(PaletteData *param0, PokemonSprite *param1, int param2, int param3, int param4, int param5, int param6)
 {
-    PokemonSprite_StartFade(slotsMinigameDTO, param2, param4, param5, param6);
+    PokemonSprite_StartFade(param1, param2, param4, param5, param6);
     PaletteData_StartFade(param0, 0x1 | 0x4, 0xffff, param5, param3, param4, param6);
     PaletteData_SetAutoTransparent(param0, FALSE);
 }
 
-static BOOL ov21_021E9948(PaletteData *param0, PokemonSprite *slotsMinigameDTO)
+static BOOL ov21_021E9948(PaletteData *param0, PokemonSprite *param1)
 {
     BOOL v0[2];
 
     v0[0] = PaletteData_GetSelectedBuffersMask(param0);
-    v0[1] = PokemonSprite_IsFadeActive(slotsMinigameDTO);
+    v0[1] = PokemonSprite_IsFadeActive(param1);
 
     if ((v0[0] == 0) && (v0[1] == 0)) {
         return 1;
@@ -722,10 +722,10 @@ static BOOL ov21_021E9948(PaletteData *param0, PokemonSprite *slotsMinigameDTO)
     return 0;
 }
 
-static void ov21_021E9968(Window *param0, int slotsMinigameDTO, int param2)
+static void ov21_021E9968(Window *param0, int param1, int param2)
 {
-    InfoMain_RenderHeightWeightEntry(param0, param2, slotsMinigameDTO, 0, TEXT_COLOR(2, 1, 0));
-    ov21_021E998C(param0, slotsMinigameDTO);
+    InfoMain_RenderHeightWeightEntry(param0, param2, param1, 0, TEXT_COLOR(2, 1, 0));
+    ov21_021E998C(param0, param1);
 }
 
 static void ov21_021E998C(Window *param0, enum HeapID heapID)
@@ -740,11 +740,11 @@ static void ov21_021E998C(Window *param0, enum HeapID heapID)
     MessageLoader_Free(pokedexMessageBank);
 }
 
-static PokemonSprite *ov21_021E99E0(PokemonSpriteManager *param0, Pokemon *slotsMinigameDTO, int param2, int param3, int param4)
+static PokemonSprite *ov21_021E99E0(PokemonSpriteManager *param0, Pokemon *param1, int param2, int param3, int param4)
 {
     PokemonSpriteTemplate v0;
 
-    Pokemon_BuildSpriteTemplate(&v0, slotsMinigameDTO, 2);
+    Pokemon_BuildSpriteTemplate(&v0, param1, 2);
     return PokemonSpriteManager_CreateSprite(param0, &v0, param2, param3, 0, 0, NULL, NULL);
 }
 
@@ -811,13 +811,13 @@ static void ov21_021E9AC8(UnkStruct_ov21_021E9A9C *param0)
     memset(param0, 0, sizeof(UnkStruct_ov21_021E9A9C));
 }
 
-static void ov21_021E9AE8(UnkStruct_ov21_021E9A9C *param0, int slotsMinigameDTO)
+static void ov21_021E9AE8(UnkStruct_ov21_021E9A9C *param0, int param1)
 {
-    DC_FlushRange((void *)param0->paletteData[slotsMinigameDTO]->pRawData, 1 * 32);
-    GX_LoadBGPltt(param0->paletteData[slotsMinigameDTO]->pRawData, 0 * 32, 1 * 32);
+    DC_FlushRange((void *)param0->paletteData[param1]->pRawData, 1 * 32);
+    GX_LoadBGPltt(param0->paletteData[param1]->pRawData, 0 * 32, 1 * 32);
 }
 
-static void ov21_021E9B08(UnkStruct_ov21_021E9A9C *param0, int slotsMinigameDTO)
+static void ov21_021E9B08(UnkStruct_ov21_021E9A9C *param0, int param1)
 {
-    VramTransfer_Request(NNS_GFD_DST_2D_BG_PLTT_MAIN, 0 * 32, param0->paletteData[slotsMinigameDTO]->pRawData, 1 * 32);
+    VramTransfer_Request(NNS_GFD_DST_2D_BG_PLTT_MAIN, 0 * 32, param0->paletteData[param1]->pRawData, 1 * 32);
 }

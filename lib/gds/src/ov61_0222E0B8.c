@@ -24,12 +24,12 @@ static u8 Unk_ov61_0222E65C[] = {
 };
 // clang-format on
 
-void ov61_0222E0B8(u8 *param0, int param1, u8 *param2)
+void ov61_0222E0B8(u8 *param0, int slotsMinigameDTO, u8 *param2)
 {
-    for (int i = 0; i < param1; i++) {
+    for (int i = 0; i < slotsMinigameDTO; i++) {
         u8 v0;
         if (i != 0) {
-            int v1 = (i + param1 + param0[0]) & 0xFF;
+            int v1 = (i + slotsMinigameDTO + param0[0]) & 0xFF;
             v0 = Unk_ov61_0222E65C[v1];
         } else {
             v0 = 0;
@@ -39,12 +39,12 @@ void ov61_0222E0B8(u8 *param0, int param1, u8 *param2)
     }
 }
 
-void ov61_0222E110(u8 *param0, int param1, u8 *param2)
+void ov61_0222E110(u8 *param0, int slotsMinigameDTO, u8 *param2)
 {
-    for (int i = 0; i < param1; i++) {
+    for (int i = 0; i < slotsMinigameDTO; i++) {
         u8 v0;
         if (i != 0) {
-            int v1 = (i + param1 + param0[0]) & 0xFF;
+            int v1 = (i + slotsMinigameDTO + param0[0]) & 0xFF;
             v0 = Unk_ov61_0222E65C[v1];
         } else {
             v0 = 0;

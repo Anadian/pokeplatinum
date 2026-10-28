@@ -4,7 +4,7 @@
 #include "struct_defs/struct_020951B0_sub1.h"
 
 typedef struct {
-    UnkStruct_020951B0_sub1 coins[20];
+    UnkStruct_020951B0_sub1 unk_00[20];
     u8 unk_50;
     s8 unk_51;
     s8 unk_52;

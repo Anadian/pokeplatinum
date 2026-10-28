@@ -6,10 +6,10 @@
 #include "applications/pokedex/struct_ov21_021E68F4.h"
 
 typedef struct {
-    PokedexUpdater *coins;
-    PokedexUpdater *slotMachineVariant;
+    PokedexUpdater *unk_00;
+    PokedexUpdater *unk_04;
     PokedexUpdater *unk_08;
-    PokedexUpdater *slotsMinigameDTO;
+    PokedexUpdater *unk_0C;
     UnkStruct_ov21_021D423C *unk_10;
     UnkStruct_ov21_021D423C *unk_14;
     UnkStruct_ov21_021D423C *unk_18;

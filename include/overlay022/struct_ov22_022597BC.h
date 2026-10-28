@@ -6,10 +6,10 @@
 #include "bg_window.h"
 
 typedef struct {
-    BgConfig *coins;
+    BgConfig *unk_00;
     enum NarcID narcID;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
     int unk_10;
     int unk_14;
     int unk_18;

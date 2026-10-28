@@ -24,21 +24,21 @@
 #include "text.h"
 
 typedef struct {
-    s16 coins;
+    s16 unk_00;
     s16 unk_02;
 } UnkStruct_ov20_021D34CC;
 
 typedef struct {
-    String *coins;
-    const u16 *slotMachineVariant;
+    String *unk_00;
+    const u16 *unk_04;
     int unk_08;
 } UnkStruct_ov20_021D33C8;
 
 typedef struct UnkStruct_ov20_021D30F8_t {
-    UnkStruct_ov20_021D2128 *coins;
-    const EasyChatApp *slotMachineVariant;
+    UnkStruct_ov20_021D2128 *unk_00;
+    const EasyChatApp *unk_04;
     const EasyChatWordList *unk_08;
-    Window slotsMinigameDTO;
+    Window unk_0C;
     Window unk_1C;
     Window unk_2C;
     Sprite *unk_3C;
@@ -54,26 +54,26 @@ typedef struct UnkStruct_ov20_021D30F8_t {
     u16 unk_70[10][16];
 } UnkStruct_ov20_021D30F8;
 
-static void ov20_021D30A4(UnkStruct_ov20_021D30F8 *param0, NARC *slotsMinigameDTO);
+static void ov20_021D30A4(UnkStruct_ov20_021D30F8 *param0, NARC *param1);
 static void ov20_021D30F8(UnkStruct_ov20_021D30F8 *param0);
 static void ov20_021D312C(UnkStruct_ov20_021D30F8 *param0);
 static void ov20_021D3184(UnkStruct_ov20_021D30F8 *param0);
 static u32 ov20_021D32D0(UnkStruct_ov20_021D30F8 *param0);
-static void ov20_021D33C8(UnkStruct_ov20_021D33C8 *param0, UnkStruct_ov20_021D30F8 *slotsMinigameDTO);
+static void ov20_021D33C8(UnkStruct_ov20_021D33C8 *param0, UnkStruct_ov20_021D30F8 *param1);
 static void ov20_021D33F4(UnkStruct_ov20_021D33C8 *param0);
-static int ov20_021D3400(UnkStruct_ov20_021D33C8 *param0, String *slotsMinigameDTO);
-static void ov20_021D34CC(const UnkStruct_ov20_021D34CC *param0, UnkStruct_ov20_021D34CC *slotsMinigameDTO);
-static void ov20_021D34E0(const UnkStruct_ov20_021D34CC *param0, UnkStruct_ov20_021D34CC *slotsMinigameDTO);
-static void ov20_021D34F4(Window *param0, const UnkStruct_ov20_021D34CC *slotsMinigameDTO);
-static void ov20_021D351C(UnkStruct_ov20_021D30F8 *param0, Window *slotsMinigameDTO, const UnkStruct_ov20_021D34CC *param2, u16 param3);
-static void ov20_021D375C(UnkStruct_ov20_021D30F8 *param0, BOOL slotsMinigameDTO);
+static int ov20_021D3400(UnkStruct_ov20_021D33C8 *param0, String *param1);
+static void ov20_021D34CC(const UnkStruct_ov20_021D34CC *param0, UnkStruct_ov20_021D34CC *param1);
+static void ov20_021D34E0(const UnkStruct_ov20_021D34CC *param0, UnkStruct_ov20_021D34CC *param1);
+static void ov20_021D34F4(Window *param0, const UnkStruct_ov20_021D34CC *param1);
+static void ov20_021D351C(UnkStruct_ov20_021D30F8 *param0, Window *param1, const UnkStruct_ov20_021D34CC *param2, u16 param3);
+static void ov20_021D375C(UnkStruct_ov20_021D30F8 *param0, BOOL param1);
 
-UnkStruct_ov20_021D30F8 *ov20_021D2EA4(UnkStruct_ov20_021D2128 *param0, const EasyChatApp *slotsMinigameDTO, const EasyChatWordList *param2)
+UnkStruct_ov20_021D30F8 *ov20_021D2EA4(UnkStruct_ov20_021D2128 *param0, const EasyChatApp *param1, const EasyChatWordList *param2)
 {
     UnkStruct_ov20_021D30F8 *v0 = Heap_Alloc(HEAP_ID_35, sizeof(UnkStruct_ov20_021D30F8));
 
-    v0->coins = param0;
-    v0->slotMachineVariant = slotsMinigameDTO;
+    v0->unk_00 = param0;
+    v0->unk_04 = param1;
     v0->unk_08 = param2;
     v0->unk_3C = NULL;
     v0->unk_40 = NULL;
@@ -111,26 +111,26 @@ void ov20_021D2EF0(UnkStruct_ov20_021D30F8 *param0)
         String_Free(param0->unk_4C);
     }
 
-    Window_Remove(&param0->slotsMinigameDTO);
+    Window_Remove(&param0->unk_0C);
     Window_Remove(&param0->unk_1C);
     Window_Remove(&param0->unk_2C);
     Heap_Free(param0);
 }
 
-void ov20_021D2F50(UnkStruct_ov20_021D30F8 *param0, NARC *slotsMinigameDTO)
+void ov20_021D2F50(UnkStruct_ov20_021D30F8 *param0, NARC *param1)
 {
     BgConfig *v0;
     u32 v1;
 
-    v0 = ov20_021D2E04(param0->coins);
+    v0 = ov20_021D2E04(param0->unk_00);
 
-    ov20_021D30A4(param0, slotsMinigameDTO);
-    Graphics_LoadTilemapToBgLayerFromOpenNARC(slotsMinigameDTO, 0, v0, 0, 0, 0, 1, HEAP_ID_35);
+    ov20_021D30A4(param0, param1);
+    Graphics_LoadTilemapToBgLayerFromOpenNARC(param1, 0, v0, 0, 0, 0, 1, HEAP_ID_35);
 
-    v1 = Graphics_LoadTilesToBgLayerFromOpenNARC(slotsMinigameDTO, 1, v0, 0, 0, 0, 1, HEAP_ID_35);
+    v1 = Graphics_LoadTilesToBgLayerFromOpenNARC(param1, 1, v0, 0, 0, 0, 1, HEAP_ID_35);
     v1 /= 0x20;
 
-    Window_Add(v0, &param0->slotsMinigameDTO, 0, 3, 1, 27, 4, 0, v1);
+    Window_Add(v0, &param0->unk_0C, 0, 3, 1, 27, 4, 0, v1);
     v1 += 108;
 
     Window_Add(v0, &param0->unk_1C, 0, 2, 21, 27, 2, 11, v1);
@@ -144,9 +144,9 @@ void ov20_021D2F50(UnkStruct_ov20_021D30F8 *param0, NARC *slotsMinigameDTO)
     v1 += 9;
 
     Graphics_LoadPalette(NARC_INDEX_GRAPHIC__PL_WINFRAME, 24, 0, 14 * 0x20, 0x20, HEAP_ID_35);
-    LoadMessageBoxGraphics(v0, BG_LAYER_MAIN_0, v1, 15, EasyChat_GetFrame(param0->slotMachineVariant), HEAP_ID_35);
+    LoadMessageBoxGraphics(v0, BG_LAYER_MAIN_0, v1, 15, EasyChat_GetFrame(param0->unk_04), HEAP_ID_35);
     Window_DrawMessageBox(&param0->unk_1C, v1, 15);
-    Window_PutToTilemap(&param0->slotsMinigameDTO);
+    Window_PutToTilemap(&param0->unk_0C);
     Window_PutToTilemap(&param0->unk_1C);
 
     ov20_021D312C(param0);
@@ -157,14 +157,14 @@ void ov20_021D2F50(UnkStruct_ov20_021D30F8 *param0, NARC *slotsMinigameDTO)
     Bg_CopyTilemapBufferToVRAM(v0, 0);
 }
 
-static void ov20_021D30A4(UnkStruct_ov20_021D30F8 *param0, NARC *slotsMinigameDTO)
+static void ov20_021D30A4(UnkStruct_ov20_021D30F8 *param0, NARC *param1)
 {
     NNSG2dPaletteData *v0;
     void *v1;
 
-    Graphics_LoadPaletteFromOpenNARC(slotsMinigameDTO, 6, 0, 0, 14 * 0x20, HEAP_ID_35);
+    Graphics_LoadPaletteFromOpenNARC(param1, 6, 0, 0, 14 * 0x20, HEAP_ID_35);
 
-    v1 = Graphics_GetPlttDataFromOpenNARC(slotsMinigameDTO, 6, &v0, HEAP_ID_35);
+    v1 = Graphics_GetPlttDataFromOpenNARC(param1, 6, &v0, HEAP_ID_35);
 
     MI_CpuCopy16(v0->pRawData, param0->unk_70, sizeof(param0->unk_70));
     DC_FlushRange(param0->unk_70, sizeof(param0->unk_70));
@@ -174,8 +174,8 @@ static void ov20_021D30A4(UnkStruct_ov20_021D30F8 *param0, NARC *slotsMinigameDT
 
 static void ov20_021D30F8(UnkStruct_ov20_021D30F8 *param0)
 {
-    if (EasyChat_GetType(param0->slotMachineVariant) == EASY_CHAT_TYPE_SENTENCE) {
-        int v0 = 1 + ov20_021D1F9C(param0->slotMachineVariant);
+    if (EasyChat_GetType(param0->unk_04) == EASY_CHAT_TYPE_SENTENCE) {
+        int v0 = 1 + ov20_021D1F9C(param0->unk_04);
         GX_LoadBGPltt(param0->unk_70[v0], 0 * 0x20, 0x20);
     } else {
         GX_LoadBGPltt(param0->unk_70[0], 0 * 0x20, 0x20);
@@ -184,16 +184,16 @@ static void ov20_021D30F8(UnkStruct_ov20_021D30F8 *param0)
 
 static void ov20_021D312C(UnkStruct_ov20_021D30F8 *param0)
 {
-    switch (EasyChat_GetType(param0->slotMachineVariant)) {
+    switch (EasyChat_GetType(param0->unk_04)) {
     case EASY_CHAT_TYPE_ONE_WORD:
-        param0->unk_54[0].coins = 104;
+        param0->unk_54[0].unk_00 = 104;
         param0->unk_54[0].unk_02 = 16;
         param0->unk_5C = 1;
         break;
     case EASY_CHAT_TYPE_TWO_WORDS:
-        param0->unk_54[0].coins = 48;
+        param0->unk_54[0].unk_00 = 48;
         param0->unk_54[0].unk_02 = 16;
-        param0->unk_54[1].coins = 160;
+        param0->unk_54[1].unk_00 = 160;
         param0->unk_54[1].unk_02 = 16;
         param0->unk_5C = 2;
         break;
@@ -211,22 +211,22 @@ static void ov20_021D3184(UnkStruct_ov20_021D30F8 *param0)
     if (param0->unk_5C) {
         ov20_021D34E0(&param0->unk_54[0], &v1);
     } else {
-        v1.coins = 128;
+        v1.unk_00 = 128;
         v1.unk_02 = 24;
     }
 
-    ov20_021D2E0C(param0->coins, &v0, 0, 0);
-    param0->unk_3C = ov20_021D2E50(param0->coins, &v0, v1.coins, v1.unk_02, 0, NNS_G2D_VRAM_TYPE_2DMAIN);
+    ov20_021D2E0C(param0->unk_00, &v0, 0, 0);
+    param0->unk_3C = ov20_021D2E50(param0->unk_00, &v0, v1.unk_00, v1.unk_02, 0, NNS_G2D_VRAM_TYPE_2DMAIN);
 
     ov20_021D375C(param0, 1);
-    param0->unk_40 = ov20_021D2E50(param0->coins, &v0, 6, 24, 1, NNS_G2D_VRAM_TYPE_2DMAIN);
+    param0->unk_40 = ov20_021D2E50(param0->unk_00, &v0, 6, 24, 1, NNS_G2D_VRAM_TYPE_2DMAIN);
 
     Sprite_SetAnim(param0->unk_40, 13);
-    param0->unk_44 = ov20_021D2E50(param0->coins, &v0, 250, 24, 1, NNS_G2D_VRAM_TYPE_2DMAIN);
+    param0->unk_44 = ov20_021D2E50(param0->unk_00, &v0, 250, 24, 1, NNS_G2D_VRAM_TYPE_2DMAIN);
 
     Sprite_SetAnim(param0->unk_44, 12);
 
-    if (EasyChat_GetType(param0->slotMachineVariant) != EASY_CHAT_TYPE_SENTENCE) {
+    if (EasyChat_GetType(param0->unk_04) != EASY_CHAT_TYPE_SENTENCE) {
         Sprite_SetDrawFlag(param0->unk_44, FALSE);
         Sprite_SetDrawFlag(param0->unk_40, FALSE);
     }
@@ -235,30 +235,30 @@ static void ov20_021D3184(UnkStruct_ov20_021D30F8 *param0)
 void ov20_021D3228(UnkStruct_ov20_021D30F8 *param0)
 {
     ov20_021D30F8(param0);
-    Window_FillTilemap(&param0->slotsMinigameDTO, 13);
+    Window_FillTilemap(&param0->unk_0C, 13);
 
-    switch (EasyChat_GetType(param0->slotMachineVariant)) {
+    switch (EasyChat_GetType(param0->unk_04)) {
     case EASY_CHAT_TYPE_ONE_WORD:
-        ov20_021D34F4(&param0->slotsMinigameDTO, &param0->unk_54[0]);
-        ov20_021D351C(param0, &param0->slotsMinigameDTO, &(param0->unk_54[0]), EasyChat_GetWordAtSlot(param0->slotMachineVariant, 0));
+        ov20_021D34F4(&param0->unk_0C, &param0->unk_54[0]);
+        ov20_021D351C(param0, &param0->unk_0C, &(param0->unk_54[0]), EasyChat_GetWordAtSlot(param0->unk_04, 0));
         break;
     case EASY_CHAT_TYPE_TWO_WORDS:
-        ov20_021D34F4(&param0->slotsMinigameDTO, &param0->unk_54[0]);
-        ov20_021D34F4(&param0->slotsMinigameDTO, &param0->unk_54[1]);
-        ov20_021D351C(param0, &param0->slotsMinigameDTO, &(param0->unk_54[0]), EasyChat_GetWordAtSlot(param0->slotMachineVariant, 0));
-        ov20_021D351C(param0, &param0->slotsMinigameDTO, &(param0->unk_54[1]), EasyChat_GetWordAtSlot(param0->slotMachineVariant, 1));
+        ov20_021D34F4(&param0->unk_0C, &param0->unk_54[0]);
+        ov20_021D34F4(&param0->unk_0C, &param0->unk_54[1]);
+        ov20_021D351C(param0, &param0->unk_0C, &(param0->unk_54[0]), EasyChat_GetWordAtSlot(param0->unk_04, 0));
+        ov20_021D351C(param0, &param0->unk_0C, &(param0->unk_54[1]), EasyChat_GetWordAtSlot(param0->unk_04, 1));
         break;
     case EASY_CHAT_TYPE_SENTENCE:
         param0->unk_5C = ov20_021D32D0(param0);
         break;
     }
 
-    Window_LoadTiles(&param0->slotsMinigameDTO);
+    Window_LoadTiles(&param0->unk_0C);
 }
 
 static u32 ov20_021D32D0(UnkStruct_ov20_021D30F8 *param0)
 {
-    String *v0 = ov20_021D1FC0(param0->slotMachineVariant, 35);
+    String *v0 = ov20_021D1FC0(param0->unk_04, 35);
     int v1, v2, v3;
     BOOL v4;
     u16 v5;
@@ -271,18 +271,18 @@ static u32 ov20_021D32D0(UnkStruct_ov20_021D30F8 *param0)
     while (v4) {
         switch (ov20_021D3400(&(param0->unk_64), v0)) {
         case 0:
-            Text_AddPrinterWithParamsAndColor(&param0->slotsMinigameDTO, FONT_MESSAGE, v0, v1, v2, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(3, 4, 13), NULL);
+            Text_AddPrinterWithParamsAndColor(&param0->unk_0C, FONT_MESSAGE, v0, v1, v2, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(3, 4, 13), NULL);
             v1 += Font_CalcStringWidth(FONT_MESSAGE, v0, 0);
             break;
         case 1:
             v1 += 2;
-            param0->unk_54[v3].coins = v1 + (96 / 2);
+            param0->unk_54[v3].unk_00 = v1 + (96 / 2);
             param0->unk_54[v3].unk_02 = v2 + (16 / 2);
-            ov20_021D34F4(&param0->slotsMinigameDTO, &(param0->unk_54[v3]));
-            v5 = EasyChat_GetWordAtSlot(param0->slotMachineVariant, v3);
+            ov20_021D34F4(&param0->unk_0C, &(param0->unk_54[v3]));
+            v5 = EasyChat_GetWordAtSlot(param0->unk_04, v3);
 
             if (v5 != 0xffff) {
-                ov20_021D351C(param0, &param0->slotsMinigameDTO, &(param0->unk_54[v3]), v5);
+                ov20_021D351C(param0, &param0->unk_0C, &(param0->unk_54[v3]), v5);
             }
 
             v3++;
@@ -304,12 +304,12 @@ static u32 ov20_021D32D0(UnkStruct_ov20_021D30F8 *param0)
     return v3;
 }
 
-static void ov20_021D33C8(UnkStruct_ov20_021D33C8 *param0, UnkStruct_ov20_021D30F8 *slotsMinigameDTO)
+static void ov20_021D33C8(UnkStruct_ov20_021D33C8 *param0, UnkStruct_ov20_021D30F8 *param1)
 {
-    param0->coins = ov20_021D1FC0(slotsMinigameDTO->slotMachineVariant, 35);
-    param0->slotMachineVariant = String_GetData(param0->coins);
+    param0->unk_00 = ov20_021D1FC0(param1->unk_04, 35);
+    param0->unk_04 = String_GetData(param0->unk_00);
 
-    if (*(param0->slotMachineVariant) == 0xfffe) {
+    if (*(param0->unk_04) == 0xfffe) {
         param0->unk_08 = 1;
     } else {
         param0->unk_08 = 0;
@@ -318,18 +318,18 @@ static void ov20_021D33C8(UnkStruct_ov20_021D33C8 *param0, UnkStruct_ov20_021D30
 
 static void ov20_021D33F4(UnkStruct_ov20_021D33C8 *param0)
 {
-    String_Free(param0->coins);
+    String_Free(param0->unk_00);
 }
 
-static int ov20_021D3400(UnkStruct_ov20_021D33C8 *param0, String *slotsMinigameDTO)
+static int ov20_021D3400(UnkStruct_ov20_021D33C8 *param0, String *param1)
 {
-    const u16 *v0 = param0->slotMachineVariant;
+    const u16 *v0 = param0->unk_04;
     int v1;
 
     switch (param0->unk_08) {
     case 0:
         while (param0->unk_08 == 0) {
-            switch (*(param0->slotMachineVariant)) {
+            switch (*(param0->unk_04)) {
             case 0xe000:
                 param0->unk_08 = 2;
                 break;
@@ -340,19 +340,19 @@ static int ov20_021D3400(UnkStruct_ov20_021D33C8 *param0, String *slotsMinigameD
                 param0->unk_08 = 1;
                 break;
             default:
-                param0->slotMachineVariant++;
+                param0->unk_04++;
                 break;
             }
         }
 
-        String_CopyNumChars(slotsMinigameDTO, v0, (param0->slotMachineVariant - v0) + 1);
+        String_CopyNumChars(param1, v0, (param0->unk_04 - v0) + 1);
         return 0;
     case 1:
-        param0->slotMachineVariant = CharCode_SkipFormatArg(param0->slotMachineVariant);
+        param0->unk_04 = CharCode_SkipFormatArg(param0->unk_04);
         v1 = 1;
         break;
     case 2:
-        param0->slotMachineVariant++;
+        param0->unk_04++;
         v1 = 2;
         break;
     case 3:
@@ -360,7 +360,7 @@ static int ov20_021D3400(UnkStruct_ov20_021D33C8 *param0, String *slotsMinigameD
         return 3;
     }
 
-    switch (*(param0->slotMachineVariant)) {
+    switch (*(param0->unk_04)) {
     case 0xe000:
         param0->unk_08 = 2;
         break;
@@ -378,27 +378,27 @@ static int ov20_021D3400(UnkStruct_ov20_021D33C8 *param0, String *slotsMinigameD
     return v1;
 }
 
-static void ov20_021D34CC(const UnkStruct_ov20_021D34CC *param0, UnkStruct_ov20_021D34CC *slotsMinigameDTO)
+static void ov20_021D34CC(const UnkStruct_ov20_021D34CC *param0, UnkStruct_ov20_021D34CC *param1)
 {
-    slotsMinigameDTO->coins = param0->coins - (96 / 2);
-    slotsMinigameDTO->unk_02 = param0->unk_02 - (16 / 2);
+    param1->unk_00 = param0->unk_00 - (96 / 2);
+    param1->unk_02 = param0->unk_02 - (16 / 2);
 }
 
-static void ov20_021D34E0(const UnkStruct_ov20_021D34CC *param0, UnkStruct_ov20_021D34CC *slotsMinigameDTO)
+static void ov20_021D34E0(const UnkStruct_ov20_021D34CC *param0, UnkStruct_ov20_021D34CC *param1)
 {
-    slotsMinigameDTO->coins = param0->coins + 3 * 8;
-    slotsMinigameDTO->unk_02 = param0->unk_02 + 1 * 8;
+    param1->unk_00 = param0->unk_00 + 3 * 8;
+    param1->unk_02 = param0->unk_02 + 1 * 8;
 }
 
-static void ov20_021D34F4(Window *param0, const UnkStruct_ov20_021D34CC *slotsMinigameDTO)
+static void ov20_021D34F4(Window *param0, const UnkStruct_ov20_021D34CC *param1)
 {
     UnkStruct_ov20_021D34CC v0;
 
-    ov20_021D34CC(slotsMinigameDTO, &v0);
-    Window_FillRectWithColor(param0, 14, v0.coins, v0.unk_02, 96, 16);
+    ov20_021D34CC(param1, &v0);
+    Window_FillRectWithColor(param0, 14, v0.unk_00, v0.unk_02, 96, 16);
 }
 
-static void ov20_021D351C(UnkStruct_ov20_021D30F8 *param0, Window *slotsMinigameDTO, const UnkStruct_ov20_021D34CC *param2, u16 param3)
+static void ov20_021D351C(UnkStruct_ov20_021D30F8 *param0, Window *param1, const UnkStruct_ov20_021D34CC *param2, u16 param3)
 {
     if (param3 != 0xffff) {
         UnkStruct_ov20_021D34CC v0;
@@ -407,9 +407,9 @@ static void ov20_021D351C(UnkStruct_ov20_021D30F8 *param0, Window *slotsMinigame
         ov20_021D34CC(param2, &v0);
         EasyChatWord_ToString(param3, param0->unk_4C);
 
-        v1 = (v0.coins + (96 / 2)) - (Font_CalcStringWidth(FONT_MESSAGE, param0->unk_4C, 0) / 2);
+        v1 = (v0.unk_00 + (96 / 2)) - (Font_CalcStringWidth(FONT_MESSAGE, param0->unk_4C, 0) / 2);
 
-        Text_AddPrinterWithParamsAndColor(slotsMinigameDTO, FONT_MESSAGE, param0->unk_4C, v0.coins, v0.unk_02, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(5, 6, 14), NULL);
+        Text_AddPrinterWithParamsAndColor(param1, FONT_MESSAGE, param0->unk_4C, v0.unk_00, v0.unk_02, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(5, 6, 14), NULL);
     }
 }
 
@@ -418,11 +418,11 @@ u32 ov20_021D3574(const UnkStruct_ov20_021D30F8 *param0)
     return param0->unk_5C;
 }
 
-void ov20_021D3578(UnkStruct_ov20_021D30F8 *param0, u32 slotsMinigameDTO)
+void ov20_021D3578(UnkStruct_ov20_021D30F8 *param0, u32 param1)
 {
     Window_FillTilemap(&param0->unk_1C, 9);
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 0:
 
     {
@@ -430,7 +430,7 @@ void ov20_021D3578(UnkStruct_ov20_021D30F8 *param0, u32 slotsMinigameDTO)
         String *v1 = String_Init(300, HEAP_ID_SYSTEM);
 
         StringTemplate_SetBagPocketName(v0, 0, 0);
-        MessageLoader_GetString(param0->unk_48, EasyChat_GetInstructionBankEntry(param0->slotMachineVariant), param0->unk_4C);
+        MessageLoader_GetString(param0->unk_48, EasyChat_GetInstructionBankEntry(param0->unk_04), param0->unk_4C);
         StringTemplate_Format(v0, v1, param0->unk_4C);
         Text_AddPrinterWithParamsAndColor(&param0->unk_1C, FONT_MESSAGE, v1, 0, 0, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 9), NULL);
 
@@ -464,15 +464,15 @@ void ov20_021D3690(UnkStruct_ov20_021D30F8 *param0)
     ov20_021D375C(param0, 1);
 }
 
-void ov20_021D369C(UnkStruct_ov20_021D30F8 *param0, BOOL slotsMinigameDTO)
+void ov20_021D369C(UnkStruct_ov20_021D30F8 *param0, BOOL param1)
 {
-    Sprite_SetDrawFlag(param0->unk_3C, slotsMinigameDTO);
+    Sprite_SetDrawFlag(param0->unk_3C, param1);
     ov20_021D375C(param0, 1);
 }
 
 void ov20_021D36B0(UnkStruct_ov20_021D30F8 *param0)
 {
-    if (EasyChat_GetType(param0->slotMachineVariant) == EASY_CHAT_TYPE_SENTENCE) {
+    if (EasyChat_GetType(param0->unk_04) == EASY_CHAT_TYPE_SENTENCE) {
         Sprite_SetDrawFlag(param0->unk_40, FALSE);
         Sprite_SetDrawFlag(param0->unk_44, FALSE);
     }
@@ -480,7 +480,7 @@ void ov20_021D36B0(UnkStruct_ov20_021D30F8 *param0)
 
 void ov20_021D36D0(UnkStruct_ov20_021D30F8 *param0)
 {
-    if (EasyChat_GetType(param0->slotMachineVariant) == EASY_CHAT_TYPE_SENTENCE) {
+    if (EasyChat_GetType(param0->unk_04) == EASY_CHAT_TYPE_SENTENCE) {
         Sprite_SetDrawFlag(param0->unk_40, TRUE);
         Sprite_SetDrawFlag(param0->unk_44, TRUE);
 
@@ -489,15 +489,15 @@ void ov20_021D36D0(UnkStruct_ov20_021D30F8 *param0)
     }
 }
 
-void ov20_021D3700(UnkStruct_ov20_021D30F8 *param0, int slotsMinigameDTO)
+void ov20_021D3700(UnkStruct_ov20_021D30F8 *param0, int param1)
 {
     VecFx32 v0;
 
     if (param0->unk_5C) {
         UnkStruct_ov20_021D34CC v1;
 
-        ov20_021D34E0(&param0->unk_54[slotsMinigameDTO], &v1);
-        v0.x = v1.coins * FX32_ONE;
+        ov20_021D34E0(&param0->unk_54[param1], &v1);
+        v0.x = v1.unk_00 * FX32_ONE;
         v0.y = v1.unk_02 * FX32_ONE;
         v0.z = 0;
     } else {
@@ -512,16 +512,16 @@ void ov20_021D3700(UnkStruct_ov20_021D30F8 *param0, int slotsMinigameDTO)
     ov20_021D375C(param0, 1);
 }
 
-static void ov20_021D375C(UnkStruct_ov20_021D30F8 *param0, BOOL slotsMinigameDTO)
+static void ov20_021D375C(UnkStruct_ov20_021D30F8 *param0, BOOL param1)
 {
     if (param0->unk_5C != 0) {
-        if (slotsMinigameDTO) {
+        if (param1) {
             Sprite_SetAnim(param0->unk_3C, 0);
         } else {
             Sprite_SetAnim(param0->unk_3C, 1);
         }
     } else {
-        if (slotsMinigameDTO) {
+        if (param1) {
             Sprite_SetAnim(param0->unk_3C, 14);
         } else {
             Sprite_SetAnim(param0->unk_3C, 15);
@@ -529,7 +529,7 @@ static void ov20_021D375C(UnkStruct_ov20_021D30F8 *param0, BOOL slotsMinigameDTO
     }
 }
 
-void ov20_021D3790(UnkStruct_ov20_021D30F8 *param0, int slotsMinigameDTO)
+void ov20_021D3790(UnkStruct_ov20_021D30F8 *param0, int param1)
 {
     Window_FillTilemap(&param0->unk_2C, 9);
 
@@ -540,15 +540,15 @@ void ov20_021D3790(UnkStruct_ov20_021D30F8 *param0, int slotsMinigameDTO)
     Text_AddPrinterWithParamsAndColor(&param0->unk_2C, FONT_SYSTEM, param0->unk_4C, 14, 0 + 16, TEXT_SPEED_NO_TRANSFER, TEXT_COLOR(1, 2, 9), NULL);
 
     Window_DrawStandardFrame(&param0->unk_2C, 0, param0->unk_60, 14);
-    ColoredArrow_Print(param0->unk_50, &param0->unk_2C, 0, 0 + (slotsMinigameDTO * 16));
+    ColoredArrow_Print(param0->unk_50, &param0->unk_2C, 0, 0 + (param1 * 16));
 
     Window_CopyToVRAM(&param0->unk_2C);
 }
 
-void ov20_021D381C(UnkStruct_ov20_021D30F8 *param0, int slotsMinigameDTO)
+void ov20_021D381C(UnkStruct_ov20_021D30F8 *param0, int param1)
 {
     Window_FillRectWithColor(&param0->unk_2C, 9, 0, 0, 14, 4 * 8);
-    ColoredArrow_Print(param0->unk_50, &param0->unk_2C, 0, 0 + (slotsMinigameDTO * 16));
+    ColoredArrow_Print(param0->unk_50, &param0->unk_2C, 0, 0 + (param1 * 16));
 }
 
 void ov20_021D384C(UnkStruct_ov20_021D30F8 *param0)

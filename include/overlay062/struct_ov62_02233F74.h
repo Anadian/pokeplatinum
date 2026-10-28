@@ -8,10 +8,10 @@
 #include "sprite_system.h"
 
 typedef struct {
-    UnkStruct_02030A80 *coins;
-    UnkStruct_0202F41C *slotMachineVariant;
+    UnkStruct_02030A80 *unk_00;
+    UnkStruct_0202F41C *unk_04;
     u8 padding_08[4];
-    ManagedSprite *slotsMinigameDTO[12];
+    ManagedSprite *unk_0C[12];
     Window unk_3C[8];
 } UnkStruct_ov62_02233F74;
 

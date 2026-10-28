@@ -4,7 +4,7 @@
 #include "constants/contests.h"
 
 typedef struct {
-    void *coins[CONTEST_NUM_PARTICIPANTS];
+    void *unk_00[CONTEST_NUM_PARTICIPANTS];
 } UnkStruct_ov17_0224F3D8;
 
 #endif // POKEPLATINUM_STRUCT_OV17_0224F3D8_H

@@ -8,10 +8,10 @@
 #include "software_sprite.h"
 
 typedef struct {
-    SoftwareSpriteManager *coins;
-    SoftwareSpriteChars **slotMachineVariant;
+    SoftwareSpriteManager *unk_00;
+    SoftwareSpriteChars **unk_04;
     SoftwareSpritePalette **unk_08;
-    u8 *slotsMinigameDTO;
+    u8 *unk_0C;
     BgConfig *unk_10;
     UnkStruct_ov22_02254DE0 *unk_14;
     UnkStruct_ov22_022597BC unk_18;

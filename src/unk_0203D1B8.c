@@ -133,8 +133,6 @@
 #include "constdata/const_020F6890.h"
 #include "res/text/bank/easy_chat.h"
 
-#include "debug.h"
-
 FS_EXTERN_OVERLAY(battle);
 FS_EXTERN_OVERLAY(pc_boxes);
 FS_EXTERN_OVERLAY(easy_chat);
@@ -176,21 +174,21 @@ typedef struct {
 } UnkStruct_0203D444;
 
 typedef struct {
-    u16 *coins;
-    u16 *slotMachineVariant;
+    u16 *unk_00;
+    u16 *unk_04;
     u16 *unk_08;
-    EasyChatArgs *slotsMinigameDTO;
+    EasyChatArgs *unk_0C;
 } UnkStruct_0203D764;
 
 typedef struct {
-    u32 coins;
-    u16 *slotMachineVariant;
+    u32 unk_00;
+    u16 *unk_04;
     BOOL unk_08;
-    UnkStruct_0203DA00 *slotsMinigameDTO;
+    UnkStruct_0203DA00 *unk_0C;
 } UnkStruct_0203DA64;
 
 typedef struct {
-    int coins;
+    int unk_00;
     TradeRoomArgs trArgs;
     TradeAnimationTemplate unk_48;
     EvolutionData *unk_60;
@@ -198,22 +196,21 @@ typedef struct {
 } UnkStruct_0203DBF0;
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     u16 *unk_08;
-    NamingScreenArgs *slotsMinigameDTO;
+    NamingScreenArgs *unk_0C;
     String *unk_10;
 } UnkStruct_0203DE98;
 
-// Formerly known as SlotsMinigameEnv.
 typedef struct {
-    int coins;
+    int unk_00;
     s64 startTime;
-    SlotsMinigameDTO slotsMinigameDTO;
-} SlotsMinigameEnv;
+    UnkStruct_0203E348 unk_0C;
+} UnkStruct_0203E35C;
 
 static void sub_0203DF68(FieldTask *taskMan);
-static u8 SlotsMinigame_GetShuffledMachineVariant(SaveData *saveData, u8 slotMachineID);
+static u8 sub_0203E484(SaveData *saveData, u8 slotMachineID);
 
 static BOOL ApplicationInit_Battle(ApplicationManager *appMan, int *state)
 {
@@ -258,7 +255,7 @@ static const u8 Unk_020EA164[] = {
     0xff
 };
 
-void sub_0203D1E4(FieldSystem *fieldSystem, BagContext *slotsMinigameDTO)
+void sub_0203D1E4(FieldSystem *fieldSystem, BagContext *param1)
 {
     FS_EXTERN_OVERLAY(bag);
 
@@ -269,7 +266,7 @@ void sub_0203D1E4(FieldSystem *fieldSystem, BagContext *slotsMinigameDTO)
         FS_OVERLAY_ID(bag)
     };
 
-    FieldSystem_StartChildProcess(fieldSystem, &gBagApplicationTemplate, slotsMinigameDTO);
+    FieldSystem_StartChildProcess(fieldSystem, &gBagApplicationTemplate, param1);
 }
 
 BagContext *FieldSystem_OpenBag(FieldSystem *fieldSystem, ItemUseContext *itemUseCtx)
@@ -635,7 +632,7 @@ static BOOL sub_0203D764(FieldTask *taskMan)
 
     switch (*taskState) {
     case 0:
-        FieldSystem_OpenEasyChat(fieldSystem, taskEnv->slotsMinigameDTO);
+        FieldSystem_OpenEasyChat(fieldSystem, taskEnv->unk_0C);
         (*taskState)++;
         break;
     case 1:
@@ -644,23 +641,23 @@ static BOOL sub_0203D764(FieldTask *taskMan)
         }
         break;
     case 2:
-        if (EasyChatArgs_IsUnmodified(taskEnv->slotsMinigameDTO) || !EasyChatArgs_WasUpdated(taskEnv->slotsMinigameDTO)) {
-            *taskEnv->coins = 0;
+        if (EasyChatArgs_IsUnmodified(taskEnv->unk_0C) || !EasyChatArgs_WasUpdated(taskEnv->unk_0C)) {
+            *taskEnv->unk_00 = 0;
         } else {
-            *taskEnv->coins = 1;
+            *taskEnv->unk_00 = 1;
 
             if (taskEnv->unk_08 == NULL) {
-                *taskEnv->slotMachineVariant = EasyChatArgs_GetOneWord(taskEnv->slotsMinigameDTO);
+                *taskEnv->unk_04 = EasyChatArgs_GetOneWord(taskEnv->unk_0C);
             } else {
                 u16 v3[2];
 
-                EasyChatArgs_CopyTwoWordsTo(taskEnv->slotsMinigameDTO, v3);
-                *taskEnv->slotMachineVariant = v3[0];
+                EasyChatArgs_CopyTwoWordsTo(taskEnv->unk_0C, v3);
+                *taskEnv->unk_04 = v3[0];
                 *taskEnv->unk_08 = v3[1];
             }
         }
 
-        EasyChatArgs_Free(taskEnv->slotsMinigameDTO);
+        EasyChatArgs_Free(taskEnv->unk_0C);
         Heap_Free(taskEnv);
         return 1;
     }
@@ -668,21 +665,21 @@ static BOOL sub_0203D764(FieldTask *taskMan)
     return 0;
 }
 
-void sub_0203D80C(FieldTask *taskMan, u16 *slotsMinigameDTO, u16 *param2, u16 *param3)
+void sub_0203D80C(FieldTask *taskMan, u16 *param1, u16 *param2, u16 *param3)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
 
     UnkStruct_0203D764 *v0 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(UnkStruct_0203D764));
-    v0->coins = slotsMinigameDTO;
-    v0->slotMachineVariant = param2;
+    v0->unk_00 = param1;
+    v0->unk_04 = param2;
     v0->unk_08 = param3;
 
     if (param3 == NULL) {
-        v0->slotsMinigameDTO = EasyChatArgs_New(EASY_CHAT_TYPE_ONE_WORD, EasyChat_Text_ChooseWordOrPhrase, fieldSystem->saveData, HEAP_ID_FIELD3);
-        EasyChatArgs_SetOneWord(v0->slotsMinigameDTO, *param2);
+        v0->unk_0C = EasyChatArgs_New(EASY_CHAT_TYPE_ONE_WORD, EasyChat_Text_ChooseWordOrPhrase, fieldSystem->saveData, HEAP_ID_FIELD3);
+        EasyChatArgs_SetOneWord(v0->unk_0C, *param2);
     } else {
-        v0->slotsMinigameDTO = EasyChatArgs_New(EASY_CHAT_TYPE_TWO_WORDS, EasyChat_Text_ChooseWordOrPhrase, fieldSystem->saveData, HEAP_ID_FIELD3);
-        EasyChatArgs_SetTwoWords(v0->slotsMinigameDTO, *param2, *param3);
+        v0->unk_0C = EasyChatArgs_New(EASY_CHAT_TYPE_TWO_WORDS, EasyChat_Text_ChooseWordOrPhrase, fieldSystem->saveData, HEAP_ID_FIELD3);
+        EasyChatArgs_SetTwoWords(v0->unk_0C, *param2, *param3);
     }
 
     FieldTask_InitCall(taskMan, sub_0203D764, v0);
@@ -844,20 +841,20 @@ static BOOL sub_0203DA64(FieldTask *taskMan)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     UnkStruct_0203DA64 *taskEnv = FieldTask_GetEnv(taskMan);
 
-    switch (taskEnv->coins) {
+    switch (taskEnv->unk_00) {
     case 0:
-        sub_0203DB10(fieldSystem, taskEnv->slotsMinigameDTO);
-        taskEnv->coins++;
+        sub_0203DB10(fieldSystem, taskEnv->unk_0C);
+        taskEnv->unk_00++;
         break;
     case 1:
         if (FieldSystem_IsRunningApplication(fieldSystem) == 0) {
             if (taskEnv->unk_08 == 1) {
-                *taskEnv->slotMachineVariant = 1;
+                *taskEnv->unk_04 = 1;
             } else {
-                *taskEnv->slotMachineVariant = 0;
+                *taskEnv->unk_04 = 0;
             }
 
-            Heap_Free(taskEnv->slotsMinigameDTO);
+            Heap_Free(taskEnv->unk_0C);
             Heap_Free(taskEnv);
 
             return 1;
@@ -868,18 +865,18 @@ static BOOL sub_0203DA64(FieldTask *taskMan)
     return 0;
 }
 
-void sub_0203DAC0(FieldTask *taskMan, u16 *slotsMinigameDTO, SaveData *saveData, u16 param3, u16 param4)
+void sub_0203DAC0(FieldTask *taskMan, u16 *param1, SaveData *saveData, u16 param3, u16 param4)
 {
     UnkStruct_0203DA64 *v0 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(UnkStruct_0203DA64));
     memset(v0, 0, sizeof(UnkStruct_0203DA64));
 
-    v0->slotsMinigameDTO = sub_0203DA00(HEAP_ID_FIELD3, saveData, param3, &v0->unk_08, param4);
-    v0->slotMachineVariant = slotsMinigameDTO;
+    v0->unk_0C = sub_0203DA00(HEAP_ID_FIELD3, saveData, param3, &v0->unk_08, param4);
+    v0->unk_04 = param1;
 
     FieldTask_InitCall(taskMan, sub_0203DA64, v0);
 }
 
-BOOL sub_0203DB10(FieldSystem *fieldSystem, void *slotsMinigameDTO)
+BOOL sub_0203DB10(FieldSystem *fieldSystem, void *param1)
 {
     FS_EXTERN_OVERLAY(overlay22);
 
@@ -890,12 +887,12 @@ BOOL sub_0203DB10(FieldSystem *fieldSystem, void *slotsMinigameDTO)
         FS_OVERLAY_ID(overlay22)
     };
 
-    FieldSystem_StartChildProcess(fieldSystem, &appTemplate, slotsMinigameDTO);
+    FieldSystem_StartChildProcess(fieldSystem, &appTemplate, param1);
 
     return 1;
 }
 
-BOOL sub_0203DB24(FieldSystem *fieldSystem, void *slotsMinigameDTO)
+BOOL sub_0203DB24(FieldSystem *fieldSystem, void *param1)
 {
     FS_EXTERN_OVERLAY(overlay22);
 
@@ -906,7 +903,7 @@ BOOL sub_0203DB24(FieldSystem *fieldSystem, void *slotsMinigameDTO)
         FS_OVERLAY_ID(overlay22)
     };
 
-    FieldSystem_StartChildProcess(fieldSystem, &appTemplate, slotsMinigameDTO);
+    FieldSystem_StartChildProcess(fieldSystem, &appTemplate, param1);
 
     return 1;
 }
@@ -967,20 +964,20 @@ BOOL sub_0203DBF0(FieldTask *taskMan)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     UnkStruct_0203DBF0 *taskEnv = FieldTask_GetEnv(taskMan);
 
-    switch (taskEnv->coins) {
+    switch (taskEnv->unk_00) {
     case 0:
         if (!CommManager_IsConnectedToWifi()) {
             FieldTransition_FinishMap(taskMan);
         }
 
-        taskEnv->coins++;
+        taskEnv->unk_00++;
         break;
     case 1:
         sub_0203DB38(&(taskEnv->trArgs), fieldSystem);
-        taskEnv->coins++;
+        taskEnv->unk_00++;
     case 2:
         FieldTask_RunApplication(taskMan, &appTemplate1, &taskEnv->trArgs);
-        taskEnv->coins++;
+        taskEnv->unk_00++;
         break;
     case 3:
         if (taskEnv->trArgs.tradeCompleted == 0) {
@@ -989,7 +986,7 @@ BOOL sub_0203DBF0(FieldTask *taskMan)
             return 1;
         }
 
-        taskEnv->coins++;
+        taskEnv->unk_00++;
         break;
     case 4:
         taskEnv->unk_48.otherTrainer = taskEnv->trArgs.partnerTrainerInfoCopy;
@@ -1018,7 +1015,7 @@ BOOL sub_0203DBF0(FieldTask *taskMan)
         }
 
         FieldTask_RunApplication(taskMan, &appTemplate2, &taskEnv->unk_48);
-        taskEnv->coins = 5;
+        taskEnv->unk_00 = 5;
         break;
     case 5: {
         int v3 = Pokemon_GetValue(taskEnv->trArgs.receivingMon, MON_DATA_HELD_ITEM, NULL);
@@ -1028,9 +1025,9 @@ BOOL sub_0203DBF0(FieldTask *taskMan)
         if ((v4 = Pokemon_GetEvolutionTargetSpecies(NULL, taskEnv->trArgs.receivingMon, EVO_CLASS_BY_TRADE, v3, &v5)) != 0) {
             Heap_Create(HEAP_ID_APPLICATION, HEAP_ID_TRADE_ROOM, 0x30000);
             taskEnv->unk_60 = Evolution_Begin(NULL, taskEnv->trArgs.receivingMon, v4, SaveData_GetOptions(fieldSystem->saveData), PokemonSummaryScreen_ShowContestData(fieldSystem->saveData), SaveData_GetPokedex(fieldSystem->saveData), SaveData_GetBag(fieldSystem->saveData), SaveData_GetGameRecords(fieldSystem->saveData), SaveData_GetPoketch(fieldSystem->saveData), v5, 0x4, HEAP_ID_TRADE_ROOM);
-            taskEnv->coins = 6;
+            taskEnv->unk_00 = 6;
         } else {
-            taskEnv->coins = 7;
+            taskEnv->unk_00 = 7;
         }
     } break;
     case 6:
@@ -1038,12 +1035,12 @@ BOOL sub_0203DBF0(FieldTask *taskMan)
             Pokemon_Copy(taskEnv->trArgs.receivingMon, Party_GetPokemonBySlotIndex(taskEnv->trArgs.party, taskEnv->trArgs.receivingPartySlot));
             Evolution_Free(taskEnv->unk_60);
             Heap_Destroy(HEAP_ID_TRADE_ROOM);
-            taskEnv->coins = 7;
+            taskEnv->unk_00 = 7;
         }
         break;
     case 7:
         taskEnv->trArgs.tradeCount++;
-        taskEnv->coins = 2;
+        taskEnv->unk_00 = 2;
 
         {
             GameRecords *gameRecords = SaveData_GetGameRecords(fieldSystem->saveData);
@@ -1063,7 +1060,7 @@ void sub_0203DDDC(FieldTask *taskMan)
 {
     UnkStruct_0203DBF0 *v0 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(UnkStruct_0203DBF0));
 
-    v0->coins = 0;
+    v0->unk_00 = 0;
     FieldTask_InitCall(taskMan, sub_0203DBF0, v0);
 }
 
@@ -1085,8 +1082,8 @@ void sub_0203DDFC(FieldSystem *fieldSystem)
 {
     UnkStruct_0203DDFC *v0 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(UnkStruct_0203DDFC));
 
-    v0->coins = fieldSystem->unk_80;
-    v0->slotMachineVariant = fieldSystem->journalEntry;
+    v0->unk_00 = fieldSystem->unk_80;
+    v0->unk_04 = fieldSystem->journalEntry;
     v0->options = SaveData_GetOptions(fieldSystem->saveData);
 
     FieldSystem_StartChildProcess(fieldSystem, &Unk_020EA258, v0);
@@ -1097,7 +1094,7 @@ void *sub_0203DE34(FieldSystem *fieldSystem)
     UnkStruct_0203DE34 *v0 = Heap_Alloc(HEAP_ID_FIELD2, sizeof(UnkStruct_0203DE34));
 
     v0->saveData = fieldSystem->saveData;
-    v0->slotMachineVariant = fieldSystem->unk_80;
+    v0->unk_04 = fieldSystem->unk_80;
     v0->options = SaveData_GetOptions(fieldSystem->saveData);
     v0->records = SaveData_GetGameRecords(fieldSystem->saveData);
     v0->journalEntry = fieldSystem->journalEntry;
@@ -1129,44 +1126,44 @@ static BOOL sub_0203DE98(FieldTask *taskMan)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     UnkStruct_0203DE98 *taskEnv = FieldTask_GetEnv(taskMan);
 
-    switch (taskEnv->coins) {
+    switch (taskEnv->unk_00) {
     case 0:
         FieldTransition_FinishMap(taskMan);
-        taskEnv->coins++;
+        taskEnv->unk_00++;
         break;
     case 1:
-        FieldTask_RunApplication(taskMan, &gNamingScreenAppTemplate, taskEnv->slotsMinigameDTO);
-        taskEnv->coins++;
+        FieldTask_RunApplication(taskMan, &gNamingScreenAppTemplate, taskEnv->unk_0C);
+        taskEnv->unk_00++;
         break;
     case 2:
         FieldTransition_StartMap(taskMan);
-        taskEnv->coins++;
+        taskEnv->unk_00++;
         break;
     case 3:
-        if (taskEnv->slotsMinigameDTO->type == NAMING_SCREEN_TYPE_POKEMON) {
-            if (String_Compare(taskEnv->slotsMinigameDTO->textInputStr, taskEnv->unk_10) == 0) {
-                taskEnv->slotsMinigameDTO->returnCode = 1;
+        if (taskEnv->unk_0C->type == NAMING_SCREEN_TYPE_POKEMON) {
+            if (String_Compare(taskEnv->unk_0C->textInputStr, taskEnv->unk_10) == 0) {
+                taskEnv->unk_0C->returnCode = 1;
             }
-        } else if (taskEnv->slotsMinigameDTO->type == NAMING_SCREEN_TYPE_GROUP) {
-            const u16 *v3 = String_GetData(taskEnv->slotsMinigameDTO->textInputStr);
+        } else if (taskEnv->unk_0C->type == NAMING_SCREEN_TYPE_GROUP) {
+            const u16 *v3 = String_GetData(taskEnv->unk_0C->textInputStr);
             RecordMixedRNG *v4 = SaveData_GetRecordMixedRNG(fieldSystem->saveData);
 
             if (RecordMixedRNG_DoesCollectionContainGroup(v4, v3)) {
                 // this re-uses the returnCode field with values not associated with the naming
                 // screen. these should probably have their own enum.
-                taskEnv->slotsMinigameDTO->returnCode = 2;
+                taskEnv->unk_0C->returnCode = 2;
             }
         }
 
-        if (taskEnv->slotsMinigameDTO->returnCode == 0) {
+        if (taskEnv->unk_0C->returnCode == 0) {
             sub_0203DF68(taskMan);
         }
 
         if (taskEnv->unk_08 != NULL) {
-            *taskEnv->unk_08 = taskEnv->slotsMinigameDTO->returnCode;
+            *taskEnv->unk_08 = taskEnv->unk_0C->returnCode;
         }
 
-        NamingScreenArgs_Free(taskEnv->slotsMinigameDTO);
+        NamingScreenArgs_Free(taskEnv->unk_0C);
         String_Free(taskEnv->unk_10);
         Heap_Free(taskEnv);
 
@@ -1181,22 +1178,22 @@ static void sub_0203DF68(FieldTask *taskMan)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     UnkStruct_0203DE98 *taskEnv = FieldTask_GetEnv(taskMan);
 
-    switch (taskEnv->slotsMinigameDTO->type) {
+    switch (taskEnv->unk_0C->type) {
     case NAMING_SCREEN_TYPE_PLAYER:
         TrainerInfo *trainerInfo = SaveData_GetTrainerInfo(fieldSystem->saveData);
-        TrainerInfo_SetName(trainerInfo, taskEnv->slotsMinigameDTO->nameInputRaw);
+        TrainerInfo_SetName(trainerInfo, taskEnv->unk_0C->nameInputRaw);
         break;
     case NAMING_SCREEN_TYPE_POKEMON:
-        Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(fieldSystem->saveData), taskEnv->slotMachineVariant);
-        Pokemon_SetValue(mon, MON_DATA_NICKNAME_AND_FLAG, (u8 *)&taskEnv->slotsMinigameDTO->nameInputRaw);
+        Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(fieldSystem->saveData), taskEnv->unk_04);
+        Pokemon_SetValue(mon, MON_DATA_NICKNAME_AND_FLAG, (u8 *)&taskEnv->unk_0C->nameInputRaw);
         break;
     case NAMING_SCREEN_TYPE_GROUP:
         RecordMixedRNG *recMixedRNG = SaveData_GetRecordMixedRNG(fieldSystem->saveData);
-        RecordMixedRNG_GetEntryNameAsString(recMixedRNG, 0, 0, taskEnv->slotsMinigameDTO->textInputStr);
+        RecordMixedRNG_GetEntryNameAsString(recMixedRNG, 0, 0, taskEnv->unk_0C->textInputStr);
         break;
     case NAMING_SCREEN_TYPE_SHAYMIN_TABLET:
         MiscSaveBlock *miscSaveBlock = SaveData_MiscSaveBlock(fieldSystem->saveData);
-        MiscSaveBlock_SetTabletName(miscSaveBlock, taskEnv->slotsMinigameDTO->textInputStr);
+        MiscSaveBlock_SetTabletName(miscSaveBlock, taskEnv->unk_0C->textInputStr);
         break;
     }
 }
@@ -1213,17 +1210,17 @@ void sub_0203DFE8(
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     UnkStruct_0203DE98 *v2 = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(UnkStruct_0203DE98));
 
-    v2->coins = 0;
-    v2->slotMachineVariant = param4;
+    v2->unk_00 = 0;
+    v2->unk_04 = param4;
     v2->unk_08 = param6;
-    v2->slotsMinigameDTO = NamingScreenArgs_Init(HEAP_ID_FIELD2, type, param2, param3, SaveData_GetOptions(fieldSystem->saveData));
+    v2->unk_0C = NamingScreenArgs_Init(HEAP_ID_FIELD2, type, param2, param3, SaveData_GetOptions(fieldSystem->saveData));
     v2->unk_10 = String_Init(12, HEAP_ID_FIELD2);
 
     switch (type) {
     case NAMING_SCREEN_TYPE_POKEMON:
-        Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(fieldSystem->saveData), v2->slotMachineVariant);
-        v2->slotsMinigameDTO->monGender = Pokemon_GetValue(mon, MON_DATA_GENDER, NULL);
-        v2->slotsMinigameDTO->monForm = Pokemon_GetValue(mon, MON_DATA_FORM, NULL);
+        Pokemon *mon = Party_GetPokemonBySlotIndex(SaveData_GetParty(fieldSystem->saveData), v2->unk_04);
+        v2->unk_0C->monGender = Pokemon_GetValue(mon, MON_DATA_GENDER, NULL);
+        v2->unk_0C->monForm = Pokemon_GetValue(mon, MON_DATA_FORM, NULL);
 
         if (param5 != NULL) {
             String_CopyChars(v2->unk_10, param5);
@@ -1234,7 +1231,7 @@ void sub_0203DFE8(
         break;
     default:
         if (param5 != NULL) {
-            String_CopyChars(v2->slotsMinigameDTO->textInputStr, param5);
+            String_CopyChars(v2->unk_0C->textInputStr, param5);
         }
         break;
     }
@@ -1335,7 +1332,7 @@ void FieldSystem_LaunchGTSApp(FieldSystem *fieldSystem, BOOL connectToWiFi)
     FieldSystem_StartChildProcess(fieldSystem, &gtsTemplate, playerData);
 }
 
-void *sub_0203E1AC(FieldSystem *fieldSystem, int slotsMinigameDTO, int param2)
+void *sub_0203E1AC(FieldSystem *fieldSystem, int param1, int param2)
 {
     FS_EXTERN_OVERLAY(wifi_battle_tower);
 
@@ -1355,7 +1352,7 @@ void *sub_0203E1AC(FieldSystem *fieldSystem, int slotsMinigameDTO, int param2)
     v0->userData = WiFiList_GetUserData(SaveData_GetWiFiList(fieldSystem->saveData));
     v0->saveData = fieldSystem->saveData;
     v0->profileId = WiFiList_GetUserGsProfileId(SaveData_GetWiFiList(fieldSystem->saveData));
-    v0->mode = slotsMinigameDTO;
+    v0->mode = param1;
     v0->unk_24 = param2;
     v0->unk_20 = 1;
 
@@ -1484,31 +1481,31 @@ void FieldSystem_HatchEgg(FieldSystem *fieldSystem)
     EggHatch_HatchEgg(fieldSystem->task, &args);
 }
 
-BOOL FieldTask_StartSlotsMinigame(FieldSystem *fieldSystem, SlotsMinigameDTO *slotsMinigameDTO)
+BOOL sub_0203E348(FieldSystem *fieldSystem, UnkStruct_0203E348 *param1)
 {
     FS_EXTERN_OVERLAY(overlay101);
 
     static const ApplicationManagerTemplate appTemplate = {
-        SlotsMinigame_Init,
-        SlotsMinigame_Main,
-        SlotsMinigame_Exit,
+        ov101_021D0D80,
+        ov101_021D0E40,
+        ov101_021D0EE4,
         FS_OVERLAY_ID(overlay101)
     };
 
-    FieldSystem_StartChildProcess(fieldSystem, &appTemplate, slotsMinigameDTO);
+    FieldSystem_StartChildProcess(fieldSystem, &appTemplate, param1);
     return 1;
 }
 
-static BOOL SlotsMinigame_TaskCallback(FieldTask *taskMan)
+static BOOL sub_0203E35C(FieldTask *taskMan)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(taskMan);
     VarsFlags *v1 = SaveData_GetVarsFlags(fieldSystem->saveData);
-    SlotsMinigameEnv *v2 = FieldTask_GetEnv(taskMan);
+    UnkStruct_0203E35C *v2 = FieldTask_GetEnv(taskMan);
     int *v3 = FieldTask_GetState(taskMan);
 
     switch (*v3) {
     case 0:
-        FieldTask_StartSlotsMinigame(fieldSystem, &v2->slotsMinigameDTO);
+        sub_0203E348(fieldSystem, &v2->unk_0C);
         (*v3)++;
         break;
     case 1:
@@ -1516,13 +1513,13 @@ static BOOL SlotsMinigame_TaskCallback(FieldTask *taskMan)
             u16 *coins = SaveData_GetCoins(fieldSystem->saveData);
             s64 timeStamp = GetTimestamp();
 
-            sub_0206DD38(fieldSystem, Coins_GetValue(coins), v2->coins, TimeElapsed(v2->startTime, timeStamp) / 60);
-            Coins_SetValue(SaveData_GetCoins(fieldSystem->saveData), v2->coins);
+            sub_0206DD38(fieldSystem, Coins_GetValue(coins), v2->unk_00, TimeElapsed(v2->startTime, timeStamp) / 60);
+            Coins_SetValue(SaveData_GetCoins(fieldSystem->saveData), v2->unk_00);
 
             int bonusRoundsWins = SystemVars_GetConsecutiveBonusRoundWins(v1);
 
-            if (v2->slotsMinigameDTO.bonusRounds > bonusRoundsWins) {
-                SystemVars_SetConsecutiveBonusRoundWins(v1, v2->slotsMinigameDTO.bonusRounds);
+            if (v2->unk_0C.unk_0C > bonusRoundsWins) {
+                SystemVars_SetConsecutiveBonusRoundWins(v1, v2->unk_0C.unk_0C);
             }
 
             Heap_Free(v2);
@@ -1534,24 +1531,22 @@ static BOOL SlotsMinigame_TaskCallback(FieldTask *taskMan)
     return 0;
 }
 
-void SlotsMinigame_RunApplication(FieldTask *task, int slotMachineID)
+void sub_0203E414(FieldTask *task, int slotMachineID)
 {
-	EmulatorLog("%s: received %u, %u", __func__, task, slotMachineID);
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
     Options *options = SaveData_GetOptions(fieldSystem->saveData);
-    SlotsMinigameEnv *v2 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(SlotsMinigameEnv));
+    UnkStruct_0203E35C *v2 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(UnkStruct_0203E35C));
 
-    v2->slotsMinigameDTO.coinsPointer = &v2->coins;
-    v2->coins = Coins_GetValue(SaveData_GetCoins(fieldSystem->saveData));
+    v2->unk_0C.unk_00 = &v2->unk_00;
+    v2->unk_00 = Coins_GetValue(SaveData_GetCoins(fieldSystem->saveData));
     v2->startTime = GetTimestamp();
-    v2->slotsMinigameDTO.records = SaveData_GetGameRecords(fieldSystem->saveData);
-    v2->slotsMinigameDTO.bonusRounds = 0;
-    v2->slotsMinigameDTO.msgBoxFrame = Options_Frame(options);
-    v2->slotsMinigameDTO.slotMachineVariant = SlotsMinigame_GetShuffledMachineVariant(fieldSystem->saveData, slotMachineID);
+    v2->unk_0C.records = SaveData_GetGameRecords(fieldSystem->saveData);
+    v2->unk_0C.unk_0C = 0;
+    v2->unk_0C.msgBoxFrame = Options_Frame(options);
+    v2->unk_0C.unk_04 = sub_0203E484(fieldSystem->saveData, slotMachineID);
 
     GameRecords_IncrementTrainerScore(SaveData_GetGameRecords(fieldSystem->saveData), TRAINER_SCORE_EVENT_UNK_05);
-    FieldTask_InitCall(task, SlotsMinigame_TaskCallback, v2);
-	EmulatorLog("%s: returned", __func__);
+    FieldTask_InitCall(task, sub_0203E35C, v2);
 }
 
 enum SlotMachineID {
@@ -1570,9 +1565,8 @@ enum SlotMachineID {
     SLOT_MACHINE_COUNT
 };
 
-static u8 SlotsMinigame_GetShuffledMachineVariant(SaveData *saveData, u8 slotMachineID)
+static u8 sub_0203E484(SaveData *saveData, u8 slotMachineID)
 {
-	EmulatorLog("%s: received %u,%u", __func__, saveData, slotMachineID);
     // Chances? Modes?
     static const u8 v0[SLOT_MACHINE_COUNT] = {
         [SLOT_MACHINE_0] = 0,
@@ -1608,7 +1602,6 @@ static u8 SlotsMinigame_GetShuffledMachineVariant(SaveData *saveData, u8 slotMac
     }
 
     LCRNG_SetSeed(oldSeed);
-	EmulatorLog("%s: returned %u", __func__, v3[slotMachineID]);
     return v3[slotMachineID];
 }
 
@@ -1745,7 +1738,7 @@ void *FieldSystem_OpenSummaryScreenTeachMove(int unused, FieldSystem *fieldSyste
     return summary;
 }
 
-void sub_0203E6C0(FieldSystem *fieldSystem, int slotsMinigameDTO, int param2)
+void sub_0203E6C0(FieldSystem *fieldSystem, int param1, int param2)
 {
     FS_EXTERN_OVERLAY(overlay61);
 
@@ -1761,8 +1754,8 @@ void sub_0203E6C0(FieldSystem *fieldSystem, int slotsMinigameDTO, int param2)
 
     v0->fieldSystem = fieldSystem;
     v0->saveData = fieldSystem->saveData;
-    v0->unk_08 = slotsMinigameDTO;
-    v0->slotsMinigameDTO = param2;
+    v0->unk_08 = param1;
+    v0->unk_0C = param2;
 
     FieldSystem_StartChildProcess(fieldSystem, &appTemplate, v0);
 }

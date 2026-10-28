@@ -12016,10 +12016,10 @@ static void BattleScript_LoadPartyLevelUpIcon(BattleSystem *battleSys, BattleScr
     size = sub_02012898(&window, NNS_G2D_VRAM_TYPE_2DMAIN, HEAP_ID_BATTLE);
     CharTransfer_AllocRange(size, 1, NNS_G2D_VRAM_TYPE_2DMAIN, &charTransferAllocation);
 
-    v12.coins = data->tmpPtr[0];
-    v12.slotMachineVariant = &window;
+    v12.unk_00 = data->tmpPtr[0];
+    v12.unk_04 = &window;
     v12.unk_08 = SpriteManager_GetSpriteList(spriteMan);
-    v12.slotsMinigameDTO = SpriteManager_FindPlttResourceProxy(spriteMan, 20016);
+    v12.unk_0C = SpriteManager_FindPlttResourceProxy(spriteMan, 20016);
     v12.unk_10 = NULL;
     v12.unk_14 = charTransferAllocation.offset;
     v12.unk_18 = 176;

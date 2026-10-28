@@ -22,11 +22,11 @@ typedef struct UnkStruct_020961E8_t UnkStruct_020961E8;
 
 static int sub_02096400(void);
 static int sub_02096404(void);
-static u8 *sub_0209640C(int param0, void *slotsMinigameDTO, int param2);
+static u8 *sub_0209640C(int param0, void *param1, int param2);
 static int sub_02096408(void);
-static void sub_020963C0(UnkStruct_020961E8 *param0, int slotsMinigameDTO);
-void sub_020961FC(int param0, int slotsMinigameDTO, void *param2, void *param3);
-void sub_0209620C(int param0, int slotsMinigameDTO, void *param2, void *param3);
+static void sub_020963C0(UnkStruct_020961E8 *param0, int param1);
+void sub_020961FC(int param0, int param1, void *param2, void *param3);
+void sub_0209620C(int param0, int param1, void *param2, void *param3);
 
 static const CommCmdTable Unk_020F5F68[] = {
     { sub_02099510, sub_02096400, NULL },
@@ -154,13 +154,13 @@ void sub_020961E8(void *param0)
     }
 }
 
-void sub_020961FC(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_020961FC(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_020961E8 *v0 = (UnkStruct_020961E8 *)param3;
     v0->unk_4A98++;
 }
 
-void sub_0209620C(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_0209620C(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_020961E8 *v0 = (UnkStruct_020961E8 *)param3;
     u8 *v1 = (u8 *)param2;
@@ -174,7 +174,7 @@ void sub_0209620C(int param0, int slotsMinigameDTO, void *param2, void *param3)
     }
 }
 
-void sub_0209621C(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_0209621C(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_020961E8 *v0 = (UnkStruct_020961E8 *)param3;
 
@@ -190,13 +190,13 @@ void sub_0209621C(int param0, int slotsMinigameDTO, void *param2, void *param3)
     Sound_PlayEffect(SEQ_SE_DP_F209_sseq);
 }
 
-void sub_02096264(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_02096264(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_020961E8 *v0 = (UnkStruct_020961E8 *)param3;
     ov59_021D2204(v0, 2, 0);
 }
 
-void sub_02096274(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_02096274(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_020961E8 *v0 = (UnkStruct_020961E8 *)param3;
     UnkStruct_02096274 v1;
@@ -205,7 +205,7 @@ void sub_02096274(int param0, int slotsMinigameDTO, void *param2, void *param3)
     if (param0 != 0) {
         if (CommSys_CurNetId() == 0) {
             v1 = *v2;
-            v1.coins = param0;
+            v1.unk_00 = param0;
             v1.unk_01 = v0->unk_4AAC;
 
             switch (v2->unk_02) {
@@ -228,23 +228,23 @@ void sub_02096274(int param0, int slotsMinigameDTO, void *param2, void *param3)
     } else {
         switch (v2->unk_02) {
         case 0:
-            if (v2->coins == CommSys_CurNetId()) {
+            if (v2->unk_00 == CommSys_CurNetId()) {
                 if (v2->unk_03 == 0) {
-                    ov59_021D2204(v0, 8, v2->coins);
+                    ov59_021D2204(v0, 8, v2->unk_00);
                 } else {
                     v0->unk_4AC0 = v2->unk_01;
-                    ov59_021D2204(v0, 7, v2->coins);
+                    ov59_021D2204(v0, 7, v2->unk_00);
                 }
             }
             break;
         case 1:
-            ov59_021D2204(v0, 19, v2->coins);
+            ov59_021D2204(v0, 19, v2->unk_00);
             break;
         }
     }
 }
 
-void sub_02096360(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_02096360(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_020961E8 *v0 = (UnkStruct_020961E8 *)param3;
     u8 v1 = *(u8 *)param2;
@@ -256,17 +256,17 @@ void sub_02096360(int param0, int slotsMinigameDTO, void *param2, void *param3)
     }
 }
 
-void sub_02096380(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_02096380(int param0, int param1, void *param2, void *param3)
 {
     return;
 }
 
-void sub_02096384(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_02096384(int param0, int param1, void *param2, void *param3)
 {
     return;
 }
 
-void sub_02096388(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_02096388(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_020961E8 *v0 = (UnkStruct_020961E8 *)param3;
 
@@ -275,7 +275,7 @@ void sub_02096388(int param0, int slotsMinigameDTO, void *param2, void *param3)
     }
 }
 
-void sub_020963A0(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_020963A0(int param0, int param1, void *param2, void *param3)
 {
     u8 v0;
 
@@ -285,13 +285,13 @@ void sub_020963A0(int param0, int slotsMinigameDTO, void *param2, void *param3)
     }
 }
 
-static void sub_020963C0(UnkStruct_020961E8 *param0, int slotsMinigameDTO)
+static void sub_020963C0(UnkStruct_020961E8 *param0, int param1)
 {
     {
         int v0;
         u32 *v1, v2;
 
-        v1 = (u32 *)param0->unk_418.coins;
+        v1 = (u32 *)param0->unk_418.unk_00;
 
         for (v2 = 0, v0 = 0; v0 < 3000 / 4; v0++) {
             v2 ^= v1[v0];
@@ -319,8 +319,8 @@ static int sub_02096408(void)
     return sizeof(UnkStruct_02096274);
 }
 
-static u8 *sub_0209640C(int param0, void *slotsMinigameDTO, int param2)
+static u8 *sub_0209640C(int param0, void *param1, int param2)
 {
-    UnkStruct_020961E8 *v0 = (UnkStruct_020961E8 *)slotsMinigameDTO;
+    UnkStruct_020961E8 *v0 = (UnkStruct_020961E8 *)param1;
     return (u8 *)&v0->unk_FD8[param0];
 }

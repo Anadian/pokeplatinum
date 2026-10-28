@@ -114,7 +114,7 @@ typedef struct MapChangeWarpData {
 
 typedef struct MapChangeUnionData {
     int state;
-    BOOL slotMachineVariant;
+    BOOL unk_04;
     Location location;
 } MapChangeUnionData;
 
@@ -147,7 +147,7 @@ enum ExitUndergroundState {
 
 static BOOL FieldTask_ChangeMap(FieldTask *task);
 static BOOL FieldTask_LoadNewGameSpawn(FieldTask *task);
-static void FieldMapChange_SetNewLocation(FieldSystem *fieldSystem, const Location *slotsMinigameDTO);
+static void FieldMapChange_SetNewLocation(FieldSystem *fieldSystem, const Location *param1);
 static void FieldMapChange_InitTerrainCollisionManager(FieldSystem *fieldSystem);
 static void FieldMapChange_RemoveTerrainCollisionManager(FieldSystem *fieldSystem);
 static void sub_020534BC(FieldSystem *fieldSystem);
@@ -164,7 +164,7 @@ static BOOL FieldTransition_FinishMapFieldWarp(FieldTask *task);
 static void FieldTransition_StartMapAndFadeInFieldWarp(FieldTask *task);
 static BOOL FieldTransition_StartMapAndFadeInFieldWarpSub(FieldTask *task);
 static void FieldTask_FadeInFieldWarp(FieldTask *task);
-static BOOL FieldTask_StartUndergroundMapTransition(FieldTask *task, enum UGMapTransition slotsMinigameDTO);
+static BOOL FieldTask_StartUndergroundMapTransition(FieldTask *task, enum UGMapTransition param1);
 
 static const MapLoadMode sMapLoadMode[] = {
     { 0x1, FALSE, FALSE, 0x0, FALSE, TRUE, 0x0, 0xC4000 },
@@ -302,7 +302,7 @@ void FieldMapChange_UpdateGameData(FieldSystem *fieldSystem, BOOL noWarp)
     fieldSystem->wildBattleMetadata.wildMonDefeated = 0;
 }
 
-void FieldMapChange_UpdateGameDataDistortionWorld(FieldSystem *fieldSystem, BOOL slotsMinigameDTO)
+void FieldMapChange_UpdateGameDataDistortionWorld(FieldSystem *fieldSystem, BOOL param1)
 {
     enum MapHeaderID mapHeaderID = fieldSystem->location->mapHeaderID;
     FieldOverworldState *fieldState = SaveData_GetFieldOverworldState(fieldSystem->saveData);
@@ -310,7 +310,7 @@ void FieldMapChange_UpdateGameDataDistortionWorld(FieldSystem *fieldSystem, BOOL
     FieldBGM_ClearOverride(fieldSystem);
     FieldSystem_ClearLocalFlags(fieldSystem);
 
-    if (!slotsMinigameDTO) {
+    if (!param1) {
         FieldSystem_InitFlagsWarp(fieldSystem);
     } else {
         FieldSystem_InitFlagsOnMapChange(fieldSystem);
@@ -318,15 +318,15 @@ void FieldMapChange_UpdateGameDataDistortionWorld(FieldSystem *fieldSystem, BOOL
 
     SystemVars_ResetVsSeeker(SaveData_GetVarsFlags(fieldSystem->saveData));
 
-    if (!slotsMinigameDTO) {
+    if (!param1) {
         sub_020559DC(fieldSystem);
     }
 
-    if (!slotsMinigameDTO) {
+    if (!param1) {
         PersistedMapFeatures_Init(MiscSaveBlock_GetPersistedMapFeatures(fieldSystem->saveData));
     }
 
-    if (!slotsMinigameDTO) {
+    if (!param1) {
         u16 warpId = GetMapBlackOutWarpId(mapHeaderID);
 
         if (warpId != 0) {
@@ -1066,14 +1066,14 @@ static BOOL FieldTask_MapChangeWarp(FieldTask *task)
     return FALSE;
 }
 
-void FieldSystem_StartMapChangeWarpTask(FieldSystem *fieldSystem, int slotsMinigameDTO, int param2)
+void FieldSystem_StartMapChangeWarpTask(FieldSystem *fieldSystem, int param1, int param2)
 {
     Location nextLocation;
     MapChangeWarpData *mapChangeWarpData = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(MapChangeWarpData));
 
     MI_CpuClear8(mapChangeWarpData, sizeof(MapChangeWarpData));
 
-    Location_Set(&nextLocation, slotsMinigameDTO, param2, 0, 0, PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar));
+    Location_Set(&nextLocation, param1, param2, 0, 0, PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar));
     mapChangeWarpData->nextLocation = nextLocation;
     FieldSystem_CreateTask(fieldSystem, FieldTask_MapChangeWarp, mapChangeWarpData);
 }
@@ -1389,11 +1389,11 @@ static BOOL sub_02054538(FieldTask *task)
     switch (*state) {
     case 0:
         FieldBGM_TryFadeIn(fieldSystem, v3->mapHeaderID);
-        FieldSystem_StartWarpAnimation(fieldSystem, 1, &mapChangeData->slotMachineVariant);
+        FieldSystem_StartWarpAnimation(fieldSystem, 1, &mapChangeData->unk_04);
         (*state)++;
         break;
     case 1:
-        if (mapChangeData->slotMachineVariant) {
+        if (mapChangeData->unk_04) {
             FieldTransition_FinishMap(task);
             (*state)++;
         }
@@ -1470,12 +1470,12 @@ static BOOL sub_02054648(FieldTask *task)
         (*state)++;
         break;
     case 4:
-        mapChangeData->slotMachineVariant = 0;
-        FieldSystem_StartWarpAnimation(fieldSystem, 0, &mapChangeData->slotMachineVariant);
+        mapChangeData->unk_04 = 0;
+        FieldSystem_StartWarpAnimation(fieldSystem, 0, &mapChangeData->unk_04);
         (*state)++;
         break;
     case 5:
-        if (mapChangeData->slotMachineVariant) {
+        if (mapChangeData->unk_04) {
             (*state)++;
         }
         break;

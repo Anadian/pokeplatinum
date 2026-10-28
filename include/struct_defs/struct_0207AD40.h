@@ -5,7 +5,7 @@
 
 typedef struct {
     BattleSystem *battleSys;
-    u8 slotMachineVariant;
+    u8 unk_04;
 } UnkStruct_0207AD40;
 
 #endif // POKEPLATINUM_STRUCT_0207AD40_H

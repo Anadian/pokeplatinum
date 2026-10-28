@@ -7,10 +7,10 @@
 #include "functypes/funcptr_020EDF0C_3.h"
 
 typedef struct {
-    int coins;
-    UnkFuncPtr_020EDF0C slotMachineVariant;
+    int unk_00;
+    UnkFuncPtr_020EDF0C unk_04;
     UnkFuncPtr_020EDF0C_1 unk_08;
-    UnkFuncPtr_020EDF0C_2 slotsMinigameDTO;
+    UnkFuncPtr_020EDF0C_2 unk_0C;
     UnkFuncPtr_020EDF0C_3 unk_10;
 } UnkStruct_020EDF0C;
 

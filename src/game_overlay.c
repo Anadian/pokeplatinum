@@ -16,7 +16,7 @@ typedef struct {
 } PMiLoadedOverlay;
 
 typedef struct {
-    PMiLoadedOverlay coins[8];
+    PMiLoadedOverlay unk_00[8];
     PMiLoadedOverlay unk_40[8];
     PMiLoadedOverlay unk_80[8];
 } UnkStruct_021BF370;
@@ -24,10 +24,10 @@ typedef struct {
 static void FreeOverlayAllocation(PMiLoadedOverlay *loadedOverlays);
 static BOOL CanOverlayBeLoaded(const FSOverlayID overlayID);
 static PMiLoadedOverlay *GetLoadedOverlaysInRegion(int param0);
-static BOOL GetOverlayRamBounds(const FSOverlayID overlayID, u32 *slotsMinigameDTO, u32 *param2);
-static BOOL LoadOverlayNormal(MIProcessor param0, FSOverlayID slotsMinigameDTO);
-static BOOL LoadOverlayNoInit(MIProcessor param0, FSOverlayID slotsMinigameDTO);
-static BOOL LoadOverlayNoInitAsync(MIProcessor param0, FSOverlayID slotsMinigameDTO);
+static BOOL GetOverlayRamBounds(const FSOverlayID overlayID, u32 *param1, u32 *param2);
+static BOOL LoadOverlayNormal(MIProcessor param0, FSOverlayID param1);
+static BOOL LoadOverlayNoInit(MIProcessor param0, FSOverlayID param1);
+static BOOL LoadOverlayNoInitAsync(MIProcessor param0, FSOverlayID param1);
 
 static UnkStruct_021BF370 Unk_021BF370;
 
@@ -204,7 +204,7 @@ static PMiLoadedOverlay *GetLoadedOverlaysInRegion(int region)
     switch (region) {
     case OVERLAY_REGION_MAIN:
     default:
-        ret = Unk_021BF370.coins;
+        ret = Unk_021BF370.unk_00;
         break;
     case OVERLAY_REGION_ITCM:
         ret = Unk_021BF370.unk_40;

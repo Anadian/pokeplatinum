@@ -101,7 +101,7 @@ static BOOL ov61_0222D5A0(char *param0)
     return v1 == 3 && v0 != 0;
 }
 
-static BOOL ov61_0222D638(char *param0, char *param1)
+static BOOL ov61_0222D638(char *param0, char *slotsMinigameDTO)
 {
     int v0 = ov61_0222D5A0(param0);
 
@@ -110,12 +110,12 @@ static BOOL ov61_0222D638(char *param0, char *param1)
         if (v1) {
             SOCInAddr v2 = { ((u32 *)v1->addrList[0])[0] };
             char *v3 = SOC_InetNtoA(v2);
-            strcpy(param1, v3);
+            strcpy(slotsMinigameDTO, v3);
         } else {
             return FALSE;
         }
     } else {
-        strcpy(param1, param0);
+        strcpy(slotsMinigameDTO, param0);
     }
 
     return TRUE;
@@ -330,7 +330,7 @@ BOOL ov61_0222DB98(void)
         DWCSvlState v1 = DWC_SVLProcess();
 
         if (v1 == DWC_ETYPE_SHUTDOWN_FM) {
-            memcpy(&Unk_ov61_0222E764.unk_00.unk_06, &v0.svltoken, DWC_SVL_TOKEN_LENGTH + 1);
+            memcpy(&Unk_ov61_0222E764.coins.unk_06, &v0.svltoken, DWC_SVL_TOKEN_LENGTH + 1);
             Unk_ov61_0222E764.unk_138 = 1;
             return TRUE;
         } else if (v1 == DWC_ETYPE_SHUTDOWN_GHTTP) {

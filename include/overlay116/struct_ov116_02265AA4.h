@@ -4,7 +4,7 @@
 #include "overlay116/struct_ov116_02265D84.h"
 
 typedef struct {
-    UnkStruct_ov116_02265D84 coins[2];
+    UnkStruct_ov116_02265D84 unk_00[2];
     UnkStruct_ov116_02265D84 unk_A0[2];
     int unk_140;
     int unk_144;

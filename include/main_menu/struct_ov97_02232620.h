@@ -4,7 +4,7 @@
 #include "main_menu/struct_ov97_02232620_sub1.h"
 
 typedef struct {
-    UnkStruct_ov97_02232620_sub1 coins[8];
+    UnkStruct_ov97_02232620_sub1 unk_00[8];
     u16 unk_1C0;
     u8 unk_1C2;
     u8 unk_1C3_0 : 4;

@@ -20,7 +20,7 @@ PokedexTextManager *PokedexTextManager_New(const PokedexTextManagerTemplate *tex
     GF_ASSERT(textMan);
     memset(textMan, 0, sizeof(PokedexTextManager));
 
-    textMan->coins = sub_02012744(textManTemplate->numTextData, textManTemplate->heapID);
+    textMan->unk_00 = sub_02012744(textManTemplate->numTextData, textManTemplate->heapID);
     textMan->textData = Heap_Alloc(textManTemplate->heapID, sizeof(PokedexTextData) * textManTemplate->numTextData);
 
     GF_ASSERT(textMan->textData);
@@ -40,7 +40,7 @@ void PokedexTextManager_Free(PokedexTextManager *textMan)
 
     PokedexTextManager_FreeAllTextData(textMan);
     Heap_Free(textMan->textData);
-    sub_020127BC(textMan->coins);
+    sub_020127BC(textMan->unk_00);
 
     memset(textMan, 0, sizeof(PokedexTextManager));
 
@@ -61,10 +61,10 @@ PokedexTextData *PokedexTextManager_NextTextDataNew(const PokedexDisplayBox *dis
     GF_ASSERT(textData);
     CharTransfer_AllocRange(size, TRUE, displayBox->vramType, &textData->allocation);
 
-    v0.coins = displayBox->textMan->coins;
-    v0.slotMachineVariant = displayBox->window;
+    v0.unk_00 = displayBox->textMan->unk_00;
+    v0.unk_04 = displayBox->window;
     v0.unk_08 = displayBox->textMan->spriteList;
-    v0.slotsMinigameDTO = displayBox->paletteProxy;
+    v0.unk_0C = displayBox->paletteProxy;
     v0.unk_10 = displayBox->sprite;
     v0.unk_14 = textData->allocation.offset;
     v0.unk_18 = displayBox->x;

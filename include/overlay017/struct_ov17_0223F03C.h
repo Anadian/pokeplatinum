@@ -2,7 +2,7 @@
 #define POKEPLATINUM_STRUCT_OV17_0223F03C_H
 
 typedef struct {
-    u8 coins[4];
+    u8 unk_00[4];
 } UnkStruct_ov17_0223F03C;
 
 #endif // POKEPLATINUM_STRUCT_OV17_0223F03C_H

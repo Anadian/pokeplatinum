@@ -26,7 +26,7 @@ void BillboardListVRAMTransfer_Free(BillboardListVRAMTransfer *listTransfer);
 BillboardVRAMTransfer *BillboardListVRAMTransfer_NewBillboardTransfer(BillboardListVRAMTransfer *listTransfer, const BillboardGfxSequence *gfxSequence, const NNSG3dResTex *texture, NNSGfdTexKey texKey, NNSGfdPlttKey plttKey, const fx32 index);
 void BillboardVRAMTransfer_Reset(BillboardVRAMTransfer *transfer);
 void BillboardListVRAMTransfer_ResetAll(BillboardListVRAMTransfer *listTransfer);
-void BillboardVRAMTransfer_Request(BillboardVRAMTransfer *param0, const fx32 slotsMinigameDTO);
+void BillboardVRAMTransfer_Request(BillboardVRAMTransfer *param0, const fx32 param1);
 void *GetTextureDataVRAMBuffer(NNSG3dResTex *texture, const u8 index);
 void *GetPlttDataVRAMBuffer(NNSG3dResTex *texture, const u8 index);
 void *GetTextureDataBufferFromResourceName(NNSG3dResTex *texture, const char *name);

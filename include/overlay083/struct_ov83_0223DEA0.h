@@ -6,10 +6,10 @@
 #include "string_template.h"
 
 typedef struct {
-    MessageLoader *coins;
-    StringTemplate *slotMachineVariant;
+    MessageLoader *unk_00;
+    StringTemplate *unk_04;
     String *unk_08;
-    String *slotsMinigameDTO;
+    String *unk_0C;
     String *unk_10;
     String *unk_14;
     String *unk_18;

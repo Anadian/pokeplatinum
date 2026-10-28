@@ -3,13 +3,12 @@
 
 #include "game_records.h"
 
-// Formerly known as SlotsMinigameDTO.
 typedef struct {
-    int *coinsPointer;
-    int slotMachineVariant;
+    int *unk_00;
+    int unk_04;
     GameRecords *records;
-    int bonusRounds;
+    int unk_0C;
     int msgBoxFrame;
-} SlotsMinigameDTO;
+} UnkStruct_0203E348;
 
 #endif // POKEPLATINUM_STRUCT_0203E348_H

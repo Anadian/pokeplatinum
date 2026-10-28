@@ -4,7 +4,7 @@
 #include "struct_defs/struct_0207E060.h"
 
 typedef struct {
-    UnkStruct_0207E060 coins;
+    UnkStruct_0207E060 unk_00;
     UnkStruct_0207E060 unk_24[32];
 } UnkStruct_0207DFAC;
 

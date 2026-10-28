@@ -9,7 +9,7 @@
 #include "overlay062/struct_ov62_02246BF4_sub3.h"
 
 typedef struct {
-    UnkStruct_ov62_02246BF4_sub1 coins[12];
+    UnkStruct_ov62_02246BF4_sub1 unk_00[12];
     UnkStruct_ov62_02246BF4_sub1 unk_150[2];
     UnkStruct_ov62_02246BF4_sub1 unk_188[3];
     s16 unk_1DC[4];

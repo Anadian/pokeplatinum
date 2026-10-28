@@ -10,14 +10,14 @@
 #include "heap.h"
 
 typedef struct UnkStruct_ov21_021D423C_t {
-    UnkStruct_ov21_021D4660 *coins;
-    int slotMachineVariant;
+    UnkStruct_ov21_021D4660 *unk_00;
+    int unk_04;
     UnkStruct_ov21_021D4660 *unk_08;
 } UnkStruct_ov21_021D423C;
 
 static BOOL ov21_021D42EC(UnkStruct_ov21_021D423C *param0);
-static UnkStruct_ov21_021D4660 *ov21_021D42FC(UnkStruct_ov21_021D423C *param0, int slotsMinigameDTO);
-static void ov21_021D4334(UnkStruct_ov21_021D423C *param0, UnkStruct_ov21_021D4660 *slotsMinigameDTO);
+static UnkStruct_ov21_021D4660 *ov21_021D42FC(UnkStruct_ov21_021D423C *param0, int param1);
+static void ov21_021D4334(UnkStruct_ov21_021D423C *param0, UnkStruct_ov21_021D4660 *param1);
 
 UnkStruct_ov21_021D423C *ov21_021D423C(enum HeapID heapID)
 {
@@ -28,15 +28,15 @@ UnkStruct_ov21_021D423C *ov21_021D423C(enum HeapID heapID)
     return v0;
 }
 
-void ov21_021D426C(UnkStruct_ov21_021D423C *param0, UnkStruct_ov21_021D4660 *slotsMinigameDTO, int param2)
+void ov21_021D426C(UnkStruct_ov21_021D423C *param0, UnkStruct_ov21_021D4660 *param1, int param2)
 {
     GF_ASSERT(param0);
 
-    param0->coins = slotsMinigameDTO;
-    param0->slotMachineVariant = param2;
+    param0->unk_00 = param1;
+    param0->unk_04 = param2;
 }
 
-const UnkStruct_ov21_021D4660 *ov21_021D4284(UnkStruct_ov21_021D423C *param0, int slotsMinigameDTO)
+const UnkStruct_ov21_021D4660 *ov21_021D4284(UnkStruct_ov21_021D423C *param0, int param1)
 {
     UnkStruct_ov21_021D4660 *v0;
     BOOL v1;
@@ -44,7 +44,7 @@ const UnkStruct_ov21_021D4660 *ov21_021D4284(UnkStruct_ov21_021D423C *param0, in
     GF_ASSERT(param0);
 
     if (ov21_021D42EC(param0) == 0) {
-        v0 = ov21_021D42FC(param0, slotsMinigameDTO);
+        v0 = ov21_021D42FC(param0, param1);
 
         if (v0) {
             ov21_021D4334(param0, v0);
@@ -52,7 +52,7 @@ const UnkStruct_ov21_021D4660 *ov21_021D4284(UnkStruct_ov21_021D423C *param0, in
     }
 
     if (ov21_021D42EC(param0) == 1) {
-        v1 = param0->unk_08->slotMachineVariant(&param0->unk_08->unk_08);
+        v1 = param0->unk_08->unk_04(&param0->unk_08->unk_08);
 
         if (v1 == 1) {
             ov21_021D4334(param0, NULL);
@@ -82,26 +82,26 @@ static BOOL ov21_021D42EC(UnkStruct_ov21_021D423C *param0)
     return 0;
 }
 
-static UnkStruct_ov21_021D4660 *ov21_021D42FC(UnkStruct_ov21_021D423C *param0, int slotsMinigameDTO)
+static UnkStruct_ov21_021D4660 *ov21_021D42FC(UnkStruct_ov21_021D423C *param0, int param1)
 {
     int v0;
 
-    for (v0 = 0; v0 < param0->slotMachineVariant; v0++) {
-        GF_ASSERT(param0->coins);
+    for (v0 = 0; v0 < param0->unk_04; v0++) {
+        GF_ASSERT(param0->unk_00);
 
-        if (param0->coins[v0].coins & slotsMinigameDTO) {
-            return param0->coins + v0;
+        if (param0->unk_00[v0].unk_00 & param1) {
+            return param0->unk_00 + v0;
         }
     }
 
     return NULL;
 }
 
-static void ov21_021D4334(UnkStruct_ov21_021D423C *param0, UnkStruct_ov21_021D4660 *slotsMinigameDTO)
+static void ov21_021D4334(UnkStruct_ov21_021D423C *param0, UnkStruct_ov21_021D4660 *param1)
 {
-    param0->unk_08 = slotsMinigameDTO;
+    param0->unk_08 = param1;
 
     if (param0->unk_08) {
-        param0->unk_08->unk_08.coins = 0;
+        param0->unk_08->unk_08.unk_00 = 0;
     }
 }

@@ -16,11 +16,11 @@ typedef struct Signpost {
 void *Signpost_Init(enum HeapID heapID);
 void Signpost_Free(Signpost *signpost);
 void Signpost_SetTypeAndNARCMemberIdx(Signpost *signpost, u16 signpostType, u16 signpostNARCMemberIdx);
-void Signpost_SetCommand(Signpost *signpost, u8 slotsMinigameDTO);
+void Signpost_SetCommand(Signpost *signpost, u8 param1);
 Window *Signpost_GetWindow(Signpost *signpost);
 u8 Signpost_GetType(Signpost *signpost);
 BOOL Signpost_IsDone(Signpost *signpost);
 void Signpost_DoCurrentCommand(FieldSystem *fieldSystem);
-void Signpost_DoCommand(FieldSystem *fieldSystem, u8 slotsMinigameDTO);
+void Signpost_DoCommand(FieldSystem *fieldSystem, u8 param1);
 
 #endif // POKEPLATINUM_SIGNPOST_H

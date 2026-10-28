@@ -5,7 +5,7 @@
 
 typedef struct {
     SaveData *saveData;
-    int slotMachineVariant;
+    int unk_04;
     int unk_08;
 } UnkStruct_ov98_02247168;
 

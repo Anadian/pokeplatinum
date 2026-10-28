@@ -1657,7 +1657,7 @@ void DistWorld_DynamicMapFeaturesInit(FieldSystem *fieldSystem)
     dwSystem->fieldSystem = fieldSystem;
     dwSystem->persistedData = data;
 
-    fieldSystem->slotMachineVariant->dynamicMapFeaturesData = dwSystem;
+    fieldSystem->unk_04->dynamicMapFeaturesData = dwSystem;
 
     OpenArchives(dwSystem);
 
@@ -1696,7 +1696,7 @@ void DistWorld_DynamicMapFeaturesInit(FieldSystem *fieldSystem)
 
 void DistWorld_DynamicMapFeaturesFree(FieldSystem *fieldSystem)
 {
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
 
     FinishSkyPalettesUpdateTask(dwSystem);
     FinishGiratinaShadowPropRenderer(dwSystem);
@@ -1723,7 +1723,7 @@ void DistWorld_DynamicMapFeaturesFree(FieldSystem *fieldSystem)
     CloseArchives(dwSystem);
 
     Heap_Free(dwSystem);
-    fieldSystem->slotMachineVariant->dynamicMapFeaturesData = NULL;
+    fieldSystem->unk_04->dynamicMapFeaturesData = NULL;
 }
 
 static void LoadNextFloorElements(DistWorldSystem *system)
@@ -1952,7 +1952,7 @@ static u32 GetPersistedCurrentFloatingPlatformIndex(DistWorldSystem *system)
 
 BOOL DistWorld_DynamicMapFeaturesCheckCollision(FieldSystem *fieldSystem, const int tileX, const int tileZ, const fx32 height, BOOL *isColliding)
 {
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     enum MapHeaderID mapHeaderID = DistWorldSystem_GetMapHeaderID(dwSystem);
 
     if (mapHeaderID == MAP_HEADER_DISTORTION_WORLD_GIRATINA_ROOM) {
@@ -2044,7 +2044,7 @@ static void Dummy02249F98(DistWorldSystem *system)
 void DistWorld_UpdateCameraAngle(FieldSystem *fieldSystem)
 {
     CameraAngle cameraAngle;
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     DistWorldCameraManager *cameraMan = &dwSystem->cameraMan;
 
     cameraAngle.x = cameraMan->baseAngle.x + cameraMan->currentAngle.x;
@@ -2424,7 +2424,7 @@ static void RotateMapObject(DistWorldSystem *system, MapObject *mapObj, int angl
 int DistWorld_GetMapObjectRotatorAnimFrame(FieldSystem *fieldSystem, MapObject *mapObj)
 {
     int i = 0;
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     DistWorldMapObjectRotatorManager *mapObjRotatorMan = &dwSystem->mapObjRotatorMan;
     DistWorldMapObjectRotator *iter = mapObjRotatorMan->rotators;
 
@@ -2442,13 +2442,13 @@ int DistWorld_GetMapObjectRotatorAnimFrame(FieldSystem *fieldSystem, MapObject *
 
 void DistWorld_BindMapObjectRotator(FieldSystem *fieldSystem, Billboard *billboard, int initialAngle)
 {
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     BindMapObjectRotatorWithBillboard(dwSystem, billboard, initialAngle);
 }
 
 void DistWorld_UnbindMapObjectRotator(FieldSystem *fieldSystem, const Billboard *billboard)
 {
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     UnbindMapObjectRotatorWithBillboard(dwSystem, billboard);
 }
 
@@ -2482,7 +2482,7 @@ BOOL DistWorld_HandlePlayerMoved(FieldSystem *fieldSystem, enum FaceDirection pl
     PersistedMapFeatures *persistedMapFeatures = MiscSaveBlock_GetPersistedMapFeatures(FieldSystem_GetSaveData(fieldSystem));
 
     if (PersistedMapFeatures_GetID(persistedMapFeatures) == DYNAMIC_MAP_FEATURES_DISTORTION_WORLD) {
-        DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+        DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
         int v4 = PlayerAvatar_GetMoveStateFromPlayerAvatarState(fieldSystem->playerAvatar, playerDir);
 
         int playerX, playerY, playerZ;
@@ -2518,7 +2518,7 @@ BOOL DistWorld_HandlePlayerMoved(FieldSystem *fieldSystem, enum FaceDirection pl
 
 BOOL DistWorld_HandlePlayerMovementEnd(FieldSystem *fieldSystem, enum FaceDirection playerDir)
 {
-    DistWorldSystem *system = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *system = fieldSystem->unk_04->dynamicMapFeaturesData;
     u32 mapHeaderID = DistWorldSystem_GetMapHeaderID(system);
 
     switch (mapHeaderID) {
@@ -2569,7 +2569,7 @@ BOOL DistWorld_HandlePlayerPositionChanged(FieldSystem *fieldSystem)
     }
 
     enum FaceDirection playerDir = PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar);
-    DistWorldSystem *system = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *system = fieldSystem->unk_04->dynamicMapFeaturesData;
 
     int playerX;
     int playerY;
@@ -2606,7 +2606,7 @@ BOOL DistWorld_HandlePlayerPositionChanged(FieldSystem *fieldSystem)
 
 BOOL DistWorld_CheckMapTransition(FieldSystem *fieldSystem, enum FaceDirection transitionDir)
 {
-    DistWorldSystem *system = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *system = fieldSystem->unk_04->dynamicMapFeaturesData;
     u32 mapHeaderID = DistWorldSystem_GetMapHeaderID(system);
 
     switch (mapHeaderID) {
@@ -4747,13 +4747,13 @@ static void RenderInactiveFloor(DistWorldSystem *system)
 
 void DistWorld_RenderInactiveFloor(FieldSystem *fieldSystem)
 {
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     RenderInactiveFloor(dwSystem);
 }
 
 void DistWorld_TickInactiveFloor(FieldSystem *fieldSystem)
 {
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     DistWorldInactiveFloor *inactiveFloor = &dwSystem->inactiveFloor;
     DistWorldInactiveFloorLoader *inactiveFloorLoader = &dwSystem->inactiveFloorLoader;
 
@@ -6700,13 +6700,13 @@ void DistWorld_StartGiratinaShadowEvent(FieldSystem *fieldSystem, u16 eventIndex
 {
     GF_ASSERT(eventIndex < GIRATINA_SHADOW_EXTERNAL_COUNT);
 
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     LoadGiratinaShadowPropAnimation(dwSystem, &sGiratinaShadowExternal[eventIndex]);
 }
 
 void DistWorld_FinishGiratinaShadowEvent(FieldSystem *fieldSystem)
 {
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     FinishGiratinaShadowPropRenderer(dwSystem);
 }
 
@@ -7354,7 +7354,7 @@ static MapObject *AddMapObjectWithLocalID(DistWorldSystem *system, u32 mapHeader
 void DistWorld_AddMapObjectWithLocalID(FieldSystem *fieldSystem, u16 mapObjLocalID)
 {
     u32 mapHeaderID = fieldSystem->location->mapHeaderID;
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
 
     AddMapObjectWithLocalID(dwSystem, mapHeaderID, mapObjLocalID);
 }
@@ -7365,7 +7365,7 @@ void DistWorld_DeleteMapObjectWithLocalID(FieldSystem *fieldSystem, u16 mapObjLo
     MapObject *mapObj;
     u32 mapHeaderID = fieldSystem->location->mapHeaderID;
     MapObjectManager *mapObjMan = fieldSystem->mapObjMan;
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
 
     while (MapObjectMan_FindObjectWithStatus(mapObjMan, &mapObj, &startIdx, MAP_OBJ_STATUS_0) == TRUE) {
         if (MapObject_GetLocalID(mapObj) == mapObjLocalID && MapObject_GetMapHeaderID(mapObj) == mapHeaderID) {
@@ -7542,7 +7542,7 @@ DistWorldFallingBoulder *DistWorldFallingBoulder_New(FieldSystem *fieldSystem, F
     DistWorldFallingBoulder *boulder = Heap_AllocAtEnd(HEAP_ID_FIELD1, sizeof(DistWorldFallingBoulder));
     memset(boulder, 0, sizeof(DistWorldFallingBoulder));
 
-    boulder->system = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    boulder->system = fieldSystem->unk_04->dynamicMapFeaturesData;
     boulder->fieldSystem = fieldSystem;
     boulder->fieldTask = boulderFieldTask;
     boulder->mapObj = boulderMapObj;
@@ -8882,7 +8882,7 @@ static void CmdRunDataPlayGiratinaArrival_UpdateSpritePalette(CmdRunDataPlayGira
 
 void DistWorld_ApplyGiratinaSpritePalette(FieldSystem *fieldSystem)
 {
-    DistWorldSystem *dwSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *dwSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
 
     if (dwSystem->playingGiratinaArrival == TRUE) {
         CmdRunDataPlayGiratinaArrival *runData = GetLoadedEventDataBuffer(dwSystem);
@@ -9568,7 +9568,7 @@ BOOL DistWorld_ArePersistedFeaturesInit(FieldSystem *fieldSystem)
 
 BOOL DistWorld_CheckCollisionOnCurrentFloatingPlatform(FieldSystem *fieldSystem, int tileX, int tileY, int tileZ)
 {
-    DistWorldSystem *distWorldSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *distWorldSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     u16 tileAttributes = GetCurrentFloatingPlatformTileAttributes(distWorldSystem, tileX, tileY, tileZ);
 
     if (tileAttributes == (u16)INVALID_TERRAIN_ATTRIBUTES || tileAttributes == (u16)OUT_OF_BOUNDS_TERRAIN_ATTRIBUTES) {
@@ -9581,7 +9581,7 @@ BOOL DistWorld_CheckCollisionOnCurrentFloatingPlatform(FieldSystem *fieldSystem,
 
 BOOL DistWorld_IsValidTileOnCurrentFloatingPlatform(FieldSystem *fieldSystem, int tileX, int tileY, int tileZ)
 {
-    DistWorldSystem *distWorldSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *distWorldSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     u16 tileAttributes = GetCurrentFloatingPlatformTileAttributes(distWorldSystem, tileX, tileY, tileZ);
 
     if (tileAttributes == (u16)INVALID_TERRAIN_ATTRIBUTES || tileAttributes == (u16)OUT_OF_BOUNDS_TERRAIN_ATTRIBUTES) {
@@ -9593,7 +9593,7 @@ BOOL DistWorld_IsValidTileOnCurrentFloatingPlatform(FieldSystem *fieldSystem, in
 
 BOOL DistWorld_AreCoordsValidOnCurrentFloatingPlatformKind(FieldSystem *fieldSystem, int tileX, int tileY, int tileZ)
 {
-    DistWorldSystem *system = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *system = fieldSystem->unk_04->dynamicMapFeaturesData;
     s16 floatingPlatformKind = GetCurrentFloatingPlatformKind(system);
 
     return HasFloatingPlatformAtCoords(system, tileX, tileY, tileZ, floatingPlatformKind);
@@ -9601,7 +9601,7 @@ BOOL DistWorld_AreCoordsValidOnCurrentFloatingPlatformKind(FieldSystem *fieldSys
 
 void DistWorld_FindAndPrepareNewCurrentFloatingPlatform(FieldSystem *fieldSystem, int tileX, int tileY, int tileZ)
 {
-    DistWorldSystem *system = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *system = fieldSystem->unk_04->dynamicMapFeaturesData;
     s16 floatingPlatformKind = GetCurrentFloatingPlatformKind(system);
 
     if (HasFloatingPlatformAtCoords(system, tileX, tileY, tileZ, floatingPlatformKind) == TRUE) {
@@ -9621,7 +9621,7 @@ BOOL DistWorld_GetTileBehaviorOnCurrentFloatingPlatform(FieldSystem *fieldSystem
         return FALSE;
     }
 
-    DistWorldSystem *distWorldSystem = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *distWorldSystem = fieldSystem->unk_04->dynamicMapFeaturesData;
     u16 tileAttributes = GetCurrentFloatingPlatformTileAttributes(distWorldSystem, tileX, tileY, tileZ);
 
     if (tileAttributes == (u16)INVALID_TERRAIN_ATTRIBUTES || tileAttributes == (u16)OUT_OF_BOUNDS_TERRAIN_ATTRIBUTES) {
@@ -9731,7 +9731,7 @@ static BOOL CheckFlagCondition(DistWorldSystem *system, enum FlagCondition flagC
 
 BOOL DistWorld_IsBlockedByCynthia(FieldSystem *fieldSystem, int tileX, int tileZ, int tileY)
 {
-    DistWorldSystem *system = fieldSystem->slotMachineVariant->dynamicMapFeaturesData;
+    DistWorldSystem *system = fieldSystem->unk_04->dynamicMapFeaturesData;
 
     if (DistWorldSystem_GetMapHeaderID(system) == MAP_HEADER_DISTORTION_WORLD_GIRATINA_ROOM) {
         if (tileZ == GIRATINA_ROOM_POST_BATTLE_CYNTHIA_TILE_X && tileX == GIRATINA_ROOM_POST_BATTLE_CYNTHIA_TILE_Z && tileY == GIRATINA_ROOM_POST_BATTLE_CYNTHIA_TILE_Y) {

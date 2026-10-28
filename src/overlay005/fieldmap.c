@@ -111,10 +111,10 @@ static void FieldSystem_InitLandManager(FieldSystem *fieldSystem);
 static void ov5_021D1878(FieldSystem *fieldSystem);
 static void ov5_021D1968(FieldSystem *fieldSystem);
 static BOOL FieldMap_Init(ApplicationManager *appMan, int *state);
-static BOOL FieldMap_Main(ApplicationManager *appMan, int *slotsMinigameDTO);
-static BOOL FieldMap_Exit(ApplicationManager *appMan, int *slotsMinigameDTO);
+static BOOL FieldMap_Main(ApplicationManager *appMan, int *param1);
+static BOOL FieldMap_Exit(ApplicationManager *appMan, int *param1);
 static BOOL FieldMap_ChangeZone(FieldSystem *fieldSystem);
-static void ov5_021D134C(FieldSystem *fieldSystem, u8 slotsMinigameDTO);
+static void ov5_021D134C(FieldSystem *fieldSystem, u8 param1);
 static BOOL FieldSystem_UpdateLocationToPlayerPosition(FieldSystem *fieldSystem);
 static void fieldmap(void *param0);
 static void ov5_021D13B4(FieldSystem *fieldSystem);
@@ -182,12 +182,12 @@ static BOOL FieldMap_Init(ApplicationManager *appMan, int *state)
             }
         }
 
-        Heap_Create(HEAP_ID_APPLICATION, HEAP_ID_FIELD1, fieldSystem->mapLoadMode->slotMachineVariant);
-        GF_ASSERT(fieldSystem->slotMachineVariant == NULL);
+        Heap_Create(HEAP_ID_APPLICATION, HEAP_ID_FIELD1, fieldSystem->mapLoadMode->unk_04);
+        GF_ASSERT(fieldSystem->unk_04 == NULL);
 
-        fieldSystem->slotMachineVariant = Heap_Alloc(HEAP_ID_FIELD1, sizeof(FieldSystem_sub2));
-        MI_CpuClear8(fieldSystem->slotMachineVariant, sizeof(FieldSystem_sub2));
-        fieldSystem->slotMachineVariant->slotMachineVariant = ov5_021D1A94(fieldSystem, HEAP_ID_FIELD1, 8);
+        fieldSystem->unk_04 = Heap_Alloc(HEAP_ID_FIELD1, sizeof(FieldSystem_sub2));
+        MI_CpuClear8(fieldSystem->unk_04, sizeof(FieldSystem_sub2));
+        fieldSystem->unk_04->unk_04 = ov5_021D1A94(fieldSystem, HEAP_ID_FIELD1, 8);
 
         ov5_021D1414();
 
@@ -215,17 +215,17 @@ static BOOL FieldMap_Init(ApplicationManager *appMan, int *state)
         ov5_021D1878(fieldSystem);
         ov5_021D1968(fieldSystem);
 
-        if (fieldSystem->slotMachineVariant->slotsMinigameDTO != NULL) {
+        if (fieldSystem->unk_04->unk_0C != NULL) {
             u16 weather = FieldOverworldState_GetWeather(SaveData_GetFieldOverworldState(fieldSystem->saveData));
-            ov5_021D5F24(fieldSystem->slotMachineVariant->slotsMinigameDTO, weather);
+            ov5_021D5F24(fieldSystem->unk_04->unk_0C, weather);
         }
 
         FieldBGM_PlayEffectiveForMapHeader(fieldSystem, fieldSystem->location->mapHeaderID);
         FieldSystem_RunInitScript(fieldSystem, INIT_SCRIPT_ON_RESUME);
 
-        fieldSystem->slotMachineVariant->hBlankSystem = HBlankSystem_New(HEAP_ID_FIELD1);
-        HBlankSystem_Start(fieldSystem->slotMachineVariant->hBlankSystem);
-        fieldSystem->slotMachineVariant->unk_20 = ov5_021EF4BC(HEAP_ID_FIELD1, fieldSystem->slotMachineVariant->hBlankSystem);
+        fieldSystem->unk_04->hBlankSystem = HBlankSystem_New(HEAP_ID_FIELD1);
+        HBlankSystem_Start(fieldSystem->unk_04->hBlankSystem);
+        fieldSystem->unk_04->unk_20 = ov5_021EF4BC(HEAP_ID_FIELD1, fieldSystem->unk_04->hBlankSystem);
         break;
     case FIELD_MAP_INIT_STATE_BOTTOM_SCREEN:
         FieldSystem_InitBottomScreen(fieldSystem);
@@ -242,7 +242,7 @@ static BOOL FieldMap_Init(ApplicationManager *appMan, int *state)
     return ret;
 }
 
-static BOOL FieldMap_Main(ApplicationManager *appMan, int *slotsMinigameDTO)
+static BOOL FieldMap_Main(ApplicationManager *appMan, int *param1)
 {
     FieldSystem *fieldSystem = ApplicationManager_Args(appMan);
 
@@ -263,12 +263,12 @@ static BOOL FieldMap_Main(ApplicationManager *appMan, int *slotsMinigameDTO)
     }
 }
 
-static BOOL FieldMap_Exit(ApplicationManager *appMan, int *slotsMinigameDTO)
+static BOOL FieldMap_Exit(ApplicationManager *appMan, int *param1)
 {
     FieldSystem *fieldSystem = ApplicationManager_Args(appMan);
     LandDataManager_Tick(fieldSystem, fieldSystem->landDataMan);
 
-    switch (*slotsMinigameDTO) {
+    switch (*param1) {
     case 0:
         DynamicMapFeatures_Free(fieldSystem);
         LandDataManager_ForgetTrackedTarget(fieldSystem->landDataMan);
@@ -287,10 +287,10 @@ static BOOL FieldMap_Exit(ApplicationManager *appMan, int *slotsMinigameDTO)
         MapPropAnimationManager_UnloadAllAnimations(fieldSystem->mapPropAnimMan);
         MapPropAnimationManager_Free(fieldSystem->mapPropAnimMan);
         MapPropOneShotAnimationManager_Free(&fieldSystem->mapPropOneShotAnimMan);
-        TextureResourceManager_FreeAllSlots(fieldSystem->slotMachineVariant->unk_10);
-        TextureResourceManager_Destroy(fieldSystem->slotMachineVariant->unk_10);
+        TextureResourceManager_FreeAllSlots(fieldSystem->unk_04->unk_10);
+        TextureResourceManager_Destroy(fieldSystem->unk_04->unk_10);
 
-        fieldSystem->slotMachineVariant->unk_10 = NULL;
+        fieldSystem->unk_04->unk_10 = NULL;
 
         sub_02061BF0(fieldSystem->mapObjMan);
         ov5_021ECC78(fieldSystem->mapObjMan);
@@ -302,7 +302,7 @@ static BOOL FieldMap_Exit(ApplicationManager *appMan, int *slotsMinigameDTO)
         fieldSystem->mapObjectsToPreload = NULL;
         MapPropManager_Free(fieldSystem->mapPropManager);
 
-        (*slotsMinigameDTO)++;
+        (*param1)++;
         break;
     case 1:
         if (LandDataManager_HasEnded(fieldSystem->landDataMan) == TRUE) {
@@ -312,21 +312,21 @@ static BOOL FieldMap_Exit(ApplicationManager *appMan, int *slotsMinigameDTO)
             FieldCamera_Delete(fieldSystem);
             AreaLightManager_Free(&fieldSystem->areaLightMan);
             Signpost_Free(fieldSystem->signpost);
-            MapNamePopUp_Destroy(fieldSystem->slotMachineVariant->mapPopup);
+            MapNamePopUp_Destroy(fieldSystem->unk_04->mapPopup);
 
-            if (fieldSystem->slotMachineVariant->slotsMinigameDTO != NULL) {
-                ov5_021D5EF8(fieldSystem->slotMachineVariant->slotsMinigameDTO);
+            if (fieldSystem->unk_04->unk_0C != NULL) {
+                ov5_021D5EF8(fieldSystem->unk_04->unk_0C);
             }
 
-            ov5_021EF4F8(fieldSystem->slotMachineVariant->unk_20);
-            HBlankSystem_Delete(fieldSystem->slotMachineVariant->hBlankSystem);
-            BerryPatchManager_Free(fieldSystem->slotMachineVariant->berryPatchManager);
+            ov5_021EF4F8(fieldSystem->unk_04->unk_20);
+            HBlankSystem_Delete(fieldSystem->unk_04->hBlankSystem);
+            BerryPatchManager_Free(fieldSystem->unk_04->berryPatchManager);
             FogManager_Free(&fieldSystem->fogMan);
             ModelAttributes_Free(&fieldSystem->areaModelAttrs);
             ov5_021D1570();
             ov5_021D1524(fieldSystem->bgConfig);
             FieldSystem_EndBottomScreen(fieldSystem);
-            (*slotsMinigameDTO)++;
+            (*param1)++;
         }
         break;
     case 2:
@@ -335,12 +335,12 @@ static BOOL FieldMap_Exit(ApplicationManager *appMan, int *slotsMinigameDTO)
             BillboardLists_Delete();
             VramTransfer_Free();
             Easy3D_Shutdown();
-            ov5_021D1AE4(fieldSystem->slotMachineVariant->slotMachineVariant);
+            ov5_021D1AE4(fieldSystem->unk_04->unk_04);
             SetVBlankCallback(NULL, NULL);
             Heap_Free(fieldSystem->bgConfig);
-            Heap_Free(fieldSystem->slotMachineVariant);
+            Heap_Free(fieldSystem->unk_04);
 
-            fieldSystem->slotMachineVariant = NULL;
+            fieldSystem->unk_04 = NULL;
 
             Heap_Destroy(HEAP_ID_FIELD1);
 
@@ -425,9 +425,9 @@ static BOOL FieldMap_ChangeZone(FieldSystem *fieldSystem)
     FieldBGM_TryFadeOut(fieldSystem, FieldBGM_GetEffective(fieldSystem, fieldSystem->location->mapHeaderID), 1);
     sub_0203A418(fieldSystem);
 
-    if (fieldSystem->slotMachineVariant->slotsMinigameDTO != NULL) {
+    if (fieldSystem->unk_04->unk_0C != NULL) {
         ov5_021D5F7C(
-            fieldSystem->slotMachineVariant->slotsMinigameDTO, FieldOverworldState_GetWeather(fieldState));
+            fieldSystem->unk_04->unk_0C, FieldOverworldState_GetWeather(fieldState));
     }
 
     int oldMapLabelTextID = MapHeader_GetMapLabelTextID(oldMapHeaderID);
@@ -439,7 +439,7 @@ static BOOL FieldMap_ChangeZone(FieldSystem *fieldSystem)
             mapLabelWindowID--;
         }
 
-        MapNamePopUp_Show(fieldSystem->slotMachineVariant->mapPopup, newMapLabelTextID, mapLabelWindowID);
+        MapNamePopUp_Show(fieldSystem->unk_04->mapPopup, newMapLabelTextID, mapLabelWindowID);
     }
 
     return TRUE;
@@ -463,12 +463,12 @@ void FieldMap_ChangeZoneDistortionWorld(FieldSystem *fieldSystem, enum MapHeader
     FieldBGM_TryFadeOut(fieldSystem, FieldBGM_GetEffective(fieldSystem, fieldSystem->location->mapHeaderID), 1);
     sub_0203A418(fieldSystem);
 
-    if (fieldSystem->slotMachineVariant->slotsMinigameDTO != NULL) {
-        ov5_021D5F7C(fieldSystem->slotMachineVariant->slotsMinigameDTO, FieldOverworldState_GetWeather(fieldState));
+    if (fieldSystem->unk_04->unk_0C != NULL) {
+        ov5_021D5F7C(fieldSystem->unk_04->unk_0C, FieldOverworldState_GetWeather(fieldState));
     }
 }
 
-static void ov5_021D134C(FieldSystem *fieldSystem, u8 slotsMinigameDTO)
+static void ov5_021D134C(FieldSystem *fieldSystem, u8 param1)
 {
     if (FieldSystem_IsRunningTask(fieldSystem) == 0) {
         sub_020559DC(fieldSystem);
@@ -477,15 +477,15 @@ static void ov5_021D134C(FieldSystem *fieldSystem, u8 slotsMinigameDTO)
     AreaLightManager_UpdateActiveTemplate(fieldSystem->areaLightMan);
     Signpost_DoCurrentCommand(fieldSystem);
 
-    if ((slotsMinigameDTO & 1) != 0) {
-        TextureResourceManager_Free(fieldSystem->slotMachineVariant->unk_10);
+    if ((param1 & 1) != 0) {
+        TextureResourceManager_Free(fieldSystem->unk_04->unk_10);
     }
 
-    if ((slotsMinigameDTO & 8) != 0) {
+    if ((param1 & 8) != 0) {
         MapPropAnimationManager_AdvanceAnimations(fieldSystem->mapPropAnimMan);
     }
 
-    if ((slotsMinigameDTO & 2) != 0) {
+    if ((param1 & 2) != 0) {
         LandDataManager_Tick(fieldSystem, fieldSystem->landDataMan);
 
         if (FieldMap_InDistortionWorld(fieldSystem) == TRUE) {
@@ -493,7 +493,7 @@ static void ov5_021D134C(FieldSystem *fieldSystem, u8 slotsMinigameDTO)
         }
     }
 
-    if ((slotsMinigameDTO & 4) != 0) {
+    if ((param1 & 4) != 0) {
         ov5_021D15F4(fieldSystem);
     }
 }
@@ -721,22 +721,22 @@ static void ov5_021D15F4(FieldSystem *fieldSystem)
         NNS_G3dGlbFlush();
     }
 
-    ov5_021D1B18(fieldSystem->slotMachineVariant->slotMachineVariant);
+    ov5_021D1B18(fieldSystem->unk_04->unk_04);
     G3_RequestSwapBuffers(GX_SORTMODE_AUTO, gBufferMode);
 }
 
-void ov5_021D16F4(FieldSystem *fieldSystem, BOOL slotsMinigameDTO)
+void ov5_021D16F4(FieldSystem *fieldSystem, BOOL param1)
 {
-    if (slotsMinigameDTO == 1) {
+    if (param1 == 1) {
         fieldSystem->unk_C0 |= 4;
     } else {
         fieldSystem->unk_C0 &= ~4;
     }
 }
 
-void ov5_021D1718(FieldSystem *fieldSystem, BOOL slotsMinigameDTO)
+void ov5_021D1718(FieldSystem *fieldSystem, BOOL param1)
 {
-    if (slotsMinigameDTO == 1) {
+    if (param1 == 1) {
         fieldSystem->unk_C0 |= 1;
     } else {
         fieldSystem->unk_C0 &= ~1;
@@ -858,7 +858,7 @@ static void ov5_021D1878(FieldSystem *fieldSystem)
     sub_02062C3C(fieldSystem->mapObjMan);
     LandDataManager_TrackTarget(PlayerAvatar_GetPos(fieldSystem->playerAvatar), fieldSystem->landDataMan);
 
-    fieldSystem->slotMachineVariant->berryPatchManager = BerryPatchManager_New(fieldSystem, HEAP_ID_FIELD1);
+    fieldSystem->unk_04->berryPatchManager = BerryPatchManager_New(fieldSystem, HEAP_ID_FIELD1);
 }
 
 static void ov5_021D1968(FieldSystem *fieldSystem)
@@ -877,16 +877,16 @@ static void ov5_021D1968(FieldSystem *fieldSystem)
     fieldSystem->areaLightMan = AreaLightManager_New(fieldSystem->areaModelAttrs, AreaDataManager_GetAreaLightArchiveID(fieldSystem->areaDataManager));
 
     if (FieldMap_InDistortionWorld(fieldSystem) == TRUE) {
-        fieldSystem->slotMachineVariant->slotsMinigameDTO = NULL;
+        fieldSystem->unk_04->unk_0C = NULL;
     } else {
-        fieldSystem->slotMachineVariant->slotsMinigameDTO = ov5_021D5EB8(fieldSystem);
+        fieldSystem->unk_04->unk_0C = ov5_021D5EB8(fieldSystem);
     }
 
-    fieldSystem->slotMachineVariant->mapPopup = MapNamePopUp_Create(fieldSystem->bgConfig);
+    fieldSystem->unk_04->mapPopup = MapNamePopUp_Create(fieldSystem->bgConfig);
     fieldSystem->signpost = Signpost_Init(HEAP_ID_FIELD1);
-    fieldSystem->slotMachineVariant->unk_10 = TextureResourceManager_Create();
+    fieldSystem->unk_04->unk_10 = TextureResourceManager_Create();
 
-    TextureResourceManager_LoadTexture(fieldSystem->slotMachineVariant->unk_10, AreaDataManager_GetMapTexture(fieldSystem->areaDataManager));
+    TextureResourceManager_LoadTexture(fieldSystem->unk_04->unk_10, AreaDataManager_GetMapTexture(fieldSystem->areaDataManager));
     DynamicMapFeatures_Init(fieldSystem);
     ov5_021EE7C0(fieldSystem);
     SetVBlankCallback(fieldmap, fieldSystem);

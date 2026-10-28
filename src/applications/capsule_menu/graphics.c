@@ -132,10 +132,10 @@ void ov76_0223B98C(CapsuleAppManager *appMan, int index, int param2, int param3,
     v3 = sub_02012898(&window, NNS_G2D_VRAM_TYPE_2DSUB, HEAP_ID_53);
     CharTransfer_AllocRange(v3, 1, NNS_G2D_VRAM_TYPE_2DSUB, &appMan->graphicsMan.charTransfer[index]);
 
-    fontOAMManager.coins = appMan->graphicsMan.fontOAMManager;
-    fontOAMManager.slotMachineVariant = &window;
+    fontOAMManager.unk_00 = appMan->graphicsMan.fontOAMManager;
+    fontOAMManager.unk_04 = &window;
     fontOAMManager.unk_08 = SpriteManager_GetSpriteList(appMan->graphicsMan.spriteManager);
-    fontOAMManager.slotsMinigameDTO = SpriteManager_FindPlttResourceProxy(appMan->graphicsMan.spriteManager, resID);
+    fontOAMManager.unk_0C = SpriteManager_FindPlttResourceProxy(appMan->graphicsMan.spriteManager, resID);
     fontOAMManager.unk_10 = NULL;
     fontOAMManager.unk_14 = appMan->graphicsMan.charTransfer[index].offset;
     fontOAMManager.unk_18 = param2 - Font_CalcStringWidth(FONT_SUBSCREEN, string, 0) / 2;

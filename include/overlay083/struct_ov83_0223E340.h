@@ -6,7 +6,7 @@
 #include "software_sprite.h"
 
 typedef struct {
-    SoftwareSpriteChars *coins[6];
+    SoftwareSpriteChars *unk_00[6];
     SoftwareSpritePalette *unk_18[8];
     SoftwareSprite *unk_38[8];
     UnkStruct_ov83_0223D9EC unk_58;

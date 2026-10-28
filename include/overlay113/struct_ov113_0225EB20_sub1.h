@@ -13,7 +13,7 @@
 #include "overlay113/struct_ov113_02260544.h"
 
 typedef struct {
-    UnkStruct_ov113_0225FE30 coins;
+    UnkStruct_ov113_0225FE30 unk_00;
     UnkStruct_ov113_0225FEE0 unk_08;
     UnkStruct_ov113_0225FF8C unk_18;
     UnkStruct_ov113_02260064 unk_28;

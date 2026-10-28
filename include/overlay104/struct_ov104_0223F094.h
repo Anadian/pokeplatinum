@@ -6,7 +6,7 @@
 
 typedef struct {
     ScreenScrollManager *screenScrollMgr;
-    SysTask *slotMachineVariant;
+    SysTask *unk_04;
     u32 unk_08;
 } UnkStruct_ov104_0223F094;
 

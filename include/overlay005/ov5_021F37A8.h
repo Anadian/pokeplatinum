@@ -7,6 +7,6 @@
 
 void *ov5_021F37A8(FieldEffectManager *param0);
 void ov5_021F37C4(void *param0);
-void ov5_021F3844(MapObject *param0, int slotsMinigameDTO);
+void ov5_021F3844(MapObject *param0, int param1);
 
 #endif // POKEPLATINUM_OV5_021F37A8_H

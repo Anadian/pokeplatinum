@@ -10,8 +10,8 @@ UnkStruct_0209BDF8 *sub_0209BDF8(UnkStruct_0209C194 *param0, enum HeapID heapID)
 void sub_0209BE38(UnkStruct_0209BDF8 *param0);
 void sub_0209BE50(UnkStruct_0209BDF8 *param0);
 void sub_0209BE64(UnkStruct_0209BDF8 *param0);
-BOOL sub_0209BEBC(UnkStruct_0209BDF8 *param0, u32 slotsMinigameDTO, const void *param2, u32 param3);
+BOOL sub_0209BEBC(UnkStruct_0209BDF8 *param0, u32 param1, const void *param2, u32 param3);
 int sub_0209C16C(void);
-void *sub_0209C188(UnkStruct_0209BDF8 *param0, int slotsMinigameDTO);
+void *sub_0209C188(UnkStruct_0209BDF8 *param0, int param1);
 
 #endif // POKEPLATINUM_UNK_0209BDF8_H

@@ -38,8 +38,8 @@ FS_EXTERN_OVERLAY(overlay61);
 FS_EXTERN_OVERLAY(overlay62);
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     ApplicationManager *appMan;
     SaveData *saveData;
     FieldBattleDTO *unk_10;
@@ -48,16 +48,16 @@ typedef struct {
     FieldSystem *fieldSystem;
 } UnkStruct_0208BC3C;
 
-static void sub_0208BAAC(ApplicationManager *appMan, int slotsMinigameDTO);
-static int sub_0208BB6C(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208BB78(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208BB84(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208BB90(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208BB9C(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208BBA8(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208BBB4(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208BBC0(ApplicationManager *appMan, int *slotsMinigameDTO);
-static int sub_0208BC08(ApplicationManager *appMan, int *slotsMinigameDTO);
+static void sub_0208BAAC(ApplicationManager *appMan, int param1);
+static int sub_0208BB6C(ApplicationManager *appMan, int *param1);
+static int sub_0208BB78(ApplicationManager *appMan, int *param1);
+static int sub_0208BB84(ApplicationManager *appMan, int *param1);
+static int sub_0208BB90(ApplicationManager *appMan, int *param1);
+static int sub_0208BB9C(ApplicationManager *appMan, int *param1);
+static int sub_0208BBA8(ApplicationManager *appMan, int *param1);
+static int sub_0208BBB4(ApplicationManager *appMan, int *param1);
+static int sub_0208BBC0(ApplicationManager *appMan, int *param1);
+static int sub_0208BC08(ApplicationManager *appMan, int *param1);
 static BOOL sub_0208BC3C(UnkStruct_0208BC3C *param0, enum HeapID heapID);
 static BOOL sub_0208BC8C(UnkStruct_0208BC3C *param0, enum HeapID heapID);
 static BOOL sub_0208BE80(int param0);
@@ -70,21 +70,21 @@ UnkStruct_0208C06C *sub_0208BA78(ApplicationManager *appMan)
     return v1->unk_14;
 }
 
-void sub_0208BA84(UnkStruct_0208BA84 *param0, BOOL slotsMinigameDTO, int param2)
+void sub_0208BA84(UnkStruct_0208BA84 *param0, BOOL param1, int param2)
 {
-    param0->coins = slotsMinigameDTO;
-    param0->slotMachineVariant = param2;
+    param0->unk_00 = param1;
+    param0->unk_04 = param2;
 }
 
-static void sub_0208BA8C(SaveData *saveData, int slotsMinigameDTO, u32 param2)
+static void sub_0208BA8C(SaveData *saveData, int param1, u32 param2)
 {
     JournalEntry *journalEntry = SaveData_GetJournal(saveData);
-    void *journalEntryOnlineEvent = JournalEntry_CreateEventMisc(slotsMinigameDTO, param2);
+    void *journalEntryOnlineEvent = JournalEntry_CreateEventMisc(param1, param2);
 
     JournalEntry_SaveData(journalEntry, journalEntryOnlineEvent, JOURNAL_ONLINE_EVENT);
 }
 
-static void sub_0208BAAC(ApplicationManager *appMan, int slotsMinigameDTO)
+static void sub_0208BAAC(ApplicationManager *appMan, int param1)
 {
     UnkStruct_0208BC3C *v0;
 
@@ -101,12 +101,12 @@ static void sub_0208BAAC(ApplicationManager *appMan, int slotsMinigameDTO)
 
     v0->unk_14->unk_868 = &v0->unk_18;
     v0->unk_14->saveData = v0->saveData;
-    v0->unk_14->coins = slotsMinigameDTO;
-    v0->unk_14->unk_81C[v0->unk_14->unk_534.unk_1A4] = sub_0208C034(v0->unk_14, v0->unk_14->coins);
+    v0->unk_14->unk_00 = param1;
+    v0->unk_14->unk_81C[v0->unk_14->unk_534.unk_1A4] = sub_0208C034(v0->unk_14, v0->unk_14->unk_00);
 
     int eventType;
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 2:
         eventType = ONLINE_EVENT_WATCHED_BATTLE_VIDEOS;
         break;
@@ -129,61 +129,61 @@ static void sub_0208BAAC(ApplicationManager *appMan, int slotsMinigameDTO)
     sub_0208BA8C(v0->saveData, 119, eventType);
 }
 
-static int sub_0208BB6C(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208BB6C(ApplicationManager *appMan, int *param1)
 {
     sub_0208BAAC(appMan, 0);
     return 1;
 }
 
-static int sub_0208BB78(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208BB78(ApplicationManager *appMan, int *param1)
 {
     sub_0208BAAC(appMan, 1);
     return 1;
 }
 
-static int sub_0208BB84(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208BB84(ApplicationManager *appMan, int *param1)
 {
     sub_0208BAAC(appMan, 2);
     return 1;
 }
 
-static int sub_0208BB90(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208BB90(ApplicationManager *appMan, int *param1)
 {
     sub_0208BAAC(appMan, 3);
     return 1;
 }
 
-static int sub_0208BB9C(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208BB9C(ApplicationManager *appMan, int *param1)
 {
     sub_0208BAAC(appMan, 4);
     return 1;
 }
 
-static int sub_0208BBA8(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208BBA8(ApplicationManager *appMan, int *param1)
 {
     sub_0208BAAC(appMan, 5);
     return 1;
 }
 
-static int sub_0208BBB4(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208BBB4(ApplicationManager *appMan, int *param1)
 {
     sub_0208BAAC(appMan, 6);
     return 1;
 }
 
-static int sub_0208BBC0(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208BBC0(ApplicationManager *appMan, int *param1)
 {
     BOOL v0;
     UnkStruct_0208BC3C *v1 = ApplicationManager_Data(appMan);
 
-    switch (*slotsMinigameDTO) {
+    switch (*param1) {
     case 0:
         v0 = sub_0208BC3C(v1, HEAP_ID_119);
 
         if (v0) {
-            if (v1->unk_18.coins == 1) {
-                *slotsMinigameDTO = 1;
-                v1->coins = 0;
+            if (v1->unk_18.unk_00 == 1) {
+                *param1 = 1;
+                v1->unk_00 = 0;
             } else {
                 return 1;
             }
@@ -193,8 +193,8 @@ static int sub_0208BBC0(ApplicationManager *appMan, int *slotsMinigameDTO)
         v0 = sub_0208BC8C(v1, HEAP_ID_119);
 
         if (v0) {
-            *slotsMinigameDTO = 0;
-            v1->coins = 0;
+            *param1 = 0;
+            v1->unk_00 = 0;
         }
         break;
     }
@@ -202,7 +202,7 @@ static int sub_0208BBC0(ApplicationManager *appMan, int *slotsMinigameDTO)
     return 0;
 }
 
-static int sub_0208BC08(ApplicationManager *appMan, int *slotsMinigameDTO)
+static int sub_0208BC08(ApplicationManager *appMan, int *param1)
 {
     UnkStruct_0208BC3C *v0 = ApplicationManager_Data(appMan);
 
@@ -220,15 +220,15 @@ static int sub_0208BC08(ApplicationManager *appMan, int *slotsMinigameDTO)
 
 static BOOL sub_0208BC3C(UnkStruct_0208BC3C *param0, enum HeapID heapID)
 {
-    switch (param0->coins) {
+    switch (param0->unk_00) {
     case 0:
-        if (param0->unk_14->coins == 0) {
+        if (param0->unk_14->unk_00 == 0) {
             param0->appMan = ApplicationManager_New(&Unk_020F3050, param0, heapID);
         } else {
             param0->appMan = ApplicationManager_New(&Unk_020F3060, param0, heapID);
         }
 
-        param0->coins++;
+        param0->unk_00++;
         break;
     default:
         if (ApplicationManager_Exec(param0->appMan) == 0) {
@@ -244,14 +244,14 @@ static BOOL sub_0208BC3C(UnkStruct_0208BC3C *param0, enum HeapID heapID)
 
 static BOOL sub_0208BC8C(UnkStruct_0208BC3C *param0, enum HeapID heapID)
 {
-    switch (param0->coins) {
+    switch (param0->unk_00) {
     case 0:
-        if (param0->unk_14->coins != 0) {
+        if (param0->unk_14->unk_00 != 0) {
             Overlay_UnloadByID(FS_OVERLAY_ID(overlay61));
             Overlay_UnloadHttpOverlay();
         }
 
-        param0->coins++;
+        param0->unk_00++;
         break;
     case 1: {
         int v0;
@@ -278,10 +278,10 @@ static BOOL sub_0208BC8C(UnkStruct_0208BC3C *param0, enum HeapID heapID)
         if (v0 != 1) {
             Heap_Free(param0->unk_10->bagCursor);
             FieldBattleDTO_Free(param0->unk_10);
-            param0->coins = 0;
+            param0->unk_00 = 0;
             return 1;
         } else {
-            param0->coins++;
+            param0->unk_00++;
         }
     } break;
     case 2: {
@@ -295,7 +295,7 @@ static BOOL sub_0208BC8C(UnkStruct_0208BC3C *param0, enum HeapID heapID)
         }
     }
         param0->appMan = ApplicationManager_New(&gBattleApplicationTemplate, param0->unk_10, heapID);
-        param0->coins++;
+        param0->unk_00++;
         break;
     default:
         if (ApplicationManager_Exec(param0->appMan) == 0) {
@@ -304,7 +304,7 @@ static BOOL sub_0208BC8C(UnkStruct_0208BC3C *param0, enum HeapID heapID)
 
         param0->unk_14->unk_874 = param0->unk_10->recordingStopped;
 
-        if (param0->unk_14->coins != 0) {
+        if (param0->unk_14->unk_00 != 0) {
             if (param0->unk_14->unk_874 == 0) {
                 *param0->unk_14->unk_878 = 1;
             }
@@ -326,9 +326,9 @@ static BOOL sub_0208BC8C(UnkStruct_0208BC3C *param0, enum HeapID heapID)
             Sound_SetSceneAndPlayBGM(SOUND_SCENE_FIELD, bgmID, 1);
         }
 
-        param0->coins = 0;
+        param0->unk_00 = 0;
 
-        if (param0->unk_14->coins != 0) {
+        if (param0->unk_14->unk_00 != 0) {
             Overlay_LoadHttpOverlay();
             Overlay_LoadByID(FS_OVERLAY_ID(overlay61), 2);
         }

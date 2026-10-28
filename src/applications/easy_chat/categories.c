@@ -47,7 +47,7 @@ EasyChatCategoriesContext *EasyChatCategoriesContext_New(UnkStruct_ov20_021D2128
 {
     EasyChatCategoriesContext *ctx = Heap_Alloc(HEAP_ID_35, sizeof(EasyChatCategoriesContext));
 
-    ctx->coins = param0;
+    ctx->unk_00 = param0;
     ctx->easyChatApp = easyChatApp;
     ctx->unk_08 = param2;
     ctx->bgConfig = ov20_021D2E04(param0);
@@ -69,7 +69,7 @@ void EasyChatCategoriesContext_Free(EasyChatCategoriesContext *ctx)
 
 void EasyChatCategories_DrawInterface(EasyChatCategoriesContext *ctx, NARC *narc)
 {
-    BgConfig *bgConfig = ov20_021D2E04(ctx->coins);
+    BgConfig *bgConfig = ov20_021D2E04(ctx->unk_00);
 
     Graphics_LoadTilemapToBgLayerFromOpenNARC(narc, 2, bgConfig, BG_LAYER_MAIN_1, 0, 0, TRUE, HEAP_ID_35);
 
@@ -219,17 +219,17 @@ static void ov20_021D3E0C(EasyChatCategoriesContext *ctx)
 {
     SpriteResourcesHeader v0;
 
-    ov20_021D2E0C(ctx->coins, &v0, 0, 1);
-    ctx->cursorSprite = ov20_021D2E50(ctx->coins, &v0, 48, 54, 2, NNS_G2D_VRAM_TYPE_2DMAIN);
+    ov20_021D2E0C(ctx->unk_00, &v0, 0, 1);
+    ctx->cursorSprite = ov20_021D2E50(ctx->unk_00, &v0, 48, 54, 2, NNS_G2D_VRAM_TYPE_2DMAIN);
     Sprite_SetAnim(ctx->cursorSprite, 4);
     Sprite_SetDrawFlag(ctx->cursorSprite, FALSE);
 }
 
-void ov20_021D3E48(EasyChatCategoriesContext *ctx, BOOL slotsMinigameDTO)
+void ov20_021D3E48(EasyChatCategoriesContext *ctx, BOOL param1)
 {
-    Sprite_SetDrawFlag(ctx->cursorSprite, slotsMinigameDTO);
+    Sprite_SetDrawFlag(ctx->cursorSprite, param1);
 
-    if (slotsMinigameDTO) {
+    if (param1) {
         if (EasyChat_GetMode(ctx->easyChatApp) == GROUP_MODE) {
             Sprite_SetAnim(ctx->cursorSprite, 4);
         } else {

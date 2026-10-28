@@ -158,11 +158,11 @@ typedef enum {
 } UnkEnum_ov101_021D9AE4;
 
 typedef enum {
-    UnkEnum_ov101_021D1894_00, //Toggle Field BGM Pause
-    UnkEnum_ov101_021D1894_01, //Toggle BGM ATARI
-    UnkEnum_ov101_021D1894_02, //Toggle BGM 00ATARI?
-    UnkEnum_ov101_021D1894_03, //Finished BGM Stuff
-} SlotsMinigame_SoundSequenceID; //SLOTSMINIGAME_SOUND_SEQUENCE_ID
+    UnkEnum_ov101_021D1894_00,
+    UnkEnum_ov101_021D1894_01,
+    UnkEnum_ov101_021D1894_02,
+    UnkEnum_ov101_021D1894_03,
+} UnkEnum_ov101_021D1894;
 
 typedef enum {
     UnkEnum_ov66_02231E54_00 = 0,

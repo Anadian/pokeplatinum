@@ -61,7 +61,7 @@ typedef struct {
     FieldMovePokemon fieldMoveMon;
 } FieldMoveTaskData;
 
-static void FieldMoves_CanUseSurfDistortionWorld(FieldSystem *fieldSystem, FieldMoveContext *slotsMinigameDTO);
+static void FieldMoves_CanUseSurfDistortionWorld(FieldSystem *fieldSystem, FieldMoveContext *param1);
 
 static enum FieldMoveError FieldMoves_CheckFly(const FieldMoveContext *fieldMoveContext);
 static void FieldMoves_SetSelectFlyDestinationTask(FieldMovePokemon *fieldMoveMon, const FieldMoveContext *fieldMoveContext);
@@ -743,7 +743,7 @@ static BOOL FieldMoves_TeleportTask(FieldTask *task)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
     UnkStruct_020711C8 *v1 = FieldTask_GetEnv(task);
-    FieldWarp *fieldWarp = FieldWarp_InitTeleport(fieldSystem, v1->coins, HEAP_ID_FIELD1);
+    FieldWarp *fieldWarp = FieldWarp_InitTeleport(fieldSystem, v1->unk_00, HEAP_ID_FIELD1);
 
     Heap_Free(v1);
     FieldTask_InitJump(task, FieldWarp_TeleportFadeOut, fieldWarp);
@@ -786,7 +786,7 @@ static BOOL FieldMoves_DigTask(FieldTask *task)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
     UnkStruct_020711C8 *v1 = FieldTask_GetEnv(task);
-    FieldWarp *fieldWarp = FieldWarp_InitDig(fieldSystem, v1->coins, HEAP_ID_FIELD2);
+    FieldWarp *fieldWarp = FieldWarp_InitDig(fieldSystem, v1->unk_00, HEAP_ID_FIELD2);
 
     void *journalEntryLocationEvent = JournalEntry_CreateEventUsedMove(FIELD_MOVE_DIG, fieldSystem->location->mapHeaderID, HEAP_ID_FIELD1);
     JournalEntry_SaveData(fieldSystem->journalEntry, journalEntryLocationEvent, JOURNAL_LOCATION);

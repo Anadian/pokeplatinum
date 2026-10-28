@@ -4,14 +4,14 @@
 #include "overlay104/struct_ov104_0223D8F0.h"
 
 typedef struct {
-    u16 coins;
+    u16 unk_00;
     u16 unk_02;
-    u16 slotMachineVariant;
+    u16 unk_04;
     s16 unk_06;
     s16 unk_08;
     u8 unk_0A;
     u8 unk_0B;
-    u8 slotsMinigameDTO;
+    u8 unk_0C;
     UnkStruct_ov104_0223D8F0 unk_0E;
 } UnkStruct_ov104_0223D570;
 

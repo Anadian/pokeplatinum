@@ -172,7 +172,7 @@ void HealthBox_Scroll(HealthBox *healthbox, enum HealthBoxScrollDirection direct
  * @return              The resulting healthbox type; see enum HealthBoxType.
  */
 u8 HealthBox_Type(int battlerType, u32 battleType);
-void Healthbox_StartLevelUpFlash(HealthBox *healthbox, u8 *slotsMinigameDTO);
+void Healthbox_StartLevelUpFlash(HealthBox *healthbox, u8 *param1);
 void dummy_02268468(HealthBox *healthbox);
 void dummy_0226846C(HealthBox *healthbox);
 void Healthbox_StartBobAnimation(HealthBox *healthbox);

@@ -29,9 +29,9 @@
 
 typedef struct {
     FieldSystem *fieldSystem;
-    String *slotMachineVariant;
+    String *unk_04;
     String *unk_08;
-    StringTemplate *slotsMinigameDTO;
+    StringTemplate *unk_0C;
     MessageLoader *unk_10;
     ColoredArrow *unk_14;
     Window unk_18;
@@ -50,7 +50,7 @@ typedef struct {
 static void sub_0209AD84(UnkStruct_0209AD84 *param0);
 static void sub_0209ADBC(UnkStruct_0209AD84 *param0);
 static BOOL sub_0209AE14(FieldTask *param0);
-static void sub_0209B084(UnkStruct_0209AD84 *param0, int slotsMinigameDTO, BOOL param2);
+static void sub_0209B084(UnkStruct_0209AD84 *param0, int param1, BOOL param2);
 static BOOL sub_0209B100(UnkStruct_0209AD84 *param0);
 static void sub_0209B110(UnkStruct_0209AD84 *param0);
 static void sub_0209B12C(UnkStruct_0209AD84 *param0);
@@ -65,9 +65,9 @@ void sub_0209ACF4(FieldTask *param0)
     UnkStruct_0209AD84 *v1 = Heap_Alloc(HEAP_ID_FIELD3, sizeof(UnkStruct_0209AD84));
 
     v1->fieldSystem = fieldSystem;
-    v1->slotMachineVariant = String_Init(400, HEAP_ID_FIELD3);
+    v1->unk_04 = String_Init(400, HEAP_ID_FIELD3);
     v1->unk_08 = String_Init(400, HEAP_ID_FIELD3);
-    v1->slotsMinigameDTO = StringTemplate_Default(HEAP_ID_FIELD3);
+    v1->unk_0C = StringTemplate_Default(HEAP_ID_FIELD3);
     v1->unk_10 = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_UNK_0420, HEAP_ID_FIELD3);
     v1->unk_14 = ColoredArrow_New(HEAP_ID_FIELD3);
     v1->unk_50 = EasyChatArgs_New(EASY_CHAT_TYPE_SENTENCE, EasyChat_Text_ChooseWordOrPhrase, v1->fieldSystem->saveData, HEAP_ID_FIELD3);
@@ -86,9 +86,9 @@ static void sub_0209AD84(UnkStruct_0209AD84 *param0)
 {
     EasyChatArgs_Free(param0->unk_50);
     ColoredArrow_Free(param0->unk_14);
-    String_Free(param0->slotMachineVariant);
+    String_Free(param0->unk_04);
     String_Free(param0->unk_08);
-    StringTemplate_Free(param0->slotsMinigameDTO);
+    StringTemplate_Free(param0->unk_0C);
     MessageLoader_Free(param0->unk_10);
     sub_0209ADBC(param0);
     Heap_Free(param0);
@@ -221,7 +221,7 @@ static BOOL sub_0209AE14(FieldTask *param0)
                 sub_0209B27C(v0);
 
                 if (v1 != WORD_NONE) {
-                    StringTemplate_SetEasyChatWord(v0->slotsMinigameDTO, 0, v1);
+                    StringTemplate_SetEasyChatWord(v0->unk_0C, 0, v1);
                     sub_0209B084(v0, 8, 1);
                 } else {
                     sub_0209B084(v0, 7, 0);
@@ -252,15 +252,15 @@ static BOOL sub_0209AE14(FieldTask *param0)
     return 0;
 }
 
-static void sub_0209B084(UnkStruct_0209AD84 *param0, int slotsMinigameDTO, BOOL param2)
+static void sub_0209B084(UnkStruct_0209AD84 *param0, int param1, BOOL param2)
 {
     Window *v0 = &(param0->unk_18);
 
     if (param2) {
-        MessageLoader_GetString(param0->unk_10, slotsMinigameDTO, param0->slotMachineVariant);
-        StringTemplate_Format(param0->slotsMinigameDTO, param0->unk_08, param0->slotMachineVariant);
+        MessageLoader_GetString(param0->unk_10, param1, param0->unk_04);
+        StringTemplate_Format(param0->unk_0C, param0->unk_08, param0->unk_04);
     } else {
-        MessageLoader_GetString(param0->unk_10, slotsMinigameDTO, param0->unk_08);
+        MessageLoader_GetString(param0->unk_10, param1, param0->unk_08);
     }
 
     if (Window_IsInUse(v0) == 0) {

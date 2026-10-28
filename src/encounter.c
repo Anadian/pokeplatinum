@@ -54,7 +54,7 @@ typedef struct Encounter {
     int *resultMaskPtr;
     int introEffectID;
     int battleBGM;
-    int slotsMinigameDTO;
+    int unk_0C;
     FieldBattleDTO *dto;
 } Encounter;
 
@@ -788,7 +788,7 @@ static int sub_020516C8(const BattleRegulation *regulation, int battleType)
     return v0;
 }
 
-void Encounter_NewVsWiFi(FieldTask *task, int slotsMinigameDTO, int normalizedLevel, int wifiBattleType)
+void Encounter_NewVsWiFi(FieldTask *task, int param1, int normalizedLevel, int wifiBattleType)
 {
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(task);
     Encounter *encounter;
@@ -819,7 +819,7 @@ void Encounter_NewVsWiFi(FieldTask *task, int slotsMinigameDTO, int normalizedLe
     dto->recordingType = v5;
 
     encounter = NewEncounter(dto, EncEffects_CutInEffect(dto), EncEffects_BGM(dto), NULL);
-    encounter->slotsMinigameDTO = slotsMinigameDTO;
+    encounter->unk_0C = param1;
 
     FieldTask_InitCall(task, FieldTask_WiFiEncounter, encounter);
 }

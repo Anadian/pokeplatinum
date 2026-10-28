@@ -2,7 +2,7 @@
 #define POKEPLATINUM_STRUCT_OV17_022439C8_H
 
 typedef struct {
-    u32 coins;
+    u32 unk_00;
     u16 actingAnimationMoveID;
     u8 unk_06;
     u8 unk_07;

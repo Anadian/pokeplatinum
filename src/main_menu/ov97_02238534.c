@@ -9,14 +9,14 @@
 #include "main_menu/funcptr_ov97_02238A4C.h"
 
 typedef struct {
-    u16 coins;
+    u16 unk_00;
     u16 unk_02;
-    u32 slotMachineVariant;
+    u32 unk_04;
     u8 unk_08[104];
 } UnkStruct_ov97_02238AB4;
 
 typedef struct {
-    u8 coins[3840] ATTRIBUTE_ALIGN(32);
+    u8 unk_00[3840] ATTRIBUTE_ALIGN(32);
     WMbssDesc unk_F00 ATTRIBUTE_ALIGN(32);
     WMscanParam unk_1034 ATTRIBUTE_ALIGN(32);
     u8 unk_1054[104];
@@ -348,7 +348,7 @@ static BOOL ov97_02238908(void)
     WMErrCode v0;
 
     ov97_02238534(3);
-    v0 = WM_Initialize(&((*Unk_ov97_022403F8).coins[0]), ov97_0223893C, 2);
+    v0 = WM_Initialize(&((*Unk_ov97_022403F8).unk_00[0]), ov97_0223893C, 2);
 
     if (v0 != WM_ERRCODE_OPERATING) {
         do {
@@ -458,7 +458,7 @@ static void ov97_02238A10(void *param0)
     ov97_02238978();
 }
 
-BOOL ov97_02238A4C(void *param0, UnkFuncPtr_ov97_02238A4C slotsMinigameDTO, void *param2)
+BOOL ov97_02238A4C(void *param0, UnkFuncPtr_ov97_02238A4C param1, void *param2)
 {
     Unk_ov97_022403F8 = (UnkStruct_ov97_022403F8 *)(((u32)param2 + 31) / 32 * 32);
     (*Unk_ov97_022403F8).unk_11C4 = 0;
@@ -466,7 +466,7 @@ BOOL ov97_02238A4C(void *param0, UnkFuncPtr_ov97_02238A4C slotsMinigameDTO, void
     (*Unk_ov97_022403F8).unk_11EC = (u8 *)param0;
     (*Unk_ov97_022403F8).unk_11D0 = 0;
     (*Unk_ov97_022403F8).unk_11D2 = 0;
-    (*Unk_ov97_022403F8).unk_11F0 = slotsMinigameDTO;
+    (*Unk_ov97_022403F8).unk_11F0 = param1;
     (*Unk_ov97_022403F8).unk_11EA = 16 + 0;
     (*Unk_ov97_022403F8).unk_10BC = 0;
     (*Unk_ov97_022403F8).unk_11E0 = -1;
@@ -480,8 +480,8 @@ static void ov97_02238AB4(UnkStruct_ov97_02238AB4 *param0)
 
     (*Unk_ov97_022403F8).unk_10BC = 0;
     (*Unk_ov97_022403F8).unk_11CC = 3;
-    (*Unk_ov97_022403F8).unk_11CE = param0->coins;
-    (*Unk_ov97_022403F8).unk_11D4 = param0->slotMachineVariant;
+    (*Unk_ov97_022403F8).unk_11CE = param0->unk_00;
+    (*Unk_ov97_022403F8).unk_11D4 = param0->unk_04;
     (*Unk_ov97_022403F8).unk_11D0 = (u16)(((*Unk_ov97_022403F8).unk_11D4 - 1) / (WM_SIZE_USER_GAMEINFO - 8) + 1);
     (*Unk_ov97_022403F8).unk_11D2 = 0;
     (*Unk_ov97_022403F8).unk_11D8 = 0;
@@ -493,7 +493,7 @@ static void ov97_02238AB4(UnkStruct_ov97_02238AB4 *param0)
 
 static int ov97_02238B34(UnkStruct_ov97_02238AB4 *param0)
 {
-    if (((*Unk_ov97_022403F8).unk_11CE != param0->coins) || ((*Unk_ov97_022403F8).unk_11D4 != param0->slotMachineVariant)) {
+    if (((*Unk_ov97_022403F8).unk_11CE != param0->unk_00) || ((*Unk_ov97_022403F8).unk_11D4 != param0->unk_04)) {
         if ((*Unk_ov97_022403F8).unk_11D8++ >= 16) {
             ov97_02238AB4(param0);
 
@@ -543,14 +543,14 @@ static int ov97_02238B34(UnkStruct_ov97_02238AB4 *param0)
     return 0;
 }
 
-static u16 ov97_02238C70(u8 *param0, u32 slotsMinigameDTO)
+static u16 ov97_02238C70(u8 *param0, u32 param1)
 {
     u16 v0, v1;
     u16 *v2 = (u16 *)param0;
 
     v0 = 0;
 
-    for (v1 = 0; v1 < slotsMinigameDTO / 2; v1++) {
+    for (v1 = 0; v1 < param1 / 2; v1++) {
         v0 += v2[v1];
         v0 = (u16)((v0 << 1) | (v0 >> 15));
     }

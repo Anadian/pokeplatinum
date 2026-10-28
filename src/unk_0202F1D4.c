@@ -34,12 +34,12 @@
 
 BattleRecording *gBattleRecording = NULL;
 
-static void sub_0202FCE8(const Party *param0, UnkStruct_0202FD30 *slotsMinigameDTO);
-static void sub_0202FD30(UnkStruct_0202FD30 *param0, Party *slotsMinigameDTO);
+static void sub_0202FCE8(const Party *param0, UnkStruct_0202FD30 *param1);
+static void sub_0202FD30(UnkStruct_0202FD30 *param0, Party *param1);
 static BOOL sub_0202F75C(SaveData *saveData, BattleRecording *battleRecording);
 static BOOL sub_0202F794(SaveData *saveData, const BattleRecording *battleRecording);
-static void sub_0202F860(void *param0, u32 slotsMinigameDTO, u32 param2);
-static void sub_0202F510(SaveData *saveData, UnkStruct_0202F41C *slotsMinigameDTO, const UnkStruct_0202F298 *param2, int param3, int param4);
+static void sub_0202F860(void *param0, u32 param1, u32 param2);
+static void sub_0202F510(SaveData *saveData, UnkStruct_0202F41C *param1, const UnkStruct_0202F298 *param2, int param3, int param4);
 
 int BattleRecording_SaveSize(void)
 {
@@ -51,7 +51,7 @@ int BattleRecording_SaveSize(void)
 void BattleRecording_Init(BattleRecording *battleRecording)
 {
     MI_CpuClear32(battleRecording, sizeof(BattleRecording));
-    battleRecording->coins = 0xFFFFFFFF;
+    battleRecording->unk_00 = 0xFFFFFFFF;
 }
 
 void BattleRecording_New(SaveData *saveData, enum HeapID heapID, int *resultCode)
@@ -94,7 +94,7 @@ void *sub_0202F27C(void)
     return &v0[sizeof(u32)];
 }
 
-BOOL sub_0202F298(SaveData *saveData, int slotsMinigameDTO, int *param2, FieldBattleDTO *param3, int param4)
+BOOL sub_0202F298(SaveData *saveData, int param1, int *param2, FieldBattleDTO *param3, int param4)
 {
     UnkStruct_0202F298 *v0;
     UnkStruct_0202F41C *v1;
@@ -104,7 +104,7 @@ BOOL sub_0202F298(SaveData *saveData, int slotsMinigameDTO, int *param2, FieldBa
         gBattleRecording = NULL;
     }
 
-    gBattleRecording = SaveData_GetBattleRecording(saveData, slotsMinigameDTO, param2, param4);
+    gBattleRecording = SaveData_GetBattleRecording(saveData, param1, param2, param4);
 
     if (*param2 != 1) {
         *param2 = 3;
@@ -114,7 +114,7 @@ BOOL sub_0202F298(SaveData *saveData, int slotsMinigameDTO, int *param2, FieldBa
     v0 = &gBattleRecording->unk_E8;
     v1 = &gBattleRecording->unk_84;
 
-    sub_0202F860(v0, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)), v0->unk_1BEC.coins + ((v0->unk_1BEC.coins ^ 0xffff) << 16));
+    sub_0202F860(v0, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)), v0->unk_1BEC.unk_00 + ((v0->unk_1BEC.unk_00 ^ 0xffff) << 16));
 
     if (sub_0202F75C(saveData, gBattleRecording) == 1) {
         *param2 = 0;
@@ -134,11 +134,11 @@ BOOL sub_0202F298(SaveData *saveData, int slotsMinigameDTO, int *param2, FieldBa
     return 1;
 }
 
-BOOL sub_0202F330(SaveData *saveData, int slotsMinigameDTO, int *param2, int param3)
+BOOL sub_0202F330(SaveData *saveData, int param1, int *param2, int param3)
 {
     UnkStruct_0202F298 *v0;
     UnkStruct_0202F41C *v1;
-    BattleRecording *v2 = SaveData_GetBattleRecording(saveData, slotsMinigameDTO, param2, param3);
+    BattleRecording *v2 = SaveData_GetBattleRecording(saveData, param1, param2, param3);
 
     if (*param2 != 1) {
         *param2 = 3;
@@ -149,7 +149,7 @@ BOOL sub_0202F330(SaveData *saveData, int slotsMinigameDTO, int *param2, int par
     v0 = &v2->unk_E8;
     v1 = &v2->unk_84;
 
-    sub_0202F860(v0, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)), v0->unk_1BEC.coins + ((v0->unk_1BEC.coins ^ 0xffff) << 16));
+    sub_0202F860(v0, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)), v0->unk_1BEC.unk_00 + ((v0->unk_1BEC.unk_00 ^ 0xffff) << 16));
 
     if (sub_0202F75C(saveData, v2) == 1) {
         *param2 = 0;
@@ -168,7 +168,7 @@ BOOL sub_0202F330(SaveData *saveData, int slotsMinigameDTO, int *param2, int par
     return 1;
 }
 
-int sub_0202F3AC(SaveData *saveData, BattleRecording *slotsMinigameDTO, int param2, u16 *param3)
+int sub_0202F3AC(SaveData *saveData, BattleRecording *param1, int param2, u16 *param3)
 {
     int v0;
 
@@ -177,7 +177,7 @@ int sub_0202F3AC(SaveData *saveData, BattleRecording *slotsMinigameDTO, int para
         ResetLock(RESET_LOCK_0x8);
         InitHeapCanary(11);
 
-        v0 = SaveData_SaveBattleRecording(saveData, slotsMinigameDTO, param2);
+        v0 = SaveData_SaveBattleRecording(saveData, param1, param2);
 
         if (v0 == 2) {
             SaveData_SaveStateInit(saveData, 2);
@@ -202,7 +202,7 @@ int sub_0202F3AC(SaveData *saveData, BattleRecording *slotsMinigameDTO, int para
     return 0;
 }
 
-int sub_0202F41C(SaveData *saveData, int slotsMinigameDTO, int param2, int param3, u16 *param4, u16 *param5)
+int sub_0202F41C(SaveData *saveData, int param1, int param2, int param3, u16 *param4, u16 *param5)
 {
     UnkStruct_0202F41C *v0;
     UnkStruct_0202F298 *v1;
@@ -218,14 +218,14 @@ int sub_0202F41C(SaveData *saveData, int slotsMinigameDTO, int param2, int param
         v0 = &gBattleRecording->unk_84;
         v1 = &gBattleRecording->unk_E8;
 
-        sub_0202F510(saveData, v0, v1, slotsMinigameDTO, param2);
+        sub_0202F510(saveData, v0, v1, param1, param2);
 
         v0->unk_48 = 0xe281;
-        v0->unk_60.coins = SaveData_CalculateChecksum(saveData, v0, sizeof(UnkStruct_0202F41C) - (sizeof(UnkStruct_0202F298_sub1)) - (sizeof(u64)));
+        v0->unk_60.unk_00 = SaveData_CalculateChecksum(saveData, v0, sizeof(UnkStruct_0202F41C) - (sizeof(UnkStruct_0202F298_sub1)) - (sizeof(u64)));
         v1->unk_1BEA = 0xe281;
-        v1->unk_1BEC.coins = SaveData_CalculateChecksum(saveData, v1, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)));
+        v1->unk_1BEC.unk_00 = SaveData_CalculateChecksum(saveData, v1, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)));
 
-        sub_0202F858(v1, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)), v1->unk_1BEC.coins + ((v1->unk_1BEC.coins ^ 0xffff) << 16));
+        sub_0202F858(v1, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)), v1->unk_1BEC.unk_00 + ((v1->unk_1BEC.unk_00 ^ 0xffff) << 16));
 
         *param5 = 0;
         (*param4)++;
@@ -238,7 +238,7 @@ int sub_0202F41C(SaveData *saveData, int slotsMinigameDTO, int param2, int param
     return 0;
 }
 
-void sub_0202F4C0(int param0, int *slotsMinigameDTO, int *param2)
+void sub_0202F4C0(int param0, int *param1, int *param2)
 {
     switch (param0) {
     case (UnkEnum_0202F510_17):
@@ -248,17 +248,17 @@ void sub_0202F4C0(int param0, int *slotsMinigameDTO, int *param2)
     case (UnkEnum_0202F510_29):
     case (UnkEnum_0202F510_32):
     case (UnkEnum_0202F510_14):
-        *slotsMinigameDTO = 4;
+        *param1 = 4;
         *param2 = 6 / 2;
         break;
     default:
-        *slotsMinigameDTO = 4 / 2;
+        *param1 = 4 / 2;
         *param2 = 6;
         break;
     }
 }
 
-static void sub_0202F510(SaveData *saveData, UnkStruct_0202F41C *slotsMinigameDTO, const UnkStruct_0202F298 *param2, int param3, int param4)
+static void sub_0202F510(SaveData *saveData, UnkStruct_0202F41C *param1, const UnkStruct_0202F298 *param2, int param3, int param4)
 {
     int v0, v1, v2, v3, v4, v5, v6;
     const UnkStruct_02078B40 *v7;
@@ -268,29 +268,29 @@ static void sub_0202F510(SaveData *saveData, UnkStruct_0202F41C *slotsMinigameDT
     };
     const u8 v9[4] = { 0, 2, 1, 3 };
 
-    MI_CpuClear8(slotsMinigameDTO, sizeof(UnkStruct_0202F41C));
+    MI_CpuClear8(param1, sizeof(UnkStruct_0202F41C));
     sub_0202F4C0(param3, &v2, &v3);
 
     v4 = 0;
 
-    if (param2->coins.coins & 0x4) {
-        if (param2->coins.coins & 0x80) {
-            v6 = param2->coins.unk_144 * 2;
+    if (param2->unk_00.unk_00 & 0x4) {
+        if (param2->unk_00.unk_00 & 0x80) {
+            v6 = param2->unk_00.unk_144 * 2;
         } else {
-            v6 = param2->coins.unk_144;
+            v6 = param2->unk_00.unk_144;
         }
     } else {
         v6 = 0;
     }
 
     for (v0 = 0; v0 < v2; v0++) {
-        if ((param2->coins.coins & 0x8) && ((param2->coins.coins & 0x80) == 0)) {
+        if ((param2->unk_00.unk_00 & 0x8) && ((param2->unk_00.unk_00 & 0x80) == 0)) {
             for (v5 = 0; v5 < v2; v5++) {
-                if (param2->coins.unk_134[v5] == v8[param2->coins.unk_134[v6] & 1][v0]) {
+                if (param2->unk_00.unk_134[v5] == v8[param2->unk_00.unk_134[v6] & 1][v0]) {
                     break;
                 }
             }
-        } else if ((param2->coins.coins & 0x8) && (param2->coins.coins & 0x80)) {
+        } else if ((param2->unk_00.unk_00 & 0x8) && (param2->unk_00.unk_00 & 0x80)) {
             v5 = v9[v0];
         } else {
             v5 = v0;
@@ -301,11 +301,11 @@ static void sub_0202F510(SaveData *saveData, UnkStruct_0202F41C *slotsMinigameDT
         }
 
         for (v1 = 0; v1 < v3; v1++) {
-            v7 = &(param2->unk_1150[v5].slotMachineVariant[v1]);
+            v7 = &(param2->unk_1150[v5].unk_04[v1]);
 
             if ((v7->isEgg == 0) && (v7->checksumFailed == 0)) {
-                slotsMinigameDTO->coins[v4] = v7->species;
-                slotsMinigameDTO->unk_18[v4] = v7->form;
+                param1->unk_00[v4] = v7->species;
+                param1->unk_18[v4] = v7->form;
             }
 
             v4++;
@@ -315,37 +315,37 @@ static void sub_0202F510(SaveData *saveData, UnkStruct_0202F41C *slotsMinigameDT
     switch (param3) {
     case (UnkEnum_0202F510_01):
     case (UnkEnum_0202F510_08):
-        slotsMinigameDTO->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 0));
+        param1->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 0));
         break;
     case (UnkEnum_0202F510_02):
     case (UnkEnum_0202F510_09):
-        slotsMinigameDTO->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 1));
+        param1->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 1));
         break;
     case (UnkEnum_0202F510_03):
     case (UnkEnum_0202F510_10):
-        slotsMinigameDTO->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 2));
+        param1->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 2));
         break;
     case (UnkEnum_0202F510_04):
     case (UnkEnum_0202F510_11):
-        slotsMinigameDTO->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 3));
+        param1->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 3));
         break;
     case (UnkEnum_0202F510_05):
     case (UnkEnum_0202F510_12):
-        slotsMinigameDTO->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 4));
+        param1->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 4));
         break;
     case (UnkEnum_0202F510_06):
     case (UnkEnum_0202F510_13):
-        slotsMinigameDTO->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 5));
+        param1->battleRegulation = *(BattleRegulation_GetByIndex(saveData, 5));
         break;
     case (UnkEnum_0202F510_00):
     case (UnkEnum_0202F510_07):
     default:
-        slotsMinigameDTO->battleRegulation = *(BattleRegulation_GetDefault());
+        param1->battleRegulation = *(BattleRegulation_GetDefault());
         break;
     }
 
-    slotsMinigameDTO->unk_24 = param4;
-    slotsMinigameDTO->unk_26 = param3;
+    param1->unk_24 = param4;
+    param1->unk_26 = param3;
 }
 
 static BOOL sub_0202F75C(SaveData *saveData, BattleRecording *battleRecording)
@@ -376,13 +376,13 @@ static BOOL sub_0202F794(SaveData *saveData, const BattleRecording *battleRecord
 
     v2 = SaveData_CalculateChecksum(saveData, v1, sizeof(UnkStruct_0202F41C) - (sizeof(UnkStruct_0202F298_sub1)) - (sizeof(u64)));
 
-    if (v2 != v1->unk_60.coins) {
+    if (v2 != v1->unk_60.unk_00) {
         return 0;
     }
 
     v2 = SaveData_CalculateChecksum(saveData, v0, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)));
 
-    if (v2 != v0->unk_1BEC.coins) {
+    if (v2 != v0->unk_1BEC.unk_00) {
         return 0;
     }
 
@@ -392,7 +392,7 @@ static BOOL sub_0202F794(SaveData *saveData, const BattleRecording *battleRecord
 
         for (v3 = 0; v3 < 4; v3++) {
             for (v4 = 0; v4 < 6; v4++) {
-                v6 = &(v0->unk_1150[v3].slotMachineVariant[v4]);
+                v6 = &(v0->unk_1150[v3].unk_04[v4]);
 
                 if (v6->species > MAX_SPECIES) {
                     return 0;
@@ -414,29 +414,29 @@ static BOOL sub_0202F794(SaveData *saveData, const BattleRecording *battleRecord
     return 1;
 }
 
-void sub_0202F858(void *param0, u32 slotsMinigameDTO, u32 param2)
+void sub_0202F858(void *param0, u32 param1, u32 param2)
 {
-    EncodeData(param0, slotsMinigameDTO, param2);
+    EncodeData(param0, param1, param2);
 }
 
-static void sub_0202F860(void *param0, u32 slotsMinigameDTO, u32 param2)
+static void sub_0202F860(void *param0, u32 param1, u32 param2)
 {
-    DecodeData(param0, slotsMinigameDTO, param2);
+    DecodeData(param0, param1, param2);
 }
 
-void sub_0202F868(int param0, int slotsMinigameDTO, u8 param2)
+void sub_0202F868(int param0, int param1, u8 param2)
 {
     if (gBattleRecording == NULL) {
         return;
     }
 
-    gBattleRecording->unk_E8.unk_150.coins[param0][slotsMinigameDTO] = param2;
+    gBattleRecording->unk_E8.unk_150.unk_00[param0][param1] = param2;
 }
 
-u8 sub_0202F884(int param0, int slotsMinigameDTO)
+u8 sub_0202F884(int param0, int param1)
 {
     GF_ASSERT(gBattleRecording != NULL);
-    return gBattleRecording->unk_E8.unk_150.coins[param0][slotsMinigameDTO];
+    return gBattleRecording->unk_E8.unk_150.unk_00[param0][param1];
 }
 
 void sub_0202F8AC(FieldBattleDTO *param0)
@@ -450,10 +450,10 @@ void sub_0202F8AC(FieldBattleDTO *param0)
     }
 
     v1 = &gBattleRecording->unk_E8;
-    v2 = &v1->coins;
+    v2 = &v1->unk_00;
 
-    v2->coins = param0->battleType;
-    v2->slotMachineVariant = param0->resultMask;
+    v2->unk_00 = param0->battleType;
+    v2->unk_04 = param0->resultMask;
     v2->unk_E8 = param0->background;
     v2->unk_EC = param0->terrain;
     v2->unk_F0 = param0->mapLabelTextID;
@@ -497,7 +497,7 @@ void sub_0202F8AC(FieldBattleDTO *param0)
     Options_Copy(param0->options, &v1->unk_1BE8);
 }
 
-void sub_0202FAA8(int param0, u32 slotsMinigameDTO)
+void sub_0202FAA8(int param0, u32 param1)
 {
     UnkStruct_0202F298 *v0;
     UnkStruct_0202FAA8 *v1;
@@ -507,9 +507,9 @@ void sub_0202FAA8(int param0, u32 slotsMinigameDTO)
     }
 
     v0 = &gBattleRecording->unk_E8;
-    v1 = &v0->coins;
+    v1 = &v0->unk_00;
 
-    v1->unk_114[param0] = slotsMinigameDTO;
+    v1->unk_114[param0] = param1;
 }
 
 BOOL sub_0202FAC0(void)
@@ -523,7 +523,7 @@ BOOL sub_0202FAC0(void)
     }
 
     v1 = &gBattleRecording->unk_E8;
-    v2 = &v1->coins;
+    v2 = &v1->unk_00;
 
     for (v0 = 0; v0 < 4; v0++) {
         if (v2->unk_114[v0] > 0x140) {
@@ -539,37 +539,37 @@ void sub_0202FAFC(FieldBattleDTO *dto, SaveData *saveData)
     int i;
     UnkStruct_0202F298 *v1 = &gBattleRecording->unk_E8;
 
-    dto->battleType = v1->coins.coins;
-    dto->background = v1->coins.unk_E8;
-    dto->terrain = v1->coins.unk_EC;
-    dto->mapLabelTextID = v1->coins.unk_F0;
-    dto->mapHeaderID = v1->coins.unk_F4;
-    dto->timeOfDay = v1->coins.unk_F8;
-    dto->mapEvolutionMethod = v1->coins.unk_FC;
-    dto->visitedContestHall = v1->coins.unk_100;
-    dto->metBebe = v1->coins.unk_104;
-    dto->caughtBattlerIdx = v1->coins.unk_108;
-    dto->fieldWeather = v1->coins.unk_10C;
-    dto->battleStatusMask = v1->coins.unk_124 | BATTLE_STATUS_RECORDING;
-    dto->countSafariBalls = v1->coins.unk_128;
-    dto->rulesetMask = v1->coins.unk_12C;
-    dto->seed = v1->coins.unk_130;
-    dto->networkID = v1->coins.unk_144;
+    dto->battleType = v1->unk_00.unk_00;
+    dto->background = v1->unk_00.unk_E8;
+    dto->terrain = v1->unk_00.unk_EC;
+    dto->mapLabelTextID = v1->unk_00.unk_F0;
+    dto->mapHeaderID = v1->unk_00.unk_F4;
+    dto->timeOfDay = v1->unk_00.unk_F8;
+    dto->mapEvolutionMethod = v1->unk_00.unk_FC;
+    dto->visitedContestHall = v1->unk_00.unk_100;
+    dto->metBebe = v1->unk_00.unk_104;
+    dto->caughtBattlerIdx = v1->unk_00.unk_108;
+    dto->fieldWeather = v1->unk_00.unk_10C;
+    dto->battleStatusMask = v1->unk_00.unk_124 | BATTLE_STATUS_RECORDING;
+    dto->countSafariBalls = v1->unk_00.unk_128;
+    dto->rulesetMask = v1->unk_00.unk_12C;
+    dto->seed = v1->unk_00.unk_130;
+    dto->networkID = v1->unk_00.unk_144;
     dto->resultMask = BATTLE_IN_PROGRESS;
     dto->leveledUpMonsMask = 0;
 
     Pokedex_Copy(SaveData_GetPokedex(saveData), dto->pokedex);
 
     for (i = 0; i < 4; i++) {
-        dto->trainerIDs[i] = v1->coins.unk_08[i];
-        dto->trainer[i] = v1->coins.unk_18[i];
-        dto->systemVersion[i] = v1->coins.unk_114[i];
-        dto->linkPlayerPositions[i] = v1->coins.unk_134[i];
+        dto->trainerIDs[i] = v1->unk_00.unk_08[i];
+        dto->trainer[i] = v1->unk_00.unk_18[i];
+        dto->systemVersion[i] = v1->unk_00.unk_114[i];
+        dto->linkPlayerPositions[i] = v1->unk_00.unk_134[i];
 
         sub_0202FD30(&v1->unk_1150[i], dto->parties[i]);
         TrainerInfo_Copy(&v1->unk_1B68[i], dto->trainerInfo[i]);
 
-        dto->recordedChatter[i] = v1->coins.unk_14C[i];
+        dto->recordedChatter[i] = v1->unk_00.unk_14C[i];
     }
 
     Options_Copy(SaveData_GetOptions(saveData), dto->options);
@@ -580,19 +580,19 @@ void sub_0202FAFC(FieldBattleDTO *dto, SaveData *saveData)
     }
 }
 
-static void sub_0202FCE8(const Party *party, UnkStruct_0202FD30 *slotsMinigameDTO)
+static void sub_0202FCE8(const Party *party, UnkStruct_0202FD30 *param1)
 {
     int v0;
     Pokemon *v1;
 
-    MI_CpuClear8(slotsMinigameDTO, sizeof(UnkStruct_0202FD30));
+    MI_CpuClear8(param1, sizeof(UnkStruct_0202FD30));
 
-    slotsMinigameDTO->coins = Party_GetCapacity(party);
-    slotsMinigameDTO->unk_02 = Party_GetCurrentCount(party);
+    param1->unk_00 = Party_GetCapacity(party);
+    param1->unk_02 = Party_GetCurrentCount(party);
 
-    for (v0 = 0; v0 < slotsMinigameDTO->unk_02; v0++) {
+    for (v0 = 0; v0 < param1->unk_02; v0++) {
         v1 = Party_GetPokemonBySlotIndex(party, v0);
-        sub_02078B40(v1, &slotsMinigameDTO->slotMachineVariant[v0]);
+        sub_02078B40(v1, &param1->unk_04[v0]);
     }
 }
 
@@ -604,10 +604,10 @@ static void sub_0202FD30(UnkStruct_0202FD30 *param0, Party *party)
 
     v1 = Pokemon_New(HEAP_ID_FIELD2);
 
-    Party_InitWithCapacity(party, param0->coins);
+    Party_InitWithCapacity(party, param0->unk_00);
 
     for (v0 = 0; v0 < param0->unk_02; v0++) {
-        sub_02078E0C(&param0->slotMachineVariant[v0], v1);
+        sub_02078E0C(&param0->unk_04[v0], v1);
         Pokemon_SetValue(v1, MON_DATA_BALL_CAPSULE_ID, &v2);
         Party_AddPokemon(party, v1);
     }
@@ -634,7 +634,7 @@ UnkStruct_02030A80 *sub_0202FDB8(enum HeapID heapID)
     GF_ASSERT(gBattleRecording != NULL);
 
     v0 = Heap_Alloc(heapID, sizeof(UnkStruct_02030A80));
-    MI_CpuCopy32(&gBattleRecording->slotMachineVariant, v0, sizeof(UnkStruct_02030A80));
+    MI_CpuCopy32(&gBattleRecording->unk_04, v0, sizeof(UnkStruct_02030A80));
 
     return v0;
 }
@@ -642,7 +642,7 @@ UnkStruct_02030A80 *sub_0202FDB8(enum HeapID heapID)
 UnkStruct_02030A80 *sub_0202FDE8(void)
 {
     GF_ASSERT(gBattleRecording != NULL);
-    return &gBattleRecording->slotMachineVariant;
+    return &gBattleRecording->unk_04;
 }
 
 UnkStruct_0202F41C *sub_0202FE04(void)
@@ -651,34 +651,34 @@ UnkStruct_0202F41C *sub_0202FE04(void)
     return &gBattleRecording->unk_84;
 }
 
-void sub_0202FE20(UnkStruct_02030A80 *param0, UnkStruct_0202F41C *slotsMinigameDTO, UnkStruct_0202F298 *param2, FieldBattleDTO *param3, SaveData *saveData)
+void sub_0202FE20(UnkStruct_02030A80 *param0, UnkStruct_0202F41C *param1, UnkStruct_0202F298 *param2, FieldBattleDTO *param3, SaveData *saveData)
 {
     GF_ASSERT(gBattleRecording != NULL);
 
-    MI_CpuCopy8(slotsMinigameDTO, &gBattleRecording->unk_84, sizeof(UnkStruct_0202F41C));
+    MI_CpuCopy8(param1, &gBattleRecording->unk_84, sizeof(UnkStruct_0202F41C));
     MI_CpuCopy8(param2, &gBattleRecording->unk_E8, sizeof(UnkStruct_0202F298));
-    MI_CpuCopy8(param0, &gBattleRecording->slotMachineVariant, sizeof(UnkStruct_02030A80));
+    MI_CpuCopy8(param0, &gBattleRecording->unk_04, sizeof(UnkStruct_02030A80));
 
-    sub_0202F860(&gBattleRecording->unk_E8, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)), gBattleRecording->unk_E8.unk_1BEC.coins + ((gBattleRecording->unk_E8.unk_1BEC.coins ^ 0xffff) << 16));
+    sub_0202F860(&gBattleRecording->unk_E8, sizeof(UnkStruct_0202F298) - (sizeof(UnkStruct_0202F298_sub1)), gBattleRecording->unk_E8.unk_1BEC.unk_00 + ((gBattleRecording->unk_E8.unk_1BEC.unk_00 ^ 0xffff) << 16));
 
     if (param3 != NULL) {
         sub_0202FAFC(param3, saveData);
     }
 }
 
-u64 sub_0202FE98(UnkStruct_0202F41C *param0, int slotsMinigameDTO, int param2)
+u64 sub_0202FE98(UnkStruct_0202F41C *param0, int param1, int param2)
 {
     GF_ASSERT((sizeof(u64)) <= sizeof(u64));
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 0:
         GF_ASSERT(param2 < 12);
 
-        if (param0->coins[param2] > NATIONAL_DEX_COUNT) {
+        if (param0->unk_00[param2] > NATIONAL_DEX_COUNT) {
             return 0;
         }
 
-        return param0->coins[param2];
+        return param0->unk_00[param2];
     case 1:
         GF_ASSERT(param2 < 12);
         return param0->unk_18[param2];

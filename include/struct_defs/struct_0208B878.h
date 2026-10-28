@@ -8,7 +8,7 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    UnkStruct_0208B878_sub1 coins;
+    UnkStruct_0208B878_sub1 unk_00;
     UnkStruct_0208B284 unk_10;
     UnkStruct_0208B878_sub2 unk_24[12];
     int unk_E4;

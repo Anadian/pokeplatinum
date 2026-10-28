@@ -2,8 +2,8 @@
 #define POKEPLATINUM_STRUCT_0208BA84_H
 
 typedef struct {
-    BOOL coins;
-    int slotMachineVariant;
+    BOOL unk_00;
+    int unk_04;
     u8 padding_08[8];
 } UnkStruct_0208BA84;
 

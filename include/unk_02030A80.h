@@ -17,7 +17,7 @@ int sub_02030BCC(const UnkStruct_02030A80 *param0);
 int sub_02030BEC(const UnkStruct_02030A80 *param0);
 int sub_02030BFC(const UnkStruct_02030A80 *param0);
 int sub_02030C08(const UnkStruct_02030A80 *param0);
-String *sub_02030C28(const UnkStruct_02030A80 *param0, EasyChatSentence *slotsMinigameDTO, enum HeapID heapID);
+String *sub_02030C28(const UnkStruct_02030A80 *param0, EasyChatSentence *param1, enum HeapID heapID);
 int sub_02030CCC(const UnkStruct_02030A80 *param0);
 int sub_02030CDC(const UnkStruct_02030A80 *param0);
 

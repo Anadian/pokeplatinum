@@ -87,7 +87,7 @@ typedef struct WifiBattleTowerSave {
     u8 unused_01;
     u8 nextOpponentNum;
     u8 unk_03;
-    u16 slotMachineVariant;
+    u16 unk_04;
     u16 unk_06;
     u8 partySlots[4];
     u16 trainerIDs[BT_OPPONENTS_COUNT * 2];

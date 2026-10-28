@@ -640,7 +640,7 @@ static void ShowPlayerCommsDetails(RangerLinkManager *param0)
     u8 macAddr[6];
     OS_GetMacAddress(macAddr);
     UnkStruct_ov97_022335A8 appNumber = ov97_022335A8(macAddr);
-    ov97_022335EC(appNumber.coins.val2, &appNumHigh, &appNumLow);
+    ov97_022335EC(appNumber.unk_00.val2, &appNumHigh, &appNumLow);
 
     StringTemplate_SetNumber(strTemplate, 0, appNumHigh, 4, PADDING_MODE_ZEROES, CHARSET_MODE_EN);
     StringTemplate_SetNumber(strTemplate, 1, appNumLow, 4, PADDING_MODE_ZEROES, CHARSET_MODE_EN);
@@ -836,9 +836,9 @@ static void CreateManaphyEggMysteryGift(RangerLinkManager *param0)
     MainMenuUtil_LoadGiftSprite(param0->bgConfig, wonderCard);
 }
 
-static void SetTimeout(RangerLinkManager *param0, int slotsMinigameDTO)
+static void SetTimeout(RangerLinkManager *param0, int param1)
 {
-    param0->timeout = slotsMinigameDTO;
+    param0->timeout = param1;
 }
 
 static BOOL CheckCommunicationInterrupted(RangerLinkManager *rangerLinkMan, enum RangerLinkRangerCommState *state, BOOL param2, u32 cancelKey)

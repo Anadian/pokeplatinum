@@ -9,10 +9,10 @@
 #include "sprite.h"
 
 typedef struct {
-    SpriteList *coins;
-    Sprite *slotMachineVariant;
+    SpriteList *unk_00;
+    Sprite *unk_04;
     void *unk_08;
-    void *slotsMinigameDTO;
+    void *unk_0C;
     NNSG2dCellDataBank *unk_10;
     NNSG2dAnimBankData *unk_14;
     NNSG2dImageProxy unk_18;

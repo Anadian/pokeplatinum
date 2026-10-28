@@ -33,12 +33,12 @@
 #include "trainer_case.h"
 
 void FieldSystem_StartBattleProcess(FieldSystem *fieldSystem, FieldBattleDTO *dto);
-void sub_0203D1E4(FieldSystem *fieldSystem, BagContext *slotsMinigameDTO);
-BagContext *FieldSystem_OpenBag(FieldSystem *fieldSystem, ItemUseContext *slotsMinigameDTO);
+void sub_0203D1E4(FieldSystem *fieldSystem, BagContext *param1);
+BagContext *FieldSystem_OpenBag(FieldSystem *fieldSystem, ItemUseContext *param1);
 void *FieldSystem_CreateBagContext(FieldSystem *fieldSystem, int pocketType);
 u16 BagContext_GetSelectedItem(void *bagContext);
-void sub_0203D2E4(FieldSystem *fieldSystem, void *slotsMinigameDTO);
-void sub_0203D30C(FieldSystem *fieldSystem, void *slotsMinigameDTO);
+void sub_0203D2E4(FieldSystem *fieldSystem, void *param1);
+void sub_0203D30C(FieldSystem *fieldSystem, void *param1);
 void FieldSystem_OpenSummaryScreen(FieldSystem *fieldSystem, void *appArgs);
 
 PartyMenu *FieldSystem_OpenPartyMenu(FieldSystem *fieldSystem, FieldMoveContext *fieldMoveCtx, u8 selectedMonSlot);
@@ -58,19 +58,19 @@ PokemonSummary *sub_0203D670(FieldSystem *fieldSystem, enum HeapID heapID, int m
 void *FieldSystem_OpenSummaryScreenSelectMove(enum HeapID heapID, FieldSystem *fieldSystem, u8 partyIndex);
 int PokemonSummary_GetSelectedMoveSlot(void *summary);
 void FieldSystem_OpenPokemonStorage(FieldSystem *fieldSystem, PokemonStorageSession *pokemonStorageSession);
-void sub_0203D80C(FieldTask *param0, u16 *slotsMinigameDTO, u16 *param2, u16 *param3);
-void FieldSystem_OpenEasyChat(FieldSystem *fieldSystem, EasyChatArgs *slotsMinigameDTO);
+void sub_0203D80C(FieldTask *param0, u16 *param1, u16 *param2, u16 *param3);
+void FieldSystem_OpenEasyChat(FieldSystem *fieldSystem, EasyChatArgs *param1);
 void FieldSystem_OpenTownMap(FieldSystem *fieldSystem, TownMapContext *townMapCtx);
 void *FieldSystem_OpenTownMapItem(FieldSystem *fieldSystem);
 void *FieldSystem_OpenOptionsMenu(FieldSystem *fieldSystem);
 MailAppArgs *FieldSystem_LaunchMailApp_Write(FieldSystem *fieldSystem, enum MailContext context, u8 partySlot, u8 mailType, int unusedHeapID);
 MailAppArgs *FieldSystem_LaunchMailApp_Read(FieldSystem *fieldSystem, enum MailContext context, u8 mailType, enum HeapID heapID);
-MailAppArgs *FieldSystem_LaunchMailApp_ReadHeld(FieldSystem *fieldSystem, Pokemon *slotsMinigameDTO, enum HeapID heapID);
+MailAppArgs *FieldSystem_LaunchMailApp_ReadHeld(FieldSystem *fieldSystem, Pokemon *param1, enum HeapID heapID);
 PoffinCaseAppData *FieldSystem_LaunchPoffinCaseApp(FieldSystem *fieldSystem, enum HeapID heapID);
-void FieldSystem_OpenBattleTowerRecordsApp(FieldSystem *fieldSystem, BattleTowerRecordsAppArgs *slotsMinigameDTO);
-void sub_0203DAC0(FieldTask *param0, u16 *slotsMinigameDTO, SaveData *saveData, u16 param3, u16 param4);
-BOOL sub_0203DB10(FieldSystem *fieldSystem, void *slotsMinigameDTO);
-BOOL sub_0203DB24(FieldSystem *fieldSystem, void *slotsMinigameDTO);
+void FieldSystem_OpenBattleTowerRecordsApp(FieldSystem *fieldSystem, BattleTowerRecordsAppArgs *param1);
+void sub_0203DAC0(FieldTask *param0, u16 *param1, SaveData *saveData, u16 param3, u16 param4);
+BOOL sub_0203DB10(FieldSystem *fieldSystem, void *param1);
+BOOL sub_0203DB24(FieldSystem *fieldSystem, void *param1);
 BOOL sub_0203DBF0(FieldTask *param0);
 void sub_0203DDDC(FieldTask *param0);
 void sub_0203DDFC(FieldSystem *fieldSystem);
@@ -85,13 +85,13 @@ void sub_0203DFE8(
     int param4,
     const u16 *param5,
     u16 *param6);
-void sub_0203E09C(FieldSystem *fieldSystem, TrainerCase *slotsMinigameDTO);
+void sub_0203E09C(FieldSystem *fieldSystem, TrainerCase *param1);
 void FieldSystem_OpenTrainerCase(FieldSystem *fieldSystem, TrainerCase *trainerCase);
 BOOL FieldSystem_OpenPokedex(FieldSystem *fieldSystem, PokedexOverlayArgs *args);
-void FieldSystem_LaunchChooseStarterApp(FieldSystem *fieldSystem, ChooseStarterData *slotsMinigameDTO);
+void FieldSystem_LaunchChooseStarterApp(FieldSystem *fieldSystem, ChooseStarterData *param1);
 void FieldSystem_LaunchSignatureApp(FieldSystem *fieldSystem);
 void FieldSystem_LaunchGTSApp(FieldSystem *fieldSystem, BOOL connectToWiFi);
-void *sub_0203E1AC(FieldSystem *fieldSystem, int slotsMinigameDTO, int param2);
+void *sub_0203E1AC(FieldSystem *fieldSystem, int param1, int param2);
 void sub_0203E224(FieldSystem *fieldSystem);
 void FieldTask_StartHallOfFame(FieldSystem *fieldSystem, HallOfFameDisplayData *displayData);
 void *FieldTask_OpenPCHallOfFameScreen(FieldSystem *fieldSystem);
@@ -100,14 +100,14 @@ void FieldSystem_OpenMoveReminderMenu(FieldSystem *fieldSystem, MoveReminderData
 void FieldTask_PlayBoatCutscene_CanalaveShip(FieldSystem *fieldSystem, void *taskEnv);
 void FieldTask_PlayBoatCutscene_SnowpointShip(FieldSystem *fieldSystem, void *taskEnv);
 void FieldSystem_HatchEgg(FieldSystem *fieldSystem);
-BOOL FieldTask_StartSlotsMinigame(FieldSystem *fieldSystem, SlotsMinigameDTO *slotsMinigameDTO);
-void SlotsMinigame_RunApplication(FieldTask *task, int slotMachineID);
+BOOL sub_0203E348(FieldSystem *fieldSystem, UnkStruct_0203E348 *param1);
+void sub_0203E414(FieldTask *task, int slotMachineID);
 void AccessoryShop_Init(FieldTask *task);
 void *FieldSystem_ShowDiploma(FieldSystem *fieldSystem, enum HeapID heapID, BOOL isNatDex);
-void *FieldSystem_OpenBattleFrontierRecord(FieldSystem *fieldSystem, u8 slotsMinigameDTO, u8 param2, u16 param3, enum HeapID heapID);
+void *FieldSystem_OpenBattleFrontierRecord(FieldSystem *fieldSystem, u8 param1, u8 param2, u16 param3, enum HeapID heapID);
 void *FieldSystem_OpenScratchOffCardsApp(FieldSystem *fieldSystem, enum HeapID heapID);
 void *FieldSystem_OpenSummaryScreenTeachMove(int unused, FieldSystem *fieldSystem, u16 partySlot, u16 move);
-void sub_0203E6C0(FieldSystem *fieldSystem, int slotsMinigameDTO, int param2);
+void sub_0203E6C0(FieldSystem *fieldSystem, int param1, int param2);
 void FieldSystem_StartLibraryTV(FieldSystem *fieldSystem);
 void FieldSystem_StartDWWarp(FieldSystem *fieldSystem);
 

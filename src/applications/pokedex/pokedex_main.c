@@ -352,7 +352,7 @@ BOOL ov21_021D10B8(PokedexApp *pokedexApp)
     pokedexApp->unk_1A60 = 0;
     pokedexApp->unk_1A64 = 0;
 
-    if (pokedexApp->coins == 1) {
+    if (pokedexApp->unk_00 == 1) {
         FreePokedexApp(pokedexApp);
         pokedexApp = NULL;
         return 1;
@@ -457,7 +457,7 @@ int *ov21_021D13C8(PokedexApp *pokedexApp)
 BOOL *ov21_021D13DC(PokedexApp *pokedexApp)
 {
     GF_ASSERT(pokedexApp);
-    return &pokedexApp->coins;
+    return &pokedexApp->unk_00;
 }
 
 PokedexSortData *PokedexMain_GetSortData(PokedexApp *pokedexApp)
@@ -472,21 +472,21 @@ PokedexGraphicData *PokedexMain_GetGraphicData(PokedexApp *pokedexApp)
     return &pokedexApp->graphicData;
 }
 
-PokedexScreenManager *ov21_021D1410(PokedexApp *pokedexApp, int slotsMinigameDTO)
+PokedexScreenManager *ov21_021D1410(PokedexApp *pokedexApp, int param1)
 {
-    GF_ASSERT(slotsMinigameDTO < 10);
-    return &pokedexApp->unk_1A94[slotsMinigameDTO];
+    GF_ASSERT(param1 < 10);
+    return &pokedexApp->unk_1A94[param1];
 }
 
-PokedexScreenManager *ov21_021D1430(PokedexApp *pokedexApp, int slotsMinigameDTO)
+PokedexScreenManager *ov21_021D1430(PokedexApp *pokedexApp, int param1)
 {
-    GF_ASSERT(slotsMinigameDTO < 8);
-    return &pokedexApp->unk_1C24[slotsMinigameDTO];
+    GF_ASSERT(param1 < 8);
+    return &pokedexApp->unk_1C24[param1];
 }
 
-void ov21_021D144C(Sprite *param0, int slotsMinigameDTO)
+void ov21_021D144C(Sprite *param0, int param1)
 {
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 0:
         Sprite_SetAnimFrame(param0, 1);
         break;
@@ -702,16 +702,16 @@ void PokedexMain_EntryNameNumber(PokedexGraphicData *pokedexGraphicData, const P
     PokedexTextManager_FreeWindow(window);
 }
 
-void ov21_021D1848(PokedexGraphicData *param0, int slotsMinigameDTO, int param2)
+void ov21_021D1848(PokedexGraphicData *param0, int param1, int param2)
 {
-    ov21_021D1858(&param0->pokedexSpeciesLabel, slotsMinigameDTO, param2);
+    ov21_021D1858(&param0->pokedexSpeciesLabel, param1, param2);
 }
 
-void ov21_021D1858(PokedexSpeciesLabel *pokedexSpeciesLabel, int slotsMinigameDTO, int param2)
+void ov21_021D1858(PokedexSpeciesLabel *pokedexSpeciesLabel, int param1, int param2)
 {
     VecFx32 v0;
 
-    v0.x = slotsMinigameDTO << FX32_SHIFT;
+    v0.x = param1 << FX32_SHIFT;
     v0.y = param2 << FX32_SHIFT;
 
     Sprite_SetPosition(pokedexSpeciesLabel->nameTag, &v0);

@@ -44,7 +44,7 @@ typedef struct TVBroadcast {
     u8 playedSegments[TV_BROADCAST_MAX_PLAYED_SEGMENTS];
     int timeSlotMinutesRemaining;
     u8 programFinished;
-    TVSegmentInstance slotsMinigameDTO[4];
+    TVSegmentInstance unk_0C[4];
     TVSegmentInstance unk_C4[4];
     TVSegmentInstance unk_17C[4];
     TVWifiEpisode unk_234[16];

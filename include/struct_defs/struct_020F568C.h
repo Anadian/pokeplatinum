@@ -4,11 +4,11 @@
 typedef struct {
     u16 lineOneEffectMessageID;
     u16 lineTwoEffectMessageID;
-    s8 slotMachineVariant;
+    s8 unk_04;
     u16 unk_06;
     u8 unk_08;
     u16 unk_0A;
-    u8 slotsMinigameDTO;
+    u8 unk_0C;
     u16 unk_0E;
     u8 unk_10;
     u16 unk_12;

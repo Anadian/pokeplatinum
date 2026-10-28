@@ -88,8 +88,8 @@ typedef struct BillboardListParams {
 } BillboardListParams;
 
 typedef struct UnkStruct_ov5_021ED110 {
-    u32 coins;
-    BillboardResources *slotMachineVariant;
+    u32 unk_00;
+    BillboardResources *unk_04;
 } UnkStruct_ov5_021ED110;
 
 enum BillboardState {

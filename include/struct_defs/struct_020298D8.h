@@ -8,10 +8,10 @@
 #include "touch_screen.h"
 
 typedef struct {
-    PokemonSprite *coins;
-    TouchScreenHitTable slotMachineVariant;
+    PokemonSprite *unk_00;
+    TouchScreenHitTable unk_04;
     UnkStruct_ov22_022596B0 unk_08;
-    Pokemon *slotsMinigameDTO;
+    Pokemon *unk_0C;
 } UnkStruct_020298D8;
 
 #endif // POKEPLATINUM_STRUCT_020298D8_H

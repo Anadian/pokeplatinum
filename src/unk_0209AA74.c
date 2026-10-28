@@ -63,7 +63,7 @@ static const WindowTemplate Unk_020F8B20 = {
     0x23
 };
 
-void sub_0209AA74(enum HeapID heapID, int slotsMinigameDTO)
+void sub_0209AA74(enum HeapID heapID, int param1)
 {
     BgConfig *v0;
     Window v1;
@@ -71,7 +71,7 @@ void sub_0209AA74(enum HeapID heapID, int slotsMinigameDTO)
     String *v3;
     int v4;
 
-    if (slotsMinigameDTO == 0) {
+    if (param1 == 0) {
         v4 = 1;
     } else {
         v4 = 0;

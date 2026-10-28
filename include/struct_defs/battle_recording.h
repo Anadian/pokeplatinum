@@ -6,8 +6,8 @@
 #include "struct_defs/struct_02030A80.h"
 
 typedef struct BattleRecording {
-    u32 coins;
-    UnkStruct_02030A80 slotMachineVariant;
+    u32 unk_00;
+    UnkStruct_02030A80 unk_04;
     UnkStruct_0202F41C unk_84;
     UnkStruct_0202F298 unk_E8;
 } BattleRecording;

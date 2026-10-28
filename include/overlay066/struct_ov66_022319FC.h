@@ -4,10 +4,10 @@
 #include "trainer_info.h"
 
 typedef struct {
-    u32 coins;
-    const TrainerInfo *slotMachineVariant;
+    u32 unk_00;
+    const TrainerInfo *unk_04;
     const TrainerInfo *unk_08;
-    const TrainerInfo *slotsMinigameDTO;
+    const TrainerInfo *unk_0C;
     const TrainerInfo *unk_10;
     u16 unk_14;
     u16 unk_16;

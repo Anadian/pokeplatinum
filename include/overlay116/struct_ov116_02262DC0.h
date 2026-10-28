@@ -8,10 +8,10 @@
 #include "overlay116/struct_ov116_0226501C.h"
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     int unk_08;
-    int *slotsMinigameDTO;
+    int *unk_0C;
     UnkStruct_ov116_0226501C *unk_10;
     UnkStruct_ov116_0226501C *unk_14;
     u8 padding_18[8];

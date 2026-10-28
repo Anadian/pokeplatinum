@@ -30,8 +30,8 @@
 #include "unk_02032798.h"
 #include "unk_020363E8.h"
 
-void sub_0207A81C(BattleSystem *battleSys, int slotsMinigameDTO, int param2, void *param3, u8 param4);
-BOOL sub_0207A8F4(LinkBattleCommState *linkBattleCommState, u32 slotsMinigameDTO);
+void sub_0207A81C(BattleSystem *battleSys, int param1, int param2, void *param3, u8 param4);
+BOOL sub_0207A8F4(LinkBattleCommState *linkBattleCommState, u32 param1);
 BOOL sub_0207A960(LinkBattleCommState *linkBattleCommState);
 BOOL sub_0207A988(LinkBattleCommState *linkBattleCommState);
 BOOL sub_0207A9CC(LinkBattleCommState *linkBattleCommState);
@@ -40,10 +40,10 @@ BOOL sub_0207AA38(LinkBattleCommState *linkBattleCommState);
 BOOL sub_0207AA5C(LinkBattleCommState *linkBattleCommState);
 BOOL sub_0207AAA0(LinkBattleCommState *linkBattleCommState);
 BOOL sub_0207AAC8(LinkBattleCommState *linkBattleCommState);
-BOOL sub_0207AB9C(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO);
-BOOL sub_0207ABD0(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO, int param2);
-BOOL sub_0207AC28(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO);
-BOOL sub_0207AC54(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO, int param2);
+BOOL sub_0207AB9C(LinkBattleCommState *linkBattleCommState, int param1);
+BOOL sub_0207ABD0(LinkBattleCommState *linkBattleCommState, int param1, int param2);
+BOOL sub_0207AC28(LinkBattleCommState *linkBattleCommState, int param1);
+BOOL sub_0207AC54(LinkBattleCommState *linkBattleCommState, int param1, int param2);
 void sub_0207A744(void *param0);
 BOOL sub_0207AB58(LinkBattleCommState *linkBattleCommState);
 BOOL sub_0207AAFC(LinkBattleCommState *linkBattleCommState);
@@ -53,28 +53,28 @@ static int sub_0207A764(void);
 static int sub_0207A76C(void);
 static int sub_0207A774(void);
 static int sub_0207AE64(void);
-static u8 *sub_0207A778(int param0, void *slotsMinigameDTO, int param2);
-static u8 *sub_0207A798(int param0, void *slotsMinigameDTO, int param2);
-static u8 *sub_0207A7B8(int param0, void *slotsMinigameDTO, int param2);
-static u8 *sub_0207A7D4(int param0, void *slotsMinigameDTO, int param2);
-static u8 *sub_0207A7F4(int param0, void *slotsMinigameDTO, int param2);
-static u8 *sub_0207A7FC(int param0, void *slotsMinigameDTO, int param2);
-static u8 *sub_0207A804(int param0, void *slotsMinigameDTO, int param2);
-static u8 *sub_0207A80C(int param0, void *slotsMinigameDTO, int param2);
-static u8 *sub_0207A814(int param0, void *slotsMinigameDTO, int param2);
-static void sub_0207A8A8(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0207A934(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0207A9BC(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0207AA28(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0207AA90(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0207AB8C(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0207AC18(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0207ACA4(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0207ADB4(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void sub_0207ACB4(SysTask *param0, void *slotsMinigameDTO);
-static void sub_0207AD40(SysTask *param0, void *slotsMinigameDTO);
-static void sub_0207AE34(int param0, int slotsMinigameDTO, void *param2, void *param3);
-static void PalPad_CreateNetworkObject(TrainerInfo *param0, PalPad *slotsMinigameDTO, PalPad *param2);
+static u8 *sub_0207A778(int param0, void *param1, int param2);
+static u8 *sub_0207A798(int param0, void *param1, int param2);
+static u8 *sub_0207A7B8(int param0, void *param1, int param2);
+static u8 *sub_0207A7D4(int param0, void *param1, int param2);
+static u8 *sub_0207A7F4(int param0, void *param1, int param2);
+static u8 *sub_0207A7FC(int param0, void *param1, int param2);
+static u8 *sub_0207A804(int param0, void *param1, int param2);
+static u8 *sub_0207A80C(int param0, void *param1, int param2);
+static u8 *sub_0207A814(int param0, void *param1, int param2);
+static void sub_0207A8A8(int param0, int param1, void *param2, void *param3);
+static void sub_0207A934(int param0, int param1, void *param2, void *param3);
+static void sub_0207A9BC(int param0, int param1, void *param2, void *param3);
+static void sub_0207AA28(int param0, int param1, void *param2, void *param3);
+static void sub_0207AA90(int param0, int param1, void *param2, void *param3);
+static void sub_0207AB8C(int param0, int param1, void *param2, void *param3);
+static void sub_0207AC18(int param0, int param1, void *param2, void *param3);
+static void sub_0207ACA4(int param0, int param1, void *param2, void *param3);
+static void sub_0207ADB4(int param0, int param1, void *param2, void *param3);
+static void sub_0207ACB4(SysTask *param0, void *param1);
+static void sub_0207AD40(SysTask *param0, void *param1);
+static void sub_0207AE34(int param0, int param1, void *param2, void *param3);
+static void PalPad_CreateNetworkObject(TrainerInfo *param0, PalPad *param1, PalPad *param2);
 
 static const CommCmdTable Unk_020F099C[] = {
     { sub_0207ADB4, CommPacketSizeOf_Variable, NULL },
@@ -110,12 +110,12 @@ void sub_0207A6DC(void *param0)
     CommCmd_Init(Unk_020F099C, v0, param0);
 
     v2->battleSys = battleSys;
-    v2->slotMachineVariant = 0;
+    v2->unk_04 = 0;
     v3->battleSys = battleSys;
-    v3->slotMachineVariant = 0;
+    v3->unk_04 = 0;
 
-    BattleSystem_SetLinkServerSenderStates(battleSys, &v2->slotMachineVariant);
-    BattleSystem_SetLinkClientReceiverStates(battleSys, &v3->slotMachineVariant);
+    BattleSystem_SetLinkServerSenderStates(battleSys, &v2->unk_04);
+    BattleSystem_SetLinkClientReceiverStates(battleSys, &v3->unk_04);
 
     SysTask_Start(sub_0207ACB4, v2, 0);
     SysTask_Start(sub_0207AD40, v3, 0);
@@ -226,7 +226,7 @@ static u8 *sub_0207A814(int param0, void *commState, int param2)
     return (u8 *)linkBattleCommState->palPad[param0];
 }
 
-void sub_0207A81C(BattleSystem *battleSys, int slotsMinigameDTO, int param2, void *param3, u8 param4)
+void sub_0207A81C(BattleSystem *battleSys, int param1, int param2, void *param3, u8 param4)
 {
     int v0;
     BattleMessageInfo *info;
@@ -245,7 +245,7 @@ void sub_0207A81C(BattleSystem *battleSys, int slotsMinigameDTO, int param2, voi
         v4[0] = 0;
     }
 
-    info->recipient = slotsMinigameDTO;
+    info->recipient = param1;
     info->battler = param2;
     info->size = param4;
 
@@ -266,7 +266,7 @@ void sub_0207A81C(BattleSystem *battleSys, int slotsMinigameDTO, int param2, voi
     Heap_Free(info);
 }
 
-static void sub_0207A8A8(int param0, int slotsMinigameDTO, void *param2, void *param3)
+static void sub_0207A8A8(int param0, int param1, void *param2, void *param3)
 {
     BattleSystem *battleSys = (BattleSystem *)param3;
     int v1;
@@ -275,18 +275,18 @@ static void sub_0207A8A8(int param0, int slotsMinigameDTO, void *param2, void *p
     u16 *v4 = BattleSystem_GetClientWriteIndex(battleSys);
     u16 *v5 = BattleSystem_GetClientEndIndex(battleSys);
 
-    if (v4[0] + slotsMinigameDTO + 1 > 0x1000) {
+    if (v4[0] + param1 + 1 > 0x1000) {
         v5[0] = v4[0];
         v4[0] = 0;
     }
 
-    for (v1 = 0; v1 < slotsMinigameDTO; v1++) {
+    for (v1 = 0; v1 < param1; v1++) {
         v3[v4[0]] = v2[v1];
         v4[0]++;
     }
 }
 
-BOOL sub_0207A8F4(LinkBattleCommState *linkBattleCommState, u32 slotsMinigameDTO)
+BOOL sub_0207A8F4(LinkBattleCommState *linkBattleCommState, u32 param1)
 {
     Party *v0;
 
@@ -298,10 +298,10 @@ BOOL sub_0207A8F4(LinkBattleCommState *linkBattleCommState, u32 slotsMinigameDTO
         return 0;
     }
 
-    return CommSys_SendData(24, (void *)&slotsMinigameDTO, 4);
+    return CommSys_SendData(24, (void *)&param1, 4);
 }
 
-static void sub_0207A934(int param0, int slotsMinigameDTO, void *param2, void *param3)
+static void sub_0207A934(int param0, int param1, void *param2, void *param3)
 {
     LinkBattleCommState *linkBattleCommState = (LinkBattleCommState *)param3;
 
@@ -337,7 +337,7 @@ BOOL sub_0207A988(LinkBattleCommState *linkBattleCommState)
     return CommSys_SendDataHuge(25, (void *)&linkBattleCommState->sendBuffer[0], TrainerInfo_Size());
 }
 
-static void sub_0207A9BC(int param0, int slotsMinigameDTO, void *param2, void *commState)
+static void sub_0207A9BC(int param0, int param1, void *param2, void *commState)
 {
     LinkBattleCommState *linkBattleCommState = (LinkBattleCommState *)commState;
     linkBattleCommState->recvCount++;
@@ -370,7 +370,7 @@ BOOL sub_0207A9F8(LinkBattleCommState *linkBattleCommState)
     return CommSys_SendDataHuge(26, (void *)&linkBattleCommState->sendBuffer[0], sizeof(Trainer));
 }
 
-static void sub_0207AA28(int param0, int slotsMinigameDTO, void *param2, void *commState)
+static void sub_0207AA28(int param0, int param1, void *param2, void *commState)
 {
     LinkBattleCommState *linkBattleCommState = (LinkBattleCommState *)commState;
     linkBattleCommState->recvCount++;
@@ -403,7 +403,7 @@ BOOL sub_0207AA5C(LinkBattleCommState *linkBattleCommState)
     return CommSys_SendDataHuge(27, (void *)&linkBattleCommState->sendBuffer[0], Party_SaveSize());
 }
 
-static void sub_0207AA90(int param0, int slotsMinigameDTO, void *param2, void *commState)
+static void sub_0207AA90(int param0, int param1, void *param2, void *commState)
 {
     LinkBattleCommState *linkBattleCommState = (LinkBattleCommState *)commState;
 
@@ -480,13 +480,13 @@ BOOL sub_0207AB58(LinkBattleCommState *linkBattleCommState) // SEND pal pad data
     return CommSys_SendDataHuge(33, (void *)linkBattleCommState->sendBuffer, 1000);
 }
 
-static void sub_0207AB8C(int param0, int slotsMinigameDTO, void *param2, void *commState)
+static void sub_0207AB8C(int param0, int param1, void *param2, void *commState)
 {
     LinkBattleCommState *linkBattleCommState = (LinkBattleCommState *)commState;
     linkBattleCommState->recvCount++;
 }
 
-BOOL sub_0207AB9C(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO)
+BOOL sub_0207AB9C(LinkBattleCommState *linkBattleCommState, int param1)
 {
     Trainer *v0;
 
@@ -495,12 +495,12 @@ BOOL sub_0207AB9C(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO
     }
 
     v0 = (Trainer *)&linkBattleCommState->sendBuffer[0];
-    *v0 = linkBattleCommState->dto->trainer[slotsMinigameDTO];
+    *v0 = linkBattleCommState->dto->trainer[param1];
 
     return 1;
 }
 
-BOOL sub_0207ABD0(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO, int param2)
+BOOL sub_0207ABD0(LinkBattleCommState *linkBattleCommState, int param1, int param2)
 {
     if (CommSys_SendRingRemainingSize() != 264) {
         return 0;
@@ -510,20 +510,20 @@ BOOL sub_0207ABD0(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO
         return 0;
     }
 
-    if (slotsMinigameDTO == 1) {
+    if (param1 == 1) {
         return CommSys_SendDataHuge(29, (void *)&linkBattleCommState->sendBuffer[0], sizeof(Trainer));
     } else {
         return CommSys_SendDataHuge(30, (void *)&linkBattleCommState->sendBuffer[0], sizeof(Trainer));
     }
 }
 
-static void sub_0207AC18(int param0, int slotsMinigameDTO, void *param2, void *commState)
+static void sub_0207AC18(int param0, int param1, void *param2, void *commState)
 {
     LinkBattleCommState *linkBattleCommState = (LinkBattleCommState *)commState;
     linkBattleCommState->recvCount++;
 }
 
-BOOL sub_0207AC28(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO)
+BOOL sub_0207AC28(LinkBattleCommState *linkBattleCommState, int param1)
 {
     Party *v0;
 
@@ -532,12 +532,12 @@ BOOL sub_0207AC28(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO
     }
 
     v0 = (Party *)&linkBattleCommState->sendBuffer[0];
-    Party_Copy(linkBattleCommState->dto->parties[slotsMinigameDTO], v0);
+    Party_Copy(linkBattleCommState->dto->parties[param1], v0);
 
     return 1;
 }
 
-BOOL sub_0207AC54(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO, int param2)
+BOOL sub_0207AC54(LinkBattleCommState *linkBattleCommState, int param1, int param2)
 {
     if (CommSys_SendRingRemainingSize() != 264) {
         return 0;
@@ -547,22 +547,22 @@ BOOL sub_0207AC54(LinkBattleCommState *linkBattleCommState, int slotsMinigameDTO
         return 0;
     }
 
-    if (slotsMinigameDTO == 1) {
+    if (param1 == 1) {
         return CommSys_SendDataHuge(31, (void *)&linkBattleCommState->sendBuffer[0], Party_SaveSize());
     } else {
         return CommSys_SendDataHuge(32, (void *)&linkBattleCommState->sendBuffer[0], Party_SaveSize());
     }
 }
 
-static void sub_0207ACA4(int param0, int slotsMinigameDTO, void *param2, void *commState)
+static void sub_0207ACA4(int param0, int param1, void *param2, void *commState)
 {
     LinkBattleCommState *linkBattleCommState = (LinkBattleCommState *)commState;
     linkBattleCommState->recvCount++;
 }
 
-void sub_0207ACB4(SysTask *param0, void *slotsMinigameDTO)
+void sub_0207ACB4(SysTask *param0, void *param1)
 {
-    UnkStruct_0207ACB4 *v0 = (UnkStruct_0207ACB4 *)slotsMinigameDTO;
+    UnkStruct_0207ACB4 *v0 = (UnkStruct_0207ACB4 *)param1;
     u8 *v1;
     u16 *v2;
     u16 *v3;
@@ -574,7 +574,7 @@ void sub_0207ACB4(SysTask *param0, void *slotsMinigameDTO)
     v3 = BattleSystem_GetServerWriteIndex(v0->battleSys);
     v4 = BattleSystem_GetServerEndIndex(v0->battleSys);
 
-    switch (v0->slotMachineVariant) {
+    switch (v0->unk_04) {
     case 0:
         if (CommSys_SendRingRemainingSize() != 264) {
             break;
@@ -597,15 +597,15 @@ void sub_0207ACB4(SysTask *param0, void *slotsMinigameDTO)
         break;
     default:
     case 255:
-        Heap_Free(slotsMinigameDTO);
+        Heap_Free(param1);
         SysTask_Done(param0);
         break;
     }
 }
 
-void sub_0207AD40(SysTask *param0, void *slotsMinigameDTO)
+void sub_0207AD40(SysTask *param0, void *param1)
 {
-    UnkStruct_0207AD40 *v0 = (UnkStruct_0207AD40 *)slotsMinigameDTO;
+    UnkStruct_0207AD40 *v0 = (UnkStruct_0207AD40 *)param1;
     u8 *v1;
     u16 *v2;
     u16 *v3;
@@ -617,7 +617,7 @@ void sub_0207AD40(SysTask *param0, void *slotsMinigameDTO)
     v3 = BattleSystem_GetClientWriteIndex(v0->battleSys);
     v4 = BattleSystem_GetClientEndIndex(v0->battleSys);
 
-    switch (v0->slotMachineVariant) {
+    switch (v0->unk_04) {
     case 0:
         if (v2[0] == v3[0]) {
             break;
@@ -635,13 +635,13 @@ void sub_0207AD40(SysTask *param0, void *slotsMinigameDTO)
         break;
     default:
     case 255:
-        Heap_Free(slotsMinigameDTO);
+        Heap_Free(param1);
         SysTask_Done(param0);
         break;
     }
 }
 
-static void sub_0207ADB4(int param0, int slotsMinigameDTO, void *param2, void *param3)
+static void sub_0207ADB4(int param0, int param1, void *param2, void *param3)
 {
     BattleSystem *battleSys = (BattleSystem *)param3;
 
@@ -667,7 +667,7 @@ static void PalPad_CreateNetworkObject(TrainerInfo *trainerInfo, PalPad *source,
     }
 }
 
-void sub_0207AE34(int param0, int slotsMinigameDTO, void *param2, void *commState)
+void sub_0207AE34(int param0, int param1, void *param2, void *commState)
 {
     LinkBattleCommState *linkBattleCommState = (LinkBattleCommState *)commState;
 

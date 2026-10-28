@@ -22,50 +22,50 @@
 #include "overworld_anim_manager.h"
 
 typedef struct {
-    s16 coins;
+    s16 unk_00;
     s8 unk_02;
     s8 unk_03;
-    Billboard *slotMachineVariant;
+    Billboard *unk_04;
     UnkStruct_ov5_021ED01C unk_08;
 } UnkStruct_ov5_021EB2EC;
 
 typedef struct {
-    s8 coins;
+    s8 unk_00;
     s8 unk_01;
     s8 unk_02;
     s8 unk_03;
-    Billboard *slotMachineVariant;
+    Billboard *unk_04;
     UnkStruct_ov5_021ED01C unk_08;
 } UnkStruct_ov5_021EB7F8;
 
 typedef struct {
-    s8 coins;
+    s8 unk_00;
     s8 unk_01;
     s8 unk_02;
     u8 unk_03_0 : 1;
     u8 unk_03_1 : 7;
-    Billboard *slotMachineVariant;
+    Billboard *unk_04;
     UnkStruct_ov5_021ED01C unk_08;
 } UnkStruct_ov5_021EBA0C;
 
 typedef struct {
-    OverworldAnimManager *coins;
+    OverworldAnimManager *unk_00;
 } UnkStruct_ov5_021EC760;
 
 typedef struct {
-    s16 coins;
+    s16 unk_00;
     s8 unk_02;
     s8 unk_03;
-    Billboard *slotMachineVariant;
+    Billboard *unk_04;
     UnkStruct_ov5_021ED01C unk_08;
     u32 unk_10;
 } UnkStruct_ov5_021EC804;
 
 typedef struct {
-    int coins;
-    fx32 slotMachineVariant;
+    int unk_00;
+    fx32 unk_04;
     Billboard *unk_08;
-    UnkStruct_ov5_021ED01C slotsMinigameDTO;
+    UnkStruct_ov5_021ED01C unk_0C;
 } UnkStruct_ov5_021EC938;
 
 void ov5_021EB2EC(MapObject *mapObj);
@@ -74,26 +74,26 @@ void ov5_021EB328(MapObject *mapObj);
 void ov5_021EB354(MapObject *mapObj);
 void ov5_021EB398(MapObject *mapObj);
 void ov5_021EB40C(MapObject *mapObj);
-static void ov5_021EB478(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3);
-static void ov5_021EB4AC(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3);
-static void ov5_021EB4E8(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3);
-static void ov5_021EB524(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3);
-static void ov5_021EB560(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3);
-static void ov5_021EB59C(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3);
-static void ov5_021EB620(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3);
-static void ov5_021EC068(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3);
-static void ov5_021EC0E4(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3);
+static void ov5_021EB478(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3);
+static void ov5_021EB4AC(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3);
+static void ov5_021EB4E8(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3);
+static void ov5_021EB524(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3);
+static void ov5_021EB560(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3);
+static void ov5_021EB59C(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3);
+static void ov5_021EB620(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3);
+static void ov5_021EC068(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3);
+static void ov5_021EC0E4(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3);
 void ov5_021EC734(MapObject *mapObj);
 void ov5_021EC75C(MapObject *mapObj);
 void ov5_021EC760(MapObject *mapObj);
 void ov5_021EC778(MapObject *mapObj);
 void ov5_021EC790(MapObject *mapObj);
-static void ov5_021EC638(Billboard *param0, int slotsMinigameDTO);
+static void ov5_021EC638(Billboard *param0, int param1);
 static void ov5_021EC668(Billboard *param0);
-static void ov5_021EC674(Billboard *param0, int slotsMinigameDTO, int param2);
-static void ov5_021EC69C(Billboard *param0, int slotsMinigameDTO);
-static void ov5_021EC6C0(MapObject *mapObj, Billboard *slotsMinigameDTO);
-static void ov5_021EC374(MapObject *mapObj, Billboard *slotsMinigameDTO, int param2);
+static void ov5_021EC674(Billboard *param0, int param1, int param2);
+static void ov5_021EC69C(Billboard *param0, int param1);
+static void ov5_021EC6C0(MapObject *mapObj, Billboard *param1);
+static void ov5_021EC374(MapObject *mapObj, Billboard *param1, int param2);
 
 void (*const Unk_ov5_021FF3D4[])(MapObject *, Billboard *, UnkStruct_ov5_021EB2EC *, int);
 void (*const Unk_ov5_021FF420[])(MapObject *, Billboard *, UnkStruct_ov5_021EB2EC *, int);
@@ -140,13 +140,13 @@ Billboard *ov5_021EB1A0(MapObject *mapObj)
         UnkStruct_ov5_021EBA0C *v1;
 
         v1 = sub_02062AF0(mapObj);
-        return v1->slotMachineVariant;
+        return v1->unk_04;
     }
     case OBJ_EVENT_GFX_MAGIKARP: {
         UnkStruct_ov5_021EB7F8 *v2;
 
         v2 = sub_02062AF0(mapObj);
-        return v2->slotMachineVariant;
+        return v2->unk_04;
     }
     case OBJ_EVENT_GFX_UXIE:
     case OBJ_EVENT_GFX_MESPRIT:
@@ -157,7 +157,7 @@ Billboard *ov5_021EB1A0(MapObject *mapObj)
         UnkStruct_ov5_021EC804 *v3;
 
         v3 = sub_02062AF0(mapObj);
-        return v3->slotMachineVariant;
+        return v3->unk_04;
     }
     case OBJ_EVENT_GFX_BERRY_SOIL: {
         return NULL;
@@ -171,7 +171,7 @@ Billboard *ov5_021EB1A0(MapObject *mapObj)
             UnkStruct_ov5_021EB2EC *v5;
 
             v5 = sub_02062AF0(mapObj);
-            return v5->slotMachineVariant;
+            return v5->unk_04;
         }
     }
     }
@@ -184,9 +184,9 @@ void ov5_021EB2EC(MapObject *mapObj)
     UnkStruct_ov5_021EB2EC *v0 = sub_02062ACC(mapObj, (sizeof(UnkStruct_ov5_021EB2EC)));
     v0->unk_02 = -1;
 
-    ov5_021ECF04(mapObj, &v0->slotMachineVariant);
+    ov5_021ECF04(mapObj, &v0->unk_04);
 
-    if (v0->slotMachineVariant != NULL) {
+    if (v0->unk_04 != NULL) {
         sub_02062B68(mapObj);
     }
 }
@@ -194,18 +194,18 @@ void ov5_021EB2EC(MapObject *mapObj)
 void ov5_021EB314(MapObject *mapObj)
 {
     UnkStruct_ov5_021EB2EC *v0 = sub_02062AF0(mapObj);
-    ov5_021ECFA4(mapObj, &v0->slotMachineVariant);
+    ov5_021ECFA4(mapObj, &v0->unk_04);
 }
 
 void ov5_021EB328(MapObject *mapObj)
 {
     UnkStruct_ov5_021EB2EC *v0 = sub_02062AF0(mapObj);
 
-    if (v0->slotMachineVariant != NULL) {
-        ov5_021ED01C(v0->slotMachineVariant, &v0->unk_08);
+    if (v0->unk_04 != NULL) {
+        ov5_021ED01C(v0->unk_04, &v0->unk_08);
     }
 
-    ov5_021ECFA4(mapObj, &v0->slotMachineVariant);
+    ov5_021ECFA4(mapObj, &v0->unk_04);
     MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_21);
 }
 
@@ -218,13 +218,13 @@ void ov5_021EB354(MapObject *mapObj)
         return;
     }
 
-    if (v1->slotMachineVariant == NULL) {
-        ov5_021ECF04(mapObj, &v1->slotMachineVariant);
+    if (v1->unk_04 == NULL) {
+        ov5_021ECF04(mapObj, &v1->unk_04);
     }
 
-    if (v1->slotMachineVariant != NULL) {
-        ov5_021ED03C(v1->slotMachineVariant, &v1->unk_08);
-        ov5_021EDEB4(mapObj, v1->slotMachineVariant);
+    if (v1->unk_04 != NULL) {
+        ov5_021ED03C(v1->unk_04, &v1->unk_08);
+        ov5_021EDEB4(mapObj, v1->unk_04);
 
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_21);
     }
@@ -234,7 +234,7 @@ void ov5_021EB398(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EB2EC *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -271,7 +271,7 @@ void ov5_021EB40C(MapObject *mapObj)
         return;
     }
 
-    v3 = v2->slotMachineVariant;
+    v3 = v2->unk_04;
 
     if (v3 == NULL) {
         return;
@@ -293,7 +293,7 @@ void ov5_021EB438(MapObject *mapObj)
         return;
     }
 
-    v3 = v2->slotMachineVariant;
+    v3 = v2->unk_04;
 
     if (v3 == NULL) {
         return;
@@ -307,89 +307,89 @@ void ov5_021EB438(MapObject *mapObj)
     ov5_021EC6C0(mapObj, v3);
 }
 
-static void ov5_021EB478(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB478(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if (param3 != param2->unk_02) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     } else {
-        ov5_021EC668(slotsMinigameDTO);
+        ov5_021EC668(param1);
     }
 
-    Billboard_AdvanceAnim(slotsMinigameDTO, 0);
+    Billboard_AdvanceAnim(param1, 0);
 }
 
-static void ov5_021EB4AC(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB4AC(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if (param3 != param2->unk_02) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, ((FX32_ONE) / 2));
+        Billboard_AdvanceAnim(param1, ((FX32_ONE) / 2));
     }
 }
 
-static void ov5_021EB4E8(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB4E8(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if (param3 != param2->unk_02) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, (FX32_ONE));
+        Billboard_AdvanceAnim(param1, (FX32_ONE));
     }
 }
 
-static void ov5_021EB524(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB524(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if (param3 != param2->unk_02) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, ((FX32_ONE) * 2));
+        Billboard_AdvanceAnim(param1, ((FX32_ONE) * 2));
     }
 }
 
-static void ov5_021EB560(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB560(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if (param3 != param2->unk_02) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, ((FX32_ONE) * 4));
+        Billboard_AdvanceAnim(param1, ((FX32_ONE) * 4));
     }
 }
 
-static void ov5_021EB59C(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB59C(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if (param3 != param2->unk_02) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
 
-        param2->coins = 0;
+        param2->unk_00 = 0;
     }
 
     if (param2->unk_03 != 0x6) {
-        param2->coins = 0;
+        param2->unk_00 = 0;
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
@@ -403,28 +403,28 @@ static void ov5_021EB59C(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
             0
         };
 
-        Billboard_AdvanceAnim(slotsMinigameDTO, v1[param2->coins]);
-        param2->coins++;
+        Billboard_AdvanceAnim(param1, v1[param2->unk_00]);
+        param2->unk_00++;
 
-        if (v1[param2->coins] == 0) {
-            param2->coins = 0;
+        if (v1[param2->unk_00] == 0) {
+            param2->unk_00 = 0;
         }
     }
 }
 
-static void ov5_021EB620(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB620(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if (param3 != param2->unk_02) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
 
-        param2->coins = 0;
+        param2->unk_00 = 0;
     }
 
     if (param2->unk_03 != 0x7) {
-        param2->coins = 0;
+        param2->unk_00 = 0;
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
@@ -435,28 +435,28 @@ static void ov5_021EB620(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
             0
         };
 
-        Billboard_AdvanceAnim(slotsMinigameDTO, v1[param2->coins]);
-        param2->coins++;
+        Billboard_AdvanceAnim(param1, v1[param2->unk_00]);
+        param2->unk_00++;
 
-        if (v1[param2->coins] == 0) {
-            param2->coins = 0;
+        if (v1[param2->unk_00] == 0) {
+            param2->unk_00 = 0;
         }
     }
 }
 
-static void ov5_021EB69C(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB69C(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if (param3 != param2->unk_02) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
 
-        param2->coins = 0;
+        param2->unk_00 = 0;
     }
 
     if (param2->unk_03 != 0x8) {
-        param2->coins = 0;
+        param2->unk_00 = 0;
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
@@ -471,11 +471,11 @@ static void ov5_021EB69C(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
             0
         };
 
-        Billboard_AdvanceAnim(slotsMinigameDTO, v1[param2->coins]);
+        Billboard_AdvanceAnim(param1, v1[param2->unk_00]);
 
-        param2->coins++;
-        if (v1[param2->coins] == 0) {
-            param2->coins = 0;
+        param2->unk_00++;
+        if (v1[param2->unk_00] == 0) {
+            param2->unk_00 = 0;
         }
     }
 }
@@ -498,7 +498,7 @@ void ov5_021EB720(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EB2EC *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -524,28 +524,28 @@ void ov5_021EB720(MapObject *mapObj)
     ov5_021EC6C0(mapObj, v3);
 }
 
-static void ov5_021EB794(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB794(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if ((param3 != param2->unk_02) || (param2->unk_03 == 0x9)) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     } else {
-        ov5_021EC668(slotsMinigameDTO);
+        ov5_021EC668(param1);
     }
 
-    Billboard_AdvanceAnim(slotsMinigameDTO, 0);
+    Billboard_AdvanceAnim(param1, 0);
 }
 
-static void ov5_021EB7D0(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EB2EC *param2, int param3)
+static void ov5_021EB7D0(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EB2EC *param2, int param3)
 {
     if (param2->unk_03 != 0x9) {
-        Billboard_SetAnimNum(slotsMinigameDTO, 4);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, 4);
+        Billboard_SetAnimFrameNum(param1, 0);
     }
 
-    Billboard_AdvanceAnim(slotsMinigameDTO, (FX32_ONE));
+    Billboard_AdvanceAnim(param1, (FX32_ONE));
 }
 
 static void (*const Unk_ov5_021FF420[])(MapObject *, Billboard *, UnkStruct_ov5_021EB2EC *, int) = {
@@ -565,12 +565,12 @@ void ov5_021EB7F8(MapObject *mapObj)
 {
     UnkStruct_ov5_021EB7F8 *v0 = sub_02062ACC(mapObj, (sizeof(UnkStruct_ov5_021EB7F8)));
 
-    v0->coins = -1;
+    v0->unk_00 = -1;
     v0->unk_02 = LCRNG_Next() % 16;
 
-    ov5_021ECF04(mapObj, &v0->slotMachineVariant);
+    ov5_021ECF04(mapObj, &v0->unk_04);
 
-    if (v0->slotMachineVariant != NULL) {
+    if (v0->unk_04 != NULL) {
         sub_02062B68(mapObj);
     }
 }
@@ -578,18 +578,18 @@ void ov5_021EB7F8(MapObject *mapObj)
 void ov5_021EB834(MapObject *mapObj)
 {
     UnkStruct_ov5_021EB7F8 *v0 = sub_02062AF0(mapObj);
-    ov5_021ECFA4(mapObj, &v0->slotMachineVariant);
+    ov5_021ECFA4(mapObj, &v0->unk_04);
 }
 
 void ov5_021EB848(MapObject *mapObj)
 {
     UnkStruct_ov5_021EB7F8 *v0 = sub_02062AF0(mapObj);
 
-    if (v0->slotMachineVariant != NULL) {
-        ov5_021ED01C(v0->slotMachineVariant, &v0->unk_08);
+    if (v0->unk_04 != NULL) {
+        ov5_021ED01C(v0->unk_04, &v0->unk_08);
     }
 
-    ov5_021ECFA4(mapObj, &v0->slotMachineVariant);
+    ov5_021ECFA4(mapObj, &v0->unk_04);
     MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_21);
 }
 
@@ -602,13 +602,13 @@ void ov5_021EB874(MapObject *mapObj)
         return;
     }
 
-    if (v1->slotMachineVariant == NULL) {
-        ov5_021ECF04(mapObj, &v1->slotMachineVariant);
+    if (v1->unk_04 == NULL) {
+        ov5_021ECF04(mapObj, &v1->unk_04);
     }
 
-    if (v1->slotMachineVariant != NULL) {
-        ov5_021ED03C(v1->slotMachineVariant, &v1->unk_08);
-        ov5_021EDEB4(mapObj, v1->slotMachineVariant);
+    if (v1->unk_04 != NULL) {
+        ov5_021ED03C(v1->unk_04, &v1->unk_08);
+        ov5_021EDEB4(mapObj, v1->unk_04);
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_21);
     }
 }
@@ -617,7 +617,7 @@ void ov5_021EB8B8(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EB7F8 *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -645,7 +645,7 @@ void ov5_021EB8B8(MapObject *mapObj)
         }
     }
 
-    v2->coins = v0;
+    v2->unk_00 = v0;
     v2->unk_03 = sub_02062A14(mapObj);
 
     ov5_021EDEB4(mapObj, v3);
@@ -656,7 +656,7 @@ void ov5_021EB944(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EB2EC *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -718,11 +718,11 @@ void ov5_021EB944(MapObject *mapObj)
 void ov5_021EBA0C(MapObject *mapObj)
 {
     UnkStruct_ov5_021EBA0C *v0 = sub_02062ACC(mapObj, (sizeof(UnkStruct_ov5_021EBA0C)));
-    v0->coins = -1;
+    v0->unk_00 = -1;
 
-    ov5_021ECF04(mapObj, &v0->slotMachineVariant);
+    ov5_021ECF04(mapObj, &v0->unk_04);
 
-    if (v0->slotMachineVariant != NULL) {
+    if (v0->unk_04 != NULL) {
         sub_02062B68(mapObj);
     }
 }
@@ -734,7 +734,7 @@ void ov5_021EBA34(MapObject *mapObj)
 
     v0 = sub_02062AF0(mapObj);
 
-    ov5_021ECFA4(mapObj, &v0->slotMachineVariant);
+    ov5_021ECFA4(mapObj, &v0->unk_04);
     MapObject_SetSpriteJumpOffset(mapObj, &v1);
 }
 
@@ -742,11 +742,11 @@ void ov5_021EBA60(MapObject *mapObj)
 {
     UnkStruct_ov5_021EBA0C *v0 = sub_02062AF0(mapObj);
 
-    if (v0->slotMachineVariant != NULL) {
-        ov5_021ED01C(v0->slotMachineVariant, &v0->unk_08);
+    if (v0->unk_04 != NULL) {
+        ov5_021ED01C(v0->unk_04, &v0->unk_08);
     }
 
-    ov5_021ECFA4(mapObj, &v0->slotMachineVariant);
+    ov5_021ECFA4(mapObj, &v0->unk_04);
     MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_21);
 }
 
@@ -759,13 +759,13 @@ void ov5_021EBA8C(MapObject *mapObj)
         return;
     }
 
-    if (v1->slotMachineVariant == NULL) {
-        ov5_021ECF04(mapObj, &v1->slotMachineVariant);
+    if (v1->unk_04 == NULL) {
+        ov5_021ECF04(mapObj, &v1->unk_04);
     }
 
-    if (v1->slotMachineVariant != NULL) {
-        ov5_021ED03C(v1->slotMachineVariant, &v1->unk_08);
-        ov5_021EDEB4(mapObj, v1->slotMachineVariant);
+    if (v1->unk_04 != NULL) {
+        ov5_021ED03C(v1->unk_04, &v1->unk_08);
+        ov5_021EDEB4(mapObj, v1->unk_04);
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_21);
     }
 }
@@ -774,7 +774,7 @@ void ov5_021EBAD0(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EBA0C *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -792,111 +792,111 @@ void ov5_021EBAD0(MapObject *mapObj)
     GF_ASSERT(v1 < ((0x8 + 1) + 1));
     Unk_ov5_021FF3F8[v1](mapObj, v3, v2, v0);
 
-    v2->coins = v0;
+    v2->unk_00 = v0;
     v2->unk_02 = sub_02062A14(mapObj);
 
     ov5_021EDEB4(mapObj, v3);
     ov5_021EC6C0(mapObj, v3);
 }
 
-static void ov5_021EBB44(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBB44(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
-    if (param3 != param2->coins) {
+    if (param3 != param2->unk_00) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
         param2->unk_03_0 = 0;
     } else if (param2->unk_02 == (0x8 + 1)) {
         param2->unk_03_0 = 1;
     } else if (param2->unk_03_0 == 1) {
-        ov5_021EC69C(slotsMinigameDTO, ov5_021EDF18(param3));
+        ov5_021EC69C(param1, ov5_021EDF18(param3));
         param2->unk_03_0 = 0;
     } else {
-        ov5_021EC668(slotsMinigameDTO);
+        ov5_021EC668(param1);
     }
 }
 
-static void ov5_021EBBB4(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBBB4(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     int v0;
 
-    if (param3 != param2->coins) {
+    if (param3 != param2->unk_00) {
         v0 = ov5_021EDF18(param3);
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     } else if (param2->unk_02 == (0x8 + 1)) {
         param2->unk_03_0 = 1;
         return;
     } else if (param2->unk_03_0 == 1) {
-        ov5_021EC69C(slotsMinigameDTO, ov5_021EDF18(param3));
+        ov5_021EC69C(param1, ov5_021EDF18(param3));
         param2->unk_03_0 = 0;
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, ((FX32_ONE) / 2));
+        Billboard_AdvanceAnim(param1, ((FX32_ONE) / 2));
     }
 }
 
-static void ov5_021EBC28(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBC28(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     int v0;
 
-    if (param3 != param2->coins) {
+    if (param3 != param2->unk_00) {
         v0 = ov5_021EDF18(param3);
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     } else if (param2->unk_02 == (0x8 + 1)) {
-        ov5_021EC69C(slotsMinigameDTO, ov5_021EDF18(param3));
+        ov5_021EC69C(param1, ov5_021EDF18(param3));
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, (FX32_ONE));
+        Billboard_AdvanceAnim(param1, (FX32_ONE));
     }
 }
 
-static void ov5_021EBC7C(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBC7C(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
-    if (param3 != param2->coins) {
+    if (param3 != param2->unk_00) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     } else if (param2->unk_02 == (0x8 + 1)) {
-        ov5_021EC69C(slotsMinigameDTO, ov5_021EDF18(param3));
+        ov5_021EC69C(param1, ov5_021EDF18(param3));
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, ((FX32_ONE) * 2));
+        Billboard_AdvanceAnim(param1, ((FX32_ONE) * 2));
     }
 }
 
-static void ov5_021EBCD0(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBCD0(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
-    if (param3 != param2->coins) {
+    if (param3 != param2->unk_00) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     } else if (param2->unk_02 == (0x8 + 1)) {
-        ov5_021EC69C(slotsMinigameDTO, ov5_021EDF18(param3));
+        ov5_021EC69C(param1, ov5_021EDF18(param3));
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, ((FX32_ONE) * 4));
+        Billboard_AdvanceAnim(param1, ((FX32_ONE) * 4));
     }
 }
 
-static void ov5_021EBD24(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBD24(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
-    if (param3 != param2->coins) {
+    if (param3 != param2->unk_00) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
         param2->unk_01 = 0;
     } else if (param2->unk_02 == (0x8 + 1)) {
-        ov5_021EC69C(slotsMinigameDTO, ov5_021EDF18(param3));
+        ov5_021EC69C(param1, ov5_021EDF18(param3));
     }
 
     if (param2->unk_02 != 0x6) {
@@ -914,7 +914,7 @@ static void ov5_021EBD24(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
             0
         };
 
-        Billboard_AdvanceAnim(slotsMinigameDTO, v1[param2->unk_01]);
+        Billboard_AdvanceAnim(param1, v1[param2->unk_01]);
         param2->unk_01++;
 
         if (v1[param2->unk_01] == 0) {
@@ -923,16 +923,16 @@ static void ov5_021EBD24(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
     }
 }
 
-static void ov5_021EBDC4(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBDC4(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
-    if (param3 != param2->coins) {
+    if (param3 != param2->unk_00) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
         param2->unk_01 = 0;
     } else if (param2->unk_02 == (0x8 + 1)) {
-        ov5_021EC69C(slotsMinigameDTO, ov5_021EDF18(param3));
+        ov5_021EC69C(param1, ov5_021EDF18(param3));
     }
 
     if (param2->unk_02 != 0x7) {
@@ -947,7 +947,7 @@ static void ov5_021EBDC4(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
             0
         };
 
-        Billboard_AdvanceAnim(slotsMinigameDTO, v1[param2->unk_01]);
+        Billboard_AdvanceAnim(param1, v1[param2->unk_01]);
         param2->unk_01++;
 
         if (v1[param2->unk_01] == 0) {
@@ -956,16 +956,16 @@ static void ov5_021EBDC4(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
     }
 }
 
-static void ov5_021EBE5C(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBE5C(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
-    if (param3 != param2->coins) {
+    if (param3 != param2->unk_00) {
         int v0 = ov5_021EDF18(param3);
 
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
         param2->unk_01 = 0;
     } else if (param2->unk_02 == (0x8 + 1)) {
-        ov5_021EC69C(slotsMinigameDTO, ov5_021EDF18(param3));
+        ov5_021EC69C(param1, ov5_021EDF18(param3));
     }
 
     if (param2->unk_02 != 0x8) {
@@ -984,7 +984,7 @@ static void ov5_021EBE5C(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
             0
         };
 
-        Billboard_AdvanceAnim(slotsMinigameDTO, v1[param2->unk_01]);
+        Billboard_AdvanceAnim(param1, v1[param2->unk_01]);
         param2->unk_01++;
 
         if (v1[param2->unk_01] == 0) {
@@ -993,21 +993,21 @@ static void ov5_021EBE5C(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
     }
 }
 
-static void ov5_021EBEFC(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBEFC(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     int v0;
 
-    if (param3 != param2->coins) {
+    if (param3 != param2->unk_00) {
         v0 = ov5_021EDF24(param3);
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     } else if (param2->unk_02 != (0x8 + 1)) {
         ov5_021EC674(
-            slotsMinigameDTO, ov5_021EDF24(param3), 4);
+            param1, ov5_021EDF24(param3), 4);
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, (FX32_ONE));
+        Billboard_AdvanceAnim(param1, (FX32_ONE));
     }
 }
 
@@ -1030,7 +1030,7 @@ void ov5_021EBF50(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EBA0C *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -1048,75 +1048,75 @@ void ov5_021EBF50(MapObject *mapObj)
     GF_ASSERT(v1 < (((0x8 + 1) + 1) + 1));
 
     if ((v2->unk_02 == 0x0) && (v1 != v2->unk_02) && (v2->unk_03_0 == 0)) {
-        v2->coins = -1;
+        v2->unk_00 = -1;
     }
 
     Unk_ov5_021FF448[v1](mapObj, v3, v2, v0);
 
-    v2->coins = v0;
+    v2->unk_00 = v0;
     v2->unk_02 = v1;
 
     ov5_021EDEB4(mapObj, v3);
     ov5_021EC6C0(mapObj, v3);
 }
 
-static void ov5_021EBFDC(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EBFDC(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     int v0[4] = { 6, 7, 8, 9 };
     int v1 = v0[param3];
 
-    if (param3 != param2->coins) {
-        Billboard_SetAnimNum(slotsMinigameDTO, v1);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+    if (param3 != param2->unk_00) {
+        Billboard_SetAnimNum(param1, v1);
+        Billboard_SetAnimFrameNum(param1, 0);
         param2->unk_03_0 = 0;
     } else if (param2->unk_02 != 0x0) {
         param2->unk_03_0 = 1;
     } else if (param2->unk_03_0 == 1) {
-        Billboard_SetAnimNum(slotsMinigameDTO, v1);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v1);
+        Billboard_SetAnimFrameNum(param1, 0);
         param2->unk_03_0 = 0;
     } else {
-        Billboard_AdvanceAnim(slotsMinigameDTO, (FX32_ONE));
+        Billboard_AdvanceAnim(param1, (FX32_ONE));
     }
 }
 
-static void ov5_021EC068(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EC068(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     int v0 = ov5_021EDF30(param3);
 
-    if ((param3 != param2->coins) || (param2->unk_02 != 0x0)) {
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+    if ((param3 != param2->unk_00) || (param2->unk_02 != 0x0)) {
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     } else if (param2->unk_02 != (0x8 + 1)) {
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
-    } else if (Billboard_GetAnimNum(slotsMinigameDTO) != v0) {
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
+    } else if (Billboard_GetAnimNum(param1) != v0) {
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, ((FX32_ONE) / 2));
+        Billboard_AdvanceAnim(param1, ((FX32_ONE) / 2));
     }
 }
 
-static void ov5_021EC0E4(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EC0E4(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     int v0 = ov5_021EDF30(param3);
 
-    if (param3 != param2->coins) {
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+    if (param3 != param2->unk_00) {
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     } else if (param2->unk_02 != ((0x8 + 1) + 1)) {
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
-    } else if (Billboard_GetAnimNum(slotsMinigameDTO) != v0) {
-        Billboard_SetAnimNum(slotsMinigameDTO, v0);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
+    } else if (Billboard_GetAnimNum(param1) != v0) {
+        Billboard_SetAnimNum(param1, v0);
+        Billboard_SetAnimFrameNum(param1, 0);
     }
 
     if (ov5_021ECD38(mapObj) == 0) {
-        Billboard_AdvanceAnim(slotsMinigameDTO, (FX32_ONE));
+        Billboard_AdvanceAnim(param1, (FX32_ONE));
     }
 }
 
@@ -1149,7 +1149,7 @@ void ov5_021EC15C(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EBA0C *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -1165,56 +1165,56 @@ void ov5_021EC15C(MapObject *mapObj)
     Unk_ov5_021FF31C[v1](mapObj, v3, v2, v0);
     ov5_021EC374(mapObj, v3, v0);
 
-    v2->coins = v0;
+    v2->unk_00 = v0;
     v2->unk_02 = sub_02062A14(mapObj);
 
     ov5_021EDEB4(mapObj, v3);
     ov5_021EC6C0(mapObj, v3);
 }
 
-static void ov5_021EC1D8(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EC1D8(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     fx32 v0;
 
-    if ((param3 != param2->coins) || (param2->unk_02 != 0x0)) {
-        Billboard_SetAnimNum(slotsMinigameDTO, Unk_ov5_021FF34C[param3]);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, (FX32_ONE * 15));
+    if ((param3 != param2->unk_00) || (param2->unk_02 != 0x0)) {
+        Billboard_SetAnimNum(param1, Unk_ov5_021FF34C[param3]);
+        Billboard_SetAnimFrameNum(param1, (FX32_ONE * 15));
     }
 
-    v0 = Billboard_GetAnimFrameNum(slotsMinigameDTO);
+    v0 = Billboard_GetAnimFrameNum(param1);
     v0 -= (FX32_ONE);
 
     if (v0 < 0) {
         v0 = 0;
     }
 
-    Billboard_SetAnimFrameNum(slotsMinigameDTO, v0);
-    Billboard_AdvanceAnim(slotsMinigameDTO, 0);
+    Billboard_SetAnimFrameNum(param1, v0);
+    Billboard_AdvanceAnim(param1, 0);
 }
 
-static void ov5_021EC228(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EC228(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     fx32 v0;
 
-    if ((param3 != param2->coins) || (param2->unk_02 != 0x1)) {
-        Billboard_SetAnimNum(slotsMinigameDTO, Unk_ov5_021FF34C[param3]);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, 0);
+    if ((param3 != param2->unk_00) || (param2->unk_02 != 0x1)) {
+        Billboard_SetAnimNum(param1, Unk_ov5_021FF34C[param3]);
+        Billboard_SetAnimFrameNum(param1, 0);
     }
 
-    Billboard_AdvanceAnim(slotsMinigameDTO, (FX32_ONE));
+    Billboard_AdvanceAnim(param1, (FX32_ONE));
 }
 
-static void ov5_021EC260(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EC260(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     fx32 v0;
 
-    if ((param3 != param2->coins) || (param2->unk_02 != 0x2)) {
-        Billboard_SetAnimNum(slotsMinigameDTO, Unk_ov5_021FF34C[param3]);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, (FX32_ONE * 15));
+    if ((param3 != param2->unk_00) || (param2->unk_02 != 0x2)) {
+        Billboard_SetAnimNum(param1, Unk_ov5_021FF34C[param3]);
+        Billboard_SetAnimFrameNum(param1, (FX32_ONE * 15));
         param2->unk_03_1 = 0;
     }
 
-    v0 = Billboard_GetAnimFrameNum(slotsMinigameDTO);
+    v0 = Billboard_GetAnimFrameNum(param1);
 
     switch (param2->unk_03_1) {
     case 0:
@@ -1241,33 +1241,33 @@ static void ov5_021EC260(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStru
         }
     }
 
-    Billboard_SetAnimFrameNum(slotsMinigameDTO, v0);
-    Billboard_AdvanceAnim(slotsMinigameDTO, 0);
+    Billboard_SetAnimFrameNum(param1, v0);
+    Billboard_AdvanceAnim(param1, 0);
 }
 
-static void ov5_021EC324(MapObject *mapObj, Billboard *slotsMinigameDTO, UnkStruct_ov5_021EBA0C *param2, int param3)
+static void ov5_021EC324(MapObject *mapObj, Billboard *param1, UnkStruct_ov5_021EBA0C *param2, int param3)
 {
     fx32 v0;
 
-    if ((param3 != param2->coins) || (param2->unk_02 != 0x3)) {
-        Billboard_SetAnimNum(slotsMinigameDTO, Unk_ov5_021FF34C[param3]);
-        Billboard_SetAnimFrameNum(slotsMinigameDTO, (FX32_ONE * 15));
+    if ((param3 != param2->unk_00) || (param2->unk_02 != 0x3)) {
+        Billboard_SetAnimNum(param1, Unk_ov5_021FF34C[param3]);
+        Billboard_SetAnimFrameNum(param1, (FX32_ONE * 15));
     }
 
-    v0 = Billboard_GetAnimFrameNum(slotsMinigameDTO) - (FX32_ONE);
+    v0 = Billboard_GetAnimFrameNum(param1) - (FX32_ONE);
 
     if (v0 < 0) {
         v0 = 0;
     }
 
-    Billboard_SetAnimFrameNum(slotsMinigameDTO, v0);
-    Billboard_AdvanceAnim(slotsMinigameDTO, 0);
+    Billboard_SetAnimFrameNum(param1, v0);
+    Billboard_AdvanceAnim(param1, 0);
 }
 
-static void ov5_021EC374(MapObject *mapObj, Billboard *slotsMinigameDTO, int param2)
+static void ov5_021EC374(MapObject *mapObj, Billboard *param1, int param2)
 {
     VecFx32 v0 = { 0, 0, 0 };
-    int v1 = (Billboard_GetFrameNum(slotsMinigameDTO) / FX32_ONE);
+    int v1 = (Billboard_GetFrameNum(param1) / FX32_ONE);
 
     switch (param2) {
     case 0:
@@ -1307,7 +1307,7 @@ void ov5_021EC3F0(MapObject *mapObj)
 {
     int v0;
     UnkStruct_ov5_021EBA0C *v1 = sub_02062AF0(mapObj);
-    Billboard *v2 = v1->slotMachineVariant;
+    Billboard *v2 = v1->unk_04;
 
     v1 = sub_02062AF0(mapObj);
 
@@ -1321,7 +1321,7 @@ void ov5_021EC3F0(MapObject *mapObj)
 
     v0 = MapObject_GetFacingDir(mapObj);
 
-    v1->coins = v0;
+    v1->unk_00 = v0;
     v1->unk_02 = sub_02062A14(mapObj);
 
     {
@@ -1340,7 +1340,7 @@ void ov5_021EC454(MapObject *mapObj)
 {
     int v0;
     UnkStruct_ov5_021EBA0C *v1 = sub_02062AF0(mapObj);
-    Billboard *v2 = v1->slotMachineVariant;
+    Billboard *v2 = v1->unk_04;
 
     v1 = sub_02062AF0(mapObj);
 
@@ -1354,7 +1354,7 @@ void ov5_021EC454(MapObject *mapObj)
 
     v0 = MapObject_GetFacingDir(mapObj);
 
-    v1->coins = v0;
+    v1->unk_00 = v0;
     v1->unk_02 = sub_02062A14(mapObj);
 
     if (Billboard_GetAnimNum(v2) != 0) {
@@ -1372,7 +1372,7 @@ void ov5_021EC4BC(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EBA0C *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -1405,7 +1405,7 @@ void ov5_021EC4BC(MapObject *mapObj)
         Billboard_AdvanceAnim(v3, (FX32_ONE));
     }
 
-    v2->coins = v0;
+    v2->unk_00 = v0;
     v2->unk_02 = sub_02062A14(mapObj);
 
     ov5_021EDEB4(mapObj, v3);
@@ -1416,7 +1416,7 @@ void ov5_021EC554(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EBA0C *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -1430,7 +1430,7 @@ void ov5_021EC554(MapObject *mapObj)
 
     v0 = MapObject_GetFacingDir(mapObj);
 
-    if (v0 != v2->coins) {
+    if (v0 != v2->unk_00) {
         v1 = ov5_021EDF18(v0);
         Billboard_SetAnimNum(v3, v1);
         Billboard_SetAnimFrameNum(v3, 0);
@@ -1440,7 +1440,7 @@ void ov5_021EC554(MapObject *mapObj)
     ov5_021EDEB4(mapObj, v3);
     ov5_021EC6C0(mapObj, v3);
 
-    v2->coins = v0;
+    v2->unk_00 = v0;
     v2->unk_02 = sub_02062A14(mapObj);
 }
 
@@ -1448,7 +1448,7 @@ void ov5_021EC5C0(MapObject *mapObj)
 {
     int v0, v1;
     UnkStruct_ov5_021EBA0C *v2 = sub_02062AF0(mapObj);
-    Billboard *v3 = v2->slotMachineVariant;
+    Billboard *v3 = v2->unk_04;
 
     v2 = sub_02062AF0(mapObj);
 
@@ -1475,20 +1475,20 @@ void ov5_021EC5C0(MapObject *mapObj)
 
     Billboard_AdvanceAnim(v3, (FX32_ONE));
 
-    v2->coins = v0;
+    v2->unk_00 = v0;
     v2->unk_02 = v1;
 
     ov5_021EDEB4(mapObj, v3);
     ov5_021EC6C0(mapObj, v3);
 }
 
-static void ov5_021EC638(Billboard *param0, int slotsMinigameDTO)
+static void ov5_021EC638(Billboard *param0, int param1)
 {
     fx32 v0, v1;
 
     v0 = Billboard_GetAnimFrameNum(param0);
     v0 /= FX32_ONE;
-    v1 = v0 % slotsMinigameDTO;
+    v1 = v0 % param1;
     v0 -= v1;
     v0 *= FX32_ONE;
 
@@ -1501,29 +1501,29 @@ static void ov5_021EC668(Billboard *param0)
     ov5_021EC638(param0, 8);
 }
 
-static void ov5_021EC674(Billboard *param0, int slotsMinigameDTO, int param2)
+static void ov5_021EC674(Billboard *param0, int param1, int param2)
 {
     fx32 v0;
 
     ov5_021EC638(param0, param2);
     v0 = Billboard_GetAnimFrameNum(param0);
 
-    Billboard_SetAnimNum(param0, slotsMinigameDTO);
+    Billboard_SetAnimNum(param0, param1);
     Billboard_SetAnimFrameNum(param0, v0);
 }
 
-static void ov5_021EC69C(Billboard *param0, int slotsMinigameDTO)
+static void ov5_021EC69C(Billboard *param0, int param1)
 {
     fx32 v0;
 
     ov5_021EC668(param0);
     v0 = Billboard_GetAnimFrameNum(param0);
 
-    Billboard_SetAnimNum(param0, slotsMinigameDTO);
+    Billboard_SetAnimNum(param0, param1);
     Billboard_SetAnimFrameNum(param0, v0);
 }
 
-static void ov5_021EC6C0(MapObject *mapObj, Billboard *slotsMinigameDTO)
+static void ov5_021EC6C0(MapObject *mapObj, Billboard *param1)
 {
     int v0 = 1;
 
@@ -1537,16 +1537,16 @@ static void ov5_021EC6C0(MapObject *mapObj, Billboard *slotsMinigameDTO)
         }
     }
 
-    Billboard_SetDrawFlag(slotsMinigameDTO, v0);
+    Billboard_SetDrawFlag(param1, v0);
 }
 
-static void ov5_021EC700(u32 param0, VecFx32 *slotsMinigameDTO)
+static void ov5_021EC700(u32 param0, VecFx32 *param1)
 {
     const ObjectEventGfxFieldAnimsInitialPosEntry *v0 = gObjectEventGfxOverworldAnimsInitialPosTable;
 
     while (v0->graphicsID != 0xffff) {
         if (v0->graphicsID == param0) {
-            *slotsMinigameDTO = v0->initialPos;
+            *param1 = v0->initialPos;
             return;
         }
 
@@ -1561,7 +1561,7 @@ void ov5_021EC734(MapObject *mapObj)
     VecFx32 v0;
     UnkStruct_ov5_021EC760 *v1 = sub_02062ACC(mapObj, (sizeof(UnkStruct_ov5_021EC760)));
     ov5_021EC700(MapObject_GetEffectiveGraphicsID(mapObj), &v0);
-    v1->coins = ov5_021F121C(mapObj, &v0);
+    v1->unk_00 = ov5_021F121C(mapObj, &v0);
 }
 
 void ov5_021EC75C(MapObject *mapObj)
@@ -1573,9 +1573,9 @@ void ov5_021EC760(MapObject *mapObj)
 {
     UnkStruct_ov5_021EC760 *v0 = sub_02062AF0(mapObj);
 
-    if (v0->coins != NULL) {
-        FieldEffectManager_FinishAnimManager(v0->coins);
-        v0->coins = NULL;
+    if (v0->unk_00 != NULL) {
+        FieldEffectManager_FinishAnimManager(v0->unk_00);
+        v0->unk_00 = NULL;
     }
 }
 
@@ -1583,9 +1583,9 @@ void ov5_021EC778(MapObject *mapObj)
 {
     UnkStruct_ov5_021EC760 *v0 = sub_02062AF0(mapObj);
 
-    if (v0->coins != NULL) {
-        FieldEffectManager_FinishAnimManager(v0->coins);
-        v0->coins = NULL;
+    if (v0->unk_00 != NULL) {
+        FieldEffectManager_FinishAnimManager(v0->unk_00);
+        v0->unk_00 = NULL;
     }
 }
 
@@ -1594,32 +1594,32 @@ void ov5_021EC790(MapObject *mapObj)
     VecFx32 v0;
     UnkStruct_ov5_021EC760 *v1 = sub_02062AF0(mapObj);
     ov5_021EC700(MapObject_GetEffectiveGraphicsID(mapObj), &v0);
-    v1->coins = ov5_021F121C(mapObj, &v0);
+    v1->unk_00 = ov5_021F121C(mapObj, &v0);
 }
 
 void ov5_021EC7B8(MapObject *mapObj)
 {
     UnkStruct_ov5_021EC760 *v0 = sub_02062ACC(mapObj, (sizeof(UnkStruct_ov5_021EC760)));
-    v0->coins = ov5_021F2438(mapObj);
+    v0->unk_00 = ov5_021F2438(mapObj);
 }
 
 void ov5_021EC7D0(MapObject *mapObj)
 {
     UnkStruct_ov5_021EC760 *v0 = sub_02062AF0(mapObj);
-    GF_ASSERT(v0->coins == NULL);
-    v0->coins = ov5_021F2438(mapObj);
+    GF_ASSERT(v0->unk_00 == NULL);
+    v0->unk_00 = ov5_021F2438(mapObj);
 }
 
 void ov5_021EC7F0(MapObject *mapObj)
 {
     UnkStruct_ov5_021EC760 *v0 = sub_02062AF0(mapObj);
-    ov5_021F247C(v0->coins);
-    v0->coins = NULL;
+    ov5_021F247C(v0->unk_00);
+    v0->unk_00 = NULL;
 }
 
-static void ov5_021EC804(Billboard *param0, void *slotsMinigameDTO)
+static void ov5_021EC804(Billboard *param0, void *param1)
 {
-    UnkStruct_ov5_021EC804 *v0 = slotsMinigameDTO;
+    UnkStruct_ov5_021EC804 *v0 = param1;
     NNSG3dResMdl *v1 = Billboard_GetModel(param0);
 
     NNS_G3dMdlUseMdlAlpha(v1);
@@ -1631,10 +1631,10 @@ void ov5_021EC824(MapObject *mapObj)
     UnkStruct_ov5_021EC804 *v0 = sub_02062ACC(mapObj, sizeof(UnkStruct_ov5_021EC804));
     v0->unk_02 = -1;
 
-    ov5_021ECF04(mapObj, &v0->slotMachineVariant);
+    ov5_021ECF04(mapObj, &v0->unk_04);
 
-    if (v0->slotMachineVariant != NULL) {
-        Billboard_SetCallback(v0->slotMachineVariant, ov5_021EC804, v0);
+    if (v0->unk_04 != NULL) {
+        Billboard_SetCallback(v0->unk_04, ov5_021EC804, v0);
         sub_02062B68(mapObj);
     }
 }
@@ -1642,18 +1642,18 @@ void ov5_021EC824(MapObject *mapObj)
 void ov5_021EC858(MapObject *mapObj)
 {
     UnkStruct_ov5_021EC804 *v0 = sub_02062AF0(mapObj);
-    ov5_021ECFA4(mapObj, &v0->slotMachineVariant);
+    ov5_021ECFA4(mapObj, &v0->unk_04);
 }
 
 void ov5_021EC86C(MapObject *mapObj)
 {
     UnkStruct_ov5_021EC804 *v0 = sub_02062AF0(mapObj);
 
-    if (v0->slotMachineVariant != NULL) {
-        ov5_021ED01C(v0->slotMachineVariant, &v0->unk_08);
+    if (v0->unk_04 != NULL) {
+        ov5_021ED01C(v0->unk_04, &v0->unk_08);
     }
 
-    ov5_021ECFA4(mapObj, &v0->slotMachineVariant);
+    ov5_021ECFA4(mapObj, &v0->unk_04);
     MapObject_SetStatusFlagOn(mapObj, MAP_OBJ_STATUS_21);
 }
 
@@ -1666,15 +1666,15 @@ void ov5_021EC898(MapObject *mapObj)
         return;
     }
 
-    if (v1->slotMachineVariant == NULL) {
-        ov5_021ECF04(mapObj, &v1->slotMachineVariant);
+    if (v1->unk_04 == NULL) {
+        ov5_021ECF04(mapObj, &v1->unk_04);
     }
 
-    if (v1->slotMachineVariant != NULL) {
-        ov5_021ED03C(v1->slotMachineVariant, &v1->unk_08);
-        ov5_021EDEB4(mapObj, v1->slotMachineVariant);
+    if (v1->unk_04 != NULL) {
+        ov5_021ED03C(v1->unk_04, &v1->unk_08);
+        ov5_021EDEB4(mapObj, v1->unk_04);
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_21);
-        Billboard_SetCallback(v1->slotMachineVariant, ov5_021EC804, v1);
+        Billboard_SetCallback(v1->unk_04, ov5_021EC804, v1);
     }
 }
 
@@ -1690,7 +1690,7 @@ void ov5_021EC8EC(MapObject *mapObj)
         return;
     }
 
-    v3 = v2->slotMachineVariant;
+    v3 = v2->unk_04;
 
     if (v3 == NULL) {
         return;
@@ -1729,7 +1729,7 @@ void ov5_021EC970(MapObject *mapObj)
     UnkStruct_ov5_021EC938 *v0 = sub_02062AF0(mapObj);
 
     if (v0->unk_08 != NULL) {
-        ov5_021ED01C(v0->unk_08, &v0->slotsMinigameDTO);
+        ov5_021ED01C(v0->unk_08, &v0->unk_0C);
     }
 
     ov5_021ECFA4(mapObj, &v0->unk_08);
@@ -1750,7 +1750,7 @@ void ov5_021EC9A0(MapObject *mapObj)
     }
 
     if (v1->unk_08 != NULL) {
-        ov5_021ED03C(v1->unk_08, &v1->slotsMinigameDTO);
+        ov5_021ED03C(v1->unk_08, &v1->unk_0C);
         ov5_021EDEB4(mapObj, v1->unk_08);
         MapObject_SetStatusFlagOff(mapObj, MAP_OBJ_STATUS_21);
     }
@@ -1801,10 +1801,10 @@ void ov5_021EC9E8(MapObject *mapObj)
 
         MapObject_GetSpriteJumpOffset(mapObj, &v4);
 
-        if (v4.y == v2->slotMachineVariant) {
-            v4.y = v5[v2->coins >> 1];
-            v2->coins = (v2->coins + 1) & 0x1f;
-            v2->slotMachineVariant = v4.y;
+        if (v4.y == v2->unk_04) {
+            v4.y = v5[v2->unk_00 >> 1];
+            v2->unk_00 = (v2->unk_00 + 1) & 0x1f;
+            v2->unk_04 = v4.y;
 
             MapObject_SetSpriteJumpOffset(mapObj, &v4);
         }

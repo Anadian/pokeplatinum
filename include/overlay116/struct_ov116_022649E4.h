@@ -13,10 +13,10 @@
 #include "sprite_system.h"
 
 typedef struct {
-    NARC *coins;
-    NARC *slotMachineVariant;
+    NARC *unk_00;
+    NARC *unk_04;
     SpriteSystem *unk_08;
-    SpriteManager *slotsMinigameDTO;
+    SpriteManager *unk_0C;
     BgConfig *unk_10;
     PaletteData *unk_14;
     G3DPipelineBuffers *unk_18;

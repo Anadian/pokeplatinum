@@ -7,7 +7,7 @@
 #include "overlay_manager.h"
 
 UnkStruct_0208C06C *sub_0208BA78(ApplicationManager *appMan);
-void sub_0208BA84(UnkStruct_0208BA84 *param0, BOOL slotsMinigameDTO, int param2);
+void sub_0208BA84(UnkStruct_0208BA84 *param0, BOOL param1, int param2);
 const ApplicationManagerTemplate *sub_0208BE5C(int param0);
 BOOL sub_0208BE68(UnkStruct_0208C06C *param0);
 

@@ -5,7 +5,7 @@
 #include "sprite_resource.h"
 
 typedef struct {
-    SpriteResource *coins[4];
+    SpriteResource *unk_00[4];
     BOOL unk_10;
     SpriteResourcesHeader unk_14;
 } UnkStruct_ov83_0223D95C;

@@ -12,7 +12,7 @@
 #include "wifi_battle_tower_save.h"
 #include "wifi_history_save_data.h"
 
-void sub_02073700(SaveData *saveData, int slotsMinigameDTO, WifiPlayerProfile *profile)
+void sub_02073700(SaveData *saveData, int param1, WifiPlayerProfile *profile)
 {
     TrainerInfo *trainerInfo = SaveData_GetTrainerInfo(saveData);
     WiFiHistory *wiFiHistory = SaveData_WiFiHistory(saveData);
@@ -35,14 +35,14 @@ void sub_02073700(SaveData *saveData, int slotsMinigameDTO, WifiPlayerProfile *p
 
     MI_CpuCopy8(FrontierEasyChatMessages_GetSentence(saveData, 3), profile->no1Sentence, 8);
 
-    if (slotsMinigameDTO == 0) {
+    if (param1 == 0) {
         profile->ratingScore = WifiBattleTowerRecord_UpdateBitFlag(record, 7, 0);
 
         if (profile->ratingScore) {
-            WifiBattleTowerRecord_GetTeam(record, slotsMinigameDTO, profile->mons);
+            WifiBattleTowerRecord_GetTeam(record, param1, profile->mons);
         }
     } else {
         profile->ratingScore = WifiBattleTowerRecord_GetRatingScore(record);
-        WifiBattleTowerRecord_GetTeam(record, slotsMinigameDTO, profile->mons);
+        WifiBattleTowerRecord_GetTeam(record, param1, profile->mons);
     }
 }

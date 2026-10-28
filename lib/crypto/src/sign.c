@@ -4,7 +4,7 @@
 
 #include "bignum.h"
 
-static u32 CRYPTOi_RSA(u8 *param0, int slotsMinigameDTO, const u8 *param2, int param3, const u8 *param4, int param5, int param6)
+static u32 CRYPTOi_RSA(u8 *param0, int param1, const u8 *param2, int param3, const u8 *param4, int param5, int param6)
 {
     BIGNUM bn1;
     BIGNUM bn2;
@@ -35,7 +35,7 @@ static u32 CRYPTOi_RSA(u8 *param0, int slotsMinigameDTO, const u8 *param2, int p
     } else if (!BN_mod_exp(&bn2, &bn1, &bn3, &bn4, ctx)) {
         ret = -2;
     } else {
-        if (BN_num_bytes(&bn2) > slotsMinigameDTO) {
+        if (BN_num_bytes(&bn2) > param1) {
             ret = -1;
         } else {
             ret = BN_bn2bin(&bn2, param0);
@@ -54,12 +54,12 @@ static u32 CRYPTOi_RSA(u8 *param0, int slotsMinigameDTO, const u8 *param2, int p
     return ret;
 }
 
-static BOOL ASN1Skip(u8 **param0, u32 *slotsMinigameDTO, int param2, u32 *param3)
+static BOOL ASN1Skip(u8 **param0, u32 *param1, int param2, u32 *param3)
 {
     u8 *v0 = *param0;
     u32 v1 = 0;
     u32 v2;
-    u32 v3 = *slotsMinigameDTO;
+    u32 v3 = *param1;
     if (*v0++ != param2) {
         return FALSE;
     }
@@ -96,7 +96,7 @@ static BOOL ASN1Skip(u8 **param0, u32 *slotsMinigameDTO, int param2, u32 *param3
     }
 
     *param0 = v0;
-    *slotsMinigameDTO = v2;
+    *param1 = v2;
     if (param3 != NULL) {
         *param3 = v1;
     }
@@ -104,13 +104,13 @@ static BOOL ASN1Skip(u8 **param0, u32 *slotsMinigameDTO, int param2, u32 *param3
     return TRUE;
 }
 
-static BOOL SkipPadding(u8 *param0, u32 slotsMinigameDTO, u8 **param2, u32 *param3)
+static BOOL SkipPadding(u8 *param0, u32 param1, u8 **param2, u32 *param3)
 {
-    if (slotsMinigameDTO < 10) {
+    if (param1 < 10) {
         return FALSE;
     }
 
-    u8 *v0 = param0 + slotsMinigameDTO;
+    u8 *v0 = param0 + param1;
 
     if (*param0 != 1) {
         return FALSE;
@@ -145,17 +145,17 @@ static BOOL SkipPadding(u8 *param0, u32 slotsMinigameDTO, u8 **param2, u32 *para
     return TRUE;
 }
 
-static BOOL ParseSignHash(u8 *param0, u32 slotsMinigameDTO, u8 **param2, int *param3, u8 **param4, int *param5)
+static BOOL ParseSignHash(u8 *param0, u32 param1, u8 **param2, int *param3, u8 **param4, int *param5)
 {
     u32 v0;
 
-    if (!ASN1Skip(&param0, &slotsMinigameDTO, 0x30, 0)) {
+    if (!ASN1Skip(&param0, &param1, 0x30, 0)) {
         return FALSE;
     }
-    if (!ASN1Skip(&param0, &slotsMinigameDTO, 0x30, 0)) {
+    if (!ASN1Skip(&param0, &param1, 0x30, 0)) {
         return FALSE;
     }
-    if (!ASN1Skip(&param0, &slotsMinigameDTO, 6, &v0)) {
+    if (!ASN1Skip(&param0, &param1, 6, &v0)) {
         return FALSE;
     }
 
@@ -167,22 +167,22 @@ static BOOL ParseSignHash(u8 *param0, u32 slotsMinigameDTO, u8 **param2, int *pa
     }
 
     param0 += v0;
-    if (slotsMinigameDTO < v0) {
+    if (param1 < v0) {
         return FALSE;
     }
-    slotsMinigameDTO -= v0;
+    param1 -= v0;
 
-    if (!ASN1Skip(&param0, &slotsMinigameDTO, 5, &v0)) {
+    if (!ASN1Skip(&param0, &param1, 5, &v0)) {
         return FALSE;
     }
 
     param0 += v0;
-    if (slotsMinigameDTO < v0) {
+    if (param1 < v0) {
         return FALSE;
     }
-    slotsMinigameDTO -= v0;
+    param1 -= v0;
 
-    if (!ASN1Skip(&param0, &slotsMinigameDTO, 4, &v0)) {
+    if (!ASN1Skip(&param0, &param1, 4, &v0)) {
         return FALSE;
     }
 
@@ -196,14 +196,14 @@ static BOOL ParseSignHash(u8 *param0, u32 slotsMinigameDTO, u8 **param2, int *pa
     return TRUE;
 }
 
-static BOOL CRYPTO_VerifySignatureWithHash(u8 *param0, const u8 *slotsMinigameDTO, const u8 *param2)
+static BOOL CRYPTO_VerifySignatureWithHash(u8 *param0, const u8 *param1, const u8 *param2)
 {
     u8 *v0;
     u32 v1 = 0;
     u8 *v2;
     int v3 = 0;
     u8 v4[0x100];
-    u32 v5 = CRYPTOi_RSA(v4, 0x100, slotsMinigameDTO, 0x80, param2, 0x80, 0x10001);
+    u32 v5 = CRYPTOi_RSA(v4, 0x100, param1, 0x80, param2, 0x80, 0x10001);
 
     if (!SkipPadding(v4, v5, &v0, &v1)) {
         return FALSE;
@@ -229,9 +229,9 @@ static BOOL CRYPTO_VerifySignatureWithHash(u8 *param0, const u8 *slotsMinigameDT
     return TRUE;
 }
 
-BOOL CRYPTO_VerifySignature(const u8 *param0, int slotsMinigameDTO, const u8 *param2, const u8 *param3)
+BOOL CRYPTO_VerifySignature(const u8 *param0, int param1, const u8 *param2, const u8 *param3)
 {
     u8 v0[20];
-    MATH_CalcSHA1(v0, param0, slotsMinigameDTO);
+    MATH_CalcSHA1(v0, param0, param1);
     return CRYPTO_VerifySignatureWithHash(v0, param2, param3);
 }

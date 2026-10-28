@@ -8,10 +8,10 @@
 
 BOOL CommQueue_IsEmpty(CommQueueMan *param0);
 BOOL CommQueue_Write(CommQueueMan *param0, int cmd, u8 *data, int size, BOOL param4, BOOL param5);
-BOOL sub_02032574(CommQueueMan *param0, UnkStruct_0203233C *slotsMinigameDTO, BOOL param2);
-void CommQueueMan_Init(CommQueueMan *param0, int slotsMinigameDTO, CommRing *param2);
+BOOL sub_02032574(CommQueueMan *param0, UnkStruct_0203233C *param1, BOOL param2);
+void CommQueueMan_Init(CommQueueMan *param0, int param1, CommRing *param2);
 void CommQueueMan_Reset(CommQueueMan *param0);
 void CommQueueMan_Delete(CommQueueMan *param0);
-BOOL CommQueueMan_IsCmdInQueue(CommQueueMan *param0, int slotsMinigameDTO);
+BOOL CommQueueMan_IsCmdInQueue(CommQueueMan *param0, int param1);
 
 #endif // POKEPLATINUM_UNK_020322D8_H

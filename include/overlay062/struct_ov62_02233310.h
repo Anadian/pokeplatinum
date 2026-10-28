@@ -9,11 +9,11 @@
 #include "sprite_system.h"
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     s16 unk_08;
     u8 padding_0A[2];
-    int slotsMinigameDTO;
+    int unk_0C;
     int unk_10;
     int unk_14;
     Window unk_18;

@@ -5,7 +5,7 @@
 #include "overlay062/struct_ov62_02239DA4_sub1.h"
 
 typedef struct {
-    u16 coins[12];
+    u16 unk_00[12];
     u8 unk_18[12];
     u16 unk_24;
     u8 unk_26;

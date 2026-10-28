@@ -19,7 +19,7 @@
 #include "communication_system.h"
 #include "trainer_info.h"
 
-void ov83_0223D150(UnkStruct_ov83_0223B784 *param0, TrainerInfo *slotsMinigameDTO)
+void ov83_0223D150(UnkStruct_ov83_0223B784 *param0, TrainerInfo *param1)
 {
     int v0;
     int v1;
@@ -46,7 +46,7 @@ void ov83_0223D150(UnkStruct_ov83_0223B784 *param0, TrainerInfo *slotsMinigameDT
         }
     } else {
         param0->unk_1494.unk_130[0] = 0;
-        param0->unk_1494.unk_134[0] = slotsMinigameDTO;
+        param0->unk_1494.unk_134[0] = param1;
     }
 }
 
@@ -56,37 +56,37 @@ void ov83_0223D1EC(UnkStruct_ov83_0223B784 *param0)
     param0->unk_148C = NULL;
 }
 
-void ov83_0223D204(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D204(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
     ov83_0223B774(v0, 3);
 }
 
-void ov83_0223D210(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D210(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
     ov83_0223B77C(v0, 8);
 }
 
-void ov83_0223D21C(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D21C(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
 
-    memcpy(&v0->unk_1494.unk_6C, param2, slotsMinigameDTO);
+    memcpy(&v0->unk_1494.unk_6C, param2, param1);
     v0->unk_1494.unk_90[0].unk_08 = v0->unk_1494.unk_6C.unk_10;
     ov83_0223B774(v0, 5);
 }
 
-void ov83_0223D258(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D258(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
     int v1;
     int v2;
 
     if (ov83_0223D570(v0->unk_148C) == 0) {
-        memcpy(&v0->unk_1494.unk_114[param0], param2, slotsMinigameDTO);
+        memcpy(&v0->unk_1494.unk_114[param0], param2, param1);
         v0->unk_1494.unk_124[param0] = 1;
-        v0->unk_1494.unk_34.coins[param0] = v0->unk_1494.unk_114[param0];
+        v0->unk_1494.unk_34.unk_00[param0] = v0->unk_1494.unk_114[param0];
         v2 = 0;
 
         for (v1 = 0; v1 < 4; v1++) {
@@ -102,7 +102,7 @@ void ov83_0223D258(int param0, int slotsMinigameDTO, void *param2, void *param3)
     }
 }
 
-void ov83_0223D2E8(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D2E8(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
     UnkStruct_ov83_0223D2E8 *v1;
@@ -115,22 +115,22 @@ void ov83_0223D2E8(int param0, int slotsMinigameDTO, void *param2, void *param3)
 
     if ((v0->unk_1494.unk_90[param0].unk_08.unk_0E == 1) && (v2->unk_0E == 0) && (param0 == 0)) {
         v3 = 1;
-        v4 = v0->unk_1494.unk_90[param0].unk_08.slotsMinigameDTO;
+        v4 = v0->unk_1494.unk_90[param0].unk_08.unk_0C;
     } else {
         v3 = 0;
     }
 
-    memcpy(&v0->unk_1494.unk_90[param0], param2, slotsMinigameDTO);
+    memcpy(&v0->unk_1494.unk_90[param0], param2, param1);
 
     if (v3 == 1) {
         v0->unk_1494.unk_90[param0].unk_08.unk_0E = v3;
-        v0->unk_1494.unk_90[param0].unk_08.slotsMinigameDTO = v4;
+        v0->unk_1494.unk_90[param0].unk_08.unk_0C = v4;
     }
 
     v0->unk_1666++;
 }
 
-void ov83_0223D354(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D354(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
     UnkStruct_ov83_0223FCE8 *v1;
@@ -141,50 +141,50 @@ void ov83_0223D354(int param0, int slotsMinigameDTO, void *param2, void *param3)
 
     if ((v0->unk_1494.unk_90[param0].unk_08.unk_0E == 1) && (v1->unk_0E == 0)) {
         v2 = 1;
-        v3 = v0->unk_1494.unk_90[param0].unk_08.slotsMinigameDTO;
+        v3 = v0->unk_1494.unk_90[param0].unk_08.unk_0C;
     } else {
         v2 = 0;
     }
 
-    memcpy(&v0->unk_1494.unk_90[param0].unk_08, param2, slotsMinigameDTO);
+    memcpy(&v0->unk_1494.unk_90[param0].unk_08, param2, param1);
 
     if (v2 == 1) {
         v0->unk_1494.unk_90[param0].unk_08.unk_0E = v2;
-        v0->unk_1494.unk_90[param0].unk_08.slotsMinigameDTO = v3;
+        v0->unk_1494.unk_90[param0].unk_08.unk_0C = v3;
     }
 }
 
-void ov83_0223D3A8(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D3A8(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
 
-    memcpy(&v0->unk_1494.unk_90[param0].coins, param2, slotsMinigameDTO);
+    memcpy(&v0->unk_1494.unk_90[param0].unk_00, param2, param1);
     v0->unk_165C[param0]++;
 }
 
-void ov83_0223D3D8(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D3D8(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
 
-    memcpy(&v0->unk_1494.unk_58, param2, slotsMinigameDTO);
+    memcpy(&v0->unk_1494.unk_58, param2, param1);
     ov83_0223B774(v0, 10);
 }
 
-void ov83_0223D3F8(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D3F8(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
-    memcpy(v0->unk_1494.unk_100, param2, slotsMinigameDTO);
+    memcpy(v0->unk_1494.unk_100, param2, param1);
 }
 
-void ov83_0223D410(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D410(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
 
-    memcpy(&v0->unk_1494.unk_145, param2, slotsMinigameDTO);
+    memcpy(&v0->unk_1494.unk_145, param2, param1);
     ov83_0223B774(v0, 12);
 }
 
-void ov83_0223D430(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void ov83_0223D430(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov83_0223B784 *v0 = param3;
     int v1;
@@ -192,7 +192,7 @@ void ov83_0223D430(int param0, int slotsMinigameDTO, void *param2, void *param3)
     u8 v3;
 
     if (ov83_0223D570(v0->unk_148C) == 0) {
-        memcpy(&v0->unk_1494.unk_128[param0], param2, slotsMinigameDTO);
+        memcpy(&v0->unk_1494.unk_128[param0], param2, param1);
         v0->unk_1494.unk_12C[param0] = 1;
 
         v2 = 0;

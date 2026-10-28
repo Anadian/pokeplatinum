@@ -8,7 +8,7 @@
 #include "char_transfer.h"
 
 typedef struct {
-    UnkStruct_ov22_02259C58 coins;
+    UnkStruct_ov22_02259C58 unk_00;
     FontOAM *unk_10;
     CharTransferAllocation unk_14;
 } UnkStruct_ov22_0225A154;

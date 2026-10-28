@@ -5,10 +5,10 @@
 #include "trainer_info.h"
 
 typedef struct {
-    enum PlazaMinigame coins;
-    u32 slotMachineVariant;
+    enum PlazaMinigame unk_00;
+    u32 unk_04;
     const TrainerInfo *unk_08;
-    const TrainerInfo *slotsMinigameDTO;
+    const TrainerInfo *unk_0C;
     const TrainerInfo *unk_10;
     const TrainerInfo *unk_14;
     u16 unk_18;

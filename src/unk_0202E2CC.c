@@ -21,7 +21,7 @@
 #include "savedata.h"
 
 static void TVBroadcast_ClearPlayedSegments(TVBroadcast *broadcast);
-static TVSegmentInstance *sub_0202E4DC(TVBroadcast *broadcast, int slotsMinigameDTO);
+static TVSegmentInstance *sub_0202E4DC(TVBroadcast *broadcast, int param1);
 
 int TVBroadcast_SaveSize(void)
 {
@@ -36,7 +36,7 @@ void TVBroadcast_Init(TVBroadcast *broadcast)
 
 void sub_0202E2EC(TVBroadcast *broadcast)
 {
-    MI_CpuClearFast(broadcast->slotsMinigameDTO, sizeof(TVSegmentInstance) * 4);
+    MI_CpuClearFast(broadcast->unk_0C, sizeof(TVSegmentInstance) * 4);
     MI_CpuClearFast(broadcast->unk_C4, sizeof(TVSegmentInstance) * 4);
     MI_CpuClearFast(broadcast->unk_17C, sizeof(TVSegmentInstance) * 4);
 
@@ -152,10 +152,10 @@ static void sub_0202E3F4(TVSegmentInstance *param0, int segmentID, const u8 *par
     SaveData_SetChecksum(SAVE_TABLE_ENTRY_TV_BROADCAST);
 }
 
-BOOL TVBroadcast_SaveSegmentData(TVBroadcast *broadcast, int slotsMinigameDTO, int param2, const u8 *param3)
+BOOL TVBroadcast_SaveSegmentData(TVBroadcast *broadcast, int param1, int param2, const u8 *param3)
 {
     int i;
-    TVSegmentInstance *v1 = sub_0202E4DC(broadcast, slotsMinigameDTO);
+    TVSegmentInstance *v1 = sub_0202E4DC(broadcast, param1);
 
     for (i = 0; i < 4; i++) {
         if (v1[i].segmentID == param2) {
@@ -212,16 +212,16 @@ TVSegmentInstance *sub_0202E4D8(TVSegmentInstance *param0)
     return param0;
 }
 
-static TVSegmentInstance *sub_0202E4DC(TVBroadcast *broadcast, int slotsMinigameDTO)
+static TVSegmentInstance *sub_0202E4DC(TVBroadcast *broadcast, int param1)
 {
     TVSegmentInstance *v0 = NULL;
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 1:
         v0 = broadcast->unk_17C;
         break;
     case 2:
-        v0 = broadcast->slotsMinigameDTO;
+        v0 = broadcast->unk_0C;
         break;
     case 3:
         v0 = broadcast->unk_C4;
@@ -234,11 +234,11 @@ static TVSegmentInstance *sub_0202E4DC(TVBroadcast *broadcast, int slotsMinigame
     return v0;
 }
 
-static TVWifiEpisode *sub_0202E518(TVBroadcast *broadcast, int slotsMinigameDTO)
+static TVWifiEpisode *sub_0202E518(TVBroadcast *broadcast, int param1)
 {
     TVWifiEpisode *v0 = NULL;
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 2:
         v0 = broadcast->unk_234;
         break;
@@ -275,11 +275,11 @@ void *sub_0202E574(TVSegmentInstance *param0)
     return param0->segment;
 }
 
-static int sub_0202E578(const TVSegmentInstance *param0, int slotsMinigameDTO, int param2, BOOL param3, u8 *param4)
+static int sub_0202E578(const TVSegmentInstance *param0, int param1, int param2, BOOL param3, u8 *param4)
 {
     int v0, v1;
 
-    for (v1 = 0, v0 = 0; v0 < slotsMinigameDTO; v0++) {
+    for (v1 = 0, v0 = 0; v0 < param1; v0++) {
         if (param0[v0].segmentID == param2) {
             int v2 = param0[v0].timesPlayed;
 
@@ -296,11 +296,11 @@ static int sub_0202E578(const TVSegmentInstance *param0, int slotsMinigameDTO, i
     return v1;
 }
 
-static int sub_0202E5B8(const TVWifiEpisode *param0, int slotsMinigameDTO, int param2, BOOL param3, u8 *param4)
+static int sub_0202E5B8(const TVWifiEpisode *param0, int param1, int param2, BOOL param3, u8 *param4)
 {
     int v0, v1;
 
-    for (v1 = 0, v0 = 0; v0 < slotsMinigameDTO; v0++) {
+    for (v1 = 0, v0 = 0; v0 < param1; v0++) {
         int v2 = param0[v0].details.timesPlayed;
 
         if (param0[v0].details.segmentID == param2) {
@@ -317,12 +317,12 @@ static int sub_0202E5B8(const TVWifiEpisode *param0, int slotsMinigameDTO, int p
     return v1;
 }
 
-int sub_0202E614(const TVBroadcast *broadcast, int slotsMinigameDTO, int param2, BOOL param3, BOOL param4, u8 *param5)
+int sub_0202E614(const TVBroadcast *broadcast, int param1, int param2, BOOL param3, BOOL param4, u8 *param5)
 {
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 2:
         if (param3) {
-            return sub_0202E578(broadcast->slotsMinigameDTO, 4, param2, param4, param5);
+            return sub_0202E578(broadcast->unk_0C, 4, param2, param4, param5);
         } else {
             return sub_0202E5B8(broadcast->unk_234, 16, param2, param4, param5);
         }
@@ -347,7 +347,7 @@ int sub_0202E614(const TVBroadcast *broadcast, int slotsMinigameDTO, int param2,
     return 0;
 }
 
-BOOL sub_0202E6B0(TVBroadcast *broadcast, int slotsMinigameDTO, int param2)
+BOOL sub_0202E6B0(TVBroadcast *broadcast, int param1, int param2)
 {
     int v0;
     int i;
@@ -356,17 +356,17 @@ BOOL sub_0202E6B0(TVBroadcast *broadcast, int slotsMinigameDTO, int param2)
 
     MI_CpuClear8(v2, 4);
 
-    v0 = sub_0202E614(broadcast, slotsMinigameDTO, param2, 1, 0, v2);
+    v0 = sub_0202E614(broadcast, param1, param2, 1, 0, v2);
 
     if (v0 != 0) {
         return 0;
     }
 
-    v0 = sub_0202E614(broadcast, slotsMinigameDTO, param2, 1, 1, v2);
+    v0 = sub_0202E614(broadcast, param1, param2, 1, 1, v2);
 
     if (v0 != 0) {
         for (i = 0; i < 4 & v2[i] != 0; i++) {
-            v3 = sub_0202E768(broadcast, slotsMinigameDTO, v2[i]);
+            v3 = sub_0202E768(broadcast, param1, v2[i]);
 
             if (v3->timesPlayed >= 3) {
                 return 1;
@@ -377,7 +377,7 @@ BOOL sub_0202E6B0(TVBroadcast *broadcast, int slotsMinigameDTO, int param2)
     }
 
     for (i = 1; i <= 4; i++) {
-        v3 = sub_0202E768(broadcast, slotsMinigameDTO, i);
+        v3 = sub_0202E768(broadcast, param1, i);
 
         if ((v3->segmentID == 0) || (v3->timesPlayed >= 3)) {
             return 1;
@@ -387,26 +387,26 @@ BOOL sub_0202E6B0(TVBroadcast *broadcast, int slotsMinigameDTO, int param2)
     return 0;
 }
 
-TVSegmentInstance *sub_0202E768(TVBroadcast *broadcast, int slotsMinigameDTO, int param2)
+TVSegmentInstance *sub_0202E768(TVBroadcast *broadcast, int param1, int param2)
 {
     TVSegmentInstance *v0;
 
     GF_ASSERT(sub_0202E7C0(param2) == 1);
 
     param2 &= ~0x80;
-    v0 = sub_0202E4DC(broadcast, slotsMinigameDTO);
+    v0 = sub_0202E4DC(broadcast, param1);
 
     return &v0[param2 - 1];
 }
 
-TVWifiEpisode *sub_0202E794(TVBroadcast *broadcast, int slotsMinigameDTO, int param2)
+TVWifiEpisode *sub_0202E794(TVBroadcast *broadcast, int param1, int param2)
 {
     TVWifiEpisode *v0;
 
     GF_ASSERT(sub_0202E7C0(param2) == 0);
 
     param2 &= ~0x80;
-    v0 = sub_0202E518(broadcast, slotsMinigameDTO);
+    v0 = sub_0202E518(broadcast, param1);
 
     return &v0[param2 - 1];
 }

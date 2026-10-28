@@ -50,12 +50,12 @@ FS_EXTERN_OVERLAY(battle_anim);
 FS_EXTERN_OVERLAY(capsule_menu);
 
 typedef struct {
-    int coins;
+    int unk_00;
 } UnkStruct_02097F38_sub1;
 
 typedef struct {
     CapsuleAppManager *capsuleAppMan;
-    UnkStruct_02097F38_sub1 *slotMachineVariant;
+    UnkStruct_02097F38_sub1 *unk_04;
     CapsuleAppData *appData;
     PartyMenu *partyMenu;
     SaveData *saveData;

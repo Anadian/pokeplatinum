@@ -33,7 +33,7 @@
 #include "unk_0209BA80.h"
 #include "wifi_battle_tower_save.h"
 
-static u16 BattleTower_GetPartnerParam(BattleTower *battleTower, u8 slotsMinigameDTO);
+static u16 BattleTower_GetPartnerParam(BattleTower *battleTower, u8 param1);
 
 BOOL ScrCmd_InitBattleTower(ScriptContext *ctx)
 {

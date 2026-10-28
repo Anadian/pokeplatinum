@@ -64,7 +64,7 @@ enum FormCategory {
 };
 
 typedef struct FormMainData {
-    int *coins;
+    int *unk_00;
     PokedexSortData *sortData;
     const PokedexScreenManager *mainScreen;
     enum FormCategory formCategory;
@@ -210,7 +210,7 @@ static FormMainData *LoadAppData(enum HeapID heapID, PokedexApp *pokedexApp)
     GF_ASSERT(formMainData);
     memset(formMainData, 0, sizeof(FormMainData));
 
-    formMainData->coins = ov21_021D138C(pokedexApp);
+    formMainData->unk_00 = ov21_021D138C(pokedexApp);
     formMainData->sortData = PokedexMain_GetSortData(pokedexApp);
     formMainData->mainScreen = ov21_021D1410(pokedexApp, 5);
 

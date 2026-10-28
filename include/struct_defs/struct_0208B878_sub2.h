@@ -4,11 +4,11 @@
 #include "sprite_system.h"
 
 typedef struct {
-    ManagedSprite *coins;
-    s16 slotMachineVariant;
+    ManagedSprite *unk_00;
+    s16 unk_04;
     s16 unk_06;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
 } UnkStruct_0208B878_sub2;
 
 #endif // POKEPLATINUM_STRUCT_0208B878_SUB2_H

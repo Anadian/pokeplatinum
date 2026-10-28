@@ -59,7 +59,7 @@ u32 WifiBattleTowerSave_GetField(WifiBattleTowerSave *save, int fieldId, void *o
     case BT_WIFI_SAVE_FIELD_UNK_03:
         return (u32)save->unk_03;
     case BT_WIFI_SAVE_FIELD_UNK_04:
-        return save->slotMachineVariant;
+        return save->unk_04;
     case BT_WIFI_SAVE_FIELD_UNK_06:
         return save->unk_06;
     case BT_WIFI_SAVE_FIELD_PARTY_SLOTS:
@@ -99,7 +99,7 @@ void WifiBattleTowerSave_SetField(WifiBattleTowerSave *save, int fieldId, const 
         save->unk_03 = inBuf8[0];
         break;
     case BT_WIFI_SAVE_FIELD_UNK_04:
-        save->slotMachineVariant = inBuf16[0];
+        save->unk_04 = inBuf16[0];
         break;
     case BT_WIFI_SAVE_FIELD_UNK_06:
         save->unk_06 = inBuf16[0];
@@ -125,14 +125,14 @@ void WifiBattleTowerSave_SetField(WifiBattleTowerSave *save, int fieldId, const 
     }
 }
 
-void WifiBattleTowerSave_AddCounters(WifiBattleTowerSave *save, u8 slotsMinigameDTO, u16 param2, u16 param3)
+void WifiBattleTowerSave_AddCounters(WifiBattleTowerSave *save, u8 param1, u16 param2, u16 param3)
 {
-    if (save->unk_03 + slotsMinigameDTO < (u8)(-1)) {
-        save->unk_03 += slotsMinigameDTO;
+    if (save->unk_03 + param1 < (u8)(-1)) {
+        save->unk_03 += param1;
     }
 
-    if (save->slotMachineVariant + param2 < (u16)(-1)) {
-        save->slotMachineVariant += param2;
+    if (save->unk_04 + param2 < (u16)(-1)) {
+        save->unk_04 += param2;
     }
 
     if (save->unk_06 + param3 < (u16)(-1)) {
@@ -245,7 +245,7 @@ u16 WifiBattleTowerRecord_CalcRatingScore(WifiBattleTowerRecord *record, WifiBat
     u16 progressScore, penaltyA, penaltyB, efficiencyBonus, performanceScore;
 
     progressScore = (save->nextOpponentNum - 1) * 1000;
-    penaltyA = save->slotMachineVariant * 10;
+    penaltyA = save->unk_04 * 10;
     penaltyB = save->unk_03 * 20;
 
     if (penaltyA + penaltyB > 950) {

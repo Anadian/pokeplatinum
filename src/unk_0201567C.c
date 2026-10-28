@@ -11,14 +11,14 @@
 #include "sys_task_extensions.h"
 #include "sys_task_manager.h"
 
-static void sub_0201576C(SysTask *param0, void *slotsMinigameDTO);
+static void sub_0201576C(SysTask *param0, void *param1);
 static u8 sub_020157E4(PaletteAnimator *param0);
-static void sub_02015840(PaletteAnimator *param0, u16 *slotsMinigameDTO);
-static void sub_02015858(PaletteAnimator *param0, u16 *slotsMinigameDTO);
-static void sub_02015870(PaletteAnimator *param0, u16 *slotsMinigameDTO);
-static void sub_0201588C(PaletteAnimator *param0, u16 *slotsMinigameDTO);
+static void sub_02015840(PaletteAnimator *param0, u16 *param1);
+static void sub_02015858(PaletteAnimator *param0, u16 *param1);
+static void sub_02015870(PaletteAnimator *param0, u16 *param1);
+static void sub_0201588C(PaletteAnimator *param0, u16 *param1);
 
-PaletteAnimator *sub_0201567C(PaletteData *param0, u16 slotsMinigameDTO, u16 param2, enum HeapID heapID)
+PaletteAnimator *sub_0201567C(PaletteData *param0, u16 param1, u16 param2, enum HeapID heapID)
 {
     PaletteAnimator *v0;
     SysTask *v1;
@@ -28,29 +28,29 @@ PaletteAnimator *sub_0201567C(PaletteData *param0, u16 slotsMinigameDTO, u16 par
     v0 = (PaletteAnimator *)SysTask_GetParam(v1);
 
     if (param0 != NULL) {
-        if (slotsMinigameDTO == 0) {
+        if (param1 == 0) {
             v2 = PaletteData_GetUnfadedBuffer(param0, 0);
-            v0->slotMachineVariant = sub_02015870;
+            v0->unk_04 = sub_02015870;
         } else {
             v2 = PaletteData_GetUnfadedBuffer(param0, 1);
-            v0->slotMachineVariant = sub_0201588C;
+            v0->unk_04 = sub_0201588C;
         }
     } else {
-        if (slotsMinigameDTO == 0) {
+        if (param1 == 0) {
             v2 = (u16 *)GetHardwareMainBgPaletteAddress();
-            v0->slotMachineVariant = sub_02015840;
+            v0->unk_04 = sub_02015840;
         } else {
             v2 = (u16 *)GetHardwareSubBgPaletteAddress();
-            v0->slotMachineVariant = sub_02015858;
+            v0->unk_04 = sub_02015858;
         }
     }
 
-    MI_CpuCopy16(&v2[param2 * 16], v0->slotsMinigameDTO, 0x20);
+    MI_CpuCopy16(&v2[param2 * 16], v0->unk_0C, 0x20);
     MI_CpuCopy16(&v2[param2 * 16], v0->unk_2C, 0x20);
 
-    v0->coins = v1;
+    v0->unk_00 = v1;
     v0->unk_08 = param0;
-    v0->unk_4C = slotsMinigameDTO;
+    v0->unk_4C = param1;
     v0->unk_4D = param2;
     v0->unk_4E = 1;
     v0->unk_4F = 0;
@@ -58,10 +58,10 @@ PaletteAnimator *sub_0201567C(PaletteData *param0, u16 slotsMinigameDTO, u16 par
     return v0;
 }
 
-void sub_02015738(PaletteAnimator *param0, u8 slotsMinigameDTO)
+void sub_02015738(PaletteAnimator *param0, u8 param1)
 {
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 0:
         param0->unk_4E = 0;
         break;
@@ -75,12 +75,12 @@ void sub_02015738(PaletteAnimator *param0, u8 slotsMinigameDTO)
 
 void sub_02015760(PaletteAnimator *param0)
 {
-    SysTask_FinishAndFreeParam(param0->coins);
+    SysTask_FinishAndFreeParam(param0->unk_00);
 }
 
-static void sub_0201576C(SysTask *param0, void *slotsMinigameDTO)
+static void sub_0201576C(SysTask *param0, void *param1)
 {
-    PaletteAnimator *v0 = (PaletteAnimator *)slotsMinigameDTO;
+    PaletteAnimator *v0 = (PaletteAnimator *)param1;
 
     switch (v0->unk_4E) {
     case 0:
@@ -89,7 +89,7 @@ static void sub_0201576C(SysTask *param0, void *slotsMinigameDTO)
         break;
     case 1:
         if (sub_020157E4(v0) == 1) {
-            v0->slotMachineVariant(v0, v0->unk_2C);
+            v0->unk_04(v0, v0->unk_2C);
         }
 
         v0->unk_4F++;
@@ -101,7 +101,7 @@ static void sub_0201576C(SysTask *param0, void *slotsMinigameDTO)
     case 2:
         break;
     case 3:
-        v0->slotMachineVariant(v0, v0->slotsMinigameDTO);
+        v0->unk_04(v0, v0->unk_0C);
         SysTask_FinishAndFreeParam(param0);
     }
 }
@@ -116,7 +116,7 @@ static u8 sub_020157E4(PaletteAnimator *param0)
                 continue;
             }
 
-            param0->unk_2C[v0] = param0->slotsMinigameDTO[v0];
+            param0->unk_2C[v0] = param0->unk_0C[v0];
         }
 
         return 1;
@@ -126,7 +126,7 @@ static u8 sub_020157E4(PaletteAnimator *param0)
                 continue;
             }
 
-            param0->unk_2C[v0] = param0->slotsMinigameDTO[15];
+            param0->unk_2C[v0] = param0->unk_0C[15];
         }
 
         return 1;
@@ -135,22 +135,22 @@ static u8 sub_020157E4(PaletteAnimator *param0)
     return 0;
 }
 
-static void sub_02015840(PaletteAnimator *param0, u16 *slotsMinigameDTO)
+static void sub_02015840(PaletteAnimator *param0, u16 *param1)
 {
-    Bg_LoadPalette(BG_LAYER_MAIN_0, slotsMinigameDTO, PALETTE_SIZE_BYTES, PLTT_OFFSET(param0->unk_4D));
+    Bg_LoadPalette(BG_LAYER_MAIN_0, param1, PALETTE_SIZE_BYTES, PLTT_OFFSET(param0->unk_4D));
 }
 
-static void sub_02015858(PaletteAnimator *param0, u16 *slotsMinigameDTO)
+static void sub_02015858(PaletteAnimator *param0, u16 *param1)
 {
-    Bg_LoadPalette(BG_LAYER_SUB_0, slotsMinigameDTO, PALETTE_SIZE_BYTES, PLTT_OFFSET(param0->unk_4D));
+    Bg_LoadPalette(BG_LAYER_SUB_0, param1, PALETTE_SIZE_BYTES, PLTT_OFFSET(param0->unk_4D));
 }
 
-static void sub_02015870(PaletteAnimator *param0, u16 *slotsMinigameDTO)
+static void sub_02015870(PaletteAnimator *param0, u16 *param1)
 {
-    PaletteData_LoadBuffer(param0->unk_08, slotsMinigameDTO, PLTTBUF_MAIN_BG, PLTT_DEST(param0->unk_4D), PALETTE_SIZE_BYTES);
+    PaletteData_LoadBuffer(param0->unk_08, param1, PLTTBUF_MAIN_BG, PLTT_DEST(param0->unk_4D), PALETTE_SIZE_BYTES);
 }
 
-static void sub_0201588C(PaletteAnimator *param0, u16 *slotsMinigameDTO)
+static void sub_0201588C(PaletteAnimator *param0, u16 *param1)
 {
-    PaletteData_LoadBuffer(param0->unk_08, slotsMinigameDTO, PLTTBUF_SUB_BG, PLTT_DEST(param0->unk_4D), PALETTE_SIZE_BYTES);
+    PaletteData_LoadBuffer(param0->unk_08, param1, PLTTBUF_SUB_BG, PLTT_DEST(param0->unk_4D), PALETTE_SIZE_BYTES);
 }

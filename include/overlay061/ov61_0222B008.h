@@ -22,9 +22,9 @@
 
 typedef struct {
     SaveData *saveData;
-    UnkFuncPtr_ov62_022349A8 slotMachineVariant;
+    UnkFuncPtr_ov62_022349A8 unk_04;
     void *unk_08;
-    UnkStruct_ov62_022349A8_sub1 slotsMinigameDTO;
+    UnkStruct_ov62_022349A8_sub1 unk_0C;
     enum HeapID heapID;
     int unk_148;
     int unk_14C;
@@ -54,24 +54,24 @@ typedef struct {
     u8 unk_40E;
 } UnkStruct_ov62_022349A8;
 
-int ov61_0222B008(UnkStruct_ov62_022349A8 *param0, const UnkStruct_ov62_02241130 *slotsMinigameDTO);
+int ov61_0222B008(UnkStruct_ov62_022349A8 *param0, const UnkStruct_ov62_02241130 *param1);
 void ov61_0222B0F0(UnkStruct_ov62_022349A8 *param0);
-int ov61_0222B1B4(UnkStruct_ov62_022349A8 *param0, UnkStruct_02030A80 *slotsMinigameDTO, DressUpPhoto *photo);
-int ov61_0222B1FC(UnkStruct_ov62_022349A8 *param0, int slotsMinigameDTO);
-int ov61_0222B224(UnkStruct_ov62_022349A8 *param0, int slotsMinigameDTO, UnkStruct_02030A80 *param2, const PCBoxes *pcBoxes, int param4);
-int ov61_0222B290(UnkStruct_ov62_022349A8 *param0, int slotsMinigameDTO);
+int ov61_0222B1B4(UnkStruct_ov62_022349A8 *param0, UnkStruct_02030A80 *param1, DressUpPhoto *photo);
+int ov61_0222B1FC(UnkStruct_ov62_022349A8 *param0, int param1);
+int ov61_0222B224(UnkStruct_ov62_022349A8 *param0, int param1, UnkStruct_02030A80 *param2, const PCBoxes *pcBoxes, int param4);
+int ov61_0222B290(UnkStruct_ov62_022349A8 *param0, int param1);
 int ov61_0222B2B8(UnkStruct_ov62_022349A8 *param0);
-int ov61_0222B2D8(UnkStruct_ov62_022349A8 *param0, UnkStruct_02030A80 *slotsMinigameDTO, UnkStruct_ov61_0222B2D8 param2[]);
-int ov61_0222B338(UnkStruct_ov62_022349A8 *param0, UnkStruct_02030A80 *slotsMinigameDTO);
-int ov61_0222B394(UnkStruct_ov62_022349A8 *param0, u16 slotsMinigameDTO, u8 param2, u8 param3, u8 param4);
+int ov61_0222B2D8(UnkStruct_ov62_022349A8 *param0, UnkStruct_02030A80 *param1, UnkStruct_ov61_0222B2D8 param2[]);
+int ov61_0222B338(UnkStruct_ov62_022349A8 *param0, UnkStruct_02030A80 *param1);
+int ov61_0222B394(UnkStruct_ov62_022349A8 *param0, u16 param1, u8 param2, u8 param3, u8 param4);
 int ov61_0222B3EC(UnkStruct_ov62_022349A8 *param0);
 int ov61_0222B44C(UnkStruct_ov62_022349A8 *param0);
 int ov61_0222B4A8(UnkStruct_ov62_022349A8 *param0);
 int ov61_0222B4E4(UnkStruct_ov62_022349A8 *param0);
-int ov61_0222B524(UnkStruct_ov62_022349A8 *param0, u64 slotsMinigameDTO);
-int ov61_0222B550(UnkStruct_ov62_022349A8 *param0, u64 slotsMinigameDTO);
+int ov61_0222B524(UnkStruct_ov62_022349A8 *param0, u64 param1);
+int ov61_0222B550(UnkStruct_ov62_022349A8 *param0, u64 param1);
 int ov61_0222B57C(UnkStruct_ov62_022349A8 *param0);
-BOOL ov61_0222BB48(UnkStruct_ov62_022349A8 *param0, UnkStruct_ov62_0223CAA4 **slotsMinigameDTO);
+BOOL ov61_0222BB48(UnkStruct_ov62_022349A8 *param0, UnkStruct_ov62_0223CAA4 **param1);
 BOOL ov61_0222BBBC(UnkStruct_ov62_022349A8 *param0);
 
 #endif // POKEPLATINUM_OV61_0222B008_H

@@ -40,7 +40,7 @@
 #include "unk_0203D1B8.h"
 
 typedef struct {
-    u8 coins;
+    u8 unk_00;
     u8 unk_01;
     u8 unk_02;
     u8 unk_03;
@@ -51,23 +51,23 @@ typedef struct {
 } UnkStruct_02072EB8;
 
 typedef struct {
-    u32 coins;
-    u32 slotMachineVariant;
+    u32 unk_00;
+    u32 unk_04;
 } UnkStruct_020F0524;
 
 typedef struct {
-    StringTemplate *coins;
-    String *slotMachineVariant;
+    StringTemplate *unk_00;
+    String *unk_04;
     String *unk_08;
-    String *slotsMinigameDTO;
+    String *unk_0C;
     String *unk_10[6];
 } UnkStruct_02072334_sub1;
 
 typedef struct {
     enum HeapID heapID;
-    int *slotMachineVariant;
+    int *unk_04;
     SysTask *unk_08;
-    SysTaskFunc slotsMinigameDTO;
+    SysTaskFunc unk_0C;
     u16 unk_10;
     u16 unk_12;
     u16 unk_14;
@@ -105,53 +105,53 @@ typedef struct {
 } UnkStruct_02072334;
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
 } UnkStruct_020736D8;
 
 void sub_020736D8(FieldTask *param0);
-void sub_020722AC(void *param0, int *slotsMinigameDTO);
+void sub_020722AC(void *param0, int *param1);
 static void sub_02072334(UnkStruct_02072334 *param0);
-static void sub_02072364(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072370(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072390(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072418(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072470(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072518(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072534(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072550(SysTask *param0, void *slotsMinigameDTO);
-static void sub_020725D0(SysTask *param0, void *slotsMinigameDTO);
-static void sub_020726B4(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072754(SysTask *param0, void *slotsMinigameDTO);
-static void sub_020727F8(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072878(SysTask *param0, void *slotsMinigameDTO);
-static void sub_02072EA4(UnkStruct_02072334 *param0, SysTaskFunc slotsMinigameDTO, SysTaskFunc param2);
-static void sub_02072EB8(UnkStruct_02072EB8 *param0, u8 slotsMinigameDTO);
-static void sub_02072ED0(UnkStruct_02072EB8 *param0, u8 slotsMinigameDTO, enum HeapID heapID);
-static void sub_02072F04(UnkStruct_02072EB8 *param0, u8 slotsMinigameDTO);
+static void sub_02072364(SysTask *param0, void *param1);
+static void sub_02072370(SysTask *param0, void *param1);
+static void sub_02072390(SysTask *param0, void *param1);
+static void sub_02072418(SysTask *param0, void *param1);
+static void sub_02072470(SysTask *param0, void *param1);
+static void sub_02072518(SysTask *param0, void *param1);
+static void sub_02072534(SysTask *param0, void *param1);
+static void sub_02072550(SysTask *param0, void *param1);
+static void sub_020725D0(SysTask *param0, void *param1);
+static void sub_020726B4(SysTask *param0, void *param1);
+static void sub_02072754(SysTask *param0, void *param1);
+static void sub_020727F8(SysTask *param0, void *param1);
+static void sub_02072878(SysTask *param0, void *param1);
+static void sub_02072EA4(UnkStruct_02072334 *param0, SysTaskFunc param1, SysTaskFunc param2);
+static void sub_02072EB8(UnkStruct_02072EB8 *param0, u8 param1);
+static void sub_02072ED0(UnkStruct_02072EB8 *param0, u8 param1, enum HeapID heapID);
+static void sub_02072F04(UnkStruct_02072EB8 *param0, u8 param1);
 static void sub_020729B4(UnkStruct_02072334 *param0);
-static void sub_02072BBC(ListMenu *param0, u32 slotsMinigameDTO, u8 param2);
-static void sub_02072C0C(ListMenu *param0, u32 slotsMinigameDTO, u8 param2);
-static void sub_02072C98(UnkStruct_02072334 *param0, u8 slotsMinigameDTO, u8 param2);
-static void sub_02072DA4(ListMenu *param0, u32 slotsMinigameDTO, u8 param2);
+static void sub_02072BBC(ListMenu *param0, u32 param1, u8 param2);
+static void sub_02072C0C(ListMenu *param0, u32 param1, u8 param2);
+static void sub_02072C98(UnkStruct_02072334 *param0, u8 param1, u8 param2);
+static void sub_02072DA4(ListMenu *param0, u32 param1, u8 param2);
 static void sub_02072DB8(UnkStruct_02072334 *param0);
 static void sub_02072E4C(UnkStruct_02072334 *param0);
 static void sub_02072F30(UnkStruct_02072334 *param0, SaveData *saveData, enum HeapID heapID);
-static void sub_02073020(UnkStruct_02072334 *param0, u8 slotsMinigameDTO);
+static void sub_02073020(UnkStruct_02072334 *param0, u8 param1);
 static BOOL sub_02073060(UnkStruct_02072334 *param0);
-static void sub_020730B8(UnkStruct_02072334 *param0, u8 slotsMinigameDTO, BOOL param2);
+static void sub_020730B8(UnkStruct_02072334 *param0, u8 param1, BOOL param2);
 static void sub_02073130(UnkStruct_02072334 *param0);
 static void sub_020731A4(UnkStruct_02072334 *param0);
 static void sub_020731F4(UnkStruct_02072334 *param0);
 static void sub_02073294(UnkStruct_02072334 *param0);
-static void sub_020732C4(UnkStruct_02072334 *param0, int slotsMinigameDTO, u8 param2, u8 param3, int param4);
+static void sub_020732C4(UnkStruct_02072334 *param0, int param1, u8 param2, u8 param3, int param4);
 static void sub_02073398(UnkStruct_02072334 *param0);
 static BOOL sub_020733B4(UnkStruct_02072334 *param0);
 static void sub_020733E0(UnkStruct_02072334 *param0);
 static int sub_0207340C(UnkStruct_02072334 *param0);
-static int sub_02073438(UnkStruct_02072334 *param0, int slotsMinigameDTO);
+static int sub_02073438(UnkStruct_02072334 *param0, int param1);
 static int sub_02073480(UnkStruct_02072334 *param0);
-static int sub_020734F4(UnkStruct_02072334 *param0, u8 slotsMinigameDTO);
+static int sub_020734F4(UnkStruct_02072334 *param0, u8 param1);
 static int sub_02073524(UnkStruct_02072334 *param0, int mode);
 static int sub_020735E8(UnkStruct_02072334 *param0);
 
@@ -184,7 +184,7 @@ static const UnkStruct_020F0524 Unk_020F0524[] = {
     { 0x4, 0x3 }
 };
 
-void sub_020722AC(void *param0, int *slotsMinigameDTO)
+void sub_020722AC(void *param0, int *param1)
 {
     UnkStruct_02072334 *v0 = NULL;
     SaveData *saveData;
@@ -193,7 +193,7 @@ void sub_020722AC(void *param0, int *slotsMinigameDTO)
 
     v0 = Heap_Alloc(HEAP_ID_43, sizeof(UnkStruct_02072334));
     MI_CpuClear8(v0, sizeof(UnkStruct_02072334));
-    v0->slotMachineVariant = slotsMinigameDTO;
+    v0->unk_04 = param1;
 
     saveData = FieldSystem_GetSaveData(param0);
 
@@ -214,31 +214,31 @@ void sub_020722AC(void *param0, int *slotsMinigameDTO)
 void sub_02072334(UnkStruct_02072334 *param0)
 {
     SysTask_Done(param0->unk_08);
-    *(param0->slotMachineVariant) = 1;
+    *(param0->unk_04) = 1;
     sub_020731A4(param0);
     sub_02072F04(param0->unk_1C, 20);
     Heap_Free(param0);
     Heap_Destroy(param0->heapID);
 }
 
-static void sub_02072364(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072364(SysTask *param0, void *param1)
 {
-    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)param1;
     sub_02072334(v0);
 }
 
-static void sub_02072370(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072370(SysTask *param0, void *param1)
 {
-    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)param1;
 
     sub_020731F4(v0);
     sub_020729B4(v0);
     SysTask_SetCallback(param0, sub_02072390);
 }
 
-static void sub_02072390(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072390(SysTask *param0, void *param1)
 {
-    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)param1;
     s32 v1 = ListMenu_ProcessInput(v0->unk_160);
 
     if (v0->unk_1A4 != NULL) {
@@ -270,9 +270,9 @@ static void sub_02072390(SysTask *param0, void *slotsMinigameDTO)
     return;
 }
 
-static void sub_02072418(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072418(SysTask *param0, void *param1)
 {
-    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)param1;
 
     switch (v0->unk_10) {
     case 0:
@@ -294,9 +294,9 @@ static void sub_02072418(SysTask *param0, void *slotsMinigameDTO)
     return;
 }
 
-static void sub_02072470(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072470(SysTask *param0, void *param1)
 {
-    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)param1;
     s32 v1 = ListMenu_ProcessInput(v0->unk_160);
 
     if (gSystem.pressedKeys & PAD_BUTTON_B) {
@@ -330,28 +330,28 @@ static void sub_02072470(SysTask *param0, void *slotsMinigameDTO)
     return;
 }
 
-static void sub_02072518(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072518(SysTask *param0, void *param1)
 {
-    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)param1;
 
     sub_02072DB8(v0);
     sub_02073294(v0);
-    SysTask_SetCallback(param0, v0->slotsMinigameDTO);
+    SysTask_SetCallback(param0, v0->unk_0C);
 }
 
-static void sub_02072534(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072534(SysTask *param0, void *param1)
 {
-    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)param1;
 
     sub_02072E4C(v0);
     sub_02073294(v0);
-    SysTask_SetCallback(param0, v0->slotsMinigameDTO);
+    SysTask_SetCallback(param0, v0->unk_0C);
 }
 
-static void sub_02072550(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072550(SysTask *param0, void *param1)
 {
     int v0;
-    UnkStruct_02072334 *v1 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v1 = (UnkStruct_02072334 *)param1;
 
     switch (v1->unk_10) {
     case 0:
@@ -389,10 +389,10 @@ static void sub_02072550(SysTask *param0, void *slotsMinigameDTO)
     return;
 }
 
-static void sub_020725D0(SysTask *param0, void *slotsMinigameDTO)
+static void sub_020725D0(SysTask *param0, void *param1)
 {
     int v0;
-    UnkStruct_02072334 *v1 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v1 = (UnkStruct_02072334 *)param1;
 
     switch (v1->unk_10) {
     case 0:
@@ -453,14 +453,14 @@ static void sub_020725D0(SysTask *param0, void *slotsMinigameDTO)
     return;
 }
 
-static void sub_020726B4(SysTask *param0, void *slotsMinigameDTO)
+static void sub_020726B4(SysTask *param0, void *param1)
 {
     int v0;
-    UnkStruct_02072334 *v1 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v1 = (UnkStruct_02072334 *)param1;
 
     switch (v1->unk_10) {
     case 0:
-        if (v1->slotsMinigameDTO == NULL) {
+        if (v1->unk_0C == NULL) {
             sub_020731F4(v1);
             sub_02072C98(v1, 0, 1);
         }
@@ -492,11 +492,11 @@ static void sub_020726B4(SysTask *param0, void *slotsMinigameDTO)
     return;
 }
 
-static void sub_02072754(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072754(SysTask *param0, void *param1)
 {
     u8 v0;
     PartyMenu *partyMenu;
-    UnkStruct_02072334 *v2 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v2 = (UnkStruct_02072334 *)param1;
 
     switch (v2->unk_10) {
     case 0:
@@ -525,7 +525,7 @@ static void sub_02072754(SysTask *param0, void *slotsMinigameDTO)
         Heap_Free(v2->partyMenu);
 
         if (v0 == 7) {
-            sub_02072EA4(v2, v2->slotsMinigameDTO, NULL);
+            sub_02072EA4(v2, v2->unk_0C, NULL);
             v2->unk_10 = 0;
             return;
         }
@@ -540,10 +540,10 @@ static void sub_02072754(SysTask *param0, void *slotsMinigameDTO)
     return;
 }
 
-static void sub_020727F8(SysTask *param0, void *slotsMinigameDTO)
+static void sub_020727F8(SysTask *param0, void *param1)
 {
     int v0;
-    UnkStruct_02072334 *v1 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v1 = (UnkStruct_02072334 *)param1;
 
     switch (v1->unk_10) {
     case 0:
@@ -571,12 +571,12 @@ static void sub_020727F8(SysTask *param0, void *slotsMinigameDTO)
     return;
 }
 
-static void sub_02072878(SysTask *param0, void *slotsMinigameDTO)
+static void sub_02072878(SysTask *param0, void *param1)
 {
     int v0;
     u8 v1, v2;
     PartyMenu *partyMenu;
-    UnkStruct_02072334 *v4 = (UnkStruct_02072334 *)slotsMinigameDTO;
+    UnkStruct_02072334 *v4 = (UnkStruct_02072334 *)param1;
 
     switch (v4->unk_10) {
     case 0:
@@ -604,7 +604,7 @@ static void sub_02072878(SysTask *param0, void *slotsMinigameDTO)
         Heap_Free(v4->partyMenu);
 
         if ((v2 != 6) || (v1 == 7)) {
-            v4->slotsMinigameDTO = sub_020726B4;
+            v4->unk_0C = sub_020726B4;
             v4->unk_10 = 4;
             return;
         }
@@ -619,12 +619,12 @@ static void sub_02072878(SysTask *param0, void *slotsMinigameDTO)
         }
 
         if (v0 == 1) {
-            v4->slotsMinigameDTO = sub_020726B4;
+            v4->unk_0C = sub_020726B4;
             v4->unk_10 = 4;
             return;
         }
 
-        v4->slotsMinigameDTO = sub_02072370;
+        v4->unk_0C = sub_02072370;
         break;
     case 3:
         if (!sub_02073524(v4, PARTY_MENU_MODE_GIVE_MAIL)) {
@@ -645,7 +645,7 @@ static void sub_02072878(SysTask *param0, void *slotsMinigameDTO)
             return;
         }
 
-        sub_02072EA4(v4, v4->slotsMinigameDTO, NULL);
+        sub_02072EA4(v4, v4->unk_0C, NULL);
         v4->unk_10 = 0;
         return;
     }
@@ -681,7 +681,7 @@ static void sub_020729B4(UnkStruct_02072334 *param0)
             continue;
         }
 
-        StringList_AddFromString(param0->unk_164, v2->unk_08, v2->coins);
+        StringList_AddFromString(param0->unk_164, v2->unk_08, v2->unk_00);
         v1++;
     }
 
@@ -715,21 +715,21 @@ static void sub_020729B4(UnkStruct_02072334 *param0)
     param0->unk_160 = ListMenu_New(&(param0->unk_140), param0->unk_13C, param0->unk_13E, param0->heapID);
 
     Window_DrawStandardFrame(&param0->unk_174, 0, 1024 - (18 + 12) - 9, 11);
-    Text_AddPrinterWithParamsAndColor(&param0->unk_194, FONT_SYSTEM, param0->unk_110.slotsMinigameDTO, 2, 0, TEXT_SPEED_INSTANT, TEXT_COLOR(1, 2, 15), NULL);
+    Text_AddPrinterWithParamsAndColor(&param0->unk_194, FONT_SYSTEM, param0->unk_110.unk_0C, 2, 0, TEXT_SPEED_INSTANT, TEXT_COLOR(1, 2, 15), NULL);
     Window_DrawStandardFrame(&param0->unk_194, 0, 1024 - (18 + 12) - 9, 11);
     Bg_ScheduleTilemapTransfer(param0->unk_170, 3);
 
     param0->unk_13B_0 = 0;
 }
 
-static void sub_02072BBC(ListMenu *param0, u32 slotsMinigameDTO, u8 param2)
+static void sub_02072BBC(ListMenu *param0, u32 param1, u8 param2)
 {
     UnkStruct_02072334 *v0 = (UnkStruct_02072334 *)ListMenu_GetAttribute(param0, 19);
 
-    if (slotsMinigameDTO == 0xFFFF) {
+    if (param1 == 0xFFFF) {
         ListMenu_SetAltTextColors(param0, 1, 15, 2);
     } else {
-        if (v0->unk_1C[slotsMinigameDTO].trainerGender != GENDER_MALE) {
+        if (v0->unk_1C[param1].trainerGender != GENDER_MALE) {
             ListMenu_SetAltTextColors(param0, 3, 15, 4);
         } else {
             ListMenu_SetAltTextColors(param0, 7, 15, 8);
@@ -737,7 +737,7 @@ static void sub_02072BBC(ListMenu *param0, u32 slotsMinigameDTO, u8 param2)
     }
 }
 
-static void sub_02072C0C(ListMenu *param0, u32 slotsMinigameDTO, u8 param2)
+static void sub_02072C0C(ListMenu *param0, u32 param1, u8 param2)
 {
     u16 v0, v1, v2;
     UnkStruct_02072334 *v3 = (UnkStruct_02072334 *)ListMenu_GetAttribute(param0, 19);
@@ -762,7 +762,7 @@ static void sub_02072C0C(ListMenu *param0, u32 slotsMinigameDTO, u8 param2)
     }
 }
 
-static void sub_02072C98(UnkStruct_02072334 *param0, u8 slotsMinigameDTO, u8 param2)
+static void sub_02072C98(UnkStruct_02072334 *param0, u8 param1, u8 param2)
 {
     u8 v0 = 0, v1 = 0;
     static const WindowTemplate v2 = {
@@ -782,7 +782,7 @@ static void sub_02072C98(UnkStruct_02072334 *param0, u8 slotsMinigameDTO, u8 par
     Window_FillTilemap(&param0->unk_174, (15 << 4) | 15);
 
     for (v0 = 0; v0 < v1; v0++) {
-        StringList_AddFromMessageBank(param0->unk_164, param0->unk_10C, Unk_020F0524[v0].coins, Unk_020F0524[v0].slotMachineVariant);
+        StringList_AddFromMessageBank(param0->unk_164, param0->unk_10C, Unk_020F0524[v0].unk_00, Unk_020F0524[v0].unk_04);
     }
 
     MI_CpuCopy8((void *)&Unk_020F0504, (void *)&(param0->unk_140), sizeof(ListMenuTemplate));
@@ -794,7 +794,7 @@ static void sub_02072C98(UnkStruct_02072334 *param0, u8 slotsMinigameDTO, u8 par
     param0->unk_140.maxDisplay = 4;
     param0->unk_140.pagerMode = PAGER_MODE_NONE;
     param0->unk_140.cursorCallback = sub_02072DA4;
-    param0->unk_160 = ListMenu_New(&(param0->unk_140), slotsMinigameDTO, param2, param0->heapID);
+    param0->unk_160 = ListMenu_New(&(param0->unk_140), param1, param2, param0->heapID);
 
     Window_DrawStandardFrame(&param0->unk_174, 0, 1024 - (18 + 12) - 9, 11);
     Bg_ScheduleTilemapTransfer(param0->unk_170, 3);
@@ -802,7 +802,7 @@ static void sub_02072C98(UnkStruct_02072334 *param0, u8 slotsMinigameDTO, u8 par
     param0->unk_13B_0 = 1;
 }
 
-static void sub_02072DA4(ListMenu *param0, u32 slotsMinigameDTO, u8 param2)
+static void sub_02072DA4(ListMenu *param0, u32 param1, u8 param2)
 {
     if (!param2) {
         Sound_PlayEffect(SE_CONFIRM_sseq_3);
@@ -848,17 +848,17 @@ static void sub_02072E4C(UnkStruct_02072334 *param0)
     Bg_ScheduleTilemapTransfer(param0->unk_170, 3);
 }
 
-static void sub_02072EA4(UnkStruct_02072334 *param0, SysTaskFunc slotsMinigameDTO, SysTaskFunc param2)
+static void sub_02072EA4(UnkStruct_02072334 *param0, SysTaskFunc param1, SysTaskFunc param2)
 {
-    SysTask_SetCallback(param0->unk_08, slotsMinigameDTO);
+    SysTask_SetCallback(param0->unk_08, param1);
 
     param0->unk_10 = 0;
-    param0->slotsMinigameDTO = param2;
+    param0->unk_0C = param2;
 }
 
-static void sub_02072EB8(UnkStruct_02072EB8 *param0, u8 slotsMinigameDTO)
+static void sub_02072EB8(UnkStruct_02072EB8 *param0, u8 param1)
 {
-    param0->coins = slotsMinigameDTO;
+    param0->unk_00 = param1;
     param0->unk_01 = 0;
     param0->unk_02 = 0;
     param0->unk_03 = 0;
@@ -868,21 +868,21 @@ static void sub_02072EB8(UnkStruct_02072EB8 *param0, u8 slotsMinigameDTO)
     }
 }
 
-static void sub_02072ED0(UnkStruct_02072EB8 *param0, u8 slotsMinigameDTO, enum HeapID heapID)
+static void sub_02072ED0(UnkStruct_02072EB8 *param0, u8 param1, enum HeapID heapID)
 {
     u8 v0 = 0;
 
-    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
+    for (v0 = 0; v0 < param1; v0++) {
         param0[v0].unk_08 = String_Init(8, heapID);
         sub_02072EB8(param0, v0);
     }
 }
 
-static void sub_02072F04(UnkStruct_02072EB8 *param0, u8 slotsMinigameDTO)
+static void sub_02072F04(UnkStruct_02072EB8 *param0, u8 param1)
 {
     u8 v0 = 0;
 
-    for (v0 = 0; v0 < slotsMinigameDTO; v0++) {
+    for (v0 = 0; v0 < param1; v0++) {
         if (param0[v0].unk_08 != NULL) {
             String_Free(param0[v0].unk_08);
         }
@@ -912,7 +912,7 @@ static void sub_02072F30(UnkStruct_02072334 *param0, SaveData *saveData, enum He
 
         sub_02072EB8(v7, i);
 
-        v7->coins = i;
+        v7->unk_00 = i;
 
         if (!Mail_IsValid(mail)) {
             continue;
@@ -926,9 +926,9 @@ static void sub_02072F30(UnkStruct_02072334 *param0, SaveData *saveData, enum He
         String_CopyChars(v7->unk_08, Mail_GetTrainerName(mail));
 
         v7->unk_02 = param0->unk_19;
-        v8->unk_03 = v7->coins;
+        v8->unk_03 = v7->unk_00;
 
-        param0->unk_19 = v7->coins;
+        param0->unk_19 = v7->unk_00;
         param0->unk_1B++;
 
         if (param0->unk_1A == 0xFF) {
@@ -942,13 +942,13 @@ static void sub_02072F30(UnkStruct_02072334 *param0, SaveData *saveData, enum He
     Heap_Free(mail);
 }
 
-static void sub_02073020(UnkStruct_02072334 *param0, u8 slotsMinigameDTO)
+static void sub_02073020(UnkStruct_02072334 *param0, u8 param1)
 {
-    UnkStruct_02072EB8 *v0 = &(param0->unk_1C[slotsMinigameDTO]);
+    UnkStruct_02072EB8 *v0 = &(param0->unk_1C[param1]);
 
     param0->unk_1C[v0->unk_02].unk_03 = v0->unk_03;
     param0->unk_1C[v0->unk_03].unk_02 = v0->unk_02;
-    param0->unk_1C[slotsMinigameDTO].unk_01 = 0;
+    param0->unk_1C[param1].unk_01 = 0;
     param0->unk_13B_4 = 1;
 }
 
@@ -971,7 +971,7 @@ static BOOL sub_02073060(UnkStruct_02072334 *param0)
     return canFitItem;
 }
 
-static void sub_020730B8(UnkStruct_02072334 *param0, u8 slotsMinigameDTO, BOOL param2)
+static void sub_020730B8(UnkStruct_02072334 *param0, u8 param1, BOOL param2)
 {
     UnkStruct_02072EB8 *v0;
     Party *v1;
@@ -984,7 +984,7 @@ static void sub_020730B8(UnkStruct_02072334 *param0, u8 slotsMinigameDTO, BOOL p
     }
 
     v1 = SaveData_GetParty(FieldSystem_GetSaveData(param0->fieldSystem));
-    v2 = Party_GetPokemonBySlotIndex(v1, slotsMinigameDTO);
+    v2 = Party_GetPokemonBySlotIndex(v1, param1);
 
     Mail_TransferFromMailboxToMon(param0->mailbox, param0->unk_18, v2, param0->heapID);
 
@@ -1005,10 +1005,10 @@ static void sub_02073130(UnkStruct_02072334 *param0)
     String *v2;
 
     param0->unk_10C = MessageLoader_Init(MSG_LOADER_LOAD_ON_DEMAND, NARC_INDEX_MSGDATA__PL_MSG, TEXT_BANK_MAILBOX, param0->heapID);
-    param0->unk_110.coins = StringTemplate_New(1, 128, param0->heapID);
-    param0->unk_110.slotMachineVariant = String_Init(128, param0->heapID);
+    param0->unk_110.unk_00 = StringTemplate_New(1, 128, param0->heapID);
+    param0->unk_110.unk_04 = String_Init(128, param0->heapID);
     param0->unk_110.unk_08 = MessageLoader_GetNewString(param0->unk_10C, 4);
-    param0->unk_110.slotsMinigameDTO = MessageLoader_GetNewString(param0->unk_10C, 0);
+    param0->unk_110.unk_0C = MessageLoader_GetNewString(param0->unk_10C, 0);
 
     for (v1 = 0; v1 < 6; v1++) {
         param0->unk_110.unk_10[v1] = MessageLoader_GetNewString(param0->unk_10C, 6 + v1);
@@ -1023,10 +1023,10 @@ static void sub_020731A4(UnkStruct_02072334 *param0)
         String_Free(param0->unk_110.unk_10[v0]);
     }
 
-    String_Free(param0->unk_110.slotsMinigameDTO);
+    String_Free(param0->unk_110.unk_0C);
     String_Free(param0->unk_110.unk_08);
-    String_Free(param0->unk_110.slotMachineVariant);
-    StringTemplate_Free(param0->unk_110.coins);
+    String_Free(param0->unk_110.unk_04);
+    StringTemplate_Free(param0->unk_110.unk_00);
     MessageLoader_Free(param0->unk_10C);
 }
 
@@ -1053,7 +1053,7 @@ static void sub_02073294(UnkStruct_02072334 *param0)
     param0->unk_170 = NULL;
 }
 
-static void sub_020732C4(UnkStruct_02072334 *param0, int slotsMinigameDTO, u8 param2, u8 param3, int param4)
+static void sub_020732C4(UnkStruct_02072334 *param0, int param1, u8 param2, u8 param3, int param4)
 {
     String *v0;
 
@@ -1065,14 +1065,14 @@ static void sub_020732C4(UnkStruct_02072334 *param0, int slotsMinigameDTO, u8 pa
     RenderControlFlags_SetCanABSpeedUpPrint(TRUE);
     RenderControlFlags_SetAutoScrollFlags(AUTO_SCROLL_DISABLED);
 
-    if (slotsMinigameDTO == 0) {
-        String_Clear(param0->unk_110.slotMachineVariant);
-        StringTemplate_SetString(param0->unk_110.coins, 0, param0->unk_1C[param0->unk_18].unk_08, 2, 1, GAME_LANGUAGE);
-        StringTemplate_Format(param0->unk_110.coins, param0->unk_110.slotMachineVariant, param0->unk_110.unk_10[slotsMinigameDTO]);
+    if (param1 == 0) {
+        String_Clear(param0->unk_110.unk_04);
+        StringTemplate_SetString(param0->unk_110.unk_00, 0, param0->unk_1C[param0->unk_18].unk_08, 2, 1, GAME_LANGUAGE);
+        StringTemplate_Format(param0->unk_110.unk_00, param0->unk_110.unk_04, param0->unk_110.unk_10[param1]);
 
-        v0 = param0->unk_110.slotMachineVariant;
+        v0 = param0->unk_110.unk_04;
     } else {
-        v0 = param0->unk_110.unk_10[slotsMinigameDTO];
+        v0 = param0->unk_110.unk_10[param1];
     }
 
     param0->unk_138 = Text_AddPrinterWithParamsAndColor(&param0->unk_184, FONT_MESSAGE, v0, 0, 0, param2, TEXT_COLOR(1, 2, 15), NULL);
@@ -1126,11 +1126,11 @@ static int sub_0207340C(UnkStruct_02072334 *param0)
     return -1;
 }
 
-static int sub_02073438(UnkStruct_02072334 *param0, int slotsMinigameDTO)
+static int sub_02073438(UnkStruct_02072334 *param0, int param1)
 {
     switch (param0->unk_12) {
     case 0:
-        StartScreenFade(FADE_BOTH_SCREENS, slotsMinigameDTO, slotsMinigameDTO, 0x0, 6, 1, param0->heapID);
+        StartScreenFade(FADE_BOTH_SCREENS, param1, param1, 0x0, 6, 1, param0->heapID);
         param0->unk_12++;
         break;
     case 1:
@@ -1173,11 +1173,11 @@ static int sub_02073480(UnkStruct_02072334 *param0)
     return 0;
 }
 
-static int sub_020734F4(UnkStruct_02072334 *param0, u8 slotsMinigameDTO)
+static int sub_020734F4(UnkStruct_02072334 *param0, u8 param1)
 {
     FieldSystem_UnloadAnimation(param0->fieldSystem, 90);
 
-    if (slotsMinigameDTO == 0) {
+    if (param1 == 0) {
         sub_02072DB8(param0);
     } else {
         sub_02072E4C(param0);
@@ -1245,7 +1245,7 @@ static int sub_020735E8(UnkStruct_02072334 *param0)
 
         if (MailApp_WasMailWritten(param0->unk_1A8)) {
             param0->unk_1C[param0->unk_18].unk_01 = 1;
-            MailApp_CopyWrittenMailToMailboxSlot(param0->unk_1A8, MAIL_CONTEXT_MAILBOX, param0->unk_1C[param0->unk_18].coins);
+            MailApp_CopyWrittenMailToMailboxSlot(param0->unk_1A8, MAIL_CONTEXT_MAILBOX, param0->unk_1C[param0->unk_18].unk_00);
 
             v0 = 2;
         } else {
@@ -1265,13 +1265,13 @@ static BOOL sub_02073694(FieldTask *param0)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(param0);
     UnkStruct_020736D8 *v1 = FieldTask_GetEnv(param0);
 
-    switch (v1->slotMachineVariant) {
+    switch (v1->unk_04) {
     case 0:
-        sub_020722AC(fieldSystem, &(v1->coins));
-        v1->slotMachineVariant++;
+        sub_020722AC(fieldSystem, &(v1->unk_00));
+        v1->unk_04++;
         break;
     case 1:
-        if (!v1->coins) {
+        if (!v1->unk_00) {
             return 0;
         }
 
@@ -1287,8 +1287,8 @@ void sub_020736D8(FieldTask *param0)
     FieldSystem *fieldSystem = FieldTask_GetFieldSystem(param0);
     UnkStruct_020736D8 *v1 = Heap_AllocAtEnd(HEAP_ID_FIELD2, sizeof(UnkStruct_020736D8));
 
-    v1->coins = 0;
-    v1->slotMachineVariant = 0;
+    v1->unk_00 = 0;
+    v1->unk_04 = 0;
 
     FieldTask_InitCall(fieldSystem->task, sub_02073694, v1);
 }

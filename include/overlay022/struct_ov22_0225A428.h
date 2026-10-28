@@ -11,7 +11,7 @@
 #include "string_gf.h"
 
 typedef struct {
-    UnkStruct_ov22_022597BC coins;
+    UnkStruct_ov22_022597BC unk_00;
     Window *unk_2C;
     SpriteList *unk_30;
     SpriteResourceCollection **unk_34;

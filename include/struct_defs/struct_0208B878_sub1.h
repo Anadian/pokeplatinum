@@ -6,10 +6,10 @@
 #include "sprite_system.h"
 
 typedef struct {
-    NARC *coins;
-    SpriteSystem *slotMachineVariant;
+    NARC *unk_00;
+    SpriteSystem *unk_04;
     SpriteManager *unk_08;
-    PaletteData *slotsMinigameDTO;
+    PaletteData *unk_0C;
 } UnkStruct_0208B878_sub1;
 
 #endif // POKEPLATINUM_STRUCT_0208B878_SUB1_H

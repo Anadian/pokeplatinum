@@ -5,10 +5,10 @@
 #include "string_gf.h"
 
 typedef struct {
-    String *coins;
-    String *slotMachineVariant;
+    String *unk_00;
+    String *unk_04;
     String *unk_08;
-    u32 slotsMinigameDTO;
+    u32 unk_0C;
     int unk_10;
     EasyChatSentence unk_14;
 } UnkStruct_0205C924;

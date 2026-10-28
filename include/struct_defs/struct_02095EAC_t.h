@@ -18,10 +18,10 @@
 #include "yes_no_touch_menu.h"
 
 struct UnkStruct_02095EAC_t {
-    BgConfig *coins;
-    BOOL slotMachineVariant;
+    BgConfig *unk_00;
+    BOOL unk_04;
     UnkStruct_0203DDFC *unk_08;
-    StringTemplate *slotsMinigameDTO;
+    StringTemplate *unk_0C;
     MessageLoader *unk_10;
     String *unk_14[5];
     String *unk_28;

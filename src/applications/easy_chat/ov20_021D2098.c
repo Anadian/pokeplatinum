@@ -29,8 +29,8 @@
 #include "system.h"
 
 typedef struct UnkStruct_ov20_021D2128_t {
-    SysTask *coins;
-    SysTask *slotMachineVariant;
+    SysTask *unk_00;
+    SysTask *unk_04;
     SysTask *unk_08[4];
     const EasyChatApp *unk_18;
     const EasyChatWordList *unk_1C;
@@ -51,50 +51,50 @@ typedef struct UnkStruct_ov20_021D2128_t {
 } UnkStruct_ov20_021D2128;
 
 typedef struct {
-    UnkStruct_ov20_021D2128 *coins;
-    const EasyChatApp *slotMachineVariant;
+    UnkStruct_ov20_021D2128 *unk_00;
+    const EasyChatApp *unk_04;
     const EasyChatWordList *unk_08;
-    u32 slotsMinigameDTO;
+    u32 unk_0C;
     int unk_10;
     int unk_14;
 } UnkStruct_ov20_021D2238;
 
-static void ov20_021D2178(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D217C(SysTask *param0, void *slotsMinigameDTO);
+static void ov20_021D2178(SysTask *param0, void *param1);
+static void ov20_021D217C(SysTask *param0, void *param1);
 static void ov20_021D2238(UnkStruct_ov20_021D2238 *param0);
-static void ov20_021D2260(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2370(UnkStruct_ov20_021D2238 *param0, NARC *slotsMinigameDTO);
-static void ov20_021D2414(SysTask *param0, void *slotsMinigameDTO);
+static void ov20_021D2260(SysTask *param0, void *param1);
+static void ov20_021D2370(UnkStruct_ov20_021D2238 *param0, NARC *param1);
+static void ov20_021D2414(SysTask *param0, void *param1);
 static void ov20_021D24EC(UnkStruct_ov20_021D2238 *param0);
-static void ov20_021D2570(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D25C0(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D25EC(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2630(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2660(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D26D8(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2740(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D27E4(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2848(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D28E8(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D29BC(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2A9C(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2B74(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2B94(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2BB4(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2BD4(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2BF4(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2C44(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2C60(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2CB0(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2D00(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2D1C(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2D3C(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2D84(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2DA0(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2DBC(SysTask *param0, void *slotsMinigameDTO);
-static void ov20_021D2DD8(SysTask *param0, void *slotsMinigameDTO);
+static void ov20_021D2570(SysTask *param0, void *param1);
+static void ov20_021D25C0(SysTask *param0, void *param1);
+static void ov20_021D25EC(SysTask *param0, void *param1);
+static void ov20_021D2630(SysTask *param0, void *param1);
+static void ov20_021D2660(SysTask *param0, void *param1);
+static void ov20_021D26D8(SysTask *param0, void *param1);
+static void ov20_021D2740(SysTask *param0, void *param1);
+static void ov20_021D27E4(SysTask *param0, void *param1);
+static void ov20_021D2848(SysTask *param0, void *param1);
+static void ov20_021D28E8(SysTask *param0, void *param1);
+static void ov20_021D29BC(SysTask *param0, void *param1);
+static void ov20_021D2A9C(SysTask *param0, void *param1);
+static void ov20_021D2B74(SysTask *param0, void *param1);
+static void ov20_021D2B94(SysTask *param0, void *param1);
+static void ov20_021D2BB4(SysTask *param0, void *param1);
+static void ov20_021D2BD4(SysTask *param0, void *param1);
+static void ov20_021D2BF4(SysTask *param0, void *param1);
+static void ov20_021D2C44(SysTask *param0, void *param1);
+static void ov20_021D2C60(SysTask *param0, void *param1);
+static void ov20_021D2CB0(SysTask *param0, void *param1);
+static void ov20_021D2D00(SysTask *param0, void *param1);
+static void ov20_021D2D1C(SysTask *param0, void *param1);
+static void ov20_021D2D3C(SysTask *param0, void *param1);
+static void ov20_021D2D84(SysTask *param0, void *param1);
+static void ov20_021D2DA0(SysTask *param0, void *param1);
+static void ov20_021D2DBC(SysTask *param0, void *param1);
+static void ov20_021D2DD8(SysTask *param0, void *param1);
 
-UnkStruct_ov20_021D2128 *ov20_021D2098(const EasyChatApp *param0, const EasyChatWordList *slotsMinigameDTO)
+UnkStruct_ov20_021D2128 *ov20_021D2098(const EasyChatApp *param0, const EasyChatWordList *param1)
 {
     UnkStruct_ov20_021D2128 *v0 = Heap_Alloc(HEAP_ID_35, sizeof(UnkStruct_ov20_021D2128));
 
@@ -105,15 +105,15 @@ UnkStruct_ov20_021D2128 *ov20_021D2098(const EasyChatApp *param0, const EasyChat
         DisableHBlank();
 
         v0->unk_18 = param0;
-        v0->unk_1C = slotsMinigameDTO;
+        v0->unk_1C = param1;
 
         NNS_G2dInitOamManagerModule();
         RenderOam_Init(0, 128, 0, 32, 0, 128, 0, 32, 35);
 
         v0->unk_24 = SpriteList_InitRendering(128, &v0->unk_28, HEAP_ID_35);
         v0->unk_20 = BgConfig_New(HEAP_ID_35);
-        v0->coins = SysTask_Start(ov20_021D2178, v0, 2);
-        v0->slotMachineVariant = ov20_021D2170(ov20_021D217C, v0, 1);
+        v0->unk_00 = SysTask_Start(ov20_021D2178, v0, 2);
+        v0->unk_04 = ov20_021D2170(ov20_021D217C, v0, 1);
 
         for (v1 = 0; v1 < 4; v1++) {
             v0->unk_08[v1] = NULL;
@@ -136,8 +136,8 @@ void ov20_021D2128(UnkStruct_ov20_021D2128 *param0)
             }
         }
 
-        SysTask_Done(param0->coins);
-        SysTask_Done(param0->slotMachineVariant);
+        SysTask_Done(param0->unk_00);
+        SysTask_Done(param0->unk_04);
 
         RenderOam_Free();
         SpriteList_Delete(param0->unk_24);
@@ -147,19 +147,19 @@ void ov20_021D2128(UnkStruct_ov20_021D2128 *param0)
     }
 }
 
-SysTask *ov20_021D2170(SysTaskFunc param0, void *slotsMinigameDTO, int param2)
+SysTask *ov20_021D2170(SysTaskFunc param0, void *param1, int param2)
 {
-    return SysTask_ExecuteOnVBlank(param0, slotsMinigameDTO, param2);
+    return SysTask_ExecuteOnVBlank(param0, param1, param2);
 }
 
-static void ov20_021D2178(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2178(SysTask *param0, void *param1)
 {
     return;
 }
 
-static void ov20_021D217C(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D217C(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2128 *v0 = slotsMinigameDTO;
+    UnkStruct_ov20_021D2128 *v0 = param1;
 
     SpriteList_Update(v0->unk_24);
     RenderOam_Transfer();
@@ -167,7 +167,7 @@ static void ov20_021D217C(SysTask *param0, void *slotsMinigameDTO)
     OS_SetIrqCheckFlag(OS_IE_V_BLANK);
 }
 
-void ov20_021D21A0(UnkStruct_ov20_021D2128 *param0, int slotsMinigameDTO)
+void ov20_021D21A0(UnkStruct_ov20_021D2128 *param0, int param1)
 {
     static const SysTaskFunc v0[] = {
         [EASY_CHAT_SYSTASK_00] = ov20_021D2260,
@@ -201,22 +201,22 @@ void ov20_021D21A0(UnkStruct_ov20_021D2128 *param0, int slotsMinigameDTO)
         [EASY_CHAT_SYSTASK_28] = ov20_021D2DD8,
     };
 
-    if (slotsMinigameDTO < NELEMS(v0)) {
+    if (param1 < NELEMS(v0)) {
         UnkStruct_ov20_021D2238 *v1 = Heap_Alloc(HEAP_ID_35, sizeof(UnkStruct_ov20_021D2238));
 
         if (v1) {
             int v2;
 
             v1->unk_14 = 0;
-            v1->slotsMinigameDTO = slotsMinigameDTO;
-            v1->coins = param0;
-            v1->slotMachineVariant = param0->unk_18;
+            v1->unk_0C = param1;
+            v1->unk_00 = param0;
+            v1->unk_04 = param0->unk_18;
             v1->unk_08 = param0->unk_1C;
 
             for (v2 = 0; v2 < 4; v2++) {
                 if (param0->unk_08[v2] == NULL) {
                     v1->unk_10 = v2;
-                    param0->unk_08[v2] = SysTask_Start(v0[slotsMinigameDTO], v1, 1);
+                    param0->unk_08[v2] = SysTask_Start(v0[param1], v1, 1);
                     break;
                 }
             }
@@ -239,7 +239,7 @@ BOOL ov20_021D21F8(UnkStruct_ov20_021D2128 *param0)
     return 1;
 }
 
-BOOL ov20_021D2210(UnkStruct_ov20_021D2128 *param0, int slotsMinigameDTO)
+BOOL ov20_021D2210(UnkStruct_ov20_021D2128 *param0, int param1)
 {
     int v0;
 
@@ -247,7 +247,7 @@ BOOL ov20_021D2210(UnkStruct_ov20_021D2128 *param0, int slotsMinigameDTO)
         if (param0->unk_08[v0] != NULL) {
             UnkStruct_ov20_021D2238 *v1 = SysTask_GetParam(param0->unk_08[v0]);
 
-            if (v1->slotsMinigameDTO == slotsMinigameDTO) {
+            if (v1->unk_0C == param1) {
                 return 0;
             }
         }
@@ -258,14 +258,14 @@ BOOL ov20_021D2210(UnkStruct_ov20_021D2128 *param0, int slotsMinigameDTO)
 
 static void ov20_021D2238(UnkStruct_ov20_021D2238 *param0)
 {
-    SysTask_Done(param0->coins->unk_08[param0->unk_10]);
-    param0->coins->unk_08[param0->unk_10] = NULL;
+    SysTask_Done(param0->unk_00->unk_08[param0->unk_10]);
+    param0->unk_00->unk_08[param0->unk_10] = NULL;
     Heap_Free(param0);
 }
 
-static void ov20_021D2260(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2260(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
+    UnkStruct_ov20_021D2238 *v0 = param1;
 
     GXLayers_DisableEngineALayers();
     GXLayers_DisableEngineBLayers();
@@ -280,20 +280,20 @@ static void ov20_021D2260(SysTask *param0, void *slotsMinigameDTO)
     ov20_021D24EC(v0);
     ov20_021D2370(v0, narc);
 
-    v0->coins->unk_244 = ov20_021D2EA4(v0->coins, v0->slotMachineVariant, v0->unk_08);
-    ov20_021D2F50(v0->coins->unk_244, narc);
+    v0->unk_00->unk_244 = ov20_021D2EA4(v0->unk_00, v0->unk_04, v0->unk_08);
+    ov20_021D2F50(v0->unk_00->unk_244, narc);
 
-    v0->coins->unk_248 = ov20_021D3864(v0->coins, v0->slotMachineVariant, v0->unk_08);
-    ov20_021D3898(v0->coins->unk_248, narc);
+    v0->unk_00->unk_248 = ov20_021D3864(v0->unk_00, v0->unk_04, v0->unk_08);
+    ov20_021D3898(v0->unk_00->unk_248, narc);
 
-    v0->coins->unk_24C = EasyChatCategoriesContext_New(v0->coins, v0->slotMachineVariant, v0->unk_08);
-    EasyChatCategories_DrawInterface(v0->coins->unk_24C, narc);
+    v0->unk_00->unk_24C = EasyChatCategoriesContext_New(v0->unk_00, v0->unk_04, v0->unk_08);
+    EasyChatCategories_DrawInterface(v0->unk_00->unk_24C, narc);
 
-    v0->coins->unk_250 = ov20_021D40E8(v0->coins, v0->slotMachineVariant, v0->unk_08);
-    ov20_021D41A8(v0->coins->unk_250);
+    v0->unk_00->unk_250 = ov20_021D40E8(v0->unk_00, v0->unk_04, v0->unk_08);
+    ov20_021D41A8(v0->unk_00->unk_250);
 
-    v0->coins->unk_254 = ov20_021D4728(v0->coins, v0->slotMachineVariant, v0->unk_08);
-    ov20_021D4774(v0->coins->unk_254, narc);
+    v0->unk_00->unk_254 = ov20_021D4728(v0->unk_00, v0->unk_04, v0->unk_08);
+    ov20_021D4774(v0->unk_00->unk_254, narc);
 
     GXLayers_EngineAToggleLayers(GX_PLANEMASK_OBJ, TRUE);
     GXLayers_EngineBToggleLayers(GX_PLANEMASK_OBJ, TRUE);
@@ -304,9 +304,9 @@ static void ov20_021D2260(SysTask *param0, void *slotsMinigameDTO)
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2370(UnkStruct_ov20_021D2238 *param0, NARC *slotsMinigameDTO)
+static void ov20_021D2370(UnkStruct_ov20_021D2238 *param0, NARC *param1)
 {
-    UnkStruct_ov20_021D2128 *v0 = param0->coins;
+    UnkStruct_ov20_021D2128 *v0 = param0->unk_00;
 
     NNS_G2dInitImagePaletteProxy(&(v0->unk_1FC[0]));
     NNS_G2dInitImagePaletteProxy(&(v0->unk_1FC[1]));
@@ -314,19 +314,19 @@ static void ov20_021D2370(UnkStruct_ov20_021D2238 *param0, NARC *slotsMinigameDT
     NNS_G2dInitImageProxy(&(v0->unk_1B4[0]));
     NNS_G2dInitImageProxy(&(v0->unk_1B4[1]));
 
-    Graphics_LoadImageMappingFromOpenNARC(slotsMinigameDTO, 9, 1, 0, 0, NNS_G2D_VRAM_TYPE_2DMAIN, 0, 35, &(v0->unk_1B4[0]));
-    Graphics_LoadPartialPaletteFromOpenNARC(slotsMinigameDTO, 10, NNS_G2D_VRAM_TYPE_2DMAIN, 0, 35, &(v0->unk_1FC[0]));
+    Graphics_LoadImageMappingFromOpenNARC(param1, 9, 1, 0, 0, NNS_G2D_VRAM_TYPE_2DMAIN, 0, 35, &(v0->unk_1B4[0]));
+    Graphics_LoadPartialPaletteFromOpenNARC(param1, 10, NNS_G2D_VRAM_TYPE_2DMAIN, 0, 35, &(v0->unk_1FC[0]));
 
-    v0->unk_234[0] = Graphics_GetCellBankFromOpenNARC(slotsMinigameDTO, 7, 1, &(v0->unk_224[0]), HEAP_ID_35);
-    v0->unk_23C[0] = Graphics_GetAnimBankFromOpenNARC(slotsMinigameDTO, 8, 1, &(v0->unk_22C[0]), HEAP_ID_35);
+    v0->unk_234[0] = Graphics_GetCellBankFromOpenNARC(param1, 7, 1, &(v0->unk_224[0]), HEAP_ID_35);
+    v0->unk_23C[0] = Graphics_GetAnimBankFromOpenNARC(param1, 8, 1, &(v0->unk_22C[0]), HEAP_ID_35);
     v0->unk_234[1] = NULL;
     v0->unk_23C[1] = NULL;
 }
 
-static void ov20_021D2414(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2414(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -337,11 +337,11 @@ static void ov20_021D2414(SysTask *param0, void *slotsMinigameDTO)
         if (IsScreenFadeDone()) {
             int v2;
 
-            ov20_021D2EF0(v0->coins->unk_244);
-            ov20_021D3880(v0->coins->unk_248);
-            EasyChatCategoriesContext_Free(v0->coins->unk_24C);
-            ov20_021D4164(v0->coins->unk_250);
-            ov20_021D4764(v0->coins->unk_254);
+            ov20_021D2EF0(v0->unk_00->unk_244);
+            ov20_021D3880(v0->unk_00->unk_248);
+            EasyChatCategoriesContext_Free(v0->unk_00->unk_24C);
+            ov20_021D4164(v0->unk_00->unk_250);
+            ov20_021D4764(v0->unk_00->unk_254);
 
             for (v2 = 0; v2 < 2; v2++) {
                 if (v1->unk_234[v2] != NULL) {
@@ -455,7 +455,7 @@ static void ov20_021D24EC(UnkStruct_ov20_021D2238 *param0)
         .areaOver = 0,
         .mosaic = FALSE,
     };
-    UnkStruct_ov20_021D2128 *v7 = param0->coins;
+    UnkStruct_ov20_021D2128 *v7 = param0->unk_00;
 
     GX_SetDispSelect(GX_DISP_SELECT_MAIN_SUB);
     GX_SetGraphicsMode(GX_DISPMODE_GRAPHICS, GX_BGMODE_0, GX_BG0_AS_3D);
@@ -471,10 +471,10 @@ static void ov20_021D24EC(UnkStruct_ov20_021D2238 *param0)
     Bg_InitFromTemplate(v7->unk_20, BG_LAYER_SUB_0, &v6, 0);
 }
 
-static void ov20_021D2570(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2570(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -492,21 +492,21 @@ static void ov20_021D2570(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D25C0(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D25C0(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D3228(v1->unk_244);
-    ov20_021D3700(v1->unk_244, EasyChat_GetCurrentWordSlot(v0->slotMachineVariant));
+    ov20_021D3700(v1->unk_244, EasyChat_GetCurrentWordSlot(v0->unk_04));
 
     ov20_021D2238(v0);
 }
 
-static void ov20_021D25EC(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D25EC(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D369C(v1->unk_244, 0);
     ov20_021D36B0(v1->unk_244);
@@ -517,10 +517,10 @@ static void ov20_021D25EC(SysTask *param0, void *slotsMinigameDTO)
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2630(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2630(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D39D4(v1->unk_248, 0);
     ov20_021D36D0(v1->unk_244);
@@ -528,10 +528,10 @@ static void ov20_021D2630(SysTask *param0, void *slotsMinigameDTO)
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2660(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2660(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -551,10 +551,10 @@ static void ov20_021D2660(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D26D8(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D26D8(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -575,10 +575,10 @@ static void ov20_021D26D8(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D2740(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2740(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -606,10 +606,10 @@ static void ov20_021D2740(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D27E4(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D27E4(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -628,10 +628,10 @@ static void ov20_021D27E4(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D2848(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2848(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -657,10 +657,10 @@ static void ov20_021D2848(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D28E8(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D28E8(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -694,10 +694,10 @@ static void ov20_021D28E8(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D29BC(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D29BC(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -731,10 +731,10 @@ static void ov20_021D29BC(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D2A9C(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2A9C(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -767,46 +767,46 @@ static void ov20_021D2A9C(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D2B74(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2B74(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D3700(v1->unk_244, EasyChat_GetCurrentWordSlot(v1->unk_18));
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2B94(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2B94(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D39EC(v1->unk_248, ov20_021D1FD4(v1->unk_18));
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2BB4(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2BB4(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     EasyChatCategories_DrawCursor(v1->unk_24C, EasyChat_GetCategoryCursorPos(v1->unk_18));
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2BD4(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2BD4(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D4480(v1->unk_250, ov20_021D2034(v1->unk_18));
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2BF4(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2BF4(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     switch (v0->unk_14) {
     case 0:
@@ -822,22 +822,22 @@ static void ov20_021D2BF4(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov20_021D2C44(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2C44(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D3578(v1->unk_244, 0);
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2C60(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2C60(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D3578(v1->unk_244, 2);
-    ov20_021D3790(v1->unk_244, ov20_021D208C(v0->slotMachineVariant));
+    ov20_021D3790(v1->unk_244, ov20_021D208C(v0->unk_04));
 
     if (ov20_021D39E0(v1->unk_248)) {
         ov20_021D39BC(v1->unk_248);
@@ -848,13 +848,13 @@ static void ov20_021D2C60(SysTask *param0, void *slotsMinigameDTO)
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2CB0(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2CB0(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D3578(v1->unk_244, 3);
-    ov20_021D3790(v1->unk_244, ov20_021D208C(v0->slotMachineVariant));
+    ov20_021D3790(v1->unk_244, ov20_021D208C(v0->unk_04));
 
     if (ov20_021D39E0(v1->unk_248)) {
         ov20_021D39BC(v1->unk_248);
@@ -865,28 +865,28 @@ static void ov20_021D2CB0(SysTask *param0, void *slotsMinigameDTO)
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2D00(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2D00(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D3578(v1->unk_244, 1);
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2D1C(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2D1C(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
-    ov20_021D381C(v1->unk_244, ov20_021D208C(v0->slotMachineVariant));
+    ov20_021D381C(v1->unk_244, ov20_021D208C(v0->unk_04));
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2D3C(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2D3C(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D3578(v1->unk_244, 0);
     ov20_021D384C(v1->unk_244);
@@ -900,37 +900,37 @@ static void ov20_021D2D3C(SysTask *param0, void *slotsMinigameDTO)
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2D84(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2D84(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D4DF4(v1->unk_254, 0, 1);
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2DA0(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2DA0(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D4DF4(v1->unk_254, 1, 1);
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2DBC(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2DBC(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D4DF4(v1->unk_254, 0, 0);
     ov20_021D2238(v0);
 }
 
-static void ov20_021D2DD8(SysTask *param0, void *slotsMinigameDTO)
+static void ov20_021D2DD8(SysTask *param0, void *param1)
 {
-    UnkStruct_ov20_021D2238 *v0 = slotsMinigameDTO;
-    UnkStruct_ov20_021D2128 *v1 = v0->coins;
+    UnkStruct_ov20_021D2238 *v0 = param1;
+    UnkStruct_ov20_021D2128 *v1 = v0->unk_00;
 
     ov20_021D4DF4(v1->unk_254, 1, 0);
     ov20_021D2238(v0);
@@ -951,27 +951,27 @@ SpriteList *ov20_021D2E08(UnkStruct_ov20_021D2128 *param0)
     return param0->unk_24;
 }
 
-void ov20_021D2E0C(UnkStruct_ov20_021D2128 *param0, SpriteResourcesHeader *slotsMinigameDTO, u32 param2, u32 param3)
+void ov20_021D2E0C(UnkStruct_ov20_021D2128 *param0, SpriteResourcesHeader *param1, u32 param2, u32 param3)
 {
-    slotsMinigameDTO->imageProxy = &param0->unk_1B4[param2];
-    slotsMinigameDTO->paletteProxy = &param0->unk_1FC[param2];
-    slotsMinigameDTO->cellBank = param0->unk_224[param2];
-    slotsMinigameDTO->cellAnimBank = param0->unk_22C[param2];
-    slotsMinigameDTO->priority = param3;
-    slotsMinigameDTO->charData = NULL;
-    slotsMinigameDTO->multiCellBank = NULL;
-    slotsMinigameDTO->multiCellAnimBank = NULL;
-    slotsMinigameDTO->isVRamTransfer = 0;
+    param1->imageProxy = &param0->unk_1B4[param2];
+    param1->paletteProxy = &param0->unk_1FC[param2];
+    param1->cellBank = param0->unk_224[param2];
+    param1->cellAnimBank = param0->unk_22C[param2];
+    param1->priority = param3;
+    param1->charData = NULL;
+    param1->multiCellBank = NULL;
+    param1->multiCellAnimBank = NULL;
+    param1->isVRamTransfer = 0;
 }
 
-Sprite *ov20_021D2E50(UnkStruct_ov20_021D2128 *param0, SpriteResourcesHeader *slotsMinigameDTO, u32 param2, u32 param3, u32 param4, int param5)
+Sprite *ov20_021D2E50(UnkStruct_ov20_021D2128 *param0, SpriteResourcesHeader *param1, u32 param2, u32 param3, u32 param4, int param5)
 {
     SpriteListTemplate v0;
     Sprite *v1;
     OSIntrMode v2;
 
     v0.list = param0->unk_24;
-    v0.resourceData = slotsMinigameDTO;
+    v0.resourceData = param1;
     v0.position.x = param2 * FX32_ONE;
     v0.position.y = param3 * FX32_ONE;
     v0.position.z = 0;

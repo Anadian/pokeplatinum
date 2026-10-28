@@ -41,16 +41,16 @@ enum EasyChatTask {
     EASY_CHAT_SYSTASK_28,
 };
 
-UnkStruct_ov20_021D2128 *ov20_021D2098(const EasyChatApp *param0, const EasyChatWordList *slotsMinigameDTO);
+UnkStruct_ov20_021D2128 *ov20_021D2098(const EasyChatApp *param0, const EasyChatWordList *param1);
 void ov20_021D2128(UnkStruct_ov20_021D2128 *param0);
-SysTask *ov20_021D2170(SysTaskFunc param0, void *slotsMinigameDTO, int param2);
-void ov20_021D21A0(UnkStruct_ov20_021D2128 *param0, int slotsMinigameDTO);
+SysTask *ov20_021D2170(SysTaskFunc param0, void *param1, int param2);
+void ov20_021D21A0(UnkStruct_ov20_021D2128 *param0, int param1);
 BOOL ov20_021D21F8(UnkStruct_ov20_021D2128 *param0);
-BOOL ov20_021D2210(UnkStruct_ov20_021D2128 *param0, int slotsMinigameDTO);
+BOOL ov20_021D2210(UnkStruct_ov20_021D2128 *param0, int param1);
 u32 ov20_021D2DF4(UnkStruct_ov20_021D2128 *param0);
 BgConfig *ov20_021D2E04(UnkStruct_ov20_021D2128 *param0);
 SpriteList *ov20_021D2E08(UnkStruct_ov20_021D2128 *param0);
-void ov20_021D2E0C(UnkStruct_ov20_021D2128 *param0, SpriteResourcesHeader *slotsMinigameDTO, u32 param2, u32 param3);
-Sprite *ov20_021D2E50(UnkStruct_ov20_021D2128 *param0, SpriteResourcesHeader *slotsMinigameDTO, u32 param2, u32 param3, u32 param4, int param5);
+void ov20_021D2E0C(UnkStruct_ov20_021D2128 *param0, SpriteResourcesHeader *param1, u32 param2, u32 param3);
+Sprite *ov20_021D2E50(UnkStruct_ov20_021D2128 *param0, SpriteResourcesHeader *param1, u32 param2, u32 param3, u32 param4, int param5);
 
 #endif // POKEPLATINUM_OV20_021D2098_H

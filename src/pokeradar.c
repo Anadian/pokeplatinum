@@ -52,7 +52,7 @@ typedef struct RadarChain {
     u8 unk_D0;
 } RadarChain;
 
-static BOOL CheckTileIsGrass(FieldSystem *fieldSystem, const fx32 slotsMinigameDTO, const int param2, const int param3, const u8 param4, const u8 param5, GrassPatch *patch);
+static BOOL CheckTileIsGrass(FieldSystem *fieldSystem, const fx32 param1, const int param2, const int param3, const u8 param4, const u8 param5, GrassPatch *patch);
 static BOOL PlayerStandingInPatch(const RadarChain *chain, const int x, const int z, u8 *patchMatch);
 static void TryReplaceLowestChainRecord(FieldSystem *fieldSystem, RadarChain *chain);
 static u8 GetLowestChainRecordSlot(FieldSystem *fieldSystem);
@@ -88,7 +88,7 @@ void RadarChain_Clear(RadarChain *chain)
     }
 }
 
-BOOL RadarSpawnPatches(FieldSystem *fieldSystem, const int slotsMinigameDTO, const int param2, RadarChain *chain)
+BOOL RadarSpawnPatches(FieldSystem *fieldSystem, const int param1, const int param2, RadarChain *chain)
 {
     u8 v1, v2;
     u8 v3;
@@ -128,7 +128,7 @@ BOOL RadarSpawnPatches(FieldSystem *fieldSystem, const int slotsMinigameDTO, con
             }
         }
 
-        BOOL v10 = CheckTileIsGrass(fieldSystem, v8->y, slotsMinigameDTO, param2, v5, v6, &chain->patch[patchRing]);
+        BOOL v10 = CheckTileIsGrass(fieldSystem, v8->y, param1, param2, v5, v6, &chain->patch[patchRing]);
         if (v10) {
             v7++;
         }
@@ -144,11 +144,11 @@ BOOL RadarSpawnPatches(FieldSystem *fieldSystem, const int slotsMinigameDTO, con
     return chain->active;
 }
 
-void SetupGrassPatches(FieldSystem *fieldSystem, const int slotsMinigameDTO, RadarChain *chain)
+void SetupGrassPatches(FieldSystem *fieldSystem, const int param1, RadarChain *chain)
 {
     for (u8 patchRing = 0; patchRing < NUM_GRASS_PATCHES; patchRing++) {
         if (chain->patch[patchRing].active) {
-            chain->patch[patchRing].continueChain = CheckPatchContinueChain(patchRing, slotsMinigameDTO);
+            chain->patch[patchRing].continueChain = CheckPatchContinueChain(patchRing, param1);
             if (!chain->patch[patchRing].continueChain) {
                 if (LCRNG_RandMod(100) < 50) { // If the patch will break the chain, it has a 50/50 chance of shaking the other type
                     chain->patch[patchRing].shakeType = PATCH_SHAKE_SOFT;
@@ -298,7 +298,7 @@ BOOL GetRadarChainActive(const RadarChain *chain)
     return chain->active;
 }
 
-static BOOL CheckTileIsGrass(FieldSystem *fieldSystem, const fx32 slotsMinigameDTO, const int param2, const int param3, const u8 param4, const u8 param5, GrassPatch *patch)
+static BOOL CheckTileIsGrass(FieldSystem *fieldSystem, const fx32 param1, const int param2, const int param3, const u8 param4, const u8 param5, GrassPatch *patch)
 {
     int v0 = (param2 - (9 / 2)) + param4;
     int v1 = (param3 - (9 / 2)) + param5;
@@ -312,7 +312,7 @@ static BOOL CheckTileIsGrass(FieldSystem *fieldSystem, const fx32 slotsMinigameD
         patch->position.z = FX32_ONE * 16 * v1;
         patch->position.y = TerrainCollisionManager_GetHeight(fieldSystem, 0, patch->position.x, patch->position.z, &v3);
 
-        if (slotsMinigameDTO != patch->position.y) {
+        if (param1 != patch->position.y) {
             patch->active = FALSE;
             return FALSE;
         }

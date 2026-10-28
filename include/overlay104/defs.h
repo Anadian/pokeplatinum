@@ -24,7 +24,7 @@ typedef BOOL (*FrontierShouldResumeScriptFunc)(FrontierScriptContext *);
 
 struct FrontierScriptContext {
     FrontierScriptManager *scriptMan;
-    u32 slotMachineVariant;
+    u32 unk_04;
     u16 unk_08[8];
     u8 stackPointer;
     u8 state;

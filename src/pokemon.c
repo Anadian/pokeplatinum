@@ -3380,11 +3380,11 @@ static u8 LoadPokemonDPSpriteHeight(u16 species, u8 gender, u8 face, u8 form, u3
     return result;
 }
 
-void SpriteSystem_SetTrainerFrontSpriteTemplate(PokemonSpriteTemplate *spriteTemplate, u16 slotsMinigameDTO)
+void SpriteSystem_SetTrainerFrontSpriteTemplate(PokemonSpriteTemplate *spriteTemplate, u16 param1)
 {
     spriteTemplate->narcID = NARC_INDEX_POKETOOL__TRGRA__TRFGRA;
-    spriteTemplate->character = slotsMinigameDTO * 2;
-    spriteTemplate->palette = slotsMinigameDTO * 2 + 1;
+    spriteTemplate->character = param1 * 2;
+    spriteTemplate->palette = param1 * 2 + 1;
     spriteTemplate->spindaSpots = 0;
     spriteTemplate->dummy = 0;
     spriteTemplate->personality = 0;
@@ -4181,15 +4181,15 @@ void Pokemon_ApplyPokerus(Party *party)
     }
 }
 
-u8 Pokemon_HasPokerus(Party *party, u8 slotsMinigameDTO)
+u8 Pokemon_HasPokerus(Party *party, u8 param1)
 {
     int partySlot = 0;
     int v1 = 1;
 
     u8 result = 0;
-    if (slotsMinigameDTO) {
+    if (param1) {
         do {
-            if (slotsMinigameDTO & 1) {
+            if (param1 & 1) {
                 Pokemon *mon = Party_GetPokemonBySlotIndex(party, partySlot);
 
                 if (Pokemon_GetValue(mon, MON_DATA_POKERUS, NULL)) {
@@ -4199,8 +4199,8 @@ u8 Pokemon_HasPokerus(Party *party, u8 slotsMinigameDTO)
 
             partySlot++;
             v1 = v1 << 1;
-            slotsMinigameDTO = slotsMinigameDTO >> 1;
-        } while (slotsMinigameDTO != 0);
+            param1 = param1 >> 1;
+        } while (param1 != 0);
     } else {
         Pokemon *mon = Party_GetPokemonBySlotIndex(party, partySlot);
 
@@ -4485,7 +4485,7 @@ void Party_SetShayminLandForm(Party *party)
     }
 }
 
-BOOL Party_SetShayminForm(Party *party, int slotsMinigameDTO, const RTCTime *rtcTime)
+BOOL Party_SetShayminForm(Party *party, int param1, const RTCTime *rtcTime)
 {
     if (rtcTime->hour >= 20 || rtcTime->hour < 4) {
         s32 hours = rtcTime->hour;
@@ -4497,9 +4497,9 @@ BOOL Party_SetShayminForm(Party *party, int slotsMinigameDTO, const RTCTime *rtc
         hours -= 20;
         s32 minutes = rtcTime->minute + hours * 60;
 
-        slotsMinigameDTO++;
+        param1++;
 
-        if (minutes < slotsMinigameDTO) {
+        if (minutes < param1) {
             Party_SetShayminLandForm(party);
             return TRUE;
         }
@@ -4508,7 +4508,7 @@ BOOL Party_SetShayminForm(Party *party, int slotsMinigameDTO, const RTCTime *rtc
     } else {
         s32 minutes = rtcTime->minute + (rtcTime->hour - 4) * 60;
 
-        if (minutes < slotsMinigameDTO) {
+        if (minutes < param1) {
             Party_SetShayminLandForm(party);
             return TRUE;
         }
@@ -5039,13 +5039,13 @@ BOOL Pokemon_IsBannedFromBattleFrontier(Pokemon *mon)
     return Pokemon_IsOnBattleFrontierBanlist(species);
 }
 
-BOOL sub_0207884C(BoxPokemon *boxMon, TrainerInfo *slotsMinigameDTO, enum HeapID heapID)
+BOOL sub_0207884C(BoxPokemon *boxMon, TrainerInfo *param1, enum HeapID heapID)
 {
-    u32 v0 = TrainerInfo_ID(slotsMinigameDTO);
+    u32 v0 = TrainerInfo_ID(param1);
     u32 monOTID = BoxPokemon_GetValue(boxMon, MON_DATA_OT_ID, NULL);
-    u32 v2 = TrainerInfo_Gender(slotsMinigameDTO);
+    u32 v2 = TrainerInfo_Gender(param1);
     u32 monOtGender = BoxPokemon_GetValue(boxMon, MON_DATA_OT_GENDER, NULL);
-    String *v4 = TrainerInfo_NameNewString(slotsMinigameDTO, heapID);
+    String *v4 = TrainerInfo_NameNewString(param1, heapID);
     // TODO enum/const value?
     String *v5 = String_Init(8, heapID);
     BOOL v6 = FALSE;
@@ -5205,7 +5205,7 @@ BOOL Pokemon_SetBallSeal(int param0, Pokemon *mon, enum HeapID heapID)
     return TRUE;
 }
 
-void sub_02078B40(Pokemon *mon, UnkStruct_02078B40 *slotsMinigameDTO)
+void sub_02078B40(Pokemon *mon, UnkStruct_02078B40 *param1)
 {
     if (mon->box.partyDecrypted == FALSE) {
         Pokemon_DecryptData(&mon->party, sizeof(PartyPokemon), mon->box.personality);
@@ -5219,63 +5219,63 @@ void sub_02078B40(Pokemon *mon, UnkStruct_02078B40 *slotsMinigameDTO)
     PokemonDataBlockC *monDataBlockC = BoxPokemon_GetDataBlock(boxMon, boxMon->personality, DATA_BLOCK_C);
     PokemonDataBlockD *monDataBlockD = BoxPokemon_GetDataBlock(boxMon, boxMon->personality, DATA_BLOCK_D);
 
-    slotsMinigameDTO->personality = boxMon->personality;
-    slotsMinigameDTO->partyDecrypted = FALSE;
-    slotsMinigameDTO->boxDecrypted = FALSE;
-    slotsMinigameDTO->checksumFailed = boxMon->checksumFailed;
-    slotsMinigameDTO->species = monDataBlockA->species;
-    slotsMinigameDTO->heldItem = monDataBlockA->heldItem;
-    slotsMinigameDTO->otID = monDataBlockA->otID;
-    slotsMinigameDTO->exp = monDataBlockA->exp;
-    slotsMinigameDTO->friendship = monDataBlockA->friendship;
-    slotsMinigameDTO->ability = monDataBlockA->ability;
-    slotsMinigameDTO->hpEV = monDataBlockA->hpEV;
-    slotsMinigameDTO->atkEV = monDataBlockA->atkEV;
-    slotsMinigameDTO->defEV = monDataBlockA->defEV;
-    slotsMinigameDTO->speedEV = monDataBlockA->speedEV;
-    slotsMinigameDTO->spAtkEV = monDataBlockA->spAtkEV;
-    slotsMinigameDTO->spDefEV = monDataBlockA->spDefEV;
-    slotsMinigameDTO->originLanguage = monDataBlockA->originLanguage;
+    param1->personality = boxMon->personality;
+    param1->partyDecrypted = FALSE;
+    param1->boxDecrypted = FALSE;
+    param1->checksumFailed = boxMon->checksumFailed;
+    param1->species = monDataBlockA->species;
+    param1->heldItem = monDataBlockA->heldItem;
+    param1->otID = monDataBlockA->otID;
+    param1->exp = monDataBlockA->exp;
+    param1->friendship = monDataBlockA->friendship;
+    param1->ability = monDataBlockA->ability;
+    param1->hpEV = monDataBlockA->hpEV;
+    param1->atkEV = monDataBlockA->atkEV;
+    param1->defEV = monDataBlockA->defEV;
+    param1->speedEV = monDataBlockA->speedEV;
+    param1->spAtkEV = monDataBlockA->spAtkEV;
+    param1->spDefEV = monDataBlockA->spDefEV;
+    param1->originLanguage = monDataBlockA->originLanguage;
 
     int i;
     for (i = 0; i < 4; i++) {
-        slotsMinigameDTO->unk_1C[i] = monDataBlockB->moves[i];
-        slotsMinigameDTO->unk_24[i] = monDataBlockB->moveCurrentPPs[i];
-        slotsMinigameDTO->unk_28[i] = monDataBlockB->movePPUps[i];
+        param1->unk_1C[i] = monDataBlockB->moves[i];
+        param1->unk_24[i] = monDataBlockB->moveCurrentPPs[i];
+        param1->unk_28[i] = monDataBlockB->movePPUps[i];
     }
 
-    slotsMinigameDTO->hpIV = monDataBlockB->hpIV;
-    slotsMinigameDTO->atkIV = monDataBlockB->atkIV;
-    slotsMinigameDTO->defIV = monDataBlockB->defIV;
-    slotsMinigameDTO->speedIV = monDataBlockB->speedIV;
-    slotsMinigameDTO->spAtkIV = monDataBlockB->spAtkIV;
-    slotsMinigameDTO->spDefIV = monDataBlockB->spDefIV;
-    slotsMinigameDTO->isEgg = monDataBlockB->isEgg;
-    slotsMinigameDTO->unk_2C_31 = monDataBlockB->hasNickname;
-    slotsMinigameDTO->fatefulEncounter = monDataBlockB->fatefulEncounter;
-    slotsMinigameDTO->gender = monDataBlockB->gender;
-    slotsMinigameDTO->form = monDataBlockB->form;
+    param1->hpIV = monDataBlockB->hpIV;
+    param1->atkIV = monDataBlockB->atkIV;
+    param1->defIV = monDataBlockB->defIV;
+    param1->speedIV = monDataBlockB->speedIV;
+    param1->spAtkIV = monDataBlockB->spAtkIV;
+    param1->spDefIV = monDataBlockB->spDefIV;
+    param1->isEgg = monDataBlockB->isEgg;
+    param1->unk_2C_31 = monDataBlockB->hasNickname;
+    param1->fatefulEncounter = monDataBlockB->fatefulEncounter;
+    param1->gender = monDataBlockB->gender;
+    param1->form = monDataBlockB->form;
 
     for (i = 0; i < 10 + 1; i++) {
-        slotsMinigameDTO->unk_32[i] = monDataBlockC->nickname[i];
+        param1->unk_32[i] = monDataBlockC->nickname[i];
     }
 
     for (i = 0; i < 7 + 1; i++) {
-        slotsMinigameDTO->unk_48[i] = monDataBlockD->otName[i];
+        param1->unk_48[i] = monDataBlockD->otName[i];
     }
 
-    slotsMinigameDTO->pokeball = monDataBlockD->pokeball;
+    param1->pokeball = monDataBlockD->pokeball;
 
-    slotsMinigameDTO->unk_5C = mon->party.status;
-    slotsMinigameDTO->level = mon->party.level;
-    slotsMinigameDTO->unk_61 = mon->party.ballCapsuleID;
-    slotsMinigameDTO->unk_62 = mon->party.hp;
-    slotsMinigameDTO->unk_64 = mon->party.maxHP;
-    slotsMinigameDTO->unk_66 = mon->party.attack;
-    slotsMinigameDTO->unk_68 = mon->party.defense;
-    slotsMinigameDTO->unk_6A = mon->party.speed;
-    slotsMinigameDTO->unk_6C = mon->party.spAtk;
-    slotsMinigameDTO->unk_6E = mon->party.spDef;
+    param1->unk_5C = mon->party.status;
+    param1->level = mon->party.level;
+    param1->unk_61 = mon->party.ballCapsuleID;
+    param1->unk_62 = mon->party.hp;
+    param1->unk_64 = mon->party.maxHP;
+    param1->unk_66 = mon->party.attack;
+    param1->unk_68 = mon->party.defense;
+    param1->unk_6A = mon->party.speed;
+    param1->unk_6C = mon->party.spAtk;
+    param1->unk_6E = mon->party.spDef;
 
     if (mon->box.partyDecrypted == FALSE) {
         Pokemon_EncryptData(&mon->party, sizeof(PartyPokemon), mon->box.personality);

@@ -12,10 +12,10 @@
 #include "overlay113/struct_ov113_022607EC.h"
 #include "overlay113/struct_ov113_02260818.h"
 
-static void ov113_02260838(s32 param0, const void *slotsMinigameDTO, u32 param2, void *param3);
-static void ov113_0226085C(s32 param0, const void *slotsMinigameDTO, u32 param2, void *param3);
-static void ov113_02260884(s32 param0, const void *slotsMinigameDTO, u32 param2, void *param3);
-static BOOL ov113_022607EC(s32 param0, UnkStruct_ov113_022607EC *slotsMinigameDTO);
+static void ov113_02260838(s32 param0, const void *param1, u32 param2, void *param3);
+static void ov113_0226085C(s32 param0, const void *param1, u32 param2, void *param3);
+static void ov113_02260884(s32 param0, const void *param1, u32 param2, void *param3);
+static BOOL ov113_022607EC(s32 param0, UnkStruct_ov113_022607EC *param1);
 
 static const UnkStruct_ov66_022589B4 Unk_ov113_02261548[] = {
     { ov113_02260838, sizeof(UnkStruct_ov113_0225CA04) },
@@ -28,13 +28,13 @@ void ov113_022607D8(UnkStruct_ov113_0225DBCC *param0)
     ov66_02232D60(Unk_ov113_02261548, (NELEMS(Unk_ov113_02261548)), param0);
 }
 
-static BOOL ov113_022607EC(s32 param0, UnkStruct_ov113_022607EC *slotsMinigameDTO)
+static BOOL ov113_022607EC(s32 param0, UnkStruct_ov113_022607EC *param1)
 {
-    if (slotsMinigameDTO->slotMachineVariant == param0) {
+    if (param1->unk_04 == param0) {
         return 0;
     }
 
-    if (slotsMinigameDTO->coins == 0) {
+    if (param1->unk_00 == 0) {
         return 0;
     }
 
@@ -55,11 +55,11 @@ BOOL ov113_02260818(const UnkStruct_ov113_02260818 *param0)
     return 1;
 }
 
-static void ov113_02260838(s32 param0, const void *slotsMinigameDTO, u32 param2, void *param3)
+static void ov113_02260838(s32 param0, const void *param1, u32 param2, void *param3)
 {
     UnkStruct_ov113_0225DBCC *v0 = param3;
     UnkStruct_ov113_022607EC *v1 = ov113_0225DD44(v0);
-    const UnkStruct_ov113_0225CA04 *v2 = slotsMinigameDTO;
+    const UnkStruct_ov113_0225CA04 *v2 = param1;
 
     if (ov113_022607EC(param0, v1) == 0) {
         return;
@@ -68,7 +68,7 @@ static void ov113_02260838(s32 param0, const void *slotsMinigameDTO, u32 param2,
     ov113_0225E044(v0, param0);
 }
 
-static void ov113_0226085C(s32 param0, const void *slotsMinigameDTO, u32 param2, void *param3)
+static void ov113_0226085C(s32 param0, const void *param1, u32 param2, void *param3)
 {
     UnkStruct_ov113_0225DBCC *v0 = param3;
     UnkStruct_ov113_022607EC *v1 = ov113_0225DD44(v0);
@@ -80,11 +80,11 @@ static void ov113_0226085C(s32 param0, const void *slotsMinigameDTO, u32 param2,
     ov113_0225E05C(v0, ov66_02232B8C(param0));
 }
 
-static void ov113_02260884(s32 param0, const void *slotsMinigameDTO, u32 param2, void *param3)
+static void ov113_02260884(s32 param0, const void *param1, u32 param2, void *param3)
 {
     UnkStruct_ov113_0225DBCC *v0 = param3;
     UnkStruct_ov113_022607EC *v1 = ov113_0225DD44(v0);
-    const UnkStruct_ov113_02260818 *v2 = slotsMinigameDTO;
+    const UnkStruct_ov113_02260818 *v2 = param1;
 
     if (ov113_022607EC(param0, v1) == 0) {
         return;

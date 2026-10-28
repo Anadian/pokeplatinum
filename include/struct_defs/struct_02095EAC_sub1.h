@@ -2,7 +2,7 @@
 #define POKEPLATINUM_STRUCT_02095EAC_SUB1_H
 
 typedef struct {
-    u8 coins[1000];
+    u8 unk_00[1000];
     u32 unk_3E8;
     u8 unk_3EC;
     u8 unk_3ED[3];

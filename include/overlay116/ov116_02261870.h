@@ -11,31 +11,31 @@
 #include "narc.h"
 #include "sprite_system.h"
 
-void ov116_02261870(Easy3DObject *param0, MtxFx43 *slotsMinigameDTO, VecFx32 *param2);
-void ov116_022618A8(UnkStruct_ov116_0226501C *param0, NARC *slotsMinigameDTO, int param2);
-void ov116_022618B4(UnkStruct_ov116_0226501C *param0, int slotsMinigameDTO);
+void ov116_02261870(Easy3DObject *param0, MtxFx43 *param1, VecFx32 *param2);
+void ov116_022618A8(UnkStruct_ov116_0226501C *param0, NARC *param1, int param2);
+void ov116_022618B4(UnkStruct_ov116_0226501C *param0, int param1);
 void ov116_0226192C(UnkStruct_ov116_0226501C *param0);
 void ov116_02261940(UnkStruct_ov116_0226139C *param0);
-void ov116_02261C48(UnkStruct_ov116_02262A8C *param0, int slotsMinigameDTO);
+void ov116_02261C48(UnkStruct_ov116_02262A8C *param0, int param1);
 void ov116_02261C88(UnkStruct_ov116_0226139C *param0);
 void ov116_02261D08(UnkStruct_ov116_02262A8C *param0);
 void ov116_02261D70(UnkStruct_ov116_02262A8C *param0);
 void ov116_02261DF0(UnkStruct_ov116_02262A8C *param0);
-void ov116_02261E0C(UnkStruct_ov116_02262A8C *param0, BOOL slotsMinigameDTO, int param2);
+void ov116_02261E0C(UnkStruct_ov116_02262A8C *param0, BOOL param1, int param2);
 void ov116_02261E28(UnkStruct_ov116_02262A8C *param0);
 void ov116_02261E40(UnkStruct_ov116_02262A8C *param0);
-void ov116_02261E58(UnkStruct_ov116_02262A8C *param0, int slotsMinigameDTO, int param2);
-int ov116_02261EA4(UnkStruct_ov116_02262A8C *param0, int slotsMinigameDTO);
+void ov116_02261E58(UnkStruct_ov116_02262A8C *param0, int param1, int param2);
+int ov116_02261EA4(UnkStruct_ov116_02262A8C *param0, int param1);
 void ov116_02261F08(UnkStruct_ov116_02262A8C *param0);
 void ov116_02261F3C(UnkStruct_ov116_02262A8C *param0);
 void ov116_02261F70(UnkStruct_ov116_02262A8C *param0);
 void ov116_02262004(UnkStruct_ov116_02262A8C *param0);
-void ov116_02262034(UnkStruct_ov116_0226139C *param0, int slotsMinigameDTO);
-void ov116_022620AC(UnkStruct_ov116_0226139C *param0, UnkStruct_ov116_02262A8C *slotsMinigameDTO);
+void ov116_02262034(UnkStruct_ov116_0226139C *param0, int param1);
+void ov116_022620AC(UnkStruct_ov116_0226139C *param0, UnkStruct_ov116_02262A8C *param1);
 void ov116_02262264(UnkStruct_ov116_02262A8C *param0);
 void ov116_022622C8(UnkStruct_ov116_0226139C *param0);
-void ov116_022625A8(UnkStruct_ov116_0226139C *param0, UnkStruct_ov116_02262A8C *slotsMinigameDTO);
-ManagedSprite *ov116_022626E8(UnkStruct_ov116_02262A8C *param0, s16 slotsMinigameDTO, s16 param2);
+void ov116_022625A8(UnkStruct_ov116_0226139C *param0, UnkStruct_ov116_02262A8C *param1);
+ManagedSprite *ov116_022626E8(UnkStruct_ov116_02262A8C *param0, s16 param1, s16 param2);
 void ov116_02262724(UnkStruct_ov116_02262A8C *param0);
 void ov116_0226281C(UnkStruct_ov116_02262A8C *param0);
 void ov116_02262840(UnkStruct_ov116_02262A8C *param0);

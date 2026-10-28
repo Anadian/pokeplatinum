@@ -6,10 +6,10 @@
 #include "software_sprite.h"
 
 typedef struct {
-    UnkStruct_ov22_02254DE0 *coins;
-    SoftwareSpriteManager *slotMachineVariant;
+    UnkStruct_ov22_02254DE0 *unk_00;
+    SoftwareSpriteManager *unk_04;
     SoftwareSpriteChars *unk_08;
-    SoftwareSpritePalette *slotsMinigameDTO;
+    SoftwareSpritePalette *unk_0C;
     int unk_10;
     int unk_14;
     u32 unk_18;

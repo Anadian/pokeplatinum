@@ -538,7 +538,7 @@ static void WirelessManager_FinishStartScan(void *wm_startscancallback)
         if ((sWirelessManager->ggidScanCallback != NULL) && (callback->gameInfoLength >= 8)) {
             UnkStruct_0203330C *v1 = (UnkStruct_0203330C *)callback->gameInfo.userGameInfo;
 
-            sWirelessManager->ggidScanCallback(callback->gameInfo.ggid, v1->slotMachineVariant);
+            sWirelessManager->ggidScanCallback(callback->gameInfo.ggid, v1->unk_04);
         }
 
         if ((callback->gameInfoLength < 8) || (callback->gameInfo.ggid != sWirelessManager->parentParam.ggid)) {

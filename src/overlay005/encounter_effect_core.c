@@ -305,7 +305,7 @@ void EncounterEffect_Water_LowerLevel(SysTask *task, void *param)
         memset(encEffect->param, 0, sizeof(WaterEncounterEffect));
         waterEffect = encEffect->param;
         ScreenShakeEffect_Init(&waterEffect->screenShakeEfx, HEAP_ID_FIELD1);
-        HBlankSystem_Stop(encEffect->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Stop(encEffect->fieldSystem->unk_04->hBlankSystem);
         encEffect->state++;
         break;
     case 1:
@@ -340,7 +340,7 @@ void EncounterEffect_Water_LowerLevel(SysTask *task, void *param)
         break;
     case 6:
         ScreenShakeEffect_Finish(&waterEffect->screenShakeEfx);
-        HBlankSystem_Start(encEffect->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Start(encEffect->fieldSystem->unk_04->hBlankSystem);
 
         if (encEffect->done != NULL) {
             *(encEffect->done) = TRUE;
@@ -363,7 +363,7 @@ void EncounterEffect_Water_HigherLevel(SysTask *task, void *param)
         memset(encEffect->param, 0, sizeof(WaterEncounterEffect));
         waterEffect = encEffect->param;
         ScreenShakeEffect_Init(&waterEffect->screenShakeEfx, HEAP_ID_FIELD1);
-        HBlankSystem_Stop(encEffect->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Stop(encEffect->fieldSystem->unk_04->hBlankSystem);
         encEffect->state++;
         break;
     case 1:
@@ -398,7 +398,7 @@ void EncounterEffect_Water_HigherLevel(SysTask *task, void *param)
         break;
     case 6:
         ScreenShakeEffect_Finish(&waterEffect->screenShakeEfx);
-        HBlankSystem_Start(encEffect->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Start(encEffect->fieldSystem->unk_04->hBlankSystem);
 
         if (encEffect->done != NULL) {
             *(encEffect->done) = TRUE;
@@ -485,7 +485,7 @@ void EncounterEffect_Cave_LowerLevel(SysTask *task, void *param)
         }
         break;
     case 3:
-        HBlankSystem_Stop(encEffect->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Stop(encEffect->fieldSystem->unk_04->hBlankSystem);
         StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_CIRCLE_OUT, FADE_TYPE_CIRCLE_OUT, COLOR_BLACK, 12, 1, HEAP_ID_FIELD1);
 
         caveEffect->camera = encEffect->fieldSystem->camera;
@@ -508,7 +508,7 @@ void EncounterEffect_Cave_LowerLevel(SysTask *task, void *param)
         }
         break;
     case 5:
-        HBlankSystem_Start(encEffect->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Start(encEffect->fieldSystem->unk_04->hBlankSystem);
 
         if (encEffect->done != NULL) {
             *(encEffect->done) = TRUE;
@@ -543,7 +543,7 @@ void EncounterEffect_Cave_HigherLevel(SysTask *task, void *param)
         }
         break;
     case 3:
-        HBlankSystem_Stop(encEffect->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Stop(encEffect->fieldSystem->unk_04->hBlankSystem);
         StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_CIRCLE_OUT, FADE_TYPE_CIRCLE_OUT, COLOR_BLACK, 12, 1, HEAP_ID_FIELD1);
 
         caveEffect->camera = encEffect->fieldSystem->camera;
@@ -566,7 +566,7 @@ void EncounterEffect_Cave_HigherLevel(SysTask *task, void *param)
         }
         break;
     case 5:
-        HBlankSystem_Start(encEffect->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Start(encEffect->fieldSystem->unk_04->hBlankSystem);
 
         if (encEffect->done != NULL) {
             *(encEffect->done) = TRUE;
@@ -592,7 +592,7 @@ typedef struct TrainerGrassEncounterEffect {
 } TrainerGrassEncounterEffect;
 
 typedef struct {
-    LinearInterpolationTaskFX32 coins;
+    LinearInterpolationTaskFX32 unk_00;
     LinearInterpolationTaskS32 unk_14;
     ScreenSplitEffect *unk_28;
     UnkStruct_ov5_021DE47C unk_2C;
@@ -604,7 +604,7 @@ typedef struct {
 } UnkStruct_ov5_021E2EB0;
 
 typedef struct {
-    QuadraticInterpolationTaskFX32 coins;
+    QuadraticInterpolationTaskFX32 unk_00;
     LinearInterpolationTaskS32 unk_18;
     LinearInterpolationTaskS32 unk_2C;
     ScreenShakeEffect unk_40;
@@ -618,7 +618,7 @@ typedef struct {
 } UnkStruct_ov5_021E31A4;
 
 typedef struct {
-    UnkStruct_ov5_021DE47C coins;
+    UnkStruct_ov5_021DE47C unk_00;
     UnkStruct_ov5_021DE5A4 unk_1A0;
     Sprite *unk_1D4[3];
     LinearInterpolationTaskS32 unk_1E0[3];
@@ -634,7 +634,7 @@ typedef struct {
 } UnkStruct_ov5_021E3560;
 
 typedef struct {
-    QuadraticInterpolationTaskFX32 coins;
+    QuadraticInterpolationTaskFX32 unk_00;
     QuadraticInterpolationTaskFX32 unk_18;
     QuadraticInterpolationTaskFX32 unk_30;
     LinearInterpolationTaskS32 unk_48;
@@ -647,7 +647,7 @@ typedef struct {
 } UnkStruct_ov5_021E3AD0;
 
 typedef struct {
-    UnkStruct_ov5_021DE47C coins;
+    UnkStruct_ov5_021DE47C unk_00;
     UnkStruct_ov5_021DE5A4 unk_1A0;
     Sprite *unk_1D4[3];
     LinearInterpolationTaskS32 unk_1E0[3];
@@ -820,13 +820,13 @@ void EncounterEffect_Trainer_Grass_LowerLevel(SysTask *task, void *param)
     }
 
     if (encEffect->state != 7) {
-        SpriteList_Update(trainerEffect->unk_48.coins);
+        SpriteList_Update(trainerEffect->unk_48.unk_00);
     }
 }
 
-void EncounterEffect_Trainer_Grass_HigherLevel(SysTask *param0, void *slotsMinigameDTO)
+void EncounterEffect_Trainer_Grass_HigherLevel(SysTask *param0, void *param1)
 {
-    EncounterEffect *encEffect = slotsMinigameDTO;
+    EncounterEffect *encEffect = param1;
     UnkStruct_ov5_021E2EB0 *v1 = encEffect->param;
     BOOL v2;
     fx32 v3;
@@ -875,15 +875,15 @@ void EncounterEffect_Trainer_Grass_HigherLevel(SysTask *param0, void *slotsMinig
         break;
 
     case 3:
-        LinearInterpolationTaskFX32_Init(&v1->coins, -192 * FX32_ONE, 192 * FX32_ONE, 8);
+        LinearInterpolationTaskFX32_Init(&v1->unk_00, -192 * FX32_ONE, 192 * FX32_ONE, 8);
         Sprite_SetDrawFlag(
             v1->unk_200[0], 1);
         Sprite_SetDrawFlag(
             v1->unk_200[1], 1);
 
         {
-            VecFx32 v5 = VecFx32_FromXYZ((128 * FX32_ONE) - v1->coins.currentValue, 64 * FX32_ONE, 0);
-            VecFx32 v6 = VecFx32_FromXYZ((128 * FX32_ONE) + v1->coins.currentValue, 128 * FX32_ONE, 0);
+            VecFx32 v5 = VecFx32_FromXYZ((128 * FX32_ONE) - v1->unk_00.currentValue, 64 * FX32_ONE, 0);
+            VecFx32 v6 = VecFx32_FromXYZ((128 * FX32_ONE) + v1->unk_00.currentValue, 128 * FX32_ONE, 0);
 
             Sprite_SetPosition(
                 v1->unk_200[0], &v5);
@@ -897,11 +897,11 @@ void EncounterEffect_Trainer_Grass_HigherLevel(SysTask *param0, void *slotsMinig
         break;
 
     case 4:
-        v2 = LinearInterpolationTaskFX32_Update(&v1->coins);
+        v2 = LinearInterpolationTaskFX32_Update(&v1->unk_00);
 
         {
-            VecFx32 v7 = VecFx32_FromXYZ((128 * FX32_ONE) - v1->coins.currentValue, 64 * FX32_ONE, 0);
-            VecFx32 v8 = VecFx32_FromXYZ((128 * FX32_ONE) + v1->coins.currentValue, 128 * FX32_ONE, 0);
+            VecFx32 v7 = VecFx32_FromXYZ((128 * FX32_ONE) - v1->unk_00.currentValue, 64 * FX32_ONE, 0);
+            VecFx32 v8 = VecFx32_FromXYZ((128 * FX32_ONE) + v1->unk_00.currentValue, 128 * FX32_ONE, 0);
 
             Sprite_SetPosition(
                 v1->unk_200[0], &v7);
@@ -964,13 +964,13 @@ void EncounterEffect_Trainer_Grass_HigherLevel(SysTask *param0, void *slotsMinig
     }
 
     if (encEffect->state != 7) {
-        SpriteList_Update(v1->unk_2C.coins);
+        SpriteList_Update(v1->unk_2C.unk_00);
     }
 }
 
-void EncounterEffect_Trainer_Water_LowerLevel(SysTask *param0, void *slotsMinigameDTO)
+void EncounterEffect_Trainer_Water_LowerLevel(SysTask *param0, void *param1)
 {
-    EncounterEffect *v0 = slotsMinigameDTO;
+    EncounterEffect *v0 = param1;
     UnkStruct_ov5_021E31A4 *v1 = v0->param;
     BOOL v2;
     BOOL v3;
@@ -1073,10 +1073,10 @@ void EncounterEffect_Trainer_Water_LowerLevel(SysTask *param0, void *slotsMiniga
 
     case 5:
 
-        QuadraticInterpolationTaskFX32_Init(&v1->coins, FX32_CONST(1.0f), FX32_CONST(0.01f), FX32_CONST(0.1f), 8);
+        QuadraticInterpolationTaskFX32_Init(&v1->unk_00, FX32_CONST(1.0f), FX32_CONST(0.01f), FX32_CONST(0.1f), 8);
 
         {
-            VecFx32 v7 = VecFx32_FromXYZ(v1->coins.currentValue, v1->coins.currentValue, v1->coins.currentValue);
+            VecFx32 v7 = VecFx32_FromXYZ(v1->unk_00.currentValue, v1->unk_00.currentValue, v1->unk_00.currentValue);
 
             for (v5 = 0; v5 < 2; v5++) {
                 Sprite_SetAffineScale(
@@ -1092,9 +1092,9 @@ void EncounterEffect_Trainer_Water_LowerLevel(SysTask *param0, void *slotsMiniga
         break;
 
     case 6:
-        v2 = QuadraticInterpolationTaskFX32_Update(&v1->coins);
+        v2 = QuadraticInterpolationTaskFX32_Update(&v1->unk_00);
         {
-            VecFx32 v8 = VecFx32_FromXYZ(v1->coins.currentValue, v1->coins.currentValue, v1->coins.currentValue);
+            VecFx32 v8 = VecFx32_FromXYZ(v1->unk_00.currentValue, v1->unk_00.currentValue, v1->unk_00.currentValue);
 
             for (v5 = 0; v5 < 2; v5++) {
                 Sprite_SetAffineScale(
@@ -1136,13 +1136,13 @@ void EncounterEffect_Trainer_Water_LowerLevel(SysTask *param0, void *slotsMiniga
     }
 
     if (v0->state != 7) {
-        SpriteList_Update(v1->unk_50.coins);
+        SpriteList_Update(v1->unk_50.unk_00);
     }
 }
 
-void EncounterEffect_Trainer_Water_HigherLevel(SysTask *param0, void *slotsMinigameDTO)
+void EncounterEffect_Trainer_Water_HigherLevel(SysTask *param0, void *param1)
 {
-    EncounterEffect *v0 = slotsMinigameDTO;
+    EncounterEffect *v0 = param1;
     UnkStruct_ov5_021E3560 *v1 = v0->param;
     BOOL v2;
     int v3;
@@ -1160,14 +1160,14 @@ void EncounterEffect_Trainer_Water_HigherLevel(SysTask *param0, void *slotsMinig
         ScreenShakeEffect_Init(&v1->unk_274, HEAP_ID_FIELD1);
         v1->unk_2A0 = 14;
 
-        EncounterEffect_InitSpriteCollection(&v1->coins, 3, 1);
+        EncounterEffect_InitSpriteCollection(&v1->unk_00, 3, 1);
 
         ov5_021DE4CC(
-            v0->narc, &v1->coins, &v1->unk_1A0, 0, 1, 2, 4, 3, 600000);
+            v0->narc, &v1->unk_00, &v1->unk_1A0, 0, 1, 2, 4, 3, 600000);
 
         for (v3 = 0; v3 < 3; v3++) {
             v1->unk_1D4[v3] = ov5_021DE62C(
-                &v1->coins, &v1->unk_1A0, 0, 0, 0, 0);
+                &v1->unk_00, &v1->unk_1A0, 0, 0, 0, 0);
             Sprite_SetDrawFlag(v1->unk_1D4[v3], FALSE);
             Sprite_SetAffineOverwriteMode(v1->unk_1D4[v3], 2);
 
@@ -1305,8 +1305,8 @@ void EncounterEffect_Trainer_Water_HigherLevel(SysTask *param0, void *slotsMinig
             ov5_021DE6BC(v1->unk_258[v3]);
         }
 
-        ov5_021DE5A4(&v1->coins, &v1->unk_1A0);
-        ov5_021DE4AC(&v1->coins);
+        ov5_021DE5A4(&v1->unk_00, &v1->unk_1A0);
+        ov5_021DE4AC(&v1->unk_00);
 
         Window_ClearAndCopyToVRAM(v1->unk_270);
         Window_Remove(v1->unk_270);
@@ -1349,13 +1349,13 @@ void EncounterEffect_Trainer_Water_HigherLevel(SysTask *param0, void *slotsMinig
     Window_ScheduleCopyToVRAM(v1->unk_270);
 
     if (v0->state != 7) {
-        SpriteList_Update(v1->coins.coins);
+        SpriteList_Update(v1->unk_00.unk_00);
     }
 }
 
-void EncounterEffect_Trainer_Cave_LowerLevel(SysTask *param0, void *slotsMinigameDTO)
+void EncounterEffect_Trainer_Cave_LowerLevel(SysTask *param0, void *param1)
 {
-    EncounterEffect *v0 = slotsMinigameDTO;
+    EncounterEffect *v0 = param1;
     UnkStruct_ov5_021E3AD0 *v1 = v0->param;
     BOOL v2;
     fx32 v3;
@@ -1396,7 +1396,7 @@ void EncounterEffect_Trainer_Cave_LowerLevel(SysTask *param0, void *slotsMinigam
         break;
 
     case 3:
-        QuadraticInterpolationTaskFX32_Init(&v1->coins, 0, 256 * FX32_ONE, 2 * FX32_ONE, 12);
+        QuadraticInterpolationTaskFX32_Init(&v1->unk_00, 0, 256 * FX32_ONE, 2 * FX32_ONE, 12);
         Sprite_SetDrawFlag(
             v1->unk_230, 1);
 
@@ -1412,9 +1412,9 @@ void EncounterEffect_Trainer_Cave_LowerLevel(SysTask *param0, void *slotsMinigam
         break;
 
     case 4:
-        v2 = QuadraticInterpolationTaskFX32_Update(&v1->coins);
+        v2 = QuadraticInterpolationTaskFX32_Update(&v1->unk_00);
         {
-            VecFx32 v5 = VecFx32_FromXYZ(128 * FX32_ONE, (-32 * FX32_ONE) + (v1->coins.currentValue), 0);
+            VecFx32 v5 = VecFx32_FromXYZ(128 * FX32_ONE, (-32 * FX32_ONE) + (v1->unk_00.currentValue), 0);
 
             Sprite_SetPosition(
                 v1->unk_230, &v5);
@@ -1437,7 +1437,7 @@ void EncounterEffect_Trainer_Cave_LowerLevel(SysTask *param0, void *slotsMinigam
 
     case 5:
 
-        HBlankSystem_Stop(v0->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Stop(v0->fieldSystem->unk_04->hBlankSystem);
 
         v3 = Camera_GetDistance(v1->camera);
         QuadraticInterpolationTaskFX32_Init(&v1->unk_238, v3, v3 + (-FX32_CONST(1000)), FX32_CONST(10), 8);
@@ -1460,7 +1460,7 @@ void EncounterEffect_Trainer_Cave_LowerLevel(SysTask *param0, void *slotsMinigam
     case 7:
         SetScreenColorBrightness(DS_SCREEN_SUB, COLOR_BLACK);
 
-        HBlankSystem_Start(v0->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Start(v0->fieldSystem->unk_04->hBlankSystem);
 
         if (v0->done != NULL) {
             *(v0->done) = 1;
@@ -1474,13 +1474,13 @@ void EncounterEffect_Trainer_Cave_LowerLevel(SysTask *param0, void *slotsMinigam
     }
 
     if (v0->state != 7) {
-        SpriteList_Update(v1->unk_5C.coins);
+        SpriteList_Update(v1->unk_5C.unk_00);
     }
 }
 
-void EncounterEffect_Trainer_Cave_HigherLevel(SysTask *param0, void *slotsMinigameDTO)
+void EncounterEffect_Trainer_Cave_HigherLevel(SysTask *param0, void *param1)
 {
-    EncounterEffect *v0 = slotsMinigameDTO;
+    EncounterEffect *v0 = param1;
     UnkStruct_ov5_021E3D8C *v1 = v0->param;
     VecFx32 v2;
     BOOL v3;
@@ -1495,14 +1495,14 @@ void EncounterEffect_Trainer_Cave_HigherLevel(SysTask *param0, void *slotsMiniga
 
         v1->camera = v0->fieldSystem->camera;
 
-        EncounterEffect_InitSpriteCollection(&v1->coins, 3, 1);
+        EncounterEffect_InitSpriteCollection(&v1->unk_00, 3, 1);
 
         ov5_021DE4CC(
-            v0->narc, &v1->coins, &v1->unk_1A0, 0, 1, 2, 4, 3, 600000);
+            v0->narc, &v1->unk_00, &v1->unk_1A0, 0, 1, 2, 4, 3, 600000);
 
         for (v4 = 0; v4 < 3; v4++) {
             v1->unk_1D4[v4] = ov5_021DE62C(
-                &v1->coins, &v1->unk_1A0, 0, -32, 0, 0);
+                &v1->unk_00, &v1->unk_1A0, 0, -32, 0, 0);
             Sprite_SetDrawFlag(v1->unk_1D4[v4], FALSE);
         }
 
@@ -1650,8 +1650,8 @@ void EncounterEffect_Trainer_Cave_HigherLevel(SysTask *param0, void *slotsMiniga
             Sprite_Delete(v1->unk_1D4[v4]);
         }
 
-        ov5_021DE5A4(&v1->coins, &v1->unk_1A0);
-        ov5_021DE4AC(&v1->coins);
+        ov5_021DE5A4(&v1->unk_00, &v1->unk_1A0);
+        ov5_021DE4AC(&v1->unk_00);
 
         ov5_021DE928(v1->unk_268);
 
@@ -1687,12 +1687,12 @@ void EncounterEffect_Trainer_Cave_HigherLevel(SysTask *param0, void *slotsMiniga
     }
 
     if (v0->state != 9) {
-        SpriteList_Update(v1->coins.coins);
+        SpriteList_Update(v1->unk_00.unk_00);
     }
 }
 
 typedef struct {
-    LinearInterpolationTaskS32 coins;
+    LinearInterpolationTaskS32 unk_00;
     QuadraticInterpolationTaskFX32 unk_14;
     UnkStruct_ov5_021DE47C unk_2C;
     UnkStruct_ov5_021DE5A4 unk_1CC;
@@ -1701,15 +1701,15 @@ typedef struct {
 } UnkStruct_ov5_021E4260;
 
 typedef struct {
-    UnkStruct_ov5_021DE47C coins;
+    UnkStruct_ov5_021DE47C unk_00;
     UnkStruct_ov5_021DE5A4 unk_1A0;
     Sprite *unk_1D4[4];
     QuadraticInterpolationTaskFX32 unk_1E4[2];
 } UnkStruct_ov5_021E44C0;
 
-void EncounterEffect_Frontier(SysTask *param0, void *slotsMinigameDTO)
+void EncounterEffect_Frontier(SysTask *param0, void *param1)
 {
-    EncounterEffect *v0 = slotsMinigameDTO;
+    EncounterEffect *v0 = param1;
     UnkStruct_ov5_021E4260 *v1 = v0->param;
     BOOL v2;
 
@@ -1747,8 +1747,8 @@ void EncounterEffect_Frontier(SysTask *param0, void *slotsMinigameDTO)
         break;
 
     case 3:
-        LinearInterpolationTaskS32_Init(&v1->coins, 0, 16, 12);
-        G2_SetBlendAlpha(GX_BLEND_PLANEMASK_NONE, GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3, v1->coins.currentValue, 16 - v1->coins.currentValue);
+        LinearInterpolationTaskS32_Init(&v1->unk_00, 0, 16, 12);
+        G2_SetBlendAlpha(GX_BLEND_PLANEMASK_NONE, GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BG1 | GX_BLEND_PLANEMASK_BG2 | GX_BLEND_PLANEMASK_BG3, v1->unk_00.currentValue, 16 - v1->unk_00.currentValue);
 
         Sprite_SetDrawFlag(
             v1->unk_200, 1);
@@ -1756,8 +1756,8 @@ void EncounterEffect_Frontier(SysTask *param0, void *slotsMinigameDTO)
         break;
 
     case 4:
-        v2 = LinearInterpolationTaskS32_Update(&v1->coins);
-        G2_ChangeBlendAlpha(v1->coins.currentValue, 16 - v1->coins.currentValue);
+        v2 = LinearInterpolationTaskS32_Update(&v1->unk_00);
+        G2_ChangeBlendAlpha(v1->unk_00.currentValue, 16 - v1->unk_00.currentValue);
 
         if (v2 == 1) {
             G2_BlendNone();
@@ -1779,7 +1779,7 @@ void EncounterEffect_Frontier(SysTask *param0, void *slotsMinigameDTO)
                 v1->unk_200, &v3);
         }
 
-        HBlankSystem_Stop(v0->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Stop(v0->fieldSystem->unk_04->hBlankSystem);
         StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_CIRCLE_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, HEAP_ID_FIELD1);
         v0->state++;
         break;
@@ -1802,7 +1802,7 @@ void EncounterEffect_Frontier(SysTask *param0, void *slotsMinigameDTO)
     case 7:
         SetScreenColorBrightness(DS_SCREEN_SUB, COLOR_BLACK);
 
-        HBlankSystem_Start(v0->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Start(v0->fieldSystem->unk_04->hBlankSystem);
 
         if (v0->done != NULL) {
             *(v0->done) = 1;
@@ -1816,13 +1816,13 @@ void EncounterEffect_Frontier(SysTask *param0, void *slotsMinigameDTO)
     }
 
     if (v0->state != 7) {
-        SpriteList_Update(v1->unk_2C.coins);
+        SpriteList_Update(v1->unk_2C.unk_00);
     }
 }
 
-void EncounterEffect_Double(SysTask *param0, void *slotsMinigameDTO)
+void EncounterEffect_Double(SysTask *param0, void *param1)
 {
-    EncounterEffect *v0 = slotsMinigameDTO;
+    EncounterEffect *v0 = param1;
     UnkStruct_ov5_021E44C0 *v1 = v0->param;
     BOOL v2;
     int v3;
@@ -1834,14 +1834,14 @@ void EncounterEffect_Double(SysTask *param0, void *slotsMinigameDTO)
         memset(v0->param, 0, sizeof(UnkStruct_ov5_021E44C0));
         v1 = v0->param;
 
-        EncounterEffect_InitSpriteCollection(&v1->coins, 4, 1);
+        EncounterEffect_InitSpriteCollection(&v1->unk_00, 4, 1);
 
         ov5_021DE4CC(
-            v0->narc, &v1->coins, &v1->unk_1A0, 0, 1, 2, 4, 3, 600000);
+            v0->narc, &v1->unk_00, &v1->unk_1A0, 0, 1, 2, 4, 3, 600000);
 
         for (v3 = 0; v3 < 4; v3++) {
             v1->unk_1D4[v3] = ov5_021DE62C(
-                &v1->coins, &v1->unk_1A0, 128 * FX32_ONE, 96 * FX32_ONE, 0, 0);
+                &v1->unk_00, &v1->unk_1A0, 128 * FX32_ONE, 96 * FX32_ONE, 0, 0);
             Sprite_SetDrawFlag(v1->unk_1D4[v3], FALSE);
         }
 
@@ -1903,7 +1903,7 @@ void EncounterEffect_Double(SysTask *param0, void *slotsMinigameDTO)
 
     case 5:
 
-        HBlankSystem_Stop(v0->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Stop(v0->fieldSystem->unk_04->hBlankSystem);
         StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_UNK_34, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 8, 1, HEAP_ID_FIELD1);
         v0->state++;
         break;
@@ -1918,7 +1918,7 @@ void EncounterEffect_Double(SysTask *param0, void *slotsMinigameDTO)
     case 7:
         SetScreenColorBrightness(DS_SCREEN_SUB, COLOR_BLACK);
 
-        HBlankSystem_Start(v0->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Start(v0->fieldSystem->unk_04->hBlankSystem);
 
         if (v0->done != NULL) {
             *(v0->done) = 1;
@@ -1928,14 +1928,14 @@ void EncounterEffect_Double(SysTask *param0, void *slotsMinigameDTO)
             Sprite_Delete(v1->unk_1D4[v3]);
         }
 
-        ov5_021DE5A4(&v1->coins, &v1->unk_1A0);
-        ov5_021DE4AC(&v1->coins);
+        ov5_021DE5A4(&v1->unk_00, &v1->unk_1A0);
+        ov5_021DE4AC(&v1->unk_00);
         EncounterEffect_Finish(v0, param0);
         break;
     }
 
     if (v0->state != 7) {
-        SpriteList_Update(v1->coins.coins);
+        SpriteList_Update(v1->unk_00.unk_00);
     }
 }
 
@@ -1949,7 +1949,7 @@ static const s32 Unk_ov5_021F9E94[6][8] = {
 };
 
 typedef struct {
-    UnkStruct_ov5_021DE47C coins;
+    UnkStruct_ov5_021DE47C unk_00;
     UnkStruct_ov5_021DE5A4 unk_1A0;
     Sprite *unk_1D4[6];
     QuadraticInterpolationTaskFX32 unk_1EC[6];
@@ -1962,8 +1962,8 @@ typedef struct {
 } UnkStruct_ov5_021E4738;
 
 typedef struct {
-    Window *coins;
-    UnkStruct_ov5_021DEC18 *slotMachineVariant;
+    Window *unk_00;
+    UnkStruct_ov5_021DEC18 *unk_04;
     UnkStruct_ov5_021DE47C unk_08;
     UnkStruct_ov5_021DE5A4 unk_1A8;
     Sprite *unk_1DC;
@@ -1973,9 +1973,9 @@ typedef struct {
     s32 unk_21C;
 } UnkStruct_ov5_021E4B3C;
 
-void EncounterEffect_GalacticGrunt(SysTask *param0, void *slotsMinigameDTO)
+void EncounterEffect_GalacticGrunt(SysTask *param0, void *param1)
 {
-    EncounterEffect *v0 = slotsMinigameDTO;
+    EncounterEffect *v0 = param1;
     UnkStruct_ov5_021E4738 *v1 = v0->param;
     BOOL v2;
     int v3;
@@ -1988,14 +1988,14 @@ void EncounterEffect_GalacticGrunt(SysTask *param0, void *slotsMinigameDTO)
         memset(v0->param, 0, sizeof(UnkStruct_ov5_021E4738));
         v1 = v0->param;
 
-        EncounterEffect_InitSpriteCollection(&v1->coins, 6, 1);
+        EncounterEffect_InitSpriteCollection(&v1->unk_00, 6, 1);
 
         ov5_021DE4CC(
-            v0->narc, &v1->coins, &v1->unk_1A0, 0, 1, 2, 4, 3, 600000);
+            v0->narc, &v1->unk_00, &v1->unk_1A0, 0, 1, 2, 4, 3, 600000);
 
         for (v3 = 0; v3 < 6; v3++) {
             v1->unk_1D4[v3] = ov5_021DE62C(
-                &v1->coins, &v1->unk_1A0, 0, 0, 0, 0);
+                &v1->unk_00, &v1->unk_1A0, 0, 0, 0, 0);
             Sprite_SetDrawFlag(v1->unk_1D4[v3], FALSE);
         }
 
@@ -2062,7 +2062,7 @@ void EncounterEffect_GalacticGrunt(SysTask *param0, void *slotsMinigameDTO)
 
     case 5:
 
-        HBlankSystem_Stop(v0->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Stop(v0->fieldSystem->unk_04->hBlankSystem);
 
         StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_UNK_34, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 12, 1, HEAP_ID_FIELD1);
         v0->state++;
@@ -2078,7 +2078,7 @@ void EncounterEffect_GalacticGrunt(SysTask *param0, void *slotsMinigameDTO)
     case 7:
         SetScreenColorBrightness(DS_SCREEN_SUB, COLOR_BLACK);
 
-        HBlankSystem_Start(v0->fieldSystem->slotMachineVariant->hBlankSystem);
+        HBlankSystem_Start(v0->fieldSystem->unk_04->hBlankSystem);
 
         if (v0->done != NULL) {
             *(v0->done) = 1;
@@ -2088,8 +2088,8 @@ void EncounterEffect_GalacticGrunt(SysTask *param0, void *slotsMinigameDTO)
             Sprite_Delete(v1->unk_1D4[v3]);
         }
 
-        ov5_021DE5A4(&v1->coins, &v1->unk_1A0);
-        ov5_021DE4AC(&v1->coins);
+        ov5_021DE5A4(&v1->unk_00, &v1->unk_1A0);
+        ov5_021DE4AC(&v1->unk_00);
 
         EncounterEffect_Finish(v0, param0);
         break;
@@ -2118,13 +2118,13 @@ void EncounterEffect_GalacticGrunt(SysTask *param0, void *slotsMinigameDTO)
     }
 
     if (v0->state != 7) {
-        SpriteList_Update(v1->coins.coins);
+        SpriteList_Update(v1->unk_00.unk_00);
     }
 }
 
-void EncounterEffect_GalacticBoss(SysTask *param0, void *slotsMinigameDTO)
+void EncounterEffect_GalacticBoss(SysTask *param0, void *param1)
 {
-    EncounterEffect *v0 = slotsMinigameDTO;
+    EncounterEffect *v0 = param1;
     UnkStruct_ov5_021E4B3C *v1 = v0->param;
     BOOL v2;
 
@@ -2146,10 +2146,10 @@ void EncounterEffect_GalacticBoss(SysTask *param0, void *slotsMinigameDTO)
         Sprite_SetExplicitPriority(v1->unk_1DC, 1);
         GXLayers_EngineAToggleLayers(GX_PLANEMASK_OBJ, 1);
 
-        v1->slotMachineVariant = ov5_021DEBEC(HEAP_ID_FIELD1);
+        v1->unk_04 = ov5_021DEBEC(HEAP_ID_FIELD1);
 
-        v1->coins = Window_New(HEAP_ID_FIELD1, 1);
-        Window_Add(v0->fieldSystem->bgConfig, v1->coins, 3, 0, 0, 32, 32, 0, 0);
+        v1->unk_00 = Window_New(HEAP_ID_FIELD1, 1);
+        Window_Add(v0->fieldSystem->bgConfig, v1->unk_00, 3, 0, 0, 32, 32, 0, 0);
 
         {
             GXRgb v3 = 0;
@@ -2157,8 +2157,8 @@ void EncounterEffect_GalacticBoss(SysTask *param0, void *slotsMinigameDTO)
             Bg_LoadPalette(BG_LAYER_MAIN_3, &v3, sizeof(short), 2 * 15);
         }
 
-        Window_FillTilemap(v1->coins, 0);
-        Window_ScheduleCopyToVRAM(v1->coins);
+        Window_FillTilemap(v1->unk_00, 0);
+        Window_ScheduleCopyToVRAM(v1->unk_00);
 
         v0->state++;
         break;
@@ -2204,7 +2204,7 @@ void EncounterEffect_GalacticBoss(SysTask *param0, void *slotsMinigameDTO)
         }
 
         LinearInterpolationTaskS32_Init(&v1->unk_1E0, 0, 14, 16);
-        ov5_021DEC38(v1->slotMachineVariant, 16, v1->coins, 15);
+        ov5_021DEC38(v1->unk_04, 16, v1->unk_00, 15);
         v0->state++;
         break;
 
@@ -2212,17 +2212,17 @@ void EncounterEffect_GalacticBoss(SysTask *param0, void *slotsMinigameDTO)
         LinearInterpolationTaskS32_Update(&v1->unk_1E0);
         G2_SetOBJMosaicSize(v1->unk_1E0.currentValue, v1->unk_1E0.currentValue);
 
-        if (ov5_021DECB8(v1->slotMachineVariant)) {
+        if (ov5_021DECB8(v1->unk_04)) {
             v0->state++;
         }
 
-        Window_ScheduleCopyToVRAM(v1->coins);
+        Window_ScheduleCopyToVRAM(v1->unk_00);
         break;
 
     case 7:
         SetColorBrightness(COLOR_BLACK);
 
-        ov5_021DEC18(v1->slotMachineVariant);
+        ov5_021DEC18(v1->unk_04);
 
         if (v0->done != NULL) {
             *(v0->done) = 1;
@@ -2232,9 +2232,9 @@ void EncounterEffect_GalacticBoss(SysTask *param0, void *slotsMinigameDTO)
         ov5_021DE5A4(&v1->unk_08, &v1->unk_1A8);
         ov5_021DE4AC(&v1->unk_08);
 
-        Window_ClearAndCopyToVRAM(v1->coins);
-        Window_Remove(v1->coins);
-        Windows_Delete(v1->coins, 1);
+        Window_ClearAndCopyToVRAM(v1->unk_00);
+        Window_Remove(v1->unk_00);
+        Windows_Delete(v1->unk_00, 1);
 
         Bg_ClearTilesRange(BG_LAYER_MAIN_3, 32, 0, HEAP_ID_FIELD1);
         Bg_ClearTilemap(v0->fieldSystem->bgConfig, 3);
@@ -2246,7 +2246,7 @@ void EncounterEffect_GalacticBoss(SysTask *param0, void *slotsMinigameDTO)
     }
 
     if (v0->state != 7) {
-        SpriteList_Update(v1->unk_08.coins);
+        SpriteList_Update(v1->unk_08.unk_00);
     }
 }
 
@@ -2766,14 +2766,14 @@ static const EliterFourChampionEncounterParam sEliteFourChampionEncounterParams[
 };
 
 typedef struct {
-    s16 coins;
+    s16 unk_00;
     s16 unk_02;
-    Sprite *slotMachineVariant[4];
+    Sprite *unk_04[4];
     LinearInterpolationTaskFX32 unk_14[4];
 } UnkStruct_ov5_021E5128;
 
 typedef struct {
-    QuadraticInterpolationTaskFX32 coins;
+    QuadraticInterpolationTaskFX32 unk_00;
     LinearInterpolationTaskS32 unk_18;
     LinearInterpolationTaskFX32 unk_2C;
     UnkStruct_ov5_021DED04 *unk_40;
@@ -2790,7 +2790,7 @@ typedef struct {
 } GymLeaderEncounterEffect;
 
 typedef struct {
-    QuadraticInterpolationTaskFX32 coins;
+    QuadraticInterpolationTaskFX32 unk_00;
     QuadraticInterpolationTaskFX32 unk_18;
     QuadraticInterpolationTaskFX32 unk_30;
     LinearInterpolationTaskS32 unk_48;
@@ -2806,21 +2806,21 @@ typedef struct {
     s32 unk_370;
 } UnkStruct_ov5_021E5890;
 
-static void ov5_021E5128(UnkStruct_ov5_021E5128 *param0, UnkStruct_ov5_021DE47C *slotsMinigameDTO, UnkStruct_ov5_021DE5A4 *param2, fx32 param3, fx32 param4, u32 param5)
+static void ov5_021E5128(UnkStruct_ov5_021E5128 *param0, UnkStruct_ov5_021DE47C *param1, UnkStruct_ov5_021DE5A4 *param2, fx32 param3, fx32 param4, u32 param5)
 {
     int v0;
 
-    param0->coins = 0;
+    param0->unk_00 = 0;
     param0->unk_02 = 0;
 
     for (v0 = 0; v0 < 4; v0++) {
-        param0->slotMachineVariant[v0] = ov5_021DE62C(
-            slotsMinigameDTO, param2, param3, param4, 0, 0);
-        Sprite_SetDrawFlag(param0->slotMachineVariant[v0], FALSE);
+        param0->unk_04[v0] = ov5_021DE62C(
+            param1, param2, param3, param4, 0, 0);
+        Sprite_SetDrawFlag(param0->unk_04[v0], FALSE);
 
         if (v0 != 3) {
-            Sprite_SetAffineOverwriteMode(param0->slotMachineVariant[v0], 2);
-            Sprite_SetAnim(param0->slotMachineVariant[v0], 1);
+            Sprite_SetAffineOverwriteMode(param0->unk_04[v0], 2);
+            Sprite_SetAnim(param0->unk_04[v0], 1);
 
             LinearInterpolationTaskFX32_Init(&param0->unk_14[v0], FX32_CONST(2), FX32_CONST(1), 6);
         } else {
@@ -2834,7 +2834,7 @@ static void ov5_021E519C(UnkStruct_ov5_021E5128 *param0)
     int v0;
 
     for (v0 = 0; v0 < 4; v0++) {
-        Sprite_Delete(param0->slotMachineVariant[v0]);
+        Sprite_Delete(param0->unk_04[v0]);
     }
 }
 
@@ -2847,10 +2847,10 @@ static BOOL ov5_021E51B4(UnkStruct_ov5_021E5128 *param0)
 
     if (param0->unk_02 < 4) {
         v2 = 0;
-        param0->coins--;
+        param0->unk_00--;
 
-        if (param0->coins <= 0) {
-            param0->coins = 3;
+        if (param0->unk_00 <= 0) {
+            param0->unk_00 = 3;
             param0->unk_02++;
         }
     }
@@ -2860,8 +2860,8 @@ static BOOL ov5_021E51B4(UnkStruct_ov5_021E5128 *param0)
 
         v3 = VecFx32_FromXYZ(
             param0->unk_14[v0].currentValue, param0->unk_14[v0].currentValue, param0->unk_14[v0].currentValue);
-        Sprite_SetAffineScale(param0->slotMachineVariant[v0], &v3);
-        Sprite_SetDrawFlag(param0->slotMachineVariant[v0], TRUE);
+        Sprite_SetAffineScale(param0->unk_04[v0], &v3);
+        Sprite_SetDrawFlag(param0->unk_04[v0], TRUE);
 
         if (v1 == 0) {
             v2 = 0;
@@ -2996,12 +2996,12 @@ static BOOL EncounterEffect_GymLeader(EncounterEffect *encEffect, enum HeapID he
 
     case 6:
 
-        QuadraticInterpolationTaskFX32_Init(&leaderEncEffect->coins, 272 * FX32_ONE, param->endX, -64 * FX32_ONE, 4);
+        QuadraticInterpolationTaskFX32_Init(&leaderEncEffect->unk_00, 272 * FX32_ONE, param->endX, -64 * FX32_ONE, 4);
         Sprite_SetDrawFlag(leaderEncEffect->mugshotSprite, TRUE);
         Sprite_SetExplicitPriority(leaderEncEffect->mugshotSprite, 0);
 
         v3 = VecFx32_FromXYZ(
-            leaderEncEffect->coins.currentValue, 66 * FX32_ONE, 0);
+            leaderEncEffect->unk_00.currentValue, 66 * FX32_ONE, 0);
         Sprite_SetPosition(leaderEncEffect->mugshotSprite, &v3);
 
         encEffect->state++;
@@ -3009,9 +3009,9 @@ static BOOL EncounterEffect_GymLeader(EncounterEffect *encEffect, enum HeapID he
 
     case 7:
 
-        v1 = QuadraticInterpolationTaskFX32_Update(&leaderEncEffect->coins);
+        v1 = QuadraticInterpolationTaskFX32_Update(&leaderEncEffect->unk_00);
         v3 = VecFx32_FromXYZ(
-            leaderEncEffect->coins.currentValue, 66 * FX32_ONE, 0);
+            leaderEncEffect->unk_00.currentValue, 66 * FX32_ONE, 0);
         Sprite_SetPosition(leaderEncEffect->mugshotSprite, &v3);
 
         if (v1 == 1) {
@@ -3041,7 +3041,7 @@ static BOOL EncounterEffect_GymLeader(EncounterEffect *encEffect, enum HeapID he
 
             BrightnessController_SetScreenBrightness(-14, GX_BLEND_PLANEMASK_BG0 | GX_BLEND_PLANEMASK_BD, BRIGHTNESS_MAIN_SCREEN);
 
-            Bg_ScheduleScroll(encEffect->fieldSystem->bgConfig, 2, 0, -((leaderEncEffect->coins.currentValue >> FX32_SHIFT) + -92));
+            Bg_ScheduleScroll(encEffect->fieldSystem->bgConfig, 2, 0, -((leaderEncEffect->unk_00.currentValue >> FX32_SHIFT) + -92));
             GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 1);
             Bg_SetPriority(BG_LAYER_MAIN_2, 0);
             encEffect->state++;
@@ -3119,7 +3119,7 @@ static BOOL EncounterEffect_GymLeader(EncounterEffect *encEffect, enum HeapID he
     }
 
     if (encEffect->state != 15) {
-        SpriteList_Update(leaderEncEffect->unk_44.coins);
+        SpriteList_Update(leaderEncEffect->unk_44.unk_00);
     }
 
     return 0;
@@ -3321,9 +3321,9 @@ static BOOL EncounterEffect_EliteFourChampion(EncounterEffect *encEffect, enum H
         break;
 
     case 5:
-        QuadraticInterpolationTaskFX32_Init(&v0->coins, -128 * FX32_ONE, 56 * FX32_ONE, 80 * FX32_ONE, 6);
+        QuadraticInterpolationTaskFX32_Init(&v0->unk_00, -128 * FX32_ONE, 56 * FX32_ONE, 80 * FX32_ONE, 6);
         v3 = VecFx32_FromXYZ(
-            v0->coins.currentValue, 92 * FX32_ONE, 0);
+            v0->unk_00.currentValue, 92 * FX32_ONE, 0);
         Sprite_SetPosition(v0->unk_2CC[0], &v3);
         v3.y += (4 * FX32_ONE);
         v3.x += (16 * FX32_ONE);
@@ -3374,9 +3374,9 @@ static BOOL EncounterEffect_EliteFourChampion(EncounterEffect *encEffect, enum H
             ov5_021E51B4(&v0->unk_2F4);
         }
 
-        v1 = QuadraticInterpolationTaskFX32_Update(&v0->coins);
+        v1 = QuadraticInterpolationTaskFX32_Update(&v0->unk_00);
         v3 = VecFx32_FromXYZ(
-            v0->coins.currentValue, 92 * FX32_ONE, 0);
+            v0->unk_00.currentValue, 92 * FX32_ONE, 0);
         v0->unk_2DC = v3;
         Sprite_SetPosition(v0->unk_2CC[0], &v3);
         v3.y += (4 * FX32_ONE);
@@ -3462,7 +3462,7 @@ static BOOL EncounterEffect_EliteFourChampion(EncounterEffect *encEffect, enum H
             break;
         }
 
-        QuadraticInterpolationTaskFX32_Init(&v0->coins, 0, -FX32_CONST(2), 0, param->facePanFrames);
+        QuadraticInterpolationTaskFX32_Init(&v0->unk_00, 0, -FX32_CONST(2), 0, param->facePanFrames);
         QuadraticInterpolationTaskFX32_Init(&v0->unk_18, 0, -FX32_CONST(2), 0, param->facePanFrames);
 
         encEffect->effectComplete = 0;
@@ -3474,15 +3474,15 @@ static BOOL EncounterEffect_EliteFourChampion(EncounterEffect *encEffect, enum H
 
         encEffect->effectComplete++;
 
-        v1 = QuadraticInterpolationTaskFX32_Update(&v0->coins);
+        v1 = QuadraticInterpolationTaskFX32_Update(&v0->unk_00);
         QuadraticInterpolationTaskFX32_Update(&v0->unk_18);
 
         if (((encEffect->effectComplete / 2) % 2) == 0) {
             v3 = VecFx32_FromXYZ(
-                v0->unk_2DC.x + v0->coins.currentValue, v0->unk_2DC.y + v0->unk_18.currentValue, 0);
+                v0->unk_2DC.x + v0->unk_00.currentValue, v0->unk_2DC.y + v0->unk_18.currentValue, 0);
         } else {
             v3 = VecFx32_FromXYZ(
-                v0->unk_2DC.x - v0->coins.currentValue, v0->unk_2DC.y - v0->unk_18.currentValue, 0);
+                v0->unk_2DC.x - v0->unk_00.currentValue, v0->unk_2DC.y - v0->unk_18.currentValue, 0);
         }
 
         if (v1) {
@@ -3496,10 +3496,10 @@ static BOOL EncounterEffect_EliteFourChampion(EncounterEffect *encEffect, enum H
 
         if (((encEffect->effectComplete / 2) % 2) == 0) {
             v3 = VecFx32_FromXYZ(
-                v0->unk_2E8.x - v0->coins.currentValue, v0->unk_2E8.y - v0->unk_18.currentValue, 0);
+                v0->unk_2E8.x - v0->unk_00.currentValue, v0->unk_2E8.y - v0->unk_18.currentValue, 0);
         } else {
             v3 = VecFx32_FromXYZ(
-                v0->unk_2E8.x + v0->coins.currentValue, v0->unk_2E8.y + v0->unk_18.currentValue, 0);
+                v0->unk_2E8.x + v0->unk_00.currentValue, v0->unk_2E8.y + v0->unk_18.currentValue, 0);
         }
 
         if (v1) {
@@ -3516,7 +3516,7 @@ static BOOL EncounterEffect_EliteFourChampion(EncounterEffect *encEffect, enum H
 
             GXLayers_EngineAToggleLayers(GX_PLANEMASK_BG2, 0);
 
-            QuadraticInterpolationTaskFX32_Init(&v0->coins, 0, FX32_CONST(192.0f), FX32_CONST(24.0f), 16);
+            QuadraticInterpolationTaskFX32_Init(&v0->unk_00, 0, FX32_CONST(192.0f), FX32_CONST(24.0f), 16);
             QuadraticInterpolationTaskFX32_Init(&v0->unk_18, 0, FX32_CONST(192.0f), FX32_CONST(24.0f), 16);
 
             StartScreenFade(FADE_MAIN_ONLY, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_WHITE, 8, 1, HEAP_ID_FIELD1);
@@ -3525,18 +3525,18 @@ static BOOL EncounterEffect_EliteFourChampion(EncounterEffect *encEffect, enum H
         break;
 
     case 13:
-        QuadraticInterpolationTaskFX32_Update(&v0->coins);
+        QuadraticInterpolationTaskFX32_Update(&v0->unk_00);
         QuadraticInterpolationTaskFX32_Update(&v0->unk_18);
 
         v3 = VecFx32_FromXYZ(
-            v0->unk_2DC.x - v0->coins.currentValue, v0->unk_2DC.y - v0->unk_18.currentValue, 0);
+            v0->unk_2DC.x - v0->unk_00.currentValue, v0->unk_2DC.y - v0->unk_18.currentValue, 0);
         Sprite_SetPosition(v0->unk_2CC[0], &v3);
         v3.y += (4 * FX32_ONE);
         v3.x += (16 * FX32_ONE);
         Sprite_SetPosition(v0->unk_2CC[2], &v3);
 
         v3 = VecFx32_FromXYZ(
-            v0->unk_2E8.x + v0->coins.currentValue, v0->unk_2E8.y + v0->unk_18.currentValue, 0);
+            v0->unk_2E8.x + v0->unk_00.currentValue, v0->unk_2E8.y + v0->unk_18.currentValue, 0);
         Sprite_SetPosition(v0->unk_2CC[1], &v3);
         v3.y += (4 * FX32_ONE);
         v3.x += (-16 * FX32_ONE);
@@ -3579,7 +3579,7 @@ static BOOL EncounterEffect_EliteFourChampion(EncounterEffect *encEffect, enum H
     }
 
     if (encEffect->state != 14) {
-        SpriteList_Update(v0->unk_5C.coins);
+        SpriteList_Update(v0->unk_5C.unk_00);
 
         if (4 < encEffect->state) {
             G3_ResetG3X();

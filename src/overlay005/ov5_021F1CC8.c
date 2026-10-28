@@ -15,24 +15,24 @@
 #include "res/graphics/field_effects/field_effects.naix"
 
 typedef struct {
-    FieldEffectManager *coins;
-    Simple3DModel slotMachineVariant[10];
+    FieldEffectManager *unk_00;
+    Simple3DModel unk_04[10];
     Simple3DModel unk_CC[10];
     Simple3DRenderObj unk_194[10];
     Simple3DRenderObj unk_4DC[10];
 } UnkStruct_021F1CF8;
 
 typedef struct {
-    int coins;
-    Simple3DModel *slotMachineVariant;
+    int unk_00;
+    Simple3DModel *unk_04;
     Simple3DRenderObj *unk_08;
 } UnkStruct_021F1FB8;
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
     int unk_10;
     Simple3DModel *unk_14;
     Simple3DRenderObj *unk_18;
@@ -40,9 +40,9 @@ typedef struct {
 
 static void ov5_021F1CF8(UnkStruct_021F1CF8 *param0);
 static void ov5_021F1D80(UnkStruct_021F1CF8 *param0);
-static Simple3DRenderObj *ov5_021F1DA4(UnkStruct_021F1CF8 *param0, int slotsMinigameDTO, int param2, int param3);
-static Simple3DModel *ov5_021F1E24(UnkStruct_021F1CF8 *param0, int slotsMinigameDTO, int param2, int param3);
-static OverworldAnimManager *ov5_021F1ECC(const MapObject *param0, int slotsMinigameDTO);
+static Simple3DRenderObj *ov5_021F1DA4(UnkStruct_021F1CF8 *param0, int param1, int param2, int param3);
+static Simple3DModel *ov5_021F1E24(UnkStruct_021F1CF8 *param0, int param1, int param2, int param3);
+static OverworldAnimManager *ov5_021F1ECC(const MapObject *param0, int param1);
 
 static const u32 Unk_ov5_0220039C[10];
 static const u32 Unk_ov5_02200374[10];
@@ -52,7 +52,7 @@ static const OverworldAnimManagerFuncs Unk_ov5_02200360;
 void *ov5_021F1CC8(FieldEffectManager *param0)
 {
     UnkStruct_021F1CF8 *v0 = FieldEffectManager_HeapAllocInit(param0, (sizeof(UnkStruct_021F1CF8)), 0, 0);
-    v0->coins = param0;
+    v0->unk_00 = param0;
 
     ov5_021F1CF8(v0);
     return v0;
@@ -72,11 +72,11 @@ static void ov5_021F1CF8(UnkStruct_021F1CF8 *param0)
 
     for (v0 = 0; v0 < 10; v0++) {
         v1 = Unk_ov5_0220039C[v0];
-        FieldEffectManager_LoadModel(param0->coins, &param0->slotMachineVariant[v0], 0, v1, 0);
-        Simple3D_CreateRenderObject(&param0->unk_194[v0], &param0->slotMachineVariant[v0]);
+        FieldEffectManager_LoadModel(param0->unk_00, &param0->unk_04[v0], 0, v1, 0);
+        Simple3D_CreateRenderObject(&param0->unk_194[v0], &param0->unk_04[v0]);
 
         v1 = Unk_ov5_02200374[v0];
-        FieldEffectManager_LoadModel(param0->coins, &param0->unk_CC[v0], 0, v1, 0);
+        FieldEffectManager_LoadModel(param0->unk_00, &param0->unk_CC[v0], 0, v1, 0);
         Simple3D_CreateRenderObject(&param0->unk_4DC[v0], &param0->unk_CC[v0]);
     }
 }
@@ -86,17 +86,17 @@ static void ov5_021F1D80(UnkStruct_021F1CF8 *param0)
     int v0;
 
     for (v0 = 0; v0 < 10; v0++) {
-        Simple3D_FreeModel(&param0->slotMachineVariant[v0]);
+        Simple3D_FreeModel(&param0->unk_04[v0]);
         Simple3D_FreeModel(&param0->unk_CC[v0]);
     }
 }
 
-static Simple3DRenderObj *ov5_021F1DA4(UnkStruct_021F1CF8 *param0, int slotsMinigameDTO, int param2, int param3)
+static Simple3DRenderObj *ov5_021F1DA4(UnkStruct_021F1CF8 *param0, int param1, int param2, int param3)
 {
     int v0;
     Simple3DRenderObj *v1 = NULL;
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 0:
         v0 = 0 + param2;
         v1 = &param0->unk_194[v0];
@@ -120,19 +120,19 @@ static Simple3DRenderObj *ov5_021F1DA4(UnkStruct_021F1CF8 *param0, int slotsMini
     return v1;
 }
 
-static Simple3DModel *ov5_021F1E24(UnkStruct_021F1CF8 *param0, int slotsMinigameDTO, int param2, int param3)
+static Simple3DModel *ov5_021F1E24(UnkStruct_021F1CF8 *param0, int param1, int param2, int param3)
 {
     int v0 = 0;
     Simple3DModel *v1 = NULL;
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 0:
         v0 = 0 + param2;
-        v1 = &param0->slotMachineVariant[v0];
+        v1 = &param0->unk_04[v0];
         break;
     case 1:
         v0 = Unk_ov5_022003C4[param3][param2];
-        v1 = &param0->slotMachineVariant[v0];
+        v1 = &param0->unk_04[v0];
         break;
     case 2:
     case 4:
@@ -179,7 +179,7 @@ OverworldAnimManager *ov5_021F1EC8(const MapObject *param0)
     return NULL;
 }
 
-static OverworldAnimManager *ov5_021F1ECC(const MapObject *param0, int slotsMinigameDTO)
+static OverworldAnimManager *ov5_021F1ECC(const MapObject *param0, int param1)
 {
     VecFx32 v0;
     OverworldAnimManager *v1;
@@ -193,21 +193,21 @@ static OverworldAnimManager *ov5_021F1ECC(const MapObject *param0, int slotsMini
     FieldEffectManager *v9 = MapObject_GetFieldEffectManager(param0);
     UnkStruct_021F1CF8 *v10 = FieldEffectManager_GetRendererContext(v9, 11);
 
-    v2.coins = slotsMinigameDTO;
-    v2.unk_08 = ov5_021F1DA4(v10, slotsMinigameDTO, v6, v7);
-    v2.slotMachineVariant = ov5_021F1E24(v10, slotsMinigameDTO, v6, v7);
+    v2.unk_00 = param1;
+    v2.unk_08 = ov5_021F1DA4(v10, param1, v6, v7);
+    v2.unk_04 = ov5_021F1E24(v10, param1, v6, v7);
 
     VecFx32_SetPosFromMapCoords(v3, v4, &v0);
     v0.y = v5;
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 0:
     case 1:
     case 4:
     case 5:
         v0.y += (FX32_ONE * -8);
 
-        if ((slotsMinigameDTO == 2) || (slotsMinigameDTO == 3)) {
+        if ((param1 == 2) || (param1 == 3)) {
             v0.z += (FX32_ONE * -2);
         } else {
             v0.z += (FX32_ONE * 1);
@@ -217,7 +217,7 @@ static OverworldAnimManager *ov5_021F1ECC(const MapObject *param0, int slotsMini
     case 3:
         v0.y += (FX32_ONE * -10);
 
-        if ((slotsMinigameDTO == 2) || (slotsMinigameDTO == 3)) {
+        if ((param1 == 2) || (param1 == 3)) {
             v0.z += (FX32_ONE * -2);
         } else {
             v0.z += (FX32_ONE * 2);
@@ -229,54 +229,54 @@ static OverworldAnimManager *ov5_021F1ECC(const MapObject *param0, int slotsMini
     return v1;
 }
 
-static int ov5_021F1FB8(OverworldAnimManager *param0, void *slotsMinigameDTO)
+static int ov5_021F1FB8(OverworldAnimManager *param0, void *param1)
 {
     VecFx32 v0;
     UnkStruct_021F1FE4 *v1;
     const UnkStruct_021F1FB8 *v2;
 
-    v1 = slotsMinigameDTO;
+    v1 = param1;
     v1->unk_10 = OverworldAnimManager_GetUserInt(param0);
 
     v2 = OverworldAnimManager_GetUserData(param0);
     v1->unk_18 = v2->unk_08;
-    v1->unk_14 = v2->slotMachineVariant;
-    v1->slotsMinigameDTO = 31;
-    v1->unk_10 = v2->coins;
+    v1->unk_14 = v2->unk_04;
+    v1->unk_0C = 31;
+    v1->unk_10 = v2->unk_00;
 
     return 1;
 }
 
-static void ov5_021F1FE0(OverworldAnimManager *param0, void *slotsMinigameDTO)
+static void ov5_021F1FE0(OverworldAnimManager *param0, void *param1)
 {
     return;
 }
 
-static void ov5_021F1FE4(OverworldAnimManager *param0, void *slotsMinigameDTO)
+static void ov5_021F1FE4(OverworldAnimManager *param0, void *param1)
 {
-    UnkStruct_021F1FE4 *v0 = slotsMinigameDTO;
+    UnkStruct_021F1FE4 *v0 = param1;
 
-    switch (v0->coins) {
+    switch (v0->unk_00) {
     case 0:
-        v0->slotMachineVariant++;
+        v0->unk_04++;
 
-        if (v0->slotMachineVariant >= 16) {
-            v0->coins++;
+        if (v0->unk_04 >= 16) {
+            v0->unk_00++;
         }
         break;
     case 1:
-        v0->slotsMinigameDTO -= 2;
+        v0->unk_0C -= 2;
 
-        if (v0->slotsMinigameDTO < 0) {
+        if (v0->unk_0C < 0) {
             FieldEffectManager_FinishAnimManager(param0);
             return;
         }
     }
 }
 
-static void ov5_021F2014(OverworldAnimManager *param0, void *slotsMinigameDTO)
+static void ov5_021F2014(OverworldAnimManager *param0, void *param1)
 {
-    UnkStruct_021F1FE4 *v0 = slotsMinigameDTO;
+    UnkStruct_021F1FE4 *v0 = param1;
 
     if (v0->unk_08 == 0) {
         VecFx32 v1;
@@ -284,7 +284,7 @@ static void ov5_021F2014(OverworldAnimManager *param0, void *slotsMinigameDTO)
         OverworldAnimManager_GetPosition(param0, &v1);
 
         NNS_G3dMdlUseMdlAlpha(v0->unk_14->g3DModel);
-        NNS_G3dMdlSetMdlAlphaAll(v0->unk_14->g3DModel, v0->slotsMinigameDTO);
+        NNS_G3dMdlSetMdlAlphaAll(v0->unk_14->g3DModel, v0->unk_0C);
 
         Simple3D_DrawRenderObjWithPos(v0->unk_18, &v1);
     }

@@ -4,10 +4,10 @@
 #include "applications/pokedex/pokedex_sort_data.h"
 
 typedef struct {
-    int *coins;
-    PokedexSortData *slotMachineVariant;
+    int *unk_00;
+    PokedexSortData *unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
     int unk_10;
     BOOL unk_14;
     BOOL unk_18;

@@ -23,7 +23,7 @@ typedef struct EasyChatArgs {
     u8 padding[4];
 } EasyChatArgs;
 
-EasyChatArgs *EasyChatArgs_New(u32 type, u32 slotsMinigameDTO, SaveData *saveData, enum HeapID heapID);
+EasyChatArgs *EasyChatArgs_New(u32 type, u32 param1, SaveData *saveData, enum HeapID heapID);
 void EasyChatArgs_Free(EasyChatArgs *args);
 void EasyChatArgs_SetOneWord(EasyChatArgs *args, u16 word);
 void EasyChatArgs_SetTwoWords(EasyChatArgs *args, u16 word1, u16 word2);
@@ -44,6 +44,6 @@ BOOL EasyChatArgs_IsGameCompleted(const EasyChatArgs *args);
 BOOL sub_02097568(const EasyChatArgs *args);
 void EasyChatArgs_GetContent(const EasyChatArgs *args, u16 *outWords, EasyChatSentence *outSentence);
 BOOL EasyChatArgs_Compare(const EasyChatArgs *args, const u16 *words, const EasyChatSentence *sentence);
-void EasyChatArgs_UpdateContent(EasyChatArgs *args, const u16 *slotsMinigameDTO, const EasyChatSentence *param2);
+void EasyChatArgs_UpdateContent(EasyChatArgs *args, const u16 *param1, const EasyChatSentence *param2);
 
 #endif // POKEPLATINUM_EASY_CHAT_ARGS_H

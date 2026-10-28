@@ -12,10 +12,10 @@
 #include "string_template.h"
 
 typedef struct {
-    BgConfig *coins;
+    BgConfig *unk_00;
     u8 padding_04[4];
     const BoxApplication *unk_08;
-    UnkStruct_ov19_021D61B0 *slotsMinigameDTO;
+    UnkStruct_ov19_021D61B0 *unk_0C;
     MessageLoader *unk_10;
     MessageLoader *unk_14;
     Window *unk_18;

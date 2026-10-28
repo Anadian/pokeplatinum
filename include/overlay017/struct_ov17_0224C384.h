@@ -7,10 +7,10 @@
 struct UnkStruct_ov17_0224DF54_t;
 
 typedef struct {
-    SysTask *coins;
-    ManagedSprite *slotMachineVariant;
+    SysTask *unk_00;
+    ManagedSprite *unk_04;
     struct UnkStruct_ov17_0224DF54_t *unk_08;
-    u8 slotsMinigameDTO;
+    u8 unk_0C;
 } UnkStruct_ov17_0224C384;
 
 #endif // POKEPLATINUM_STRUCT_OV17_0224C384_H

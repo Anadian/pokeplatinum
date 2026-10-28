@@ -1139,9 +1139,9 @@ void BattleSystem_SetCommandSelectionFlags(BattleSystem *battleSys, int flags)
     battleSys->commandSelectionFlags = flags;
 }
 
-void BattleSystem_SetUnread_2440(BattleSystem *battleSys, int slotsMinigameDTO)
+void BattleSystem_SetUnread_2440(BattleSystem *battleSys, int param1)
 {
-    battleSys->unread_2440 = slotsMinigameDTO;
+    battleSys->unread_2440 = param1;
 }
 
 WaitDial *BattleSystem_GetWaitDial(BattleSystem *battleSys)

@@ -8,15 +8,15 @@
 #include "easy_chat_sentence.h"
 #include "trainer_info.h"
 
-void CommServerClient_Init(TrainerInfo *param0, BOOL slotsMinigameDTO);
+void CommServerClient_Init(TrainerInfo *param0, BOOL param1);
 BOOL sub_020332D0(void);
 void WirelessDriver_Init(void);
 BOOL WirelessDriver_IsReady(void);
 BOOL WirelessDriver_Initialized(void);
 void WirelessDriver_Shutdown(void);
 void sub_02033518(void);
-BOOL CommServerClient_InitServer(BOOL param0, BOOL slotsMinigameDTO, BOOL param2);
-BOOL CommServerClient_InitClient(BOOL param0, BOOL slotsMinigameDTO);
+BOOL CommServerClient_InitServer(BOOL param0, BOOL param1, BOOL param2);
+BOOL CommServerClient_InitClient(BOOL param0, BOOL param1);
 BOOL sub_020336D4(void);
 BOOL sub_02033768(void);
 void CommServerClient_SetSecretBaseClosedState(BOOL isClosed);
@@ -27,7 +27,7 @@ void sub_02033884(void);
 int sub_02033898(int param0);
 int sub_020338EC(void);
 int sub_0203394C(void);
-void sub_020339AC(int param0, TrainerInfo *slotsMinigameDTO);
+void sub_020339AC(int param0, TrainerInfo *param1);
 BOOL sub_020339E8(u16 param0);
 void sub_02033A5C(void);
 void sub_02033D94(u16 param0);
@@ -43,7 +43,7 @@ WMBssDesc *sub_02033F3C(int param0);
 UnkStruct_0203330C *sub_02033F6C(int param0);
 TrainerInfo *sub_02033F9C(void);
 TrainerInfo *sub_02033FB0(int param0);
-void sub_02033FDC(u8 *param0, int slotsMinigameDTO);
+void sub_02033FDC(u8 *param0, int param1);
 BOOL sub_0203406C(void);
 void sub_0203408C(void);
 void sub_020340A8(EasyChatSentence *param0);

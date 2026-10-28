@@ -64,7 +64,7 @@ static BOOL PCHallOfFame_DrawNewEntry(PCHallOfFameApp *pcHallOfFameApp, int *sta
 static BOOL PCHallOfFame_LoadCurrentTextState(PCHallOfFameApp *pcHallOfFameApp, int *state);
 static void ov87_021D139C(PCHallOfFameApp *pcHallOfFameApp);
 static void ov87_021D14B8(PCHallOfFameApp *pcHallOfFameApp);
-static u32 ov87_021D14D4(PCHallOfFameApp *pcHallOfFameApp, u32 slotsMinigameDTO);
+static u32 ov87_021D14D4(PCHallOfFameApp *pcHallOfFameApp, u32 param1);
 static void PCHallOfFame_RemoveWindows(PCHallOfFameApp *pcHallOfFameApp);
 static void PCHallOfFame_PrintAllText(PCHallOfFameApp *pcHallOfFameApp);
 static void PCHallOfFame_ClearScreen(PCHallOfFameApp *pcHallOfFameApp);
@@ -327,20 +327,20 @@ static void ov87_021D14B8(PCHallOfFameApp *pcHallOfFameApp)
     PCHallOfFame_RemoveWindows(pcHallOfFameApp);
 }
 
-static u32 ov87_021D14D4(PCHallOfFameApp *pcHallOfFameApp, u32 slotsMinigameDTO)
+static u32 ov87_021D14D4(PCHallOfFameApp *pcHallOfFameApp, u32 param1)
 {
-    Window_Add(pcHallOfFameApp->bgConfig, &(pcHallOfFameApp->windows[0]), BG_LAYER_MAIN_1, 1, 1, 30, 2, 0, slotsMinigameDTO);
+    Window_Add(pcHallOfFameApp->bgConfig, &(pcHallOfFameApp->windows[0]), BG_LAYER_MAIN_1, 1, 1, 30, 2, 0, param1);
 
-    slotsMinigameDTO += (30 * 2);
+    param1 += (30 * 2);
 
-    Window_Add(pcHallOfFameApp->bgConfig, &(pcHallOfFameApp->windows[1]), BG_LAYER_MAIN_1, 1, 19, 30, 4, 0, slotsMinigameDTO);
+    Window_Add(pcHallOfFameApp->bgConfig, &(pcHallOfFameApp->windows[1]), BG_LAYER_MAIN_1, 1, 19, 30, 4, 0, param1);
 
-    slotsMinigameDTO += (30 * 4);
+    param1 += (30 * 4);
 
     Window_PutToTilemap(&(pcHallOfFameApp->windows[0]));
     Window_PutToTilemap(&(pcHallOfFameApp->windows[1]));
 
-    return slotsMinigameDTO;
+    return param1;
 }
 
 static void PCHallOfFame_RemoveWindows(PCHallOfFameApp *pcHallOfFameApp)

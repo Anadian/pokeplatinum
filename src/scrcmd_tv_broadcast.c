@@ -55,7 +55,7 @@ typedef struct TVInterview {
 
 static int TVInterview_LoadMessage(int param0, FieldSystem *fieldSystem, StringTemplate *template);
 static void TVInterview_SaveResponse(FieldSystem *fieldSystem, int segmentID, u16 customMessageWord, u16 unused);
-static BOOL TVInterview_IsEligible(FieldSystem *fieldSystem, int slotsMinigameDTO);
+static BOOL TVInterview_IsEligible(FieldSystem *fieldSystem, int param1);
 
 BOOL ScrCmd_CallTVBroadcast(ScriptContext *ctx)
 {
@@ -245,50 +245,50 @@ static BOOL TVInterview_IsEligible(FieldSystem *fieldSystem, int segmentID)
     return isEligibleFn(fieldSystem);
 }
 
-static void sub_0204922C(StringTemplate *param0, int slotsMinigameDTO, const u16 *param2, int param3, int language, int param5)
+static void sub_0204922C(StringTemplate *param0, int param1, const u16 *param2, int param3, int language, int param5)
 {
     String *v0 = String_Init(64, HEAP_ID_FIELD1);
 
     String_CopyChars(v0, param2);
-    StringTemplate_SetString(param0, slotsMinigameDTO, v0, param3, param5, language);
+    StringTemplate_SetString(param0, param1, v0, param3, param5, language);
     String_Free(v0);
 }
 
-static void sub_02049268(FieldSystem *fieldSystem, StringTemplate *slotsMinigameDTO)
+static void sub_02049268(FieldSystem *fieldSystem, StringTemplate *param1)
 {
     Party *v0 = SaveData_GetParty(fieldSystem->saveData);
     Pokemon *v1 = Party_FindFirstHatchedMon(v0);
 
-    StringTemplate_SetSpeciesName(slotsMinigameDTO, 0, Pokemon_GetBoxPokemon(v1));
+    StringTemplate_SetSpeciesName(param1, 0, Pokemon_GetBoxPokemon(v1));
 }
 
-static void sub_02049288(FieldSystem *fieldSystem, StringTemplate *slotsMinigameDTO)
+static void sub_02049288(FieldSystem *fieldSystem, StringTemplate *param1)
 {
-    int v0 = PoketchSystem_CurrentAppID(fieldSystem->slotMachineVariant->poketchSys);
-    StringTemplate_SetPoketchAppName(slotsMinigameDTO, 0, v0);
+    int v0 = PoketchSystem_CurrentAppID(fieldSystem->unk_04->poketchSys);
+    StringTemplate_SetPoketchAppName(param1, 0, v0);
 }
 
-static void sub_020492A0(FieldSystem *fieldSystem, StringTemplate *slotsMinigameDTO)
+static void sub_020492A0(FieldSystem *fieldSystem, StringTemplate *param1)
 {
     u16 v0[10 + 1];
     TVBroadcast *broadcast = SaveData_GetTVBroadcast(fieldSystem->saveData);
     UnkStruct_0202E7E4 *v2 = sub_0202E7E4(broadcast);
 
     MessageLoader_GetSpeciesName(v2->unk_02, HEAP_ID_FIELD1, v0);
-    sub_0204922C(slotsMinigameDTO, 0, v0, 0, GAME_LANGUAGE, 1);
+    sub_0204922C(param1, 0, v0, 0, GAME_LANGUAGE, 1);
 }
 
-static void sub_020492D4(FieldSystem *fieldSystem, StringTemplate *slotsMinigameDTO)
+static void sub_020492D4(FieldSystem *fieldSystem, StringTemplate *param1)
 {
     u16 v0[10 + 1];
     TVBroadcast *broadcast = SaveData_GetTVBroadcast(fieldSystem->saveData);
     UnkStruct_0202E810 *v2 = sub_0202E810(broadcast);
 
     MessageLoader_GetSpeciesName(v2->unk_02, HEAP_ID_FIELD1, v0);
-    sub_0204922C(slotsMinigameDTO, 0, v0, 0, GAME_LANGUAGE, 1);
+    sub_0204922C(param1, 0, v0, 0, GAME_LANGUAGE, 1);
 }
 
-static void sub_02049308(FieldSystem *fieldSystem, StringTemplate *slotsMinigameDTO)
+static void sub_02049308(FieldSystem *fieldSystem, StringTemplate *param1)
 {
     String *v0;
     TVBroadcast *broadcast = SaveData_GetTVBroadcast(fieldSystem->saveData);
@@ -297,14 +297,14 @@ static void sub_02049308(FieldSystem *fieldSystem, StringTemplate *slotsMinigame
     v0 = String_Init(64, HEAP_ID_FIELD1);
 
     String_CopyChars(v0, v2->unk_06);
-    StringTemplate_SetString(slotsMinigameDTO, 0, v0, v2->unk_02, 1, GAME_LANGUAGE);
+    StringTemplate_SetString(param1, 0, v0, v2->unk_02, 1, GAME_LANGUAGE);
     String_Free(v0);
 }
 
 static BOOL sub_02049348(FieldSystem *fieldSystem)
 {
     UnkStruct_0202E7FC *v0 = sub_0202E7FC(SaveData_GetTVBroadcast(fieldSystem->saveData));
-    return v0->coins;
+    return v0->unk_00;
 }
 
 static BOOL sub_02049358(FieldSystem *fieldSystem)
@@ -316,7 +316,7 @@ static BOOL sub_02049358(FieldSystem *fieldSystem)
 static BOOL sub_02049368(FieldSystem *fieldSystem)
 {
     TVSegment_ContestHall_ShowcasedPokemon *v0 = TVBroadcast_GetShowcasedPokemon(SaveData_GetTVBroadcast(fieldSystem->saveData));
-    return v0->coins;
+    return v0->unk_00;
 }
 
 static BOOL sub_02049378(FieldSystem *fieldSystem)
@@ -328,25 +328,25 @@ static BOOL sub_02049378(FieldSystem *fieldSystem)
 static BOOL sub_02049388(FieldSystem *fieldSystem)
 {
     UnkStruct_0202E7F0 *v0 = sub_0202E7F0(SaveData_GetTVBroadcast(fieldSystem->saveData));
-    return v0->coins;
+    return v0->unk_00;
 }
 
 static BOOL sub_02049398(FieldSystem *fieldSystem)
 {
     UnkStruct_0202E7E4 *v0 = sub_0202E7E4(SaveData_GetTVBroadcast(fieldSystem->saveData));
-    return v0->coins;
+    return v0->unk_00;
 }
 
 static BOOL sub_020493A8(FieldSystem *fieldSystem)
 {
     UnkStruct_0202E810 *v0 = sub_0202E810(SaveData_GetTVBroadcast(fieldSystem->saveData));
-    return v0->coins;
+    return v0->unk_00;
 }
 
 static BOOL sub_020493B8(FieldSystem *fieldSystem)
 {
     UnkStruct_0202E81C *v0 = sub_0202E81C(SaveData_GetTVBroadcast(fieldSystem->saveData));
-    return v0->coins;
+    return v0->unk_00;
 }
 
 static const TVInterview sInterviews[TV_PROGRAM_TYPE_INTERVIEWS_NUM_SEGMENTS] = {

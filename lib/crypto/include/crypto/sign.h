@@ -7,7 +7,7 @@ extern "C" {
 
 #include <nitro/types.h>
 
-BOOL CRYPTO_VerifySignature(const u8 *param0, int slotsMinigameDTO, const u8 *param2, const u8 *param3);
+BOOL CRYPTO_VerifySignature(const u8 *param0, int param1, const u8 *param2, const u8 *param3);
 
 #ifdef __cplusplus
 }

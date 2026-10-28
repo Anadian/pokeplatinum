@@ -8,11 +8,11 @@
 #include "message.h"
 #include "string_template.h"
 
-void ov113_02260620(MessageLoader *param0, StringTemplate *slotsMinigameDTO, Window param2[], UnkStruct_ov66_0222DFF8 *param3, s32 param4);
-void ov113_02260714(Window param0[], u32 slotsMinigameDTO);
-u16 ov113_0226072C(int param0, u32 slotsMinigameDTO);
-int ov113_02260748(UnkStruct_ov113_02260818 *param0, int slotsMinigameDTO);
-BOOL PokemonHasOverworldFootprint(int param0, int slotsMinigameDTO, BOOL param2);
-int PokemonOverworldFootprintSize(int param0, int slotsMinigameDTO);
+void ov113_02260620(MessageLoader *param0, StringTemplate *param1, Window param2[], UnkStruct_ov66_0222DFF8 *param3, s32 param4);
+void ov113_02260714(Window param0[], u32 param1);
+u16 ov113_0226072C(int param0, u32 param1);
+int ov113_02260748(UnkStruct_ov113_02260818 *param0, int param1);
+BOOL PokemonHasOverworldFootprint(int param0, int param1, BOOL param2);
+int PokemonOverworldFootprintSize(int param0, int param1);
 
 #endif // POKEPLATINUM_OV113_02260620_H

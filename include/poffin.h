@@ -45,7 +45,7 @@ void Poffin_Clear(Poffin *poffin);
 Poffin *Poffin_New(enum HeapID heapID);
 void Poffin_Copy(Poffin *src, Poffin *dest);
 u8 Poffin_GetAttribute(Poffin *poffin, enum PoffinAttributeID attributeID);
-int Poffin_MakePoffin(Poffin *poffin, u8 *slotsMinigameDTO, u8 param2, BOOL isFoul);
+int Poffin_MakePoffin(Poffin *poffin, u8 *param1, u8 param2, BOOL isFoul);
 void Poffin_StoreAttributesToArray(Poffin *poffin, u8 *dest);
 u8 Poffin_CalcLevel(Poffin *poffin);
 PoffinCase *SaveData_GetPoffinCase(SaveData *saveData);

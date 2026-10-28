@@ -11,11 +11,11 @@
 #include "main_menu/struct_ov97_02233268.h"
 #include "main_menu/struct_ov97_022339EC.h"
 
-BOOL ov97_02233814(const void *param0, u32 slotsMinigameDTO, u16 param2)
+BOOL ov97_02233814(const void *param0, u32 param1, u16 param2)
 {
     WMErrCode v0;
 
-    v0 = WM_SetMPDataToPort(ov97_022323CC, param0, (u16)slotsMinigameDTO, param2, (u16)ov97_02233460(), 2);
+    v0 = WM_SetMPDataToPort(ov97_022323CC, param0, (u16)param1, param2, (u16)ov97_02233460(), 2);
 
     if (v0 != WM_ERRCODE_OPERATING) {
         ov97_022337FC(v0);
@@ -125,12 +125,12 @@ BOOL ov97_02233938(void)
         WMScanParam *v1 = ov97_02233478();
         UnkStruct_ov97_02232620 *v2 = ov97_02233508();
 
-        v1->bssid[0] = v2->coins[v2->unk_1C3_0].unk_34.coins.val1[0];
-        v1->bssid[1] = v2->coins[v2->unk_1C3_0].unk_34.coins.val1[1];
-        v1->bssid[2] = v2->coins[v2->unk_1C3_0].coins.coins.val1[0];
-        v1->bssid[3] = v2->coins[v2->unk_1C3_0].coins.coins.val1[1];
-        v1->bssid[4] = v2->coins[v2->unk_1C3_0].coins.coins.val1[2];
-        v1->bssid[5] = v2->coins[v2->unk_1C3_0].coins.coins.val1[3];
+        v1->bssid[0] = v2->unk_00[v2->unk_1C3_0].unk_34.unk_00.val1[0];
+        v1->bssid[1] = v2->unk_00[v2->unk_1C3_0].unk_34.unk_00.val1[1];
+        v1->bssid[2] = v2->unk_00[v2->unk_1C3_0].unk_00.unk_00.val1[0];
+        v1->bssid[3] = v2->unk_00[v2->unk_1C3_0].unk_00.unk_00.val1[1];
+        v1->bssid[4] = v2->unk_00[v2->unk_1C3_0].unk_00.unk_00.val1[2];
+        v1->bssid[5] = v2->unk_00[v2->unk_1C3_0].unk_00.unk_00.val1[3];
     }
 
     v0 = WM_StartScan(ov97_022328D4, ov97_02233478());

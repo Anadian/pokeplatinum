@@ -4,7 +4,7 @@
 #include "overlay017/struct_ov17_0224B7BC.h"
 
 typedef struct {
-    u8 coins[32];
+    u8 unk_00[32];
     u8 unk_20;
     u8 unk_21;
     u8 unk_22;

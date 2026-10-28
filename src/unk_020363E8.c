@@ -9,14 +9,14 @@
 #include "heap.h"
 
 typedef struct {
-    u8 coins;
+    u8 unk_00;
     u8 unk_01;
 } UnkStruct_02036574;
 
 #define COMM_TOOL_TEMP_DATA_SIZE 70
 
 typedef struct {
-    UnkStruct_02036574 coins[MAX_CONNECTED_PLAYERS];
+    UnkStruct_02036574 unk_00[MAX_CONNECTED_PLAYERS];
     u8 syncNo[MAX_CONNECTED_PLAYERS];
     u8 unk_18[MAX_CONNECTED_PLAYERS][COMM_TOOL_TEMP_DATA_SIZE + 2];
     u8 hasRecievedTempData[MAX_CONNECTED_PLAYERS];
@@ -58,7 +58,7 @@ BOOL CommTool_IsInitialized(void)
     return 0;
 }
 
-void CommCmd_16(int netId, int slotsMinigameDTO, void *_buff, void *param3)
+void CommCmd_16(int netId, int param1, void *_buff, void *param3)
 {
     u8 *buff = _buff;
     u8 syncNo = buff[0];
@@ -84,13 +84,13 @@ void CommCmd_16(int netId, int slotsMinigameDTO, void *_buff, void *param3)
     }
 }
 
-void CommCmd_18(int netId, int slotsMinigameDTO, void *param2, void *param3)
+void CommCmd_18(int netId, int param1, void *param2, void *param3)
 {
     u8 *v0 = param2;
     sCommTool->syncNo[v0[0]] = v0[1];
 }
 
-void CommCmd_17(int netId, int slotsMinigameDTO, void *param2, void *param3)
+void CommCmd_17(int netId, int param1, void *param2, void *param3)
 {
     u8 *v0 = param2;
     u8 v1 = v0[0];
@@ -133,12 +133,12 @@ int CommTool_GetSyncNo(int netId)
     return sCommTool->syncNo[netId];
 }
 
-void sub_02036574(int netId, int slotsMinigameDTO, void *param2, void *param3)
+void sub_02036574(int netId, int param1, void *param2, void *param3)
 {
     UnkStruct_02036574 *v0 = param2;
 
-    sCommTool->coins[netId].coins = v0->coins;
-    sCommTool->coins[netId].unk_01 = v0->unk_01;
+    sCommTool->unk_00[netId].unk_00 = v0->unk_00;
+    sCommTool->unk_00[netId].unk_01 = v0->unk_01;
 }
 
 int sub_02036590(void)
@@ -146,24 +146,24 @@ int sub_02036590(void)
     return sizeof(UnkStruct_02036574);
 }
 
-void sub_02036594(u8 param0, u8 slotsMinigameDTO)
+void sub_02036594(u8 param0, u8 param1)
 {
     UnkStruct_02036574 v0;
 
-    v0.coins = param0;
-    v0.unk_01 = slotsMinigameDTO;
+    v0.unk_00 = param0;
+    v0.unk_01 = param1;
 
     CommSys_SendDataFixedSize(19, &v0);
 }
 
-int CommList_Get(int param0, u8 slotsMinigameDTO)
+int CommList_Get(int param0, u8 param1)
 {
     if (!sCommTool) {
         return -1;
     }
 
-    if (sCommTool->coins[param0].coins == slotsMinigameDTO) {
-        return sCommTool->coins[param0].unk_01;
+    if (sCommTool->unk_00[param0].unk_00 == param1) {
+        return sCommTool->unk_00[param0].unk_01;
     }
 
     return -1;
@@ -174,7 +174,7 @@ void CommList_Refresh(void)
     int v0;
 
     for (v0 = 0; v0 < (7 + 1); v0++) {
-        MI_CpuFill8(&sCommTool->coins[v0], 0, sizeof(UnkStruct_02036574));
+        MI_CpuFill8(&sCommTool->unk_00[v0], 0, sizeof(UnkStruct_02036574));
     }
 }
 
@@ -185,10 +185,10 @@ void CommTool_ClearReceivedTempDataAllPlayers(void)
     }
 }
 
-BOOL sub_02036614(int param0, const void *slotsMinigameDTO)
+BOOL sub_02036614(int param0, const void *param1)
 {
     if (sCommTool) {
-        MI_CpuCopy8(slotsMinigameDTO, sCommTool->unk_18[param0], COMM_TOOL_TEMP_DATA_SIZE);
+        MI_CpuCopy8(param1, sCommTool->unk_18[param0], COMM_TOOL_TEMP_DATA_SIZE);
         CommSys_SendDataFixedSize(20, sCommTool->unk_18[param0]);
         return 1;
     }
@@ -205,7 +205,7 @@ const void *sub_0203664C(int netId)
     return NULL;
 }
 
-void sub_02036670(int netId, int slotsMinigameDTO, void *param2, void *param3)
+void sub_02036670(int netId, int param1, void *param2, void *param3)
 {
     sCommTool->hasRecievedTempData[netId] = TRUE;
     MI_CpuCopy8(param2, sCommTool->unk_18[netId], COMM_TOOL_TEMP_DATA_SIZE);

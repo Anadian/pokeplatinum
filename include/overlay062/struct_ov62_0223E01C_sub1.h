@@ -4,10 +4,10 @@
 #include "message.h"
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     u16 *unk_08;
-    MessageLoader *slotsMinigameDTO;
+    MessageLoader *unk_0C;
     BOOL unk_10;
 } UnkStruct_ov62_0223E01C_sub1;
 

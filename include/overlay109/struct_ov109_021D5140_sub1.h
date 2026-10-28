@@ -4,10 +4,10 @@
 #include <nnsys.h>
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     int unk_08;
-    void *slotsMinigameDTO;
+    void *unk_0C;
     NNSG2dPaletteData *unk_10;
 } UnkStruct_ov109_021D5140_sub1;
 

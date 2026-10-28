@@ -36,7 +36,7 @@ int sub_0209C3CC(void)
     return sizeof(UnkStruct_ov65_02236760);
 }
 
-void sub_0209C3D0(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_0209C3D0(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov65_02236744 *v0 = param3;
     UnkStruct_ov65_022366E4 *v1 = param2;
@@ -48,7 +48,7 @@ void sub_0209C3D0(int param0, int slotsMinigameDTO, void *param2, void *param3)
     ov65_022366E4(v0, v1);
 }
 
-void sub_0209C3E0(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_0209C3E0(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov65_02236744 *v0 = param3;
 
@@ -59,7 +59,7 @@ void sub_0209C3E0(int param0, int slotsMinigameDTO, void *param2, void *param3)
     ov65_02236744(v0);
 }
 
-void sub_0209C3F0(int param0, int slotsMinigameDTO, void *param2, void *param3)
+void sub_0209C3F0(int param0, int param1, void *param2, void *param3)
 {
     UnkStruct_ov65_02236744 *v0 = param3;
 

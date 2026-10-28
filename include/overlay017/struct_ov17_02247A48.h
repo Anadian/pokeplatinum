@@ -16,10 +16,10 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    Contest *coins;
-    SysTask *slotMachineVariant;
+    Contest *unk_00;
+    SysTask *unk_04;
     G3DPipelineBuffers *unk_08;
-    UnkStruct_ov17_022476F8 slotsMinigameDTO;
+    UnkStruct_ov17_022476F8 unk_0C;
     UnkStruct_ov17_02247A48_sub1 unk_D2;
     UnkStruct_ov17_02249260 unk_E0;
     UnkStruct_ov17_02247A48_sub2 unk_F1[4];

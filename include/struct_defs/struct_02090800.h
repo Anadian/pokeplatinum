@@ -9,9 +9,9 @@
 
 typedef struct {
     enum HeapID heapID;
-    MessageLoader *slotMachineVariant;
+    MessageLoader *unk_04;
     StringTemplate *unk_08;
-    Pokemon *slotsMinigameDTO;
+    Pokemon *unk_0C;
     BOOL unk_10;
     PokemonInfoDisplayStruct_sub1 unk_14;
     PokemonInfoDisplayStruct_sub1 unk_1C;

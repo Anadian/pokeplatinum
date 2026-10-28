@@ -202,13 +202,13 @@ static void FreeFrontierGraphics(BattleFrontier *frontier)
 static void sub_0209B8E8(BattleFrontier *frontier)
 {
     for (int v0 = 0; v0 < 24; v0++) {
-        frontier->unk_24[v0].coins = 0xffff;
+        frontier->unk_24[v0].unk_00 = 0xffff;
     }
 
     MI_CpuClear8(frontier->unk_6C, sizeof(UnkStruct_ov104_0223C634) * 32);
 
     for (int v0 = 0; v0 < 32; v0++) {
-        frontier->unk_6C[v0].unk_08.slotMachineVariant = 0xffff;
+        frontier->unk_6C[v0].unk_08.unk_04 = 0xffff;
     }
 }
 
@@ -277,9 +277,9 @@ UnkStruct_ov104_0223C634 *sub_0209B9D0(BattleFrontier *frontier)
     return frontier->unk_6C;
 }
 
-UnkStruct_ov104_0223C634 *sub_0209B9D4(BattleFrontier *frontier, int slotsMinigameDTO)
+UnkStruct_ov104_0223C634 *sub_0209B9D4(BattleFrontier *frontier, int param1)
 {
-    return &frontier->unk_6C[slotsMinigameDTO];
+    return &frontier->unk_6C[param1];
 }
 
 UnkStruct_ov104_0223D3B0 *sub_0209B9E0(BattleFrontier *frontier)
@@ -292,7 +292,7 @@ void sub_0209B9EC(BattleFrontier *frontier)
     MI_CpuClear8(&frontier->unk_98C, sizeof(UnkStruct_ov104_0223D3B0_sub1));
 
     for (int v0 = 0; v0 < 8; v0++) {
-        frontier->unk_98C.coins[v0] = 0xffff;
+        frontier->unk_98C.unk_00[v0] = 0xffff;
     }
 }
 

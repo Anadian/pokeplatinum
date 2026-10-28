@@ -441,7 +441,7 @@ static void Sound_Impl_PlayBattleBGM(u16 bgmID, int unused)
     Sound_PlayBGM(bgmID);
 }
 
-static void sub_020048AC(u16 param0, int slotsMinigameDTO)
+static void sub_020048AC(u16 param0, int param1)
 {
     UNUSED(SoundSystem_GetParam(SOUND_SYSTEM_PARAM_HEAP_STATE_PERSISTENT));
 

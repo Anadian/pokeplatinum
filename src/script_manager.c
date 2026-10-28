@@ -70,7 +70,7 @@ static void ScriptContext_LoadAndStart(FieldSystem *fieldSystem, ScriptContext *
 static u16 ScriptContext_LoadAndOffsetID(FieldSystem *fieldSystem, ScriptContext *ctx, u16 scriptID);
 static void ScriptContext_Load(FieldSystem *fieldSystem, ScriptContext *ctx, int scriptFile, u32 textBank);
 static void ScriptContext_LoadFromCurrentMap(FieldSystem *fieldSystem, ScriptContext *ctx);
-static void ScriptContext_JumpToOffsetID(ScriptContext *ctx, u16 slotsMinigameDTO);
+static void ScriptContext_JumpToOffsetID(ScriptContext *ctx, u16 param1);
 static void *ScriptContext_LoadScripts(int headerID);
 static u32 MapHeaderToMsgArchive(int headerID);
 static BOOL ScriptManager_SetHiddenItem(ScriptManager *scriptManager, u16 scriptID);

@@ -25,7 +25,7 @@ static const fx32 GetHeight(const FieldSystem *fieldSystem, const fx32 objectHei
 static const fx32 GetSimpleHeight(const FieldSystem *fieldSystem, const fx32 objectHeight, const fx32 objectX, const fx32 objectZ, u8 *newObjectHeightSourceOut);
 static BOOL GetTileAttributes(const FieldSystem *fieldSystem, const int tileX, const int tileZ, u16 *attributes);
 static BOOL GetSimpleTileAttributes(const FieldSystem *fieldSystem, const int tileX, const int tileZ, u16 *attributes);
-static int GetVerticalDirection(const FieldSystem *fieldSystem, const VecFx32 *slotsMinigameDTO, const int param2, const int param3, u8 *param4);
+static int GetVerticalDirection(const FieldSystem *fieldSystem, const VecFx32 *param1, const int param2, const int param3, u8 *param4);
 
 static const TerrainCollisionManager sTerrainCollisionManagerFuncs = {
     GetHeight,

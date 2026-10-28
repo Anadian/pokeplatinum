@@ -4,13 +4,13 @@
 typedef struct {
     union {
         struct {
-            u32 coins[8];
+            u32 unk_00[8];
             u8 unk_20[8];
             u8 unk_28[8];
         } unk_00_val1;
         struct {
-            u32 coins;
-            u8 slotMachineVariant;
+            u32 unk_00;
+            u8 unk_04;
             u8 unk_05;
         } unk_00_val2;
     };

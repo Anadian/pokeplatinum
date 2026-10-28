@@ -386,7 +386,7 @@ const UnkStruct_020F568C Unk_020F568C[CONTEST_EFFECT_MAX] = {
 
 BOOL sub_02094EDC(Contest *contest)
 {
-    if (contest->isLinkContest == FALSE || (contest->isLinkContest == TRUE && contest->coins.unk_10C == contest->coins.playerContestantID)) {
+    if (contest->isLinkContest == FALSE || (contest->isLinkContest == TRUE && contest->unk_00.unk_10C == contest->unk_00.playerContestantID)) {
         return TRUE;
     }
 
@@ -504,7 +504,7 @@ void sub_02094F04(Contest *contest, enum HeapID heapID, int param2, enum Pokemon
                 continue;
             }
 
-            contest->coins.unk_10[v0] = v9[v2[v4]];
+            contest->unk_00.unk_10[v0] = v9[v2[v4]];
 
             for (v1 = v4; v2[v1] != 0xff; v1++) {
                 v2[v1] = v2[v1 + 1];
@@ -516,13 +516,13 @@ void sub_02094F04(Contest *contest, enum HeapID heapID, int param2, enum Pokemon
         if (v10 > 0) {
             v4 = 4 - param2;
             v4 += Contest_GetRNGNext(contest) % param2;
-            contest->coins.unk_10[v4] = v12;
+            contest->unk_00.unk_10[v4] = v12;
         }
     } else {
         GF_ASSERT(v3 >= 4);
 
         for (v0 = 0; v0 < 4; v0++) {
-            contest->coins.unk_10[v0] = v9[v2[v0]];
+            contest->unk_00.unk_10[v0] = v9[v2[v0]];
         }
     }
 
@@ -540,54 +540,54 @@ void sub_020951B0(Contest *contest, enum HeapID heapID)
 
     v2 = LoadMemberFromNARC(NARC_INDEX_CONTEST__DATA__CONTEST_DATA, 2, FALSE, heapID, TRUE);
 
-    switch (contest->coins.competitionType) {
+    switch (contest->unk_00.competitionType) {
     case CONTEST_COMPETITION_VISUAL:
     case CONTEST_COMPETITION_DANCE:
     case CONTEST_COMPETITION_ACTING:
         v4 = 0;
         break;
     default:
-        v4 = contest->coins.connectionCount;
+        v4 = contest->unk_00.connectionCount;
         break;
     }
 
     for (i = v4; i < CONTEST_NUM_PARTICIPANTS; i++) {
-        switch (contest->coins.unk_112) {
+        switch (contest->unk_00.unk_112) {
         case 0:
-            v5 = contest->coins.unk_10[i].unk_22;
+            v5 = contest->unk_00.unk_10[i].unk_22;
             break;
         case 1:
-            v5 = contest->coins.unk_10[i].unk_23;
+            v5 = contest->unk_00.unk_10[i].unk_23;
             break;
         case 2:
-            v5 = contest->coins.unk_10[i].unk_24;
+            v5 = contest->unk_00.unk_10[i].unk_24;
             break;
         case 3:
-            v5 = contest->coins.unk_10[i].unk_25;
+            v5 = contest->unk_00.unk_10[i].unk_25;
             break;
         case 4:
-            v5 = contest->coins.unk_10[i].unk_26;
+            v5 = contest->unk_00.unk_10[i].unk_26;
             break;
         case 5:
-            v5 = contest->coins.unk_10[i].unk_27;
+            v5 = contest->unk_00.unk_10[i].unk_27;
             break;
         case 6:
-            v5 = contest->coins.unk_10[i].unk_28;
+            v5 = contest->unk_00.unk_10[i].unk_28;
             break;
         case 7:
-            v5 = contest->coins.unk_10[i].unk_29;
+            v5 = contest->unk_00.unk_10[i].unk_29;
             break;
         case 8:
-            v5 = contest->coins.unk_10[i].unk_2A;
+            v5 = contest->unk_00.unk_10[i].unk_2A;
             break;
         case 9:
-            v5 = contest->coins.unk_10[i].unk_2B;
+            v5 = contest->unk_00.unk_10[i].unk_2B;
             break;
         case 10:
-            v5 = contest->coins.unk_10[i].unk_2C;
+            v5 = contest->unk_00.unk_10[i].unk_2C;
             break;
         case 11:
-            v5 = contest->coins.unk_10[i].unk_2D;
+            v5 = contest->unk_00.unk_10[i].unk_2D;
             break;
         default:
             GF_ASSERT(FALSE);
@@ -597,15 +597,15 @@ void sub_020951B0(Contest *contest, enum HeapID heapID)
 
         v3 = &v2[v5];
 
-        sub_0202A25C(contest->coins.unk_E8[i]);
-        sub_0202A3B0(contest->coins.unk_E8[i], contest->coins.contestMons[i], v3->unk_51);
+        sub_0202A25C(contest->unk_00.unk_E8[i]);
+        sub_0202A3B0(contest->unk_00.unk_E8[i], contest->unk_00.contestMons[i], v3->unk_51);
 
         for (v1 = 0; v1 < v3->unk_50; v1++) {
-            sub_0202A3EC(contest->coins.unk_E8[i], v1, v3->coins[v1].coins, v3->coins[v1].unk_01, v3->coins[v1].unk_02, v3->coins[v1].unk_03);
+            sub_0202A3EC(contest->unk_00.unk_E8[i], v1, v3->unk_00[v1].unk_00, v3->unk_00[v1].unk_01, v3->unk_00[v1].unk_02, v3->unk_00[v1].unk_03);
         }
 
-        sub_0202A35C(contest->coins.unk_E8[i], v3->unk_52);
-        sub_0202A378(contest->coins.unk_E8[i], contest->coins.contestRank);
+        sub_0202A35C(contest->unk_00.unk_E8[i], v3->unk_52);
+        sub_0202A378(contest->unk_00.unk_E8[i], contest->unk_00.contestRank);
     }
 
     Heap_Free(v2);
@@ -616,10 +616,10 @@ void sub_02095338(Contest *contest)
     int i;
 
     for (i = 0; i < CONTEST_NUM_PARTICIPANTS; i++) {
-        sub_0202A25C(contest->coins.unk_E8[i]);
-        sub_0202A3B0(contest->coins.unk_E8[i], contest->coins.contestMons[i], -1);
-        sub_0202A35C(contest->coins.unk_E8[i], 0);
-        sub_0202A378(contest->coins.unk_E8[i], contest->coins.contestRank);
+        sub_0202A25C(contest->unk_00.unk_E8[i]);
+        sub_0202A3B0(contest->unk_00.unk_E8[i], contest->unk_00.contestMons[i], -1);
+        sub_0202A35C(contest->unk_00.unk_E8[i], 0);
+        sub_0202A378(contest->unk_00.unk_E8[i], contest->unk_00.contestRank);
     }
 }
 
@@ -631,7 +631,7 @@ void sub_02095380(const UnkStruct_ov6_02248BE8 *param0, Pokemon *mon, enum HeapI
     Pokemon_InitWith(mon, param0->unk_14, 10, INIT_IVS_RANDOM, TRUE, personality, OTID_NOT_SHINY, 0xf0f0f0f);
 
     for (i = 0; i < LEARNED_MOVES_MAX; i++) {
-        v1 = param0->slotsMinigameDTO[i];
+        v1 = param0->unk_0C[i];
         Pokemon_SetValue(mon, MON_DATA_MOVE1 + i, &v1);
     }
 
@@ -663,7 +663,7 @@ void sub_02095380(const UnkStruct_ov6_02248BE8 *param0, Pokemon *mon, enum HeapI
     Pokemon_SetValue(mon, MON_DATA_SHEEN, &sheen);
 }
 
-PokemonSprite *sub_02095484(PokemonSpriteManager *param0, int slotsMinigameDTO, Pokemon *param2, int param3, PokemonSpriteData *pokemonSpriteData, enum HeapID heapID, int param6, int param7, int param8)
+PokemonSprite *sub_02095484(PokemonSpriteManager *param0, int param1, Pokemon *param2, int param3, PokemonSpriteData *pokemonSpriteData, enum HeapID heapID, int param6, int param7, int param8)
 {
     PokemonSpriteTemplate v0;
     PokemonSprite *v1;
@@ -680,7 +680,7 @@ PokemonSprite *sub_02095484(PokemonSpriteManager *param0, int slotsMinigameDTO, 
         pokemonSpriteData->narcID = v0.narcID;
     }
 
-    v1 = PokemonSpriteManager_CreateSprite(param0, &v0, param6, param7 + v2, param8, slotsMinigameDTO, NULL, NULL);
+    v1 = PokemonSpriteManager_CreateSprite(param0, &v0, param6, param7 + v2, param8, param1, NULL, NULL);
     return v1;
 }
 
@@ -742,20 +742,20 @@ void sub_020954F0(Contest *contest, enum HeapID heapID, int param2, enum Pokemon
     GF_ASSERT(v2 >= 2);
 
     for (v0 = 0; v0 < 2; v0++) {
-        contest->coins.unk_C0[v0] = v6[v7[v0]];
+        contest->unk_00.unk_C0[v0] = v6[v7[v0]];
     }
 
     GF_ASSERT(v3 >= 1);
     v4 = Contest_GetRNGNext(contest) % v3;
-    contest->coins.unk_C0[2] = v6[v8[v4]];
+    contest->unk_00.unk_C0[2] = v6[v8[v4]];
 
     {
         UnkStruct_020954F0 v9;
 
-        contest->coins.unk_10E = param2;
-        v9 = contest->coins.unk_C0[param2];
-        contest->coins.unk_C0[param2] = contest->coins.unk_C0[2];
-        contest->coins.unk_C0[2] = v9;
+        contest->unk_00.unk_10E = param2;
+        v9 = contest->unk_00.unk_C0[param2];
+        contest->unk_00.unk_C0[param2] = contest->unk_00.unk_C0[2];
+        contest->unk_00.unk_C0[2] = v9;
     }
 
     Heap_Free(v8);
@@ -766,7 +766,7 @@ void sub_020954F0(Contest *contest, enum HeapID heapID, int param2, enum Pokemon
 s8 sub_02095734(enum MoveContestEffect contestEffect)
 {
     GF_ASSERT(contestEffect < (NELEMS(Unk_020F568C)));
-    return Unk_020F568C[contestEffect].slotMachineVariant;
+    return Unk_020F568C[contestEffect].unk_04;
 }
 
 void Contest_LoadTwoLineContestEffectMessages(int moveContestEffectID, u32 *lineOneEffectMessageID, u32 *lineTwoEffectMessageID)
@@ -783,11 +783,11 @@ u32 sub_0209577C(int param0)
     return 46 + (param0 - 1);
 }
 
-void sub_02095790(int contestMoveEffect, int slotsMinigameDTO, u32 *destMessageID, u32 *param3)
+void sub_02095790(int contestMoveEffect, int param1, u32 *destMessageID, u32 *param3)
 {
     GF_ASSERT(contestMoveEffect < (NELEMS(Unk_020F568C)));
 
-    switch (slotsMinigameDTO) {
+    switch (param1) {
     case 0:
     default:
         *destMessageID = Unk_020F568C[contestMoveEffect].unk_06;
@@ -795,7 +795,7 @@ void sub_02095790(int contestMoveEffect, int slotsMinigameDTO, u32 *destMessageI
         break;
     case 1:
         *destMessageID = Unk_020F568C[contestMoveEffect].unk_0A;
-        *param3 = Unk_020F568C[contestMoveEffect].slotsMinigameDTO;
+        *param3 = Unk_020F568C[contestMoveEffect].unk_0C;
         break;
     case 2:
         *destMessageID = Unk_020F568C[contestMoveEffect].unk_0E;
@@ -919,7 +919,7 @@ int Contest_ContestantEntryNumToContestantID(int contestantEntryNum)
 
 BOOL Contest_IsPracticeCompetition(Contest *contest)
 {
-    switch (contest->coins.competitionType) {
+    switch (contest->unk_00.competitionType) {
     case CONTEST_COMPETITION_PRACTICE_VISUAL:
     case CONTEST_COMPETITION_PRACTICE_DANCE:
     case CONTEST_COMPETITION_PRACTICE_ACTING:
@@ -929,7 +929,7 @@ BOOL Contest_IsPracticeCompetition(Contest *contest)
     return FALSE;
 }
 
-int sub_02095928(Contest *contest, int slotsMinigameDTO)
+int sub_02095928(Contest *contest, int param1)
 {
     int v0, v1, v2;
     const u16 *v3;
@@ -942,12 +942,12 @@ int sub_02095928(Contest *contest, int slotsMinigameDTO)
     };
 
     v0 = 0;
-    v1 = contest->coins.unk_118[slotsMinigameDTO].coins;
+    v1 = contest->unk_00.unk_118[param1].unk_00;
 
     if (contest->isLinkContest == TRUE) {
         v3 = v4[CONTEST_RANK_LINK];
     } else {
-        v3 = v4[contest->coins.contestRank];
+        v3 = v4[contest->unk_00.contestRank];
     }
 
     for (v2 = 0; v2 < 8; v2++) {
@@ -961,7 +961,7 @@ int sub_02095928(Contest *contest, int slotsMinigameDTO)
     return v0;
 }
 
-int sub_0209598C(Contest *contest, int slotsMinigameDTO)
+int sub_0209598C(Contest *contest, int param1)
 {
     int v0, v1, v2;
     const u8 *v3;
@@ -974,7 +974,7 @@ int sub_0209598C(Contest *contest, int slotsMinigameDTO)
     };
 
     v0 = 0;
-    v1 = contest->coins.unk_118[slotsMinigameDTO].unk_02;
+    v1 = contest->unk_00.unk_118[param1].unk_02;
 
     if (v1 == 0) {
         return 0;
@@ -983,7 +983,7 @@ int sub_0209598C(Contest *contest, int slotsMinigameDTO)
     if (contest->isLinkContest == TRUE) {
         v3 = v4[CONTEST_RANK_LINK];
     } else {
-        v3 = v4[contest->coins.contestRank];
+        v3 = v4[contest->unk_00.contestRank];
     }
 
     v0 = 1;

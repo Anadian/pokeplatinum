@@ -19,9 +19,9 @@
 
 typedef struct {
     FieldSystem *fieldSystem;
-    BOOL *slotMachineVariant;
+    BOOL *unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
     int unk_10;
 } UnkStruct_ov5_021E135C;
 
@@ -45,9 +45,9 @@ static void ov5_021E135C(UnkStruct_ov5_021E135C *param0)
     PlayerAvatar_TryFace(param0->fieldSystem->playerAvatar, param0->unk_10);
 }
 
-static void ov5_021E139C(SysTask *param0, void *slotsMinigameDTO)
+static void ov5_021E139C(SysTask *param0, void *param1)
 {
-    UnkStruct_ov5_021E135C *v0 = slotsMinigameDTO;
+    UnkStruct_ov5_021E135C *v0 = param1;
     MapObject *v1 = PlayerAvatar_GetMapObject(v0->fieldSystem->playerAvatar);
     VecFx32 v2;
 
@@ -56,20 +56,20 @@ static void ov5_021E139C(SysTask *param0, void *slotsMinigameDTO)
         v0->unk_08 = 1;
         Sound_PlayEffect(SEQ_SE_DP_TELE2_sseq);
     case 1:
-        if (v0->slotsMinigameDTO % 2) {
+        if (v0->unk_0C % 2) {
             ov5_021E135C(v0);
         }
 
         MapObject_GetSpritePosOffset(v1, &v2);
-        v2.y = ((FX32_ONE * 2.2) + ((FX32_ONE / 2) * v0->slotsMinigameDTO)) * v0->slotsMinigameDTO;
+        v2.y = ((FX32_ONE * 2.2) + ((FX32_ONE / 2) * v0->unk_0C)) * v0->unk_0C;
 
         MapObject_SetSpritePosOffset(v1, &v2);
-        v0->slotsMinigameDTO++;
+        v0->unk_0C++;
 
-        if (v0->slotsMinigameDTO == 20) {
+        if (v0->unk_0C == 20) {
             StartScreenFade(FADE_SUB_THEN_MAIN, FADE_TYPE_BRIGHTNESS_OUT, FADE_TYPE_BRIGHTNESS_OUT, COLOR_BLACK, 6, 1, HEAP_ID_FIELD1);
-        } else if ((v0->slotsMinigameDTO > 20) && IsScreenFadeDone()) {
-            *v0->slotMachineVariant = 1;
+        } else if ((v0->unk_0C > 20) && IsScreenFadeDone()) {
+            *v0->unk_04 = 1;
             Heap_Free(v0);
             SysTask_Done(param0);
         } else {
@@ -78,9 +78,9 @@ static void ov5_021E139C(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-static void ov5_021E1470(SysTask *param0, void *slotsMinigameDTO)
+static void ov5_021E1470(SysTask *param0, void *param1)
 {
-    UnkStruct_ov5_021E135C *v0 = slotsMinigameDTO;
+    UnkStruct_ov5_021E135C *v0 = param1;
     MapObject *v1 = PlayerAvatar_GetMapObject(v0->fieldSystem->playerAvatar);
     VecFx32 v2;
     int v3;
@@ -89,7 +89,7 @@ static void ov5_021E1470(SysTask *param0, void *slotsMinigameDTO)
     case 0: {
         MapObject_SetPauseMovementOff(v1);
         MapObject_GetSpritePosOffset(v1, &v2);
-        v3 = (20 - v0->slotsMinigameDTO);
+        v3 = (20 - v0->unk_0C);
         v2.y = ((FX32_ONE * 2.2) + ((FX32_ONE / 2) * v3)) * v3;
         MapObject_SetSpritePosOffset(v1, &v2);
         MapObject_Draw(v1);
@@ -98,28 +98,28 @@ static void ov5_021E1470(SysTask *param0, void *slotsMinigameDTO)
         Sound_PlayEffect(SEQ_SE_DP_TELE2_sseq);
         v0->unk_08 = 1;
     case 1:
-        if (v0->slotsMinigameDTO % 2) {
+        if (v0->unk_0C % 2) {
             ov5_021E135C(v0);
         }
 
         MapObject_GetSpritePosOffset(v1, &v2);
-        v3 = (20 - v0->slotsMinigameDTO);
+        v3 = (20 - v0->unk_0C);
         v2.y = ((FX32_ONE * 2.2) + ((FX32_ONE / 2) * v3)) * v3;
         MapObject_SetSpritePosOffset(v1, &v2);
-        v0->slotsMinigameDTO++;
+        v0->unk_0C++;
 
-        if (v0->slotsMinigameDTO == 2) {
+        if (v0->unk_0C == 2) {
             StartScreenFade(FADE_MAIN_THEN_SUB, FADE_TYPE_BRIGHTNESS_IN, FADE_TYPE_BRIGHTNESS_IN, COLOR_BLACK, 6, 1, HEAP_ID_FIELD1);
         }
 
-        if (v0->slotsMinigameDTO > 20) {
+        if (v0->unk_0C > 20) {
             v0->unk_08 = 2;
         }
         break;
     case 2:
         if (IsScreenFadeDone()) {
             PlayerAvatar_TryFace(v0->fieldSystem->playerAvatar, 1);
-            *v0->slotMachineVariant = 1;
+            *v0->unk_04 = 1;
             Heap_Free(v0);
             SysTask_Done(param0);
         }
@@ -127,17 +127,17 @@ static void ov5_021E1470(SysTask *param0, void *slotsMinigameDTO)
     }
 }
 
-void FieldSystem_StartWarpAnimation(FieldSystem *fieldSystem, BOOL slotsMinigameDTO, BOOL *param2)
+void FieldSystem_StartWarpAnimation(FieldSystem *fieldSystem, BOOL param1, BOOL *param2)
 {
     UnkStruct_ov5_021E135C *v0 = Heap_AllocAtEnd(HEAP_ID_FIELD1, sizeof(UnkStruct_ov5_021E135C));
 
     MI_CpuClear8(v0, sizeof(UnkStruct_ov5_021E135C));
 
     v0->fieldSystem = fieldSystem;
-    v0->slotMachineVariant = param2;
+    v0->unk_04 = param2;
     v0->unk_10 = PlayerAvatar_GetFacingDir(fieldSystem->playerAvatar);
 
-    if (slotsMinigameDTO) {
+    if (param1) {
         SysTask_Start(ov5_021E139C, v0, 100);
     } else {
         SysTask_Start(ov5_021E1470, v0, 100);

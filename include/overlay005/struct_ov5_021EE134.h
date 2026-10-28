@@ -4,8 +4,8 @@
 #include "resource_collection.h"
 
 typedef struct {
-    vu32 coins;
-    int slotMachineVariant;
+    vu32 unk_00;
+    int unk_04;
     TextureResourceManager *unk_08;
 } UnkStruct_ov5_021EE134;
 

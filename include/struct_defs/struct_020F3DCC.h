@@ -4,10 +4,10 @@
 #include "struct_decls/struct_020F3DCC_decl.h"
 
 typedef struct UnkStruct_020F3DCC_t {
-    BOOL coins;
-    BOOL slotMachineVariant;
+    BOOL unk_00;
+    BOOL unk_04;
     int unk_08;
-    int slotsMinigameDTO;
+    int unk_0C;
     int unk_10;
     int unk_14;
     int unk_18;

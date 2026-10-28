@@ -6,7 +6,7 @@
 #include "battle_regulation.h"
 
 typedef struct UnkStruct_0202F41C_t {
-    u16 coins[12];
+    u16 unk_00[12];
     u8 unk_18[12];
     u16 unk_24;
     u8 unk_26;

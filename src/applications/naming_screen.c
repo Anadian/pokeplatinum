@@ -316,7 +316,7 @@ static void NamingScreen_UpdateTextCursors(Sprite **textCursorSprites, int textC
 static void NamingScreen_CopyParamsFromArgs(NamingScreen *namingScreen, NamingScreenArgs *namingScreenArgs);
 static void NamingScreen_InitializeCharsGraphics(
     Window *param0,
-    u16 slotsMinigameDTO,
+    u16 param1,
     int param2,
     TextColor param3,
     void *rawCharData);
@@ -1523,10 +1523,10 @@ static void NamingScreen_CopyParamsFromArgs(NamingScreen *namingScreen, NamingSc
 static void NamingScreen_InitGraphicsBanks(void)
 {
     GXBanks banks = {
-        .coins = GX_VRAM_BG_128_A,
-        .slotMachineVariant = GX_VRAM_BGEXTPLTT_NONE,
+        .unk_00 = GX_VRAM_BG_128_A,
+        .unk_04 = GX_VRAM_BGEXTPLTT_NONE,
         .unk_08 = GX_VRAM_SUB_BG_128_C,
-        .slotsMinigameDTO = GX_VRAM_SUB_BGEXTPLTT_NONE,
+        .unk_0C = GX_VRAM_SUB_BGEXTPLTT_NONE,
         .unk_10 = GX_VRAM_OBJ_128_B,
         .unk_14 = GX_VRAM_OBJEXTPLTT_NONE,
         .unk_18 = GX_VRAM_SUB_OBJ_16_I,
@@ -2275,7 +2275,7 @@ static void NamingScreen_PrintMessageOnWindowLeftAlign(Window *window, int unuse
     Window_CopyToVRAM(window);
 }
 
-static void NamingScreen_PrintMessageOnWindow(Window *window, int slotsMinigameDTO, String *str)
+static void NamingScreen_PrintMessageOnWindow(Window *window, int param1, String *str)
 {
     int xOffset = 16;
     int v1 = Font_CalcStringWidth(FONT_SYSTEM, str, 0);

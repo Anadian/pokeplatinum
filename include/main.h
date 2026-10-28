@@ -12,7 +12,7 @@ enum OSResetParameter {
 };
 
 typedef struct ApplicationArgs {
-    int coins;
+    int unk_00;
     BOOL error;
     SaveData *saveData;
 } ApplicationArgs;

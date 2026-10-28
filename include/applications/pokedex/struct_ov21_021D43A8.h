@@ -4,10 +4,10 @@
 #include "applications/pokedex/pokedex_updater.h"
 
 typedef struct {
-    PokedexUpdater *coins;
-    PokedexUpdater *slotMachineVariant;
+    PokedexUpdater *unk_00;
+    PokedexUpdater *unk_04;
     PokedexUpdater *unk_08;
-    PokedexUpdater *slotsMinigameDTO;
+    PokedexUpdater *unk_0C;
     BOOL *unk_10;
 } UnkStruct_ov21_021D43A8;
 

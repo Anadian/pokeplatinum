@@ -8,8 +8,8 @@
 #include "overlay017/struct_ov17_02246F24_sub1.h"
 
 typedef struct {
-    UnkStruct_ov17_02246F24 *coins;
-    UnkStruct_ov17_02243C80 slotMachineVariant;
+    UnkStruct_ov17_02246F24 *unk_00;
+    UnkStruct_ov17_02243C80 unk_04;
     u8 state;
     u8 contestantID;
     u16 moveID;

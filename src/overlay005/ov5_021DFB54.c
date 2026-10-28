@@ -97,8 +97,8 @@ typedef struct WaterfallTaskEnv {
 } WaterfallTaskEnv;
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     FieldSystem *fieldSystem;
     PlayerAvatar *playerAvatar;
     MapObject *unk_10;
@@ -106,8 +106,8 @@ typedef struct {
 } UnkStruct_ov5_021DFF88;
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     FieldSystem *fieldSystem;
     PlayerAvatar *playerAvatar;
     MapObject *unk_10;
@@ -125,14 +125,14 @@ typedef struct {
     FieldSystem *fieldSystem;
     PlayerAvatar *playerAvatar;
     MapObject *playerObject;
-    int slotsMinigameDTO;
+    int unk_0C;
     int playerGender;
     SysTask *unk_14;
 } UnkStruct_ov5_021E0DE0;
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     FieldSystem *fieldSystem;
     PlayerAvatar *playerAvatar;
 } UnkStruct_ov5_021E0FF0;
@@ -140,12 +140,12 @@ typedef struct {
 static int ov5_021DFE68(FieldSystem *fieldSystem, PlayerAvatar *playerAvatar, int param2, int param3);
 static int ov5_021DFEF4(FieldSystem *fieldSystem, PlayerAvatar *playerAvatar, int param2, int param3);
 static int ov5_021DFF1C(FieldSystem *fieldSystem, PlayerAvatar *playerAvatar, int param2, int param3);
-static void ov5_021DFF88(int param0, FieldSystem *slotsMinigameDTO, PlayerAvatar *playerAvatar, MapObject *param3);
+static void ov5_021DFF88(int param0, FieldSystem *param1, PlayerAvatar *playerAvatar, MapObject *param3);
 static BOOL ov5_021DFFBC(FieldTask *param0);
 static void SurfTask_Start(FieldSystem *fieldSystem, int direction, const MonRideTask *monRideTask);
 static BOOL FieldTask_UseSurf(FieldTask *task);
 static int ov5_021E032C(FieldSystem *fieldSystem, PlayerAvatar *playerAvatar, int param2, int param3);
-static void ov5_021E0390(int param0, FieldSystem *slotsMinigameDTO, PlayerAvatar *playerAvatar);
+static void ov5_021E0390(int param0, FieldSystem *param1, PlayerAvatar *playerAvatar);
 static BOOL ov5_021E03C8(FieldTask *param0);
 static int ov5_021E04A8(FieldSystem *fieldSystem, PlayerAvatar *playerAvatar, int param2, int param3);
 static BOOL FieldSystem_TryGetStuckInDeepMud(FieldSystem *fieldSystem, PlayerAvatar *playerAvatar, int param2, int param3);
@@ -153,19 +153,19 @@ static void FieldSystem_CreateTaskStuckInDeepMud(FieldSystem *fieldSystem, Playe
 static BOOL FieldTask_StuckInDeepMud(FieldTask *param0);
 static int ov5_021E067C(FieldSystem *fieldSystem, PlayerAvatar *playerAvatar, int param2);
 static int ov5_021E06A8(FieldSystem *fieldSystem, PlayerAvatar *playerAvatar);
-static void RockClimbTask_Start(FieldSystem *fieldSystem, int slotsMinigameDTO, const MonRideTask *param2);
+static void RockClimbTask_Start(FieldSystem *fieldSystem, int param1, const MonRideTask *param2);
 static BOOL FieldTask_UseRockClimb(FieldTask *param0);
-static WaterfallTaskEnv *WaterfallTaskEnv_New(FieldSystem *fieldSystem, int slotsMinigameDTO, const MonRideTask *monRideTask);
+static WaterfallTaskEnv *WaterfallTaskEnv_New(FieldSystem *fieldSystem, int param1, const MonRideTask *monRideTask);
 static BOOL FieldTask_UseWaterfall(FieldTask *param0);
-static SysTask *ov5_021E0F54(FieldSystem *fieldSystem, u32 slotsMinigameDTO);
+static SysTask *ov5_021E0F54(FieldSystem *fieldSystem, u32 param1);
 static void ov5_021E0FC0(SysTask *param0);
-static void ov5_021E0FF0(SysTask *param0, void *slotsMinigameDTO);
+static void ov5_021E0FF0(SysTask *param0, void *param1);
 static void MonRideTask_Init(FieldSystem *fieldSystem, Pokemon *partyMon, MonRideTask *monRideTask);
 static void NewMonRideCutIn(FieldSystem *fieldSystem, MonRideTask *monRideTask);
 static BOOL CheckMonRideCutInFinished(MonRideTask *monRideTask);
-static void PlayerAvatar_Redraw(PlayerAvatar *playerAvatar, int slotsMinigameDTO);
-static void ov5_021E10C0(void *param0, const Billboard *slotsMinigameDTO);
-static MapObject *ov5_021E10D4(PlayerAvatar *playerAvatar, int slotsMinigameDTO);
+static void PlayerAvatar_Redraw(PlayerAvatar *playerAvatar, int param1);
+static void ov5_021E10C0(void *param0, const Billboard *param1);
+static MapObject *ov5_021E10D4(PlayerAvatar *playerAvatar, int param1);
 static void *MonRideTaskEnv_New(int size);
 static void MonRideTaskEnv_Free(void *taskEnv);
 static Pokemon *GetPokemonByIndex(FieldSystem *fieldSystem, int partySlot);
@@ -543,7 +543,7 @@ static void ov5_021DFF88(int param0, FieldSystem *fieldSystem, PlayerAvatar *pla
 {
     UnkStruct_ov5_021DFF88 *v0 = MonRideTaskEnv_New(sizeof(UnkStruct_ov5_021DFF88));
 
-    v0->slotMachineVariant = param0;
+    v0->unk_04 = param0;
     v0->fieldSystem = fieldSystem;
     v0->unk_10 = param3;
     v0->playerAvatar = playerAvatar;
@@ -558,7 +558,7 @@ static BOOL ov5_021DFFBC(FieldTask *param0)
     MapObject *v1 = PlayerAvatar_GetMapObject(v0->playerAvatar);
     MapObject *v2 = v0->unk_10;
 
-    switch (v0->coins) {
+    switch (v0->unk_00) {
     case 0:
         if (LocalMapObj_IsAnimationSet(v2) == 0) {
             break;
@@ -570,15 +570,15 @@ static BOOL ov5_021DFFBC(FieldTask *param0)
             }
         }
 
-        int v3 = MovementAction_TurnActionTowardsDir(v0->slotMachineVariant, MOVEMENT_ACTION_WALK_SLOW_NORTH);
+        int v3 = MovementAction_TurnActionTowardsDir(v0->unk_04, MOVEMENT_ACTION_WALK_SLOW_NORTH);
 
         LocalMapObj_SetAnimationCode(v2, v3);
 
-        v3 = MovementAction_TurnActionTowardsDir(v0->slotMachineVariant, MOVEMENT_ACTION_WALK_ON_SPOT_NORMAL_NORTH);
+        v3 = MovementAction_TurnActionTowardsDir(v0->unk_04, MOVEMENT_ACTION_WALK_ON_SPOT_NORMAL_NORTH);
         LocalMapObj_SetAnimationCode(v1, v3);
         Sound_PlayEffect(SEQ_SE_DP_UG_023_sseq);
 
-        v0->coins++;
+        v0->unk_00++;
         break;
     case 1:
         if (LocalMapObj_CheckAnimationFinished(v2) == 0) {
@@ -592,14 +592,14 @@ static BOOL ov5_021DFFBC(FieldTask *param0)
         if (PersistedMapFeatures_IsCurrentDynamicMap(v0->fieldSystem, DYNAMIC_MAP_FEATURES_DISTORTION_WORLD) == 1) {
             if (DistWorld_IsBoulderAtFallLocation(v2) == 1) {
                 v0->unk_14 = DistWorldFallingBoulder_New(v0->fieldSystem, param0, v2);
-                v0->coins = 3;
+                v0->unk_00 = 3;
                 break;
             }
         }
 
         sub_020656AC(v2);
         sub_020656AC(v1);
-        v0->coins++;
+        v0->unk_00++;
     case 2:
         MonRideTaskEnv_Free(v0);
         return 1;
@@ -607,7 +607,7 @@ static BOOL ov5_021DFFBC(FieldTask *param0)
         if (DistWorldFallingBoulder_Tick(v0->unk_14) == 1) {
             sub_020656AC(v2);
             sub_020656AC(v1);
-            v0->coins = 2;
+            v0->unk_00 = 2;
         }
         break;
     }
@@ -782,7 +782,7 @@ static void ov5_021E0390(int param0, FieldSystem *fieldSystem, PlayerAvatar *par
 {
     UnkStruct_ov5_021E0390 *v0 = MonRideTaskEnv_New(sizeof(UnkStruct_ov5_021E0390));
 
-    v0->slotMachineVariant = param0;
+    v0->unk_04 = param0;
     v0->fieldSystem = fieldSystem;
     v0->playerAvatar = param2;
     v0->unk_10 = PlayerAvatar_GetMapObject(param2);
@@ -795,7 +795,7 @@ static BOOL ov5_021E03C8(FieldTask *param0)
 {
     UnkStruct_ov5_021E0390 *v0 = FieldTask_GetEnv(param0);
 
-    switch (v0->coins) {
+    switch (v0->unk_00) {
     case 0:
         if (LocalMapObj_IsAnimationSet(v0->unk_10) == 1) {
             int v1;
@@ -815,9 +815,9 @@ static BOOL ov5_021E03C8(FieldTask *param0)
 
             PlayerAvatar_Redraw(v0->playerAvatar, v1);
 
-            v1 = MovementAction_TurnActionTowardsDir(v0->slotMachineVariant, v3[distortionState]);
+            v1 = MovementAction_TurnActionTowardsDir(v0->unk_04, v3[distortionState]);
             LocalMapObj_SetAnimationCode(v0->unk_10, v1);
-            v0->coins++;
+            v0->unk_00++;
         }
         break;
     case 1:
@@ -1177,9 +1177,9 @@ static WaterfallTaskEnv *WaterfallTaskEnv_New(FieldSystem *fieldSystem, int dire
     return taskEnv;
 }
 
-void ov5_021E097C(FieldSystem *fieldSystem, int slotsMinigameDTO)
+void ov5_021E097C(FieldSystem *fieldSystem, int param1)
 {
-    WaterfallTaskEnv *taskEnv = WaterfallTaskEnv_New(fieldSystem, slotsMinigameDTO, NULL);
+    WaterfallTaskEnv *taskEnv = WaterfallTaskEnv_New(fieldSystem, param1, NULL);
     FieldSystem_CreateTask(fieldSystem, FieldTask_UseWaterfall, taskEnv);
 }
 
@@ -1537,10 +1537,10 @@ static BOOL ov5_021E0E10(FieldTask *param0)
 {
     UnkStruct_ov5_021E0DE0 *v0 = FieldTask_GetEnv(param0);
 
-    switch (v0->slotsMinigameDTO) {
+    switch (v0->unk_0C) {
     case 0:
         v0->unk_14 = MapObject_StartAnimation(v0->playerObject, Unk_ov5_021F9B9C);
-        v0->slotsMinigameDTO++;
+        v0->unk_0C++;
         break;
     case 1:
         if (MapObject_HasAnimationEnded(v0->unk_14) == 1) {
@@ -1550,7 +1550,7 @@ static BOOL ov5_021E0E10(FieldTask *param0)
             MapObject_FinishAnimation(v0->unk_14);
 
             v0->unk_14 = MapObject_StartAnimation(v0->playerObject, Unk_ov5_021F9C00);
-            v0->slotsMinigameDTO++;
+            v0->unk_0C++;
         }
         break;
     case 2:
@@ -1631,7 +1631,7 @@ void ov5_021E0EEC(PlayerAvatar *playerAvatar)
     }
 }
 
-static SysTask *ov5_021E0F54(FieldSystem *fieldSystem, u32 slotsMinigameDTO)
+static SysTask *ov5_021E0F54(FieldSystem *fieldSystem, u32 param1)
 {
     PlayerAvatar *playerAvatar = fieldSystem->playerAvatar;
     int v1 = PlayerAvatar_GetPlayerState(playerAvatar);
@@ -1645,13 +1645,13 @@ static SysTask *ov5_021E0F54(FieldSystem *fieldSystem, u32 slotsMinigameDTO)
         MapObject *v3 = PlayerAvatar_GetMapObject(playerAvatar);
         UnkStruct_ov5_021E0FF0 *v4 = Heap_AllocAtEnd(HEAP_ID_FIELD1, sizeof(UnkStruct_ov5_021E0FF0));
 
-        v4->coins = 0;
+        v4->unk_00 = 0;
         v4->fieldSystem = fieldSystem;
         v4->playerAvatar = playerAvatar;
-        v4->slotMachineVariant = v1;
+        v4->unk_04 = v1;
 
         MapObject_SetPauseMovementOff(v3);
-        PlayerAvatar_SetTransitionState(playerAvatar, slotsMinigameDTO);
+        PlayerAvatar_SetTransitionState(playerAvatar, param1);
         PlayerAvatar_RequestChangeState(playerAvatar);
 
         v2 = SysTask_Start(ov5_021E0FF0, v4, 0xffff);
@@ -1678,9 +1678,9 @@ static void ov5_021E0FC0(SysTask *param0)
     }
 }
 
-static void ov5_021E0FF0(SysTask *param0, void *slotsMinigameDTO)
+static void ov5_021E0FF0(SysTask *param0, void *param1)
 {
-    UnkStruct_ov5_021E0FF0 *v0 = slotsMinigameDTO;
+    UnkStruct_ov5_021E0FF0 *v0 = param1;
     MapObject *v1 = PlayerAvatar_GetMapObject(v0->playerAvatar);
 
     sub_02062B68(v1);
@@ -1728,11 +1728,11 @@ static BOOL CheckMonRideCutInFinished(MonRideTask *monRideTask)
     return FALSE;
 }
 
-static void PlayerAvatar_Redraw(PlayerAvatar *playerAvatar, int slotsMinigameDTO)
+static void PlayerAvatar_Redraw(PlayerAvatar *playerAvatar, int param1)
 {
     MapObject *v0 = PlayerAvatar_GetMapObject(playerAvatar);
     if (PlayerAvatar_MapDistortionState(playerAvatar) == AVATAR_DISTORTION_STATE_NONE) {
-        ov5_021EE3FC(v0, slotsMinigameDTO, NULL, NULL);
+        ov5_021EE3FC(v0, param1, NULL, NULL);
     } else {
         int v1;
         FieldSystem *fieldSystem;
@@ -1740,7 +1740,7 @@ static void PlayerAvatar_Redraw(PlayerAvatar *playerAvatar, int slotsMinigameDTO
 
         fieldSystem = MapObject_FieldSystem(v0);
         v1 = DistWorld_GetMapObjectRotatorAnimFrame(fieldSystem, v0);
-        v3 = ov5_021EE3FC(v0, slotsMinigameDTO, ov5_021E10C0, playerAvatar);
+        v3 = ov5_021EE3FC(v0, param1, ov5_021E10C0, playerAvatar);
 
         if (v3 != NULL) {
             DistWorld_BindMapObjectRotator(fieldSystem, v3, v1);
@@ -1748,19 +1748,19 @@ static void PlayerAvatar_Redraw(PlayerAvatar *playerAvatar, int slotsMinigameDTO
     }
 }
 
-static void ov5_021E10C0(void *param0, const Billboard *slotsMinigameDTO)
+static void ov5_021E10C0(void *param0, const Billboard *param1)
 {
     PlayerAvatar *playerAvatar = param0;
     MapObject *v1 = PlayerAvatar_GetMapObject(playerAvatar);
     FieldSystem *fieldSystem = MapObject_FieldSystem(v1);
 
-    DistWorld_UnbindMapObjectRotator(fieldSystem, slotsMinigameDTO);
+    DistWorld_UnbindMapObjectRotator(fieldSystem, param1);
 }
 
-static MapObject *ov5_021E10D4(PlayerAvatar *playerAvatar, int slotsMinigameDTO)
+static MapObject *ov5_021E10D4(PlayerAvatar *playerAvatar, int param1)
 {
-    int v0 = PlayerAvatar_GetXPos(playerAvatar) + MapObject_GetDxFromDir(slotsMinigameDTO);
-    int v1 = PlayerAvatar_GetZPos(playerAvatar) + MapObject_GetDzFromDir(slotsMinigameDTO);
+    int v0 = PlayerAvatar_GetXPos(playerAvatar) + MapObject_GetDxFromDir(param1);
+    int v1 = PlayerAvatar_GetZPos(playerAvatar) + MapObject_GetDzFromDir(param1);
     const MapObjectManager *v2 = MapObject_MapObjectManager(PlayerAvatar_GetMapObject(playerAvatar));
     MapObject *v3 = sub_0206326C(v2, v0, v1, 0);
 

@@ -26,8 +26,8 @@
 FS_EXTERN_OVERLAY(overlay109);
 
 typedef struct {
-    int coins;
-    int slotMachineVariant;
+    int unk_00;
+    int unk_04;
     UnkStruct_0209C194_1 unk_08;
     UnkStruct_0209C194 *unk_28;
     FieldSystem *fieldSystem;
@@ -68,11 +68,11 @@ void *sub_0209C1EC(FieldSystem *fieldSystem)
 
     v0->fieldSystem = fieldSystem;
     v0->unk_08.saveData = fieldSystem->saveData;
-    v0->unk_08.slotsMinigameDTO = fieldSystem->unk_80;
+    v0->unk_08.unk_0C = fieldSystem->unk_80;
     v0->unk_08.options = SaveData_GetOptions(fieldSystem->saveData);
     v0->unk_08.records = SaveData_GetGameRecords(fieldSystem->saveData);
     v0->unk_08.journalEntry = SaveData_GetJournal(fieldSystem->saveData);
-    v0->unk_08.slotMachineVariant = Options_Frame(v0->unk_08.options);
+    v0->unk_08.unk_04 = Options_Frame(v0->unk_08.options);
     v0->unk_08.fieldSystem = fieldSystem;
 
     return v0;
@@ -82,7 +82,7 @@ BOOL sub_0209C238(void *param0)
 {
     UnkStruct_0209C1EC *v0 = param0;
 
-    if (Unk_020F951C[v0->coins](v0) == 1) {
+    if (Unk_020F951C[v0->unk_00](v0) == 1) {
         Heap_Free(v0);
         return 1;
     }
@@ -93,7 +93,7 @@ BOOL sub_0209C238(void *param0)
 static BOOL sub_0209C25C(UnkStruct_0209C1EC *param0)
 {
     param0->unk_28 = sub_0209C194(&param0->unk_08, HEAP_ID_FIELD2);
-    param0->coins = 1;
+    param0->unk_00 = 1;
     FieldSystem_StartChildProcess(param0->fieldSystem, &Unk_020F94FC, param0->unk_28);
     return 0;
 }
@@ -102,13 +102,13 @@ static BOOL sub_0209C280(UnkStruct_0209C1EC *param0)
 {
     if (FieldSystem_IsRunningApplication(param0->fieldSystem) == 0) {
         if (sub_0209C1E8(param0->unk_28) == 0) {
-            param0->coins = 5;
+            param0->unk_00 = 5;
         } else {
             CommManager_SetErrorHandling(1, 1);
 
-            param0->partyMenu = FieldSystem_OpenPartyMenu_SelectForSpinTrade(param0->fieldSystem, param0->slotMachineVariant);
-            param0->unk_28->coins = 1;
-            param0->coins = 2;
+            param0->partyMenu = FieldSystem_OpenPartyMenu_SelectForSpinTrade(param0->fieldSystem, param0->unk_04);
+            param0->unk_28->unk_00 = 1;
+            param0->unk_00 = 2;
         }
     }
 
@@ -124,15 +124,15 @@ static BOOL sub_0209C2C0(UnkStruct_0209C1EC *param0)
 
         if (param0->partyMenu->menuSelectionResult == 1) {
             param0->monSummary = sub_0203D670(param0->fieldSystem, HEAP_ID_APPLICATION, SUMMARY_MODE_NORMAL);
-            param0->slotMachineVariant = v0;
+            param0->unk_04 = v0;
             param0->monSummary->monIndex = v0;
             FieldSystem_OpenSummaryScreen(param0->fieldSystem, param0->monSummary);
-            param0->coins = 3;
+            param0->unk_00 = 3;
         } else {
-            param0->unk_28->slotMachineVariant = v0;
+            param0->unk_28->unk_04 = v0;
             FieldSystem_StartChildProcess(param0->fieldSystem, &Unk_020F950C, param0->unk_28);
-            param0->unk_28->coins = 3;
-            param0->coins = 4;
+            param0->unk_28->unk_00 = 3;
+            param0->unk_00 = 4;
         }
     }
 
@@ -143,8 +143,8 @@ static BOOL sub_0209C324(UnkStruct_0209C1EC *param0)
 {
     if (FieldSystem_IsRunningApplication(param0->fieldSystem) == 0) {
         Heap_Free(param0->monSummary);
-        param0->partyMenu = FieldSystem_OpenPartyMenu_SelectForSpinTrade(param0->fieldSystem, param0->slotMachineVariant);
-        param0->coins = 2;
+        param0->partyMenu = FieldSystem_OpenPartyMenu_SelectForSpinTrade(param0->fieldSystem, param0->unk_04);
+        param0->unk_00 = 2;
     }
 
     return 0;
@@ -153,7 +153,7 @@ static BOOL sub_0209C324(UnkStruct_0209C1EC *param0)
 static BOOL sub_0209C34C(UnkStruct_0209C1EC *param0)
 {
     if (FieldSystem_IsRunningApplication(param0->fieldSystem) == 0) {
-        param0->coins = 5;
+        param0->unk_00 = 5;
     }
 
     return 0;
