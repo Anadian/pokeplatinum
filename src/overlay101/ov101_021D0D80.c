@@ -39,6 +39,26 @@
 #include "text.h"
 #include "vram_transfer.h"
 
+#if !defined(DEBUG_SLOTS_MINIGAME_DEFINED)
+#if defined(DEBUG_SLOTS_MINIGAME)
+#include "debug.h"
+#define LOG(...) EmulatorLog( __VA_ARGS__ )
+#define REC_LOG0() LOG("%s: received", __func__)
+#define REC_LOG1(a) LOG("%s: received %u", __func__, a)
+#define REC_LOG2(a, b) LOG("%s: received %u %u", __func__, a, b)
+#define RET_LOG0(a) LOG("%s: returned", __func__)
+#define RET_LOG1(a) LOG("%s: returned %u", __func__, a)
+#define DEBUG_SLOTS_MINIGAME_DEFINED 1
+#else
+#define REC_LOG0() 
+#define REC_LOG1(a) 
+#define REC_LOG2(a, b) 
+#define RET_LOG0(a) 
+#define RET_LOG1(a) 
+#endif //defined(DEBUG_SLOTS_MINIGAME)
+#define DEBUG_SLOTS_MINIGAME_DEFINED 1
+#endif //!defined(DEBUG_SLOTS_MINIGAME_DEFINED)
+
 typedef struct {
     SlotsMinigameDTO *slotMachineDTO;
     Overlay101State *overlayState;
