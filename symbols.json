@@ -497,4 +497,10 @@
     "symbolType": "member",
 	"enabled": true
   }
+rn\const(Unk_ov101_021D9520,SlotMachineLookupTable)
+rn\sub(ov101_021D405C,LCRNG_RangeMod100)
+rn\sub(ov101_021D4084,IsSlotMachineLookupValueGreaterThanLCRNG)
+rn\struct(UnkStruct_ov101_021D95C8_sub1,Struct_u16x2)
+rn\struct(UnkStruct_ov101_021D95C8,Struct_u16x2x4)
+rn\const(Unk_ov101_021D95C8,Const_u16x2x4x6)
 }

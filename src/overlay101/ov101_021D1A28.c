@@ -2755,7 +2755,9 @@ static fx32 ov101_021D4024(Overlay101State *param0, UnkEnum_ov101_021D2BDC param
 
 static u32 ov101_021D405C(Overlay101State *param0)
 {
+	REC_LOG1(param0);
     u32 v0 = ((u32)LCRNG_Next()) % 100;
+	RET_LOG1(v2);
     return v0;
 }
 
@@ -2778,63 +2780,67 @@ static int ov101_021D406C(u32 param0, u32 *param1)
 
 static int ov101_021D4084(Overlay101State *param0)
 {
+	REC_LOG1(param0);
     u32 v0 = ov101_021D405C(param0);
     u32 v1 = Unk_ov101_021D9520[param0->slotMachineVariant];
 
     if (v1 > v0) {
+		RET_LOG1(1);
         return 1;
     }
 
+	RET_LOG1(0);
     return 0;
 }
 
 static int ov101_021D40A8(Overlay101State *param0)
 {
+	REC_LOG1(param0);
     param0->unk_74 = 0;
 
     if (ov101_021D4084(param0) == 1) {
-        u32 v0 = ov101_021D405C(param0);
+        u32 rand_u32 = ov101_021D405C(param0);
         const UnkStruct_ov101_021D95C8 *v1 = &Unk_ov101_021D95C8[param0->slotMachineVariant];
 
         param0->unk_470++;
 
-        if (ov101_021D406C(v1->unk_00.unk_00, &v0)) {
+        if (ov101_021D406C(v1->unk_00.unk_00, &rand_u32)) {
             param0->unk_74 |= (1 << 3);
             param0->unk_4A0++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_00.unk_02, &v0)) {
+        if (ov101_021D406C(v1->unk_00.unk_02, &rand_u32)) {
             param0->unk_74 |= (1 << 2);
             param0->unk_49C++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_04.unk_00, &v0)) {
+        if (ov101_021D406C(v1->unk_04.unk_00, &rand_u32)) {
             param0->unk_74 |= (1 << 7);
             param0->unk_4B0++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_04.unk_02, &v0)) {
+        if (ov101_021D406C(v1->unk_04.unk_02, &rand_u32)) {
             param0->unk_74 |= (1 << 6);
             param0->unk_4AC++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_08.unk_00, &v0)) {
+        if (ov101_021D406C(v1->unk_08.unk_00, &rand_u32)) {
             param0->unk_74 |= (1 << 5);
             param0->unk_4A8++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_08.unk_02, &v0)) {
+        if (ov101_021D406C(v1->unk_08.unk_02, &rand_u32)) {
             param0->unk_74 |= (1 << 4);
             param0->unk_4A4++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_0C.unk_00, &v0)) {
+        if (ov101_021D406C(v1->unk_0C.unk_00, &rand_u32)) {
             param0->unk_74 |= (1 << 1);
             param0->unk_498++;
             return 1;
