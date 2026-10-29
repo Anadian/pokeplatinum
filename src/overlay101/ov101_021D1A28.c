@@ -42,6 +42,26 @@
 #include "sys_task_manager.h"
 #include "system.h"
 
+#if !defined(DEBUG_SLOTS_MINIGAME_DEFINED)
+#if defined(DEBUG_SLOTS_MINIGAME)
+#include "debug.h"
+#define LOG(...) EmulatorLog( __VA_ARGS__ )
+#define REC_LOG0() LOG("%s: received", __func__)
+#define REC_LOG1(a) LOG("%s: received %u", __func__, a)
+#define REC_LOG2(a, b) LOG("%s: received %u %u", __func__, a, b)
+#define RET_LOG0(a) LOG("%s: returned", __func__)
+#define RET_LOG1(a) LOG("%s: returned %u", __func__, a)
+#define DEBUG_SLOTS_MINIGAME_DEFINED 1
+#else
+#define REC_LOG0() 
+#define REC_LOG1(a) 
+#define REC_LOG2(a, b) 
+#define RET_LOG0(a) 
+#define RET_LOG1(a) 
+#endif //defined(DEBUG_SLOTS_MINIGAME)
+#define DEBUG_SLOTS_MINIGAME_DEFINED 1
+#endif //!defined(DEBUG_SLOTS_MINIGAME_DEFINED)
+
 typedef struct {
     u16 unk_00_0 : 5;
     u16 unk_00_5 : 5;
@@ -3188,57 +3208,70 @@ static void ov101_021D4714(UnkStruct_ov101_021D4714 *param0)
 
 static void ov101_021D4764(Overlay101State *param0)
 {
+	REC_LOG1(param0);
     UnkStruct_ov101_021D4764 *v0 = &param0->unk_13C;
 
     v0->unk_00 = 0;
     v0->unk_04 = 0;
     v0->unk_20 = param0;
     v0->unk_24 = SysTask_Start(ov101_021D4824, v0, 132);
+	RET_LOG0();
 }
 
 static void ov101_021D4788(Overlay101State *param0)
 {
+	REC_LOG1(param0);
     UnkStruct_ov101_021D4764 *v0 = &param0->unk_13C;
     SysTask_Done(v0->unk_24);
+	RET_LOG0();
 }
 
 static void ov101_021D4798(Overlay101State *param0, u32 param1)
 {
+	REC_LOG2(param0,param1);
     UnkStruct_ov101_021D4764 *v0 = &param0->unk_13C;
 
     v0->unk_00 = param1;
     v0->unk_04 = 0;
     v0->unk_08 = 0;
     v0->unk_10 = 0;
+	RET_LOG0();
 }
 
 static int ov101_021D47AC(Overlay101State *param0)
 {
+	REC_LOG1(param0);
     UnkStruct_ov101_021D4764 *v0 = &param0->unk_13C;
+	RET_LOG1(v0->unk_08);
     return v0->unk_08;
 }
 
 static void ov101_021D47B4(Overlay101State *param0)
 {
+	REC_LOG1(param0);
     param0->unk_13C.unk_0C = 0;
     param0->unk_13C.unk_38 = ov101_021D7228(param0);
     param0->unk_13C.unk_3C = ov101_021D73B4(param0);
     param0->unk_13C.unk_40 = ov101_021D7550(param0);
     param0->unk_13C.unk_44 = ov101_021D76B4(param0);
+	RET_LOG0();
 }
 
 static void ov101_021D47F0(Overlay101State *param0)
 {
+	REC_LOG1(param0);
     param0->unk_13C.unk_0C = 1;
 
     OverworldAnimManager_Finish(param0->unk_13C.unk_38);
     OverworldAnimManager_Finish(param0->unk_13C.unk_3C);
     OverworldAnimManager_Finish(param0->unk_13C.unk_40);
     OverworldAnimManager_Finish(param0->unk_13C.unk_44);
+	RET_LOG0();
 }
 
 static void ov101_021D4824(SysTask *param0, void *param1)
 {
+	REC_LOG2(param0,param1);
     int v0;
     UnkStruct_ov101_021D4764 *v1 = param1;
 
@@ -3248,18 +3281,22 @@ static void ov101_021D4824(SysTask *param0, void *param1)
         v2 = Unk_ov101_021D8774[v1->unk_00];
         v0 = v2[v1->unk_04](v1);
     } while (v0 == 1);
+	RET_LOG0();
 }
 
 static int ov101_021D4844(UnkStruct_ov101_021D4764 *param0)
 {
+	REC_LOG1(param0);
     param0->unk_28 = ov101_021D5D58(param0->unk_20, param0->unk_18);
     param0->unk_04++;
 
+	RET_LOG1(0);
     return 0;
 }
 
 static int ov101_021D485C(UnkStruct_ov101_021D4764 *param0)
 {
+	REC_LOG1(param0);
     if (ov101_021D5DC4(param0->unk_28) == 0) {
         return 0;
     }
@@ -3267,11 +3304,13 @@ static int ov101_021D485C(UnkStruct_ov101_021D4764 *param0)
     ov101_021D5D90(param0->unk_28, UnkEnum_ov101_021D5D90_01);
     param0->unk_04++;
 
+	RET_LOG1(0);
     return 0;
 }
 
 static int ov101_021D4880(UnkStruct_ov101_021D4764 *param0)
 {
+	REC_LOG1(param0);
     if (ov101_021D5DC4(param0->unk_28) == 0) {
         return 0;
     }
@@ -3280,11 +3319,14 @@ static int ov101_021D4880(UnkStruct_ov101_021D4764 *param0)
     param0->unk_08 = 1;
     param0->unk_04++;
 
+	RET_LOG1(0);
     return 0;
 }
 
 static int ov101_021D48A8(UnkStruct_ov101_021D4764 *param0)
 {
+	REC_LOG1(param0);
+	RET_LOG1(0);
     return 0;
 }
 

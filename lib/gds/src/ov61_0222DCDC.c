@@ -26,43 +26,43 @@ int ov61_0222DD24(void)
     return ov61_0222D464();
 }
 
-BOOL ov61_0222DD30(UnkStruct_ov62_022349A8_sub3_sub1 *param0, void *slotsMinigameDTO)
+BOOL ov61_0222DD30(UnkStruct_ov62_022349A8_sub3_sub1 *param0, void *param1)
 {
     UnkStruct_ov62_022349A8_sub3_sub1 v0 = *param0;
     ov61_0222E478(param0, "--");
-    ov61_0222D1FC(20000, &v0, slotsMinigameDTO, -1);
+    ov61_0222D1FC(20000, &v0, param1, -1);
 }
 
-BOOL ov61_0222DD8C(long param0, void *slotsMinigameDTO)
+BOOL ov61_0222DD8C(long param0, void *param1)
 {
     UnkStruct_ov61_0222DD8C v0;
-    v0.coins = 0;
+    v0.unk_00 = 0;
     v0.unk_02 = 0;
-    v0.slotMachineVariant = param0;
+    v0.unk_04 = param0;
     v0.unk_08 = param0 >> 31;
 
-    return ov61_0222D1FC(20001, &v0, slotsMinigameDTO, -1);
+    return ov61_0222D1FC(20001, &v0, param1, -1);
 }
 
-BOOL ov61_0222DDCC(long param0, UnkStruct_ov62_022349A8_sub3_sub2 *slotsMinigameDTO, void *param2)
+BOOL ov61_0222DDCC(long param0, UnkStruct_ov62_022349A8_sub3_sub2 *param1, void *param2)
 {
     UnkStruct_ov61_0222DDCC v0;
-    v0.coins = param0;
-    v0.slotMachineVariant = *slotsMinigameDTO;
+    v0.unk_00 = param0;
+    v0.unk_04 = *param1;
 
-    ov61_0222E478(slotsMinigameDTO, "--");
+    ov61_0222E478(param1, "--");
     return ov61_0222D1FC(21000, &v0, param2, -1);
 }
 
-BOOL ov61_0222DE34(long param0, void *slotsMinigameDTO)
+BOOL ov61_0222DE34(long param0, void *param1)
 {
     UnkStruct_ov61_0222DD8C v0;
-    v0.coins = 0;
+    v0.unk_00 = 0;
     v0.unk_02 = 0;
-    v0.slotMachineVariant = param0;
+    v0.unk_04 = param0;
     v0.unk_08 = param0 >> 31;
 
-    return ov61_0222D1FC(21001, &v0, slotsMinigameDTO, -1);
+    return ov61_0222D1FC(21001, &v0, param1, -1);
 }
 
 long ov61_0222DE74(void)
@@ -85,58 +85,58 @@ BOOL ov61_0222DE98(void *param0)
     return ov61_0222D1FC(22000, NULL, param0, -1);
 }
 
-BOOL ov61_0222DEB8(UnkStruct_ov62_0223D518_sub1 *param0, void *slotsMinigameDTO)
+BOOL ov61_0222DEB8(UnkStruct_ov62_0223D518_sub1 *param0, void *param1)
 {
     UnkStruct_ov62_0223D518_sub1 v0 = *param0;
-    return ov61_0222D1FC(22001, &v0, slotsMinigameDTO, -1);
+    return ov61_0222D1FC(22001, &v0, param1, -1);
 }
 
-BOOL ov61_0222DF08(UnkStruct_ov62_022349A8_sub3_sub3 *param0, void *slotsMinigameDTO)
+BOOL ov61_0222DF08(UnkStruct_ov62_022349A8_sub3_sub3 *param0, void *param1)
 {
     UnkStruct_ov62_022349A8_sub3_sub3 v0 = *param0;
-    return ov61_0222D1FC(23000, &v0, slotsMinigameDTO, -1);
+    return ov61_0222D1FC(23000, &v0, param1, -1);
 }
 
-BOOL ov61_0222DF60(UnkStruct_ov62_022349A8_sub3_sub4 *param0, void *slotsMinigameDTO)
+BOOL ov61_0222DF60(UnkStruct_ov62_022349A8_sub3_sub4 *param0, void *param1)
 {
     UnkStruct_ov61_0222DF60 v0;
-    v0.coins = 0;
-    v0.slotMachineVariant = *param0;
-    v0.coins = 0; // ?
+    v0.unk_00 = 0;
+    v0.unk_04 = *param0;
+    v0.unk_00 = 0; // ?
     v0.unk_02 = 0;
 
-    return ov61_0222D1FC(23001, &v0, slotsMinigameDTO, -1);
+    return ov61_0222D1FC(23001, &v0, param1, -1);
 }
 
-BOOL ov61_0222DFA8(UnkStruct_ov62_022349A8_sub3_sub5 *param0, void *slotsMinigameDTO)
+BOOL ov61_0222DFA8(UnkStruct_ov62_022349A8_sub3_sub5 *param0, void *param1)
 {
     UnkStruct_ov61_0222DFA8 v0 = { 0 };
-    v0.coins = 1;
-    v0.slotsMinigameDTO = param0->coins;
+    v0.unk_00 = 1;
+    v0.unk_0C = param0->unk_00;
 
-    return ov61_0222D1FC(23001, &v0, slotsMinigameDTO, -1);
+    return ov61_0222D1FC(23001, &v0, param1, -1);
 }
 
-BOOL ov61_0222E000(UnkStruct_ov62_022349A8_sub3_sub5 *param0, void *slotsMinigameDTO)
+BOOL ov61_0222E000(UnkStruct_ov62_022349A8_sub3_sub5 *param0, void *param1)
 {
     UnkStruct_ov61_0222DFA8 v0 = { 0 };
-    v0.coins = 2;
-    v0.slotsMinigameDTO = param0->coins;
+    v0.unk_00 = 2;
+    v0.unk_0C = param0->unk_00;
 
-    return ov61_0222D1FC(23001, &v0, slotsMinigameDTO, -1);
+    return ov61_0222D1FC(23001, &v0, param1, -1);
 }
 
-BOOL ov61_0222E058(u64 param0, u32 slotsMinigameDTO, void *param2)
+BOOL ov61_0222E058(u64 param0, u32 param1, void *param2)
 {
     UnkStruct_ov61_0222E058 v0;
-    v0.coins = param0;
-    v0.unk_08 = slotsMinigameDTO;
+    v0.unk_00 = param0;
+    v0.unk_08 = param1;
 
     return ov61_0222D1FC(23002, &v0, param2, -1);
 }
 
-BOOL ov61_0222E08C(u64 param0, void *slotsMinigameDTO)
+BOOL ov61_0222E08C(u64 param0, void *param1)
 {
     u64 v0 = param0;
-    return ov61_0222D1FC(23003, &v0, slotsMinigameDTO, -1);
+    return ov61_0222D1FC(23003, &v0, param1, -1);
 }
