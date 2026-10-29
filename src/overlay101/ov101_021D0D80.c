@@ -191,7 +191,7 @@ int SlotsMinigame_Exit(ApplicationManager *appMan, int *param1)
 
 static void SlotsMinigame_UpdateRecords(SlotsMinigame_ApplicationData *param0, Overlay101State *param1)
 {
-    u32 v0 = param1->unk_60;
+    u32 v0 = param1->coins;
 
     if (v0 > 50000) {
         v0 = 50000;
@@ -209,8 +209,8 @@ static Overlay101State *SlotsMinigame_CreateOverlayState(SlotsMinigameDTO *param
 {
     Overlay101State *v0 = SlotsMinigame_AllocateMemory(sizeof(Overlay101State));
 
-    v0->unk_60 = *(param0->coinsPointer);
-    v0->unk_88 = param0->slotMachineVariant;
+    v0->coins = *(param0->coinsPointer);
+    v0->slotMachineVariant = param0->slotMachineVariant;
     v0->msgBoxFrame = param0->msgBoxFrame;
 
     return v0;

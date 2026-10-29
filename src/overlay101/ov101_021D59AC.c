@@ -288,7 +288,7 @@ static void ov101_021D5BA8(OverworldAnimManager *param0, void *param1)
 {
     VecFx32 v0;
     UnkStruct_ov101_021D5B9C *v1 = param1;
-    u32 v2 = v1->unk_00->unk_60;
+    u32 v2 = v1->unk_00->coins;
 
     if ((v1->unk_04 > 1) && (v2 < v1->unk_04)) {
         Sprite_SetDrawFlag(v1->unk_0C.unk_04, FALSE);

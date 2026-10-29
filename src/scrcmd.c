@@ -639,7 +639,7 @@ static BOOL ScrCmd_ChangeDeoxysForm(ScriptContext *ctx);
 static BOOL ScrCmd_CheckPartyCombeeGenderCount(ScriptContext *ctx);
 static BOOL ScrCmd_HidePoketch(ScriptContext *ctx);
 static BOOL ScrCmd_ShowPoketch(ScriptContext *ctx);
-static BOOL TriggerSlotsMinigame(ScriptContext *ctx);
+static BOOL ScrCmd_TriggerSlotsMinigame(ScriptContext *ctx);
 static BOOL ScrCmd_GetHour(ScriptContext *ctx);
 static BOOL ScrCmd_ShakeObject(ScriptContext *ctx);
 static BOOL ScrCmd_FlickerObject(ScriptContext *ctx);
@@ -5821,7 +5821,7 @@ static BOOL ScrCmd_ShowPoketch(ScriptContext *ctx)
     return FALSE;
 }
 
-static BOOL TriggerSlotsMinigame(ScriptContext *ctx)
+static BOOL ScrCmd_TriggerSlotsMinigame(ScriptContext *ctx)
 {
     u16 slotMachineID = ScriptContext_GetVar(ctx);
 

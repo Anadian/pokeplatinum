@@ -197,10 +197,10 @@ typedef struct {
 } UnkStruct_0206DC9C;
 
 typedef struct {
-    u32 unk_00;
-    u32 unk_04;
-    u32 unk_08;
-} UnkStruct_0206DD5C;
+    u32 recordCoins;
+    u32 currentCoins;
+    u32 minigameDuration;
+} TVSegment_SlotsMinigame;
 
 typedef struct {
     u16 unk_00[TEMPLATE_NAME_SIZE];
@@ -308,7 +308,7 @@ typedef union TVSegmentData {
     TVSegment_HomeAndManor homeAndManor;
     UnkStruct_0206DBE8 val18;
     UnkStruct_0206DC9C val19;
-    UnkStruct_0206DD5C val20;
+    TVSegment_SlotsMinigame slotsMinigame;
     UnkStruct_0206DE80 val21;
     UnkStruct_0206DF14 val22;
     UnkStruct_0206DF88 val23;
@@ -1354,30 +1354,30 @@ static BOOL sub_0206DD1C(FieldSystem *fieldSystem, TVEpisode *episode)
     return Pokedex_HasSeenSpecies(SaveData_GetPokedex(fieldSystem->saveData), v0->unk_00);
 }
 
-void sub_0206DD38(FieldSystem *fieldSystem, u32 param1, u32 param2, u32 param3)
+void TVSegment_SaveSlotsMinigameSegment(FieldSystem *fieldSystem, u32 recordCoins, u32 currentCoins, u32 minigameDuration)
 {
     TVSegmentData segments;
-    UnkStruct_0206DD5C *v1 = &segments.val20;
+    TVSegment_SlotsMinigame *v1 = &segments.slotsMinigame;
 
-    if (param2 < 1000 + param1) {
+    if (currentCoins < 1000 + recordCoins) {
         return;
     }
 
-    v1->unk_00 = param1;
-    v1->unk_04 = param2;
-    v1->unk_08 = param3;
+    v1->recordCoins = recordCoins;
+    v1->currentCoins = currentCoins;
+    v1->minigameDuration = minigameDuration;
 
     FieldSystem_SaveTVSegment(fieldSystem, TV_PROGRAM_TYPE_RECORDS, 4, v1);
 }
 
-static int sub_0206DD5C(FieldSystem *fieldSystem, StringTemplate *param1, TVEpisode *episode)
+static int TVSegment_LoadSlotsMinigameSegment(FieldSystem *fieldSystem, StringTemplate *stringTemplate, TVEpisode *episode)
 {
-    UnkStruct_0206DD5C *v0 = TVEpisode_GetSegment(episode);
+    TVSegment_SlotsMinigame *v0 = TVEpisode_GetSegment(episode);
 
-    TVSegment_SetTemplateTrainerName(param1, 0, episode);
-    StringTemplate_SetNumber(param1, 1, v0->unk_08, 10, PADDING_MODE_NONE, CHARSET_MODE_EN);
-    StringTemplate_SetNumber(param1, 2, v0->unk_00, 6, PADDING_MODE_NONE, CHARSET_MODE_EN);
-    StringTemplate_SetNumber(param1, 3, v0->unk_04, 6, PADDING_MODE_NONE, CHARSET_MODE_EN);
+    TVSegment_SetTemplateTrainerName(stringTemplate, 0, episode);
+    StringTemplate_SetNumber(stringTemplate, 1, v0->minigameDuration, 10, PADDING_MODE_NONE, CHARSET_MODE_EN);
+    StringTemplate_SetNumber(stringTemplate, 2, v0->recordCoins, 6, PADDING_MODE_NONE, CHARSET_MODE_EN);
+    StringTemplate_SetNumber(stringTemplate, 3, v0->currentCoins, 6, PADDING_MODE_NONE, CHARSET_MODE_EN);
 
     return 3;
 }
@@ -2922,7 +2922,7 @@ static const TVSegment sRecordsSegments[TV_PROGRAM_TYPE_RECORDS_NUM_SEGMENTS] = 
     { sub_0206DBE8, sub_0206DC3C },
     TV_PROGRAM_SEGMENT_NULL,
     { sub_0206DC9C, sub_0206DD1C },
-    { sub_0206DD5C, NULL },
+    { TVSegment_LoadSlotsMinigameSegment, NULL },
     { sub_0206DE80, NULL },
     TV_PROGRAM_SEGMENT_NULL,
     TV_PROGRAM_SEGMENT_NULL,

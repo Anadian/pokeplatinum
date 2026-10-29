@@ -282,13 +282,13 @@ static int ov101_021D1AD0(Overlay101State *param0)
     ov101_021D4FF8(param0);
     ov101_021D5200(param0);
 
-    if (param0->unk_60 == 0) {
+    if (param0->coins == 0) {
         param0->unk_00 = 60;
         param0->unk_04 = 63;
-    } else if (param0->unk_60 < 3) {
+    } else if (param0->coins < 3) {
         param0->unk_00 = 59;
         param0->unk_04 = 63;
-    } else if (param0->unk_60 >= 50000) {
+    } else if (param0->coins >= 50000) {
         param0->unk_00 = 61;
         param0->unk_04 = 1;
     }
@@ -305,7 +305,7 @@ static int ov101_021D1B40(Overlay101State *param0)
     }
 
     if (ov101_021D55F8(PAD_BUTTON_X) != 0) {
-        param0->unk_60 -= 3;
+        param0->coins -= 3;
         param0->unk_45C += 3;
         param0->unk_00 = 2;
 
@@ -322,7 +322,7 @@ static int ov101_021D1B40(Overlay101State *param0)
 static int ov101_021D1B9C(Overlay101State *param0)
 {
     if (ov101_021D55F8(PAD_BUTTON_START) != 0) {
-        param0->unk_60 += 3;
+        param0->coins += 3;
         param0->unk_00 = 63;
         return 0;
     }
@@ -724,13 +724,13 @@ static int ov101_021D212C(Overlay101State *param0)
     ov101_021D5200(param0);
     ov101_021D4798(param0, 7);
 
-    if (param0->unk_60 == 0) {
+    if (param0->coins == 0) {
         param0->unk_00 = 60;
         param0->unk_04 = 63;
-    } else if (param0->unk_60 < 3) {
+    } else if (param0->coins < 3) {
         param0->unk_00 = 59;
         param0->unk_04 = 63;
-    } else if (param0->unk_60 >= 50000) {
+    } else if (param0->coins >= 50000) {
         param0->unk_00 = 61;
         param0->unk_04 = 26;
     }
@@ -747,7 +747,7 @@ static int ov101_021D2198(Overlay101State *param0)
     }
 
     if (ov101_021D55F8(PAD_BUTTON_X) != 0) {
-        param0->unk_60 -= 3;
+        param0->coins -= 3;
         param0->unk_45C += 3;
         param0->unk_00 = 27;
 
@@ -764,7 +764,7 @@ static int ov101_021D2198(Overlay101State *param0)
 static int ov101_021D21F4(Overlay101State *param0)
 {
     if (ov101_021D55F8(PAD_BUTTON_START) != 0) {
-        param0->unk_60 += 3;
+        param0->coins += 3;
         param0->unk_00 = 63;
         return 0;
     }
@@ -1075,13 +1075,13 @@ static int ov101_021D2628(Overlay101State *param0)
 
     param0->unk_00 = 44;
 
-    if (param0->unk_60 == 0) {
+    if (param0->coins == 0) {
         param0->unk_00 = 60;
         param0->unk_04 = 63;
-    } else if (param0->unk_60 < 1) {
+    } else if (param0->coins < 1) {
         param0->unk_00 = 60;
         param0->unk_04 = 63;
-    } else if (param0->unk_60 >= 50000) {
+    } else if (param0->coins >= 50000) {
         param0->unk_00 = 61;
         param0->unk_04 = 44;
     }
@@ -1097,7 +1097,7 @@ static int ov101_021D269C(Overlay101State *param0)
     }
 
     if (ov101_021D55F8(PAD_BUTTON_X) != 0) {
-        param0->unk_60 -= 1;
+        param0->coins -= 1;
         param0->unk_14 -= 1;
         param0->unk_45C += 1;
 
@@ -1120,7 +1120,7 @@ static int ov101_021D269C(Overlay101State *param0)
 static int ov101_021D2704(Overlay101State *param0)
 {
     if (ov101_021D55F8(PAD_BUTTON_START) != 0) {
-        param0->unk_60 += 1;
+        param0->coins += 1;
         param0->unk_00 = 63;
         return 0;
     }
@@ -2779,7 +2779,7 @@ static int ov101_021D406C(u32 param0, u32 *param1)
 static int ov101_021D4084(Overlay101State *param0)
 {
     u32 v0 = ov101_021D405C(param0);
-    u32 v1 = Unk_ov101_021D9520[param0->unk_88];
+    u32 v1 = Unk_ov101_021D9520[param0->slotMachineVariant];
 
     if (v1 > v0) {
         return 1;
@@ -2794,7 +2794,7 @@ static int ov101_021D40A8(Overlay101State *param0)
 
     if (ov101_021D4084(param0) == 1) {
         u32 v0 = ov101_021D405C(param0);
-        const UnkStruct_ov101_021D95C8 *v1 = &Unk_ov101_021D95C8[param0->unk_88];
+        const UnkStruct_ov101_021D95C8 *v1 = &Unk_ov101_021D95C8[param0->slotMachineVariant];
 
         param0->unk_470++;
 
@@ -2852,7 +2852,7 @@ static int ov101_021D40A8(Overlay101State *param0)
 static int ov101_021D41EC(Overlay101State *param0)
 {
     u32 v0 = ov101_021D405C(param0);
-    u32 v1 = Unk_ov101_021D94D8[param0->unk_88];
+    u32 v1 = Unk_ov101_021D94D8[param0->slotMachineVariant];
 
     if (v0 < v1) {
         return 1;
@@ -2865,7 +2865,7 @@ static void ov101_021D4210(Overlay101State *param0)
 {
     int v0;
     u32 v1 = ov101_021D405C(param0);
-    const UnkStruct_ov101_021D9934 *v2 = Unk_ov101_021D9934[param0->unk_88];
+    const UnkStruct_ov101_021D9934 *v2 = Unk_ov101_021D9934[param0->slotMachineVariant];
 
     for (v0 = 0; v0 < UnkEnum_ov101_021D9934_06; v0++) {
         if (ov101_021D406C(v2[v0].unk_00, &v1) == 1) {
@@ -2901,7 +2901,7 @@ static void ov101_021D4210(Overlay101State *param0)
 static void ov101_021D42D0(Overlay101State *param0)
 {
     u32 v0 = 0, v1 = ov101_021D405C(param0);
-    const UnkStruct_ov101_021D9784 *v2 = Unk_ov101_021D9784[param0->unk_88][param0->unk_4C];
+    const UnkStruct_ov101_021D9784 *v2 = Unk_ov101_021D9784[param0->slotMachineVariant][param0->unk_4C];
 
     do {
         if (ov101_021D406C(v2[v0].unk_00, &v1) == 1) {
@@ -2931,7 +2931,7 @@ static void ov101_021D42D0(Overlay101State *param0)
 
 static int ov101_021D4370(Overlay101State *param0)
 {
-    u32 v0 = Unk_ov101_021D9538[param0->unk_88];
+    u32 v0 = Unk_ov101_021D9538[param0->slotMachineVariant];
     u32 v1 = ov101_021D405C(param0);
 
     if (v1 < v0) {
@@ -2944,7 +2944,7 @@ static int ov101_021D4370(Overlay101State *param0)
 static void ov101_021D4394(Overlay101State *param0)
 {
     u32 v0;
-    const u32 *v1 = Unk_ov101_021D9628[param0->unk_88];
+    const u32 *v1 = Unk_ov101_021D9628[param0->slotMachineVariant];
     u32 v2 = ov101_021D405C(param0);
 
     param0->unk_74 = 0;
@@ -2997,7 +2997,7 @@ static void ov101_021D4394(Overlay101State *param0)
 static int ov101_021D44A0(Overlay101State *param0)
 {
     u32 v0 = ov101_021D405C(param0);
-    u32 v1 = Unk_ov101_021D9580[param0->unk_88];
+    u32 v1 = Unk_ov101_021D9580[param0->slotMachineVariant];
 
     if (v0 < v1) {
         return 1;
@@ -3009,7 +3009,7 @@ static int ov101_021D44A0(Overlay101State *param0)
 static int ov101_021D44C4(Overlay101State *param0)
 {
     u32 v0 = ov101_021D405C(param0);
-    u32 v1 = Unk_ov101_021D9508[param0->unk_88];
+    u32 v1 = Unk_ov101_021D9508[param0->slotMachineVariant];
 
     if (v0 < v1) {
         return 1;
@@ -3034,7 +3034,7 @@ static void ov101_021D44FC(Overlay101State *param0)
 {
     u32 v0 = param0->unk_18;
     u32 v1 = ov101_021D405C(param0);
-    const u32 *v2 = Unk_ov101_021D9598[param0->unk_88];
+    const u32 *v2 = Unk_ov101_021D9598[param0->slotMachineVariant];
 
     if (param0->unk_28 == 2) {
         v0 -= 10;
@@ -3058,7 +3058,7 @@ static UnkEnum_ov101_021D4550 ov101_021D4550(Overlay101State *param0)
     int v0;
     u32 v1 = param0->unk_18;
     u32 v2 = ov101_021D405C(param0);
-    const UnkStruct_ov101_021D9AE4 *v3 = Unk_ov101_021D9AE4[param0->unk_88];
+    const UnkStruct_ov101_021D9AE4 *v3 = Unk_ov101_021D9AE4[param0->slotMachineVariant];
 
     for (v0 = 0; v0 < UnkEnum_ov101_021D9AE4_09; v0++) {
         if (v1 >= v3[v0].unk_00) {
@@ -3132,10 +3132,10 @@ static void ov101_021D4614(SysTask *param0, void *param1)
     case 3:
         if (ov101_021D55F8(PAD_BUTTON_X) || (v2->unk_64 == 0)) {
             Sound_PlayEffect(SEQ_SE_DP_DENSI16_sseq);
-            v2->unk_60 += v2->unk_64;
+            v2->coins += v2->unk_64;
 
-            if (v2->unk_60 >= 50000) {
-                v2->unk_60 = 50000;
+            if (v2->coins >= 50000) {
+                v2->coins = 50000;
             }
 
             if (v2->unk_08 == 1) {
@@ -3170,10 +3170,10 @@ static void ov101_021D4614(SysTask *param0, void *param1)
 
         if ((v1->unk_08 & v0) == 0) {
             v2->unk_64--;
-            v2->unk_60++;
+            v2->coins++;
 
-            if (v2->unk_60 >= 50000) {
-                v2->unk_60 = 50000;
+            if (v2->coins >= 50000) {
+                v2->coins = 50000;
             }
 
             Sound_PlayEffect(SEQ_SE_DP_DENSI16_sseq);

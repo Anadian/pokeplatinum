@@ -39,7 +39,7 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     UnkEnum_ov101_021D9934_1 unk_4C;
     UnkEnum_ov101_021D9934 unk_50;
     u32 unk_54[3];
-    int unk_60;
+    int coins;
     int unk_64;
     int unk_68;
     fx32 unk_6C;
@@ -47,7 +47,7 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     u32 unk_74;
     u32 unk_78;
     UnkEnum_ov101_021D394C unk_7C[3];
-    int unk_88;
+    int slotMachineVariant;
     fx32 unk_8C;
     fx32 unk_90[3];
     fx32 unk_9C[3];

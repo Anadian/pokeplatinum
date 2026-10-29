@@ -58,7 +58,7 @@ void FieldSystem_SaveTVSegment_HomeAndManor_NoFurniture(FieldSystem *fieldSystem
 void FieldSystem_SaveTVSegment_HomeAndManor(FieldSystem *fieldSystem, u8 furniture);
 void sub_0206DBB0(SaveData *saveData, u32 param1, Pokemon *param2, BOOL param3);
 void sub_0206DC6C(FieldSystem *fieldSystem, u32 param1, Pokemon *param2);
-void sub_0206DD38(FieldSystem *fieldSystem, u32 param1, u32 param2, u32 param3);
+void TVSegment_SaveSlotsMinigameSegment(FieldSystem *fieldSystem, u32 recordCoins, u32 currentCoins, u32 minigameDuration);
 void sub_0206DDB8(SaveData *saveData, Pokemon *mon, u32 monDataParam);
 void sub_0206DEEC(FieldSystem *fieldSystem, u16 param1, u16 param2);
 void sub_0206DF60(FieldSystem *fieldSystem, u16 param1);
