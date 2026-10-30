@@ -23,7 +23,7 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     u32 unk_0C;
     u32 unk_10;
     u32 unk_14;
-    u32 unk_18;
+    u32 unk_18; // 50, 70, or 90
     u32 unk_1C;
     u32 unk_20;
     u32 unk_24;
@@ -36,15 +36,15 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     u32 unk_40;
     UnkEnum_ov101_021D9688 unk_44;
     u32 unk_48;
-    UnkEnum_ov101_021D9934_1 unk_4C;
-    UnkEnum_ov101_021D9934 unk_50;
+    UnkEnum_ov101_021D9934_1 unk_4C; // [0,3]
+    UnkEnum_ov101_021D9934 unk_50; // [0,6]
     u32 unk_54[3];
     int coins;
     int unk_64;
     int unk_68;
     fx32 unk_6C;
     int unk_70;
-    u32 unk_74;
+    u32 unk_74; // Some bit flags for slot machine randomisation.
     u32 unk_78;
     UnkEnum_ov101_021D394C unk_7C[3];
     int slotMachineVariant;
@@ -74,9 +74,9 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     u32 unk_46C;
     u32 unk_470;
     u32 unk_474;
-    u32 unk_478;
-    u32 unk_47C;
-    u32 unk_480;
+    u32 unk_478; // Incremented if 4C is 0
+    u32 unk_47C; // Incremented if 4C is 1
+    u32 unk_480; // Incremented if 4C is 2
     u32 unk_484;
     u32 unk_488;
     u32 unk_48C;

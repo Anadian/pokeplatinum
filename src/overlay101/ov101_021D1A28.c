@@ -697,14 +697,14 @@ static int ov101_021D20B0(Overlay101State *param0)
 
 static int ov101_021D20FC(Overlay101State *param0)
 {
-    GF_ASSERT(param0->unk_50 < UnkEnum_ov101_021D9934_06);
+    GF_ASSERT(param0->unk_50 < UnkEnum_ov101_021D9934_06); // <6
     param0->unk_00 = 25;
     return 1;
 }
 
 static int ov101_021D2114(Overlay101State *param0)
 {
-    GF_ASSERT(param0->unk_50 < UnkEnum_ov101_021D9934_06);
+    GF_ASSERT(param0->unk_50 < UnkEnum_ov101_021D9934_06); // -6
     param0->unk_00 = 28;
 
     return 1;
@@ -2875,8 +2875,8 @@ static void ov101_021D4210(Overlay101State *param0)
     u32 v1 = LCRNG_RangeMod100(param0);
     const UnkStruct_ov101_021D9934 *v2 = Unk_ov101_021D9934[param0->slotMachineVariant];
 
-    for (v0 = 0; v0 < UnkEnum_ov101_021D9934_06; v0++) {
-        if (ov101_021D406C(v2[v0].unk_00, &v1) == 1) {
+    for (v0 = 0; v0 < UnkEnum_ov101_021D9934_06; v0++) { // [0,6)
+        if (ov101_021D406C(v2[v0].unk_00, &v1) == 1) { // if any of the probability5To50 cause an underflow
             param0->unk_50 = v2[v0].unk_04;
             param0->unk_4C = v2[v0].unk_08;
             param0->unk_18 = Unk_ov101_021D9568[param0->unk_50];
@@ -2895,15 +2895,15 @@ static void ov101_021D4210(Overlay101State *param0)
 
             return;
         }
-    }
+    } // Crashes if none of the probabilities underflow?
 
-    v0--;
+    v0--; // Set it back to 5
 
     param0->unk_50 = v2[v0].unk_04;
     param0->unk_4C = v2[v0].unk_08;
     param0->unk_18 = Unk_ov101_021D9568[param0->unk_50];
 
-    GF_ASSERT(FALSE);
+    GF_ASSERT(FALSE); // Error condition?
 }
 
 static void ov101_021D42D0(Overlay101State *param0)

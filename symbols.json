@@ -1,550 +1,764 @@
 {
   "SlotsMinigameEnv": {
-    "original": "UnkStruct_0203E35C",
+    "changeType": "rename",
+	"original": "UnkStruct_0203E35C",
     "current": "SlotsMinigameEnv",
     "symbolType": "struct",
     "enabled": true
   },
   "SlotsMinigameDTO": {
-    "original": "UnkStruct_0203E348",
+    "changeType": "rename",
+	"original": "UnkStruct_0203E348",
     "current": "SlotsMinigameDTO",
     "symbolType": "struct",
     "enabled": true
   },
   "SlotsMinigameEnv.coins": {
-    "original": "UnkStruct_0203E35C.unk_00",
+    "changeType": "rename",
+	"original": "UnkStruct_0203E35C.unk_00",
     "current": "SlotsMinigameEnv.coins",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigameEnv.slotsMinigameDTO": {
-    "original": "UnkStruct_0203E35C.unk_0C",
+    "changeType": "rename",
+	"original": "UnkStruct_0203E35C.unk_0C",
     "current": "SlotsMinigameEnv.slotsMinigameDTO",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigameDTO.coinsPointer": {
-    "original": "UnkStruct_0203E348.unk_00",
+    "changeType": "rename",
+	"original": "UnkStruct_0203E348.unk_00",
     "current": "SlotsMinigameDTO.coinsPointer",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigameDTO.slotMachineVariant": {
-    "original": "UnkStruct_0203E348.unk_04",
+    "changeType": "rename",
+	"original": "UnkStruct_0203E348.unk_04",
     "current": "SlotsMinigameDTO.slotMachineVariant",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigameDTO.bonusRounds": {
-    "original": "UnkStruct_0203E348.unk_0C",
+    "changeType": "rename",
+	"original": "UnkStruct_0203E348.unk_0C",
     "current": "SlotsMinigameDTO.bonusRounds",
     "symbolType": "member",
     "enabled": true
   },
   "FieldTask_StartSlotsMinigame": {
-    "original": "sub_0203E348",
+    "changeType": "rename",
+	"original": "sub_0203E348",
     "current": "FieldTask_StartSlotsMinigame",
     "symbolType": "subroutine",
     "enabled": true
   },
   "FieldTask_StartSlotsMinigame.slotsMinigameDTO": {
-    "original": "sub_0203E348.param1",
+    "changeType": "rename",
+	"original": "sub_0203E348.param1",
     "current": "FieldTask_StartSlotsMinigame.slotsMinigameDTO",
     "symbolType": "param",
     "enabled": true
   },
   "SlotsMinigame_Init": {
-    "original": "ov101_021D0D80",
+    "changeType": "rename",
+	"original": "ov101_021D0D80",
     "current": "SlotsMinigame_Init",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_Main": {
-    "original": "ov101_021D0E40",
+    "changeType": "rename",
+	"original": "ov101_021D0E40",
     "current": "SlotsMinigame_Main",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_Exit": {
-    "original": "ov101_021D0EE4",
+    "changeType": "rename",
+	"original": "ov101_021D0EE4",
     "current": "SlotsMinigame_Exit",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_GetShuffledMachineVariant": {
-    "original": "sub_0203E484",
+    "changeType": "rename",
+	"original": "sub_0203E484",
     "current": "SlotsMinigame_GetShuffledMachineVariant",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_TaskCallback": {
-    "original": "sub_0203E35C",
+    "changeType": "rename",
+	"original": "sub_0203E35C",
     "current": "SlotsMinigame_TaskCallback",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_RunApplication": {
-    "original": "sub_0203E414",
+    "changeType": "rename",
+	"original": "sub_0203E414",
     "current": "SlotsMinigame_RunApplication",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_ApplicationData": {
-    "original": "UnkStruct_ov101_021D0F3C",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D0F3C",
     "current": "SlotsMinigame_ApplicationData",
     "symbolType": "struct",
     "enabled": true
   },
   "SlotsMinigame_ApplicationData.slotMachineDTO": {
-    "original": "UnkStruct_ov101_021D0F3C.unk_00",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D0F3C.unk_00",
     "current": "SlotsMinigame_ApplicationData.slotMachineDTO",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigame_ApplicationData.overlayState": {
-    "original": "UnkStruct_ov101_021D0F3C.unk_04",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D0F3C.unk_04",
     "current": "SlotsMinigame_ApplicationData.overlayState",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigame_CreateOverlayState": {
-    "original": "ov101_021D0F6C",
+    "changeType": "rename",
+	"original": "ov101_021D0F6C",
     "current": "SlotsMinigame_CreateOverlayState",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_FreeOverlayState": {
-    "original": "ov101_021D0F94",
+    "changeType": "rename",
+	"original": "ov101_021D0F94",
     "current": "SlotsMinigame_FreeOverlayState",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_SetVBlankCallback": {
-    "original": "ov101_021D0F9C",
+    "changeType": "rename",
+	"original": "ov101_021D0F9C",
     "current": "SlotsMinigame_SetVBlankCallback",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_SetBanks": {
-    "original": "ov101_021D1098",
+    "changeType": "rename",
+	"original": "ov101_021D1098",
     "current": "SlotsMinigame_SetBanks",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_ConfigBackground": {
-    "original": "ov101_021D10B8",
+    "changeType": "rename",
+	"original": "ov101_021D10B8",
     "current": "SlotsMinigame_ConfigBackground",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_VBlankCallback": {
-    "original": "ov101_021D197C",
+    "changeType": "rename",
+	"original": "ov101_021D197C",
     "current": "SlotsMinigame_VBlankCallback",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_FreeBackground": {
-    "original": "ov101_021D11A4",
+    "changeType": "rename",
+	"original": "ov101_021D11A4",
     "current": "SlotsMinigame_FreeBackground",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_LoadGraphics": {
-    "original": "ov101_021D121C",
+    "changeType": "rename",
+	"original": "ov101_021D121C",
     "current": "SlotsMinigame_LoadGraphics",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_LoadWindow": {
-    "original": "ov101_021D13C8",
+    "changeType": "rename",
+	"original": "ov101_021D13C8",
     "current": "SlotsMinigame_LoadWindow",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_FreeWindow": {
-    "original": "ov101_021D1458",
+    "changeType": "rename",
+	"original": "ov101_021D1458",
     "current": "SlotsMinigame_FreeWindow",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_DrawMessageBox": {
-    "original": "ov101_021D148C",
+    "changeType": "rename",
+	"original": "ov101_021D148C",
     "current": "SlotsMinigame_DrawMessageBox",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_FreeMessageBox": {
-    "original": "ov101_021D14E4",
+    "changeType": "rename",
+	"original": "ov101_021D14E4",
     "current": "SlotsMinigame_FreeMessageBox",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_InitCharacter": {
-    "original": "ov101_021D150C",
+    "changeType": "rename",
+	"original": "ov101_021D150C",
     "current": "SlotsMinigame_InitCharacter",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_FreeCharacter": {
-    "original": "ov101_021D1544",
+    "changeType": "rename",
+	"original": "ov101_021D1544",
     "current": "SlotsMinigame_FreeCharacter",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_InitRenderer": {
-    "original": "ov101_021D1550",
+    "changeType": "rename",
+	"original": "ov101_021D1550",
     "current": "SlotsMinigame_InitRenderer",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_FreeRenderer": {
-    "original": "ov101_021D15A4",
+    "changeType": "rename",
+	"original": "ov101_021D15A4",
     "current": "SlotsMinigame_FreeRenderer",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_CopyGraphicsData": {
-    "original": "ov101_021D15BC",
+    "changeType": "rename",
+	"original": "ov101_021D15BC",
     "current": "SlotsMinigame_CopyGraphicsData",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_Noop": {
-    "original": "ov101_021D1868",
+    "changeType": "rename",
+	"original": "ov101_021D1868",
     "current": "SlotsMinigame_Noop",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_InitAnimationManager": {
-    "original": "ov101_021D186C",
+    "changeType": "rename",
+	"original": "ov101_021D186C",
     "current": "SlotsMinigame_InitAnimationManager",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_FreeAnimationManager": {
-    "original": "ov101_021D1884",
+    "changeType": "rename",
+	"original": "ov101_021D1884",
     "current": "SlotsMinigame_FreeAnimationManager",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_StartSoundTask": {
-    "original": "ov101_021D18C0",
+    "changeType": "rename",
+	"original": "ov101_021D18C0",
     "current": "SlotsMinigame_StartSoundTask",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_StopSoundTask": {
-    "original": "ov101_021D18E4",
+    "changeType": "rename",
+	"original": "ov101_021D18E4",
     "current": "SlotsMinigame_StopSoundTask",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_ProcessSound_TaskCallback": {
-    "original": "ov101_021D18F4",
+    "changeType": "rename",
+	"original": "ov101_021D18F4",
     "current": "SlotsMinigame_ProcessSound_TaskCallback",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_Render": {
-    "original": "ov101_021D197C",
+    "changeType": "rename",
+	"original": "ov101_021D197C",
     "current": "SlotsMinigame_Render",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_AllocateMemory": {
-    "original": "ov101_021D1998",
+    "changeType": "rename",
+	"original": "ov101_021D1998",
     "current": "SlotsMinigame_AllocateMemory",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_LoadArchive": {
-    "original": "ov101_021D19BC",
+    "changeType": "rename",
+	"original": "ov101_021D19BC",
     "current": "SlotsMinigame_LoadArchive",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_FreeArchive": {
-    "original": "ov101_021D19D4",
+    "changeType": "rename",
+	"original": "ov101_021D19D4",
     "current": "SlotsMinigame_FreeArchive",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_CopyArchive": {
-    "original": "ov101_021D19E4",
+    "changeType": "rename",
+	"original": "ov101_021D19E4",
     "current": "SlotsMinigame_CopyArchive",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_FreeGraphics": {
-    "original": "ov101_021D107C",
+    "changeType": "rename",
+	"original": "ov101_021D107C",
     "current": "SlotsMinigame_FreeGraphics",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_InitWindow": {
-    "original": "ov101_021D11D0",
+    "changeType": "rename",
+	"original": "ov101_021D11D0",
     "current": "SlotsMinigame_InitWindow",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_UpdateRecords": {
-    "original": "ov101_021D0F3C",
+    "changeType": "rename",
+	"original": "ov101_021D0F3C",
     "current": "SlotsMinigame_UpdateRecords",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceController": {
-    "original": "UnkStruct_ov101_021D1894",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D1894",
     "current": "SlotsMinigame_SoundSequenceController",
     "symbolType": "struct",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceController.command": {
-    "original": "UnkStruct_ov101_021D1894.unk_00",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D1894.unk_00",
     "current": "SlotsMinigame_SoundSequenceController.command",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceController.isSoundSequenceChangeActive": {
-    "original": "UnkStruct_ov101_021D1894.unk_04",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D1894.unk_04",
     "current": "SlotsMinigame_SoundSequenceController.isSoundSequenceChangeActive",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceController.formerSequenceID": {
-    "original": "UnkStruct_ov101_021D1894.unk_08",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D1894.unk_08",
     "current": "SlotsMinigame_SoundSequenceController.formerSequenceID",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceController.currentSequenceID": {
-    "original": "UnkStruct_ov101_021D1894.unk_0C",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D1894.unk_0C",
     "current": "SlotsMinigame_SoundSequenceController.currentSequenceID",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceController.task": {
-    "original": "UnkStruct_ov101_021D1894.unk_10",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D1894.unk_10",
     "current": "SlotsMinigame_SoundSequenceController.task",
     "symbolType": "member",
     "enabled": true
   },
   "Overlay101State": {
-    "original": "UnkStruct_ov101_021D13C8",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D13C8",
     "current": "Overlay101State",
     "symbolType": "struct",
     "enabled": true
   },
   "Overlay101State.soundSequenceController": {
-    "original": "UnkStruct_ov101_021D1894.unk_424",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D1894.unk_424",
     "current": "Overlay101State.soundSequenceController",
     "symbolType": "member",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceID": {
-    "original": "UnkEnum_ov101_021D1894",
+    "changeType": "rename",
+	"original": "UnkEnum_ov101_021D1894",
     "current": "SlotsMinigame_SoundSequenceID",
     "symbolType": "enum",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceID.BGM_FIELD": {
-    "original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_00",
+    "changeType": "rename",
+	"original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_00",
     "current": "SlotsMinigame_SoundSequenceID.BGM_FIELD",
     "symbolType": "field",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceID.BGM_ATARI": {
-    "original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_01",
+    "changeType": "rename",
+	"original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_01",
     "current": "SlotsMinigame_SoundSequenceID.BGM_ATARI",
     "symbolType": "field",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceID.BGM_00ATARI": {
-    "original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_02",
+    "changeType": "rename",
+	"original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_02",
     "current": "SlotsMinigame_SoundSequenceID.BGM_00ATARI",
     "symbolType": "field",
     "enabled": true
   },
   "SlotsMinigame_SoundSequenceID.UNKNOWN": {
-    "original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_02",
+    "changeType": "rename",
+	"original": "UnkEnum_ov101_021D1894.UnkEnum_ov101_021D1894_02",
     "current": "SlotsMinigame_SoundSequenceID.UNKNOWN",
     "symbolType": "field",
     "enabled": true
   },
   "SlotsMinigame_SoundSequence_StartChange": {
-    "original": "ov101_021D1894",
+    "changeType": "rename",
+	"original": "ov101_021D1894",
     "current": "SlotsMinigame_SoundSequence_StartChange",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_SoundSequence_StartChange.overlayState": {
-    "original": "ov101_021D1894.param0",
+    "changeType": "rename",
+	"original": "ov101_021D1894.param0",
     "current": "SlotsMinigame_SoundSequence_StartChange.overlayState",
     "symbolType": "param",
     "enabled": true
   },
   "SlotsMinigame_SoundSequence_StartChange.sequenceID": {
-    "original": "ov101_021D1894.param1",
+    "changeType": "rename",
+	"original": "ov101_021D1894.param1",
     "current": "SlotsMinigame_SoundSequence_StartChange.sequenceID",
     "symbolType": "param",
     "enabled": true
   },
   "SlotsMinigame_SoundSequence_GetIsChangeActive": {
-    "original": "ov101_021D18B4",
+    "changeType": "rename",
+	"original": "ov101_021D18B4",
     "current": "SlotsMinigame_SoundSequence_GetIsChangeActive",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SlotsMinigame_SoundSequence_GetIsChangeActive.overlayState": {
-    "original": "ov101_021D18B4.param0",
+    "changeType": "rename",
+	"original": "ov101_021D18B4.param0",
     "current": "SlotsMinigame_SoundSequence_GetIsChangeActive.overlayState",
     "symbolType": "param",
     "enabled": true
   },
   "TriggerSlotsMinigame": {
-    "original": "ScrCmd_267",
+    "changeType": "rename",
+	"original": "ScrCmd_267",
     "current": "ScrCmd_TriggerSlotsMinigame",
     "symbolType": "subroutine",
     "enabled": true
   },
   "ScrCmd_TriggerSlotsMinigame": {
-    "original": "TriggerSlotsMinigame",
+    "changeType": "rename",
+	"original": "TriggerSlotsMinigame",
     "current": "ScrCmd_TriggerSlotsMinigame",
     "symbolType": "subroutine",
     "enabled": true
   },
   "SCRCMD_TRIGGERSLOTSMINIGAME": {
-    "original": "sCRcMD_267",
+    "changeType": "rename",
+	"original": "sCRcMD_267",
     "current": "SCRCMD_TRIGGERSLOTSMINIGAME",
     "symbolType": "static",
     "enabled": true
   },
   "TVSegment_SaveSlotsMinigameSegment": {
-    "original": "sub_0206DD38",
+    "changeType": "rename",
+	"original": "sub_0206DD38",
     "current": "TVSegment_SaveSlotsMinigameSegment",
     "symbolType": "subroutine",
     "enabled": true
   },
   "TVSegment_SaveSlotsMinigameSegment.recordCoins": {
-    "original": "sub_0206DD38.param1",
+    "changeType": "rename",
+	"original": "sub_0206DD38.param1",
     "current": "TVSegment_SaveSlotsMinigameSegment.recordCoins",
     "symbolType": "param",
     "enabled": true
   },
   "TVSegment_SaveSlotsMinigameSegment.currentCoins": {
-    "original": "sub_0206DD38.param2",
+    "changeType": "rename",
+	"original": "sub_0206DD38.param2",
     "current": "TVSegment_SaveSlotsMinigameSegment.currentCoins",
     "symbolType": "param",
     "enabled": true
   },
   "TVSegment_SaveSlotsMinigameSegment.minigameDuration": {
-    "original": "sub_0206DD38.param3",
+    "changeType": "rename",
+	"original": "sub_0206DD38.param3",
     "current": "TVSegment_SaveSlotsMinigameSegment.minigameDuration",
     "symbolType": "param",
     "enabled": true
   },
   "TVSegment_SlotsMinigame": {
-    "original": "UnkStruct_0206DD5C",
+    "changeType": "rename",
+	"original": "UnkStruct_0206DD5C",
     "current": "TVSegment_SlotsMinigame",
     "symbolType": "struct",
     "enabled": true
   },
   "TVSegment_SlotsMinigame.recordCoins": {
-    "original": "UnkStruct_0206DD5C.unk_00",
+    "changeType": "rename",
+	"original": "UnkStruct_0206DD5C.unk_00",
     "current": "TVSegment_SlotsMinigame.recordCoins",
     "symbolType": "member",
     "enabled": true
   },
   "TVSegment_SlotsMinigame.currentCoins": {
-    "original": "UnkStruct_0206DD5C.unk_04",
+    "changeType": "rename",
+	"original": "UnkStruct_0206DD5C.unk_04",
     "current": "TVSegment_SlotsMinigame.currentCoins",
     "symbolType": "member",
     "enabled": true
   },
   "TVSegment_SlotsMinigame.minigameDuration": {
-    "original": "UnkStruct_0206DD5C.unk_08",
+    "changeType": "rename",
+	"original": "UnkStruct_0206DD5C.unk_08",
     "current": "TVSegment_SlotsMinigame.minigameDuration",
     "symbolType": "member",
     "enabled": true
   },
   "TVSegmentData.slotsMinigame": {
-    "original": "TVSegmentData.val20",
+    "changeType": "rename",
+	"original": "TVSegmentData.val20",
     "current": "TVSegmentData.slotsMinigame",
     "symbolType": "member",
     "enabled": true
   },
   "TVSegment_LoadSlotsMinigameSegment": {
-    "original": "sub_0206DD5C",
+    "changeType": "rename",
+	"original": "sub_0206DD5C",
     "current": "TVSegment_LoadSlotsMinigameSegment",
     "symbolType": "subroutine",
     "enabled": true
   },
   "TVSegment_LoadSlotsMinigameSegment.stringTemplate": {
-    "original": "sub_0206DD5C.param1",
+    "changeType": "rename",
+	"original": "sub_0206DD5C.param1",
     "current": "TVSegment_LoadSlotsMinigameSegment.stringTemplate",
     "symbolType": "param",
     "enabled": true
   },
   "Overlay101State.coins": {
-    "original": "Overlay101State.unk_60",
+    "changeType": "rename",
+	"original": "Overlay101State.unk_60",
     "current": "Overlay101State.coins",
     "symbolType": "member",
     "enabled": true
   },
   "Overlay101State.slotMachineVariant": {
-    "original": "Overlay101State.unk_88",
+    "changeType": "rename",
+	"original": "Overlay101State.unk_88",
     "current": "Overlay101State.slotMachineVariant",
     "symbolType": "member",
     "enabled": true
   },
   "SCRCMD_267": {
-    "original": "SCRCMD_TRIGGERSLOTSMINIGAME",
+    "changeType": "rename",
+	"original": "SCRCMD_TRIGGERSLOTSMINIGAME",
     "current": "sCRcMD_267",
     "symbolType": "static",
     "enabled": true
   },
   "SlotMachineLookupTable": {
-    "original": "Unk_ov101_021D9520",
+    "changeType": "rename",
+	"original": "Unk_ov101_021D9520",
     "current": "SlotMachineLookupTable",
     "symbolType": "constant",
     "enabled": true
   },
   "LCRNG_RangeMod100": {
-    "original": "ov101_021D405C",
+    "changeType": "rename",
+	"original": "ov101_021D405C",
     "current": "LCRNG_RangeMod100",
     "symbolType": "subroutine",
     "enabled": true
   },
   "IsSlotMachineLookupValueGreaterThanLCRNG": {
-    "original": "ov101_021D4084",
+    "changeType": "rename",
+	"original": "ov101_021D4084",
     "current": "IsSlotMachineLookupValueGreaterThanLCRNG",
     "symbolType": "subroutine",
     "enabled": true
   },
   "Struct_u16x2": {
-    "original": "UnkStruct_ov101_021D95C8_sub1",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D95C8_sub1",
     "current": "Struct_u16x2",
     "symbolType": "struct",
     "enabled": true
   },
   "Struct_u16x2x4": {
-    "original": "UnkStruct_ov101_021D95C8",
+    "changeType": "rename",
+	"original": "UnkStruct_ov101_021D95C8",
     "current": "Struct_u16x2x4",
     "symbolType": "struct",
     "enabled": true
   },
   "Const_u16x2x4x6": {
-    "original": "Unk_ov101_021D95C8",
+    "changeType": "rename",
+	"original": "Unk_ov101_021D95C8",
     "current": "Const_u16x2x4x6",
     "symbolType": "constant",
     "enabled": true
+  },
+  "SlotsMinigame_StopHereOrReduceRandByWeight": {
+    "changeType": "rename",
+    "original": "ov101_021D406C",
+    "current": "SlotsMinigame_StopHereOrReduceRandByWeight",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_StopHereOrReduceRandByWeight.weight": {
+    "changeType": "rename",
+    "original": "ov101_021D406C.param0",
+    "current": "SlotsMinigame_StopHereOrReduceRandByWeight.weight",
+    "symbolType": "param"
+  },
+  "SlotsMinigame_StopHereOrReduceRandByWeight.randPointer": {
+    "changeType": "rename",
+    "original": "ov101_021D406C.param1",
+    "current": "SlotsMinigame_StopHereOrReduceRandByWeight.randPointer",
+    "symbolType": "param"
+  },
+  "SlotsMinigame_SetBitFlagFromLCRNG": {
+    "changeType": "rename",
+    "original": "ov101_021D40A8",
+    "current": "SlotsMinigame_SetBitFlagFromLCRNG",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_SetBitFlagFromLCRNG.overlayState": {
+    "changeType": "rename",
+    "original": "ov101_021D40A8.param0",
+    "current": "SlotsMinigame_SetBitFlagFromLCRNG.overlayState",
+    "symbolType": "param"
+  },
+  "Const_5_80_1_70": {
+    "changeType": "rename",
+    "original": "Unk_ov101_021D94D8",
+    "current": "Const_5_80_1_70",
+    "symbolType": "constant"
+  },
+  "SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold": {
+    "changeType": "rename",
+    "original": "ov101_021D41EC",
+    "current": "SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold.overlayState": {
+    "changeType": "rename",
+    "original": "ov101_021D41EC.param0",
+    "current": "SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold.overlayState",
+    "symbolType": "param"
+  },
+  "SlotsMinigame_Literal0To6Enum": {
+    "changeType": "rename",
+    "original": "UnkEnum_ov101_021D9934_06",
+    "current": "SlotsMinigame_Literal0To6Enum",
+    "symbolType": "enum"
+  },
+  "SlotsMinigame_Literal0To3Enum": {
+    "changeType": "rename",
+    "original": "UnkEnum_ov101_021D9934_06_1",
+    "current": "SlotsMinigame_Literal0To3Enum",
+    "symbolType": "enum"
+  },
+  "SlotsMinigame_5To50x7x4": {
+    "changeType": "rename",
+    "original": "UnkStruct_ov101_021D9934",
+    "current": "SlotsMinigame_5To50x7x4",
+    "symbolType": "struct"
+  },
+  "SlotsMinigame_5To50x7x4.probability5To50": {
+    "changeType": "rename",
+    "original": "UnkStruct_ov101_021D9934.unk_00",
+    "current": "SlotsMinigame_5To50x7x4.probability5To50",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_5To50x7x4.enum0To6": {
+    "changeType": "rename",
+    "original": "UnkStruct_ov101_021D9934.unk_04",
+    "current": "SlotsMinigame_5To50x7x4.enum0To6",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_5To50x7x4.enum0To3": {
+    "changeType": "rename",
+    "original": "UnkStruct_ov101_021D9934.unk_08",
+    "current": "SlotsMinigame_5To50x7x4.enum0To3",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_5To50x7x4x6x6": {
+    "changeType": "rename",
+    "original": "Unk_ov101_021D9934",
+    "current": "SlotsMinigame_5To50x7x4x6x6",
+    "symbolType": "constant"
+  },
+  "SlotsMinigame_50_70_90_Twice": {
+    "changeType": "rename",
+    "original": "Unk_ov101_021D9568",
+    "current": "SlotsMinigame_50_70_90_Twice",
+    "symbolType": "constant"
+  },
+  "SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash": {
+    "changeType": "rename",
+    "original": "ov101_021D4210",
+    "current": "SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash",
+    "symbolType": "subroutine"
+  },
+  "SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash.overlayState": {
+    "changeType": "rename",
+    "original": "ov101_021D4210.param0",
+    "current": "SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash.overlayState",
+    "symbolType": "param"
+  },
+  "Overlay101_AnimationManager": {
+    "changeType": "rename",
+    "original": "UnkStruct_ov101_021D4764",
+    "current": "Overlay101_AnimationManager",
+    "symbolType": "struct"
+  },
+  "Overlay101_AnimationManager.overlayState": {
+    "changeType": "rename",
+    "original": "UnkStruct_ov101_021D4764.unk_20",
+    "current": "Overlay101_AnimationManager.overlayState",
+    "symbolType": "member"
+  },
+  "Overlay101_AnimationManager.task": {
+    "changeType": "rename",
+    "original": "UnkStruct_ov101_021D4764.unk_24",
+    "current": "Overlay101_AnimationManager.task",
+    "symbolType": "member"
+  },
+  "SlotsMinigame_PointerToPointerToAnimationFunction": {
+    "changeType": "rename",
+    "original": "Unk_ov101_021D8774",
+    "current": "SlotsMinigame_PointerToPointerToAnimationFunction",
+    "symbolType": "static"
   }
-rn\sub(ov101_021D406C,SlotsMinigame_StopHereOrReduceRandByWeight)
-rn\par(ov101_021D406C.param0,SlotsMinigame_StopHereOrReduceRandByWeight.weight)
-rn\par(ov101_021D406C.param1,SlotsMinigame_StopHereOrReduceRandByWeight.randPointer)
-rn\sub(ov101_021D40A8,SlotsMinigame_SetBitFlagFromLCRNG)
-rn\par(ov101_021D40A8.param0,SlotsMinigame_SetBitFlagFromLCRNG.overlayState)
-rn\const(Unk_ov101_021D94D8,Const_5_80_1_70)
-rn\sub(ov101_021D41EC,SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold)
-rn\par(ov101_021D41EC.param0,SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold.overlayState)
 }
