@@ -16,8 +16,8 @@ typedef struct {
     int unk_14;
     UnkEnum_ov101_021D5814 unk_18;
     UnkEnum_ov101_021D6764 unk_1C;
-    Overlay101State *unk_20;
-    SysTask *unk_24;
+    Overlay101State *overlayState;
+    SysTask *task;
     OverworldAnimManager *unk_28;
     OverworldAnimManager *unk_2C;
     OverworldAnimManager *unk_30;
@@ -26,6 +26,6 @@ typedef struct {
     OverworldAnimManager *unk_3C;
     OverworldAnimManager *unk_40;
     OverworldAnimManager *unk_44;
-} UnkStruct_ov101_021D4764;
+} Overlay101_AnimationManager;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D4764_H

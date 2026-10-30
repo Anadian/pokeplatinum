@@ -4,9 +4,9 @@
 #include "enums.h"
 
 typedef struct {
-    u32 unk_00; // [5,50] probability maybe
-    UnkEnum_ov101_021D9934 unk_04; // [0,6]
-    UnkEnum_ov101_021D9934_1 unk_08; // [0,3]
-} UnkStruct_ov101_021D9934;
+    u32 probability5To50; // [5,50] probability maybe
+    UnkEnum_ov101_021D9934 enum0To6; // [0,6]
+    UnkEnum_ov101_021D9934_1 enum0To3; // [0,3]
+} SlotsMinigame_5To50x7x4;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D9934_H

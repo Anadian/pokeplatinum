@@ -54,7 +54,7 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     int unk_A8[3];
     UnkStruct_ov101_021D2D88 unk_B4[3];
     UnkStruct_ov101_021D4714 unk_120;
-    UnkStruct_ov101_021D4764 unk_13C;
+    Overlay101_AnimationManager unk_13C;
     UnkStruct_ov101_021D4F58 unk_184;
     UnkStruct_ov101_021D148C unk_408;
     SlotsMinigame_SoundSequenceController soundSequenceController;

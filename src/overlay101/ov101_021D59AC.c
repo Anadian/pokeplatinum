@@ -1703,7 +1703,7 @@ static void ov101_021D72B8(OverworldAnimManager *param0, void *param1)
 {
     int v0 = 1;
     UnkStruct_ov101_021D72AC *v1 = param1;
-    UnkStruct_ov101_021D4764 *v2 = &v1->unk_00->unk_13C;
+    Overlay101_AnimationManager *v2 = &v1->unk_00->unk_13C;
 
     if (v2->unk_0C == 1) {
         v0 = 0;
@@ -1816,7 +1816,7 @@ static void ov101_021D7444(OverworldAnimManager *param0, void *param1)
 {
     int v0 = 1;
     UnkStruct_ov101_021D7438 *v1 = param1;
-    UnkStruct_ov101_021D4764 *v2 = &v1->unk_00->unk_13C;
+    Overlay101_AnimationManager *v2 = &v1->unk_00->unk_13C;
 
     if (v2->unk_0C == 1) {
         v0 = 0;
@@ -1934,7 +1934,7 @@ static void ov101_021D75F0(OverworldAnimManager *param0, void *param1)
 static void ov101_021D7604(OverworldAnimManager *param0, void *param1)
 {
     UnkStruct_ov101_021D75F0 *v0 = param1;
-    UnkStruct_ov101_021D4764 *v1 = &v0->unk_00->unk_13C;
+    Overlay101_AnimationManager *v1 = &v0->unk_00->unk_13C;
 
     Sprite_SetDrawFlag(v0->unk_04[0].unk_04, FALSE);
     Sprite_SetDrawFlag(v0->unk_04[1].unk_04, FALSE);
@@ -2021,7 +2021,7 @@ static void ov101_021D776C(OverworldAnimManager *param0, void *param1)
 {
     int v0;
     UnkStruct_ov101_021D7754 *v1 = param1;
-    UnkStruct_ov101_021D4764 *v2 = &v1->unk_00->unk_13C;
+    Overlay101_AnimationManager *v2 = &v1->unk_00->unk_13C;
 
     {
         int v3 = 1;

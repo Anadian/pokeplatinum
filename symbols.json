@@ -633,132 +633,154 @@
     "changeType": "rename",
     "original": "ov101_021D406C",
     "current": "SlotsMinigame_StopHereOrReduceRandByWeight",
-    "symbolType": "subroutine"
+    "symbolType": "subroutine",
+    "enabled": true
   },
   "SlotsMinigame_StopHereOrReduceRandByWeight.weight": {
     "changeType": "rename",
     "original": "ov101_021D406C.param0",
     "current": "SlotsMinigame_StopHereOrReduceRandByWeight.weight",
-    "symbolType": "param"
+    "symbolType": "param",
+    "enabled": true
   },
   "SlotsMinigame_StopHereOrReduceRandByWeight.randPointer": {
     "changeType": "rename",
     "original": "ov101_021D406C.param1",
     "current": "SlotsMinigame_StopHereOrReduceRandByWeight.randPointer",
-    "symbolType": "param"
+    "symbolType": "param",
+    "enabled": true
   },
   "SlotsMinigame_SetBitFlagFromLCRNG": {
     "changeType": "rename",
     "original": "ov101_021D40A8",
     "current": "SlotsMinigame_SetBitFlagFromLCRNG",
-    "symbolType": "subroutine"
+    "symbolType": "subroutine",
+    "enabled": true
   },
   "SlotsMinigame_SetBitFlagFromLCRNG.overlayState": {
     "changeType": "rename",
     "original": "ov101_021D40A8.param0",
     "current": "SlotsMinigame_SetBitFlagFromLCRNG.overlayState",
-    "symbolType": "param"
+    "symbolType": "param",
+    "enabled": true
   },
   "Const_5_80_1_70": {
     "changeType": "rename",
     "original": "Unk_ov101_021D94D8",
     "current": "Const_5_80_1_70",
-    "symbolType": "constant"
+    "symbolType": "constant",
+    "enabled": true
   },
   "SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold": {
     "changeType": "rename",
     "original": "ov101_021D41EC",
     "current": "SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold",
-    "symbolType": "subroutine"
+    "symbolType": "subroutine",
+    "enabled": true
   },
   "SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold.overlayState": {
     "changeType": "rename",
     "original": "ov101_021D41EC.param0",
     "current": "SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold.overlayState",
-    "symbolType": "param"
+    "symbolType": "param",
+    "enabled": true
   },
   "SlotsMinigame_Literal0To6Enum": {
     "changeType": "rename",
     "original": "UnkEnum_ov101_021D9934_06",
     "current": "SlotsMinigame_Literal0To6Enum",
-    "symbolType": "enum"
+    "symbolType": "enum",
+    "enabled": true
   },
   "SlotsMinigame_Literal0To3Enum": {
     "changeType": "rename",
     "original": "UnkEnum_ov101_021D9934_06_1",
     "current": "SlotsMinigame_Literal0To3Enum",
-    "symbolType": "enum"
+    "symbolType": "enum",
+    "enabled": true
   },
   "SlotsMinigame_5To50x7x4": {
     "changeType": "rename",
     "original": "UnkStruct_ov101_021D9934",
     "current": "SlotsMinigame_5To50x7x4",
-    "symbolType": "struct"
+    "symbolType": "struct",
+    "enabled": true
   },
   "SlotsMinigame_5To50x7x4.probability5To50": {
     "changeType": "rename",
     "original": "UnkStruct_ov101_021D9934.unk_00",
     "current": "SlotsMinigame_5To50x7x4.probability5To50",
-    "symbolType": "member"
+    "symbolType": "member",
+    "enabled": true
   },
   "SlotsMinigame_5To50x7x4.enum0To6": {
     "changeType": "rename",
     "original": "UnkStruct_ov101_021D9934.unk_04",
     "current": "SlotsMinigame_5To50x7x4.enum0To6",
-    "symbolType": "member"
+    "symbolType": "member",
+    "enabled": true
   },
   "SlotsMinigame_5To50x7x4.enum0To3": {
     "changeType": "rename",
     "original": "UnkStruct_ov101_021D9934.unk_08",
     "current": "SlotsMinigame_5To50x7x4.enum0To3",
-    "symbolType": "member"
+    "symbolType": "member",
+    "enabled": true
   },
   "SlotsMinigame_5To50x7x4x6x6": {
     "changeType": "rename",
     "original": "Unk_ov101_021D9934",
     "current": "SlotsMinigame_5To50x7x4x6x6",
-    "symbolType": "constant"
+    "symbolType": "constant",
+    "enabled": true
   },
   "SlotsMinigame_50_70_90_Twice": {
     "changeType": "rename",
     "original": "Unk_ov101_021D9568",
     "current": "SlotsMinigame_50_70_90_Twice",
-    "symbolType": "constant"
+    "symbolType": "constant",
+    "enabled": true
   },
   "SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash": {
     "changeType": "rename",
     "original": "ov101_021D4210",
     "current": "SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash",
-    "symbolType": "subroutine"
+    "symbolType": "subroutine",
+    "enabled": true
   },
   "SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash.overlayState": {
     "changeType": "rename",
     "original": "ov101_021D4210.param0",
     "current": "SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash.overlayState",
-    "symbolType": "param"
+    "symbolType": "param",
+    "enabled": true
   },
   "Overlay101_AnimationManager": {
     "changeType": "rename",
     "original": "UnkStruct_ov101_021D4764",
     "current": "Overlay101_AnimationManager",
-    "symbolType": "struct"
+    "symbolType": "struct",
+    "enabled": true
   },
   "Overlay101_AnimationManager.overlayState": {
     "changeType": "rename",
     "original": "UnkStruct_ov101_021D4764.unk_20",
     "current": "Overlay101_AnimationManager.overlayState",
-    "symbolType": "member"
+    "symbolType": "member",
+    "enabled": true
   },
   "Overlay101_AnimationManager.task": {
     "changeType": "rename",
     "original": "UnkStruct_ov101_021D4764.unk_24",
     "current": "Overlay101_AnimationManager.task",
-    "symbolType": "member"
+    "symbolType": "member",
+    "enabled": true
   },
   "SlotsMinigame_PointerToPointerToAnimationFunction": {
     "changeType": "rename",
     "original": "Unk_ov101_021D8774",
     "current": "SlotsMinigame_PointerToPointerToAnimationFunction",
-    "symbolType": "static"
+    "symbolType": "static",
+    "enabled": true
   }
 }

@@ -150,11 +150,11 @@ static int ov101_021D394C(UnkStruct_ov101_021D2D88 *param0, Overlay101State *par
 static void ov101_021D3FE8(Overlay101State *param0, UnkEnum_ov101_021D2BDC param1, fx32 param2);
 static fx32 ov101_021D4024(Overlay101State *param0, UnkEnum_ov101_021D2BDC param1, fx32 param2);
 static u32 LCRNG_RangeMod100(Overlay101State *param0);
-static int ov101_021D406C(u32 param0, u32 *param1);
+static int SlotsMinigame_StopHereOrReduceRandByWeight(u32 weight, u32 *randPointer);
 static int IsSlotMachineLookupValueGreaterThanLCRNG(Overlay101State *param0);
-static int ov101_021D40A8(Overlay101State *param0);
-static int ov101_021D41EC(Overlay101State *param0);
-static void ov101_021D4210(Overlay101State *param0);
+static int SlotsMinigame_SetBitFlagFromLCRNG(Overlay101State *overlayState);
+static int SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold(Overlay101State *overlayState);
+static void SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(Overlay101State *overlayState);
 static void ov101_021D42D0(Overlay101State *param0);
 static int ov101_021D4370(Overlay101State *param0);
 static void ov101_021D4394(Overlay101State *param0);
@@ -220,7 +220,7 @@ static const UnkStruct_ov101_021D87A8 Unk_ov101_021D87A8[6];
 static const int Unk_ov101_021D8740[3][2];
 static int (*const Unk_ov101_021D8838[64])(Overlay101State *);
 static int (*const Unk_ov101_021D86C4[5])(UnkStruct_ov101_021D2D88 *, Overlay101State *);
-static int (*const *const Unk_ov101_021D8774[13])(UnkStruct_ov101_021D4764 *);
+static int (*const *const SlotsMinigame_PointerToPointerToAnimationFunction[13])(Overlay101_AnimationManager *);
 
 void ov101_021D1A28(Overlay101State *param0)
 {
@@ -337,7 +337,7 @@ static int ov101_021D1B9C(Overlay101State *param0)
 
 static int ov101_021D1BD0(Overlay101State *param0)
 {
-    ov101_021D40A8(param0);
+    SlotsMinigame_SetBitFlagFromLCRNG(param0);
 
     param0->unk_460++;
     param0->unk_464++;
@@ -350,7 +350,7 @@ static int ov101_021D1BD0(Overlay101State *param0)
     param0->unk_30 = 0;
 
     if (param0->unk_74 != 0) {
-        if (ov101_021D41EC(param0) == 0) {
+        if (SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold(param0) == 0) {
             param0->unk_13C.unk_18 = UnkEnum_ov101_021D5814_04;
         } else {
             param0->unk_13C.unk_18 = ov101_021D5814(param0->unk_74);
@@ -599,7 +599,7 @@ static int ov101_021D1F54(Overlay101State *param0)
 static int ov101_021D1FA0(Overlay101State *param0)
 {
     ov101_021D4FF8(param0);
-    ov101_021D4210(param0);
+    SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(param0);
     ov101_021D42D0(param0);
     ov101_021D4798(param0, 11);
 
@@ -639,7 +639,7 @@ static int ov101_021D200C(Overlay101State *param0)
     param0->unk_00 = 20;
 
     ov101_021D45F8(param0);
-    ov101_021D4210(param0);
+    SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(param0);
     ov101_021D42D0(param0);
     ov101_021D4798(param0, 11);
 
@@ -671,7 +671,7 @@ static int ov101_021D2088(Overlay101State *param0)
 
     ov101_021D45F8(param0);
     ov101_021D4798(param0, 11);
-    ov101_021D4210(param0);
+    SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(param0);
     ov101_021D42D0(param0);
 
     return 0;
@@ -697,14 +697,14 @@ static int ov101_021D20B0(Overlay101State *param0)
 
 static int ov101_021D20FC(Overlay101State *param0)
 {
-    GF_ASSERT(param0->unk_50 < UnkEnum_ov101_021D9934_06); // <6
+    GF_ASSERT(param0->unk_50 < SlotsMinigame_Literal0To6Enum); // <6
     param0->unk_00 = 25;
     return 1;
 }
 
 static int ov101_021D2114(Overlay101State *param0)
 {
-    GF_ASSERT(param0->unk_50 < UnkEnum_ov101_021D9934_06); // -6
+    GF_ASSERT(param0->unk_50 < SlotsMinigame_Literal0To6Enum); // -6
     param0->unk_00 = 28;
 
     return 1;
@@ -2761,18 +2761,18 @@ static u32 LCRNG_RangeMod100(Overlay101State *param0)
     return v0;
 }
 
-static int ov101_021D406C(u32 param0, u32 *param1) //Some sort of countdown function maybe?
+static int SlotsMinigame_StopHereOrReduceRandByWeight(u32 weight, u32 *randPointer) //Some sort of countdown function maybe?
 {
-	REC_LOG2(param0,*param2);
-    u32 v0 = *param1;
+	REC_LOG2(weight,*param2);
+    u32 v0 = *randPointer;
 
-    (*param1) -= param0; //Subtract param0 from value stored at Param1
+    (*randPointer) -= weight; //Subtract weight from value stored at Param1
 
-    if ((int)(*param1) < 0) { //Underflow check?
-        (*param1) = 0; // Set value at param1 to 0 if an underflow occurred.
+    if ((int)(*randPointer) < 0) { //Underflow check?
+        (*randPointer) = 0; // Set value at randPointer to 0 if an underflow occurred.
     }
 
-    if (v0 < param0) { //If original value is less than decrease magnitude, return 1.
+    if (v0 < weight) { //If original value is less than decrease magnitude, return 1.
 		RET_LOG1(1);
         return 1;
     }
@@ -2795,61 +2795,61 @@ static int IsSlotMachineLookupValueGreaterThanLCRNG(Overlay101State *param0)
     return 0;
 }
 
-static int ov101_021D40A8(Overlay101State *param0)
+static int SlotsMinigame_SetBitFlagFromLCRNG(Overlay101State *overlayState)
 {
-	REC_LOG1(param0);
-    param0->unk_74 = 0;
+	REC_LOG1(overlayState);
+    overlayState->unk_74 = 0;
 
-    if (IsSlotMachineLookupValueGreaterThanLCRNG(param0) == 1) {
-        u32 rand_u32 = LCRNG_RangeMod100(param0); //Decreased by the weights in Const_u16x2x4x6
-        const Struct_u16x2x4 *v1 = &Const_u16x2x4x6[param0->slotMachineVariant];
+    if (IsSlotMachineLookupValueGreaterThanLCRNG(overlayState) == 1) {
+        u32 rand_u32 = LCRNG_RangeMod100(overlayState); //Decreased by the weights in Const_u16x2x4x6
+        const Struct_u16x2x4 *v1 = &Const_u16x2x4x6[overlayState->slotMachineVariant];
 
-        param0->unk_470++;
+        overlayState->unk_470++;
 
-        if (ov101_021D406C(v1->unk_00.unk_00, &rand_u32)) {
-            param0->unk_74 |= (1 << 3); //Set bit 3
-            param0->unk_4A0++;
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v1->unk_00.unk_00, &rand_u32)) {
+            overlayState->unk_74 |= (1 << 3); //Set bit 3
+            overlayState->unk_4A0++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_00.unk_02, &rand_u32)) {
-            param0->unk_74 |= (1 << 2); //Set bit 2
-            param0->unk_49C++;
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v1->unk_00.unk_02, &rand_u32)) {
+            overlayState->unk_74 |= (1 << 2); //Set bit 2
+            overlayState->unk_49C++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_04.unk_00, &rand_u32)) {
-            param0->unk_74 |= (1 << 7); //Set bit 7
-            param0->unk_4B0++;
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v1->unk_04.unk_00, &rand_u32)) {
+            overlayState->unk_74 |= (1 << 7); //Set bit 7
+            overlayState->unk_4B0++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_04.unk_02, &rand_u32)) {
-            param0->unk_74 |= (1 << 6); //Set bit 6
-            param0->unk_4AC++;
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v1->unk_04.unk_02, &rand_u32)) {
+            overlayState->unk_74 |= (1 << 6); //Set bit 6
+            overlayState->unk_4AC++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_08.unk_00, &rand_u32)) {
-            param0->unk_74 |= (1 << 5); //Set bit 5
-            param0->unk_4A8++;
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v1->unk_08.unk_00, &rand_u32)) {
+            overlayState->unk_74 |= (1 << 5); //Set bit 5
+            overlayState->unk_4A8++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_08.unk_02, &rand_u32)) {
-            param0->unk_74 |= (1 << 4); //Set bit 4
-            param0->unk_4A4++;
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v1->unk_08.unk_02, &rand_u32)) {
+            overlayState->unk_74 |= (1 << 4); //Set bit 4
+            overlayState->unk_4A4++;
             return 1;
         }
 
-        if (ov101_021D406C(v1->unk_0C.unk_00, &rand_u32)) {
-            param0->unk_74 |= (1 << 1); //Set bit 1
-            param0->unk_498++;
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v1->unk_0C.unk_00, &rand_u32)) {
+            overlayState->unk_74 |= (1 << 1); //Set bit 1
+            overlayState->unk_498++;
             return 1;
         }
 
-        param0->unk_74 |= (1 << 0); //Set bit 0
-        param0->unk_494++;
+        overlayState->unk_74 |= (1 << 0); //Set bit 0
+        overlayState->unk_494++;
 
         return 1;
     }
@@ -2857,10 +2857,10 @@ static int ov101_021D40A8(Overlay101State *param0)
     return 0;
 }
 
-static int ov101_021D41EC(Overlay101State *param0)
+static int SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold(Overlay101State *overlayState)
 {
-    u32 v0 = LCRNG_RangeMod100(param0);
-    u32 v1 = Unk_ov101_021D94D8[param0->slotMachineVariant];
+    u32 v0 = LCRNG_RangeMod100(overlayState);
+    u32 v1 = Const_5_80_1_70[overlayState->slotMachineVariant];
 
     if (v0 < v1) {
         return 1;
@@ -2869,27 +2869,27 @@ static int ov101_021D41EC(Overlay101State *param0)
     return 0;
 }
 
-static void ov101_021D4210(Overlay101State *param0)
+static void SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(Overlay101State *overlayState)
 {
     int v0;
-    u32 v1 = LCRNG_RangeMod100(param0);
-    const UnkStruct_ov101_021D9934 *v2 = Unk_ov101_021D9934[param0->slotMachineVariant];
+    u32 v1 = LCRNG_RangeMod100(overlayState);
+    const SlotsMinigame_5To50x7x4 *v2 = SlotsMinigame_5To50x7x4x6x6[overlayState->slotMachineVariant];
 
-    for (v0 = 0; v0 < UnkEnum_ov101_021D9934_06; v0++) { // [0,6)
-        if (ov101_021D406C(v2[v0].unk_00, &v1) == 1) { // if any of the probability5To50 cause an underflow
-            param0->unk_50 = v2[v0].unk_04;
-            param0->unk_4C = v2[v0].unk_08;
-            param0->unk_18 = Unk_ov101_021D9568[param0->unk_50];
+    for (v0 = 0; v0 < SlotsMinigame_Literal0To6Enum; v0++) { // [0,6)
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[v0].probability5To50, &v1) == 1) { // if any of the probability5To50 cause an underflow
+            overlayState->unk_50 = v2[v0].enum0To6;
+            overlayState->unk_4C = v2[v0].enum0To3;
+            overlayState->unk_18 = SlotsMinigame_50_70_90_Twice[overlayState->unk_50];
 
-            switch (param0->unk_4C) {
+            switch (overlayState->unk_4C) {
             case UnkEnum_ov101_021D9934_1_00:
-                param0->unk_478++;
+                overlayState->unk_478++;
                 break;
             case UnkEnum_ov101_021D9934_1_01:
-                param0->unk_47C++;
+                overlayState->unk_47C++;
                 break;
             case UnkEnum_ov101_021D9934_1_02:
-                param0->unk_480++;
+                overlayState->unk_480++;
                 break;
             }
 
@@ -2899,9 +2899,9 @@ static void ov101_021D4210(Overlay101State *param0)
 
     v0--; // Set it back to 5
 
-    param0->unk_50 = v2[v0].unk_04;
-    param0->unk_4C = v2[v0].unk_08;
-    param0->unk_18 = Unk_ov101_021D9568[param0->unk_50];
+    overlayState->unk_50 = v2[v0].enum0To6;
+    overlayState->unk_4C = v2[v0].enum0To3;
+    overlayState->unk_18 = SlotsMinigame_50_70_90_Twice[overlayState->unk_50];
 
     GF_ASSERT(FALSE); // Error condition?
 }
@@ -2912,7 +2912,7 @@ static void ov101_021D42D0(Overlay101State *param0)
     const UnkStruct_ov101_021D9784 *v2 = Unk_ov101_021D9784[param0->slotMachineVariant][param0->unk_4C];
 
     do {
-        if (ov101_021D406C(v2[v0].unk_00, &v1) == 1) {
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[v0].unk_00, &v1) == 1) {
             param0->unk_13C.unk_1C = v2[v0].unk_04;
 
             switch (param0->unk_13C.unk_1C) {
@@ -2980,19 +2980,19 @@ static void ov101_021D4394(Overlay101State *param0)
         return;
     }
 
-    if (ov101_021D406C(v1[0], &v2) == 1) {
+    if (SlotsMinigame_StopHereOrReduceRandByWeight(v1[0], &v2) == 1) {
         param0->unk_74 |= (1 << 2);
         param0->unk_49C++;
         return;
     }
 
-    if (ov101_021D406C(v1[1], &v2) == 1) {
+    if (SlotsMinigame_StopHereOrReduceRandByWeight(v1[1], &v2) == 1) {
         param0->unk_74 |= (1 << 6);
         param0->unk_4AC++;
         return;
     }
 
-    if (ov101_021D406C(v1[1], &v2) == 1) {
+    if (SlotsMinigame_StopHereOrReduceRandByWeight(v1[1], &v2) == 1) {
         param0->unk_74 |= (1 << 4);
         param0->unk_4A4++;
         return;
@@ -3047,9 +3047,9 @@ static void ov101_021D44FC(Overlay101State *param0)
     if (param0->unk_28 == 2) {
         v0 -= 10;
     } else {
-        if (ov101_021D406C(v2[0], &v1) == 1) {
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[0], &v1) == 1) {
             v0 -= 10;
-        } else if (ov101_021D406C(v2[1], &v1) == 1) {
+        } else if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[1], &v1) == 1) {
             v0 -= 5;
         }
     }
@@ -3070,11 +3070,11 @@ static UnkEnum_ov101_021D4550 ov101_021D4550(Overlay101State *param0)
 
     for (v0 = 0; v0 < UnkEnum_ov101_021D9AE4_09; v0++) {
         if (v1 >= v3[v0].unk_00) {
-            if (ov101_021D406C(v3[v0].unk_04, &v2) == 1) {
+            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[v0].unk_04, &v2) == 1) {
                 return UnkEnum_ov101_021D4550_01;
             }
 
-            if (ov101_021D406C(v3[v0].unk_08, &v2) == 1) {
+            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[v0].unk_08, &v2) == 1) {
                 return UnkEnum_ov101_021D4550_00;
             }
 
@@ -3217,27 +3217,27 @@ static void ov101_021D4714(UnkStruct_ov101_021D4714 *param0)
 static void ov101_021D4764(Overlay101State *param0)
 {
 	REC_LOG1(param0);
-    UnkStruct_ov101_021D4764 *v0 = &param0->unk_13C;
+    Overlay101_AnimationManager *v0 = &param0->unk_13C;
 
     v0->unk_00 = 0;
     v0->unk_04 = 0;
-    v0->unk_20 = param0;
-    v0->unk_24 = SysTask_Start(ov101_021D4824, v0, 132);
+    v0->overlayState = param0;
+    v0->task = SysTask_Start(ov101_021D4824, v0, 132);
 	RET_LOG0();
 }
 
 static void ov101_021D4788(Overlay101State *param0)
 {
 	REC_LOG1(param0);
-    UnkStruct_ov101_021D4764 *v0 = &param0->unk_13C;
-    SysTask_Done(v0->unk_24);
+    Overlay101_AnimationManager *v0 = &param0->unk_13C;
+    SysTask_Done(v0->task);
 	RET_LOG0();
 }
 
 static void ov101_021D4798(Overlay101State *param0, u32 param1)
 {
 	REC_LOG2(param0,param1);
-    UnkStruct_ov101_021D4764 *v0 = &param0->unk_13C;
+    Overlay101_AnimationManager *v0 = &param0->unk_13C;
 
     v0->unk_00 = param1;
     v0->unk_04 = 0;
@@ -3249,7 +3249,7 @@ static void ov101_021D4798(Overlay101State *param0, u32 param1)
 static int ov101_021D47AC(Overlay101State *param0)
 {
 	REC_LOG1(param0);
-    UnkStruct_ov101_021D4764 *v0 = &param0->unk_13C;
+    Overlay101_AnimationManager *v0 = &param0->unk_13C;
 	RET_LOG1(v0->unk_08);
     return v0->unk_08;
 }
@@ -3281,28 +3281,28 @@ static void ov101_021D4824(SysTask *param0, void *param1)
 {
 	REC_LOG2(param0,param1);
     int v0;
-    UnkStruct_ov101_021D4764 *v1 = param1;
+    Overlay101_AnimationManager *v1 = param1;
 
-    int (*const *v2)(UnkStruct_ov101_021D4764 *);
+    int (*const *v2)(Overlay101_AnimationManager *);
 
     do {
-        v2 = Unk_ov101_021D8774[v1->unk_00];
+        v2 = SlotsMinigame_PointerToPointerToAnimationFunction[v1->unk_00];
         v0 = v2[v1->unk_04](v1);
     } while (v0 == 1);
 	RET_LOG0();
 }
 
-static int ov101_021D4844(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4844(Overlay101_AnimationManager *param0)
 {
 	REC_LOG1(param0);
-    param0->unk_28 = ov101_021D5D58(param0->unk_20, param0->unk_18);
+    param0->unk_28 = ov101_021D5D58(param0->overlayState, param0->unk_18);
     param0->unk_04++;
 
 	RET_LOG1(0);
     return 0;
 }
 
-static int ov101_021D485C(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D485C(Overlay101_AnimationManager *param0)
 {
 	REC_LOG1(param0);
     if (ov101_021D5DC4(param0->unk_28) == 0) {
@@ -3316,7 +3316,7 @@ static int ov101_021D485C(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4880(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4880(Overlay101_AnimationManager *param0)
 {
 	REC_LOG1(param0);
     if (ov101_021D5DC4(param0->unk_28) == 0) {
@@ -3331,32 +3331,32 @@ static int ov101_021D4880(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D48A8(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D48A8(Overlay101_AnimationManager *param0)
 {
 	REC_LOG1(param0);
 	RET_LOG1(0);
     return 0;
 }
 
-static int (*const Unk_ov101_021D8648[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D8648[])(Overlay101_AnimationManager *) = {
     ov101_021D48A8,
 };
 
-static int (*const Unk_ov101_021D8690[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D8690[])(Overlay101_AnimationManager *) = {
     ov101_021D4844,
     ov101_021D485C,
     ov101_021D4880,
     ov101_021D48A8,
 };
 
-static int ov101_021D48AC(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D48AC(Overlay101_AnimationManager *param0)
 {
     ov101_021D5D90(param0->unk_28, UnkEnum_ov101_021D5D90_04);
     param0->unk_04++;
     return 0;
 }
 
-static int ov101_021D48C4(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D48C4(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D5DC4(param0->unk_28) == 1) {
         OverworldAnimManager_Finish(param0->unk_28);
@@ -3367,31 +3367,31 @@ static int ov101_021D48C4(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D8678[])(UnkStruct_ov101_021D4764 *work) = {
+static int (*const Unk_ov101_021D8678[])(Overlay101_AnimationManager *work) = {
     ov101_021D48AC,
     ov101_021D48C4,
     ov101_021D48A8,
 };
 
-static int ov101_021D48E8(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D48E8(Overlay101_AnimationManager *param0)
 {
     ov101_021D5D90(param0->unk_28, UnkEnum_ov101_021D5D90_02);
     param0->unk_04++;
     return 0;
 }
 
-static int ov101_021D4900(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4900(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D5DC4(param0->unk_28) == 1) {
-        param0->unk_2C = ov101_021D6484(param0->unk_20);
-        param0->unk_30 = ov101_021D6764(param0->unk_20, param0->unk_1C);
+        param0->unk_2C = ov101_021D6484(param0->overlayState);
+        param0->unk_30 = ov101_021D6764(param0->overlayState, param0->unk_1C);
         param0->unk_04++;
     }
 
     return 0;
 }
 
-static int ov101_021D492C(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D492C(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D67B0(param0->unk_30) == 1) {
         ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_01);
@@ -3402,7 +3402,7 @@ static int ov101_021D492C(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4954(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4954(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D67B0(param0->unk_30) == 1) {
         OverworldAnimManager_Finish(param0->unk_2C);
@@ -3413,7 +3413,7 @@ static int ov101_021D4954(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D8714[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D8714[])(Overlay101_AnimationManager *) = {
     ov101_021D48E8,
     ov101_021D4900,
     ov101_021D492C,
@@ -3421,15 +3421,15 @@ static int (*const Unk_ov101_021D8714[])(UnkStruct_ov101_021D4764 *) = {
     ov101_021D48A8,
 };
 
-static int ov101_021D4978(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4978(Overlay101_AnimationManager *param0)
 {
-    param0->unk_2C = ov101_021D6484(param0->unk_20);
+    param0->unk_2C = ov101_021D6484(param0->overlayState);
     ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_02);
     param0->unk_04++;
     return 0;
 }
 
-static int ov101_021D4998(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4998(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D67B0(param0->unk_30) == 1) {
         OverworldAnimManager_Finish(param0->unk_30);
@@ -3442,7 +3442,7 @@ static int ov101_021D4998(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D49CC(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D49CC(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D5DC4(param0->unk_28) == 1) {
         ov101_021D5D90(param0->unk_28, UnkEnum_ov101_021D5D90_04);
@@ -3452,7 +3452,7 @@ static int ov101_021D49CC(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D49EC(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D49EC(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D5DC4(param0->unk_28) == 1) {
         OverworldAnimManager_Finish(param0->unk_28);
@@ -3463,7 +3463,7 @@ static int ov101_021D49EC(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D86EC[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D86EC[])(Overlay101_AnimationManager *) = {
     ov101_021D4978,
     ov101_021D4998,
     ov101_021D49CC,
@@ -3471,16 +3471,16 @@ static int (*const Unk_ov101_021D86EC[])(UnkStruct_ov101_021D4764 *) = {
     ov101_021D48A8,
 };
 
-static int ov101_021D4A10(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4A10(Overlay101_AnimationManager *param0)
 {
     ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_03);
-    param0->unk_34 = ov101_021D6DF0(param0->unk_20);
+    param0->unk_34 = ov101_021D6DF0(param0->overlayState);
     param0->unk_10 = 0;
     param0->unk_04++;
     return 0;
 }
 
-static int ov101_021D4A30(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4A30(Overlay101_AnimationManager *param0)
 {
     param0->unk_10++;
 
@@ -3494,7 +3494,7 @@ static int ov101_021D4A30(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4A5C(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4A5C(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D6E1C(param0->unk_34) == 1) {
         ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_03);
@@ -3507,16 +3507,16 @@ static int ov101_021D4A5C(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D86A0[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D86A0[])(Overlay101_AnimationManager *) = {
     ov101_021D4A10,
     ov101_021D4A30,
     ov101_021D4A5C,
     ov101_021D48A8,
 };
 
-static int ov101_021D4A8C(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4A8C(Overlay101_AnimationManager *param0)
 {
-    const UnkStruct_ov101_021D87A8 *v0 = &Unk_ov101_021D87A8[param0->unk_20->unk_34];
+    const UnkStruct_ov101_021D87A8 *v0 = &Unk_ov101_021D87A8[param0->overlayState->unk_34];
 
     param0->unk_04++;
     param0->unk_14 = 0;
@@ -3526,18 +3526,18 @@ static int ov101_021D4A8C(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4AB8(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4AB8(Overlay101_AnimationManager *param0)
 {
     int v0, v1 = 0;
 
     for (v0 = 0; v0 < 3; v0++) {
-        if (param0->unk_20->unk_7C[v0] != 1) {
+        if (param0->overlayState->unk_7C[v0] != 1) {
             v1++;
         }
     }
 
     if ((param0->unk_14 < 2) && (param0->unk_14 != v1)) {
-        const UnkStruct_ov101_021D87A8 *v2 = &Unk_ov101_021D87A8[param0->unk_20->unk_34];
+        const UnkStruct_ov101_021D87A8 *v2 = &Unk_ov101_021D87A8[param0->overlayState->unk_34];
 
         param0->unk_14 = v1;
         ov101_021D679C(param0->unk_30, v2->unk_0C[param0->unk_14]);
@@ -3546,34 +3546,34 @@ static int ov101_021D4AB8(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D8684[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D8684[])(Overlay101_AnimationManager *) = {
     ov101_021D4A8C,
     ov101_021D4AB8,
     ov101_021D48A8,
 };
 
-static int ov101_021D4AFC(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4AFC(Overlay101_AnimationManager *param0)
 {
     ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_03);
     param0->unk_04++;
     return 0;
 }
 
-static int (*const Unk_ov101_021D8654[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D8654[])(Overlay101_AnimationManager *) = {
     ov101_021D4AFC,
     ov101_021D48A8
 };
 
-static int ov101_021D4B14(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4B14(Overlay101_AnimationManager *param0)
 {
-    ov101_021D47F0(param0->unk_20);
-    param0->unk_2C = ov101_021D6484(param0->unk_20);
+    ov101_021D47F0(param0->overlayState);
+    param0->unk_2C = ov101_021D6484(param0->overlayState);
     ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_02);
     param0->unk_04++;
     return 0;
 }
 
-static int ov101_021D4B38(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4B38(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D67B0(param0->unk_30) == 1) {
         OverworldAnimManager_Finish(param0->unk_30);
@@ -3586,20 +3586,20 @@ static int ov101_021D4B38(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4B6C(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4B6C(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D5DC4(param0->unk_28) == 1) {
-        ov101_021D72D4(param0->unk_20);
-        ov101_021D7460(param0->unk_20);
-        ov101_021D77E4(param0->unk_20, UnkEnum_ov101_021D77E4_00);
-        ov101_021D77E4(param0->unk_20, UnkEnum_ov101_021D77E4_01);
+        ov101_021D72D4(param0->overlayState);
+        ov101_021D7460(param0->overlayState);
+        ov101_021D77E4(param0->overlayState, UnkEnum_ov101_021D77E4_00);
+        ov101_021D77E4(param0->overlayState, UnkEnum_ov101_021D77E4_01);
         param0->unk_04++;
     }
 
     return 0;
 }
 
-static int ov101_021D4BA0(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4BA0(Overlay101_AnimationManager *param0)
 {
     param0->unk_10++;
 
@@ -3612,7 +3612,7 @@ static int ov101_021D4BA0(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4BC4(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4BC4(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D5DC4(param0->unk_28) == 1) {
         OverworldAnimManager_Finish(param0->unk_28);
@@ -3623,7 +3623,7 @@ static int ov101_021D4BC4(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D8728[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D8728[])(Overlay101_AnimationManager *) = {
     ov101_021D4B14,
     ov101_021D4B38,
     ov101_021D4B6C,
@@ -3632,7 +3632,7 @@ static int (*const Unk_ov101_021D8728[])(UnkStruct_ov101_021D4764 *) = {
     ov101_021D48A8,
 };
 
-static int ov101_021D4BE8(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4BE8(Overlay101_AnimationManager *param0)
 {
     ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_04);
     param0->unk_08 = 1;
@@ -3640,12 +3640,12 @@ static int ov101_021D4BE8(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D8664[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D8664[])(Overlay101_AnimationManager *) = {
     ov101_021D4BE8,
     ov101_021D48A8
 };
 
-static int ov101_021D4C04(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4C04(Overlay101_AnimationManager *param0)
 {
     ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_08);
     param0->unk_08 = 1;
@@ -3653,12 +3653,12 @@ static int ov101_021D4C04(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D865C[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D865C[])(Overlay101_AnimationManager *) = {
     ov101_021D4C04,
     ov101_021D48A8,
 };
 
-static int ov101_021D4C20(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4C20(Overlay101_AnimationManager *param0)
 {
     ov101_021D5D90(param0->unk_28, UnkEnum_ov101_021D5D90_06);
     param0->unk_04++;
@@ -3666,21 +3666,21 @@ static int ov101_021D4C20(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D864C[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D864C[])(Overlay101_AnimationManager *) = {
     ov101_021D4C20,
     ov101_021D48A8
 };
 
-static int ov101_021D4C3C(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4C3C(Overlay101_AnimationManager *param0)
 {
-    param0->unk_2C = ov101_021D6484(param0->unk_20);
+    param0->unk_2C = ov101_021D6484(param0->overlayState);
     ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_02);
     param0->unk_0C = 1;
     param0->unk_04++;
     return 0;
 }
 
-static int ov101_021D4C60(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4C60(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D67B0(param0->unk_30) == 1) {
         OverworldAnimManager_Finish(param0->unk_2C);
@@ -3694,7 +3694,7 @@ static int ov101_021D4C60(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4C98(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4C98(Overlay101_AnimationManager *param0)
 {
     param0->unk_10++;
 
@@ -3707,11 +3707,11 @@ static int ov101_021D4C98(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4CBC(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4CBC(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D5DC4(param0->unk_28) == 1) {
-        param0->unk_2C = ov101_021D6484(param0->unk_20);
-        param0->unk_30 = ov101_021D6764(param0->unk_20, param0->unk_1C);
+        param0->unk_2C = ov101_021D6484(param0->overlayState);
+        param0->unk_30 = ov101_021D6764(param0->overlayState, param0->unk_1C);
         param0->unk_0C = 0;
         param0->unk_04++;
     }
@@ -3719,7 +3719,7 @@ static int ov101_021D4CBC(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4CEC(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4CEC(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D67B0(param0->unk_30) == 1) {
         ov101_021D679C(param0->unk_30, UnkEnum_ov101_021D679C_01);
@@ -3730,7 +3730,7 @@ static int ov101_021D4CEC(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int ov101_021D4D14(UnkStruct_ov101_021D4764 *param0)
+static int ov101_021D4D14(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D67B0(param0->unk_30) == 1) {
         OverworldAnimManager_Finish(param0->unk_2C);
@@ -3741,7 +3741,7 @@ static int ov101_021D4D14(UnkStruct_ov101_021D4764 *param0)
     return 0;
 }
 
-static int (*const Unk_ov101_021D8758[])(UnkStruct_ov101_021D4764 *) = {
+static int (*const Unk_ov101_021D8758[])(Overlay101_AnimationManager *) = {
     ov101_021D4C3C,
     ov101_021D4C60,
     ov101_021D4C98,
@@ -3751,7 +3751,7 @@ static int (*const Unk_ov101_021D8758[])(UnkStruct_ov101_021D4764 *) = {
     ov101_021D48A8
 };
 
-static int (*const *const Unk_ov101_021D8774[13])(UnkStruct_ov101_021D4764 *) = {
+static int (*const *const SlotsMinigame_PointerToPointerToAnimationFunction[13])(Overlay101_AnimationManager *) = {
     Unk_ov101_021D8648,
     Unk_ov101_021D8690,
     Unk_ov101_021D8678,

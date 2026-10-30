@@ -134,14 +134,14 @@ typedef enum {
     UnkEnum_ov101_021D9934_03,
     UnkEnum_ov101_021D9934_04,
     UnkEnum_ov101_021D9934_05,
-    UnkEnum_ov101_021D9934_06,
+    SlotsMinigame_Literal0To6Enum,
 } UnkEnum_ov101_021D9934;
 
 typedef enum {
     UnkEnum_ov101_021D9934_1_00 = 0,
     UnkEnum_ov101_021D9934_1_01,
     UnkEnum_ov101_021D9934_1_02,
-    UnkEnum_ov101_021D9934_1_03,
+    SlotsMinigame_Literal0To3Enum,
 } UnkEnum_ov101_021D9934_1;
 
 typedef enum {
