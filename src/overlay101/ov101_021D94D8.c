@@ -336,11 +336,11 @@ const UnkStruct_ov101_021D9784 Unk_ov101_021D9784[6][SlotsMinigame_Literal0To3En
 };
 
 const u32 Unk_ov101_021D9538[6] = {
+    0x19, // 25
     0x19,
-    0x19,
+    0x1E, // 30
     0x1E,
-    0x1E,
-    0x23,
+    0x23, // 35
     0x23
 };
 

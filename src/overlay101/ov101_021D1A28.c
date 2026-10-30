@@ -2913,7 +2913,7 @@ static void ov101_021D42D0(Overlay101State *param0)
 
     do {
         if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[v0].unk_00, &v1) == 1) {
-            param0->unk_13C.unk_1C = v2[v0].unk_04;
+            param0->unk_13C.unk_1C = v2[v0].unk_04; // v0=0
 
             switch (param0->unk_13C.unk_1C) {
             case UnkEnum_ov101_021D6764_00:
@@ -2942,7 +2942,7 @@ static int ov101_021D4370(Overlay101State *param0)
     u32 v0 = Unk_ov101_021D9538[param0->slotMachineVariant];
     u32 v1 = LCRNG_RangeMod100(param0);
 
-    if (v1 < v0) {
+    if (v1 < v0) { // If LCRNG [0,100) less than [25,35]
         return 1;
     }
 

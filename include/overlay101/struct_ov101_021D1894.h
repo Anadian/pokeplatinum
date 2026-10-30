@@ -5,7 +5,7 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    u32 command;
+    u32 command; // 0 No Change, 1, Stop/Pause, 2 Play
     int isSoundSequenceChangeActive;
     SlotsMinigame_SoundSequenceID formerSequenceID;
     SlotsMinigame_SoundSequenceID currentSequenceID;
