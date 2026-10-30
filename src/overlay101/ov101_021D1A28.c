@@ -149,9 +149,9 @@ static int ov101_021D38FC(UnkStruct_ov101_021D2D88 *param0, Overlay101State *par
 static int ov101_021D394C(UnkStruct_ov101_021D2D88 *param0, Overlay101State *param1, int *param2, int *param3, int *param4);
 static void ov101_021D3FE8(Overlay101State *param0, UnkEnum_ov101_021D2BDC param1, fx32 param2);
 static fx32 ov101_021D4024(Overlay101State *param0, UnkEnum_ov101_021D2BDC param1, fx32 param2);
-static u32 ov101_021D405C(Overlay101State *param0);
+static u32 LCRNG_RangeMod100(Overlay101State *param0);
 static int ov101_021D406C(u32 param0, u32 *param1);
-static int ov101_021D4084(Overlay101State *param0);
+static int IsSlotMachineLookupValueGreaterThanLCRNG(Overlay101State *param0);
 static int ov101_021D40A8(Overlay101State *param0);
 static int ov101_021D41EC(Overlay101State *param0);
 static void ov101_021D4210(Overlay101State *param0);
@@ -2753,7 +2753,7 @@ static fx32 ov101_021D4024(Overlay101State *param0, UnkEnum_ov101_021D2BDC param
     return v0;
 }
 
-static u32 ov101_021D405C(Overlay101State *param0)
+static u32 LCRNG_RangeMod100(Overlay101State *param0)
 {
 	REC_LOG1(param0);
     u32 v0 = ((u32)LCRNG_Next()) % 100;
@@ -2761,28 +2761,30 @@ static u32 ov101_021D405C(Overlay101State *param0)
     return v0;
 }
 
-static int ov101_021D406C(u32 param0, u32 *param1)
+static int ov101_021D406C(u32 param0, u32 *param1) //Some sort of countdown function maybe?
 {
+	REC_LOG2(param0,*param2);
     u32 v0 = *param1;
 
-    (*param1) -= param0;
+    (*param1) -= param0; //Subtract param0 from value stored at Param1
 
-    if ((int)(*param1) < 0) {
-        (*param1) = 0;
+    if ((int)(*param1) < 0) { //Underflow check?
+        (*param1) = 0; // Set value at param1 to 0 if an underflow occurred.
     }
 
-    if (v0 < param0) {
+    if (v0 < param0) { //If original value is less than decrease magnitude, return 1.
+		RET_LOG1(1);
         return 1;
     }
-
-    return 0;
+	RET_LOG1(0);
+    return 0; //Else, return 0?
 }
 
-static int ov101_021D4084(Overlay101State *param0)
+static int IsSlotMachineLookupValueGreaterThanLCRNG(Overlay101State *param0)
 {
 	REC_LOG1(param0);
-    u32 v0 = ov101_021D405C(param0);
-    u32 v1 = Unk_ov101_021D9520[param0->slotMachineVariant];
+    u32 v0 = LCRNG_RangeMod100(param0);
+    u32 v1 = SlotMachineLookupTable[param0->slotMachineVariant];
 
     if (v1 > v0) {
 		RET_LOG1(1);
@@ -2798,55 +2800,55 @@ static int ov101_021D40A8(Overlay101State *param0)
 	REC_LOG1(param0);
     param0->unk_74 = 0;
 
-    if (ov101_021D4084(param0) == 1) {
-        u32 rand_u32 = ov101_021D405C(param0);
-        const UnkStruct_ov101_021D95C8 *v1 = &Unk_ov101_021D95C8[param0->slotMachineVariant];
+    if (IsSlotMachineLookupValueGreaterThanLCRNG(param0) == 1) {
+        u32 rand_u32 = LCRNG_RangeMod100(param0); //Decreased by the weights in Const_u16x2x4x6
+        const Struct_u16x2x4 *v1 = &Const_u16x2x4x6[param0->slotMachineVariant];
 
         param0->unk_470++;
 
         if (ov101_021D406C(v1->unk_00.unk_00, &rand_u32)) {
-            param0->unk_74 |= (1 << 3);
+            param0->unk_74 |= (1 << 3); //Set bit 3
             param0->unk_4A0++;
             return 1;
         }
 
         if (ov101_021D406C(v1->unk_00.unk_02, &rand_u32)) {
-            param0->unk_74 |= (1 << 2);
+            param0->unk_74 |= (1 << 2); //Set bit 2
             param0->unk_49C++;
             return 1;
         }
 
         if (ov101_021D406C(v1->unk_04.unk_00, &rand_u32)) {
-            param0->unk_74 |= (1 << 7);
+            param0->unk_74 |= (1 << 7); //Set bit 7
             param0->unk_4B0++;
             return 1;
         }
 
         if (ov101_021D406C(v1->unk_04.unk_02, &rand_u32)) {
-            param0->unk_74 |= (1 << 6);
+            param0->unk_74 |= (1 << 6); //Set bit 6
             param0->unk_4AC++;
             return 1;
         }
 
         if (ov101_021D406C(v1->unk_08.unk_00, &rand_u32)) {
-            param0->unk_74 |= (1 << 5);
+            param0->unk_74 |= (1 << 5); //Set bit 5
             param0->unk_4A8++;
             return 1;
         }
 
         if (ov101_021D406C(v1->unk_08.unk_02, &rand_u32)) {
-            param0->unk_74 |= (1 << 4);
+            param0->unk_74 |= (1 << 4); //Set bit 4
             param0->unk_4A4++;
             return 1;
         }
 
         if (ov101_021D406C(v1->unk_0C.unk_00, &rand_u32)) {
-            param0->unk_74 |= (1 << 1);
+            param0->unk_74 |= (1 << 1); //Set bit 1
             param0->unk_498++;
             return 1;
         }
 
-        param0->unk_74 |= (1 << 0);
+        param0->unk_74 |= (1 << 0); //Set bit 0
         param0->unk_494++;
 
         return 1;
@@ -2857,7 +2859,7 @@ static int ov101_021D40A8(Overlay101State *param0)
 
 static int ov101_021D41EC(Overlay101State *param0)
 {
-    u32 v0 = ov101_021D405C(param0);
+    u32 v0 = LCRNG_RangeMod100(param0);
     u32 v1 = Unk_ov101_021D94D8[param0->slotMachineVariant];
 
     if (v0 < v1) {
@@ -2870,7 +2872,7 @@ static int ov101_021D41EC(Overlay101State *param0)
 static void ov101_021D4210(Overlay101State *param0)
 {
     int v0;
-    u32 v1 = ov101_021D405C(param0);
+    u32 v1 = LCRNG_RangeMod100(param0);
     const UnkStruct_ov101_021D9934 *v2 = Unk_ov101_021D9934[param0->slotMachineVariant];
 
     for (v0 = 0; v0 < UnkEnum_ov101_021D9934_06; v0++) {
@@ -2906,7 +2908,7 @@ static void ov101_021D4210(Overlay101State *param0)
 
 static void ov101_021D42D0(Overlay101State *param0)
 {
-    u32 v0 = 0, v1 = ov101_021D405C(param0);
+    u32 v0 = 0, v1 = LCRNG_RangeMod100(param0);
     const UnkStruct_ov101_021D9784 *v2 = Unk_ov101_021D9784[param0->slotMachineVariant][param0->unk_4C];
 
     do {
@@ -2938,7 +2940,7 @@ static void ov101_021D42D0(Overlay101State *param0)
 static int ov101_021D4370(Overlay101State *param0)
 {
     u32 v0 = Unk_ov101_021D9538[param0->slotMachineVariant];
-    u32 v1 = ov101_021D405C(param0);
+    u32 v1 = LCRNG_RangeMod100(param0);
 
     if (v1 < v0) {
         return 1;
@@ -2951,7 +2953,7 @@ static void ov101_021D4394(Overlay101State *param0)
 {
     u32 v0;
     const u32 *v1 = Unk_ov101_021D9628[param0->slotMachineVariant];
-    u32 v2 = ov101_021D405C(param0);
+    u32 v2 = LCRNG_RangeMod100(param0);
 
     param0->unk_74 = 0;
 
@@ -3002,7 +3004,7 @@ static void ov101_021D4394(Overlay101State *param0)
 
 static int ov101_021D44A0(Overlay101State *param0)
 {
-    u32 v0 = ov101_021D405C(param0);
+    u32 v0 = LCRNG_RangeMod100(param0);
     u32 v1 = Unk_ov101_021D9580[param0->slotMachineVariant];
 
     if (v0 < v1) {
@@ -3014,7 +3016,7 @@ static int ov101_021D44A0(Overlay101State *param0)
 
 static int ov101_021D44C4(Overlay101State *param0)
 {
-    u32 v0 = ov101_021D405C(param0);
+    u32 v0 = LCRNG_RangeMod100(param0);
     u32 v1 = Unk_ov101_021D9508[param0->slotMachineVariant];
 
     if (v0 < v1) {
@@ -3027,7 +3029,7 @@ static int ov101_021D44C4(Overlay101State *param0)
 static int ov101_021D44E8(Overlay101State *param0)
 {
     u32 v0 = param0->unk_18;
-    u32 v1 = ov101_021D405C(param0);
+    u32 v1 = LCRNG_RangeMod100(param0);
 
     if (v1 < v0) {
         return 1;
@@ -3039,7 +3041,7 @@ static int ov101_021D44E8(Overlay101State *param0)
 static void ov101_021D44FC(Overlay101State *param0)
 {
     u32 v0 = param0->unk_18;
-    u32 v1 = ov101_021D405C(param0);
+    u32 v1 = LCRNG_RangeMod100(param0);
     const u32 *v2 = Unk_ov101_021D9598[param0->slotMachineVariant];
 
     if (param0->unk_28 == 2) {
@@ -3063,7 +3065,7 @@ static UnkEnum_ov101_021D4550 ov101_021D4550(Overlay101State *param0)
 {
     int v0;
     u32 v1 = param0->unk_18;
-    u32 v2 = ov101_021D405C(param0);
+    u32 v2 = LCRNG_RangeMod100(param0);
     const UnkStruct_ov101_021D9AE4 *v3 = Unk_ov101_021D9AE4[param0->slotMachineVariant];
 
     for (v0 = 0; v0 < UnkEnum_ov101_021D9AE4_09; v0++) {

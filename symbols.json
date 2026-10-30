@@ -500,36 +500,51 @@
   "SCRCMD_267": {
     "original": "SCRCMD_TRIGGERSLOTSMINIGAME",
     "current": "sCRcMD_267",
-    "symbolType": "static"
+    "symbolType": "static",
+    "enabled": true
   },
   "SlotMachineLookupTable": {
     "original": "Unk_ov101_021D9520",
     "current": "SlotMachineLookupTable",
-    "symbolType": "constant"
+    "symbolType": "constant",
+    "enabled": true
   },
   "LCRNG_RangeMod100": {
     "original": "ov101_021D405C",
     "current": "LCRNG_RangeMod100",
-    "symbolType": "subroutine"
+    "symbolType": "subroutine",
+    "enabled": true
   },
   "IsSlotMachineLookupValueGreaterThanLCRNG": {
     "original": "ov101_021D4084",
     "current": "IsSlotMachineLookupValueGreaterThanLCRNG",
-    "symbolType": "subroutine"
+    "symbolType": "subroutine",
+    "enabled": true
   },
   "Struct_u16x2": {
     "original": "UnkStruct_ov101_021D95C8_sub1",
     "current": "Struct_u16x2",
-    "symbolType": "struct"
+    "symbolType": "struct",
+    "enabled": true
   },
   "Struct_u16x2x4": {
     "original": "UnkStruct_ov101_021D95C8",
     "current": "Struct_u16x2x4",
-    "symbolType": "struct"
+    "symbolType": "struct",
+    "enabled": true
   },
   "Const_u16x2x4x6": {
     "original": "Unk_ov101_021D95C8",
     "current": "Const_u16x2x4x6",
-    "symbolType": "constant"
+    "symbolType": "constant",
+    "enabled": true
   }
+rn\sub(ov101_021D406C,SlotsMinigame_StopHereOrReduceRandByWeight)
+rn\par(ov101_021D406C.param0,SlotsMinigame_StopHereOrReduceRandByWeight.weight)
+rn\par(ov101_021D406C.param1,SlotsMinigame_StopHereOrReduceRandByWeight.randPointer)
+rn\sub(ov101_021D40A8,SlotsMinigame_SetBitFlagFromLCRNG)
+rn\par(ov101_021D40A8.param0,SlotsMinigame_SetBitFlagFromLCRNG.overlayState)
+rn\const(Unk_ov101_021D94D8,Const_5_80_1_70)
+rn\sub(ov101_021D41EC,SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold)
+rn\par(ov101_021D41EC.param0,SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold.overlayState)
 }

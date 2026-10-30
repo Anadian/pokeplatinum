@@ -113,7 +113,7 @@ const int Unk_ov101_021D94F0[6] = {
     0xF
 };
 
-const u32 Unk_ov101_021D9520[6] = {
+const u32 SlotMachineLookupTable[6] = {
     0x19,
     0x19,
     0x1E,
@@ -122,7 +122,7 @@ const u32 Unk_ov101_021D9520[6] = {
     0x23
 };
 
-const UnkStruct_ov101_021D95C8 Unk_ov101_021D95C8[6] = {
+const Struct_u16x2x4 Const_u16x2x4x6[6] = {
     {
         { 0x1, 0x4 },
         { 0x2, 0xD },

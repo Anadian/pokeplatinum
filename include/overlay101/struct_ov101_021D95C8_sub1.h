@@ -4,6 +4,6 @@
 typedef struct {
     u16 unk_00;
     u16 unk_02;
-} UnkStruct_ov101_021D95C8_sub1;
+} Struct_u16x2;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D95C8_SUB1_H

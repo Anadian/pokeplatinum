@@ -620,7 +620,7 @@ ScriptCommand(SCRCMD_CHANGEDEOXYSFORM,                                     ScrCm
 ScriptCommand(SCRCMD_CHECKPARTYCOMBEEGENDERCOUNT,                          ScrCmd_CheckPartyCombeeGenderCount)
 ScriptCommand(SCRCMD_HIDEPOKETCH,                                          ScrCmd_HidePoketch)
 ScriptCommand(SCRCMD_SHOWPOKETCH,                                          ScrCmd_ShowPoketch)
-ScriptCommand(SCRCMD_TRIGGERSLOTSMINIGAME,                                                  ScrCmd_TriggerSlotsMinigame)
+ScriptCommand(SCRCMD_267,                                                  ScrCmd_TriggerSlotsMinigame)
 ScriptCommand(SCRCMD_GETHOUR,                                              ScrCmd_GetHour)
 ScriptCommand(SCRCMD_SHAKEOBJECT,                                          ScrCmd_ShakeObject)
 ScriptCommand(SCRCMD_FLICKEROBJECT,                                        ScrCmd_FlickerObject)

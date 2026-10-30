@@ -4,10 +4,10 @@
 #include "overlay101/struct_ov101_021D95C8_sub1.h"
 
 typedef struct {
-    UnkStruct_ov101_021D95C8_sub1 unk_00;
-    UnkStruct_ov101_021D95C8_sub1 unk_04;
-    UnkStruct_ov101_021D95C8_sub1 unk_08;
-    UnkStruct_ov101_021D95C8_sub1 unk_0C;
-} UnkStruct_ov101_021D95C8;
+    Struct_u16x2 unk_00;
+    Struct_u16x2 unk_04;
+    Struct_u16x2 unk_08;
+    Struct_u16x2 unk_0C;
+} Struct_u16x2x4;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D95C8_H

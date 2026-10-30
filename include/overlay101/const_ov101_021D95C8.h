@@ -3,6 +3,6 @@
 
 #include "overlay101/struct_ov101_021D95C8.h"
 
-extern const UnkStruct_ov101_021D95C8 Unk_ov101_021D95C8[6];
+extern const Struct_u16x2x4 Const_u16x2x4x6[6];
 
 #endif // POKEPLATINUM_CONST_OV101_021D95C8_H
