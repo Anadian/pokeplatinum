@@ -154,8 +154,8 @@ static int SlotsMinigame_StopHereOrReduceRandByWeight(u32 weight, u32 *randPoint
 static int IsSlotMachineLookupValueGreaterThanLCRNG(Overlay101State *param0);
 static int SlotsMinigame_SetBitFlagFromLCRNG(Overlay101State *overlayState);
 static int SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold(Overlay101State *overlayState);
-static void SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(Overlay101State *overlayState);
-static void ov101_021D42D0(Overlay101State *param0);
+static void SlotsMinigame_Increment_478_47C_480_OrCrash(Overlay101State *overlayState);
+static void SlotsMinigame_Increment_488_484_48C_OrCrash(Overlay101State *param0);
 static int ov101_021D4370(Overlay101State *param0);
 static void ov101_021D4394(Overlay101State *param0);
 static int ov101_021D44C4(Overlay101State *param0);
@@ -351,9 +351,9 @@ static int ov101_021D1BD0(Overlay101State *param0)
 
     if (param0->unk_74 != 0) {
         if (SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold(param0) == 0) {
-            param0->unk_13C.unk_18 = UnkEnum_ov101_021D5814_04;
+            param0->overlay101AnimationManager.unk_18 = UnkEnum_ov101_021D5814_04;
         } else {
-            param0->unk_13C.unk_18 = ov101_021D5814(param0->unk_74);
+            param0->overlay101AnimationManager.unk_18 = ov101_021D5814(param0->unk_74);
             param0->unk_490++;
         }
 
@@ -599,8 +599,8 @@ static int ov101_021D1F54(Overlay101State *param0)
 static int ov101_021D1FA0(Overlay101State *param0)
 {
     ov101_021D4FF8(param0);
-    SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(param0);
-    ov101_021D42D0(param0);
+    SlotsMinigame_Increment_478_47C_480_OrCrash(param0);
+    SlotsMinigame_Increment_488_484_48C_OrCrash(param0);
     ov101_021D4798(param0, 11);
 
     param0->unk_6C = 0;
@@ -639,8 +639,8 @@ static int ov101_021D200C(Overlay101State *param0)
     param0->unk_00 = 20;
 
     ov101_021D45F8(param0);
-    SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(param0);
-    ov101_021D42D0(param0);
+    SlotsMinigame_Increment_478_47C_480_OrCrash(param0);
+    SlotsMinigame_Increment_488_484_48C_OrCrash(param0);
     ov101_021D4798(param0, 11);
 
     return 0;
@@ -671,8 +671,8 @@ static int ov101_021D2088(Overlay101State *param0)
 
     ov101_021D45F8(param0);
     ov101_021D4798(param0, 11);
-    SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(param0);
-    ov101_021D42D0(param0);
+    SlotsMinigame_Increment_478_47C_480_OrCrash(param0);
+    SlotsMinigame_Increment_488_484_48C_OrCrash(param0);
 
     return 0;
 }
@@ -697,14 +697,14 @@ static int ov101_021D20B0(Overlay101State *param0)
 
 static int ov101_021D20FC(Overlay101State *param0)
 {
-    GF_ASSERT(param0->unk_50 < SlotsMinigame_Literal0To6Enum); // <6
+    GF_ASSERT(param0->unk_50 < UnkEnum_ov101_021D9934_06); // <6
     param0->unk_00 = 25;
     return 1;
 }
 
 static int ov101_021D2114(Overlay101State *param0)
 {
-    GF_ASSERT(param0->unk_50 < SlotsMinigame_Literal0To6Enum); // -6
+    GF_ASSERT(param0->unk_50 < UnkEnum_ov101_021D9934_06); // -6
     param0->unk_00 = 28;
 
     return 1;
@@ -1007,7 +1007,7 @@ static int ov101_021D254C(Overlay101State *param0)
     ov101_021D53B0(param0);
     SlotsMinigame_SoundSequence_StartChange(param0, BGM_00ATARI);
 
-    param0->unk_454 = ov101_021D7B08(param0);
+    param0->overworldAnimationManager = ov101_021D7B08(param0);
 
     return 0;
 }
@@ -1015,7 +1015,7 @@ static int ov101_021D254C(Overlay101State *param0)
 static int ov101_021D2598(Overlay101State *param0)
 {
     if (ov101_021D460C(param0) == 1) {
-        OverworldAnimManager_Finish(param0->unk_454);
+        OverworldAnimManager_Finish(param0->overworldAnimationManager);
         ov101_021D4798(param0, 7);
         param0->unk_00 = 41;
         return 1;
@@ -2869,13 +2869,13 @@ static int SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold(Overlay101Stat
     return 0;
 }
 
-static void SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(Overlay101State *overlayState)
+static void SlotsMinigame_Increment_478_47C_480_OrCrash(Overlay101State *overlayState)
 {
     int v0;
     u32 v1 = LCRNG_RangeMod100(overlayState);
     const SlotsMinigame_5To50x7x4 *v2 = SlotsMinigame_5To50x7x4x6x6[overlayState->slotMachineVariant];
 
-    for (v0 = 0; v0 < SlotsMinigame_Literal0To6Enum; v0++) { // [0,6)
+    for (v0 = 0; v0 < UnkEnum_ov101_021D9934_06; v0++) { // [0,6)
         if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[v0].probability5To50, &v1) == 1) { // if any of the probability5To50 cause an underflow
             overlayState->unk_50 = v2[v0].enum0To6;
             overlayState->unk_4C = v2[v0].enum0To3;
@@ -2906,16 +2906,16 @@ static void SlotsMinigame_IncrementCountersBasedOnLookupTablesOrCrash(Overlay101
     GF_ASSERT(FALSE); // Error condition?
 }
 
-static void ov101_021D42D0(Overlay101State *param0)
+static void SlotsMinigame_Increment_488_484_48C_OrCrash(Overlay101State *param0)
 {
     u32 v0 = 0, v1 = LCRNG_RangeMod100(param0);
-    const UnkStruct_ov101_021D9784 *v2 = Unk_ov101_021D9784[param0->slotMachineVariant][param0->unk_4C];
+    const UnkStruct_ov101_021D9784 *v2 = Const_SlotsMinigame_6x3x3[param0->slotMachineVariant][param0->unk_4C];
 
     do {
         if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[v0].unk_00, &v1) == 1) {
-            param0->unk_13C.unk_1C = v2[v0].unk_04; // v0=0
+            param0->overlay101AnimationManager.enum0To3v6764 = v2[v0].unk_04; // v0=0
 
-            switch (param0->unk_13C.unk_1C) {
+            switch (param0->overlay101AnimationManager.enum0To3v6764) {
             case UnkEnum_ov101_021D6764_00:
                 param0->unk_488++;
                 break;
@@ -2933,13 +2933,13 @@ static void ov101_021D42D0(Overlay101State *param0)
         v0++;
     } while (v0 < UnkEnum_ov101_021D6764_03);
 
-    param0->unk_13C.unk_1C = UnkEnum_ov101_021D6764_01;
+    param0->overlay101AnimationManager.enum0To3v6764 = UnkEnum_ov101_021D6764_01;
     GF_ASSERT(FALSE);
 }
 
 static int ov101_021D4370(Overlay101State *param0)
 {
-    u32 v0 = Unk_ov101_021D9538[param0->slotMachineVariant];
+    u32 v0 = Const_SlotsMinigame_25_25_30_30_35_35[param0->slotMachineVariant];
     u32 v1 = LCRNG_RangeMod100(param0);
 
     if (v1 < v0) { // If LCRNG [0,100) less than [25,35]
@@ -3217,7 +3217,7 @@ static void ov101_021D4714(UnkStruct_ov101_021D4714 *param0)
 static void ov101_021D4764(Overlay101State *param0)
 {
 	REC_LOG1(param0);
-    Overlay101_AnimationManager *v0 = &param0->unk_13C;
+    Overlay101_AnimationManager *v0 = &param0->overlay101AnimationManager;
 
     v0->unk_00 = 0;
     v0->unk_04 = 0;
@@ -3229,7 +3229,7 @@ static void ov101_021D4764(Overlay101State *param0)
 static void ov101_021D4788(Overlay101State *param0)
 {
 	REC_LOG1(param0);
-    Overlay101_AnimationManager *v0 = &param0->unk_13C;
+    Overlay101_AnimationManager *v0 = &param0->overlay101AnimationManager;
     SysTask_Done(v0->task);
 	RET_LOG0();
 }
@@ -3237,7 +3237,7 @@ static void ov101_021D4788(Overlay101State *param0)
 static void ov101_021D4798(Overlay101State *param0, u32 param1)
 {
 	REC_LOG2(param0,param1);
-    Overlay101_AnimationManager *v0 = &param0->unk_13C;
+    Overlay101_AnimationManager *v0 = &param0->overlay101AnimationManager;
 
     v0->unk_00 = param1;
     v0->unk_04 = 0;
@@ -3249,7 +3249,7 @@ static void ov101_021D4798(Overlay101State *param0, u32 param1)
 static int ov101_021D47AC(Overlay101State *param0)
 {
 	REC_LOG1(param0);
-    Overlay101_AnimationManager *v0 = &param0->unk_13C;
+    Overlay101_AnimationManager *v0 = &param0->overlay101AnimationManager;
 	RET_LOG1(v0->unk_08);
     return v0->unk_08;
 }
@@ -3257,23 +3257,23 @@ static int ov101_021D47AC(Overlay101State *param0)
 static void ov101_021D47B4(Overlay101State *param0)
 {
 	REC_LOG1(param0);
-    param0->unk_13C.unk_0C = 0;
-    param0->unk_13C.unk_38 = ov101_021D7228(param0);
-    param0->unk_13C.unk_3C = ov101_021D73B4(param0);
-    param0->unk_13C.unk_40 = ov101_021D7550(param0);
-    param0->unk_13C.unk_44 = ov101_021D76B4(param0);
+    param0->overlay101AnimationManager.unk_0C = 0;
+    param0->overlay101AnimationManager.unk_38 = ov101_021D7228(param0);
+    param0->overlay101AnimationManager.unk_3C = ov101_021D73B4(param0);
+    param0->overlay101AnimationManager.unk_40 = ov101_021D7550(param0);
+    param0->overlay101AnimationManager.unk_44 = ov101_021D76B4(param0);
 	RET_LOG0();
 }
 
 static void ov101_021D47F0(Overlay101State *param0)
 {
 	REC_LOG1(param0);
-    param0->unk_13C.unk_0C = 1;
+    param0->overlay101AnimationManager.unk_0C = 1;
 
-    OverworldAnimManager_Finish(param0->unk_13C.unk_38);
-    OverworldAnimManager_Finish(param0->unk_13C.unk_3C);
-    OverworldAnimManager_Finish(param0->unk_13C.unk_40);
-    OverworldAnimManager_Finish(param0->unk_13C.unk_44);
+    OverworldAnimManager_Finish(param0->overlay101AnimationManager.unk_38);
+    OverworldAnimManager_Finish(param0->overlay101AnimationManager.unk_3C);
+    OverworldAnimManager_Finish(param0->overlay101AnimationManager.unk_40);
+    OverworldAnimManager_Finish(param0->overlay101AnimationManager.unk_44);
 	RET_LOG0();
 }
 
@@ -3384,7 +3384,7 @@ static int ov101_021D4900(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D5DC4(param0->unk_28) == 1) {
         param0->unk_2C = ov101_021D6484(param0->overlayState);
-        param0->unk_30 = ov101_021D6764(param0->overlayState, param0->unk_1C);
+        param0->unk_30 = ov101_021D6764(param0->overlayState, param0->enum0To3v6764);
         param0->unk_04++;
     }
 
@@ -3711,7 +3711,7 @@ static int ov101_021D4CBC(Overlay101_AnimationManager *param0)
 {
     if (ov101_021D5DC4(param0->unk_28) == 1) {
         param0->unk_2C = ov101_021D6484(param0->overlayState);
-        param0->unk_30 = ov101_021D6764(param0->overlayState, param0->unk_1C);
+        param0->unk_30 = ov101_021D6764(param0->overlayState, param0->enum0To3v6764);
         param0->unk_0C = 0;
         param0->unk_04++;
     }
@@ -3936,7 +3936,7 @@ static OverworldAnimManager *ov101_021D5028(Overlay101State *param0, UnkEnum_ov1
     v2.unk_04 = param2;
     v2.unk_08 = param0;
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D86B0, &v1, 0, &v2, 143);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D86B0, &v1, 0, &v2, 143);
 
     return v0;
 }
@@ -4073,7 +4073,7 @@ static void ov101_021D5200(Overlay101State *param0)
     VecFx32 v0 = { 0, 0, 0 };
 
     GF_ASSERT(param0->unk_120.unk_14 == NULL);
-    param0->unk_120.unk_14 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D8700, &v0, 0, param0, 143);
+    param0->unk_120.unk_14 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D8700, &v0, 0, param0, 143);
 }
 
 static void ov101_021D5244(Overlay101State *param0)

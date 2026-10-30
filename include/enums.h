@@ -100,7 +100,7 @@ typedef enum {
     UnkEnum_ov101_021D6764_01,
     UnkEnum_ov101_021D6764_02,
     UnkEnum_ov101_021D6764_03,
-} UnkEnum_ov101_021D6764;
+} SlotsMinigame_Literal0To3Enum6764;
 
 typedef enum {
     UnkEnum_ov101_021D679C_00,
@@ -134,15 +134,15 @@ typedef enum {
     UnkEnum_ov101_021D9934_03,
     UnkEnum_ov101_021D9934_04,
     UnkEnum_ov101_021D9934_05,
-    SlotsMinigame_Literal0To6Enum,
-} UnkEnum_ov101_021D9934;
+    UnkEnum_ov101_021D9934_06,
+} SlotsMinigame_Literal0To6Enum;
 
 typedef enum {
     UnkEnum_ov101_021D9934_1_00 = 0,
     UnkEnum_ov101_021D9934_1_01,
     UnkEnum_ov101_021D9934_1_02,
-    SlotsMinigame_Literal0To3Enum,
-} UnkEnum_ov101_021D9934_1;
+    UnkEnum_ov101_021D9934_1_03,
+} SlotsMinigame_Literal0To3Enum;
 
 typedef enum {
     UnkEnum_ov101_021D9AE4_00 = 0,

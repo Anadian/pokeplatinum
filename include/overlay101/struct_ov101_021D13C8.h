@@ -36,8 +36,8 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     u32 unk_40;
     UnkEnum_ov101_021D9688 unk_44;
     u32 unk_48;
-    UnkEnum_ov101_021D9934_1 unk_4C; // [0,3]
-    UnkEnum_ov101_021D9934 unk_50; // [0,6]
+    SlotsMinigame_Literal0To3Enum unk_4C; // [0,3]
+    SlotsMinigame_Literal0To6Enum unk_50; // [0,6]
     u32 unk_54[3];
     int coins;
     int unk_64;
@@ -54,7 +54,7 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     int unk_A8[3];
     UnkStruct_ov101_021D2D88 unk_B4[3];
     UnkStruct_ov101_021D4714 unk_120;
-    Overlay101_AnimationManager unk_13C;
+    Overlay101_AnimationManager overlay101AnimationManager;
     UnkStruct_ov101_021D4F58 unk_184;
     UnkStruct_ov101_021D148C unk_408;
     SlotsMinigame_SoundSequenceController soundSequenceController;
@@ -63,9 +63,9 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     NNSG2dScreenData *unk_440;
     NNSG2dCharacterData *unk_444;
     NNSG2dPaletteData *unk_448;
-    OverworldAnimManagerList *unk_44C;
+    OverworldAnimManagerList *overworldAnimationManagerList;
     UnkStruct_ov101_021D7E48 *unk_450;
-    OverworldAnimManager *unk_454;
+    OverworldAnimManager *overworldAnimationManager;
     u32 unk_458;
     u32 unk_45C;
     u32 unk_460;

@@ -3,6 +3,6 @@
 
 #include "enums.h"
 
-extern const u32 SlotsMinigame_50_70_90_Twice[SlotsMinigame_Literal0To6Enum];
+extern const u32 SlotsMinigame_50_70_90_Twice[UnkEnum_ov101_021D9934_06];
 
 #endif // POKEPLATINUM_CONST_OV101_021D9568_H

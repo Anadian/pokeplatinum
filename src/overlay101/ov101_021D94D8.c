@@ -170,7 +170,7 @@ const u32 Const_5_80_1_70[6] = {
     0x46
 };
 
-const SlotsMinigame_5To50x7x4 SlotsMinigame_5To50x7x4x6x6[6][SlotsMinigame_Literal0To6Enum] = {
+const SlotsMinigame_5To50x7x4 SlotsMinigame_5To50x7x4x6x6[6][UnkEnum_ov101_021D9934_06] = {
     {
         { 0x5, UnkEnum_ov101_021D9934_03, UnkEnum_ov101_021D9934_1_00 },
         { 0xA, UnkEnum_ov101_021D9934_01, UnkEnum_ov101_021D9934_1_01 },
@@ -221,7 +221,7 @@ const SlotsMinigame_5To50x7x4 SlotsMinigame_5To50x7x4x6x6[6][SlotsMinigame_Liter
     },
 };
 
-const u32 SlotsMinigame_50_70_90_Twice[SlotsMinigame_Literal0To6Enum] = {
+const u32 SlotsMinigame_50_70_90_Twice[UnkEnum_ov101_021D9934_06] = {
     0x32,
     0x46,
     0x5A,
@@ -230,7 +230,7 @@ const u32 SlotsMinigame_50_70_90_Twice[SlotsMinigame_Literal0To6Enum] = {
     0x5A
 };
 
-const UnkStruct_ov101_021D9784 Unk_ov101_021D9784[6][SlotsMinigame_Literal0To3Enum][UnkEnum_ov101_021D6764_03] = {
+const UnkStruct_ov101_021D9784 Const_SlotsMinigame_6x3x3[6][UnkEnum_ov101_021D9934_1_03][UnkEnum_ov101_021D6764_03] = {
     {
         {
             { 0x5, UnkEnum_ov101_021D6764_02 },
@@ -335,7 +335,7 @@ const UnkStruct_ov101_021D9784 Unk_ov101_021D9784[6][SlotsMinigame_Literal0To3En
     },
 };
 
-const u32 Unk_ov101_021D9538[6] = {
+const u32 Const_SlotsMinigame_25_25_30_30_35_35[6] = {
     0x19, // 25
     0x19,
     0x1E, // 30

@@ -15,7 +15,7 @@ typedef struct {
     int unk_10;
     int unk_14;
     UnkEnum_ov101_021D5814 unk_18;
-    UnkEnum_ov101_021D6764 unk_1C;
+    SlotsMinigame_Literal0To3Enum6764 enum0To3v6764;
     Overlay101State *overlayState;
     SysTask *task;
     OverworldAnimManager *unk_28;

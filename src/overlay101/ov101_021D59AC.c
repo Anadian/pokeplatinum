@@ -76,7 +76,7 @@ typedef struct {
     u32 unk_0C;
     u32 unk_10;
     int unk_14;
-    UnkEnum_ov101_021D6764 unk_18;
+    SlotsMinigame_Literal0To3Enum6764 unk_18;
     void *unk_1C;
     Overlay101State *unk_20;
     UnkStruct_ov101_021D8544 unk_24;
@@ -188,7 +188,7 @@ void ov101_021D59AC(Overlay101State *param0)
             v5.x = v1;
             v4.unk_08 = v0;
             v4.unk_04 = v2;
-            v3 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D91DC, &v5, 0, &v4, 139);
+            v3 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D91DC, &v5, 0, &v4, 139);
         }
     }
 }
@@ -258,7 +258,7 @@ void ov101_021D5AF0(Overlay101State *param0)
     VecFx32 v1 = { (FX32_ONE * 108), (FX32_ONE * 180), 0 };
 
     for (v0 = 1; v0 < 100000; v0 *= 10, v1.x -= (FX32_ONE * 8)) {
-        OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D91F0, &v1, v0, param0, 141);
+        OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D91F0, &v1, v0, param0, 141);
     }
 }
 
@@ -331,7 +331,7 @@ void ov101_021D5C28(Overlay101State *param0)
     VecFx32 v1 = { (FX32_ONE * 180), (FX32_ONE * 180), 0 };
 
     for (v0 = 1; v0 < 100000; v0 *= 10, v1.x -= (FX32_ONE * 8)) {
-        OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D9204, &v1, v0, param0, 141);
+        OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D9204, &v1, v0, param0, 141);
     }
 }
 
@@ -404,7 +404,7 @@ OverworldAnimManager *ov101_021D5D58(Overlay101State *param0, UnkEnum_ov101_021D
     OverworldAnimManager *v0;
     VecFx32 v1 = { (FX32_ONE * 0), (FX32_ONE * 400), 0 };
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D9218, &v1, param1, param0, 134);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D9218, &v1, param1, param0, 134);
     return v0;
 }
 
@@ -856,7 +856,7 @@ OverworldAnimManager *ov101_021D6484(Overlay101State *param0)
     OverworldAnimManager *v0;
     VecFx32 v1 = { (FX32_ONE * 128), ((FX32_ONE * 192) + (FX32_ONE * (160 - 16))), 0 };
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D9150, &v1, 0, param0, 135);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D9150, &v1, 0, param0, 135);
     return v0;
 }
 
@@ -1019,12 +1019,12 @@ static void ov101_021D66D0(UnkStruct_ov101_021D66D0 *param0)
     GF_ASSERT(v0 != NULL);
 }
 
-OverworldAnimManager *ov101_021D6764(Overlay101State *param0, UnkEnum_ov101_021D6764 param1)
+OverworldAnimManager *ov101_021D6764(Overlay101State *param0, SlotsMinigame_Literal0To3Enum6764 param1)
 {
     OverworldAnimManager *v0;
     VecFx32 v1 = { (FX32_ONE * 128), (FX32_ONE * 160), 0 };
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D9164, &v1, param1, param0, 137);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D9164, &v1, param1, param0, 137);
 
     return v0;
 }
@@ -1436,7 +1436,7 @@ OverworldAnimManager *ov101_021D6DF0(Overlay101State *param0)
     OverworldAnimManager *v0;
     VecFx32 v1 = { 0, 0, 0 };
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D9178, &v1, 0, param0, 136);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D9178, &v1, 0, param0, 136);
     return v0;
 }
 
@@ -1675,7 +1675,7 @@ OverworldAnimManager *ov101_021D7228(Overlay101State *param0)
     OverworldAnimManager *v0;
     VecFx32 v1 = { (FX32_ONE * 24), ((FX32_ONE * 192) + (FX32_ONE * 8)), 0 };
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D918C, &v1, 0, param0, 142);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D918C, &v1, 0, param0, 142);
     return v0;
 }
 
@@ -1703,7 +1703,7 @@ static void ov101_021D72B8(OverworldAnimManager *param0, void *param1)
 {
     int v0 = 1;
     UnkStruct_ov101_021D72AC *v1 = param1;
-    Overlay101_AnimationManager *v2 = &v1->unk_00->unk_13C;
+    Overlay101_AnimationManager *v2 = &v1->unk_00->overlay101AnimationManager;
 
     if (v2->unk_0C == 1) {
         v0 = 0;
@@ -1729,7 +1729,7 @@ OverworldAnimManager *ov101_021D72D4(Overlay101State *param0)
 
     v0.x = (FX32_ONE * (128 - (((6 + 5) * 8) / 2)));
     v0.y = ((FX32_ONE * 192) + (FX32_ONE * (96 + 16)));
-    v1 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D91C8, &v0, 0, param0, 142);
+    v1 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D91C8, &v0, 0, param0, 142);
 
     return v1;
 }
@@ -1788,7 +1788,7 @@ OverworldAnimManager *ov101_021D73B4(Overlay101State *param0)
     OverworldAnimManager *v0;
     VecFx32 v1 = { (FX32_ONE * 200), ((FX32_ONE * 192) + (FX32_ONE * 184)), 0 };
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D922C, &v1, 0, param0, 142);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D922C, &v1, 0, param0, 142);
     return v0;
 }
 
@@ -1816,7 +1816,7 @@ static void ov101_021D7444(OverworldAnimManager *param0, void *param1)
 {
     int v0 = 1;
     UnkStruct_ov101_021D7438 *v1 = param1;
-    Overlay101_AnimationManager *v2 = &v1->unk_00->unk_13C;
+    Overlay101_AnimationManager *v2 = &v1->unk_00->overlay101AnimationManager;
 
     if (v2->unk_0C == 1) {
         v0 = 0;
@@ -1842,7 +1842,7 @@ OverworldAnimManager *ov101_021D7460(Overlay101State *param0)
 
     v1.x = (FX32_ONE * (128 - (((10 + 5) * 8) / 2)));
     v1.y = ((FX32_ONE * 192) + (FX32_ONE * (96 - 16)));
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D9254, &v1, 0, param0, 142);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D9254, &v1, 0, param0, 142);
 
     return v0;
 }
@@ -1901,7 +1901,7 @@ OverworldAnimManager *ov101_021D7550(Overlay101State *param0)
     OverworldAnimManager *v0;
     VecFx32 v1 = { (FX32_ONE * 14), ((FX32_ONE * 192) + (FX32_ONE * 8)), 0 };
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D913C, &v1, 0, param0, 142);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D913C, &v1, 0, param0, 142);
     return v0;
 }
 
@@ -1934,7 +1934,7 @@ static void ov101_021D75F0(OverworldAnimManager *param0, void *param1)
 static void ov101_021D7604(OverworldAnimManager *param0, void *param1)
 {
     UnkStruct_ov101_021D75F0 *v0 = param1;
-    Overlay101_AnimationManager *v1 = &v0->unk_00->unk_13C;
+    Overlay101_AnimationManager *v1 = &v0->unk_00->overlay101AnimationManager;
 
     Sprite_SetDrawFlag(v0->unk_04[0].unk_04, FALSE);
     Sprite_SetDrawFlag(v0->unk_04[1].unk_04, FALSE);
@@ -1988,7 +1988,7 @@ OverworldAnimManager *ov101_021D76B4(Overlay101State *param0)
     OverworldAnimManager *v0;
     VecFx32 v1 = { (FX32_ONE * 14), ((FX32_ONE * 192) + (FX32_ONE * 8)), 0 };
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D91A0, &v1, 0, param0, 142);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D91A0, &v1, 0, param0, 142);
     return v0;
 }
 
@@ -2021,7 +2021,7 @@ static void ov101_021D776C(OverworldAnimManager *param0, void *param1)
 {
     int v0;
     UnkStruct_ov101_021D7754 *v1 = param1;
-    Overlay101_AnimationManager *v2 = &v1->unk_00->unk_13C;
+    Overlay101_AnimationManager *v2 = &v1->unk_00->overlay101AnimationManager;
 
     {
         int v3 = 1;
@@ -2073,7 +2073,7 @@ OverworldAnimManager *ov101_021D77E4(Overlay101State *param0, UnkEnum_ov101_021D
     VecFx32 v1 = { 0, 0, 0 };
     u32 v2;
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D9240, &v1, param1, param0, 142);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D9240, &v1, param1, param0, 142);
 
     return v0;
 }
@@ -2189,7 +2189,7 @@ OverworldAnimManager *ov101_021D79BC(Overlay101State *param0, u32 param1)
         param1 = 999;
     }
 
-    v0 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D9268, &v1, param1, param0, 142);
+    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D9268, &v1, param1, param0, 142);
     return v0;
 }
 
@@ -2263,7 +2263,7 @@ static const OverworldAnimManagerFuncs Unk_ov101_021D91B4;
 OverworldAnimManager *ov101_021D7B08(Overlay101State *param0)
 {
     VecFx32 v0 = { 0, 0, 0 };
-    OverworldAnimManager *v1 = OverworldAnimManagerList_InitManager(param0->unk_44C, &Unk_ov101_021D91B4, &v0, 0, param0, 140);
+    OverworldAnimManager *v1 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D91B4, &v0, 0, param0, 140);
 
     return v1;
 }

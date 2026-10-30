@@ -158,7 +158,7 @@ int SlotsMinigame_Main(ApplicationManager *appMan, int *param1)
         }
     }
 
-    OverworldAnimManagerList_Render(v1->unk_44C);
+    OverworldAnimManagerList_Render(v1->overworldAnimationManagerList);
     ov101_021D80D4(v1->unk_450);
 
     return 0;
@@ -585,12 +585,12 @@ static void SlotsMinigame_Noop(Overlay101State *param0)
 
 static void SlotsMinigame_InitAnimationManager(Overlay101State *param0)
 {
-    param0->unk_44C = OverworldAnimManagerList_New(HEAP_ID_79, 128);
+    param0->overworldAnimationManagerList = OverworldAnimManagerList_New(HEAP_ID_79, 128);
 }
 
 static void SlotsMinigame_FreeAnimationManager(Overlay101State *param0)
 {
-    OverworldAnimManagerList_FinishAndFree(param0->unk_44C);
+    OverworldAnimManagerList_FinishAndFree(param0->overworldAnimationManagerList);
 }
 
 void SlotsMinigame_SoundSequence_StartChange(Overlay101State *overlayState, SlotsMinigame_SoundSequenceID sequenceID)

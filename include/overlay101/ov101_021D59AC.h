@@ -14,7 +14,7 @@ void ov101_021D5D90(OverworldAnimManager *param0, UnkEnum_ov101_021D5D90 param1)
 void ov101_021D5DA4(OverworldAnimManager *param0, int param1);
 int ov101_021D5DC4(OverworldAnimManager *param0);
 OverworldAnimManager *ov101_021D6484(Overlay101State *param0);
-OverworldAnimManager *ov101_021D6764(Overlay101State *param0, UnkEnum_ov101_021D6764 param1);
+OverworldAnimManager *ov101_021D6764(Overlay101State *param0, SlotsMinigame_Literal0To3Enum6764 param1);
 void ov101_021D679C(OverworldAnimManager *param0, UnkEnum_ov101_021D679C param1);
 int ov101_021D67B0(OverworldAnimManager *param0);
 OverworldAnimManager *ov101_021D6DF0(Overlay101State *param0);
