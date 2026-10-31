@@ -2952,25 +2952,25 @@ static int ov101_021D4370(Overlay101State *param0)
 static void ov101_021D4394(Overlay101State *param0)
 {
     u32 v0;
-    const u32 *v1 = Unk_ov101_021D9628[param0->slotMachineVariant];
+    const u32 *v1 = Unk_ov101_021D9628[param0->slotMachineVariant]; // Effectively useless as all 6 variants if the same set of values: { 5, 15, 30, 50 }
     u32 v2 = LCRNG_RangeMod100(param0);
 
-    param0->unk_74 = 0;
+    param0->unk_74 = 0; // 0s bitflag
 
-    if (ov101_021D4370(param0) == 0) {
+    if (ov101_021D4370(param0) == 0) { // LCRNG !< 25|30|35
         param0->unk_474++;
 
         switch (param0->unk_50) {
         case UnkEnum_ov101_021D9934_00:
         case UnkEnum_ov101_021D9934_01:
         case UnkEnum_ov101_021D9934_02:
-            param0->unk_74 |= (1 << 9);
+            param0->unk_74 |= (1 << 9); // If variant < 3, set bit 9
             param0->unk_4B8++;
             return;
         case UnkEnum_ov101_021D9934_03:
         case UnkEnum_ov101_021D9934_04:
         case UnkEnum_ov101_021D9934_05:
-            param0->unk_74 |= (1 << 8);
+            param0->unk_74 |= (1 << 8); // Else, set bit 8
             param0->unk_4B4++;
             return;
         }
@@ -2981,24 +2981,25 @@ static void ov101_021D4394(Overlay101State *param0)
     }
 
     if (SlotsMinigame_StopHereOrReduceRandByWeight(v1[0], &v2) == 1) {
-        param0->unk_74 |= (1 << 2);
+        param0->unk_74 |= (1 << 2); // Set bit 2 if subtracting by 5 causes an underflow.
         param0->unk_49C++;
         return;
     }
 
     if (SlotsMinigame_StopHereOrReduceRandByWeight(v1[1], &v2) == 1) {
-        param0->unk_74 |= (1 << 6);
+        param0->unk_74 |= (1 << 6); // Set bit 6 if subtracting by 15 causes an underflow.
         param0->unk_4AC++;
         return;
     }
 
     if (SlotsMinigame_StopHereOrReduceRandByWeight(v1[1], &v2) == 1) {
-        param0->unk_74 |= (1 << 4);
+        param0->unk_74 |= (1 << 4); // Set bit 4 if subtracting by 15 causes an underflow.
+
         param0->unk_4A4++;
         return;
     }
 
-    param0->unk_74 = (1 << 0);
+    param0->unk_74 = (1 << 0); // Set bit 0 if subtracting 35 still hasn't caused an underflow.
     param0->unk_494++;
 }
 
@@ -3007,7 +3008,7 @@ static int ov101_021D44A0(Overlay101State *param0)
     u32 v0 = LCRNG_RangeMod100(param0);
     u32 v1 = Unk_ov101_021D9580[param0->slotMachineVariant];
 
-    if (v0 < v1) {
+    if (v0 < v1) { // < 3|5|7
         return 1;
     }
 
@@ -3040,41 +3041,41 @@ static int ov101_021D44E8(Overlay101State *param0)
 
 static void ov101_021D44FC(Overlay101State *param0)
 {
-    u32 v0 = param0->unk_18;
-    u32 v1 = LCRNG_RangeMod100(param0);
-    const u32 *v2 = Unk_ov101_021D9598[param0->slotMachineVariant];
+    u32 prob_50_70_90 = param0->unk_18;
+    u32 rand = LCRNG_RangeMod100(param0);
+    const u32 *weight_pair = Unk_orand01_021D9598[param0->slotMachineVariant];
 
     if (param0->unk_28 == 2) {
-        v0 -= 10;
+        prob_50_70_90 -= 10;
     } else {
-        if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[0], &v1) == 1) {
-            v0 -= 10;
-        } else if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[1], &v1) == 1) {
-            v0 -= 5;
+        if (SlotsMinigame_StopHereOrReduceRandByWeight(weight_pair[0], &rand) == 1) {
+            prob_50_70_90 -= 10;
+        } else if (SlotsMinigame_StopHereOrReduceRandByWeight(weight_pair[1], &rand) == 1) {
+            prob_50_70_90 -= 5;
         }
     }
 
-    if ((int)v0 < 0) {
-        v0 = 0;
+    if ((int)prob_50_70_90 < 0) {
+        prob_50_70_90 = 0; // Check underflow, should never happen
     }
 
-    param0->unk_18 = v0;
+    param0->unk_18 = prob_50_70_90;
 }
 
 static UnkEnum_ov101_021D4550 ov101_021D4550(Overlay101State *param0)
 {
-    int v0;
-    u32 v1 = param0->unk_18;
-    u32 v2 = LCRNG_RangeMod100(param0);
+    int prob_enum_index;
+    u32 current_prob = param0->unk_18;
+    u32 rand = LCRNG_RangeMod100(param0);
     const UnkStruct_ov101_021D9AE4 *v3 = Unk_ov101_021D9AE4[param0->slotMachineVariant];
 
-    for (v0 = 0; v0 < UnkEnum_ov101_021D9AE4_09; v0++) {
-        if (v1 >= v3[v0].unk_00) {
-            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[v0].unk_04, &v2) == 1) {
+    for (prob_enum_index = 0; prob_enum_index < UnkEnum_ov101_021D9AE4_09; prob_enum_index++) {
+        if (current_prob >= v3[prob_enum_index].unk_00) {
+            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[prob_enum_index].unk_04, &rand) == 1) {
                 return UnkEnum_ov101_021D4550_01;
             }
 
-            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[v0].unk_08, &v2) == 1) {
+            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[prob_enum_index].unk_08, &rand) == 1) {
                 return UnkEnum_ov101_021D4550_00;
             }
 
@@ -3082,7 +3083,7 @@ static UnkEnum_ov101_021D4550 ov101_021D4550(Overlay101State *param0)
         }
     }
 
-    GF_ASSERT(FALSE);
+    GF_ASSERT(FALSE); // Should be unreachable
     return UnkEnum_ov101_021D4550_00;
 }
 
@@ -3202,7 +3203,7 @@ static void ov101_021D4714(UnkStruct_ov101_021D4714 *param0)
     GF_ASSERT(v2 != 0);
 
     for (v0 = 0; v0 < UnkEnum_ov101_021D4F58_05; v0++, v2 >>= 1) {
-        if (v2 & 0x1) {
+        if (v2 & 0x1) { // bit 1 of unk_48
             if (param0->unk_14 == NULL) {
                 param0->unk_14 = ov101_021D5028(v1, v0, v1->unk_64);
             } else if (param0->unk_18 == NULL) {

@@ -23,24 +23,24 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     u32 unk_0C;
     u32 unk_10;
     u32 unk_14;
-    u32 unk_18; // 50, 70, or 90
+    u32 unk_18; // 50, 70, or 90 RNG threshold
     u32 unk_1C;
     u32 unk_20;
     u32 unk_24;
-    u32 unk_28;
+    u32 unk_28; // if( 2 ) unk_18 -= 10;
     u32 unk_2C;
     u32 unk_30;
-    u32 unk_34;
+    u32 unk_34; // randOf6
     u32 unk_38;
     u32 unk_3C;
     u32 unk_40;
     UnkEnum_ov101_021D9688 unk_44;
-    u32 unk_48;
+    u32 unk_48; // Crashes if 0
     SlotsMinigame_Literal0To3Enum unk_4C; // [0,3]
     SlotsMinigame_Literal0To6Enum unk_50; // [0,6]
     u32 unk_54[3];
     int coins;
-    int unk_64;
+    int unk_64; // Passed to InitOverworldAnimationManager
     int unk_68;
     fx32 unk_6C;
     int unk_70;
@@ -73,24 +73,24 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     u32 unk_468;
     u32 unk_46C;
     u32 unk_470;
-    u32 unk_474;
+    u32 unk_474; // if( LCRNG >= (variant < 2 ? 25 : (variant < 4 ? 30 : 35 ) ) ) ++;
     u32 unk_478; // Incremented if 4C is 0
     u32 unk_47C; // Incremented if 4C is 1
     u32 unk_480; // Incremented if 4C is 2
-    u32 unk_484;
-    u32 unk_488;
-    u32 unk_48C;
+    u32 unk_484; //
+    u32 unk_488; //
+    u32 unk_48C; //
     u32 unk_490;
-    u32 unk_494;
+    u32 unk_494; // if( !474 && bitflag74 & 1 ) ++;
     u32 unk_498;
-    u32 unk_49C;
+    u32 unk_49C; // if( !474 && bitflag74 & (1 << 2) ) ++;
     u32 unk_4A0;
-    u32 unk_4A4;
+    u32 unk_4A4; // if( !474 && bitflag74 & (1 << 4) ) ++;
     u32 unk_4A8;
-    u32 unk_4AC;
+    u32 unk_4AC; // if( !474 && bitflag74 & (1 << 6) ) ++;
     u32 unk_4B0;
-    u32 unk_4B4;
-    u32 unk_4B8;
+    u32 unk_4B4; // if( 474 && variant > 2 ) ++;
+    u32 unk_4B8; // if( 474 && variant < 3 ) ++;
     u32 unk_4BC;
     u32 unk_4C0;
     int msgBoxFrame;

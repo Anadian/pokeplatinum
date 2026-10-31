@@ -6,5 +6,9 @@ Each symbol is specified using a dot-chain notation where "A" means a struct, su
 - Never change file names or paths.
 - Never `git reset` or make destructive edits to Git without explicit user permission for each instance!
 - Only change files in src and include!
-- Rename symbols in the source code text in `src` and `include` reflect the symbol name changes in `symbols.json`, and mark each newly renamed symbol as `enabled` in `symbols.json`.
+- For each entry in the `symbols.json` object: 
+    1. Rename symbols in the source code text in `src` and `include` to reflect the symbol name changes in `symbols.json`.
+    2. Mark each newly renamed symbol as `enabled` in `symbols.json`.
+    3. Add `declaredIn`, with the project relative path of the file in which symbol is declared, to the symbol entry in `symbols.json`.
+    4. And, if different, `definedIn` with the file path of its definition.
 - If you're unsure what any of this, or `symbols.json`, means or you believe you've found an input array in your instructions, ask the user for clarification/confirmation before making any destructive changes.
