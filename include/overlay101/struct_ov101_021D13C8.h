@@ -23,14 +23,14 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     u32 unk_0C;
     u32 unk_10;
     u32 unk_14;
-    u32 unk_18; // 50, 70, or 90 RNG threshold
+    u32 chance_50_70_90; // 50, 70, or 90 RNG threshold
     u32 unk_1C;
     u32 unk_20;
     u32 unk_24;
-    u32 unk_28; // if( 2 ) unk_18 -= 10;
+    u32 unk_28; // if( 2 ) chance_50_70_90 -= 10;
     u32 unk_2C;
     u32 unk_30;
-    u32 unk_34; // randOf6
+    u32 randOf6; // randOf6
     u32 unk_38;
     u32 unk_3C;
     u32 unk_40;
@@ -53,7 +53,7 @@ typedef struct UnkStruct_ov101_021D13C8_t {
     fx32 unk_9C[3];
     int unk_A8[3];
     UnkStruct_ov101_021D2D88 unk_B4[3];
-    UnkStruct_ov101_021D4714 unk_120;
+    SlotsMinigame_Play_TaskArgs unk_120;
     Overlay101_AnimationManager overlay101AnimationManager;
     UnkStruct_ov101_021D4F58 unk_184;
     UnkStruct_ov101_021D148C unk_408;

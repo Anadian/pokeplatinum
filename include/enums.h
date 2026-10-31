@@ -67,7 +67,7 @@ typedef enum {
     UnkEnum_ov101_021D4F58_03,
     UnkEnum_ov101_021D4F58_04,
     UnkEnum_ov101_021D4F58_05,
-} UnkEnum_ov101_021D4F58;
+} SlotsMinigame_Play_1_0_Enum;
 
 typedef enum {
     UnkEnum_ov101_021D394C_00 = 0,
@@ -116,11 +116,11 @@ typedef enum {
 } UnkEnum_ov101_021D679C;
 
 typedef enum {
-    UnkEnum_ov101_021D4550_00 = 0,
-    UnkEnum_ov101_021D4550_01,
-    UnkEnum_ov101_021D4550_02,
-    UnkEnum_ov101_021D4550_03,
-} UnkEnum_ov101_021D4550;
+    SLOTSMINIGAME_UNDERFLOWED_BY_WEIGHT_2 = 0,
+    SLOTSMINIGAME_UNDERFLOWED_BY_WEIGHT_1,
+    SLOTSMINIGAME_NO_UNDERFLOW,
+    SLOTSMINIGAME_UNDERFLOWED_BY_WEIGHT_COUNT,
+} SlotsMinigame_RandUnderflowedByWeight;
 
 typedef enum {
     UnkEnum_ov101_021D77E4_00 = 0,
@@ -145,17 +145,17 @@ typedef enum {
 } SlotsMinigame_Literal0To3Enum;
 
 typedef enum {
-    UnkEnum_ov101_021D9AE4_00 = 0,
-    UnkEnum_ov101_021D9AE4_01 = 5,
-    UnkEnum_ov101_021D9AE4_02 = 15,
-    UnkEnum_ov101_021D9AE4_03 = 25,
-    UnkEnum_ov101_021D9AE4_04 = 35,
-    UnkEnum_ov101_021D9AE4_05 = 45,
-    UnkEnum_ov101_021D9AE4_06 = 55,
-    UnkEnum_ov101_021D9AE4_07 = 65,
-    UnkEnum_ov101_021D9AE4_08 = 75,
-    UnkEnum_ov101_021D9AE4_09 = 9,
-} UnkEnum_ov101_021D9AE4;
+    SLOTSMINIGAME_PROBABILITY_0 = 0,
+    SLOTSMINIGAME_PROBABILITY_5 = 5,
+    SLOTSMINIGAME_PROBABILITY_15 = 15,
+    SLOTSMINIGAME_PROBABILITY_25 = 25,
+    SLOTSMINIGAME_PROBABILITY_35 = 35,
+    SLOTSMINIGAME_PROBABILITY_45 = 45,
+    SLOTSMINIGAME_PROBABILITY_55 = 55,
+    SLOTSMINIGAME_PROBABILITY_65 = 65,
+    SLOTSMINIGAME_PROBABILITY_75 = 75,
+    SLOTSMINIGAME_PROBABILITY_COUNT = 9,
+} SlotsMinigame_ProbabilitiesEnum;
 
 typedef enum {
     BGM_FIELD,

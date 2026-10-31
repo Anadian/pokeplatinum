@@ -7,13 +7,13 @@
 #include "sys_task_manager.h"
 
 typedef struct {
-    u32 unk_00;
+    u32 state;
     u32 unk_04;
     int unk_08;
-    Overlay101State *unk_0C;
-    SysTask *unk_10;
-    OverworldAnimManager *unk_14;
-    OverworldAnimManager *unk_18;
-} UnkStruct_ov101_021D4714;
+    Overlay101State *overlayState;
+    SysTask *task;
+    OverworldAnimManager *overworldAnimationManager1;
+    OverworldAnimManager *overworldAnimationManager2;
+} SlotsMinigame_Play_TaskArgs;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D4714_H

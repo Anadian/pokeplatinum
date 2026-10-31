@@ -4,10 +4,10 @@
 #include "enums.h"
 
 typedef struct {
-    UnkEnum_ov101_021D9AE4 unk_00;
-    u32 unk_04;
-    u32 unk_08;
-    u32 unk_0C;
-} UnkStruct_ov101_021D9AE4;
+    SlotsMinigame_ProbabilitiesEnum cutoffThreshold;
+    u32 weight1;
+    u32 weight2;
+    u32 probZ;
+} SlotsMinigame_ProbEnum_ProbVec3D;
 
 #endif // POKEPLATINUM_STRUCT_OV101_021D9AE4_H

@@ -5,6 +5,6 @@
 
 #include "enums.h"
 
-extern const UnkStruct_ov101_021D9AE4 Unk_ov101_021D9AE4[6][UnkEnum_ov101_021D9AE4_09];
+extern const SlotsMinigame_ProbEnum_ProbVec3D Const_SlotsMinigame_ProbTable_Variant_xProbabilityEnumx4[6][SLOTSMINIGAME_PROBABILITY_COUNT];
 
 #endif // POKEPLATINUM_CONST_OV101_021D9AE4_H

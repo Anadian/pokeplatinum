@@ -344,7 +344,7 @@ const u32 Const_SlotsMinigame_25_25_30_30_35_35[6] = {
     0x23
 };
 
-const u32 Unk_ov101_021D9628[6][4] = {
+const u32 Const_SlotsMinigame_9628_6x5_15_30_50[6][4] = {
     { 0x5, 0xF, 0x1E, 0x32 },
     { 0x5, 0xF, 0x1E, 0x32 },
     { 0x5, 0xF, 0x1E, 0x32 },
@@ -353,7 +353,7 @@ const u32 Unk_ov101_021D9628[6][4] = {
     { 0x5, 0xF, 0x1E, 0x32 }
 };
 
-const u32 Unk_ov101_021D9580[6] = {
+const u32 Const_SlotsMinigame_1_1_3_3_5_5[6] = {
     0x1,
     0x1,
     0x3,
@@ -362,7 +362,7 @@ const u32 Unk_ov101_021D9580[6] = {
     0x5
 };
 
-const u32 Unk_ov101_021D9508[6] = {
+const u32 Const_SlotsMinigame_3_3_5_5_7_7[6] = {
     0x3,
     0x3,
     0x5,
@@ -371,7 +371,7 @@ const u32 Unk_ov101_021D9508[6] = {
     0x7
 };
 
-const u32 Unk_ov101_021D9598[6][2] = {
+const u32 Const_SlotsMinigame_6x2xu32_5To25[6][2] = {
     { 0x19, 0x14 },
     { 0x14, 0xF },
     { 0xF, 0xF },
@@ -380,71 +380,71 @@ const u32 Unk_ov101_021D9598[6][2] = {
     { 0x5, 0xA }
 };
 
-const UnkStruct_ov101_021D9AE4 Unk_ov101_021D9AE4[6][UnkEnum_ov101_021D9AE4_09] = {
+const SlotsMinigame_ProbEnum_ProbVec3D Const_SlotsMinigame_ProbTable_Variant_xProbabilityEnumx4[6][SLOTSMINIGAME_PROBABILITY_COUNT] = {
     {
-        { UnkEnum_ov101_021D9AE4_08, 0xA, 0xA, 0x50 },
-        { UnkEnum_ov101_021D9AE4_07, 0xA, 0x1E, 0x3C },
-        { UnkEnum_ov101_021D9AE4_06, 0xA, 0x28, 0x32 },
-        { UnkEnum_ov101_021D9AE4_05, 0x14, 0x32, 0x1E },
-        { UnkEnum_ov101_021D9AE4_04, 0x1E, 0x32, 0x14 },
-        { UnkEnum_ov101_021D9AE4_03, 0x32, 0x28, 0xA },
-        { UnkEnum_ov101_021D9AE4_02, 0x3C, 0x1E, 0xA },
-        { UnkEnum_ov101_021D9AE4_01, 0x50, 0xA, 0xA },
-        { UnkEnum_ov101_021D9AE4_00, 0x5A, 0x5, 0x5 },
+        { SLOTSMINIGAME_PROBABILITY_75, 0xA, 0xA, 0x50 },
+        { SLOTSMINIGAME_PROBABILITY_65, 0xA, 0x1E, 0x3C },
+        { SLOTSMINIGAME_PROBABILITY_55, 0xA, 0x28, 0x32 },
+        { SLOTSMINIGAME_PROBABILITY_45, 0x14, 0x32, 0x1E },
+        { SLOTSMINIGAME_PROBABILITY_35, 0x1E, 0x32, 0x14 },
+        { SLOTSMINIGAME_PROBABILITY_25, 0x32, 0x28, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_15, 0x3C, 0x1E, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_5, 0x50, 0xA, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_0, 0x5A, 0x5, 0x5 },
     },
     {
-        { UnkEnum_ov101_021D9AE4_08, 0xA, 0xA, 0x50 },
-        { UnkEnum_ov101_021D9AE4_07, 0xA, 0x1E, 0x3C },
-        { UnkEnum_ov101_021D9AE4_06, 0xA, 0x28, 0x32 },
-        { UnkEnum_ov101_021D9AE4_05, 0x14, 0x32, 0x1E },
-        { UnkEnum_ov101_021D9AE4_04, 0x1E, 0x32, 0x14 },
-        { UnkEnum_ov101_021D9AE4_03, 0x32, 0x28, 0xA },
-        { UnkEnum_ov101_021D9AE4_02, 0x3C, 0x1E, 0xA },
-        { UnkEnum_ov101_021D9AE4_01, 0x50, 0xA, 0xA },
-        { UnkEnum_ov101_021D9AE4_00, 0x5A, 0x5, 0x5 },
+        { SLOTSMINIGAME_PROBABILITY_75, 0xA, 0xA, 0x50 },
+        { SLOTSMINIGAME_PROBABILITY_65, 0xA, 0x1E, 0x3C },
+        { SLOTSMINIGAME_PROBABILITY_55, 0xA, 0x28, 0x32 },
+        { SLOTSMINIGAME_PROBABILITY_45, 0x14, 0x32, 0x1E },
+        { SLOTSMINIGAME_PROBABILITY_35, 0x1E, 0x32, 0x14 },
+        { SLOTSMINIGAME_PROBABILITY_25, 0x32, 0x28, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_15, 0x3C, 0x1E, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_5, 0x50, 0xA, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_0, 0x5A, 0x5, 0x5 },
     },
     {
-        { UnkEnum_ov101_021D9AE4_08, 0xA, 0xA, 0x50 },
-        { UnkEnum_ov101_021D9AE4_07, 0xA, 0x1E, 0x3C },
-        { UnkEnum_ov101_021D9AE4_06, 0xA, 0x28, 0x32 },
-        { UnkEnum_ov101_021D9AE4_05, 0x14, 0x32, 0x1E },
-        { UnkEnum_ov101_021D9AE4_04, 0x1E, 0x32, 0x14 },
-        { UnkEnum_ov101_021D9AE4_03, 0x32, 0x28, 0xA },
-        { UnkEnum_ov101_021D9AE4_02, 0x3C, 0x1E, 0xA },
-        { UnkEnum_ov101_021D9AE4_01, 0x50, 0xA, 0xA },
-        { UnkEnum_ov101_021D9AE4_00, 0x5A, 0x5, 0x5 },
+        { SLOTSMINIGAME_PROBABILITY_75, 0xA, 0xA, 0x50 },
+        { SLOTSMINIGAME_PROBABILITY_65, 0xA, 0x1E, 0x3C },
+        { SLOTSMINIGAME_PROBABILITY_55, 0xA, 0x28, 0x32 },
+        { SLOTSMINIGAME_PROBABILITY_45, 0x14, 0x32, 0x1E },
+        { SLOTSMINIGAME_PROBABILITY_35, 0x1E, 0x32, 0x14 },
+        { SLOTSMINIGAME_PROBABILITY_25, 0x32, 0x28, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_15, 0x3C, 0x1E, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_5, 0x50, 0xA, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_0, 0x5A, 0x5, 0x5 },
     },
     {
-        { UnkEnum_ov101_021D9AE4_08, 0xA, 0xA, 0x50 },
-        { UnkEnum_ov101_021D9AE4_07, 0xA, 0x1E, 0x3C },
-        { UnkEnum_ov101_021D9AE4_06, 0xA, 0x28, 0x32 },
-        { UnkEnum_ov101_021D9AE4_05, 0x14, 0x32, 0x1E },
-        { UnkEnum_ov101_021D9AE4_04, 0x1E, 0x32, 0x14 },
-        { UnkEnum_ov101_021D9AE4_03, 0x32, 0x28, 0xA },
-        { UnkEnum_ov101_021D9AE4_02, 0x3C, 0x1E, 0xA },
-        { UnkEnum_ov101_021D9AE4_01, 0x50, 0xA, 0xA },
-        { UnkEnum_ov101_021D9AE4_00, 0x5A, 0x5, 0x5 },
+        { SLOTSMINIGAME_PROBABILITY_75, 0xA, 0xA, 0x50 },
+        { SLOTSMINIGAME_PROBABILITY_65, 0xA, 0x1E, 0x3C },
+        { SLOTSMINIGAME_PROBABILITY_55, 0xA, 0x28, 0x32 },
+        { SLOTSMINIGAME_PROBABILITY_45, 0x14, 0x32, 0x1E },
+        { SLOTSMINIGAME_PROBABILITY_35, 0x1E, 0x32, 0x14 },
+        { SLOTSMINIGAME_PROBABILITY_25, 0x32, 0x28, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_15, 0x3C, 0x1E, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_5, 0x50, 0xA, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_0, 0x5A, 0x5, 0x5 },
     },
     {
-        { UnkEnum_ov101_021D9AE4_08, 0xA, 0xA, 0x50 },
-        { UnkEnum_ov101_021D9AE4_07, 0xA, 0x1E, 0x3C },
-        { UnkEnum_ov101_021D9AE4_06, 0xA, 0x28, 0x32 },
-        { UnkEnum_ov101_021D9AE4_05, 0x14, 0x32, 0x1E },
-        { UnkEnum_ov101_021D9AE4_04, 0x1E, 0x32, 0x14 },
-        { UnkEnum_ov101_021D9AE4_03, 0x32, 0x28, 0xA },
-        { UnkEnum_ov101_021D9AE4_02, 0x3C, 0x1E, 0xA },
-        { UnkEnum_ov101_021D9AE4_01, 0x50, 0xA, 0xA },
-        { UnkEnum_ov101_021D9AE4_00, 0x5A, 0x5, 0x5 },
+        { SLOTSMINIGAME_PROBABILITY_75, 0xA, 0xA, 0x50 },
+        { SLOTSMINIGAME_PROBABILITY_65, 0xA, 0x1E, 0x3C },
+        { SLOTSMINIGAME_PROBABILITY_55, 0xA, 0x28, 0x32 },
+        { SLOTSMINIGAME_PROBABILITY_45, 0x14, 0x32, 0x1E },
+        { SLOTSMINIGAME_PROBABILITY_35, 0x1E, 0x32, 0x14 },
+        { SLOTSMINIGAME_PROBABILITY_25, 0x32, 0x28, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_15, 0x3C, 0x1E, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_5, 0x50, 0xA, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_0, 0x5A, 0x5, 0x5 },
     },
     {
-        { UnkEnum_ov101_021D9AE4_08, 0xA, 0xA, 0x50 },
-        { UnkEnum_ov101_021D9AE4_07, 0xA, 0x1E, 0x3C },
-        { UnkEnum_ov101_021D9AE4_06, 0xA, 0x28, 0x32 },
-        { UnkEnum_ov101_021D9AE4_05, 0x14, 0x32, 0x1E },
-        { UnkEnum_ov101_021D9AE4_04, 0x1E, 0x32, 0x14 },
-        { UnkEnum_ov101_021D9AE4_03, 0x32, 0x28, 0xA },
-        { UnkEnum_ov101_021D9AE4_02, 0x3C, 0x1E, 0xA },
-        { UnkEnum_ov101_021D9AE4_01, 0x50, 0xA, 0xA },
-        { UnkEnum_ov101_021D9AE4_00, 0x5A, 0x5, 0x5 },
+        { SLOTSMINIGAME_PROBABILITY_75, 0xA, 0xA, 0x50 },
+        { SLOTSMINIGAME_PROBABILITY_65, 0xA, 0x1E, 0x3C },
+        { SLOTSMINIGAME_PROBABILITY_55, 0xA, 0x28, 0x32 },
+        { SLOTSMINIGAME_PROBABILITY_45, 0x14, 0x32, 0x1E },
+        { SLOTSMINIGAME_PROBABILITY_35, 0x1E, 0x32, 0x14 },
+        { SLOTSMINIGAME_PROBABILITY_25, 0x32, 0x28, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_15, 0x3C, 0x1E, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_5, 0x50, 0xA, 0xA },
+        { SLOTSMINIGAME_PROBABILITY_0, 0x5A, 0x5, 0x5 },
     },
 };

@@ -75,7 +75,7 @@ typedef struct {
 } UnkStruct_ov101_021D87A8;
 
 typedef struct {
-    UnkEnum_ov101_021D4F58 unk_00;
+    SlotsMinigame_Play_1_0_Enum unk_00;
     u32 unk_04;
     Overlay101State *unk_08;
 } UnkStruct_ov101_021D5068;
@@ -85,7 +85,7 @@ typedef struct {
     int unk_04;
     int unk_08;
     int unk_0C;
-    UnkEnum_ov101_021D4F58 unk_10;
+    SlotsMinigame_Play_1_0_Enum unk_10;
     u32 unk_14;
     fx32 unk_18;
     Overlay101State *unk_1C;
@@ -97,7 +97,7 @@ typedef struct {
     int unk_04;
     int unk_08;
     fx32 unk_0C;
-    UnkEnum_ov101_021D4F58 unk_10;
+    SlotsMinigame_Play_1_0_Enum unk_10;
     fx32 unk_14[5];
     Overlay101State *unk_28;
     UnkStruct_ov101_021D4F58 *unk_2C;
@@ -156,20 +156,20 @@ static int SlotsMinigame_SetBitFlagFromLCRNG(Overlay101State *overlayState);
 static int SlotsMinigame_LCRNGLessThanSlotMachineVariantThreshold(Overlay101State *overlayState);
 static void SlotsMinigame_Increment_478_47C_480_OrCrash(Overlay101State *overlayState);
 static void SlotsMinigame_Increment_488_484_48C_OrCrash(Overlay101State *param0);
-static int ov101_021D4370(Overlay101State *param0);
-static void ov101_021D4394(Overlay101State *param0);
-static int ov101_021D44C4(Overlay101State *param0);
-static int ov101_021D44A0(Overlay101State *param0);
-static int ov101_021D44E8(Overlay101State *param0);
-static void ov101_021D44FC(Overlay101State *param0);
-static UnkEnum_ov101_021D4550 ov101_021D4550(Overlay101State *param0);
-static void ov101_021D45B0(Overlay101State *param0);
+static int SlotsMinigame_VariantDetermined_LowThreshold_LCRNGCheck(Overlay101State *overlayState);
+static void SlotsMinigame_ResetBitFlag(Overlay101State *overlayState);
+static int SlotsMinigame_LCRNGLessThan_3_5_7(Overlay101State *overlayState);
+static int SlotsMinigame_LCRNGLessThan_1_3_5(Overlay101State *overlayState);
+static int SlotsMinigame_Chance_50_70_90(Overlay101State *overlayState);
+static void SlotsMingame_ReduceProbability_44FC(Overlay101State *overlayState);
+static SlotsMinigame_RandUnderflowedByWeight SlotsMinigame_IterateOverThresholdsToFindUnderflow(Overlay101State *overlayState);
+static void Overlay101State_SetNextRandOf6(Overlay101State *overlayState);
 static void ov101_021D45C4(Overlay101State *param0);
 static void ov101_021D45E8(Overlay101State *param0);
 static void ov101_021D45F8(Overlay101State *param0);
 static int ov101_021D460C(Overlay101State *param0);
-static void ov101_021D4614(SysTask *param0, void *param1);
-static void ov101_021D4714(UnkStruct_ov101_021D4714 *param0);
+static void SlotsMinigame_Play_TaskCallback(SysTask *task, void *args);
+static void ov101_021D4714(SlotsMinigame_Play_TaskArgs *param0);
 static void ov101_021D4764(Overlay101State *param0);
 static void ov101_021D4788(Overlay101State *param0);
 static void ov101_021D4798(Overlay101State *param0, u32 param1);
@@ -182,12 +182,12 @@ static void ov101_021D4EA8(NNSG2dPaletteData *param0, int param1, u16 *param2);
 static void ov101_021D4EC0(u16 param0, u16 param1, u16 param2, u16 *param3);
 static void ov101_021D4F18(const u16 *param0, const u16 *param1, u16 param2, u16 *param3);
 static void ov101_021D4F40(Overlay101State *param0, u32 param1, int param2, u16 *param3);
-static void ov101_021D4F58(Overlay101State *param0, UnkEnum_ov101_021D4F58 param1);
-static void ov101_021D4F78(Overlay101State *param0, UnkEnum_ov101_021D4F58 param1);
-static void ov101_021D4FB8(Overlay101State *param0, UnkEnum_ov101_021D4F58 param1);
+static void ov101_021D4F58(Overlay101State *param0, SlotsMinigame_Play_1_0_Enum param1);
+static void ov101_021D4F78(Overlay101State *param0, SlotsMinigame_Play_1_0_Enum param1);
+static void ov101_021D4FB8(Overlay101State *param0, SlotsMinigame_Play_1_0_Enum param1);
 static void ov101_021D4FF8(Overlay101State *param0);
 static void ov101_021D5010(Overlay101State *param0);
-static OverworldAnimManager *ov101_021D5028(Overlay101State *param0, UnkEnum_ov101_021D4F58 param1, u32 param2);
+static OverworldAnimManager *SlotsMinigame_PlayTask_InitOverworldAnimationManager(Overlay101State *overlayState, SlotsMinigame_Play_1_0_Enum play_1_0_state, u32 param2);
 static int ov101_021D505C(OverworldAnimManager *param0);
 static void ov101_021D5200(Overlay101State *param0);
 static void ov101_021D5244(Overlay101State *param0);
@@ -779,7 +779,7 @@ static int ov101_021D21F4(Overlay101State *param0)
 
 static int ov101_021D2228(Overlay101State *param0)
 {
-    ov101_021D4394(param0);
+    SlotsMinigame_ResetBitFlag(param0);
 
     param0->unk_460++;
     param0->unk_468++;
@@ -1053,7 +1053,7 @@ static int ov101_021D25DC(Overlay101State *param0)
     param0->unk_28 = 0;
     param0->unk_2C = 0;
 
-    if (ov101_021D44E8(param0) == 0) {
+    if (SlotsMinigame_Chance_50_70_90(param0) == 0) {
         param0->unk_2C = 1;
     }
 
@@ -1150,7 +1150,7 @@ static int ov101_021D2738(Overlay101State *param0)
     ov101_021D2BDC(param0, 1);
     ov101_021D2BDC(param0, 2);
     ov101_021D5848(param0);
-    ov101_021D45B0(param0);
+    Overlay101State_SetNextRandOf6(param0);
 
     param0->unk_7C[0] = 1;
     param0->unk_7C[1] = 1;
@@ -1161,7 +1161,7 @@ static int ov101_021D2738(Overlay101State *param0)
     Sound_PlayEffect(SEQ_SE_DP_OPEN2_sseq);
 
     if ((param0->unk_24 == 0) && (param0->unk_28 == 0)) {
-        if (ov101_021D44C4(param0) == 1) {
+        if (SlotsMinigame_LCRNGLessThan_3_5_7(param0) == 1) {
             param0->unk_28 = 1;
             param0->unk_4C0++;
         }
@@ -1172,7 +1172,7 @@ static int ov101_021D2738(Overlay101State *param0)
     }
 
     if ((param0->unk_24 == 0) && (param0->unk_28 == 0)) {
-        if (ov101_021D44A0(param0) == 1) {
+        if (SlotsMinigame_LCRNGLessThan_1_3_5(param0) == 1) {
             param0->unk_24 = 1;
             param0->unk_4BC++;
         }
@@ -1345,22 +1345,22 @@ static int ov101_021D2A44(Overlay101State *param0)
 
 static int ov101_021D2A78(Overlay101State *param0)
 {
-    UnkEnum_ov101_021D4550 v0;
+    SlotsMinigame_RandUnderflowedByWeight v0;
 
-    ov101_021D44FC(param0);
-    v0 = ov101_021D4550(param0);
+    SlotsMingame_ReduceProbability_44FC(param0);
+    v0 = SlotsMinigame_IterateOverThresholdsToFindUnderflow(param0);
 
     if (param0->unk_24 == 1) {
-        v0 = UnkEnum_ov101_021D4550_02;
+        v0 = SLOTSMINIGAME_NO_UNDERFLOW;
     }
 
-    if (v0 == UnkEnum_ov101_021D4550_02) {
+    if (v0 == SLOTSMINIGAME_NO_UNDERFLOW) {
         ov101_021D4798(param0, 5);
         param0->unk_00 = 56;
         return 0;
     }
 
-    if (v0 == UnkEnum_ov101_021D4550_01) {
+    if (v0 == SLOTSMINIGAME_UNDERFLOWED_BY_WEIGHT_1) {
         ov101_021D4798(param0, 12);
         param0->unk_00 = 57;
         return 0;
@@ -2879,7 +2879,7 @@ static void SlotsMinigame_Increment_478_47C_480_OrCrash(Overlay101State *overlay
         if (SlotsMinigame_StopHereOrReduceRandByWeight(v2[v0].probability5To50, &v1) == 1) { // if any of the probability5To50 cause an underflow
             overlayState->unk_50 = v2[v0].enum0To6;
             overlayState->unk_4C = v2[v0].enum0To3;
-            overlayState->unk_18 = SlotsMinigame_50_70_90_Twice[overlayState->unk_50];
+            overlayState->chance_50_70_90 = SlotsMinigame_50_70_90_Twice[overlayState->unk_50];
 
             switch (overlayState->unk_4C) {
             case UnkEnum_ov101_021D9934_1_00:
@@ -2901,7 +2901,7 @@ static void SlotsMinigame_Increment_478_47C_480_OrCrash(Overlay101State *overlay
 
     overlayState->unk_50 = v2[v0].enum0To6;
     overlayState->unk_4C = v2[v0].enum0To3;
-    overlayState->unk_18 = SlotsMinigame_50_70_90_Twice[overlayState->unk_50];
+    overlayState->chance_50_70_90 = SlotsMinigame_50_70_90_Twice[overlayState->unk_50];
 
     GF_ASSERT(FALSE); // Error condition?
 }
@@ -2937,10 +2937,10 @@ static void SlotsMinigame_Increment_488_484_48C_OrCrash(Overlay101State *param0)
     GF_ASSERT(FALSE);
 }
 
-static int ov101_021D4370(Overlay101State *param0)
+static int SlotsMinigame_VariantDetermined_LowThreshold_LCRNGCheck(Overlay101State *overlayState)
 {
-    u32 v0 = Const_SlotsMinigame_25_25_30_30_35_35[param0->slotMachineVariant];
-    u32 v1 = LCRNG_RangeMod100(param0);
+    u32 v0 = Const_SlotsMinigame_25_25_30_30_35_35[overlayState->slotMachineVariant];
+    u32 v1 = LCRNG_RangeMod100(overlayState);
 
     if (v1 < v0) { // If LCRNG [0,100) less than [25,35]
         return 1;
@@ -2949,64 +2949,64 @@ static int ov101_021D4370(Overlay101State *param0)
     return 0;
 }
 
-static void ov101_021D4394(Overlay101State *param0)
+static void SlotsMinigame_ResetBitFlag(Overlay101State *overlayState)
 {
     u32 v0;
-    const u32 *v1 = Unk_ov101_021D9628[param0->slotMachineVariant]; // Effectively useless as all 6 variants if the same set of values: { 5, 15, 30, 50 }
-    u32 v2 = LCRNG_RangeMod100(param0);
+    const u32 *v1 = Const_SlotsMinigame_9628_6x5_15_30_50[overlayState->slotMachineVariant]; // Effectively useless as all 6 variants if the same set of values: { 5, 15, 30, 50 }
+    u32 v2 = LCRNG_RangeMod100(overlayState);
 
-    param0->unk_74 = 0; // 0s bitflag
+    overlayState->unk_74 = 0; // 0s bitflag
 
-    if (ov101_021D4370(param0) == 0) { // LCRNG !< 25|30|35
-        param0->unk_474++;
+    if (SlotsMinigame_VariantDetermined_LowThreshold_LCRNGCheck(overlayState) == 0) { // LCRNG !< 25|30|35
+        overlayState->unk_474++;
 
-        switch (param0->unk_50) {
+        switch (overlayState->unk_50) {
         case UnkEnum_ov101_021D9934_00:
         case UnkEnum_ov101_021D9934_01:
         case UnkEnum_ov101_021D9934_02:
-            param0->unk_74 |= (1 << 9); // If variant < 3, set bit 9
-            param0->unk_4B8++;
+            overlayState->unk_74 |= (1 << 9); // If variant < 3, set bit 9
+            overlayState->unk_4B8++;
             return;
         case UnkEnum_ov101_021D9934_03:
         case UnkEnum_ov101_021D9934_04:
         case UnkEnum_ov101_021D9934_05:
-            param0->unk_74 |= (1 << 8); // Else, set bit 8
-            param0->unk_4B4++;
+            overlayState->unk_74 |= (1 << 8); // Else, set bit 8
+            overlayState->unk_4B4++;
             return;
         }
 
         GF_ASSERT(FALSE);
-        param0->unk_74 |= (1 << 9);
+        overlayState->unk_74 |= (1 << 9);
         return;
     }
 
     if (SlotsMinigame_StopHereOrReduceRandByWeight(v1[0], &v2) == 1) {
-        param0->unk_74 |= (1 << 2); // Set bit 2 if subtracting by 5 causes an underflow.
-        param0->unk_49C++;
+        overlayState->unk_74 |= (1 << 2); // Set bit 2 if subtracting by 5 causes an underflow.
+        overlayState->unk_49C++;
         return;
     }
 
     if (SlotsMinigame_StopHereOrReduceRandByWeight(v1[1], &v2) == 1) {
-        param0->unk_74 |= (1 << 6); // Set bit 6 if subtracting by 15 causes an underflow.
-        param0->unk_4AC++;
+        overlayState->unk_74 |= (1 << 6); // Set bit 6 if subtracting by 15 causes an underflow.
+        overlayState->unk_4AC++;
         return;
     }
 
     if (SlotsMinigame_StopHereOrReduceRandByWeight(v1[1], &v2) == 1) {
-        param0->unk_74 |= (1 << 4); // Set bit 4 if subtracting by 15 causes an underflow.
+        overlayState->unk_74 |= (1 << 4); // Set bit 4 if subtracting by 15 causes an underflow.
 
-        param0->unk_4A4++;
+        overlayState->unk_4A4++;
         return;
     }
 
-    param0->unk_74 = (1 << 0); // Set bit 0 if subtracting 35 still hasn't caused an underflow.
-    param0->unk_494++;
+    overlayState->unk_74 = (1 << 0); // Set bit 0 if subtracting 35 still hasn't caused an underflow.
+    overlayState->unk_494++;
 }
 
-static int ov101_021D44A0(Overlay101State *param0)
+static int SlotsMinigame_LCRNGLessThan_1_3_5(Overlay101State *overlayState)
 {
-    u32 v0 = LCRNG_RangeMod100(param0);
-    u32 v1 = Unk_ov101_021D9580[param0->slotMachineVariant];
+    u32 v0 = LCRNG_RangeMod100(overlayState);
+    u32 v1 = Const_SlotsMinigame_1_1_3_3_5_5[overlayState->slotMachineVariant];
 
     if (v0 < v1) { // < 3|5|7
         return 1;
@@ -3015,10 +3015,10 @@ static int ov101_021D44A0(Overlay101State *param0)
     return 0;
 }
 
-static int ov101_021D44C4(Overlay101State *param0)
+static int SlotsMinigame_LCRNGLessThan_3_5_7(Overlay101State *overlayState)
 {
-    u32 v0 = LCRNG_RangeMod100(param0);
-    u32 v1 = Unk_ov101_021D9508[param0->slotMachineVariant];
+    u32 v0 = LCRNG_RangeMod100(overlayState);
+    u32 v1 = Const_SlotsMinigame_3_3_5_5_7_7[overlayState->slotMachineVariant];
 
     if (v0 < v1) {
         return 1;
@@ -3027,10 +3027,10 @@ static int ov101_021D44C4(Overlay101State *param0)
     return 0;
 }
 
-static int ov101_021D44E8(Overlay101State *param0)
+static int SlotsMinigame_Chance_50_70_90(Overlay101State *overlayState)
 {
-    u32 v0 = param0->unk_18;
-    u32 v1 = LCRNG_RangeMod100(param0);
+    u32 v0 = overlayState->chance_50_70_90;
+    u32 v1 = LCRNG_RangeMod100(overlayState);
 
     if (v1 < v0) {
         return 1;
@@ -3039,13 +3039,13 @@ static int ov101_021D44E8(Overlay101State *param0)
     return 0;
 }
 
-static void ov101_021D44FC(Overlay101State *param0)
+static void SlotsMingame_ReduceProbability_44FC(Overlay101State *overlayState)
 {
-    u32 prob_50_70_90 = param0->unk_18;
-    u32 rand = LCRNG_RangeMod100(param0);
-    const u32 *weight_pair = Unk_orand01_021D9598[param0->slotMachineVariant];
+    u32 prob_50_70_90 = overlayState->chance_50_70_90;
+    u32 rand = LCRNG_RangeMod100(overlayState);
+    const u32 *weight_pair = Const_SlotsMinigame_6x2xu32_5To25[overlayState->slotMachineVariant];
 
-    if (param0->unk_28 == 2) {
+    if (overlayState->unk_28 == 2) {
         prob_50_70_90 -= 10;
     } else {
         if (SlotsMinigame_StopHereOrReduceRandByWeight(weight_pair[0], &rand) == 1) {
@@ -3059,59 +3059,59 @@ static void ov101_021D44FC(Overlay101State *param0)
         prob_50_70_90 = 0; // Check underflow, should never happen
     }
 
-    param0->unk_18 = prob_50_70_90;
+    overlayState->chance_50_70_90 = prob_50_70_90;
 }
 
-static UnkEnum_ov101_021D4550 ov101_021D4550(Overlay101State *param0)
+static SlotsMinigame_RandUnderflowedByWeight SlotsMinigame_IterateOverThresholdsToFindUnderflow(Overlay101State *overlayState)
 {
     int prob_enum_index;
-    u32 current_prob = param0->unk_18;
-    u32 rand = LCRNG_RangeMod100(param0);
-    const UnkStruct_ov101_021D9AE4 *v3 = Unk_ov101_021D9AE4[param0->slotMachineVariant];
+    u32 current_prob = overlayState->chance_50_70_90;
+    u32 rand = LCRNG_RangeMod100(overlayState);
+    const SlotsMinigame_ProbEnum_ProbVec3D *v3 = Const_SlotsMinigame_ProbTable_Variant_xProbabilityEnumx4[overlayState->slotMachineVariant];
 
-    for (prob_enum_index = 0; prob_enum_index < UnkEnum_ov101_021D9AE4_09; prob_enum_index++) {
-        if (current_prob >= v3[prob_enum_index].unk_00) {
-            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[prob_enum_index].unk_04, &rand) == 1) {
-                return UnkEnum_ov101_021D4550_01;
+    for (prob_enum_index = 0; prob_enum_index < SLOTSMINIGAME_PROBABILITY_COUNT; prob_enum_index++) {
+        if (current_prob >= v3[prob_enum_index].cutoffThreshold) {
+            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[prob_enum_index].weight1, &rand) == 1) {
+                return SLOTSMINIGAME_UNDERFLOWED_BY_WEIGHT_1;
             }
 
-            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[prob_enum_index].unk_08, &rand) == 1) {
-                return UnkEnum_ov101_021D4550_00;
+            if (SlotsMinigame_StopHereOrReduceRandByWeight(v3[prob_enum_index].weight2, &rand) == 1) {
+                return SLOTSMINIGAME_UNDERFLOWED_BY_WEIGHT_2;
             }
 
-            return UnkEnum_ov101_021D4550_02;
+            return SLOTSMINIGAME_NO_UNDERFLOW;
         }
     }
 
     GF_ASSERT(FALSE); // Should be unreachable
-    return UnkEnum_ov101_021D4550_00;
+    return SLOTSMINIGAME_UNDERFLOWED_BY_WEIGHT_2;
 }
 
-static void ov101_021D45B0(Overlay101State *param0)
+static void Overlay101State_SetNextRandOf6(Overlay101State *overlayState)
 {
-    param0->unk_34 = LCRNG_Next() % 6;
+    overlayState->randOf6 = LCRNG_Next() % 6;
 }
 
 static void ov101_021D45C4(Overlay101State *param0)
 {
-    UnkStruct_ov101_021D4714 *v0 = &param0->unk_120;
+    SlotsMinigame_Play_TaskArgs *v0 = &param0->unk_120;
 
-    v0->unk_00 = 0;
+    v0->state = 0;
     v0->unk_04 = 0;
-    v0->unk_0C = param0;
-    v0->unk_10 = SysTask_Start(ov101_021D4614, v0, 138);
+    v0->overlayState = param0;
+    v0->task = SysTask_Start(SlotsMinigame_Play_TaskCallback, v0, 138);
 }
 
 static void ov101_021D45E8(Overlay101State *param0)
 {
-    SysTask_Done(param0->unk_120.unk_10);
+    SysTask_Done(param0->unk_120.task);
 }
 
 static void ov101_021D45F8(Overlay101State *param0)
 {
     param0->unk_120.unk_04 = 0;
     param0->unk_120.unk_08 = 0;
-    param0->unk_120.unk_00 = 1;
+    param0->unk_120.state = 1;
 }
 
 static int ov101_021D460C(Overlay101State *param0)
@@ -3119,25 +3119,25 @@ static int ov101_021D460C(Overlay101State *param0)
     return param0->unk_120.unk_04;
 }
 
-static void ov101_021D4614(SysTask *param0, void *param1)
+static void SlotsMinigame_Play_TaskCallback(SysTask *task, void *args)
 {
     int v0;
-    UnkStruct_ov101_021D4714 *v1 = param1;
-    Overlay101State *v2 = v1->unk_0C;
+    SlotsMinigame_Play_TaskArgs *v1 = args;
+    Overlay101State *v2 = v1->overlayState;
 
-    switch (v1->unk_00) {
+    switch (v1->state) {
     case 0:
         break;
     case 1:
         ov101_021D4714(v1);
-        v1->unk_00++;
+        v1->state++;
         break;
     case 2:
-        if (((v1->unk_14 != NULL) && (ov101_021D505C(v1->unk_14) != 1)) || ((v1->unk_18 != NULL) && (ov101_021D505C(v1->unk_18) != 1))) {
+        if (((v1->overworldAnimationManager1 != NULL) && (ov101_021D505C(v1->overworldAnimationManager1) != 1)) || ((v1->overworldAnimationManager2 != NULL) && (ov101_021D505C(v1->overworldAnimationManager2) != 1))) {
             break;
         }
 
-        v1->unk_00++;
+        v1->state++;
     case 3:
         if (ov101_021D55F8(PAD_BUTTON_X) || (v2->unk_64 == 0)) {
             Sound_PlayEffect(SEQ_SE_DP_DENSI16_sseq);
@@ -3153,18 +3153,18 @@ static void ov101_021D4614(SysTask *param0, void *param1)
 
             v2->unk_64 = 0;
 
-            if (v1->unk_14 != NULL) {
-                OverworldAnimManager_Finish(v1->unk_14);
-                v1->unk_14 = NULL;
+            if (v1->overworldAnimationManager1 != NULL) {
+                OverworldAnimManager_Finish(v1->overworldAnimationManager1);
+                v1->overworldAnimationManager1 = NULL;
             }
 
-            if (v1->unk_18 != NULL) {
-                OverworldAnimManager_Finish(v1->unk_18);
-                v1->unk_18 = NULL;
+            if (v1->overworldAnimationManager2 != NULL) {
+                OverworldAnimManager_Finish(v1->overworldAnimationManager2);
+                v1->overworldAnimationManager2 = NULL;
             }
 
             v1->unk_04 = 1;
-            v1->unk_00 = 0;
+            v1->state = 0;
 
             return;
         }
@@ -3194,20 +3194,20 @@ static void ov101_021D4614(SysTask *param0, void *param1)
     }
 }
 
-static void ov101_021D4714(UnkStruct_ov101_021D4714 *param0)
+static void ov101_021D4714(SlotsMinigame_Play_TaskArgs *param0)
 {
     int v0;
-    Overlay101State *v1 = param0->unk_0C;
+    Overlay101State *v1 = param0->overlayState;
     u32 v2 = v1->unk_48;
 
     GF_ASSERT(v2 != 0);
 
     for (v0 = 0; v0 < UnkEnum_ov101_021D4F58_05; v0++, v2 >>= 1) {
         if (v2 & 0x1) { // bit 1 of unk_48
-            if (param0->unk_14 == NULL) {
-                param0->unk_14 = ov101_021D5028(v1, v0, v1->unk_64);
-            } else if (param0->unk_18 == NULL) {
-                param0->unk_18 = ov101_021D5028(v1, v0, v1->unk_64);
+            if (param0->overworldAnimationManager1 == NULL) {
+                param0->overworldAnimationManager1 = SlotsMinigame_PlayTask_InitOverworldAnimationManager(v1, v0, v1->unk_64);
+            } else if (param0->overworldAnimationManager2 == NULL) {
+                param0->overworldAnimationManager2 = SlotsMinigame_PlayTask_InitOverworldAnimationManager(v1, v0, v1->unk_64);
             } else {
                 GF_ASSERT(FALSE);
             }
@@ -3517,7 +3517,7 @@ static int (*const Unk_ov101_021D86A0[])(Overlay101_AnimationManager *) = {
 
 static int ov101_021D4A8C(Overlay101_AnimationManager *param0)
 {
-    const UnkStruct_ov101_021D87A8 *v0 = &Unk_ov101_021D87A8[param0->overlayState->unk_34];
+    const UnkStruct_ov101_021D87A8 *v0 = &Unk_ov101_021D87A8[param0->overlayState->randOf6];
 
     param0->unk_04++;
     param0->unk_14 = 0;
@@ -3538,7 +3538,7 @@ static int ov101_021D4AB8(Overlay101_AnimationManager *param0)
     }
 
     if ((param0->unk_14 < 2) && (param0->unk_14 != v1)) {
-        const UnkStruct_ov101_021D87A8 *v2 = &Unk_ov101_021D87A8[param0->overlayState->unk_34];
+        const UnkStruct_ov101_021D87A8 *v2 = &Unk_ov101_021D87A8[param0->overlayState->randOf6];
 
         param0->unk_14 = v1;
         ov101_021D679C(param0->unk_30, v2->unk_0C[param0->unk_14]);
@@ -3873,7 +3873,7 @@ static int Unk_ov101_021D9E60[UnkEnum_ov101_021D4F58_05] = {
     0xb,
 };
 
-static void ov101_021D4F58(Overlay101State *param0, UnkEnum_ov101_021D4F58 param1)
+static void ov101_021D4F58(Overlay101State *param0, SlotsMinigame_Play_1_0_Enum param1)
 {
     UnkStruct_ov101_021D4F58 *v0 = &param0->unk_184;
     int v1 = Unk_ov101_021D9E60[param1];
@@ -3881,7 +3881,7 @@ static void ov101_021D4F58(Overlay101State *param0, UnkEnum_ov101_021D4F58 param
     ov101_021D4F40(param0, 1, v1, v0->unk_A4[param1]);
 }
 
-static void ov101_021D4F78(Overlay101State *param0, UnkEnum_ov101_021D4F58 param1)
+static void ov101_021D4F78(Overlay101State *param0, SlotsMinigame_Play_1_0_Enum param1)
 {
     UnkStruct_ov101_021D4F58 *v0 = &param0->unk_184;
     int v1 = Unk_ov101_021D9E60[param1];
@@ -3893,7 +3893,7 @@ static void ov101_021D4F78(Overlay101State *param0, UnkEnum_ov101_021D4F58 param
     ov101_021D4F40(param0, 1, v1, v4);
 }
 
-static void ov101_021D4FB8(Overlay101State *param0, UnkEnum_ov101_021D4F58 param1)
+static void ov101_021D4FB8(Overlay101State *param0, SlotsMinigame_Play_1_0_Enum param1)
 {
     UnkStruct_ov101_021D4F58 *v0 = &param0->unk_184;
     int v1 = Unk_ov101_021D9E60[param1];
@@ -3927,17 +3927,17 @@ static void ov101_021D5010(Overlay101State *param0)
 
 static const OverworldAnimManagerFuncs Unk_ov101_021D86B0;
 
-static OverworldAnimManager *ov101_021D5028(Overlay101State *param0, UnkEnum_ov101_021D4F58 param1, u32 param2)
+static OverworldAnimManager *SlotsMinigame_PlayTask_InitOverworldAnimationManager(Overlay101State *overlayState, SlotsMinigame_Play_1_0_Enum play_1_0_state, u32 param2)
 {
     OverworldAnimManager *v0;
     VecFx32 v1 = { 0, 0, 0 };
     UnkStruct_ov101_021D5068 v2;
 
-    v2.unk_00 = param1;
+    v2.unk_00 = play_1_0_state;
     v2.unk_04 = param2;
-    v2.unk_08 = param0;
+    v2.unk_08 = overlayState;
 
-    v0 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D86B0, &v1, 0, &v2, 143);
+    v0 = OverworldAnimManagerList_InitManager(overlayState->overworldAnimationManagerList, &Unk_ov101_021D86B0, &v1, 0, &v2, 143);
 
     return v0;
 }
@@ -4073,15 +4073,15 @@ static void ov101_021D5200(Overlay101State *param0)
 {
     VecFx32 v0 = { 0, 0, 0 };
 
-    GF_ASSERT(param0->unk_120.unk_14 == NULL);
-    param0->unk_120.unk_14 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D8700, &v0, 0, param0, 143);
+    GF_ASSERT(param0->unk_120.overworldAnimationManager1 == NULL);
+    param0->unk_120.overworldAnimationManager1 = OverworldAnimManagerList_InitManager(param0->overworldAnimationManagerList, &Unk_ov101_021D8700, &v0, 0, param0, 143);
 }
 
 static void ov101_021D5244(Overlay101State *param0)
 {
-    if (param0->unk_120.unk_14 != NULL) {
-        OverworldAnimManager_Finish(param0->unk_120.unk_14);
-        param0->unk_120.unk_14 = NULL;
+    if (param0->unk_120.overworldAnimationManager1 != NULL) {
+        OverworldAnimManager_Finish(param0->unk_120.overworldAnimationManager1);
+        param0->unk_120.overworldAnimationManager1 = NULL;
     }
 
     ov101_021D4FF8(param0);
@@ -4666,7 +4666,7 @@ static int ov101_021D5880(Overlay101State *param0)
 static int ov101_021D58C0(Overlay101State *param0)
 {
     int v0 = 0;
-    const UnkStruct_ov101_021D87A8 *v1 = &Unk_ov101_021D87A8[param0->unk_34];
+    const UnkStruct_ov101_021D87A8 *v1 = &Unk_ov101_021D87A8[param0->randOf6];
 
     do {
         if ((param0->unk_54[v0] != 0) && (param0->unk_54[v0] != v1->unk_00[v0])) {

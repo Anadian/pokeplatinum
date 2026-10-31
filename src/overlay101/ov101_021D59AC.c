@@ -152,7 +152,7 @@ typedef struct {
     int unk_10;
     int unk_14;
     UnkEnum_ov101_021D9688 unk_18;
-    UnkEnum_ov101_021D4F58 unk_1C;
+    SlotsMinigame_Play_1_0_Enum unk_1C;
     UnkStruct_ov101_021D8544 unk_20[3];
     Overlay101State *unk_44;
 } UnkStruct_ov101_021D7D94;

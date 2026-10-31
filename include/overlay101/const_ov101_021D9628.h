@@ -1,6 +1,6 @@
 #ifndef POKEPLATINUM_CONST_OV101_021D9628_H
 #define POKEPLATINUM_CONST_OV101_021D9628_H
 
-extern const u32 Unk_ov101_021D9628[6][4];
+extern const u32 Const_SlotsMinigame_9628_6x5_15_30_50[6][4];
 
 #endif // POKEPLATINUM_CONST_OV101_021D9628_H
